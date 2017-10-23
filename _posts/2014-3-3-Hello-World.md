@@ -15,19 +15,19 @@ Text text text text text text text text text text text text text text text text 
 <div style="color:#0000FF">
   <h3>This is a heading</h3>
   <p>This is a paragraph.</p>
-  <img src="/images/logo.png" style="width:100%;"/>
+  <img src="/images/logo.png" style="width:30%;"/>
 </div>
 
 <div style="color:#333333">
   <h3>This is a heading</h3>
   <p>This is a paragraph.</p>
-  <img src="/images/logo.png" style="width:100%;"/>
+  <img src="/images/logo.png" style="width:30%;"/>
 </div>
 
 <div style="color:#111111">
   <h3>This is a heading</h3>
   <p>This is a paragraph.</p>
-  <img src="/images/logo.png" style="width:100%;"/>
+  <img src="/images/logo.png" style="width:30%;"/>
 </div>
 
 ![alt-text-1](/images/logo.png "title-1") ![alt-text-2](/images/logo.png "title-2") ![alt-text-2](/images/logo.png "title-2") ![alt-text-2](/images/logo.png "title-2") ![alt-text-2](/images/logo.png "title-2") ![alt-text-2](/images/logo.png "title-2") ![alt-text-2](/images/logo.png "title-2")
