@@ -13,7 +13,7 @@ permalink: /maps/
 
  Map4                             |   | Map5
 :--------------------------------:|:-:|:--------------------------------:
- ![](/images/figure02v03.png)     |   | ![](/images/figure03v03.png)
+ ![](/images/figure03v03.png)     |   | ![](/images/figure0v03.png)
 
 <br />
 
