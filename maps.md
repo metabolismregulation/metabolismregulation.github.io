@@ -6,7 +6,7 @@ permalink: /maps/
 
 <br />
 
-
+<div>
 <table align="left">
   <tr>
     <th align="left">Month</th>
@@ -21,7 +21,7 @@ permalink: /maps/
     <td align="left">$80</td>
   </tr>
 </table>
-
+</div>
 
 
  Map1                             |   | Map2
