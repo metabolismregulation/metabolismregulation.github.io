@@ -4,24 +4,20 @@ title:
 permalink: /maps/
 ---
 
-<table align="right">
+<table align="left">
   <tr>
-    <th>Month</th>
-    <th>Savings</th>
+    <th align="left">Regulation of glycolysis</th>
+    <th align="left">Regulation of eicosanoid production</th>
   </tr>
   <tr>
-    <td>January</td>
-    <td>$100</td>
-  </tr>
-  <tr>
-    <td>February</td>
-    <td>$80</td>
+    <td><a href="/glycolysis/"><img id="logo" src="/images/figure01v03.png"/></a></td>
+    <td><a href="/eicosanoids/"><img id="logo" src="/images/figure02v03.png"/></a></td>
   </tr>
 </table>
 
 <br />
 
-<th align="left">Regulation of glycolysis</th> |   | Regulation of eicosanoid production
+Regulation of glycolysis |   | Regulation of eicosanoid production
 ---|---|---
 ![](/images/figure01v03.png) |   | ![](/images/figure02v03.png)
 
