@@ -14,6 +14,6 @@ permalink: /maps/
 
  Map7                             |   | Map8
 :--------------------------------:|:-:|:--------------------------------:
- ![](/images/figure03v03.png)     |   | ![](/images/figure01v03.png)
+ ![](/images/figure03v03.png)     |   | ![](/images/figure02v03.png)
 
 
