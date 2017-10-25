@@ -7,18 +7,18 @@ permalink: /maps/
 <br />
 
 
-<table align="right">
+<table align="left">
   <tr>
-    <th>Month</th>
-    <th>Savings</th>
+    <th align="left">Month</th>
+    <th align="left">Savings</th>
   </tr>
   <tr>
-    <td>January</td>
-    <td>$100</td>
+    <td align="left">January</td>
+    <td align="left">$100</td>
   </tr>
   <tr>
-    <td>February</td>
-    <td>$80</td>
+    <td align="left">February</td>
+    <td align="left">$80</td>
   </tr>
 </table>
 
