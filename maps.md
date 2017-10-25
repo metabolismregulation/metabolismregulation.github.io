@@ -6,7 +6,7 @@ permalink: /maps/
 
 <br />
 
-Regulation of glycolysis |   | Regulation of eicosanoid production 
+Regulation of glycolysis |   | <a href="/eicosanoids/">Regulation of eicosanoid production</a> 
 ---|---|---
 ![](/images/figure01v03.png) |   | <a href="/eicosanoids/"><img id="logo" src="/images/figure02v03.png"/></a>
 
