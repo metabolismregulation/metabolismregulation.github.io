@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-The project was initiated by the European Institute of Systems Biology and Medicine in collaboration with Reactome, the Luxembough Centre for Systems Biomedicine and Insitut Curie.
+The project was initiated by the European Institute of Systems Biology and Medicine in collaboration with Reactome, the Luxembough Centre for Systems Biomedicine and the Insitut Curie.
 
 ### Contact
 
