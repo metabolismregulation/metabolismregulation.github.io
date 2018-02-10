@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-The project was initiated by the European Institute of Systems Biology and Medicine in collaboration with Reactome and the Luxembough Centre for Systems Biomedicine.
+The project was initiated by the European Institute of Systems Biology and Medicine in collaboration with Reactome, the Luxembough Centre for Systems Biomedicine and Insitut Curie.
 
 ### Contact
 
@@ -15,3 +15,7 @@ To join the effort please use this email address:<br />
 
 Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)<br />
 Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)
+
+### Discussion list
+
+[metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
