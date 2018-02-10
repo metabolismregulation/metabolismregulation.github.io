@@ -8,6 +8,7 @@ The project was initiated by the European Institute of Systems Biology and Medic
 
 ### Contact
 
+To join the effort please use this email address:<br />
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)
 
 ### Project coordinators
