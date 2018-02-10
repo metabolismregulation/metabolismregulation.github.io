@@ -19,4 +19,4 @@ Charles Auffray [cauffray@eisbm.org](mailto:cauffray@eisbm.org)
 
 ### Discussion list
 
-To join the main discussions forum please follow this link:[[metabolism-regulation-discuss]](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
+To join the main discussions forum please follow this link: [[metabolism-regulation-discuss]](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
