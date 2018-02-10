@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 
-permalink: /maps/
+permalink: /list/
 ---
 
 # Selected topics
