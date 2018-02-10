@@ -10,8 +10,8 @@ permalink: /list/
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
 * <a href="/eicosanoids/">Regulation of eicosanoid production</a><br />
 * Regulation of glycogen metabolism<br />
-   * Useful resource: MetaCore pathway maps [Glycogen metabolism](http://pathwaymaps.com/maps/919)
-   * Useful paper: [doi:10.1038/nrendo.2017.80](https://doi.org/10.1038/nrendo.2017.80)
+   * Useful resource: MetaCore pathway maps - [Glycogen metabolism](http://pathwaymaps.com/maps/919)
+   * Review: Petersen et al, Regulation of hepatic glucose metabolism in health and disease, Nature Reviews, 2017 [doi:10.1038/nrendo.2017.80](https://doi.org/10.1038/nrendo.2017.80)
 * Regulation of cholesterol metabolism via SREBP<br />
 * Metabolic control of acetyl-CoA production<br />
 
