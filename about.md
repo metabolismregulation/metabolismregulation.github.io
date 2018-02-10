@@ -13,4 +13,4 @@ To join the effort please use this email address:<br />
 
 ### Discussion list
 
-To join the main discussions forum please follow this link: [[metabolism-regulation-discuss]](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
+To join the main discussion forum please follow this link: [[metabolism-regulation-discuss]](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
