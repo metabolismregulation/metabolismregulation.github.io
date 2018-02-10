@@ -10,7 +10,7 @@ permalink: /list/
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
 * <a href="/eicosanoids/">Regulation of eicosanoid production</a><br />
 * Regulation of glycogen metabolism<br />
-   * Useful resource: [Glycogen metabolims - MetaCore pathway maps](http://pathwaymaps.com/maps/919)
+   * Useful resource: [MetaCore pathway maps](http://pathwaymaps.com/maps/919)
 * Regulation of cholesterol metabolism via SREBP<br />
 * Metabolic control of acetyl-CoA production<br />
 
