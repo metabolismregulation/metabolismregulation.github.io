@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 
+title: List
 permalink: /list/
 ---
 
-# Selected topics
+## Selected topics
 
 * <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a><br />
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
@@ -13,7 +13,7 @@ permalink: /list/
 * Regulation of cholesterol metabolism via SREBP<br />
 * Metabolic control of acetyl-CoA production<br />
 
-# Automatically generated list of connections
+## Automatically generated list of connections
 
 Text
 
