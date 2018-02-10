@@ -18,4 +18,4 @@ Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)
 
 ### Discussion list
 
-[metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
+[[metabolism-regulation-discuss]](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
