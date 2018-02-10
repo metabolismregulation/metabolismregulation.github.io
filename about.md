@@ -14,7 +14,8 @@ To join the effort please use this email address:<br />
 ### Project coordinators
 
 Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)<br />
-Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)
+Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)<br />
+Charles Auffray [cauffray@eisbm.org](mailto:cauffray@eisbm.org)
 
 ### Discussion list
 
