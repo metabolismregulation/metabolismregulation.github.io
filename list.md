@@ -1,5 +1,5 @@
 
-## Selected topics
+### Selected topics
 
 <a href="/glycolysis/">Regulation of glycolysis via bifunctional enzyme PFK2/FBPase2</a><br />
 <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
@@ -8,7 +8,9 @@ Regulation of glycogen metabolism<br />
 Regulation of cholesterol metabolism via SREBP transcription factors<br />
 Metabolic control of acetyl-CoA production<br />
 
+### Automatically generated list of connections
 
+Text
 
 ---
 pathway id 
