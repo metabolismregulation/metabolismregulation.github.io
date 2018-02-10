@@ -1,19 +1,20 @@
 ---
-layout: page
+layout: default
 title: 
 permalink: /list/
 ---
 
-## Selected topics
+# Selected topics
 
 * <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a><br />
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
 * <a href="/eicosanoids/">Regulation of eicosanoid production</a><br />
 * Regulation of glycogen metabolism<br />
+   * Useful resource: [MetaCore Glycogen metabolims](http://pathwaymaps.com/maps/919)
 * Regulation of cholesterol metabolism via SREBP<br />
 * Metabolic control of acetyl-CoA production<br />
 
-## Automatically generated list of connections
+# Automatically generated list of connections
 
 Text
 
