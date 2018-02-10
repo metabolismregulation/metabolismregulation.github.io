@@ -6,6 +6,8 @@ permalink: /list/
 
 # Selected topics
 
+Here we list the developed diagrams that can be improved and suggested topics with some initial useful information provided.
+
 * <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a><br />
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
 * <a href="/eicosanoids/">Regulation of eicosanoid production</a><br />
