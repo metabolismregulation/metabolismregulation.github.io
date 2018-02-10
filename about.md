@@ -12,5 +12,5 @@ The project was initiated by the European Institute of Systems Biology and Medic
 
 ### Project coordinators
 
-Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)
+Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)<br />
 Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)
