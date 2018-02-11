@@ -29,13 +29,26 @@ Protein name | [Long pathway name](https://reactome.org/)
 Protein name | [Pathway name](https://reactome.org/)
 Protein name | [Pathway name](https://reactome.org/)
 
-
 <br />
 
-**Pathway ID** | **Pathway Name** | **Process Name**
----|---|---
-[Pathway ID](https://reactome.org/) | [Pathway Name](https://reactome.org/) | [Process Name](https://reactome.org/PathwayBrowser/)
-Texttexttexttext | Texttexttexttext | Texttexttexttext
+<table>
+    <tr>
+      <td style="width: 200px;"><strong>Protein name</strong></td>
+      <td><strong>Pathway name</strong></td>
+    </tr>
+    <tr>
+      <td style="width: 200px;">Protein name</td>
+      <td><a href="https://reactome.org/PathwayBrowser/">Pathway name</a></td>
+    </tr>
+    <tr>
+      <td style="width: 200px;">Protein name</td>
+      <td><a href="https://reactome.org/PathwayBrowser/">Pathway name</a></td>
+    </tr>
+    <tr>
+      <td style="width: 200px;">Protein name</td>
+      <td><a href="https://reactome.org/PathwayBrowser/">Pathway name</a></td>
+    </tr>
+</table>
 
 <br />
 
