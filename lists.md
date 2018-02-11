@@ -16,7 +16,7 @@ The list of the developed diagrams that can be improved and suggested topics. So
 * Regulation of cholesterol metabolism via SREBP
 * Metabolic control of acetyl-CoA production
 
-# Recon2-Reactome connections
+# Reactome-Recon2 connections
 
 This list was generated automatically using the Human Metabolic Network Reconstruction Recon2 ([Thiele *et al*., 2011](https://doi.org/10.1038/nbt.2488)) in New4j graph database format ([Balaur *et al*., 2016](https://doi.org/10.1093/bioinformatics/btw731)), and the Reactome Neo4j graph database ([Fabregat *et al*., 2018](https://doi.org/10.1371/journal.pcbi.1005968)).
 
