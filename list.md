@@ -23,7 +23,7 @@ This list was generated automatically using the Human Metabolic Network Reconstr
 The following logic was used: we are interested in 1) proteins from the Human Metabolic Reconstruction Recon2 that also are in Reactome pathways and particpate in signalling processes - processes that have this protein connected to it via production or consumption arcs; 2) proteins from the Human Metabolic Reconstruction Recon2 that also are a part of complexes in Reactome pathways that participate in signalling processes.
 
 
-Pathway ID | Pathway Name | Process Name
+**Pathway ID | Pathway Name | Process Name**
 ---|---|---
 [Pathway ID](https://reactome.org/) | [Pathway Name](https://reactome.org/) | [Process Name](https://reactome.org/PathwayBrowser/)
 Texttexttexttext | Texttexttexttext | Texttexttexttext
