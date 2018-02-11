@@ -13,8 +13,8 @@ The list of the developed diagrams that can be improved and suggested topics wit
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a><br />
 * <a href="/eicosanoids/">Regulation of eicosanoid production</a><br />
 * Regulation of glycogen metabolism<br />
-  * <p style="font-size:90%;">[Glycogen metabolism](http://pathwaymaps.com/maps/919) - MetaCore pathway maps
-  * [doi:10.1038/nrendo.2017.80](https://doi.org/10.1038/nrendo.2017.80) - Petersen et al., 2017, Nature Reviews</p>
+  * <li style="font-size:90%;">[Glycogen metabolism](http://pathwaymaps.com/maps/919) - MetaCore pathway maps</li>
+  * <li style="font-size:90%;">[doi:10.1038/nrendo.2017.80](https://doi.org/10.1038/nrendo.2017.80) - Petersen et al., 2017, Nature Reviews</li>
 * Regulation of cholesterol metabolism via SREBP<br />
   * [Regulation of lipid metabolism via LXR, NF-Y and SREBP](http://www.bio-rad.com/fr-fr/prime-pcr-assays/pathway/regulation-lipid-metabolism-regulation-lipid-metabolism-via-lxr-nf-y-srebp) - MetaCore pathway maps
   * [doi:10.1038/nrendo.2017.91](https://doi.org/10.1038/nrendo.2017.91) - Shimano et al., 2017, Nature Reviews
