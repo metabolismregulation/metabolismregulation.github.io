@@ -18,7 +18,7 @@ The list of the developed diagrams that can be improved and suggested topics. So
 
 # Recon2-Reactome connections
 
-This list was generated automatically using the Human Metabolic Network Reconstruction Recon2 ([Thiele *et al*., 2011](https://doi.org/10.1038/nbt.2488)) transformed into New4j graph database format ([Balaur *et al*., 2016](https://doi.org/10.1093/bioinformatics/btw731)), and the Reactome Neo4j graph database ([Fabregat *et al*., 2018](https://doi.org/10.1371/journal.pcbi.1005968)).
+This list was generated automatically using the Human Metabolic Network Reconstruction Recon2 ([Thiele *et al*., 2011](https://doi.org/10.1038/nbt.2488)) in New4j graph database format ([Balaur *et al*., 2016](https://doi.org/10.1093/bioinformatics/btw731)), and the Reactome Neo4j graph database ([Fabregat *et al*., 2018](https://doi.org/10.1371/journal.pcbi.1005968)).
 
 The following logic was used: we are interested in 1) proteins from the Human Metabolic Reconstruction Recon2 that also are in Reactome pathways and particpate in signalling processes - processes that have this protein connected to it via production or consumption arcs; 2) proteins from the Human Metabolic Reconstruction Recon2 that also are a part of complexes in Reactome pathways that participate in signalling processes.
 
