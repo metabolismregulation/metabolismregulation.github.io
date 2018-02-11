@@ -33,8 +33,8 @@ Protein name | [Pathway name](https://reactome.org/)
 
 <table>
     <tr>
-      <td><strong>Protein name</strong></td>
-      <td><strong>Pathway name</strong></td>
+      <td style="width: 160px;"><strong>Protein name</strong></td>
+      <td style="width: 400px;"><strong>Pathway name</strong></td>
     </tr>
     <tr>
       <td>Protein name</td>
