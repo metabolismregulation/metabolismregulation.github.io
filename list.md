@@ -4,11 +4,12 @@ title:
 permalink: /list/
 ---
 
-<p class="md-body-2">Body copy with medium weight.</p>
-<md-caption>Button</md-caption>
-<p class="md-body-1">Regular body copy <small class="md-caption">with small text</small>.</p>
-<span class="md-caption">Caption</span>
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 # Selected topics
 
