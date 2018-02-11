@@ -11,10 +11,10 @@ The list of the developed diagrams that can be improved and suggested topics. So
 
 * <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a>
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a>
-* <a href="/eicosanoids/">Regulation of eicosanoid production</a><br />
-* Regulation of glycogen metabolism<br />
-* Regulation of cholesterol metabolism via SREBP<br />
-* Metabolic control of acetyl-CoA production<br />
+* <a href="/eicosanoids/">Regulation of eicosanoid production</a>
+* Regulation of glycogen metabolism
+* Regulation of cholesterol metabolism via SREBP
+* Metabolic control of acetyl-CoA production
 
 # Recon2-Reactome connections
 
@@ -23,10 +23,11 @@ This list was generated automatically using the Human Metabolic Network Reconstr
 The following logic was used: we are interested in 1) proteins from the Human Metabolic Reconstruction Recon2 that also are in Reactome pathways and particpate in signalling processes - processes that have this protein connected to it via production or consumption arcs; 2) proteins from the Human Metabolic Reconstruction Recon2 that also are a part of complexes in Reactome pathways that participate in signalling processes.
 
 
-[Pathway ID](https://reactome.org/) | [Pathway Name](https://reactome.org/) | [Process Name](https://reactome.org/PathwayBrowser/)
----|---|---
-Text text text text | Text text text text | Text text text text
+[Pathway ID](https://reactome.org/) |---| [Pathway Name](https://reactome.org/) |---| [Process Name](https://reactome.org/PathwayBrowser/)
+---|---|---|---|---
+Text text text text |---| Text text text text |---| Text text text text
 
+<br />
 
 <a href="https://reactome.org/">Pathway ID</a> | <a href="https://reactome.org/">Pathway Name</a> | <a href="https://reactome.org/PathwayBrowser/">Process Name</a>
 ---|---|---
