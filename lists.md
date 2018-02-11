@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 
-permalink: /list/
+permalink: /lists/
 ---
 
 
