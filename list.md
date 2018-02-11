@@ -16,9 +16,11 @@ The list of the developed diagrams that can be improved and suggested topics. So
 * Regulation of cholesterol metabolism via SREBP<br />
 * Metabolic control of acetyl-CoA production<br />
 
-# Automatically generated list of connections
+# Recon2-Reactome connections
 
-The list of connections was generation using the following logic: we are interested in 1) proteins from the Human Metabolic Reconstruction Recon2 that also are in Reactome pathways and particpate in signalling processes - processes that have this protein connected to it via production or consumption arcs; 2) proteins from the Human Metabolic Reconstruction Recon2 that also are a part of complexes in Reactome pathways that participate in signalling processes.
+This list was generated automatically using the Human Metabolic Network Reconstruction Recon2 [Thiele et al., 2011](https://doi.org/10.1038/nbt.2488) transformed into New4j Graph Database format [Balaur at al., 2016](https://doi.org/10.1093/bioinformatics/btw731), and the Reactome Neo4j graph database [Fabregat et al., 2018](https://doi.org/10.1371/journal.pcbi.1005968).
+
+The following logic was used: we are interested in 1) proteins from the Human Metabolic Reconstruction Recon2 that also are in Reactome pathways and particpate in signalling processes - processes that have this protein connected to it via production or consumption arcs; 2) proteins from the Human Metabolic Reconstruction Recon2 that also are a part of complexes in Reactome pathways that participate in signalling processes.
 
 <a href="https://reactome.org/">Pathway ID</a> | <a href="https://reactome.org/">Pathway Name</a> | <a href="https://reactome.org/PathwayBrowser/">Process Name</a>
 ---|---|---
