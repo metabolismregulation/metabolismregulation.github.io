@@ -23,7 +23,7 @@ The list of the developed diagrams that can be improved and suggested topics wit
 
 # Automatically generated list of connections
 
-The list of connection was generation using the following logic: we are interested in proteins from Recon2 that also are in Reactome pathways and particpate in signalling processes, processes that have this protein connected to it via production or consumption arcs.
+The list of connections was generation using the following logic: we are interested in proteins from the Human Metabolic Reconstruction Recon2 that also are in Reactome pathways and particpate in signalling processes - processes that have this protein connected to it via production or consumption arcs.
 
 ---
 Pathway ID | <a href="https://reactome.org/">Pathway Name</a> | <a href="https://reactome.org/PathwayBrowser/">Process Name</a> 
