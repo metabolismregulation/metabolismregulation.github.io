@@ -7,7 +7,7 @@ permalink: /lists/
 
 # Selected topics
 
-The list of the developed diagrams that can be improved and suggested topics. Some initial information for suggested topics is provided [here](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing).
+The list of the developed diagrams and suggested topics. Some initial information for suggested topics is provided [here](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing).
 
 * <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a>
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a>
