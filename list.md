@@ -4,6 +4,12 @@ title:
 permalink: /list/
 ---
 
+<p class="md-body-2">Body copy with medium weight.</p>
+<md-button>Button</md-button>
+<p class="md-body-1">Regular body copy <small class="md-caption">with small text</small>.</p>
+<span class="md-caption">Caption</span>
+
+
 # Selected topics
 
 The list of the developed diagrams that can be improved and suggested topics with some initial information provided.
