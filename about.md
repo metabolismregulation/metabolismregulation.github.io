@@ -13,8 +13,8 @@ To join the effort please use this email address:<br />
 
 ### Coordinators
 
-Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)
-Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)
+Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)<br />
+Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)<br />
 
 ### Discussion list
 
