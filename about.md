@@ -11,6 +11,11 @@ The project was initiated by the European Institute of Systems Biology and Medic
 To join the effort please use this email address:<br />
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)
 
+### Coordinators
+
+Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)
+Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)
+
 ### Discussion list
 
 To join the main discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
