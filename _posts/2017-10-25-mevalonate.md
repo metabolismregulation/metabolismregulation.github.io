@@ -5,4 +5,6 @@ title: Regulation of mevalonate synthesis
 <br />
 <a href="/mevalonate/"><img id="logo" src="/images/figure03v04.png" style="width:100%;"/></a>
 
-Downloads: <a href="/downloads/F001V10.graphml">yEd GraphML</a>
+### Downloads
+
+[GraphML](../downloads/F003-mevalonate.graphml) <a href="/downloads/F003-mevalonate.pdf">PDF</a>
