@@ -8,4 +8,4 @@ Text
 
 ### Downloads
 
-[GraphML](../downloads/F001-glycolysis.graphml) ALT+0160 <a href="/downloads/F001-glycolysis.pdf">PDF</a>
+[GraphML](../downloads/F001-glycolysis.graphml) &nbsp; <a href="/downloads/F001-glycolysis.pdf">PDF</a>
