@@ -7,4 +7,5 @@ title: Regulation of eicosanoid production
 
 ### Downloads
 
-[GraphML](../downloads/F002-eicosanoids.graphml) <a href="/downloads/F002-eicosanoids.pdf">PDF</a>
+[GraphML](../downloads/F002-eicosanoids.graphml) <br />
+<a href="/downloads/F002-eicosanoids.pdf">PDF</a>
