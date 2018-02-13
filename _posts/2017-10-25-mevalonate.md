@@ -7,4 +7,5 @@ title: Regulation of mevalonate synthesis
 
 ### Downloads
 
-[GraphML](../downloads/F003-mevalonate.graphml) <a href="/downloads/F003-mevalonate.pdf">PDF</a>
+[GraphML](../downloads/F003-mevalonate.graphml) <br />
+<a href="/downloads/F003-mevalonate.pdf">PDF</a>
