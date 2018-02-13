@@ -2,10 +2,8 @@
 layout: post
 title: Regulation of glycolysis
 ---
-Downloads: &nbsp;
-[GraphML](../downloads/F001-glycolysis.graphml) &nbsp; 
-[PDF](../downloads/F001-glycolysis.pdf) &nbsp;
-[SVG](../downloads/F001-glycolysis.svg) &nbsp;
+
+Text
 
 <br />
 
