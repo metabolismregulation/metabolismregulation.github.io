@@ -50,3 +50,5 @@ The logic used for building the list: we are interested in 1) proteins from the 
 Protein name | [Pathway name](https://reactome.org/)
 Protein name | [Long pathway name](https://reactome.org/)
 Protein name | [Pathway name](https://reactome.org/)
+
+O60503 | [G alpha (z) inhibits adenylate cyclase] (http://reactome.org/PathwayBrowser/#/R-HSA-392064) |  [Signal Transduction] (http://www.reactome.org/PathwayBrowser/#/R-HSA-162582), [GPCR downstream signaling] (http://www.reactome.org/PathwayBrowser/#/R-HSA-388396), [G alpha (z) signalling events] (http://www.reactome.org/PathwayBrowser/#/R-HSA-418597), [Signaling by GPCR] (http://www.reactome.org/PathwayBrowser/#/R-HSA-372790)
