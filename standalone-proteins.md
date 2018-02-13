@@ -1,10 +1,9 @@
-
-
 ---
 layout: default
 title: 
 permalink: /standalone-proteins/
 ---
+
 
 # Reactome-Recon list
 
