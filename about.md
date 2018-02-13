@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-The project was initiated by the European Institute of Systems Biology and Medicine in collaboration with the Reactome Pathway Database, the Luxembough Centre for Systems Biomedicine and the Institut Curie.
+The project was initiated by the European Institute of Systems Biology and Medicine in collaboration with the Reactome Pathway Database, the Virtual Metabolic Human project and the Atlas of Cancer Signalling Networks.
 
 ### Contact
 
