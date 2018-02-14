@@ -4,7 +4,7 @@ title: Tools
 permalink: /tools/
 ---
 
-#yEd Graph Editor
+# yEd Graph Editor
         
 <p><a href="https://www.yworks.com/products/yed" target="_blank">yEd</a> from <a href="https://www.yworks.com" target="_blank">yWorks GmbH</a> is a freely available graph editor written in Java that runs on Windows, macOS, and Linux/Unix. It is a powerful desktop application that can be used to quickly and effectively generate high-quality diagrams.</p>
         
@@ -12,7 +12,7 @@ permalink: /tools/
         
 <p>Since version <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">3.17.1</a> yEd provides a palette section for Systems Biology Graphical Notation glyphs and new arrow styles to support SBGN <i>catalysis</i> and <i>necessary stimulation</i> arcs.</p>
         
-#Newt Editor
+# Newt Editor
 
 <p><a href="http://newteditor.org/" target="_blank">Newt</a> is a free, web-based, open source viewer and editor for pathways in <a href="http://sbgn.github.io/sbgn/" target="_blank">Systems Biology Graphical Notation</a>.  It is written with a series of libraries and extensions based on <a href="http://js.cytoscape.org/" target="_blank">Cytoscape.js</a>.</p>
         
