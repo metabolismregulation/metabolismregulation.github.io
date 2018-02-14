@@ -10,7 +10,7 @@ Downloads: &nbsp;
 <a href="/eicosanoids/"><img id="logo" src="/images/figure02v04.png" style="width:100%;"/></a>
 
 ### Downloads
-
+<md-button>[GraphML](../downloads/F002-eicosanoids.graphml) &emsp;</md-button>
 [GraphML](../downloads/F002-eicosanoids.graphml) &emsp;
 [PDF](../downloads/F002-eicosanoids.pdf) &emsp;
 [SVG](../downloads/F002-eicosanoids.svg) &nbsp;
