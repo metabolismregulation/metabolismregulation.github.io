@@ -1,14 +1,13 @@
 ---
 layout: default
 title: Reactome-Recon List 1
-permalink: /standalone-proteins/
+permalink: /reactome-recon-proteins/
 ---
 
 
 # Reactome-Recon List 1
 
-This table contains proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs
-
+This table contains proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs.
 
 <br />
 
