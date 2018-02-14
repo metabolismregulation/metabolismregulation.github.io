@@ -11,12 +11,6 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 
 <br />
 
-**HGNC Symbol (UniProt ID)** | **Reactome Process** | **Reactome Pathway**
-:---:|:---|:---
-PYGM (P11217)|  [PGYM dimer, b form + 2 AMP <=> PGYM b dimer:AMP complex](http://reactome.org/PathwayBrowser/#/R-HSA-453342) |  [Metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-1430728),[Metabolism of carbohydrates](http://www.reactome.org/PathwayBrowser/#/R-HSA-71387),[Glucose metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-70326),[Glycogen breakdown (glycogenolysis)](http://www.reactome.org/PathwayBrowser/#/R-HSA-70221)
-
-<br />
-
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Reactome Pathway**
 :---:|:---:|:---|:---
 P11217 |  PYGM |  [PGYM dimer, b form + 2 AMP <=> PGYM b dimer:AMP complex](http://reactome.org/PathwayBrowser/#/R-HSA-453342) |  [Metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-1430728),[Metabolism of carbohydrates](http://www.reactome.org/PathwayBrowser/#/R-HSA-71387),[Glucose metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-70326),[Glycogen breakdown (glycogenolysis)](http://www.reactome.org/PathwayBrowser/#/R-HSA-70221)
