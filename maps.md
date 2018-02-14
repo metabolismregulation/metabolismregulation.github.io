@@ -1,6 +1,6 @@
 ---
-layout: page
-title: 
+layout: default
+title: Maps
 permalink: /maps/
 ---
 
