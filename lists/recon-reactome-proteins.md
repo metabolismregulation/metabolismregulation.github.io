@@ -2,7 +2,7 @@
 ---
 layout: default
 title: Reactome-Recon List 1
-permalink: /standalone-proteins/
+permalink: /lists/reactome-recon-proteins/
 ---
 
 
