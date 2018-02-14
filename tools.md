@@ -10,7 +10,7 @@ permalink: /tools/
         
 <p>yEd uses the XML-based GraphML format to load/save diagrams and additionally supports import from Excel spreadsheets (.xls, .xlsx) and arbitrary XML (via XSLT). Creating diagrams manually is easy and fun with the intuitive user interface, and a large collection of powerful layout algorithms allows to automatically arrange nodes and edges. Diagrams can be exported to bitmap and vector formats: PNG, JPG, and SVG, PDF.</p>
         
-<p>Since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a> yEd provides a palette section for Systems Biology Graphical Notation glyphs and new arrow styles to support the Systesm Biology Graphical Notation.</p>
+<p>Since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a> yEd provides a palette section for Systems Biology Graphical Notation.</p>
         
 # Newt Editor
 
