@@ -22,4 +22,4 @@ Reactome-Recon lists were generated automatically using a combination of two res
 
 <strong><a href="/standalone-proteins/">Table 1</a></strong> includes proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs.
 
-Table 2 (in preparation) inlcudes proteins from the Recon2 that are also part of complexes in Reactome pathways that participate in signalling processes.
+<strong>Table 2</strong> (in preparation) inlcudes proteins from the Recon2 that are also part of complexes in Reactome pathways that participate in signalling processes.
