@@ -12,7 +12,7 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 
 <br />
 
-**Protein name** | **HGNC symbol** | **Reactome process** | **Reactome pathway**
+**UniProt** | **HGNC** | **Reactome process** | **Reactome pathway**
 :---:|:---:|:---|:---
 P11217 |  PYGM |  [PGYM dimer, b form + 2 AMP <=> PGYM b dimer:AMP complex](http://reactome.org/PathwayBrowser/#/R-HSA-453342) |  [Metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-1430728),[Metabolism of carbohydrates](http://www.reactome.org/PathwayBrowser/#/R-HSA-71387),[Glucose metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-70326),[Glycogen breakdown (glycogenolysis)](http://www.reactome.org/PathwayBrowser/#/R-HSA-70221)
 P29474 |  NOS3 |  [eNOS binds NOSIP](http://reactome.org/PathwayBrowser/#/R-HSA-203553) | [Metabolism of nitric oxide](http://www.reactome.org/PathwayBrowser/#/R-HSA-202131),[NOSIP mediated eNOS trafficking](http://www.reactome.org/PathwayBrowser/#/R-HSA-203754),[eNOS activation and regulation](http://www.reactome.org/PathwayBrowser/#/R-HSA-203765),[Metabolism](http://www.reactome.org/PathwayBrowser/#/R-HSA-1430728)
