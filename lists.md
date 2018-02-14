@@ -15,14 +15,14 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 * Regulation of cholesterol metabolism via SREBP
 * Metabolic control of acetyl-CoA production
 
-# Recon-Reactome lists
+# Reactome-Recon lists
 
 Reactome-Recon lists were generated automatically using a combination of two resources: the Reactome Neo4j graph database ([Fabregat et al., 2018](https://doi.org/10.1371/journal.pcbi.1005968)) and the Recon Neo4j graph database ([Balaur et al., 2016](https://doi.org/10.1093/bioinformatics/btw731)) of the Human Metabolic Network Reconstruction Recon2 ([Thiele et al., 2011](https://doi.org/10.1038/nbt.2488)).
 
-### <a href="/lists/recon-reacome-proteins/">Recon-Reactome List 1 - Proteins</a>
+### <a href="/lists/reactome-recon-proteins/">Reactome-Recon List 1 - Proteins</a>
   
 The list includes proteins from Recon2 that match those in Reactome pathways and participate in signalling processes in Reactome pathways as a reactant or a product, the cases when a protein is connected to a process via a production or a consumption arc.
 
-### Recon-Reactome List 2 - Complexes (in preparation)
+### Reactome-Recon List 2 - Complexes (in preparation)
 
 This list inlcudes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
