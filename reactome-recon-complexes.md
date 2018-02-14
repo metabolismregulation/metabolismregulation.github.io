@@ -11,7 +11,7 @@ This list inlcudes proteins from Recon2 that are also involved in the complexes 
 
 <br />
 
-**UniProt ID** | **HGNC Symbol** | **Complex Recon2 ID**| **Reactome Process** | **Reactome Pathway**
+**UniProt ID** | **HGNC Symbol** | **Complex Recon2 ID**{3cm}| **Reactome Process** | **Reactome Pathway**
 :---:|:---:|:---|:---|:---
 [P42336](http://www.uniprot.org/uniprot/P42336) |	PIK3CA |	_5290_1_n_5295_2_n |	[PIP3 recruits PDK1 and AKT to the membrane](http://reactome.org/PathwayBrowser/#/R-HSA-198284) |	[Signal Transduction](http://www.reactome.org/PathwayBrowser/#/R-HSA-162582),[G-protein beta:gamma signalling](http://www.reactome.org/PathwayBrowser/#/R-HSA-397795),[G beta:gamma signalling through PI3Kgamma](http://www.reactome.org/PathwayBrowser/#/R-HSA-392451),[GPCR downstream signaling](http://www.reactome.org/PathwayBrowser/#/R-HSA-388396),[Signaling by GPCR](http://www.reactome.org/PathwayBrowser/#/R-HSA-372790),[Hemostasis](http://www.reactome.org/PathwayBrowser/#/R-HSA-109582),[Platelet activation, signaling and aggregation](http://www.reactome.org/PathwayBrowser/#/R-HSA-76002),[GPVI-mediated activation cascade](http://www.reactome.org/PathwayBrowser/#/R-HSA-114604)
 [P42336](http://www.uniprot.org/uniprot/P42336) |	PIK3CA |	_5290_1_n_5296_1_n |	[Active IRS recruits PI3K to the plasma membrane and activates it](http://reactome.org/PathwayBrowser/#/R-HSA-198315) |	[Signal Transduction](http://www.reactome.org/PathwayBrowser/#/R-HSA-162582),[NGF signalling via TRKA from the plasma membrane](http://www.reactome.org/PathwayBrowser/#/R-HSA-187037),[Signalling by NGF](http://www.reactome.org/PathwayBrowser/#/R-HSA-166520),[PI3K/AKT activation](http://www.reactome.org/PathwayBrowser/#/R-HSA-198203)
