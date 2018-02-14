@@ -16,42 +16,10 @@ The list of the developed diagrams and suggested topics. Some initial informatio
 * Regulation of cholesterol metabolism via SREBP
 * Metabolic control of acetyl-CoA production
 
-# Reactome-Recon list
+# Reactome-Recon lists
 
-This list was generated automatically using a combination of two resources: the Reactome Neo4j graph database ([Fabregat et al., 2018](https://doi.org/10.1371/journal.pcbi.1005968)) and the Recon Neo4j graph database ([Balaur et al., 2016](https://doi.org/10.1093/bioinformatics/btw731)) of the Human Metabolic Network Reconstruction Recon2 ([Thiele et al., 2011](https://doi.org/10.1038/nbt.2488)).
+Reactome-Recon lists were generated automatically using a combination of two resources: the Reactome Neo4j graph database ([Fabregat et al., 2018](https://doi.org/10.1371/journal.pcbi.1005968)) and the Recon Neo4j graph database ([Balaur et al., 2016](https://doi.org/10.1093/bioinformatics/btw731)) of the Human Metabolic Network Reconstruction Recon2 ([Thiele et al., 2011](https://doi.org/10.1038/nbt.2488)).
 
-The logic used for building the list: we are interested in 
-<ol>
-<li>proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs (please check <a href="/standalone-proteins/">Table 1</a>)</li> 
-and 
-<li>proteins from the Human Metabolic Reconstruction Recon2 that are also part of complexes in Reactome pathways that participate in signalling processes.</li>
-</ol>
+<a href="/standalone-proteins/">Table 1</a>) includes proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs.
 
-<br />
-
-<table>
-    <tr>
-      <td style="width: 160px;"><strong>Protein name</strong></td>
-      <td style="width: 400px;"><strong>Pathway name</strong></td>
-    </tr>
-    <tr>
-      <td>Protein name</td>
-      <td><a href="https://reactome.org/PathwayBrowser/">Pathway name</a></td>
-    </tr>
-    <tr>
-      <td>Protein name</td>
-      <td><a href="https://reactome.org/PathwayBrowser/">Pathway name</a></td>
-    </tr>
-    <tr>
-      <td>Protein name</td>
-      <td><a href="https://reactome.org/PathwayBrowser/">Pathway name</a></td>
-    </tr>
-</table>
-
-<br />
-
-**Protein name** | **Reactome pathway** 
----|---|---
-Protein name | [Pathway name](https://reactome.org/)
-Protein name | [Long pathway name](https://reactome.org/)
-Protein name | [Pathway name](https://reactome.org/)
+Table 2 (in preparation) inlcudes proteins from the Recon2 that are also part of complexes in Reactome pathways that participate in signalling processes.
