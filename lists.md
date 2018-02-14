@@ -1,8 +1,10 @@
 ---
-layout: page
-title: Selected topics
+layout: default
+title: Lists
 permalink: /lists/
 ---
+
+# Selected topics
 
 This list includes the developed diagrams and suggested topics. Some initial information for suggested topics is provided in this [online document](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing) accessible for collaborative editing.
 
