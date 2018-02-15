@@ -12,7 +12,7 @@ This list inlcudes proteins from Recon2 that are also involved in the complexes 
 <br />
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
-:---:|:---:|:---
+:---|:---|:---
 [P31930](http://www.uniprot.org/uniprot/P31930) | UQCRC1 | [Electron transfer from ubiquinol to cytochrome c of complex III](http://reactome.org/PathwayBrowser/#/R-HSA-164651)
 [P56556](http://www.uniprot.org/uniprot/P56556) | NDUFA6 | [The MCIA complex, NDUFAF2-7 all dissociate from the 980kDa complex, resulting in Complex I](http://reactome.org/PathwayBrowser/#/R-HSA-6799196), [Intermediate 2 binds MT-ND1:NDUFAF5:NDUFAF6 to form a 315kDa subcomplex](http://reactome.org/PathwayBrowser/#/R-HSA-6799191), [ND4, ND5 bind the 550kDa complex to form the 815kDa complex](http://reactome.org/PathwayBrowser/#/R-HSA-6799197), [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178), [Peripheral arm subunits bind the 815kDa complex to form a 980kDa complex](http://reactome.org/PathwayBrowser/#/R-HSA-6799179), [The 315kDa subcomplex binds the 370kDa subcomplex to form the 550kDa complex](http://reactome.org/PathwayBrowser/#/R-HSA-6799202)
 [P08559](http://www.uniprot.org/uniprot/P08559) | PDHA1 | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946), [PDP-catalyzed dephosphorylation (activation) of phospho E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-204169), [LIPT1 transfers lipoyl group from lipoyl-GCSH to DHs](http://reactome.org/PathwayBrowser/#/R-HSA-6792572)
