@@ -4,7 +4,7 @@ title: yEd
 permalink: /yed/
 ---
 
-# yEd Graph Editor for SBGN PD
+# How to draw SBGN PD maps in yEd
 
 Important adjustments:
   * File > Preferences > Display > Paint Nodes over Edges - make sure the box is checked
