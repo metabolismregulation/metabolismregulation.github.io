@@ -1,7 +1,7 @@
 ---
 layout: default
 title: yEd
-permalink: /about/
+permalink: /yed/
 ---
 
 # yEd Graph Editor for SBGN PD
