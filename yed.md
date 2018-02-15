@@ -4,7 +4,12 @@ title: yEd
 permalink: /about/
 ---
 
-# Using yEd Graph Editor for drawing SBGN Process Description diagrams
+# yEd Graph Editor for SBGN PD
 
 Important adjustments:
   * File > Preferences > Display > Paint Nodes over Edges - make sure the box is checked
+
+Tips:
+  * Background colour can be changed or an image can be used as a background: Preferences > Background
+  * To select all elements of the same type: Palette > Current elements > Richt Click > Select Matching Elements
+  
