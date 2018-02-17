@@ -8,6 +8,7 @@ Downloads: &nbsp;
 [SBGN-ML](../downloads/F001-glycolysis.sbgn) &nbsp;
 [PDF](../downloads/F001-glycolysis.pdf) &nbsp; 
 [SVG](../downloads/F001-glycolysis.svg) &nbsp;
-[Open online in Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis.sbgn) &nbsp;
+[Open in yEd Live](https://www.yworks.com/yed-live/#file=http://metabolismregulation.org/downloads/F001-glycolysis.graphml) &nbsp;
+[Open in Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis.sbgn) &nbsp;
 <a href="/glycolysis/"><img id="logo" src="/images/figure01v04.png" style="width:100%;"/></a>
 
