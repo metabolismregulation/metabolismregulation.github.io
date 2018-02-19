@@ -6,10 +6,10 @@ permalink: /contributors/
 
 ## List of contributors:
 
-| **Alexander Mazein** | European Insitute for Science and Technology, Lyon, France |
-| **Irina Balaur** | European Insitute for Science and Technology, Lyon, France |
-| **Charles Auffray** | European Insitute for Science and Technology, Lyon, France |
-| **Antonio Fabregat** | European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom |
-| **Inna Kuperstein** | Computational Systems Biology of Cancer, Institut Curie, Paris, France |
-| **Vasundra Touré** | Department of Biology, Norwegian University of Science and Technology, Trondheim, Norway |
-| **Tatiana Serebriiskaia** | Laboratory for Translational Research and Personalized Medicine, Moscow Institute of Physics and Technology, Moscow, Russia |
+| **Alexander Mazein** | EISBM, Lyon, France |
+| **Irina Balaur** | EISBM, Lyon, France |
+| **Charles Auffray** | EISBM, Lyon, France |
+| **Antonio Fabregat** | EMBL-EBI, Hinxton, United Kingdom |
+| **Inna Kuperstein** | Institut Curie, Paris, France |
+| **Vasundra Touré** | NTNU, Trondheim, Norway |
+| **Tatiana Serebriiskaia** | MIPT, Moscow, Russia |
