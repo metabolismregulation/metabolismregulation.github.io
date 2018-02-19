@@ -6,7 +6,7 @@ permalink: /tools/
 
 # yEd Graph Editor
         
-<p><a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> from <a href="https://www.yworks.com" target="_blank">yWorks GmbH</a> is a freely available graph editor written in Java that runs on Windows, macOS, and Linux/Unix. It is a powerful desktop application that can be used to quickly and effectively generate high-quality diagrams.</p>
+<p><a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> from yWorks GmbH is a freely available graph editor written in Java that runs on Windows, macOS, and Linux/Unix. It is a powerful desktop application that can be used to quickly and effectively generate high-quality diagrams.</p>
         
 <p>yEd uses the XML-based GraphML format to load/save diagrams and additionally supports import from Excel spreadsheets (.xls, .xlsx) and arbitrary XML (via XSLT). Creating diagrams manually is easy and fun with the intuitive user interface, and a large collection of powerful layout algorithms allows to automatically arrange nodes and edges. Diagrams can be exported to bitmap and vector formats: PNG, JPG, and SVG, PDF.</p>
         
