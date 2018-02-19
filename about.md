@@ -15,6 +15,5 @@ To join the effort please use this email address:<br />
 
 To join the main discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
 
-## Collaborative network
 
 
