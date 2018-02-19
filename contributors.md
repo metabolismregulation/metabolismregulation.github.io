@@ -4,7 +4,7 @@ title: Contributors
 permalink: /contributors/
 ---
 
-## Project contributors:
+## List of contributors:
 
 **Alexander Mazein**, European Insitute for Science and Technology, Lyon, France <br />
 **Irina Balaur**, European Insitute for Science and Technology, Lyon, France <br />
