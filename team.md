@@ -21,7 +21,7 @@ permalink: /team/
     </tr>
     <tr>
       <td style="width: 100px;"><img src="../images/team/AntonioFabregat.jpg" alt="Antonio Fabregat" /></td>
-      <td><strong>Irina Balaur, PhD</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Tech Lead / Senior Software Engineer</td>
+      <td><strong>Antonio Fabregat, PhD</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Tech Lead / Senior Software Engineer</td>
     </tr>
     <tr>
       <td style="width: 100px;"><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein" /></td>
