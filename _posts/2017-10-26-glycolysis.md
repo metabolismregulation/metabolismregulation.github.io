@@ -11,5 +11,5 @@ Downloads: &nbsp;
 [Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis.sbgn) &nbsp;
 <!--[yEd Live](https://www.yworks.com/yed-live/#file=https://metabolismregulation.org/downloads/F001-glycolysis.graphml
 ) &nbsp;-->
-<a href="/glycolysis/"><img id="logo" src="/images/figure01v04.png" style="width:100%;"/></a>
+<a href="/glycolysis/"><img id="logo" src="/images/figure01v04.png" style="width:90%;"/></a>
 
