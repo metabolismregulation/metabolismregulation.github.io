@@ -9,7 +9,7 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /><br /><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
+      <td style="width: 210px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /><br /><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
     </tr>
 </table>
 
