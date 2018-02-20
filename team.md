@@ -6,12 +6,13 @@ permalink: /team/
 
 ## Team
 
+| Alexander Mazein | European Institute for Systems Biology and Medicine, Lyon, France |
+| Irina Balaur | European Institute for Systems Biology and Medicine, Lyon, France |
+
 <table>
     <tr>
       <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /></td>
-      <td><strong>Alexander Mazein<br />
-          European Institute for Systems Biology and Medicine, Lyon, France</strong><br />
-          Senior Researcher</td>
+      <td><strong>Alexander Mazein</strong>, Senior Researcher, Project Coordinator, European Institute for Systems Biology and Medicine, Lyon, France<br /></td>
     </tr>
     <tr>
       <td style="width: 100px;"><img src="../images/team/IrinaBalaur.jpg" alt="Irina Balaur"/></td>
