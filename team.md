@@ -30,8 +30,18 @@ permalink: /team/
       <td style="width: 100px;"><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein"/></td>
       <td><strong>Inna Kuperstein</strong><br />Institut Curie, Paris, France<br />ACSN Project Coordinator, Computational Systems Biology of Cancer group</td>
     </tr>
+    <tr>
+      <td style="width: 100px;"><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein"/></td>
+      <td><strong>Inna Kuperstein</strong><br />Institut Curie, Paris, France<br />ACSN Project Coordinator, Computational Systems Biology of Cancer group</td>
+    </tr>
+    <tr>
+      <td style="width: 100px;"><img src="../images/team/VasundraToure.jpg" alt="Vasundra Touré"/></td>
+      <td><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway<br />PhD Student</td>
+    </tr>
+    <tr>
+      <td style="width: 100px;"><img src="../images/team/TatianaSerebriiskaia.jpg" alt="Tatiana Serebriiskaia"/></td>
+      <td><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia<br />Head of the Laboratory for Translational Research and Personalized Medicine</td>
+    </tr>
 </table>
 
-
-| **Vasundra Touré** | NTNU, Trondheim, Norway |
 | **Tatiana Serebriiskaia** | MIPT, Moscow, Russia |
