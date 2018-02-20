@@ -4,37 +4,7 @@ title: Team
 permalink: /team/
 ---
 
-## List of contributors:
-
-<p>Text</p>
-
-| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-
-
-
-<p>Text</p>
-
-<table>
-    <tr>
-      <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /></td>
-      <td style="width: 500px;"><strong>Alexander Mazein, PhD</strong><br /><strong>European Institute for Systems Biology and Medicine, Lyon, France</strong><br />Senior Researcher</td>
-    </tr>
-    <tr>
-      <td><img src="../images/team/MarekOstaszewski.jpg" alt="Marek Ostaszewski" /></td>
-      <td><strong>Marek Ostaszewski, PhD</strong><br /><strong>University of Luxembourg, Luxembourg</strong><br />Researcher, Luxembourg Centre for Systems Biomedicine</td>
-    </tr>
-    <tr>
-      <td><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein" /></td>
-      <td><strong>Inna Kuperstein, PhD</strong><br /><strong>Institut Curie, Paris, France</strong><br />ACSN Project Coordinator, Computational Systems Biology of Cancer group</td>
-    </tr>
-</table>
-
-<p>Text</p>
-
-
+## Team
 
 <table>
     <tr>
@@ -43,9 +13,6 @@ permalink: /team/
           European Institute for Systems Biology and Medicine, Lyon, France</strong><br />
           Senior Researcher</td>
     </tr>
- </table>
-    
- <table>
     <tr>
       <td style="width: 100px;"><img src="../images/team/IrinaBalaur.jpg" alt="Irina Balaur"/></td>
       <td><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Researcher</td>
