@@ -6,13 +6,19 @@ permalink: /team/
 
 ## Team
 
-| Alexander Mazein | European Institute for Systems Biology and Medicine, Lyon, France |
-| Irina Balaur | European Institute for Systems Biology and Medicine, Lyon, France |
+
+<table>
+    <tr>
+      <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /><br /><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
+    </tr>
+</table>
+
+
 
 <table>
     <tr>
       <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /></td>
-      <td><strong>Alexander Mazein</strong>, Senior Researcher, Project Coordinator, European Institute for Systems Biology and Medicine, Lyon, France<br /></td>
+      <td><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
     </tr>
     <tr>
       <td style="width: 100px;"><img src="../images/team/IrinaBalaur.jpg" alt="Irina Balaur"/></td>
@@ -25,10 +31,6 @@ permalink: /team/
     <tr>
       <td style="width: 100px;"><img src="../images/team/AntonioFabregat.jpg" alt="Antonio Fabregat"/></td>
       <td><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Tech Lead / Senior Software Engineer</td>
-    </tr>
-    <tr>
-      <td style="width: 100px;"><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein"/></td>
-      <td><strong>Inna Kuperstein</strong><br />Institut Curie, Paris, France<br />ACSN Project Coordinator, Computational Systems Biology of Cancer group</td>
     </tr>
     <tr>
       <td style="width: 100px;"><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein"/></td>
