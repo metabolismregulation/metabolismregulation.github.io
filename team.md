@@ -6,6 +6,17 @@ permalink: /team/
 
 ## List of contributors:
 
+<p>Text</p>
+
+| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+
+
+
+<p>Text</p>
+
 <table>
     <tr>
       <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /></td>
