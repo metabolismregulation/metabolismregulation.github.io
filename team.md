@@ -8,10 +8,10 @@ permalink: /team/
 
 <p>Text</p>
 
-| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
-| [image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
+| ![image](/images/team/AlexanderMazein.jpg)| Alexander Mazein |
 
 
 
