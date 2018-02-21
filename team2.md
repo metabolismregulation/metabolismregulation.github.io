@@ -14,7 +14,7 @@ permalink: /team2/
 <td align="center">
     
 <div>
-<table>
+<table font size="3">
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
       <td style="width: 220px;" align="center">image</td>
@@ -22,10 +22,10 @@ permalink: /team2/
       <td style="width: 220px;" align="center">image</td>
     </tr>
     <tr>
+      <td align="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
       <td align="center">text</td>
       <td align="center">text</td>
-      <td align="center">text</td>
-      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom</font></td>
+      <td align="center"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom</td>
     </tr>
 </table>
 </div>
