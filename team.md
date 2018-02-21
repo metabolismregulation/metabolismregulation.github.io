@@ -14,9 +14,9 @@ permalink: /team/
 </table>
 
 
-<table cellpadding="15">
+<table cellpadding="5">
     <tr>
-      <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /></td>
+      <td><img src="../images/team/AlexanderMazein.jpg" style="width: 100px;" alt="Alexander Mazein" /></td>
       <td align="top"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
     </tr>
     <tr>
