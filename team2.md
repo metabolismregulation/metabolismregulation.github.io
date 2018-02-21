@@ -38,12 +38,13 @@ permalink: /team2/
 </table>
 
 <div>
-<table font size="3">
+table>
+<col width="220">
     <tr>
-      <td width="(100/4)%" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
-      <td width="(100/4)%" align="center"><img src="/images/team/IrinaBalaur.jpg" width="140"/></td>
-      <td width="(100/4)%" align="center"><img src="/images/team/CharlesAuffray.jpg" width="140"/></td>
-      <td width="(100/4)%" align="center"><img src="/images/team/AntonioFabregat.jpg" width="140"/></td>
+      <td align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
+      <td align="center"><img src="/images/team/IrinaBalaur.jpg" width="140"/></td>
+      <td align="center"><img src="/images/team/CharlesAuffray.jpg" width="140"/></td>
+      <td align="center"><img src="/images/team/AntonioFabregat.jpg" width="140"/></td>
     </tr>
     <tr>
       <td align="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
