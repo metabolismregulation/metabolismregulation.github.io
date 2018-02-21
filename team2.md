@@ -14,7 +14,7 @@ Charles Auffray | EISBM, Lyon, France
 
 <a href="/glycolysis/"><img src="/images/team/AlexanderMazein.jpg" width="140"/></a> | <a href="/mevalonate/"><img src="/images/team/IrinaBalaur.jpg" width="140"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg" width="140"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg" width="140"/></a>
 ---|---|---
-<strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France
+<p style="font-size:90%;"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</p> | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France
 
 <br />
 
