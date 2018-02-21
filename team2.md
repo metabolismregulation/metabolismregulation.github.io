@@ -8,7 +8,7 @@ permalink: /team2/
 
 <a href="/glycolysis/"><img src="/images/team/AlexanderMazein.jpg" width="140"/></a> | <a href="/mevalonate/"><img src="/images/team/IrinaBalaur.jpg" width="140"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg" width="140"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg" width="140"/></a>
 ---|---|---
-<font size="6"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font> | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France
+<font size="1"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font> | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France
 
 <br />
 
