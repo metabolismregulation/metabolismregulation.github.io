@@ -6,7 +6,7 @@ permalink: /team2/
 
 <a href="/glycolysis/"><img src="/images/team/AlexanderMazein.jpg"/></a> | <a href="/mevalonate/"><img src="/images/team/IrinaBalaur.jpg"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg"/></a>
 ---|---|---
-<strong>Alexander Mazein</strong> | <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a> | <a href="/eicosanoids/">Regulation of eicosanoid production</a> 
+<strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a> | <a href="/eicosanoids/">Regulation of eicosanoid production</a> 
 
 <br />
 
