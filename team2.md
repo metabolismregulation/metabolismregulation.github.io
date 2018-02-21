@@ -26,6 +26,15 @@ permalink: /team2/
 
 <table>
     <tr>
+      <td style="width: 115px;"><img src="/images/team/AlexanderMazein.jpg" width="110"/></td>
+      <td><strong>Alexander Mazein</strong><br />Senior Researcher<br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+    </tr>
+</table>
+
+
+
+<table>
+    <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="140"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="140"/></td>
