@@ -13,7 +13,7 @@ Antonio Fabregat | Tech Lead / Senior Software Engineer, European Molecular Biol
 
 <a href="/glycolysis/"><img src="/images/team/AlexanderMazein.jpg" width="140"/></a> | <a href="/mevalonate/"><img src="/images/team/IrinaBalaur.jpg" width="140"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg" width="140"/></a> | <a href="/eicosanoids/"><img src="/images/team/CharlesAuffray.jpg" width="140"/></a>
 ---|---|---
-<font size="1"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font> | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France | <strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France
+<font size="4"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font> | <font size="4"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font> | <font size="4"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font> | <font size="4"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font>
 
 <br />
 
