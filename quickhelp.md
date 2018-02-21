@@ -6,8 +6,6 @@ permalink: /quickhelp/
 
 # How to draw SBGN diagrams in yEd
 
-yEd Graph Editor is a general-purpose digramming tool. Some adjustments are required for drawing SBGN diagrams, mainly in connection to auxilary units (state variables and units of information) and ports for processes (they are not implemented as in dedicated SBGN editors). 
-
 ## Modifying general settings
 
 After downloading and installing yEd Graph Editor, we suggest following adjustments:
