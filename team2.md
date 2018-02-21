@@ -32,10 +32,10 @@ permalink: /team2/
       <td style="width: 220px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="140"/></td>
     </tr>
     <tr>
-      <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />EISBM, Lyon, France</font></td>
-        <td align="center"><font size="3"><strong>Irina Balaur</strong><br />EISBM, Lyon, France</font></td>
-      <td align="center"><font size="3"><strong>Charles Auffray</strong><br />EISBM, Lyon, France</font></td>
-      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />EMBL-EBI, Hinxton, UK</font></td>
+      <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />Senior Researcher, EISBM, Lyon, France</font></td>
+        <td align="center"><font size="3"><strong>Irina Balaur</strong><br />Researcher, EISBM, Lyon, France</font></td>
+      <td align="center"><font size="3"><strong>Charles Auffray</strong><br />Director, EISBM, Lyon, France</font></td>
+      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />Senior Software Developer, EMBL-EBI, Hinxton, UK</font></td>
     </tr>
 </table>
     
