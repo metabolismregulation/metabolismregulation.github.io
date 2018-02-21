@@ -22,6 +22,8 @@ permalink: /team2/
     </tr>
 </table>
 
+<br />
+
 <table>
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
