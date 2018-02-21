@@ -5,9 +5,7 @@ permalink: /team2/
 ---
 
 Alexander Mazein | EISBM, Lyon, France
---- | ---
 Irina Balaur | EISBM, Lyon, France
----| ---
 Charles Auffray | EISBM, Lyon, France
 
 
