@@ -21,18 +21,20 @@ permalink: /team2/
       <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom</font></td>
     </tr>
 </table>
+</div>
 
 <br />
 
+<div>
 <table>
     <tr>
-      <td style="width: 115px;"><img src="/images/team/AlexanderMazein.jpg" width="110"/></td>
-      <td><strong>Alexander Mazein</strong><br />Senior Researcher<br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 115px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="110"/></td>
+      <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />Senior Researcher<br />EISBM, Lyon, France</font></td>
     </tr>
 </table>
+</div>
 
-
-
+<div>
 <table>
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
