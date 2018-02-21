@@ -16,12 +16,12 @@ permalink: /team/
 </div>
 <div class="parent">
     <div class="img"><img src="../images/team/CharlesAuffray.jpg" alt="Charles Auffray"/></div>
-    <div class="text"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Research Director at CNRS, Founding Director of the EISBM</div>
+    <div class="text"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine (EISBM), Lyon, France<br />Research Director at CNRS, Founding Director of the EISBM</div>
 </div>
 
 <div class="parent">
     <div class="img"><img src="../images/team/AntonioFabregat.jpg" alt="Antonio Fabregat"/></div>
-    <div class="text"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Tech Lead / Senior Software Engineer
+    <div class="text"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Tech Lead / Senior Software Engineer</div>
 </div>
 <div class="parent">
     <div class="img"><img src="../images/team/InnaKuperstein.jpg" alt="Inna Kuperstein"/></div>
