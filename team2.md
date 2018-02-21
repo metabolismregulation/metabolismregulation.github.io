@@ -11,42 +11,21 @@ permalink: /team2/
 
 <br />
 
+<td align="center">
+    
 <div>
 <table>
     <tr>
-      <td style="width: 200px;">image</td>
-      <td style="width: 200px;">image</td>
-      <td style="width: 200px;">image</td>
-      <td style="width: 200px;">image</td>
+      <td style="width: 200px;" align="center">image</td>
+      <td style="width: 200px;" align="center">image</td>
+      <td style="width: 200px;" align="center">image</td>
+      <td style="width: 200px;" align="center">image</td>
     </tr>
     <tr>
-      <td>text</td>
-      <td>text</td>
-      <td>text</td>
-      <td>text</td>
+      <td align="center">text</td>
+      <td align="center">text</td>
+      <td align="center">text</td>
+      <td align="center">text</td>
     </tr>
 </table>
-</div>
-
-
-
-
-.centerText{
-   text-align: center;
-}
-
-
-<div>
-   <table style="width:100%">
-   <tbody>
-   <tr>
-      <td class="centerText">Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-    <tr>
-      <td class="centerText">Cell 3</td>
-      <td>Cell 4</td>
-    </tr>
-    </tbody>
-    </table>
 </div>
