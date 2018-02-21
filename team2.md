@@ -21,7 +21,7 @@ permalink: /team2/
 </div>
 </div>
 
-
+<div>
 <table>
     <tr>
       <td style="width: 100px;"><img src="../images/team/CharlesAuffray.jpg" alt="Charles Auffray" /></td>
@@ -36,6 +36,7 @@ permalink: /team2/
       <td><strong>Emmanuel Barillot, PhD</strong><br /><strong>Institut Curie, Paris, France</strong><br />Director of the U900 Institut Curie/INSERM/Ecole des Mines ParisTech</td>
     </tr>
 </table>
+    </div>
 
 
 
