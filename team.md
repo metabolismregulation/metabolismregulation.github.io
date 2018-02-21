@@ -46,6 +46,6 @@ permalink: /team/
 </table>
 
 <div class="parent">
-    <div class="img"><img src="../images/team/IrinaBalaur.jpg" /></div>
-    <div class="text">Some Text Some.</div>
+    <div class="img"><img src="../images/team/IrinaBalaur.jpg" alt="Irina Balaur"/></div>
+    <div class="text"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Researcher</div>
 </div>
