@@ -44,3 +44,8 @@ permalink: /team/
       <td><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia<br />Head of the Laboratory for Translational Research and Personalized Medicine</td>
     </tr>
 </table>
+
+<div class="parent">
+    <div class="img"><img src=img src="../images/team/IrinaBalaur.jpg" /></div>
+    <div class="text">Some Text Some.</div>
+</div>
