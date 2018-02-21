@@ -29,7 +29,7 @@ permalink: /team/
 </div>
 <div class="parent">
     <div class="img"><img src="../images/team/VasundraToure.jpg" alt="Vasundra Touré"/></div>
-    <div class="text">Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway<br />PhD Student</div>
+    <div class="text"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway<br />PhD Student</div>
 </div>
 <div class="parent">
     <div class="img"><img src="../images/team/TatianaSerebriiskaia.jpg" alt="Tatiana Serebriiskaia"/></div>
