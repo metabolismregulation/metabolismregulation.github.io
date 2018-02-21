@@ -30,15 +30,10 @@ permalink: /team2/
 </table>
 </div>
 
-
-<table width="100%">
-  <tr>
-  <td width="(100/4)%"></td>
-  </tr>
-</table>
+<br />
 
 <div>
-table>
+<table>
 <col width="220">
     <tr>
       <td align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
