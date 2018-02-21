@@ -4,10 +4,10 @@ title: Contrubutors
 permalink: /team2/
 ---
 
-Alexander Mazein, PhD | Senior Researcher | EISBM, Lyon, France
-Irina Balaur, PhD | Researcher | EISBM, Lyon, France
-Charles Auffrays, PhD | Director | EISBM, Lyon, France
-Antonio Fabregat, PhD | Tech Lead / Senior Software Engineer | EMBL-EBI, Hinxton, United Kingdom
+Alexander Mazein, PhD, Senior Researcher | EISBM, Lyon, France
+Irina Balaur, PhD, Researcher | EISBM, Lyon, France
+Charles Auffrays, PhD, Director | EISBM, Lyon, France
+Antonio Fabregat, PhD, Senior Software Engineer | EMBL-EBI, Hinxton, United Kingdom
 
 <br />
 
