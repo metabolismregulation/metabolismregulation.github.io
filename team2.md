@@ -35,7 +35,7 @@ permalink: /team2/
       <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />Senior Researcher<br />EISBM, Lyon, France</font></td>
         <td align="center"><font size="3"><strong>Irina Balaur</strong><br />Researcher<br />EISBM, Lyon, France</font></td>
       <td align="center"><font size="3"><strong>Charles Auffray</strong><br />Director<br />EISBM, Lyon, France</font></td>
-      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />Senior Software Developer<br />EMBL-EBI, Hinxton, UK</font></td>
+      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />Senior Software Engineer<br />EMBL-EBI, Hinxton, UK</font></td>
     </tr>
 </table>
     
