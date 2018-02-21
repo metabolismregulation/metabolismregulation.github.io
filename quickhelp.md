@@ -8,12 +8,14 @@ permalink: /quickhelp/
 
 ## Modifying general settings
 
-After downloading and installing yEd Graph Editor, we suggest following adjustments:
+Placing SBGN palette to the top of the Palette section (top-right):  
 
-* Place SBGN palette to the top of the Palette section (top-right):  
 **Edit > Manage Palette...**  
-Here you can delete unwanted palettes and define in what order they will be shown.
-* Make links go under the shapes (this way they will not cross auxiliary units):  
+
+Here you can delete unwanted palettes and define in what order they will be shown.  
+
+Making links go under the shapes (this way they will not cross auxiliary units):  
+
 **Preferences > Display > Paint Nodes Over Edges**
 
 ## Auxiliary units
