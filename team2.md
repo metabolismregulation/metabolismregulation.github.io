@@ -29,7 +29,7 @@ permalink: /team2/
 <table>
     <tr>
       <td style="width: 115px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="110"/></td>
-      <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />Senior Researcher<br />EISBM, Lyon, France</font></td>
+      <td valign="middle"><font size="3"><strong>Alexander Mazein</strong><br />Senior Researcher<br />EISBM, Lyon, France</font></td>
     </tr>
 </table>
 </div>
