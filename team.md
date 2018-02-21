@@ -17,7 +17,7 @@ permalink: /team/
 <table width="500" cellpadding="5">
     <tr>
       <td style="width: 100px;"><img src="../images/team/AlexanderMazein.jpg" alt="Alexander Mazein" /></td>
-      <td align="center" valign="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
+      <td align="left" valign="top"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France<br />Senior Researcher, Project Coordinator</td>
     </tr>
     <tr>
       <td style="width: 100px;"><img src="../images/team/IrinaBalaur.jpg" alt="Irina Balaur"/></td>
