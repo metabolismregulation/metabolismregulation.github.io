@@ -46,6 +46,6 @@ permalink: /team/
 </table>
 
 <div class="parent">
-    <div class="img"><img src=img src="../images/team/IrinaBalaur.jpg" /></div>
+    <div class="img"><img src="../images/team/IrinaBalaur.jpg" /></div>
     <div class="text">Some Text Some.</div>
 </div>
