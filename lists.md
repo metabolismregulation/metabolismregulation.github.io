@@ -14,6 +14,9 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 * Regulation of glycogen metabolism
 * Regulation of cholesterol metabolism via SREBP
 * Metabolic control of acetyl-CoA production
+* Regulation of nitric oxide production
+* Regulation of eisocanoid metabolism by aspirin
+* Regulation of inositol phosphate metabolism
 
 # Reactome-Recon lists
 
