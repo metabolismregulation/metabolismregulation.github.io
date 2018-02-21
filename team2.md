@@ -35,7 +35,7 @@ permalink: /team2/
       <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />EISBM, Lyon, France</font></td>
         <td align="center"><font size="3"><strong>Irina Balaur</strong><br />EISBM, Lyon, France</font></td>
       <td align="center"><font size="3"><strong>Charles Auffray</strong><br />EISBM, Lyon, France</font></td>
-      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />EMBL-EBI, Hinxton, United Kingdom</font></td>
+      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />EMBL-EBI, Hinxton, UK</font></td>
     </tr>
 </table>
     
