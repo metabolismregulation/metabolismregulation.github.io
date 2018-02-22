@@ -27,7 +27,7 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/babraham_logo.jpg" width="200"/></td>
+      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/babraham_logo.jpg" width="180"/></td>
       <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/ntnu_logo.jpg" width="290"/></td>
       <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/mipt_logo.jpg" width="290"/></td>
     </tr>
