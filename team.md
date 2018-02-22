@@ -4,34 +4,7 @@ title: Team
 permalink: /team/
 ---
 
-# Collaborative network
-
-<br />
-
-<table>
-    <tr>
-      <td width="320" align="center"><img src="/images/logos/eisbm_logo.jpg" width="140"/></td>
-      <td width="320" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="270"/></td>
-      <td width="320" align="center"><img src="/images/logos/institut_curie_logo.jpg" width="200"/></td>
-    </tr>
-</table>
-
-<!--<td width="320" align="center"><img src="/images/logos/lcsb_logo.jpg" width="140"/></td>-->
-
-<br />
-
-<table>
-    <tr>
-      <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="120"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="230"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="220"/></td>
-    </tr>
-</table>
-
-<br />
-
-
-# Project team
+# Metabolism Regulation Charts team
 
 
 <br />
@@ -72,6 +45,30 @@ permalink: /team/
     </tr>
 </table>
 
+# Collaborative network
 
+<br />
+
+<table>
+    <tr>
+      <td width="320" align="center"><img src="/images/logos/eisbm_logo.jpg" width="140"/></td>
+      <td width="320" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="270"/></td>
+      <td width="320" align="center"><img src="/images/logos/institut_curie_logo.jpg" width="200"/></td>
+    </tr>
+</table>
+
+<!--<td width="320" align="center"><img src="/images/logos/lcsb_logo.jpg" width="140"/></td>-->
+
+<br />
+
+<table>
+    <tr>
+      <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="120"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="230"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="220"/></td>
+    </tr>
+</table>
+
+<br />
 
 
