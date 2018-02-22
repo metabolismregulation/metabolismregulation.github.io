@@ -6,12 +6,14 @@ permalink: /team/
 
 # Collaborative network
 
+<div>
+    
 <br />
 <td valign="middle">
 <table>
     <tr>
       <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" width="200"/></td>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="200"/></td>
+      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="290"/></td>
       <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="190"/></td>
     </tr>
 </table>
@@ -40,9 +42,14 @@ permalink: /team/
     </tr>
 </table>
 
+</div>
+
+<br />
 <br />
 
+
 # Project team
+
 
 <br />
 
