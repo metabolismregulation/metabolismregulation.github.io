@@ -14,19 +14,26 @@ permalink: /quickhelp/
 
 ## Auxiliary units
 
-Right click on the shape > Convert to Label
-Right click on the label > Convert to Node
+* To transform a shape into a unit of information or a state variable: **right click on the shape > Convert to Label**
+
+* To edit a unit of information or a state variable: **right click on the label > Convert to Node**. And then, to transform back to label: **right click on the shape > Convert to Label**
 
 ## Process's "bars"
 
-In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to colocate bent points as if they were ports of a process.
+In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were ports of a process so you see two "bars" for each process or a logic operator.
+
+## Complex
+
+* Hold **Shift** for moving a shape inside a complex
+
+* To copy an element which is inside a complex. This might not work easily with shortcuts: **Ctrl-C** followed by **Ctrl-V**. Instead use right click to paste the element outside this complex or compartment.
 
 ## Tips
 
-* To modify all objects of the same type: go to 'Current Elements' palette at the bottom of the palette section, select an element, right click > Select Matching Elements.
+* To modify all objects of the same type: go to 'Current Elements' palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
 
-* To make smooth bend points: right click on a link > Properties > Bends > Smooth Bends.
+* To make smooth bend points: **right click on a link > Properties > Bends > Smooth Bends**.
 
-* To modify font size for all objects: Cntr-A on Windows or Command-A on Mac, then edit using Properties View.
+* To modify font size for all objects: **Ctrl-A** on Windows or **Command-A** on Mac, then edit using **Properties View** on the right-hand side.
 
 
