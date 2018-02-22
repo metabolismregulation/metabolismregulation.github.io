@@ -16,11 +16,9 @@ permalink: /team/
     </tr>
 </table>
 
-<br />
-
 <table>
     <tr>
-      <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="140"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="120"/></td>
       <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="230"/></td>
       <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="220"/></td>
     </tr>
