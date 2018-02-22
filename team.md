@@ -12,9 +12,9 @@ permalink: /team/
 <td valign="middle">
 <table>
     <tr>
-      <td width="300" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" height="160" width="290"/></td>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="290"/></td>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="190"/></td>
+      <td width="300" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" height="200"/></td>
+      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" height="200"/></td>
+      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" height="200"/></td>
     </tr>
 </table>
 <table>
