@@ -25,6 +25,23 @@ permalink: /team/
 
 <br />
 
+<table>
+    <tr>
+      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 300px;" align="center">Babraham Institute, UK</td>
+      <td style="width: 300px;" align="center">Norwegian University of Science and Technology, Norway</td>
+      <td style="width: 300px;" align="center">Moscow Institute of Physics and Technology, Russia</td>
+    </tr>
+</table>
+
+<br />
+
 # Project team
 
 <br />
