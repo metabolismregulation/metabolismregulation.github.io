@@ -15,5 +15,13 @@ To join the effort please use this email address:<br />
 
 To join the main discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
 
+## Team
+
+Alexander Mazein, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
+Irina Balaur, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
+Ines Thiele, Luxembourg Centre for Systems Biomedicine (LCSB), Belval, Luxembourg  
+Antonio Fabregat, European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK  
+Charles Auffray, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
+
 
 
