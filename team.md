@@ -16,6 +16,8 @@ permalink: /team/
     </tr>
 </table>
 
+<br />
+
 <table>
     <tr>
       <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="120"/></td>
