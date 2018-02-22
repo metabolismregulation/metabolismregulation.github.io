@@ -10,9 +10,9 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
-      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
-      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/eisbm_logo.jpg" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/embl-ebi_logo.jpg.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/lcsb_logo.jpg" width="200"/></td>
     </tr>
 </table>
 <table>
@@ -27,9 +27,9 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
-      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
-      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="200"/></td>
     </tr>
 </table>
 <table>
