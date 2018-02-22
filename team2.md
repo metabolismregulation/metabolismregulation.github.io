@@ -41,16 +41,16 @@ permalink: /team2/
 <div>
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/InnaKuperstein.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/VasundraToure.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/NicolasLeNovere.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/TatianaSerebriiskaia.jpg" width="140"/></td>
     </tr>
     <tr>
-      <td align="center"><font size="3"><strong>Alexander Mazein</strong><br />Senior Researcher<br />EISBM, Lyon, France</font></td>
-        <td align="center"><font size="3"><strong>Irina Balaur</strong><br />Researcher<br />EISBM, Lyon, France</font></td>
-      <td align="center"><font size="3"><strong>Charles Auffray</strong><br />Director<br />EISBM, Lyon, France</font></td>
-      <td align="center"><font size="3"><strong>Antonio Fabregat</strong><br />Senior Software Engineer<br />EMBL-EBI, Hinxton, UK</font></td>
+      <td align="center"><font size="3"><strong>Inna Kuperstein</strong><br />Institut Curie, Paris, France</font></td>
+        <td align="center"><font size="3"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
+      <td align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
+      <td align="center"><font size="3"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
     </tr>
 </table>
 
