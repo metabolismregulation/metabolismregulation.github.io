@@ -6,15 +6,13 @@ permalink: /team/
 
 # Collaborative network
 
-<div>
-    
 <br />
-<td valign="middle">
+
 <table>
     <tr>
-      <td width="300" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" width="200"/></td>
+      <td width="300" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" width="120"/></td>
       <td width="300" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="290"/></td>
-      <td width="300" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="200"/></td>
+      <td width="300" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="120"/></td>
     </tr>
 </table>
 <table>
@@ -41,8 +39,6 @@ permalink: /team/
       <td style="width: 300px;" align="center">Moscow Institute of Physics and Technology, Russia</td>
     </tr>
 </table>
-
-</div>
 
 <br />
 <br />
