@@ -10,16 +10,17 @@ permalink: /team/
 
 <table>
     <tr>
-      <td width="300" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" width="160"/></td>
-      <td width="300" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="290"/></td>
-      <td width="300" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="160"/></td>
+      <td width="320" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" width="160"/></td>
+      <td width="320" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="290"/></td>
+      <td width="320" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="160"/></td>
     </tr>
 </table>
+<br />
 <table>
     <tr>
-      <td style="width: 300px;" align="center">European Institute for Systems Biology and Medicine, France</td>
-      <td style="width: 300px;" align="center">European Molecular Biology Laboratory, European Bioinformatics Institute, UK</td>
-      <td style="width: 300px;" align="center">Luxembourg Centre for Systems Biomedicine, Luxembourg</td>
+      <td style="width: 320px;" align="center">European Institute for Systems Biology and Medicine, France</td>
+      <td style="width: 320px;" align="center">European Molecular Biology Laboratory, European Bioinformatics Institute, UK</td>
+      <td style="width: 320px;" align="center">Luxembourg Centre for Systems Biomedicine, Luxembourg</td>
     </tr>
 </table>
 
@@ -27,16 +28,17 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/babraham_logo.jpg" width="140"/></td>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/ntnu_logo.jpg" width="240"/></td>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/mipt_logo.jpg" width="240"/></td>
+      <td style="width: 320px;" align="center" valign="middle"><img src="/images/logos/babraham_logo.jpg" width="140"/></td>
+      <td style="width: 320px;" align="center" valign="middle"><img src="/images/logos/ntnu_logo.jpg" width="240"/></td>
+      <td style="width: 320px;" align="center" valign="middle"><img src="/images/logos/mipt_logo.jpg" width="240"/></td>
     </tr>
 </table>
+<br />
 <table>
     <tr>
-      <td style="width: 300px;" align="center">Babraham Institute, UK</td>
-      <td style="width: 300px;" align="center">Norwegian University of Science and Technology, Norway</td>
-      <td style="width: 300px;" align="center">Moscow Institute of Physics and Technology, Russia</td>
+      <td style="width: 320px;" align="center">Babraham Institute, UK</td>
+      <td style="width: 320px;" align="center">Norwegian University of Science and Technology, Norway</td>
+      <td style="width: 320px;" align="center">Moscow Institute of Physics and Technology, Russia</td>
     </tr>
 </table>
 
