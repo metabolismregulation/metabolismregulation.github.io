@@ -11,7 +11,7 @@ permalink: /team/
 <table>
     <tr>
       <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/eisbm_logo.jpg" width="200"/></td>
-      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg.png" width="200"/></td>
+      <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/embl-ebi_logo.jpg" width="200"/></td>
       <td style="width: 300px;" align="center" valign="middle"><img src="/images/logos/lcsb_logo.jpg" width="190"/></td>
     </tr>
 </table>
