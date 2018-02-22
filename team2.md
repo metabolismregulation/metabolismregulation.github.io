@@ -13,9 +13,9 @@ permalink: /team2/
       <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
     </tr>
     <tr>
-      <td align="center">European Institute for Systems Biology and Medicine, France</font></td>
-      <td align="center">European Molecular Biology Laboratory, European Bioinformatics Institute, United Kingdom</font></td>
-      <td align="center">Luxembourg Centre for Systems Biomedicine, Luxembourg</font></td>
+      <td align="center">European Institute for Systems Biology and Medicine, France</td>
+      <td align="center">European Molecular Biology Laboratory, European Bioinformatics Institute, United Kingdom</td>
+      <td align="center">Luxembourg Centre for Systems Biomedicine, Luxembourg</td>
     </tr>
 </table>
 
