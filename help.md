@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Quick Help
-permalink: /quickhelp/
+permalink: /help/
 ---
 
 # How to draw SBGN diagrams in yEd
