@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Contrubutors
-permalink: /team2/
+title: Team
+permalink: /team/
 ---
 
 # Collaborative network
