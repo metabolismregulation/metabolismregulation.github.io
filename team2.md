@@ -48,16 +48,15 @@ permalink: /team2/
 <table>
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/InnaKuperstein.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/NicolasLeNovere.jpg" width="140"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/TatianaSerebriiskaia.jpg" width="140"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/VasundraToure.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/NicolasLeNovere.jpg" width="140"/></td>
     </tr>
     <tr>
       <td align="center"><font size="3"><strong>Inna Kuperstein</strong><br />Institut Curie, Paris, France</font></td>
+      <td align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
       <td align="center"><font size="3"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
       <td align="center"><font size="3"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
-      <td align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
-      
     </tr>
 </table>
 
