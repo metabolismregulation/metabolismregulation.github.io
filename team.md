@@ -18,9 +18,9 @@ permalink: /team/
 <br />
 <table>
     <tr>
-      <td style="width: 320px;" align="center">European Institute for Systems Biology and Medicine, France</td>
-      <td style="width: 320px;" align="center">European Molecular Biology Laboratory, European Bioinformatics Institute, UK</td>
-      <td style="width: 320px;" align="center">Luxembourg Centre for Systems Biomedicine, Luxembourg</td>
+      <td style="width: 320px;" align="center"><font size="3">European Institute for Systems Biology and Medicine</font></td>
+      <td style="width: 320px;" align="center"><font size="3">European Molecular Biology Laboratory, European Bioinformatics Institute</font></td>
+      <td style="width: 320px;" align="center"><font size="3">Luxembourg Centre for Systems Biomedicine</font></td>
     </tr>
 </table>
 
@@ -36,9 +36,9 @@ permalink: /team/
 <br />
 <table>
     <tr>
-      <td style="width: 320px;" align="center">Babraham Institute, UK</td>
-      <td style="width: 320px;" align="center">Norwegian University of Science and Technology, Norway</td>
-      <td style="width: 320px;" align="center">Moscow Institute of Physics and Technology, Russia</td>
+      <td style="width: 320px;" align="center"><font size="3">Babraham Institute</font></td>
+      <td style="width: 320px;" align="center"><font size="3">Norwegian University of Science and Technology</font></td>
+      <td style="width: 320px;" align="center"><font size="3">Moscow Institute of Physics and Technology</font></td>
     </tr>
 </table>
 
