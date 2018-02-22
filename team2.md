@@ -4,6 +4,23 @@ title: Contrubutors
 permalink: /team2/
 ---
 
+# Collaborative network
+
+<table>
+    <tr>
+      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/logos/EISBM.png" width="200"/></td>
+    </tr>
+    <tr>
+      <td align="center">European Institute for Systems Biology and Medicine, France</font></td>
+      <td align="center">European Molecular Biology Laboratory, European Bioinformatics Institute, United Kingdom</font></td>
+      <td align="center">Luxembourg Centre for Systems Biomedicine, Luxembourg</font></td>
+    </tr>
+</table>
+
+# Metabolism Regulation Project Team
+
 <table>
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
