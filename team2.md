@@ -23,7 +23,7 @@ permalink: /team2/
 
 <br />
 
-# Metabolism Regulation Project Team
+# Project team
 
 <br />
 
