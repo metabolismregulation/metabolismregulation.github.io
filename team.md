@@ -11,10 +11,10 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="135"/></td>
     </tr>
 </table>
 <table>
@@ -30,10 +30,10 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><img src="/images/team/InnaKuperstein.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/NicolasLeNovere.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/VasundraToure.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/TatianaSerebriiskaia.jpg" width="140"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/InnaKuperstein.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/NicolasLeNovere.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/VasundraToure.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/TatianaSerebriiskaia.jpg" width="135"/></td>
     </tr>
 </table>
 <table>
