@@ -30,7 +30,7 @@ In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point fea
 
 ## Tips
 
-* To modify all objects of the same type: go to 'Current Elements' palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
+* To modify all objects of the same type: go to **Current Elements** palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
 
 * To make smooth bend points: **right click on a link > Properties > Bends > Smooth Bends**.
 
