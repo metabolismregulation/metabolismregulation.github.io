@@ -16,6 +16,7 @@ permalink: /team/
     </tr>
 </table>
 <br />
+<!--
 <table>
     <tr>
       <td style="width: 320px;" align="center"><font size="3">European Institute for Systems Biology and Medicine</font></td>
@@ -23,17 +24,18 @@ permalink: /team/
       <td style="width: 320px;" align="center"><font size="3">Luxembourg Centre for Systems Biomedicine</font></td>
     </tr>
 </table>
-
+-->
 <br />
 
 <table>
     <tr>
-      <td style="width: 320px;" align="center" valign="middle"><img src="/images/logos/babraham_logo.jpg" width="140"/></td>
-      <td style="width: 320px;" align="center" valign="middle"><img src="/images/logos/ntnu_logo.jpg" width="240"/></td>
-      <td style="width: 320px;" align="center" valign="middle"><img src="/images/logos/mipt_logo.jpg" width="240"/></td>
+      <td style="width:320px; valign:middle;" align="center"><img src="/images/logos/babraham_logo.jpg" width="140"/></td>
+      <td style="width:320px; valign:middle;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="240"/></td>
+      <td style="width:320px; valign:middle;" align="center"><img src="/images/logos/mipt_logo.jpg" width="240"/></td>
     </tr>
 </table>
 <br />
+<!--
 <table>
     <tr>
       <td style="width: 320px;" align="center"><font size="3">Babraham Institute</font></td>
@@ -41,7 +43,7 @@ permalink: /team/
       <td style="width: 320px;" align="center"><font size="3">Moscow Institute of Physics and Technology</font></td>
     </tr>
 </table>
-
+-->
 <br />
 <br />
 
