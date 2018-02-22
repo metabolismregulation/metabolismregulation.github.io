@@ -18,9 +18,13 @@ permalink: /help/
 
 * To edit a unit of information or a state variable: **right click on the label > Convert to Node**. And then, to transform back to label: **right click on the shape > Convert to Label**
 
-## Process's "bars"
+## Process "ports"
 
-In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were ports of a process so you see two "bars" for each process or a logic operator.
+A process is represented by a square box linked to two connectors, small arcs attached to the centers of opposite sides.
+
+image
+
+In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
 
 ## Complex
 
