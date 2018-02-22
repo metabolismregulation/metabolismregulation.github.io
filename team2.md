@@ -48,7 +48,6 @@ permalink: /team2/
 
 <br />
 
-<div>
 <table>
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/InnaKuperstein.jpg" width="140"/></td>
@@ -65,10 +64,6 @@ permalink: /team2/
       <<td style="width: 220px;" align="center"><font size="3"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
     </tr>
 </table>
-
-<br />
-    
-</div>
 
 
 
