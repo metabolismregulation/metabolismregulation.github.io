@@ -61,7 +61,7 @@ permalink: /team2/
       <td style="width: 220px;" align="center"><font size="3"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
-      <<td style="width: 220px;" align="center"><font size="3"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
     </tr>
 </table>
 
