@@ -51,9 +51,9 @@ permalink: /team/
 
 <table>
     <tr>
-      <td width="320" align="center"><img src="/images/logos/eisbm_logo.jpg" width="140"/></td>
-      <td width="320" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="270"/></td>
-      <td width="320" align="center"><img src="/images/logos/institut_curie_logo.jpg" width="200"/></td>
+      <td width="320" align="center"><img src="/images/logos/eisbm_logo.jpg" width="130"/></td>
+      <td width="320" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="220"/></td>
+      <td width="320" align="center"><img src="/images/logos/institut_curie_logo.jpg" width="150"/></td>
     </tr>
 </table>
 
@@ -63,9 +63,9 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="120"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="230"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="220"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="100"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="200"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="190"/></td>
     </tr>
 </table>
 
