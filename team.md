@@ -39,7 +39,7 @@ permalink: /team/
       <td style="width: 220px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="140"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="140"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="140"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="140"/></td>
     </tr>
 </table>
 <table>
