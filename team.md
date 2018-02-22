@@ -10,9 +10,9 @@ permalink: /team/
 
 <table>
     <tr>
-      <td width="320" align="center"><img src="/images/logos/eisbm_logo.jpg" width="160"/></td>
-      <td width="320" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="290"/></td>
-      <td width="320" align="center"><img src="/images/logos/lcsb_logo.jpg" width="160"/></td>
+      <td width="320" align="center"><img src="/images/logos/eisbm_logo.jpg" width="140"/></td>
+      <td width="320" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="280"/></td>
+      <td width="320" align="center"><img src="/images/logos/lcsb_logo.jpg" width="140"/></td>
     </tr>
 </table>
 
@@ -21,8 +21,8 @@ permalink: /team/
 <table>
     <tr>
       <td style="width:320px;" align="center"><img src="/images/logos/babraham_logo.jpg" width="140"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="240"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="240"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="230"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="220"/></td>
     </tr>
 </table>
 
