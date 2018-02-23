@@ -26,7 +26,7 @@ To join the main discussion forum please follow this link: [metabolism-regulatio
 **Vasundra Touré**, Norwegian University of Science and Technology (NTNU), Trondheim, Norway  
 **Tatiana Serebriiskaia**, Moscow Institute of Physics and Technology (MIPT), Moscow, Russia  
 **Bertrand De Meulder**, EISBM, Lyon, France  
-**Augustin Luna**, Dana-Farber Cancer Institute, Harvard Medical School, USA
+**Augustin Luna**, Dana-Farber Cancer Institute, Harvard Medical School, USA  
 **Charles Auffray**, EISBM, Lyon, France  
 
 
