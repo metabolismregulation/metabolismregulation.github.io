@@ -17,9 +17,9 @@ To join the main discussion forum please follow this link: [metabolism-regulatio
 
 ## Team
 
-Alexander Mazein, EISBM, Lyon, France  
-Irina Balaur, EISBM, Lyon, France  
-Ines Thiele, LCSB, Belval, Luxembourg  
+**Alexander Mazein**, EISBM, Lyon, France  
+**Irina Balaur**, EISBM, Lyon, France  
+**Ines Thiele**, LCSB, Belval, Luxembourg  
 Antonio Fabregat, EMBL-EBI, Hinxton, UK  
 Inna Kuperstein, Institut Curie, Paris, France  
 Nicolas Le Novère, Babraham Institute, Cambridge, UK  
