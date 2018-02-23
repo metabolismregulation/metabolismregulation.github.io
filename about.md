@@ -23,23 +23,10 @@ To join the main discussion forum please follow this link: [metabolism-regulatio
 **Antonio Fabregat**, EMBL-EBI, Hinxton, UK  
 **Inna Kuperstein**, Institut Curie, Paris, France  
 **Nicolas Le Novère**, Babraham Institute, Cambridge, UK  
-**Vasundra Touré**, NTNU, Trondheim, Norway  
-**Tatiana Serebriiskaia**, MIPT, Moscow, Russia  
-**Bertrand De Meulder**, EISBM, Lyon, France  
-**Charles Auffray**, EISBM, Lyon, France  
-
-## Team
-
-**Alexander Mazein**, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
-**Irina Balaur**, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
-**Ines Thiele**, Luxembourg Centre for Systems Biomedicine (LCSB), Belval, Luxembourg  
-**Antonio Fabregat**, EMBL-EBI, Hinxton, United Kingdom  
-**Inna Kuperstein**, Computational Systems Biology of Cancer group, Institut Curie, Paris, France  
-**Nicolas Le Novère**, Babraham Institute, Cambridge, United Kingdom  
 **Vasundra Touré**, Norwegian University of Science and Technology (NTNU), Trondheim, Norway  
 **Tatiana Serebriiskaia**, Moscow Institute of Physics and Technology (MIPT), Moscow, Russia  
-**Bertrand De Meulder**, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
-**Charles Auffray**, European Institut for Systems Biology and Medicine (EISBM), Lyon, France  
-
+**Bertrand De Meulder**, EISBM, Lyon, France  
+**Augustin Luna**, Dana-Farber Cancer Institute, Harvard Medical School, USA
+**Charles Auffray**, EISBM, Lyon, France  
 
 
