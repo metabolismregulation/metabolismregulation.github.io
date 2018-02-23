@@ -19,7 +19,6 @@ To join the project discussion forum please follow this link: [metabolism-regula
 
 **Alexander Mazein**, EISBM, Lyon, France  
 **Irina Balaur**, EISBM, Lyon, France  
-**Ines Thiele**, LCSB, Belval, Luxembourg  
 **Antonio Fabregat**, EMBL-EBI, Hinxton, UK  
 **Inna Kuperstein**, Institut Curie, Paris, France  
 **Nicolas Le Novère**, Babraham Institute, Cambridge, UK  
@@ -27,6 +26,7 @@ To join the project discussion forum please follow this link: [metabolism-regula
 **Tatiana Serebriiskaia**, Moscow Institute of Physics and Technology (MIPT), Moscow, Russia  
 **Bertrand De Meulder**, EISBM, Lyon, France  
 **Augustin Luna**, Dana-Farber Cancer Institute, Harvard Medical School, USA  
+**Ines Thiele**, LCSB, Belval, Luxembourg  
 **Charles Auffray**, EISBM, Lyon, France  
 
 
