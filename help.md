@@ -22,7 +22,9 @@ permalink: /help/
 
 A process is represented by a square box linked to two connectors, small arcs attached to the centers of opposite sides.
 
-&emsp;<img src="/images/yEd/processglyph150.png" alt="Process" style="width:50px;height:50px;">
+&emsp; <img src="/images/yEd/processglyph150.png" alt="Process" style="width:50px;height:50px;">
+
+&emsp; ![process](../images/yEd/processglyph150.png) { width: 30%; }
 
 In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
 
