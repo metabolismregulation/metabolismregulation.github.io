@@ -40,4 +40,8 @@ In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point fea
 
 * To modify font size for all objects: **Ctrl-A** on Windows or **Command-A** on Mac, then edit using **Properties View** on the right-hand side.
 
+## Contact 
+
+With questions or suggestion please [contact us](/about).
+
 
