@@ -11,12 +11,12 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 * <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a>
 * <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a>
 * <a href="/eicosanoids/">Regulation of eicosanoid production</a>
-* Regulation of glycogen metabolism
+* Regulation of glycogen metabolism (in preparation)
 * Regulation of cholesterol metabolism via SREBP
 * Metabolic control of acetyl-CoA production
-* Regulation of nitric oxide production
-* Regulation of eisocanoid metabolism by aspirin
-* Regulation of inositol phosphate metabolism
+* Regulation of nitric oxide production (in preparation)
+* Regulation of eisocanoid metabolism by aspirin (in preparation)
+* Regulation of inositol phosphate metabolism (in preparation)
 
 # Reactome-Recon lists
 
