@@ -30,7 +30,7 @@ In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point fea
 
 * Hold **Shift** and drag for moving a shape inside a complex or a compartment.
 
-* To copy an element which is inside a complex it is better to use right click options. This might not work easily with shortcuts: **Ctrl-C** followed by **Ctrl-V**: for some reason **Ctrl-V** copies the element inside the same complex or compartment. Instead, after **Ctrl-C**, use right click to paste the selected element outside complex or compartment.
+* To copy an element which is inside a complex it is better to use right click options. This might not work easily with the usual shortcuts: for some reason **Ctrl-V** copies the element inside the same complex or compartment. Instead, after **Ctrl-C**, use right click to paste the selected element outside the complex or compartment.
 
 ## Tips
 
