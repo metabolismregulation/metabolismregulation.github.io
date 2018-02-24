@@ -19,9 +19,9 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine (EISBM), Lyon, France</font></td>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine (EISBM), Lyon, France</font></td>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine (EISBM), Lyon, France</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></td>
     </tr>
 </table>
@@ -45,18 +45,22 @@ permalink: /team/
     </tr>
 </table>
 
+<br />
+
 <table>
     <tr>
       <td style="width: 220px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="135"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/InesThiele.jpg" width="135"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"> </td>
     </tr>
 </table>
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine (EISBM), Lyon, France</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine (LCSB), Belval, Luxembourg</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, USA</font></td>
+      <td style="width: 220px;" align="center"><font size="3"> <br /> </font></td>
     </tr>
 </table>
 
