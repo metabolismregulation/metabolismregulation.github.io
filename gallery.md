@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Maps
-permalink: /maps/
+title: Gallery
+permalink: /gallery/
 ---
 
 
