@@ -10,7 +10,7 @@ permalink: /gallery/
 
 <table>
     <tr>
-      <td style="width: 320px;" align="center"><font size="3"><a href="/glycolysis/"><strong>Regulation of <br />glycolysis</strong></a> <br /> <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
+      <td style="width: 320px;" align="center"><font size="3"><a href="/glycolysis/">Regulation of <br />glycolysis</a> <br /> <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.svg" target="_blank">SVG</a> &nbsp;</font></td>
       <td style="width: 320px;" align="center"><font size="3"><a href="/eicosanoids/">Regulation of <br />eicosanoid production</a> <br /> <a href="/downloads/F002-eicosanoids.graphml" target="_blank">GraphML</a> &nbsp;
@@ -23,12 +23,11 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 320px;" align="center"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></td>
+      <td style="width: 320px;" align="center"><a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
       <td style="width: 320px;" align="center"><img src="/images/maps/F002-eicosanoids-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></td>
       <td style="width: 320px;" align="center"><img src="/images/maps/F003-mevalonate-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></td>
     </tr>
 </table>
 
-[GraphML](../downloads/F003-mevalonate.graphml) &nbsp; 
-[PDF](../downloads/F003-mevalonate.pdf) &nbsp; 
-[SVG](../downloads/F003-mevalonate.svg)
+
+<a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png"/></a>
