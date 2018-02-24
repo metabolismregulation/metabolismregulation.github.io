@@ -48,7 +48,7 @@ permalink: /gallery/
 <a href="/downloads/F003-mevalonate.svg" target="_blank">SVG</a> &nbsp;</font>--></td>
     </tr>
 </table>
-<br>
+<br />
 <table>
     <tr>
       <td style="width: 330px;" align="center"><a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 1px solid; width: 240px;"/></a></td>
