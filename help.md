@@ -14,7 +14,7 @@ permalink: /help/
 
 * To transform a shape into a unit of information or a state variable: **right click on the shape > Convert to Label**
 
-* To edit a unit of information or a state variable: **right click on the label > Convert to Node**. And then, to transform back to label: **right click on the shape > Convert to Label**
+* To edit a unit of information or a state variable: **right click on the label > Convert to Node** and then transform back to label.
 
 ## Process "ports"
 
@@ -32,11 +32,11 @@ permalink: /help/
 
 ## Tips
 
-* To modify all objects of the same type: go to **Current Elements** palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
+* To modify all objects of the same type: go to Current Elements palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
 
 * To make smooth bend points: **right click on a link > Properties > Bends > Smooth Bends**.
 
-* To modify font size for all objects: select all objects and edit using **Properties View** on the right-hand side.
+* To modify font size for all objects: select all objects and edit using Properties View on the right-hand side.
 
 ## Contact 
 
