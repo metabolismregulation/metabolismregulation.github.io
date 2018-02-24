@@ -37,7 +37,7 @@ permalink: /gallery/
 <table>
     <tr>
       <td style="width: 320px;" align="center"><img src="/images/maps/F001-glycolysis-cut.png" width="240" border="1"/></td>
-      <td style="width: 320px;" align="center"><img src="/images/maps/F002-eicosanoids-cut.png" style="border: #444444 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></td>
+      <td style="width: 320px;" align="center"><img src="/images/maps/F002-eicosanoids-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></td>
       <td style="width: 320px;" align="center"><img src="/images/maps/F003-mevalonate-cut.png" width="240"/></td>
     </tr>
 </table>
