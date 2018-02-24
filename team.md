@@ -4,7 +4,7 @@ title: Team
 permalink: /team/
 ---
 
-# Team
+# Project team
 
 
 <br />
