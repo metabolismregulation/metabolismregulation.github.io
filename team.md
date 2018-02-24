@@ -58,7 +58,7 @@ permalink: /team/
 <table>
     <tr>
       <td style="width: 220px;" align="center"><font size="3"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine (LCSB), Belval, Luxembourg</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</font></td>
       <td style="width: 220px;" align="center"><font size="3"> <br /> </font></td>
     </tr>
