@@ -10,8 +10,12 @@ The project [team](/team/) is growing and includes participants from many instit
 
 ## Contact
 
-To join the effort please use this email address:<br />
+To join the effort please use this email address:  
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)
+
+Project coordinators:  
+Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)  
+Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)  
 
 ## Discussion list
 
