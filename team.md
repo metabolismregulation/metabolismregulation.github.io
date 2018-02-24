@@ -54,9 +54,9 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></td>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Augustin Luna</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
     </tr>
 </table>
 
