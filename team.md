@@ -45,6 +45,21 @@ permalink: /team/
     </tr>
 </table>
 
+<table>
+    <tr>
+      <td style="width: 220px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/InesThiele.jpg" width="135"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="135"/></td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
+    </tr>
+</table>
+
 # Collaborative network
 
 <br />
