@@ -23,9 +23,9 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 330px;" align="center"><a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 2px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
-      <td style="width: 330px;" align="center"><a href="/eicosanoids/"><img src="/images/maps/F002-eicosanoids-cut.png" style="border: #4182C4 2px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
-      <td style="width: 330px;" align="center"><a href="/mevalonate/"><img src="/images/maps/F003-mevalonate-cut.png" style="border: #4182C4 2px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
+      <td style="width: 330px;" align="center"><a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
+      <td style="width: 330px;" align="center"><a href="/eicosanoids/"><img src="/images/maps/F002-eicosanoids-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
+      <td style="width: 330px;" align="center"><a href="/mevalonate/"><img src="/images/maps/F003-mevalonate-cut.png" style="border: #4182C4 4px; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></a></td>
     </tr>
 </table>
 
