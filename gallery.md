@@ -35,7 +35,7 @@ permalink: /gallery/
 
 <table>
     <tr>
-      <td style="width: 330px;" align="center"><a href="/glycolysis/">Regulation of <br />glycolysis</a> <!--<br /> <font size="2"> 
+      <td style="width: 330px;" align="center"><a href="/glycolysis/">Regulation of <br />glycolysis</a> <br /><!--<br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.svg" target="_blank">SVG</a> &nbsp;</font>--></td>
@@ -48,7 +48,6 @@ permalink: /gallery/
 <a href="/downloads/F003-mevalonate.svg" target="_blank">SVG</a> &nbsp;</font>--></td>
     </tr>
 </table>
-<br />
 <table>
     <tr>
       <td style="width: 330px;" align="center"><a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 1px solid; width: 240px;"/></a></td>
