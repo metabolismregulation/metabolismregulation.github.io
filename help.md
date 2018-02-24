@@ -10,8 +10,6 @@ permalink: /help/
 
 * The SBGN palette can be placed to the top of the palette section: Edit > Manage Palette. Here you can delete unwanted palettes and define in what order palettes will be shown.  
 
-* Making shapes painted over links (this way links will not cross auxiliary units): Preferences > Display > Paint Nodes Over Edges. Still, in case of incoming links, arrowheads might be partly hidden behind an auxiliary unit. Then the coordinates of the port can be modified manually by dragging the port or by typing in new coordinates.
-
 ## Auxiliary units
 
 * To transform a shape into a unit of information or a state variable: **right click on the shape > Convert to Label**
@@ -20,11 +18,11 @@ permalink: /help/
 
 ## Process "ports"
 
-A process is represented by a square box linked to two connectors, small arcs attached to the centers of opposite sides.
+* A process is represented by a square box linked to two connectors, small arcs attached to the centers of opposite sides.
 
-&emsp; <img src="/images/yEd/processglyph150.png" alt="process" style="width:50px;height:50px;">
+&emsp; &emsp; <img src="/images/yEd/processglyph150.png" alt="process" style="width:50px;height:50px;">
 
-In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
+* In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
 
 ## Complex
 
