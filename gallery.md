@@ -17,7 +17,6 @@ permalink: /gallery/
       <td style="width: 320px;" align="center"><font size="3"><a href="/mevalonate/">Regulation of <br />mevalonate biosynthesis</a></font></td>
     </tr>
 </table>
-<br />
 <table>
     <tr>
       <td style="width: 320px;" align="center"><img src="/images/maps/F001-glycolysis-cut.png" style="border: #4182C4 1px outset; width: 240px; display: block; margin-left: auto; margin-right: auto;"/></td>
