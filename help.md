@@ -36,7 +36,7 @@ permalink: /help/
 
 * To make smooth bend points: **right click on a link > Properties > Bends > Smooth Bends**.
 
-* To modify font size for all objects: **Ctrl-A** on Windows or **Command-A** on Mac, then edit using **Properties View** on the right-hand side.
+* To modify font size for all objects: select all objects and edit using **Properties View** on the right-hand side.
 
 ## Contact 
 
