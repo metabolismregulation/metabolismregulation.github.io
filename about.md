@@ -14,9 +14,8 @@ To join the effort please use this email address:<br />
 ## Discussion list
 
 To join the project discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
-<!--
-## Team
-**Alexander Mazein**, EISBM, Lyon, France  
+
+<!--**Alexander Mazein**, EISBM, Lyon, France  
 **Irina Balaur**, EISBM, Lyon, France  
 **Antonio Fabregat**, EMBL-EBI, Hinxton, UK  
 **Inna Kuperstein**, Institut Curie, Paris, France  
