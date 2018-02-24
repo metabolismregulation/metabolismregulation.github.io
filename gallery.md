@@ -29,5 +29,3 @@ permalink: /gallery/
     </tr>
 </table>
 
-
-<a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png"/></a>
