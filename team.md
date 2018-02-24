@@ -64,6 +64,8 @@ permalink: /team/
     </tr>
 </table>
 
+<br />
+
 # Collaborative network
 
 <br />
