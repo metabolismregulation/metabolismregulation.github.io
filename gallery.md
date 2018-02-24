@@ -14,9 +14,9 @@ permalink: /gallery/
 
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><font size="3"><a href="/glycolysis/">Regulation of glycolysis</a></font></td>
-      <td style="width: 220px;" align="center"><font size="3"><a href="/eicosanoids/">Regulation of eicosanoid production</a></font></td>
-      <td style="width: 220px;" align="center"><font size="3"><a href="/mevalonate/">Regulation of mevalonate biosynthesis</a></font></td>
+      <td style="width: 300px;" align="center"><font size="3"><a href="/glycolysis/">Regulation of glycolysis</a></font></td>
+      <td style="width: 300px;" align="center"><font size="3"><a href="/eicosanoids/">Regulation of eicosanoid production</a></font></td>
+      <td style="width: 300px;" align="center"><font size="3"><a href="/mevalonate/">Regulation of mevalonate biosynthesis</a></font></td>
     </tr>
 </table>
 <table>
