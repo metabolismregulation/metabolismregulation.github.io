@@ -10,7 +10,9 @@ permalink: /gallery/
 
 <table>
     <tr>
-      <td style="width: 320px;" align="center"><font size="3"><a href="/glycolysis/">Regulation of <br />glycolysis</a></font></td>
+      <td style="width: 320px;" align="center"><font size="3"><a href="/glycolysis/">Regulation of <br />glycolysis</a> <br /> <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
+<a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
+<a href="/downloads/F001-glycolysis.svg" target="_blank">SVG</a> &nbsp;</font></td>
       <td style="width: 320px;" align="center"><font size="3"><a href="/eicosanoids/">Regulation of <br />eicosanoid production</a></font></td>
       <td style="width: 320px;" align="center"><font size="3"><a href="/mevalonate/">Regulation of <br />mevalonate biosynthesis</a></font></td>
     </tr>
