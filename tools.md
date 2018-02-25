@@ -20,7 +20,7 @@ permalink: /tools/
 
 # SBGN-ED
 
-<a href="www.sbgn-ed.org/" target="_blank">SBGN-ED</a> is an open-source software, a VANTED add-on, which allows creating and editing diagrams in all three SBGN languages: Process Description, Activity Flow and Entity Relationship (Czauderna et al., 2010, <a href="https://doi.org/10.1093/bioinformatics/btq407" target="_blank">doi:/10.1093/bioinformatics/btq407</a>). It offers a validation tool that highlights in red questionable parts if discovered. SBGN-ED is kept uptodate and supports the latest version of the SBGN standard. 
+<a href="www.sbgn-ed.org/" target="_blank">SBGN-ED</a> is an open-source software, a VANTED add-on, which allows creating and editing diagrams in all three SBGN languages: Process Description, Activity Flow and Entity Relationship (Czauderna et al., 2010, <a href="https://doi.org/10.1093/bioinformatics/btq407" target="_blank">doi:/10.1093/bioinformatics/btq407</a>). It offers a validation tool that highlights questionable parts if discovered. SBGN-ED is kept uptodate and supports the latest version of the SBGN standard. 
 
 # CellDesigner
 
