@@ -14,9 +14,13 @@ permalink: /tools/
         
 # Newt Editor
 
-<p><a href="http://newteditor.org/" target="_blank">Newt</a> is a free, web-based, open source viewer and editor for pathways in Systems Biology Graphical Notation.  It is written with a series of libraries and extensions based on <a href="http://js.cytoscape.org/" target="_blank">Cytoscape.js</a>.</p>
+<p><a href="http://newteditor.org/" target="_blank">Newt Editor</a> is a free, web-based, open-source viewer and editor for pathways in Systems Biology Graphical Notation.  It is written with a series of libraries and extensions based on <a href="http://js.cytoscape.org/" target="_blank">Cytoscape.js</a>.</p>
         
 <p>Newt is developed to make it easy to design SBGN diagrams: rich yet minimalistic user-friendly IU; support for developing maps from scratch; automatic layout facilities; full support for complexes, compartments and submaps; state-of-the-art complexity management through hide-show and collapse-expand functionalities; advanced diagramming with grid and alignment support, resizing and styling map objects, and more.</p>
+
+# SBGN-ED
+
+<a href="www.sbgn-ed.org/" target="_blank">SBGN-ED</a>is an open-source software, a VANTED add-on, which allows to create and edit in all three SBGN languages: Process Description, Entity Relationship and Activity Flow (Czauderna et al., 2010, <a href="https://doi.org/10.1093/bioinformatics/btq407" target="_blank">doi:/10.1093/bioinformatics/btq407</a>). SBGN-ED supports the latest version of the SBGN standard. It offers a validation tool that highlights parts that did not pass verification.
 
 # CellDesigner
 
