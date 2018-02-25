@@ -52,6 +52,7 @@ permalink: /team/
       <td style="width: 220px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="130"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="130"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
       <td style="width: 220px;" align="center"> </td>
     </tr>
 </table>
@@ -60,7 +61,7 @@ permalink: /team/
       <td style="width: 220px;" align="center"><font size="3"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</font></td>
       <td style="width: 220px;" align="center"><font size="3"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</font></td>
-      <td style="width: 220px;" align="center"><font size="3"> <br /> </font></td>
+      <td style="width: 220px;" align="center"><font size="3"> <strong>Olga Ivanova</strong><br />VU University Amsterdam, Netherlands </font></td>
     </tr>
 </table>
 
