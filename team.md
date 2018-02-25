@@ -53,7 +53,6 @@ permalink: /team/
       <td style="width: 220px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="130"/></td>
       <td style="width: 220px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
-      <td style="width: 220px;" align="center"> </td>
     </tr>
 </table>
 <table>
