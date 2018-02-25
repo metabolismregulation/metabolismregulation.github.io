@@ -96,7 +96,7 @@ permalink: /team/
     <tr>
       <td style="width:320px;" align="center"><img src="/images/logos/lcsb_logo.jpg" width="120"/></td>
       <td style="width:320px;" align="center"><img src="/images/logos/dfci.jpg" width="180"/></td>
-      <td style="width:320px;" align="center"><img src="/images/logos/vu-logo.jpg" width="180"/></td>
+      <td style="width:320px;" align="center"><img src="/images/logos/vu-logo.jpg" width="240"/></td>
     </tr>
 </table>
 
