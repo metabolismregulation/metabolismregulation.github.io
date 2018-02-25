@@ -12,7 +12,7 @@ Luxembourg,
 the Netherlands, 
 Norway, 
 Russia,
-the United Kingdom, 
+the United Kingdom 
 and 
 the United States.
 
