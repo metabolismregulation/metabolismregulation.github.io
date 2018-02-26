@@ -8,7 +8,8 @@ permalink: /help/
 
 ## Modifying general settings
 
-* The SBGN palette can be placed to the top of the palette section: Edit > Manage Palette. Here you can delete unwanted palettes and define in what order palettes will be shown.  
+* The SBGN palette can be placed to the top of the palette section: <strong>Edit > Manage Palette</strong>. Here you can delete unwanted palettes and define in what order palettes will be shown.  
+* **File > Preferences > Dynamically Adjust Node Size to Label Size**, uncheck the box
 
 ## Auxiliary units
 
