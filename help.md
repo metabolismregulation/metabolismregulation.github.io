@@ -9,7 +9,8 @@ permalink: /help/
 ## Modifying general settings
 
 * The SBGN palette can be placed to the top of the palette section: <strong>Edit > Manage Palette</strong>. Here you can delete unwanted palettes and define in what order palettes will be shown.  
-* **File > Preferences > Dynamically Adjust Node Size to Label Size**. Make sure the box is unchecked.
+* **File > Preferences > Editor > Dynamically Adjust Node Size to Label Size**. Make sure the box is unchecked.
+* To remove group state icon for compartments: **File > Preferences > Display > Group State Icon > Never Show Group State**.
 
 ## Auxiliary units
 
