@@ -34,7 +34,9 @@ permalink: /help/
 
 ## Tips
 
-* To modify all objects of the same type: go to Current Elements palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
+* To transform one object type into another object type, for example to transform *macromolecule* glyph into *nucleic acid feature* glyph: select an object, on the palette choose the desired object, **right click > Apply Type**.
+
+* To edit all objects of the same type: go to Current Elements palette at the bottom of the palette section, select an element, **right click > Select Matching Elements**.
 
 * To make smooth bend points: **right click on a link > Properties > Bends > Smooth Bends**.
 
