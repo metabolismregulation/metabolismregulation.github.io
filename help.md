@@ -44,6 +44,6 @@ permalink: /help/
 
 ## Contact 
 
-With questions or suggestion please [contact us](/about).
+With questions or suggestion please [contact](/about) us.
 
 
