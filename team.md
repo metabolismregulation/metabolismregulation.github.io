@@ -49,10 +49,10 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="130"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="130"/></td>
-      <td style="width: 220px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="120"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/InesThiele.jpg" width="120"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="120"/></td>
+      <td style="width: 220px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="120"/></td>
     </tr>
 </table>
 <table>
