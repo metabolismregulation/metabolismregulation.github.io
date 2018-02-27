@@ -66,6 +66,11 @@ permalink: /team/
 
 <br />
 
+<!--<strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tsukuba, Japan-->
+
+
+
+
 # Collaborative network
 
 <br />
