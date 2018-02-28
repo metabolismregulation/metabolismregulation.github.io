@@ -121,7 +121,7 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width:260px;" align="center"><img src="/images/logos/aist_logo.jpg" width="160"/></td>
+      <td style="width:260px;" align="center"><img src="/images/logos/aist_logo.jpg" width="180"/></td>
     </tr>
 </table>
 
