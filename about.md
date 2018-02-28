@@ -12,8 +12,8 @@ the United Kingdom,
 Luxembourg, 
 Norway, 
 the Netherlands, 
-Russia, 
-the United States 
+the United States, 
+Russia 
 and 
 Japan.
 
