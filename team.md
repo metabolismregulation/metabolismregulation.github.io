@@ -73,7 +73,7 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tsukuba, Japan</font></td>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></td>
     </tr>
 </table>
 
