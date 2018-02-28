@@ -16,7 +16,7 @@ the United Kingdom
 and 
 the United States.
 
-## Contact
+# Contact
 
 To join the effort please use this email address:  
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)
@@ -25,7 +25,7 @@ To join the effort please use this email address:
 Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)  
 Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)  -->
 
-## Discussion list
+# Discussion list
 
 To join the project discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
 
