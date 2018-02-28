@@ -19,13 +19,13 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 16px/1.4 $helvetica;
   color: $darkGray;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 840px;
+  max-width: 800px;
   padding: 0 10px;
   width: 100%;
 }
@@ -33,7 +33,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
-  font-weight: normal;
+  font-weight: bold;
 
   line-height: 1.7;
   margin: 1em 0 15px;
@@ -45,22 +45,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 24px;
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 24px;
-}
-
-h3 {
   font-size: 20px;
 }
 
-h4 {
+h3 {
   font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
   color: $gray;
 }
 
@@ -163,22 +163,9 @@ img {
   }
 }
 
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
 
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
 
-  img {
-    border-radius: 5px;
-  }
-}
+
 
 .site-info {
   float: left;
@@ -281,27 +268,6 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
-}
-
-div.parent{ 
-    display:table;
-    padding:5px; 
-    margin:5px 0; /* you can change/remove margin */
-}
-div.text{ 
-    vertical-align:middle;
-    display:table-cell;
-    text-align:justify;
-    font-size:14px;
-}
-div.parent .img{
-    vertical-align:middle;
-    display:table-cell;
-    padding-right:5px;
-}
-div.img img{ 
-    width:100px;
-    vertical-align:middle;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
