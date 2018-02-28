@@ -8,13 +8,14 @@ The project was initiated by the European Institute for Systems Biology and Medi
 
 The [project team](/team/) includes participants from research groups in many countries including 
 France, 
+the United Kingdom, 
 Luxembourg, 
-the Netherlands, 
 Norway, 
-Russia,
-the United Kingdom 
+the Netherlands, 
+Russia, 
+the United States 
 and 
-the United States.
+Japan.
 
 # Contact
 
