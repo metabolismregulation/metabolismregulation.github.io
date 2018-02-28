@@ -6,6 +6,8 @@ permalink: /help/
 
 # How to draw SBGN diagrams in yEd
 
+This is a collection of tips prepared for overcomming known difficulties in drawing SBGN diagrams in yEd Graph Editor. This page is not meant as an introduction to drawing in yEd in general. For lerning about yEd please review tutorials at yEd website and YouTube videos on the topic. Here we only offer a quick help for the use of the new yEd SBGN palette.
+
 ## Modifying general settings
 
 * The SBGN palette can be placed to the top of the palette section: <strong>Edit > Manage Palette</strong>. Here you can delete unwanted palettes and define in what order palettes will be shown.  
