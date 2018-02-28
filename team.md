@@ -119,4 +119,11 @@ permalink: /team/
 
 <br />
 
+<table>
+    <tr>
+      <td style="width:320px;" align="center"><img src="/images/logos/aist_logo.jpg" width="120"/></td>
+    </tr>
+</table>
+
+<br />
 
