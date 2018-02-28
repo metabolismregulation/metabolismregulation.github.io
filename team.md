@@ -66,7 +66,19 @@ permalink: /team/
 
 <br />
 
-<!--<strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tsukuba, Japan-->
+<table>
+    <tr>
+      <td style="width: 220px;" align="center"><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 220px;" align="center"><font size="3"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tsukuba, Japan</font></td>
+    </tr>
+</table>
+
+<br />
+
 
 
 
