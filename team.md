@@ -57,10 +57,10 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><font size="2"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
-      <td style="width: 200px;" align="center"><font size="2"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</font></td>
-      <td style="width: 200px;" align="center"><font size="2"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</font></td>
-      <td style="width: 200px;" align="center"><font size="2"> <strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands </font></td>
+      <td style="width: 200px;" align="center"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 200px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
+      <td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>
+      <td style="width: 200px;" align="center"><strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands</td>
     </tr>
 </table>
 
