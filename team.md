@@ -123,7 +123,7 @@ permalink: /team/
     <tr>
       <td style="width:260px;" align="center"><img src="/images/logos/usc_logo.jpg" width="240"/></td>
       <td style="width:260px;" align="center"><img src="/images/logos/konstanz_logo.jpg" width="220"/></td>
-      <td style="width:260px;" align="center"><img src="/images/logos/aist_logo.jpg" width="170"/></td>
+      <td style="width:260px;" align="center"><img src="/images/logos/aist_logo.jpg" width="180"/></td>
     </tr>
 </table>
 
