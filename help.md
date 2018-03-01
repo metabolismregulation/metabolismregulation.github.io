@@ -26,7 +26,7 @@ In SBGN a process is represented by a square box linked to two connectors, small
 
 &emsp; <img src="/images/yEd/processglyph150.png" alt="process" style="width:50px;height:50px;">  
 
-There is no dedicated support fo such "ports" in yEd at the moment. The small archs have to be created by making bend points on the links. There is the snap-to-bend-point feature in yEd. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
+There is no dedicated support for such "ports" in yEd at the moment. The small archs have to be created by making bend points on the links. There is the snap-to-bend-point feature in yEd. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
 
 ## Complex and compartment
 
