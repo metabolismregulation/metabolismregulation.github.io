@@ -112,7 +112,7 @@ permalink: /team/
 <table>
     <tr>
       <td style="width:260px;" align="center"><img src="/images/logos/usc_logo.jpg" width="250"/></td>
-      <td style="width:260px;" align="center"><img src="/images/logos/dfci.jpg" width="180"/></td>
+      <td style="width:260px;" align="center"><img src="/images/logos/dfci.jpg" width="170"/></td>
       <td style="width:260px;" align="center"><img src="/images/logos/vu_logo.jpg" width="220"/></td>
     </tr>
 </table>
