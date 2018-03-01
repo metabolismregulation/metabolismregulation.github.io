@@ -16,25 +16,25 @@ This is a collection of tips prepared for overcomming known difficulties in draw
 
 ## Auxiliary units
 
-* To transform a shape into a unit of information or a state variable: **right click on the shape > Convert to Label**
+* To transform a shape into a unit of information or a state variable: **right click on the shape > Convert to Label**. If created properly, the auxiliary unite will move when the "host" shape is moved.
 
 * To edit a unit of information or a state variable: **right click on the label > Convert to Node** and then transform back to label.
 
 ## Process "ports"
 
-* A process is represented by a square box linked to two connectors, small arcs attached to the centers of opposite sides.
+In SBGN a process is represented by a square box linked to two connectors, small arcs attached to the centers of opposite sides.  
 
-&emsp; &emsp; &emsp; <img src="/images/yEd/processglyph150.png" alt="process" style="width:50px;height:50px;">
+&emsp; <img src="/images/yEd/processglyph150.png" alt="process" style="width:50px;height:50px;">  
 
-* In addition to snap-to-guideline feature of yEd, there is snap-to-bend-point feature. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
+There is no dedicated support fo such "ports" in yEd at the moment. The small archs have to be created by making bend points on the links. There is the snap-to-bend-point feature in yEd. This feature is to be used to co-position bend points as if they were "ports" of a process so you see two small arcs for each process or a logic operator.
 
-## Complex
+## Complex and compartment
 
-* Hold **Shift** and drag for moving a shape inside a complex or a compartment.
+* Hold **Shift** and drag for moving a shape inside a complex or a compartment. When an element belongs to a complex or compartment, it will move when the complex/compartment is moved.
 
 * To copy an element which is inside a complex it is better to use right click options. This might not work easily with the usual shortcuts: for some reason **Ctrl-V** copies the element inside the same complex or compartment. Instead, after **Ctrl-C**, use right click to paste the selected element outside the complex or compartment.
 
-## Tips
+## Other tips
 
 * To transform one object type into another object type, for example to transform *macromolecule* glyph into *nucleic acid feature* glyph: select an object, on the palette choose the desired object, **right click > Apply Type**.
 
