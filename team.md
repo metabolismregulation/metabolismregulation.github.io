@@ -19,10 +19,10 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</font></td>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></td>
+      <td style="width: 200px;" align="center"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 200px;" align="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 200px;" align="center"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 200px;" align="center"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</td>
     </tr>
 </table>
 
@@ -38,10 +38,10 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></td>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</font></td>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></td>
-      <td style="width: 220px;" align="center"><font size="3"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
+      <td style="width: 200px;" align="center"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</td>
+      <td style="width: 200px;" align="center"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</td>
+      <td style="width: 200px;" align="center"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</td>
+      <td style="width: 220px;" align="center"><strong>Tatiana Serebriiskaia</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</td>
     </tr>
 </table>
 
