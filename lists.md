@@ -8,15 +8,15 @@ permalink: /lists/
 
 This list includes the developed diagrams and suggested topics. Some initial information for suggested topics is provided in this [online document](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing) accessible for collaborative editing.
 
-1 <a href="/glycolysis/">Regulation of glycolysis via PFKFB (being extended)</a>
-1 <a href="/mevalonate/">Regulation of mevalonate biosynthesis (to be extended)</a>
-1 <a href="/eicosanoids/">Regulation of eicosanoid production (to be extended)</a>
-1 Regulation of glycogen metabolism (in preparation)
-1 Regulation of cholesterol metabolism via SREBP
-1 Metabolic control of acetyl-CoA production
-1 Regulation of nitric oxide production (in preparation)
-1 Regulation of eisocanoid metabolism by aspirin (in preparation)
-1 Regulation of inositol phosphate metabolism (in preparation)
+1. <a href="/glycolysis/">Regulation of glycolysis via PFKFB (being extended)</a>
+1. <a href="/mevalonate/">Regulation of mevalonate biosynthesis (to be extended)</a>
+1. <a href="/eicosanoids/">Regulation of eicosanoid production (to be extended)</a>
+1. Regulation of glycogen metabolism (in preparation)
+1. Regulation of cholesterol metabolism via SREBP
+1. Metabolic control of acetyl-CoA production
+1. Regulation of nitric oxide production (in preparation)
+1. Regulation of eisocanoid metabolism by aspirin (in preparation)
+1. Regulation of inositol phosphate metabolism (in preparation)
 
 # Reactome-Recon lists
 
