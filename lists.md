@@ -17,6 +17,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. Regulation of nitric oxide production (in preparation)
 1. Regulation of eisocanoid metabolism by aspirin (in preparation)
 1. Regulation of inositol phosphate metabolism (in preparation)
+1. <a href="/cAMP/">Regulation of cAMP hydrolysis (to be extended)</a>
 1. <a href="/malonylCoA/">Regulation of malonyl-CoA production (to be extended)</a>
 
 # Reactome-Recon lists
