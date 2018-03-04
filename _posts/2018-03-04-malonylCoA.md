@@ -1,6 +1,5 @@
-
 ---
-layout: post  
+layout: post
 title: Regulation of malonyl-CoA production
 ---
 
