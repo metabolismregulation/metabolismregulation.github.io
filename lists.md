@@ -18,8 +18,8 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. Regulation of eisocanoid metabolism by aspirin (in preparation)
 1. Regulation of inositol phosphate metabolism (in preparation)
 1. <a href="/cAMP/">Regulation of cAMP hydrolysis (in preparation)</a>
-1. <a href="/malonylCoA/">Regulation of malonyl-CoA production (in preparation)</a>
-1. <a href="/tag/">Regulation of triacylglycerol metabolism (in preparation)</a>
+1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis (in preparation)</a>
+1. <a href="/tag/">Regulation of triacylglycerol hydrolysis (in preparation)</a>
 
 # Reactome-Recon lists
 
