@@ -36,7 +36,7 @@ There is no dedicated support for such "ports" in yEd at the moment. The small a
 
 ## Cardinality
 
-To add cardinality: **right click on the link > Properties > Label tab**. Following settings should be used:  
+To add cardinality to a link: **right click > Properties > Label tab**. Following settings should be used:  
 
 Background: #ffffff  
 Border: #000000  
