@@ -34,6 +34,19 @@ There is no dedicated support for such "ports" in yEd at the moment. The small a
 
 * To copy an element which is inside a complex it is better to use right click options. This might not work easily with the usual shortcuts: for some reason **Ctrl-V** copies the element inside the same complex or compartment. Instead, after **Ctrl-C**, use right click to paste the selected element outside the complex or compartment.
 
+## Cardinality
+
+To add cardinality: **right click on the link > Properties > Label tab**. Following settings should be used:  
+
+Background: #ffffff  
+Border: #000000  
+Model: Side Slider  
+Position: Dynamic  
+Along Edge: Centered  
+Side of Edge: On Edge  
+Orientation: Parallel  
+Auto-Rotate with Edge: check  
+
 ## Other tips
 
 * To transform one object type into another object type, for example to transform *macromolecule* glyph into *nucleic acid feature* glyph: select an object, on the palette choose the desired object, **right click > Apply Type**.
