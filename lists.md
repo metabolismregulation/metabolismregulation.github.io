@@ -14,8 +14,8 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. Regulation of glycogen metabolism (in preparation)
 1. Regulation of cholesterol metabolism via SREBP (in preparation)
 1. Metabolic control of acetyl-CoA production (in preparation)
-1. <a href="/inos/">Regulation of nitric oxide production: iNOS pathway</a>
-1. Regulation of nitric oxide production: eNOS pathway
+1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway</a>
+1. Regulation of nitric oxide production - eNOS pathway
 1. Regulation of eisocanoid metabolism by aspirin (in preparation)
 1. Regulation of inositol phosphate metabolism (in preparation)
 1. <a href="/cAMP/">Regulation of cAMP hydrolysis (in preparation)</a>
