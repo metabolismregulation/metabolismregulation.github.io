@@ -27,3 +27,7 @@ Downloads: &nbsp;
 ## Contributors
 
 Alexander Mazein, Olga Ivanova  
+
+## References
+
+1. MetaCore Pathway Maps: http://pathwaymaps.com/maps/930/
