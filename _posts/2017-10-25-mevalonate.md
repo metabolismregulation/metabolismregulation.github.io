@@ -13,3 +13,7 @@ Downloads: &nbsp;
 ## Contributors
 
 Alexander Mazein
+
+## References
+
+1. Figshare: Pappa et al., 2012, Regulation of HMGCR in the mevalonte pathway, https://figshare.com/articles/Regulation_of_HMGCR_in_the_mevalonte_pathway/105160
