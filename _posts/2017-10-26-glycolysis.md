@@ -5,7 +5,7 @@ title: Regulation of glycolysis
 
 Downloads: &nbsp; 
 [GraphML](../downloads/F001-glycolysis-alt.graphml) &nbsp;
-<p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="450"/></a></p>
+<p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="500"/></a></p>
 
 <br />
 
