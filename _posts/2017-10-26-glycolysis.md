@@ -24,6 +24,6 @@ Downloads: &nbsp;
 <p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="620"/></a></p>
 
 
-Contributors:  
-Alexander Mazein  
-Olga Ivanova  
+## Contributors
+
+Alexander Mazein, Olga Ivanova  
