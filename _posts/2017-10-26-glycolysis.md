@@ -15,6 +15,16 @@ Downloads: &nbsp;
 <a href="/glycolysis/"><img id="logo" src="/images/figure01v04.png" style="width:90%;"/></a>-->
 <p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis.png" width="620"/></a></p>
 
+<br />
+<br />
+
+Alternative view: simplified representation of PKA activation  
+
+Downloads: &nbsp; 
+[GraphML](../downloads/F001-glycolysis-alt.graphml) &nbsp;
+<p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="620"/></a></p>
+
+
 Contributors:  
 Alexander Mazein  
 Olga Ivanova  
