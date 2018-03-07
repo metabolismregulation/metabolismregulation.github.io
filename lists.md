@@ -21,6 +21,8 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/cAMP/">Regulation of cAMP hydrolysis (in preparation)</a>
 1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis (in preparation)</a>
 1. <a href="/tag/">Regulation of triacylglycerol hydrolysis (in preparation)</a>
+1. PKA activation (versions, important for many metabolism regulation pathways)
+1. AMPK activation (versions, important for many metabolism regulation pathways)
 
 # Reactome-Recon lists
 
