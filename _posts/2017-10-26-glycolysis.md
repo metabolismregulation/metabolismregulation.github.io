@@ -16,9 +16,8 @@ Downloads: &nbsp;
 <p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis.png" width="620"/></a></p>
 
 <br />
-<br />
 
-Alternative view: simplified representation of PKA activation  
+# Regulation of glycolysis: simplified representation of PKA activation  
 
 Downloads: &nbsp; 
 [GraphML](../downloads/F001-glycolysis-alt.graphml) &nbsp;
