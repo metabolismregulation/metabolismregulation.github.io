@@ -51,7 +51,6 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 [P56937](http://www.uniprot.org/uniprot/P56937) | HSD17B7
 [P15104](http://www.uniprot.org/uniprot/P15104) | GLUL
 [P20933](http://www.uniprot.org/uniprot/P20933) | AGA
-[Entry](http://www.uniprot.org/uniprot/Entry) | Gene names  (primary )
 [Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8
 [P16442](http://www.uniprot.org/uniprot/P16442) | ABO
 [P20813](http://www.uniprot.org/uniprot/P20813) | CYP2B6
@@ -299,4 +298,6 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 [P08237](http://www.uniprot.org/uniprot/P08237) | PFKM
 [Q01813](http://www.uniprot.org/uniprot/Q01813) | PFKP
 [P08236](http://www.uniprot.org/uniprot/P08236) | GUSB
+
+
 
