@@ -12,7 +12,7 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 <br />
 
 **UniProt ID** | **HGNC Symbol**
-:---:|:---:
+:---:|:---
 [Q5FWF5](http://www.uniprot.org/uniprot/Q5FWF5) | ESCO1
 [P19174](http://www.uniprot.org/uniprot/P19174) | PLCG1
 [P13866](http://www.uniprot.org/uniprot/P13866) | SLC5A1
