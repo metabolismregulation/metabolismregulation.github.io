@@ -12,7 +12,6 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 <br />
 
 **UniProt ID**  
-:---:
 [P13866](http://www.uniprot.org/uniprot/P13866)
 [Q04760](http://www.uniprot.org/uniprot/Q04760)
 [O75390](http://www.uniprot.org/uniprot/O75390)
