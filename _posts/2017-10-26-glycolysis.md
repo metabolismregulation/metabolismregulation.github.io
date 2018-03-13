@@ -30,3 +30,4 @@ Alexander Mazein, Olga Ivanova
 ## References
 
 1. MetaCore Pathway Maps: http://pathwaymaps.com/maps/930/
+1. Reactome Pathways: https://reactome.org/PathwayBrowser/#/R-HSA-163685&SEL=R-HSA-163359&PATH=R-HSA-1430728
