@@ -11,203 +11,292 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 
 <br />
 
-**UniProt ID** |
-:---|
-[P13866](http://www.uniprot.org/uniprot/P13866) | 
-[Q04760](http://www.uniprot.org/uniprot/Q04760) | 
-[O75390](http://www.uniprot.org/uniprot/O75390) | 
-[P36871](http://www.uniprot.org/uniprot/P36871) | 
-[Q99808](http://www.uniprot.org/uniprot/Q99808) | 
-[P08842](http://www.uniprot.org/uniprot/P08842) | 
-[P24752](http://www.uniprot.org/uniprot/P24752) | 
-[Q16875](http://www.uniprot.org/uniprot/Q16875) | 
-[P28330](http://www.uniprot.org/uniprot/P28330) | 
-[Q16878](http://www.uniprot.org/uniprot/Q16878) | 
-[Q8TF71](http://www.uniprot.org/uniprot/Q8TF71) | 
-[Q00266](http://www.uniprot.org/uniprot/Q00266) | 
-[Q16760](http://www.uniprot.org/uniprot/Q16760) | 
-[Q8TD20](http://www.uniprot.org/uniprot/Q8TD20) | 
-[P15907](http://www.uniprot.org/uniprot/P15907) | 
-[Q9Y2I7](http://www.uniprot.org/uniprot/Q9Y2I7) | 
-[P56937](http://www.uniprot.org/uniprot/P56937) | 
-[P15104](http://www.uniprot.org/uniprot/P15104) | 
-[P20933](http://www.uniprot.org/uniprot/P20933) | 
-[P16442](http://www.uniprot.org/uniprot/P16442) | 
-[P20813](http://www.uniprot.org/uniprot/P20813) | 
-[Q9BXS9](http://www.uniprot.org/uniprot/Q9BXS9) | 
-[Q14117](http://www.uniprot.org/uniprot/Q14117) | 
-[P07738](http://www.uniprot.org/uniprot/P07738) | 
-[Q13822](http://www.uniprot.org/uniprot/Q13822) | 
-[Q86Y38](http://www.uniprot.org/uniprot/Q86Y38) | 
-[O75356](http://www.uniprot.org/uniprot/O75356) | 
-[Q9Y5P4](http://www.uniprot.org/uniprot/Q9Y5P4) | 
-[Q969I6](http://www.uniprot.org/uniprot/Q969I6) | 
-[P00439](http://www.uniprot.org/uniprot/P00439) | 
-[Q9NPF2](http://www.uniprot.org/uniprot/Q9NPF2) | 
-[P02730](http://www.uniprot.org/uniprot/P02730) | 
-[P43004](http://www.uniprot.org/uniprot/P43004) | 
-[P43005](http://www.uniprot.org/uniprot/P43005) | 
-[Q6AI14](http://www.uniprot.org/uniprot/Q6AI14) | 
-[O75106](http://www.uniprot.org/uniprot/O75106) | 
-[Q9Y223](http://www.uniprot.org/uniprot/Q9Y223) | 
-[Q9UGH3](http://www.uniprot.org/uniprot/Q9UGH3) | 
-[P40926](http://www.uniprot.org/uniprot/P40926) | 
-[P15848](http://www.uniprot.org/uniprot/P15848) | 
-[P40925](http://www.uniprot.org/uniprot/P40925) | 
-[Q5MY95](http://www.uniprot.org/uniprot/Q5MY95) | 
-[Q96HN2](http://www.uniprot.org/uniprot/Q96HN2) | 
-[Q9BW71](http://www.uniprot.org/uniprot/Q9BW71) | 
-[P09172](http://www.uniprot.org/uniprot/P09172) | 
-[Q9NZ20](http://www.uniprot.org/uniprot/Q9NZ20) | 
-[P21964](http://www.uniprot.org/uniprot/P21964) | 
-[P27708](http://www.uniprot.org/uniprot/P27708) | 
-[P27707](http://www.uniprot.org/uniprot/P27707) | 
-[P04040](http://www.uniprot.org/uniprot/P04040) | 
-[P48764](http://www.uniprot.org/uniprot/P48764) | 
-[P40126](http://www.uniprot.org/uniprot/P40126) | 
-[P34913](http://www.uniprot.org/uniprot/P34913) | 
-[P31645](http://www.uniprot.org/uniprot/P31645) | 
-[Q8TDX6](http://www.uniprot.org/uniprot/Q8TDX6) | 
-[Q9Y233](http://www.uniprot.org/uniprot/Q9Y233) | 
-[Q9BW66](http://www.uniprot.org/uniprot/Q9BW66) | 
-[P31641](http://www.uniprot.org/uniprot/P31641) | 
-[O60658](http://www.uniprot.org/uniprot/O60658) | 
-[Q7LGA3](http://www.uniprot.org/uniprot/Q7LGA3) | 
-[Q9NQR9](http://www.uniprot.org/uniprot/Q9NQR9) | 
-[Q8N370](http://www.uniprot.org/uniprot/Q8N370) | 
-[P41440](http://www.uniprot.org/uniprot/P41440) | 
-[P35573](http://www.uniprot.org/uniprot/P35573) | 
-[P00338](http://www.uniprot.org/uniprot/P00338) | 
-[P04054](http://www.uniprot.org/uniprot/P04054) | 
-[P07202](http://www.uniprot.org/uniprot/P07202) | 
-[P07203](http://www.uniprot.org/uniprot/P07203) | 
-[Q15111](http://www.uniprot.org/uniprot/Q15111) | 
-[Q9NRD8](http://www.uniprot.org/uniprot/Q9NRD8) | 
-[Q9NRD9](http://www.uniprot.org/uniprot/Q9NRD9) | 
-[P49961](http://www.uniprot.org/uniprot/P49961) | 
-[P14618](http://www.uniprot.org/uniprot/P14618) | 
-[Q13614](http://www.uniprot.org/uniprot/Q13614) | 
-[Q9Y5K3](http://www.uniprot.org/uniprot/Q9Y5K3) | 
-[Q9UEF7](http://www.uniprot.org/uniprot/Q9UEF7) | 
-[P49281](http://www.uniprot.org/uniprot/P49281) | 
-[P10253](http://www.uniprot.org/uniprot/P10253) | 
-[Q7L266](http://www.uniprot.org/uniprot/Q7L266) | 
-[Q9P0L2](http://www.uniprot.org/uniprot/Q9P0L2) | 
-[P51688](http://www.uniprot.org/uniprot/P51688) | 
-[Q8WVQ1](http://www.uniprot.org/uniprot/Q8WVQ1) | 
-[P00367](http://www.uniprot.org/uniprot/P00367) | 
-[P22352](http://www.uniprot.org/uniprot/P22352) | 
-[Q11201](http://www.uniprot.org/uniprot/Q11201) | 
-[P55017](http://www.uniprot.org/uniprot/P55017) | 
-[P00480](http://www.uniprot.org/uniprot/P00480) | 
-[Q11203](http://www.uniprot.org/uniprot/Q11203) | 
-[O95822](http://www.uniprot.org/uniprot/O95822) | 
-[P11117](http://www.uniprot.org/uniprot/P11117) | 
-[Q96RN1](http://www.uniprot.org/uniprot/Q96RN1) | 
-[P18669](http://www.uniprot.org/uniprot/P18669) | 
-[P09960](http://www.uniprot.org/uniprot/P09960) | 
-[P27815](http://www.uniprot.org/uniprot/P27815) | 
-[Q8WWR8](http://www.uniprot.org/uniprot/Q8WWR8) | 
-[P00352](http://www.uniprot.org/uniprot/P00352) | 
-[P04035](http://www.uniprot.org/uniprot/P04035) | 
-[P48735](http://www.uniprot.org/uniprot/P48735) | 
-[Q9NUD9](http://www.uniprot.org/uniprot/Q9NUD9) | 
-[O15121](http://www.uniprot.org/uniprot/O15121) | 
-[P14679](http://www.uniprot.org/uniprot/P14679) | 
-[P50897](http://www.uniprot.org/uniprot/P50897) | 
-[O95395](http://www.uniprot.org/uniprot/O95395) | 
-[P11168](http://www.uniprot.org/uniprot/P11168) | 
-[Q9Y4C5](http://www.uniprot.org/uniprot/Q9Y4C5) | 
-[O60721](http://www.uniprot.org/uniprot/O60721) | 
-[P08684](http://www.uniprot.org/uniprot/P08684) | 
-[P17707](http://www.uniprot.org/uniprot/P17707) | 
-[O15357](http://www.uniprot.org/uniprot/O15357) | 
-[P29803](http://www.uniprot.org/uniprot/P29803) | 
-[P48448](http://www.uniprot.org/uniprot/P48448) | 
-[Q9UHW9](http://www.uniprot.org/uniprot/Q9UHW9) | 
-[Q9BTU6](http://www.uniprot.org/uniprot/Q9BTU6) | 
-[P31327](http://www.uniprot.org/uniprot/P31327) | 
-[P48200](http://www.uniprot.org/uniprot/P48200) | 
-[P04406](http://www.uniprot.org/uniprot/P04406) | 
-[P12268](http://www.uniprot.org/uniprot/P12268) | 
-[Q9H310](http://www.uniprot.org/uniprot/Q9H310) | 
-[O76074](http://www.uniprot.org/uniprot/O76074) | 
-[Q9UG56](http://www.uniprot.org/uniprot/Q9UG56) | 
-[P05186](http://www.uniprot.org/uniprot/P05186) | 
-[O15245](http://www.uniprot.org/uniprot/O15245) | 
-[P28845](http://www.uniprot.org/uniprot/P28845) | 
-[O94766](http://www.uniprot.org/uniprot/O94766) | 
-[P35475](http://www.uniprot.org/uniprot/P35475) | 
-[O60825](http://www.uniprot.org/uniprot/O60825) | 
-[P14410](http://www.uniprot.org/uniprot/P14410) | 
-[P00966](http://www.uniprot.org/uniprot/P00966) | 
-[P04183](http://www.uniprot.org/uniprot/P04183) | 
-[P07451](http://www.uniprot.org/uniprot/P07451) | 
-[Q9UBM1](http://www.uniprot.org/uniprot/Q9UBM1) | 
-[P53396](http://www.uniprot.org/uniprot/P53396) | 
-[O75874](http://www.uniprot.org/uniprot/O75874) | 
-[P19440](http://www.uniprot.org/uniprot/P19440) | 
-[P10620](http://www.uniprot.org/uniprot/P10620) | 
-[Q9UHI7](http://www.uniprot.org/uniprot/Q9UHI7) | 
-[O43820](http://www.uniprot.org/uniprot/O43820) | 
-[Q08499](http://www.uniprot.org/uniprot/Q08499) | 
-[P41222](http://www.uniprot.org/uniprot/P41222) | 
-[Q9UP95](http://www.uniprot.org/uniprot/Q9UP95) | 
-[Q96PN6](http://www.uniprot.org/uniprot/Q96PN6) | 
-[Q8N159](http://www.uniprot.org/uniprot/Q8N159) | 
-[P33316](http://www.uniprot.org/uniprot/P33316) | 
-[O00748](http://www.uniprot.org/uniprot/O00748) | 
-[Q8WY07](http://www.uniprot.org/uniprot/Q8WY07) | 
-[P49585](http://www.uniprot.org/uniprot/P49585) | 
-[P30041](http://www.uniprot.org/uniprot/P30041) | 
-[P36269](http://www.uniprot.org/uniprot/P36269) | 
-[Q9BYC5](http://www.uniprot.org/uniprot/Q9BYC5) | 
-[O95992](http://www.uniprot.org/uniprot/O95992) | 
-[P19801](http://www.uniprot.org/uniprot/P19801) | 
-[B0YJ81](http://www.uniprot.org/uniprot/B0YJ81) | 
-[P05093](http://www.uniprot.org/uniprot/P05093) | 
-[O60243](http://www.uniprot.org/uniprot/O60243) | 
-[Q96A70](http://www.uniprot.org/uniprot/Q96A70) | 
-[Q9H1B5](http://www.uniprot.org/uniprot/Q9H1B5) | 
-[P43353](http://www.uniprot.org/uniprot/P43353) | 
-[P22413](http://www.uniprot.org/uniprot/P22413) | 
-[P06744](http://www.uniprot.org/uniprot/P06744) | 
-[Q16836](http://www.uniprot.org/uniprot/Q16836) | 
-[Q13564](http://www.uniprot.org/uniprot/Q13564) | 
-[Q9GZV3](http://www.uniprot.org/uniprot/Q9GZV3) | 
-[Q9P2W7](http://www.uniprot.org/uniprot/Q9P2W7) | 
-[P11413](http://www.uniprot.org/uniprot/P11413) | 
-[Q86XP1](http://www.uniprot.org/uniprot/Q86XP1) | 
-[O00754](http://www.uniprot.org/uniprot/O00754) | 
-[P17643](http://www.uniprot.org/uniprot/P17643) | 
-[Q02127](http://www.uniprot.org/uniprot/Q02127) | 
-[P49448](http://www.uniprot.org/uniprot/P49448) | 
-[P40879](http://www.uniprot.org/uniprot/P40879) | 
-[Q6UVY6](http://www.uniprot.org/uniprot/Q6UVY6) | 
-[P22304](http://www.uniprot.org/uniprot/P22304) | 
-[Q13574](http://www.uniprot.org/uniprot/Q13574) | 
-[Q9NUB1](http://www.uniprot.org/uniprot/Q9NUB1) | 
-[O43451](http://www.uniprot.org/uniprot/O43451) | 
-[Q16842](http://www.uniprot.org/uniprot/Q16842) | 
-[O14494](http://www.uniprot.org/uniprot/O14494) | 
-[Q96QE2](http://www.uniprot.org/uniprot/Q96QE2) | 
-[Q9UNP4](http://www.uniprot.org/uniprot/Q9UNP4) | 
-[P15309](http://www.uniprot.org/uniprot/P15309) | 
-[O14495](http://www.uniprot.org/uniprot/O14495) | 
-[P51841](http://www.uniprot.org/uniprot/P51841) | 
-[Q9UBY0](http://www.uniprot.org/uniprot/Q9UBY0) | 
-[P39877](http://www.uniprot.org/uniprot/P39877) | 
-[Q96QD8](http://www.uniprot.org/uniprot/Q96QD8) | 
-[P04424](http://www.uniprot.org/uniprot/P04424) | 
-[Q16853](http://www.uniprot.org/uniprot/Q16853) | 
-[Q16613](http://www.uniprot.org/uniprot/Q16613) | 
-[P11511](http://www.uniprot.org/uniprot/P11511) | 
-[P52824](http://www.uniprot.org/uniprot/P52824) | 
-[Q9UKK9](http://www.uniprot.org/uniprot/Q9UKK9) | 
-[P42357](http://www.uniprot.org/uniprot/P42357) | 
-[O14939](http://www.uniprot.org/uniprot/O14939) | 
-[P17858](http://www.uniprot.org/uniprot/P17858) | 
-[P22760](http://www.uniprot.org/uniprot/P22760) | 
-[P08237](http://www.uniprot.org/uniprot/P08237) | 
-[Q01813](http://www.uniprot.org/uniprot/Q01813) | 
-[P08236](http://www.uniprot.org/uniprot/P08236) | 
+**UniProt ID** | **HGNC Symbol**
+:---:|:---:
+[Q5FWF5](http://www.uniprot.org/uniprot/Q5FWF5) | ESCO1
+[P19174](http://www.uniprot.org/uniprot/P19174) | PLCG1
+[P13866](http://www.uniprot.org/uniprot/P13866) | SLC5A1
+[Q5VV43](http://www.uniprot.org/uniprot/Q5VV43) | KIAA0319
+[Q04760](http://www.uniprot.org/uniprot/Q04760) | GLO1
+[Q9Y4K0](http://www.uniprot.org/uniprot/Q9Y4K0) | LOXL2
+[O75390](http://www.uniprot.org/uniprot/O75390) | CS
+[P36871](http://www.uniprot.org/uniprot/P36871) | PGM1
+[Q99808](http://www.uniprot.org/uniprot/Q99808) | SLC29A1
+[P08842](http://www.uniprot.org/uniprot/P08842) | STS
+[P24752](http://www.uniprot.org/uniprot/P24752) | ACAT1
+[P32019](http://www.uniprot.org/uniprot/P32019) | INPP5B
+[Q8TC12](http://www.uniprot.org/uniprot/Q8TC12) | RDH11
+[Q16875](http://www.uniprot.org/uniprot/Q16875) | PFKFB3
+[P28330](http://www.uniprot.org/uniprot/P28330) | ACADL
+[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM
+[Q9UBC3](http://www.uniprot.org/uniprot/Q9UBC3) | DNMT3B
+[Q16878](http://www.uniprot.org/uniprot/Q16878) | CDO1
+[Q8TF71](http://www.uniprot.org/uniprot/Q8TF71) | SLC16A10
+[P11216](http://www.uniprot.org/uniprot/P11216) | PYGB
+[P54868](http://www.uniprot.org/uniprot/P54868) | HMGCS2
+[O75251](http://www.uniprot.org/uniprot/O75251) | NDUFS7
+[Q9BYF1](http://www.uniprot.org/uniprot/Q9BYF1) | ACE2
+[Q00266](http://www.uniprot.org/uniprot/Q00266) | MAT1A
+[O60331](http://www.uniprot.org/uniprot/O60331) | PIP5K1C
+[Q9NY59](http://www.uniprot.org/uniprot/Q9NY59) | SMPD3
+[P47985](http://www.uniprot.org/uniprot/P47985) | UQCRFS1
+[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR
+[P47989](http://www.uniprot.org/uniprot/P47989) | XDH
+[Q16881](http://www.uniprot.org/uniprot/Q16881) | TXNRD1
+[Q16760](http://www.uniprot.org/uniprot/Q16760) | DGKD
+[Q8TD20](http://www.uniprot.org/uniprot/Q8TD20) | SLC2A12
+[Q92835](http://www.uniprot.org/uniprot/Q92835) | INPP5D
+[P15907](http://www.uniprot.org/uniprot/P15907) | ST6GAL1
+[Q9Y2I7](http://www.uniprot.org/uniprot/Q9Y2I7) | PIKFYVE
+[P56937](http://www.uniprot.org/uniprot/P56937) | HSD17B7
+[P15104](http://www.uniprot.org/uniprot/P15104) | GLUL
+[P20933](http://www.uniprot.org/uniprot/P20933) | AGA
+[Entry](http://www.uniprot.org/uniprot/Entry) | Gene names  (primary )
+[Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8
+[P16442](http://www.uniprot.org/uniprot/P16442) | ABO
+[P20813](http://www.uniprot.org/uniprot/P20813) | CYP2B6
+[P31040](http://www.uniprot.org/uniprot/P31040) | SDHA
+[P26358](http://www.uniprot.org/uniprot/P26358) | DNMT1
+[Q9BXS9](http://www.uniprot.org/uniprot/Q9BXS9) | SLC26A6
+[P00441](http://www.uniprot.org/uniprot/P00441) | SOD1
+[Q14117](http://www.uniprot.org/uniprot/Q14117) | DPYS
+[Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) | ANAPC11
+[P32119](http://www.uniprot.org/uniprot/P32119) | PRDX2
+[P09917](http://www.uniprot.org/uniprot/P09917) | ALOX5
+[P07738](http://www.uniprot.org/uniprot/P07738) | BPGM
+[Q13822](http://www.uniprot.org/uniprot/Q13822) | ENPP2
+[Q86Y38](http://www.uniprot.org/uniprot/Q86Y38) | XYLT1
+[O43306](http://www.uniprot.org/uniprot/O43306) | ADCY6
+[O75356](http://www.uniprot.org/uniprot/O75356) | ENTPD5
+[Q9Y5P4](http://www.uniprot.org/uniprot/Q9Y5P4) | COL4A3BP
+[Q969I6](http://www.uniprot.org/uniprot/Q969I6) | SLC38A4
+[P11310](http://www.uniprot.org/uniprot/P11310) | ACADM
+[P00439](http://www.uniprot.org/uniprot/P00439) | PAH
+[Q9NPF2](http://www.uniprot.org/uniprot/Q9NPF2) | CHST11
+[P02730](http://www.uniprot.org/uniprot/P02730) | SLC4A1
+[P43004](http://www.uniprot.org/uniprot/P43004) | SLC1A2
+[P43005](http://www.uniprot.org/uniprot/P43005) | SLC1A1
+[P11926](http://www.uniprot.org/uniprot/P11926) | ODC1
+[Q6AI14](http://www.uniprot.org/uniprot/Q6AI14) | SLC9A4
+[O95477](http://www.uniprot.org/uniprot/O95477) | ABCA1
+[O75106](http://www.uniprot.org/uniprot/O75106) | AOC2
+[Q9Y223](http://www.uniprot.org/uniprot/Q9Y223) | GNE
+[Q9UGH3](http://www.uniprot.org/uniprot/Q9UGH3) | SLC23A2
+[P40926](http://www.uniprot.org/uniprot/P40926) | MDH2
+[P15848](http://www.uniprot.org/uniprot/P15848) | ARSB
+[P40925](http://www.uniprot.org/uniprot/P40925) | MDH1
+[P25092](http://www.uniprot.org/uniprot/P25092) | GUCY2C
+[Q5MY95](http://www.uniprot.org/uniprot/Q5MY95) | ENTPD8
+[Q96HN2](http://www.uniprot.org/uniprot/Q96HN2) | AHCYL2
+[Q9BW71](http://www.uniprot.org/uniprot/Q9BW71) | HIRIP3
+[Q9Y6K1](http://www.uniprot.org/uniprot/Q9Y6K1) | DNMT3A
+[P09172](http://www.uniprot.org/uniprot/P09172) | DBH
+[Q9NZ20](http://www.uniprot.org/uniprot/Q9NZ20) | PLA2G3
+[P21964](http://www.uniprot.org/uniprot/P21964) | COMT
+[Q96RQ3](http://www.uniprot.org/uniprot/Q96RQ3) | MCCC1
+[P27708](http://www.uniprot.org/uniprot/P27708) | CAD
+[P27707](http://www.uniprot.org/uniprot/P27707) | DCK
+[P04040](http://www.uniprot.org/uniprot/P04040) | CAT
+[P15291](http://www.uniprot.org/uniprot/P15291) | B4GALT1
+[Q16795](http://www.uniprot.org/uniprot/Q16795) | NDUFA9
+[P48764](http://www.uniprot.org/uniprot/P48764) | SLC9A3
+[Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2
+[Q16790](http://www.uniprot.org/uniprot/Q16790) | CA9
+[P40126](http://www.uniprot.org/uniprot/P40126) | DCT
+[P34913](http://www.uniprot.org/uniprot/P34913) | EPHX2
+[P31645](http://www.uniprot.org/uniprot/P31645) | SLC6A4
+[Q8TDX6](http://www.uniprot.org/uniprot/Q8TDX6) | CSGALNACT1
+[Q9Y233](http://www.uniprot.org/uniprot/Q9Y233) | PDE10A
+[Q9BW66](http://www.uniprot.org/uniprot/Q9BW66) | CINP
+[Q9NQR1](http://www.uniprot.org/uniprot/Q9NQR1) | KMT5A
+[O75452](http://www.uniprot.org/uniprot/O75452) | RDH16
+[P31641](http://www.uniprot.org/uniprot/P31641) | SLC6A6
+[O60658](http://www.uniprot.org/uniprot/O60658) | PDE8A
+[P11498](http://www.uniprot.org/uniprot/P11498) | PC
+[Q7LGA3](http://www.uniprot.org/uniprot/Q7LGA3) | HS2ST1
+[Q9NQR9](http://www.uniprot.org/uniprot/Q9NQR9) | G6PC2
+[Q8N370](http://www.uniprot.org/uniprot/Q8N370) | SLC43A2
+[P41440](http://www.uniprot.org/uniprot/P41440) | SLC19A1
+[P35573](http://www.uniprot.org/uniprot/P35573) | AGL
+[P00338](http://www.uniprot.org/uniprot/P00338) | LDHA
+[P04054](http://www.uniprot.org/uniprot/P04054) | PLA2G1B
+[P07686](http://www.uniprot.org/uniprot/P07686) | HEXB
+[P07202](http://www.uniprot.org/uniprot/P07202) | TPO
+[P07203](http://www.uniprot.org/uniprot/P07203) | GPX1
+[P04179](http://www.uniprot.org/uniprot/P04179) | SOD2
+[Q15111](http://www.uniprot.org/uniprot/Q15111) | PLCL1
+[P09622](http://www.uniprot.org/uniprot/P09622) | DLD
+[Q9NRD8](http://www.uniprot.org/uniprot/Q9NRD8) | DUOX2
+[Q9NRD9](http://www.uniprot.org/uniprot/Q9NRD9) | DUOX1
+[P49961](http://www.uniprot.org/uniprot/P49961) | ENTPD1
+[P14618](http://www.uniprot.org/uniprot/P14618) | PKM
+[Q13614](http://www.uniprot.org/uniprot/Q13614) | MTMR2
+[Q9Y5K3](http://www.uniprot.org/uniprot/Q9Y5K3) | PCYT1B
+[Q9UEF7](http://www.uniprot.org/uniprot/Q9UEF7) | KL
+[P49281](http://www.uniprot.org/uniprot/P49281) | SLC11A2
+[P10253](http://www.uniprot.org/uniprot/P10253) | GAA
+[P35558](http://www.uniprot.org/uniprot/P35558) | PCK1
+[Q7L266](http://www.uniprot.org/uniprot/Q7L266) | ASRGL1
+[Q9P0L2](http://www.uniprot.org/uniprot/Q9P0L2) | MARK1
+[P19634](http://www.uniprot.org/uniprot/P19634) | SLC9A1
+[P51688](http://www.uniprot.org/uniprot/P51688) | SGSH
+[Q8WVQ1](http://www.uniprot.org/uniprot/Q8WVQ1) | CANT1
+[Q96KQ7](http://www.uniprot.org/uniprot/Q96KQ7) | EHMT2
+[P00367](http://www.uniprot.org/uniprot/P00367) | GLUD1
+[P22352](http://www.uniprot.org/uniprot/P22352) | GPX3
+[Q11201](http://www.uniprot.org/uniprot/Q11201) | ST3GAL1
+[P55017](http://www.uniprot.org/uniprot/P55017) | SLC12A3
+[P00480](http://www.uniprot.org/uniprot/P00480) | OTC
+[Q11203](http://www.uniprot.org/uniprot/Q11203) | ST3GAL3
+[O95822](http://www.uniprot.org/uniprot/O95822) | MLYCD
+[P78356](http://www.uniprot.org/uniprot/P78356) | PIP4K2B
+[P11117](http://www.uniprot.org/uniprot/P11117) | ACP2
+[O43865](http://www.uniprot.org/uniprot/O43865) | AHCYL1
+[P15289](http://www.uniprot.org/uniprot/P15289) | ARSA
+[Q96RN1](http://www.uniprot.org/uniprot/Q96RN1) | SLC26A8
+[P18669](http://www.uniprot.org/uniprot/P18669) | PGAM1
+[P08195](http://www.uniprot.org/uniprot/P08195) | SLC3A2
+[P09960](http://www.uniprot.org/uniprot/P09960) | LTA4H
+[O14773](http://www.uniprot.org/uniprot/O14773) | TPP1
+[P27815](http://www.uniprot.org/uniprot/P27815) | PDE4A
+[Q8WWR8](http://www.uniprot.org/uniprot/Q8WWR8) | NEU4
+[P0DMM9](http://www.uniprot.org/uniprot/P0DMM9) | SULT1A3
+[P00352](http://www.uniprot.org/uniprot/P00352) | ALDH1A1
+[P04035](http://www.uniprot.org/uniprot/P04035) | HMGCR
+[P25874](http://www.uniprot.org/uniprot/P25874) | UCP1
+[P48735](http://www.uniprot.org/uniprot/P48735) | IDH2
+[P08559](http://www.uniprot.org/uniprot/P08559) | PDHA1
+[Q9NUD9](http://www.uniprot.org/uniprot/Q9NUD9) | PIGV
+[O15121](http://www.uniprot.org/uniprot/O15121) | DEGS1
+[P14679](http://www.uniprot.org/uniprot/P14679) | TYR
+[Q03393](http://www.uniprot.org/uniprot/Q03393) | PTS
+[P50897](http://www.uniprot.org/uniprot/P50897) | PPT1
+[O95395](http://www.uniprot.org/uniprot/O95395) | GCNT3
+[P11168](http://www.uniprot.org/uniprot/P11168) | SLC2A2
+[Q9Y4C5](http://www.uniprot.org/uniprot/Q9Y4C5) | CHST2
+[Q05329](http://www.uniprot.org/uniprot/Q05329) | GAD2
+[O60721](http://www.uniprot.org/uniprot/O60721) | SLC24A1
+[P16066](http://www.uniprot.org/uniprot/P16066) | NPR1
+[P08684](http://www.uniprot.org/uniprot/P08684) | CYP3A4
+[P17707](http://www.uniprot.org/uniprot/P17707) | AMD1
+[O15357](http://www.uniprot.org/uniprot/O15357) | INPPL1
+[P29803](http://www.uniprot.org/uniprot/P29803) | PDHA2
+[P48448](http://www.uniprot.org/uniprot/P48448) | ALDH3B2
+[Q9UHW9](http://www.uniprot.org/uniprot/Q9UHW9) | SLC12A6
+[Q9BTU6](http://www.uniprot.org/uniprot/Q9BTU6) | PI4K2A
+[P31327](http://www.uniprot.org/uniprot/P31327) | CPS1
+[P48200](http://www.uniprot.org/uniprot/P48200) | IREB2
+[P04406](http://www.uniprot.org/uniprot/P04406) | GAPDH
+[P12268](http://www.uniprot.org/uniprot/P12268) | IMPDH2
+[Q9H310](http://www.uniprot.org/uniprot/Q9H310) | RHBG
+[O76074](http://www.uniprot.org/uniprot/O76074) | PDE5A
+[Q08828](http://www.uniprot.org/uniprot/Q08828) | ADCY1
+[P08574](http://www.uniprot.org/uniprot/P08574) | CYC1
+[Q9UG56](http://www.uniprot.org/uniprot/Q9UG56) | PISD
+[P05186](http://www.uniprot.org/uniprot/P05186) | ALPL
+[O15245](http://www.uniprot.org/uniprot/O15245) | SLC22A1
+[P28845](http://www.uniprot.org/uniprot/P28845) | HSD11B1
+[P29474](http://www.uniprot.org/uniprot/P29474) | NOS3
+[O94766](http://www.uniprot.org/uniprot/O94766) | B3GAT3
+[Q06520](http://www.uniprot.org/uniprot/Q06520) | SULT2A1
+[P35354](http://www.uniprot.org/uniprot/P35354) | PTGS2
+[P35475](http://www.uniprot.org/uniprot/P35475) | IDUA
+[O60825](http://www.uniprot.org/uniprot/O60825) | PFKFB2
+[O95299](http://www.uniprot.org/uniprot/O95299) | NDUFA10
+[O00443](http://www.uniprot.org/uniprot/O00443) | PIK3C2A
+[P14410](http://www.uniprot.org/uniprot/P14410) | SI
+[P04180](http://www.uniprot.org/uniprot/P04180) | LCAT
+[P00966](http://www.uniprot.org/uniprot/P00966) | ASS1
+[O60266](http://www.uniprot.org/uniprot/O60266) | ADCY3
+[P04183](http://www.uniprot.org/uniprot/P04183) | TK1
+[P07451](http://www.uniprot.org/uniprot/P07451) | CA3
+[Q9UBM1](http://www.uniprot.org/uniprot/Q9UBM1) | PEMT
+[O95622](http://www.uniprot.org/uniprot/O95622) | ADCY5
+[P53396](http://www.uniprot.org/uniprot/P53396) | ACLY
+[O75874](http://www.uniprot.org/uniprot/O75874) | IDH1
+[P19440](http://www.uniprot.org/uniprot/P19440) | GGT1
+[P10620](http://www.uniprot.org/uniprot/P10620) | MGST1
+[Q9UHI7](http://www.uniprot.org/uniprot/Q9UHI7) | SLC23A1
+[O43820](http://www.uniprot.org/uniprot/O43820) | HYAL3
+[Q08499](http://www.uniprot.org/uniprot/Q08499) | PDE4D
+[P14672](http://www.uniprot.org/uniprot/P14672) | SLC2A4
+[P41222](http://www.uniprot.org/uniprot/P41222) | PTGDS
+[Q9UP95](http://www.uniprot.org/uniprot/Q9UP95) | SLC12A4
+[P49748](http://www.uniprot.org/uniprot/P49748) | ACADVL
+[Q96PN6](http://www.uniprot.org/uniprot/Q96PN6) | ADCY10
+[Q8N159](http://www.uniprot.org/uniprot/Q8N159) | NAGS
+[P33316](http://www.uniprot.org/uniprot/P33316) | DUT
+[P06737](http://www.uniprot.org/uniprot/P06737) | PYGL
+[P06858](http://www.uniprot.org/uniprot/P06858) | LPL
+[O00748](http://www.uniprot.org/uniprot/O00748) | CES2
+[Q8WY07](http://www.uniprot.org/uniprot/Q8WY07) | SLC7A3
+[P49585](http://www.uniprot.org/uniprot/P49585) | PCYT1A
+[P30041](http://www.uniprot.org/uniprot/P30041) | PRDX6
+[P36269](http://www.uniprot.org/uniprot/P36269) | GGT5
+[Q9BYC5](http://www.uniprot.org/uniprot/Q9BYC5) | FUT8
+[P15328](http://www.uniprot.org/uniprot/P15328) | FOLR1
+[O95992](http://www.uniprot.org/uniprot/O95992) | CH25H
+[P30048](http://www.uniprot.org/uniprot/P30048) | PRDX3
+[P19801](http://www.uniprot.org/uniprot/P19801) | AOC1
+[B0YJ81](http://www.uniprot.org/uniprot/B0YJ81) | HACD1
+[P05093](http://www.uniprot.org/uniprot/P05093) | CYP17A1
+[O60243](http://www.uniprot.org/uniprot/O60243) | HS6ST1
+[P20594](http://www.uniprot.org/uniprot/P20594) | NPR2
+[Q96A70](http://www.uniprot.org/uniprot/Q96A70) | AZIN2
+[Q9H1B5](http://www.uniprot.org/uniprot/Q9H1B5) | XYLT2
+[P43353](http://www.uniprot.org/uniprot/P43353) | ALDH3B1
+[P22413](http://www.uniprot.org/uniprot/P22413) | ENPP1
+[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A
+[P06744](http://www.uniprot.org/uniprot/P06744) | GPI
+[P06865](http://www.uniprot.org/uniprot/P06865) | HEXA
+[Q16836](http://www.uniprot.org/uniprot/Q16836) | HADH
+[Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) | ELOVL6
+[Q13564](http://www.uniprot.org/uniprot/Q13564) | NAE1
+[Q9GZV3](http://www.uniprot.org/uniprot/Q9GZV3) | SLC5A7
+[O75610](http://www.uniprot.org/uniprot/O75610) | LEFTY1
+[Q9P2W7](http://www.uniprot.org/uniprot/Q9P2W7) | B3GAT1
+[P17516](http://www.uniprot.org/uniprot/P17516) | AKR1C4
+[P11413](http://www.uniprot.org/uniprot/P11413) | G6PD
+[Q86XP1](http://www.uniprot.org/uniprot/Q86XP1) | DGKH
+[O00754](http://www.uniprot.org/uniprot/O00754) | MAN2B1
+[P17643](http://www.uniprot.org/uniprot/P17643) | TYRP1
+[Q02127](http://www.uniprot.org/uniprot/Q02127) | DHODH
+[P49448](http://www.uniprot.org/uniprot/P49448) | GLUD2
+[P40879](http://www.uniprot.org/uniprot/P40879) | SLC26A3
+[Q6UVY6](http://www.uniprot.org/uniprot/Q6UVY6) | MOXD1
+[P22304](http://www.uniprot.org/uniprot/P22304) | IDS
+[Q13574](http://www.uniprot.org/uniprot/Q13574) | DGKZ
+[Q9NUB1](http://www.uniprot.org/uniprot/Q9NUB1) | ACSS1
+[O43451](http://www.uniprot.org/uniprot/O43451) | MGAM
+[Q16842](http://www.uniprot.org/uniprot/Q16842) | ST3GAL2
+[O14494](http://www.uniprot.org/uniprot/O14494) | PLPP1
+[Q96QE2](http://www.uniprot.org/uniprot/Q96QE2) | SLC2A13
+[Q9UNP4](http://www.uniprot.org/uniprot/Q9UNP4) | ST3GAL5
+[P15309](http://www.uniprot.org/uniprot/P15309) | ACPP
+[O14495](http://www.uniprot.org/uniprot/O14495) | PLPP3
+[P31350](http://www.uniprot.org/uniprot/P31350) | RRM2
+[O00763](http://www.uniprot.org/uniprot/O00763) | ACACB
+[P51841](http://www.uniprot.org/uniprot/P51841) | GUCY2F
+[Q9UBY0](http://www.uniprot.org/uniprot/Q9UBY0) | SLC9A2
+[P39877](http://www.uniprot.org/uniprot/P39877) | PLA2G5
+[O43463](http://www.uniprot.org/uniprot/O43463) | SUV39H1
+[Q96QD8](http://www.uniprot.org/uniprot/Q96QD8) | SLC38A2
+[P04424](http://www.uniprot.org/uniprot/P04424) | ASL
+[P51970](http://www.uniprot.org/uniprot/P51970) | NDUFA8
+[Q16853](http://www.uniprot.org/uniprot/Q16853) | AOC3
+[Q16613](http://www.uniprot.org/uniprot/Q16613) | AANAT
+[Q06830](http://www.uniprot.org/uniprot/Q06830) | PRDX1
+[P11511](http://www.uniprot.org/uniprot/P11511) | CYP19A1
+[P52824](http://www.uniprot.org/uniprot/P52824) | DGKQ
+[Q9UKK9](http://www.uniprot.org/uniprot/Q9UKK9) | NUDT5
+[P16885](http://www.uniprot.org/uniprot/P16885) | PLCG2
+[P42357](http://www.uniprot.org/uniprot/P42357) | HAL
+[P21439](http://www.uniprot.org/uniprot/P21439) | ABCB4
+[P35270](http://www.uniprot.org/uniprot/P35270) | SPR
+[O14939](http://www.uniprot.org/uniprot/O14939) | PLD2
+[P17858](http://www.uniprot.org/uniprot/P17858) | PFKL
+[P22760](http://www.uniprot.org/uniprot/P22760) | AADAC
+[P08237](http://www.uniprot.org/uniprot/P08237) | PFKM
+[Q01813](http://www.uniprot.org/uniprot/Q01813) | PFKP
+[P08236](http://www.uniprot.org/uniprot/P08236) | GUSB
+
