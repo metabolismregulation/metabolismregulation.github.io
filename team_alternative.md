@@ -11,18 +11,18 @@ permalink: /team_alternative/
 
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
+      <td style="width: 200px;"><img src="/images/team/IrinaBalaur.jpg" width="160"/></td>
+      <td style="width: 200px;"><img src="/images/team/AlexanderMazein.jpg" width="160"/></td>
+      <td style="width: 200px;"><img src="/images/team/CharlesAuffray.jpg" width="160"/></td>
+      <td style="width: 200px;"><img src="/images/team/AntonioFabregat.jpg" width="160"/></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td style="width: 200px;" align="center"><p style="list-style-type:none; line-height:100%;"><strong>Irina Balaur</strong><br /><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;" align="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;" align="center"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;" align="center"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</td>
+        <td style="width: 200px;"><p style="list-style-type:none; line-height:100%;"><strong>Irina Balaur</strong><br /><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width: 200px;"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 200px;"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+      <td style="width: 200px;"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</td>
     </tr>
 </table>
 
