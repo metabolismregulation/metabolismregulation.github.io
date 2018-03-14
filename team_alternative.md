@@ -11,7 +11,7 @@ permalink: /team_alternative/
 
 <table>
     <tr>
-      <td style="width: 200px;"><img src="/images/team/IrinaBalaur.jpg" width="160"/></td>
+      <td style="width: 200px;"><p style="margin:4px;"><img src="/images/team/IrinaBalaur.jpg" width="160"/></p></td>
       <td style="width: 200px;"><img src="/images/team/AlexanderMazein.jpg" width="160"/></td>
       <td style="width: 200px;"><img src="/images/team/CharlesAuffray.jpg" width="160"/></td>
       <td style="width: 200px;"><img src="/images/team/AntonioFabregat.jpg" width="160"/></td>
