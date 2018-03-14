@@ -20,9 +20,9 @@ permalink: /team_alternative/
 <table>
     <tr>
         <td style="width: 200px;"><p style="margin:4px;"><strong>Irina Balaur</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;"><strong>Alexander Mazein</strong><br /><div style="line-height:100%;><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></div></td>
-      <td style="width: 200px;"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Alexander Mazein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Charles Auffray</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Antonio Fabregat</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></p></td>
     </tr>
 </table>
 
