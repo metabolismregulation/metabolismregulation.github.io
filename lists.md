@@ -8,24 +8,24 @@ permalink: /lists/
 
 This list includes the developed diagrams and suggested topics. Some initial information for suggested topics is provided in this [online document](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing) accessible for collaborative editing.
 
-1. <a href="/glycolysis/">Regulation of glycolysis via PFKFB (in preparation)</a>
-1. <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a>
-1. <a href="/eicosanoids/">Regulation of eicosanoid production</a>
-1. Regulation of glycogen metabolism (in preparation)
-1. Regulation of cholesterol metabolism via SREBP (in preparation)
-1. <a href="/acly/">Regulation of acetyl-CoA synthesis</a>
-1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway</a>
-1. Regulation of nitric oxide production - eNOS pathway (in preparation)
-1. Regulation of eisocanoid metabolism by aspirin (in preparation)
-1. Regulation of inositol phosphate metabolism (in preparation)
-1. <a href="/camp/">Regulation of cAMP hydrolysis (in preparation)</a>
-1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis (in preparation)</a>
-1. <a href="/tag/">Regulation of triacylglycerol hydrolysis (in preparation)</a>
+1. <a href="/glycolysis/">Regulation of glycolysis via PFKFB (Alexander Mazein)</a>
+1. <a href="/mevalonate/">Regulation of mevalonate biosynthesis (Alexander Mazein)</a>
+1. <a href="/eicosanoids/">Regulation of eicosanoid production (Alexander Mazein)</a>
+1. Regulation of glycogen metabolism (Tatiana Serebriyskaya)
+1. Regulation of cholesterol metabolism via SREBP (Tatiana Serebriyskaya)
+1. <a href="/acly/">Regulation of acetyl-CoA synthesis (Adrien Rougny)</a>
+1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway (Alexander Mazein)</a>
+1. Regulation of nitric oxide production - eNOS pathway (Olga Ivanova)
+1. Regulation of eisocanoid metabolism by aspirin (Alexander Mazein)
+1. Regulation of inositol phosphate metabolism (Nicolas Le Novère)
+1. <a href="/camp/">Regulation of cAMP hydrolysis (Tatiana Serebriyskaya)</a>
+1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis (Tatiana Serebriyskaya)</a>
+1. <a href="/tag/">Regulation of triacylglycerol hydrolysis (Tatiana Serebriyskaya)</a>
 1. PKA activation (versions, important for many metabolism regulation pathways)
 1. AMPK activation (versions, important for many metabolism regulation pathways)
-1. Regulation of cortisol synthesis via cAMP signalling (in preparation)
-1. Regulation of cortisol synthesis via calcium signalling (in preparation)
-1. Regulation of pyrimidine biosynthesis via MAPK signalling (in preparation)
+1. Regulation of cortisol synthesis via cAMP signalling (Hanna Borlinghaus, Falk Schreiber)
+1. Regulation of cortisol synthesis via calcium signalling (Hanna Borlinghaus, Falk Schreiber)
+1. Regulation of pyrimidine biosynthesis via MAPK signalling (Hanna Borlinghaus, Falk Schreiber)
 
 # Reactome-Recon lists
 
