@@ -71,6 +71,7 @@ permalink: /team/
       <td style="width: 200px;" align="center"><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/HuaiyuMi.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/FalkSchreiber.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></td>
     </tr>
 </table>
 <table>
@@ -78,6 +79,7 @@ permalink: /team/
       <td style="width: 200px;" align="center"><font size="3"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></td>
       <td style="width: 200px;" align="center"><font size="3"><strong>Huaiyu Mi</strong><br />University of Southern California, Keck School of Medicine, Los Angeles, USA</font></td>
       <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
+      <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
     </tr>
 </table>
 
