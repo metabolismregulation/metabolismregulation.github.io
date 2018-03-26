@@ -5,6 +5,8 @@ title: Regulation of glycolysis
 
 Downloads: &nbsp; 
 [GraphML](../downloads/F001-glycolysis-alt.graphml) &nbsp;
+[SBGN-ML](../downloads/F001-glycolysis-alt.sbgn) &nbsp;
+[Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis-alt.sbgn) &nbsp;
 <p align="middle"><a href="/glycolysis/"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="500"/></a></p>
 
 <br />
