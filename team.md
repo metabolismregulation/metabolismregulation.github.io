@@ -85,6 +85,19 @@ permalink: /team/
 
 <br />
 
+<!--<table>
+    <tr>
+      <td style="width: 200px;" align="center"><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 200px;" align="center"><font size="3"><strong>Valeriya Berzhitskaya</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
+    </tr>
+</table> -->
+
+<br />
+
 # Collaborative network
 
 <br />
