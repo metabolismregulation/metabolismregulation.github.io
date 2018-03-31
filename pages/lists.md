@@ -15,7 +15,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. Regulation of cholesterol metabolism via SREBP (Tatiana Serebriyskaya)
 1. <a href="/acly/">Regulation of acetyl-CoA synthesis (Adrien Rougny)</a>
 1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway (Alexander Mazein)</a>
-1. Regulation of nitric oxide production - eNOS pathway (Olga Ivanova)
+1. <a href="/enos/">Regulation of nitric oxide production - eNOS pathway (Olga Ivanova)</a>
 1. Regulation of eisocanoid metabolism by aspirin (Alexander Mazein)
 1. Regulation of inositol phosphate metabolism (Nicolas Le Novère)
 1. <a href="/camp/">Regulation of cAMP hydrolysis (Tatiana Serebriyskaya)</a>
