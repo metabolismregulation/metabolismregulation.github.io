@@ -47,6 +47,8 @@ Side of Edge: On Edge
 Orientation: Parallel  
 Auto-Rotate with Edge: check  
 
+Then move the label manually to the desired position.
+
 ## Other tips
 
 * To transform one object type into another object type, for example to transform *macromolecule* glyph into *nucleic acid feature* glyph: select an object, on the palette choose the desired object, **right click > Apply Type**.
