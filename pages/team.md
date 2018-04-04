@@ -83,6 +83,8 @@ permalink: /team/
     </tr>
 </table>
 
+<br />
+
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
