@@ -49,7 +49,7 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><img src="/images/team/noprofile.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
