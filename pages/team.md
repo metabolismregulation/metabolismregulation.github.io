@@ -41,7 +41,7 @@ permalink: /team/
       <td style="width: 200px;" align="center"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</td>
       <td style="width: 200px;" align="center"><strong>Nicolas Le Novère</strong><br />Babraham Institute, Cambridge, UK</td>
       <td style="width: 200px;" align="center"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</td>
-      <td style="width: 220px;" align="center"><strong>Tatiana Serebriyskaya</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</td>
+      <td style="width: 220px;" align="center"><strong>Tatiana Serebriyskaya</strong><br />Moscow Institute of Physics and Technology, Moscow, Russia</td>
     </tr>
 </table>
 
@@ -57,7 +57,7 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><strong>Valeriya Berzhitskaya</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</td>
+      <td style="width: 200px;" align="center"><strong>Valeriya Berzhitskaya</strong><br />Moscow Institute of Physics and Technology, Moscow, Russia</td>
       <td style="width: 200px;" align="center"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
       <td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>
       <td style="width: 200px;" align="center"><strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands</td>
@@ -102,16 +102,6 @@ permalink: /team/
 
 <br />
 
-<!--<table>
-    <tr>
-      <td style="width: 200px;" align="center"><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></td>
-    </tr>
-</table>
-<table>
-    <tr>
-      <td style="width: 200px;" align="center"><font size="3"><strong>Valeriya Berzhitskaya</strong><br />Moscow Institute of Physics and Technology (MIPT), Moscow, Russia</font></td>
-    </tr>
-</table> -->
 
 <br />
 
