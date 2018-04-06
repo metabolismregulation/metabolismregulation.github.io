@@ -4,10 +4,6 @@ title: Gallery
 permalink: /gallery/
 ---
 
-<!--<a href="/glycolysis/">Regulation of glycolysis</a> | <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a> | <a href="/eicosanoids/">Regulation of eicosanoid production</a> 
----|---|---
-<a href="/glycolysis/"><img src="/images/maps/F001-glycolysis-cut.png"/></a> | <a href="/mevalonate/"><img src="/images/maps/F003-mevalonate-cut.png"/></a> | <a href="/eicosanoids/"><img src="/images/maps/F002-eicosanoids-cut.png"/></a>-->
-
 <table>
     <tr>
       <td style="width: 330px;" align="center"> <a href="/glycolysis/">Regulation of <br />glycolysis</a> <br /> <font size="2"> 
@@ -32,11 +28,10 @@ permalink: /gallery/
     </tr>
 </table>
 
-<br />
 
 <table>
     <tr>
-      <td style="width: 330px;" align="center"> <a href="/glycolysis/">Regulation of <br />glycogen metabolism</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center" valign="bottom"> <a href="/glycolysis/">Regulation of <br />glycogen metabolism</a> <br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
@@ -57,6 +52,7 @@ permalink: /gallery/
       <td style="width: 330px;" align="center"><a href="/mevalonate/"><img src="/images/gallery/F003-mevalonate-cut.png" style="border: #c6c6c6 1px solid; width: 240px;"/></a></td>
     </tr>
 </table>
+
 
 <table>
     <tr>
