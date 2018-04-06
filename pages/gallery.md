@@ -6,15 +6,15 @@ permalink: /gallery/
 
 <table>
     <tr>
-      <td style="width: 330px;" align="center" cellpadding="10"> <a href="/glycolysis/">Regulation of <br />glycolysis</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center" cellpadding="10"> <a href="/glycolysis/">Glycolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 330px;" align="center"> <a href="/eicosanoids/">Regulation of <br />eicosanoid production</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/eicosanoids/">Eicosanoid production</a> <br /> <font size="2"> 
 <a href="/downloads/F002-eicosanoids.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F002-eicosanoids.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 330px;" align="center"> <a href="/mevalonate/">Regulation of <br />mevalonate biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/mevalonate/">Mevalonate biosynthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F003-mevalonate.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F003-mevalonate.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
@@ -33,15 +33,15 @@ permalink: /gallery/
 
 <table>
     <tr valign="bottom">
-      <td style="width: 330px;" align="center"> <a href="/glycogen/"><br /><br />Regulation of <br />glycogen metabolism</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/glycogen/"><br />Glycogen metabolism</a> <br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 330px;" align="center"> <a href="/inos/"><br />Regulation of <br />nitric oxide production<br />iNOS pathway</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/inos/"><br />iNOS pathway</a> <br /> <font size="2"> 
 <a href="/downloads/F002-eicosanoids.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F002-eicosanoids.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 330px;" align="center"> <a href="/enos/"><br />Regulation of <br />nitric oxide production<br />eNOS pathway</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/enos/"><br />eNOS pathway</a> <br /> <font size="2"> 
 <a href="/downloads/F003-mevalonate.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F003-mevalonate.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
@@ -58,15 +58,15 @@ permalink: /gallery/
 
 <table>
     <tr>
-      <td style="width: 330px;" align="center"> <a href="/acly/"><br />Regulation of <br />acetyl-CoA synthesis</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/acly/"><br />Acetyl-CoA synthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 330px;" align="center"> <a href="/camp/"><br />Regulation of <br />cAMP hydrolysis</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/camp/"><br />cAMP hydrolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F002-eicosanoids.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F002-eicosanoids.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 330px;" align="center"> <a href="/carnitine/"><br />Regulation of <br />acyl-carnitine synthesis</a> <br /> <font size="2"> 
+      <td style="width: 330px;" align="center"> <a href="/carnitine/"><br />Acyl-carnitine synthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F003-mevalonate.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F003-mevalonate.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
