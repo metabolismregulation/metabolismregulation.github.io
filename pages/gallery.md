@@ -28,10 +28,12 @@ permalink: /gallery/
     </tr>
 </table>
 
+<tr valign="bottom" style="height: 80px;">
+
 
 <table>
-    <tr>
-      <td style="width: 330px;" align="center" valign="bottom"> <a href="/glycolysis/">Regulation of <br />glycogen metabolism</a> <br /> <font size="2"> 
+    <tr valign="bottom">
+      <td style="width: 330px;" align="center"> <a href="/glycolysis/">Regulation of <br />glycogen metabolism</a> <br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
