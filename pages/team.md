@@ -19,8 +19,8 @@ permalink: /team/
 </table>
 <table>
     <tr>
-        <td style="width: 200px;" align="center"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;" align="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+        <td style="width: 200px;" align="center"><strong>Irina Balaur</strong><br /><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></td>
+      <td style="width: 200px;" align="center"><strong>Alexander Mazein</strong><br /><font size="14px">European Institute for Systems Biology and Medicine, Lyon, France</font></td>
       <td style="width: 200px;" align="center"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
       <td style="width: 200px;" align="center"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</td>
     </tr>
