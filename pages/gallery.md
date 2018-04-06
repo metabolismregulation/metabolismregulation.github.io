@@ -27,10 +27,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
     </tr>
 </table>
 
@@ -57,10 +57,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/empty.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
     </tr>
 </table>
 
