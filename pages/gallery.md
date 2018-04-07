@@ -27,10 +27,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/glycolysis/"><img src="/images/gallery/F001-glycolysis-cut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/eicosanoids/"><img src="/images/gallery/F002-eicosanoids-cut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/mevalonate/"><img src="/images/gallery/F003-mevalonate-cut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycolysis/"><img src="/images/gallery/F001-glycolysis-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/eicosanoids/"><img src="/images/gallery/F002-eicosanoids-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/mevalonate/"><img src="/images/gallery/F003-mevalonate-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
     </tr>
 </table>
 
@@ -57,10 +57,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/acly/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/camp/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/acly/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/camp/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
     </tr>
 </table>
 
@@ -87,10 +87,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/carnitine/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 200px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/carnitine/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-cut.png" style="border: #c6c6c6 1px solid; width: 195px;"/></a></td>
     </tr>
 </table>
 
