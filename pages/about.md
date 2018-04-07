@@ -6,7 +6,7 @@ permalink: /about/
 
 The project was initiated by the European Institute for Systems Biology and Medicine in collaboration with the Reactome Pathway Database, the Virtual Metabolic Human project and the Atlas of Cancer Signalling Networks project.  
 
-The [project team](/team/) includes participants from research groups in many countries including 
+The [project team](/team/) includes participants with expertise in Computational Biology, pathway curation and graphical standards from research groups in 
 France, 
 the United Kingdom, 
 Luxembourg, 
