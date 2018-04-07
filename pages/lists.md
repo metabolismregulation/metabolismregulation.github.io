@@ -11,7 +11,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a> (Alexander Mazein)
 1. <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a> (Alexander Mazein)
 1. <a href="/eicosanoids/">Regulation of eicosanoid production</a> (Alexander Mazein)
-1. Regulation of glycogen metabolism (Tatiana Serebriyskaya, Valeriya Berzhitskaya, Vasundra Touré)
+1. <a href="/glycogen/">Regulation of glycogen metabolism</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya, Vasundra Touré)
 1. Regulation of cholesterol metabolism via SREBP (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/acly/">Regulation of acetyl-CoA synthesis</a> (Adrien Rougny)
 1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway</a> (Alexander Mazein)
