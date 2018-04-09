@@ -1,0 +1,291 @@
+﻿<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<sbgn 
+  xmlns="http://sbgn.org/libsbgn/0.3">
+  <map id="F008-enos_newt.sbgn" language="process description">
+    <extension>
+      <renderInformation 
+        xmlns="http://www.sbml.org/sbml/level3/version1/render/version1" id="renderInformation" programName="sbgnviz" programVersion="4.1.0" backgroundColor="#000000">
+        <listOfColorDefinitions>
+          <colorDefinition id="color_1" value="#ffffff7f"/>
+          <colorDefinition id="color_2" value="#000000"/>
+          <colorDefinition id="color_3" value="#c8d8eb7f"/>
+          <colorDefinition id="color_4" value="#dbebdb7f"/>
+        </listOfColorDefinitions>
+        <listOfStyles>
+          <style id="nodeFFFFFF0.5000000316normalnormalHelvetica" idList="n0 n1">
+            <g fontSize="16" fontFamily="Helvetica" fontWeight="normal" fontStyle="normal" stroke="color_2" strokeWidth="3" fill="color_1"/>
+          </style>
+          <style id="nodeFFFFFF0.5000000114normalnormalHelvetica" idList="n0::n0 n0::n1">
+            <g fontSize="14" fontFamily="Helvetica" fontWeight="normal" fontStyle="normal" stroke="color_2" strokeWidth="1" fill="color_1"/>
+          </style>
+          <style id="nodeC8D8EB0.5000000116normalnormalHelvetica" idList="n0::n0::n0 n0::n0::n2 n0::n0::n3 n0::n0::n4 n0::n1::n0 n0::n1::n1 n0::n1::n2 n0::n1::n3">
+            <g fontSize="16" fontFamily="Helvetica" fontWeight="normal" fontStyle="normal" stroke="color_2" strokeWidth="1" fill="color_3"/>
+          </style>
+          <style id="nodeDBEBDB0.5000000116normalnormalHelvetica" idList="n0::n0::n1 n1::n0 n1::n1 n1::n2 n1::n3 n1::n4 n1::n5 n1::n7 n1::n8">
+            <g fontSize="16" fontFamily="Helvetica" fontWeight="normal" fontStyle="normal" stroke="color_2" strokeWidth="1" fill="color_4"/>
+          </style>
+          <style id="nodeFFFFFF0.5000000114" idList="n0::n2 n1::n6">
+            <g fontSize="14" stroke="color_2" strokeWidth="1" fill="color_1"/>
+          </style>
+          <style id="edge0000001" idList="n0::e0 n0::e1 n1::e0 n1::e1 n1::e2 n1::e3 n1::e4 n1::e5 n1::e6 e0 e1">
+            <g stroke="color_2" strokeWidth="1"/>
+          </style>
+        </listOfStyles>
+      </renderInformation>
+      <mapProperties>
+        <compoundPadding>10</compoundPadding>
+        <extraCompartmentPadding>14</extraCompartmentPadding>
+        <extraComplexPadding>10</extraComplexPadding>
+        <arrowScale>1.25</arrowScale>
+        <showComplexName>true</showComplexName>
+        <dynamicLabelSize>regular</dynamicLabelSize>
+        <inferNestingOnLoad>false</inferNestingOnLoad>
+        <fitLabelsToNodes>false</fitLabelsToNodes>
+        <fitLabelsToInfoboxes>false</fitLabelsToInfoboxes>
+        <recalculateLayoutOnComplexityManagement>true</recalculateLayoutOnComplexityManagement>
+        <rearrangeOnComplexityManagement>true</rearrangeOnComplexityManagement>
+        <animateOnDrawingChanges>true</animateOnDrawingChanges>
+        <adjustNodeLabelFontSizeAutomatically>false</adjustNodeLabelFontSizeAutomatically>
+        <enablePorts>true</enablePorts>
+        <allowCompoundNodeResize>false</allowCompoundNodeResize>
+        <mapColorScheme>black_white</mapColorScheme>
+        <defaultInfoboxHeight>12</defaultInfoboxHeight>
+        <defaultInfoboxWidth>30</defaultInfoboxWidth>
+        <mapName>Pathway #sbgn-network-container-1</mapName>
+        <mapDescription/>
+      </mapProperties>
+    </extension>
+    <glyph id="n0" class="compartment">
+      <label text="PLASMA MEMBRANE"/>
+      <bbox x="276.82935" y="566.3248999999998" w="673.1686500000001" h="127.41735000000017"/>
+    </glyph>
+    <glyph id="n0::n0" class="complex" compartmentRef="n0">
+      <bbox x="635.9998" y="578.75" w="307.4982" h="108.49225000000001"/>
+      <glyph id="n0::n0::n0" class="macromolecule">
+        <label text="CaM"/>
+        <bbox x="751.998" y="645.74225" w="80" h="40"/>
+      </glyph>
+      <glyph id="n0::n0::n1" class="simple chemical">
+        <label text="BH4"/>
+        <bbox x="861.998" y="617.99615" w="80" h="36"/>
+      </glyph>
+      <glyph id="n0::n0::n2" class="macromolecule">
+        <label text="HSP90"/>
+        <bbox x="637.4998" y="645.74225" w="80" h="40"/>
+      </glyph>
+      <glyph id="n0::n0::n3" class="macromolecule">
+        <label text="AKT-1"/>
+        <bbox x="637.4998" y="588.25" w="80" h="40"/>
+        <glyph id="n0::n0::n3_0" class="state variable">
+          <state value="P" variable="S473"/>
+          <bbox x="680.6998000000001" y="580.75" w="48" h="15"/>
+        </glyph>
+        <glyph id="n0::n0::n3_1" class="state variable">
+          <state value="P" variable="T308"/>
+          <bbox x="682.4998" y="622.25" w="30" h="12"/>
+        </glyph>
+      </glyph>
+      <glyph id="n0::n0::n4" class="macromolecule multimer">
+        <label text="2"/>
+        <bbox x="751.998" y="590.25" w="80" h="36"/>
+        <glyph id="n0::n0::n4_0" class="state variable">
+          <state value="Pa" variable="26"/>
+          <bbox x="795.998" y="582.75" w="40" h="15"/>
+        </glyph>
+        <glyph id="n0::n0::n4_1" class="state variable">
+          <state value="My" variable="2"/>
+          <bbox x="796.998" y="620.25" w="30" h="12"/>
+        </glyph>
+        <glyph id="n0::n0::n4_2" class="state variable">
+          <state value="Pa" variable="16"/>
+          <bbox x="824.998" y="620.25" w="30" h="12"/>
+        </glyph>
+        <glyph id="n0::n0::n4_3" class="state variable">
+          <state value="P" variable="S1177"/>
+          <bbox x="852.998" y="620.25" w="30" h="12"/>
+        </glyph>
+        <glyph id="n0::n0::n4_4" class="unit of information">
+          <label text="N:2"/>
+          <bbox x="832.998" y="584.25" w="30" h="12"/>
+        </glyph>
+      </glyph>
+    </glyph>
+    <glyph id="n0::n1" class="complex" compartmentRef="n0">
+      <bbox x="283.32935" y="572.8248999999998" w="203.3775" h="108.49220000000003"/>
+      <glyph id="n0::n1::n0" class="macromolecule">
+        <label text="CaM"/>
+        <bbox x="400.20685" y="639.8171" w="80" h="40"/>
+      </glyph>
+      <glyph id="n0::n1::n1" class="macromolecule">
+        <label text="HSP90"/>
+        <bbox x="284.82935" y="639.8171" w="80" h="40"/>
+      </glyph>
+      <glyph id="n0::n1::n2" class="macromolecule">
+        <label text="AKT-1"/>
+        <bbox x="284.82935" y="582.3249" w="80" h="40"/>
+        <glyph id="n0::n1::n2_0" class="state variable">
+          <state value="P" variable="S473"/>
+          <bbox x="328.02934999999997" y="574.8249" w="48" h="15"/>
+        </glyph>
+        <glyph id="n0::n1::n2_1" class="state variable">
+          <state value="P" variable="T308"/>
+          <bbox x="329.82935" y="616.3249" w="30" h="12"/>
+        </glyph>
+      </glyph>
+      <glyph id="n0::n1::n3" class="macromolecule multimer">
+        <label text="eNOS"/>
+        <bbox x="400.20685" y="584.3249" w="80" h="36"/>
+        <glyph id="n0::n1::n3_0" class="state variable">
+          <state value="Pa" variable="26"/>
+          <bbox x="444.20685" y="576.8249" w="40" h="15"/>
+        </glyph>
+        <glyph id="n0::n1::n3_1" class="state variable">
+          <state value="My" variable="2"/>
+          <bbox x="445.20685" y="614.3249" w="30" h="12"/>
+        </glyph>
+        <glyph id="n0::n1::n3_2" class="state variable">
+          <state value="Pa" variable="16"/>
+          <bbox x="473.20685" y="614.3249" w="30" h="12"/>
+        </glyph>
+        <glyph id="n0::n1::n3_3" class="state variable">
+          <state value="P" variable="S1177"/>
+          <bbox x="501.20685" y="614.3249" w="30" h="12"/>
+        </glyph>
+        <glyph id="n0::n1::n3_4" class="unit of information">
+          <label text="N:2"/>
+          <bbox x="481.20685" y="578.3249" w="30" h="12"/>
+        </glyph>
+      </glyph>
+    </glyph>
+    <glyph id="n0::n2" class="process" compartmentRef="n0">
+      <bbox x="563.372" y="621" w="18" h="18"/>
+    </glyph>
+    <glyph id="n1" class="compartment">
+      <label text="CYTOSOL"/>
+      <bbox x="507.00348000000014" y="751.9006300000001" w="489.98901999999987" h="307.6250000000001"/>
+    </glyph>
+    <glyph id="n1::n0" class="simple chemical" compartmentRef="n1">
+      <label text="O2"/>
+      <bbox x="668.5035" y="904.86053" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n1" class="simple chemical" compartmentRef="n1">
+      <label text="NADPH"/>
+      <bbox x="668.5035" y="805.1908" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n2" class="simple chemical" compartmentRef="n1">
+      <label text="L-arginine"/>
+      <bbox x="588.5035" y="855.36053" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n3" class="simple chemical" compartmentRef="n1">
+      <label text="L-citrulline"/>
+      <bbox x="835.4925" y="904.86053" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n4" class="simple chemical" compartmentRef="n1">
+      <label text="NO"/>
+      <bbox x="915.4925" y="851.27563" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n5" class="simple chemical" compartmentRef="n1">
+      <label text="NADP+"/>
+      <bbox x="835.4925" y="805.1908" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n6" class="process" compartmentRef="n1">
+      <bbox x="782.998" y="864.36053" w="18" h="18"/>
+    </glyph>
+    <glyph id="n1::n7" class="simple chemical" compartmentRef="n1">
+      <label text="ADMA"/>
+      <bbox x="751.998" y="1022.0256300000001" w="80" h="36"/>
+    </glyph>
+    <glyph id="n1::n8" class="simple chemical" compartmentRef="n1">
+      <label text="BH4"/>
+      <bbox x="508.5034800000001" y="753.40063" w="80" h="36"/>
+    </glyph>
+    <arc id="n0::e0" class="consumption" source="n0::n1" target="n0::n2">
+      <glyph id="n0::e0_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="492.20685000000003" y="628.7467369275472"/>
+      <end x="562.872" y="629.8514816078022"/>
+    </arc>
+    <arc id="n0::e1" class="production" source="n0::n2" target="n0::n0">
+      <glyph id="n0::e1_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="581.872" y="630.1309393385405"/>
+      <end x="628.0000374330738" y="630.7667261500839"/>
+    </arc>
+    <arc id="n1::e0" class="consumption" source="n1::n6" target="n1::n0">
+      <glyph id="n1::e0_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="782.498" y="878.9926375040872"/>
+      <end x="733.7532925428287" y="907.8911040992518"/>
+    </arc>
+    <arc id="n1::e1" class="consumption" source="n1::n6" target="n1::n1">
+      <glyph id="n1::e1_card" class="cardinality">
+        <label text="2"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="782.498" y="867.6522206502824"/>
+      <end x="733.5424696892455" y="838.236082608886"/>
+    </arc>
+    <arc id="n1::e2" class="consumption" source="n1::n6" target="n1::n2">
+      <glyph id="n1::e2_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="782.498" y="873.36053"/>
+      <end x="669.5035" y="873.36053"/>
+    </arc>
+    <arc id="n1::e3" class="production" source="n1::n6" target="n1::n3">
+      <glyph id="n1::e3_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="801.498" y="878.9926375040872"/>
+      <end x="848.0922246654574" y="906.6161830183443"/>
+    </arc>
+    <arc id="n1::e4" class="production" source="n1::n6" target="n1::n4">
+      <glyph id="n1::e4_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="801.498" y="873.1231730858531"/>
+      <end x="912.0527400096307" y="870.360969724484"/>
+    </arc>
+    <arc id="n1::e5" class="production" source="n1::n6" target="n1::n5">
+      <glyph id="n1::e5_card" class="cardinality">
+        <label text="2"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="801.498" y="867.6522206502824"/>
+      <end x="848.3106253503227" y="839.5236999163795"/>
+    </arc>
+    <arc id="n1::e6" class="inhibition" source="n1::n7" target="n1::n6">
+      <glyph id="n1::e6_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="791.998" y="1021.0256300000001"/>
+      <end x="791.998" y="883.86053"/>
+    </arc>
+    <arc id="e0" class="consumption" source="n1::n8" target="n0::n2">
+      <glyph id="e0_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="551.7009247570505" y="752.4584960496279"/>
+      <end x="570.7683937077225" y="639.5"/>
+    </arc>
+    <arc id="e1" class="catalysis" source="n0::n0" target="n1::n6">
+      <glyph id="e1_card" class="cardinality">
+        <label text="0"/>
+        <bbox x="0" y="0" w="0" h="0"/>
+      </glyph>
+      <start x="790.3079470424999" y="692.74225"/>
+      <end x="791.885716511651" y="861.360639435624"/>
+    </arc>
+  </map>
+</sbgn>
