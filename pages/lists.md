@@ -16,16 +16,16 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/acly/">Regulation of acetyl-CoA synthesis</a> (Adrien Rougny)
 1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway</a> (Alexander Mazein)
 1. <a href="/enos/">Regulation of nitric oxide production - eNOS pathway</a> (Olga Ivanova)
-1. Regulation of eisocanoid metabolism by aspirin (Alexander Mazein)
 1. Regulation of inositol phosphate metabolism (Nicolas Le Novère)
 1. <a href="/camp/">Regulation of cAMP hydrolysis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/tag/">Regulation of triacylglycerol hydrolysis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
-1. PKA activation (versions, important for many metabolism regulation pathways)
-1. AMPK activation (versions, important for many metabolism regulation pathways)
 1. Regulation of cortisol synthesis via cAMP signalling (Hanna Borlinghaus, Falk Schreiber)
 1. Regulation of cortisol synthesis via calcium signalling (Hanna Borlinghaus, Falk Schreiber)
 1. Regulation of pyrimidine biosynthesis via MAPK signalling (Hanna Borlinghaus, Falk Schreiber)
+1. Regulation of eisocanoid metabolism by aspirin (Alexander Mazein)
+1. PKA activation (versions, important for many metabolism regulation pathways)
+1. AMPK activation (versions, important for many metabolism regulation pathways)
 
 # Reactome-Recon lists
 
