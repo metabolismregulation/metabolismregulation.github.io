@@ -79,7 +79,7 @@ permalink: /gallery/
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/estrogen/"><br />Estradiol biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/estrogen/"><br /><strong>Estradiol biosynthesis</strong></a> <br /> <font size="2"> 
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
