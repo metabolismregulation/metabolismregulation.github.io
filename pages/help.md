@@ -6,7 +6,7 @@ permalink: /help/
 
 # How to draw SBGN diagrams in yEd
 
-This is a collection of tips prepared for overcomming known difficulties in drawing SBGN diagrams in yEd Graph Editor. This page is not meant as an introduction to drawing in yEd in general. To learn more about yEd please review tutorials at the yEd website and relevant YouTube videos. Here we offer a quick help for the use of the new yEd SBGN palette.
+This is a collection of tips on drawing SBGN diagrams in yEd Graph Editor. This page is not meant as an introduction to drawing in yEd in general. To learn more about yEd please review tutorials at the yEd website and relevant YouTube videos. Here we offer a quick help for the use of the new yEd SBGN palette.
 
 ## Modifying general settings
 
@@ -16,7 +16,7 @@ This is a collection of tips prepared for overcomming known difficulties in draw
 
 ## Auxiliary units
 
-* To transform a shape into a unit of information or a state variable: place _State Variable_ or _Unit of Information_ from the SBGN palette to the canvase on the top of the shape you would like it to be attached to, right click on a shape, then choose **Convert to Label**. If created properly, the auxiliary unit will move when the "host" shape is moved.
+* To transform a shape into a unit of information or a state variable: place _State Variable_ or _Unit of Information_ from the SBGN palette to the canvas on the top of the shape you would like it to be attached to, right click on a shape, then choose **Convert to Label**. If created properly, the auxiliary unit will move when the "host" shape is moved.
 
 * To edit a _Unit of Information_ or a _State Variable_: right click on the label, choose **Convert to Node** and then transform back to label as described above.
 
