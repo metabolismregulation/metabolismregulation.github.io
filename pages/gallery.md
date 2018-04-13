@@ -27,10 +27,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/glycolysis/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/eicosanoids/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/mevalonate/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F004-glycogen-muscle-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycolysis/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 2px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/eicosanoids/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 2px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/mevalonate/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 2px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F004-glycogen-muscle-vcut.png" style="border: #c6c6c6 2px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
