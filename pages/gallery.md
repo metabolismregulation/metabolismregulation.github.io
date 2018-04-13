@@ -7,19 +7,19 @@ permalink: /gallery/
 
 <table>
     <tr valign="bottom">
-      <td style="width: 225px;" align="center"> <a href="/glycolysis/"><br />Glycolysis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/glycolysis/"><br /><strong>Glycolysis</strong></a> <br /> <font size="2"> 
 <a href="/downloads/F001-glycolysis.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/eicosanoids/"><br />Eicosanoid production</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/eicosanoids/"><br /><strong>Eicosanoid production</strong></a> <br /> <font size="2"> 
 <a href="/downloads/F002-eicosanoids.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F002-eicosanoids-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/mevalonate/"><br />Mevalonate biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/mevalonate/"><br /><strong>Mevalonate biosynthesis</strong></a> <br /> <font size="2"> 
 <a href="/downloads/F003-mevalonate.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F003-mevalonate-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/glycogen/"><br />Glycogen metabolism</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/glycogen/"><br /><strong>Glycogen metabolism</strong></a> <br /> <font size="2"> 
 <a href="/downloads/F004-glycogen.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F004-glycogen-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
@@ -79,7 +79,7 @@ permalink: /gallery/
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/estrogen/"><br />Estradiol biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/estrogen/"><br /><strong>Estradiol biosynthesis</strong></a> <br /> <font size="2"> 
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
