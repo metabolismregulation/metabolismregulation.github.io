@@ -7,7 +7,7 @@ Downloads: &nbsp;
 [GraphML](../downloads/F020-pyrimidine.graphml) &nbsp;
 <!--[SBGN-ML](../downloads/F020-pyrimidine_SBGNv02.sbgn) &nbsp;
 [Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F020-pyrimidine_newt.sbgn) &nbsp;-->
-<p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="400"/></a></p>
+<p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="360"/></a></p>
 
 ## Contributors 
 
