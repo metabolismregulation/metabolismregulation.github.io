@@ -10,15 +10,15 @@ This is a collection of tips prepared for overcomming known difficulties in draw
 
 ## Modifying general settings
 
-* The SBGN palette can be placed to the top of the palette section: <strong>Edit > Manage Palette</strong>. Here you can delete unwanted palettes and define in what order palettes will be shown.  
+* The SBGN palette can be placed to the top of the palette section: **Edit > Manage Palette**. Here you can delete unwanted palettes and define in what order palettes will be shown.  
 * **File > Preferences > Editor > Dynamically Adjust Node Size to Label Size**. Make sure the box is unchecked.
 * To remove group state icon for compartments: **File > Preferences > Display > Group State Icon > Never Show Group State**.
 
 ## Auxiliary units
 
-* To transform a shape into a unit of information or a state variable: **right click on the shape > Convert to Label**. If created properly, the auxiliary unite will move when the "host" shape is moved.
+* To transform a shape into a unit of information or a state variable: place _State Variable_ or _Unit of Information_ from the SBGN palette to the canvase on the top of the shape you would like it to be attached to, right click on a shape, then choose **Convert to Label**. If created properly, the auxiliary unit will move when the "host" shape is moved.
 
-* To edit a unit of information or a state variable: **right click on the label > Convert to Node** and then transform back to label.
+* To edit a _Unit of Information_ or a _State Variable_: right click on the label, choose **Convert to Node** and then transform back to label as described above.
 
 ## Process "ports"
 
