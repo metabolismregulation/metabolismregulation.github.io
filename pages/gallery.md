@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gallery
-permalink: /gallery2/
+permalink: /gallery/
 ---
 
 
