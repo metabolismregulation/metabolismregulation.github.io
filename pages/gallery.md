@@ -98,19 +98,19 @@ permalink: /gallery/
 
 <table>
     <tr valign="bottom">
-      <td style="width: 225px;" align="center"> <a href="/phosphoinositides/"><br />Inositol phosphate</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/phosphoinositides/">Inositol phosphate</a> <br /> <font size="2"> 
 <a href="/downloads/F009-phosphoinositides.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F009-phosphoinositides-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/glutaminase/"><br />Glutaminolysis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/glutaminase/">Glutaminolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F019-glutaminase.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F019-glutaminase.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/pyrimidine/"><br />Pyrimidine biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/pyrimidine/">Pyrimidine biosynthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F020-pyrimidine.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F020-pyrimidine.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/estrogen/"><br />Estradiol biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/estrogen/">Estradiol biosynthesis</a> <br /> <font size="2"> 
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
