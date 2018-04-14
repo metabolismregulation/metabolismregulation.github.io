@@ -87,7 +87,7 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/carnitine/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/carnitine/"><img src="/images/gallery/F014-carnitine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F005-SREBP-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/test/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/estrogen/"><img src="/images/gallery/F018-estrogen-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
