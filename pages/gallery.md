@@ -8,8 +8,8 @@ permalink: /gallery/
 <table>
     <tr valign="bottom">
       <td style="width: 225px;" align="center"> <a href="/glycolysis/"><br />Glycolysis</a> <br /> <font size="2">
-<a href="/downloads/F004-glycogen-muscle.graphml">GraphML</a> &nbsp;
-<a href="/downloads/F004-glycogen-muscle.sbgn">SBGN-ML</a> &nbsp;
+<a href="/downloads/F001-glycolysis-alt.graphml">GraphML</a> &nbsp;
+<a href="/downloads/F001-glycolysis-alt-SBGNv02.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/eicosanoids/"><br />Eicosanoid production</a> <br /> <font size="2">
 <a href="/downloads/F002-eicosanoids.graphml">GraphML</a> &nbsp; 
@@ -20,8 +20,8 @@ permalink: /gallery/
 <a href="/downloads/F003-mevalonate-SBGNv02.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/glycogen/"><br />Glycogen metabolism</a> <br /> <font size="2"> 
-<a href="/downloads/F004-glycogen.graphml">GraphML</a> &nbsp;
-<a href="/downloads/F004-glycogen-SBGNv02.sbgn">SBGN-ML</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle.graphml">GraphML</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle-SBGNv02.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
     </tr>
 </table>
