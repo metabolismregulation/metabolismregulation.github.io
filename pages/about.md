@@ -27,6 +27,7 @@ In additon to GraphML and SBGN-ML, we aim to provide maps in various formats inc
 Ways to contribute: 
 1. Drawing diagrams: please join the work on one of the existing topics or propose a new one. Diagrams can be drawn using the SBGN palette in the yEd Graph Editor, the main tool in this project. Resulting format: GraphML. Please review tips on [how to draw SBGN diagrams in yEd](/help/). Also, any tool that generates valid SBGN-ML can be used, for example [SBGN-ED](http://www.sbgn-ed.org/) or [Newt Editor](http://newteditor.org/), and in that case the files are to be provided in SBGN-ML.
 2. Proposing new topics: it can be done through direct search on the subject of metabolism regulation or by working with the automatically assembled [lists](/lists/).
+3. Proposing new colour schemes. We are looking for ways to improve the diagrams aestetically. To experiment with colours and layouts, download any diagram in GraphML format and edit.
 
 # Contact
 
