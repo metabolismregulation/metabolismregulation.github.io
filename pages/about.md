@@ -18,6 +18,16 @@ Russia
 and 
 Japan.
 
+# How to contribute
+
+To learn more and to contribute, please review the available [maps](/gallery/), a collection of diagrams in Systems Biology Graphical Notation (SBGN). There is a list of [selected topics](/lists/) that are already in work or being prepared for curation. 
+
+We aim to provide maps in various formats including SBGN, SBML, BioPAX and CellDesigner, so the models are easily accessible and can be downloaded, reused and improved. These formats will be generated automatically.
+
+Ways to contribute: 
+1. Drawing diagrams: please join the work on one of the existing topics or propose a new one. Diagrams can be drawn using the SBGN palette in the yEd Graph Editor, the main tool in this project. Resulting format: GraphML. Please review [tips on how to draw SBGN diagrams in yEd](/help/). Also, any tool that generates valid SBGN-ML can be used, for example [SBGN-ED](http://www.sbgn-ed.org/) or [Newt Editor](http://newteditor.org/), and the files can be provided in SBGN-ML.
+2. Proposing new topic: it can be done through direct search on the subject of metabolism regulation or by working with the automatically assembled [lists](/lists/).
+
 # Contact
 
 To join the effort please use this email address:  
@@ -27,9 +37,8 @@ To join the effort please use this email address:
 Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)  
 Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)  -->
 
-# Discussion list
-
-To join the project discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)
+<!--# Discussion list
+To join the project discussion forum please follow this link: [metabolism-regulation-discuss](https://groups.google.com/forum/#!forum/metabolism-regulation-discuss)-->
 
 <!--**Alexander Mazein**, EISBM, Lyon, France  
 **Irina Balaur**, EISBM, Lyon, France  
