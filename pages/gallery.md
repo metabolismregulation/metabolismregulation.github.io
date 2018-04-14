@@ -34,22 +34,23 @@ permalink: /gallery/
     </tr>
 </table>
 
+<br />
 
 <table>
     <tr valign="bottom">
-      <td style="width: 225px;" align="center"> <a href="/acly/"><br /><br />Acetyl-CoA synthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/acly/">Acetyl-CoA synthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F006-ACLY.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F006-ACLY.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/camp/"><br /><br />cAMP hydrolysis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/camp/">cAMP hydrolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F012-cAMP.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F012-cAMP-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/inos/"><br /><br />iNOS pathway</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/inos/">iNOS pathway</a> <br /> <font size="2"> 
 <a href="/downloads/F007-inos.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F007-inos-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/enos/"><br /><br />eNOS pathway</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/enos/">eNOS pathway</a> <br /> <font size="2"> 
 <a href="/downloads/F008-enos.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F008-enos-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
@@ -64,22 +65,23 @@ permalink: /gallery/
     </tr>
 </table>
 
+<br />
 
 <table>
     <tr valign="bottom">
-      <td style="width: 225px;" align="center"> <a href="/carnitine/"><br />Acyl-carnitine synthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/carnitine/">Acyl-carnitine synthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F014-carnitine.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F014-carnitine-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/srebp/"><br />SREBP signalling</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/srebp/">SREBP signalling</a> <br /> <font size="2"> 
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/tag/"><br />Triacylglycerol hydrolysis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/tag/">Triacylglycerol hydrolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F015-tag.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F015-tag.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/estrogen/"><br />Estradiol biosynthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/estrogen/">Estradiol biosynthesis</a> <br /> <font size="2"> 
 <a href="/downloads/test.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/test.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
