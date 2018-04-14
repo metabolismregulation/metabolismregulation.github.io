@@ -57,7 +57,7 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/acly/"><img src="/images/gallery/F000-empty-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/acly/"><img src="/images/gallery/F006-ACLY-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/camp/"><img src="/images/gallery/F012-cAMP-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/F007-inos-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F008-enos-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
