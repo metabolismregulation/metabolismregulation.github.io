@@ -37,19 +37,19 @@ permalink: /gallery/
 
 <table>
     <tr valign="bottom">
-      <td style="width: 225px;" align="center"> <a href="/acly/"><br />Acetyl-CoA synthesis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/acly/"><br /><br />Acetyl-CoA synthesis</a> <br /> <font size="2"> 
 <a href="/downloads/F006-ACLY.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F006-ACLY.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/camp/"><br />cAMP hydrolysis</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/camp/"><br /><br />cAMP hydrolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F012-cAMP.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F012-cAMP-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/inos/"><br />iNOS pathway</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/inos/"><br /><br />iNOS pathway</a> <br /> <font size="2"> 
 <a href="/downloads/F007-inos.graphml" target="_blank">GraphML</a> &nbsp; 
 <a href="/downloads/F007-inos-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/enos/"><br />eNOS pathway</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/enos/"><br /><br />eNOS pathway</a> <br /> <font size="2"> 
 <a href="/downloads/F008-enos.graphml" target="_blank">GraphML</a> &nbsp;
 <a href="/downloads/F008-enos-SBGNv02.sbgn" target="_blank">SBGN-ML</a> &nbsp;
 </font> </td>
