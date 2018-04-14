@@ -94,6 +94,8 @@ permalink: /gallery/
     </tr>
 </table>
 
+<br />
+
 <table>
     <tr valign="bottom">
       <td style="width: 225px;" align="center"> <a href="/phosphoinositides/"><br />Inositol phosphate</a> <br /> <font size="2"> 
