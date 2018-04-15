@@ -23,7 +23,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/estrogen/">Regulation of estradiol biosynthesis via prostaglandin-mediated...</a> (Hanna Borlinghaus, Falk Schreiber)
 1. <a href="/pyrimidine/">Regulation of pyrimidine biosynthesis via MAPK signalling</a> (Hanna Borlinghaus, Falk Schreiber)
 1. <a href="/glutaminase/">Regulation of glutaminolysis via the NF-kB-PKCe axis in lung cancer cells</a> (Hanna Borlinghaus, Falk Schreiber)
-1. Regulation of eisocanoid metabolism by aspirin (Alexander Mazein)
+1. <a href="/aspirin/">Regulation of eisocanoid metabolism by aspirin</a> (Alexander Mazein)
 1. PKA activation (versions, important for many metabolism regulation pathways)
 1. AMPK activation (versions, important for many metabolism regulation pathways)
 
