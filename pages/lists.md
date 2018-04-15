@@ -20,7 +20,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/camp/">Regulation of cAMP hydrolysis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/tag/">Regulation of triacylglycerol hydrolysis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
-1. <a href="/estrogen/">Regulation of estradiol biosynthesis via prostaglandin-mediated cAMP signalling</a> (Hanna Borlinghaus, Falk Schreiber)
+1. <a href="/estrogen/">Regulation of estradiol biosynthesis via prostaglandin-mediated...</a> (Hanna Borlinghaus, Falk Schreiber)
 1. <a href="/pyrimidine/">Regulation of pyrimidine biosynthesis via MAPK signalling</a> (Hanna Borlinghaus, Falk Schreiber)
 1. <a href="/glutaminase/">Regulation of glutaminolysis via the NF-kB-PKCe axis in lung cancer cells</a> (Hanna Borlinghaus, Falk Schreiber)
 1. Regulation of eisocanoid metabolism by aspirin (Alexander Mazein)
