@@ -5,8 +5,8 @@ title: Regulation of pyrimidine biosynthesis via MAPK signalling
 
 Downloads: &nbsp; 
 [GraphML](../downloads/F020-pyrimidine.graphml) &nbsp;
-<!--[SBGN-ML](../downloads/F020-pyrimidine_SBGNv02.sbgn) &nbsp;
-[Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F020-pyrimidine_newt.sbgn) &nbsp;-->
+[SBGN-ML](../downloads/F020-pyrimidine-SBGNv02.sbgn) &nbsp;
+[Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F020-pyrimidine-newt.sbgn) &nbsp;
 <p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="340"/></a></p>
 
 ## Contributors 
