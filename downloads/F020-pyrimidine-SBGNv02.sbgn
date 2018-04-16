@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="macromolecule" id="glyph_n0">
+            <label text="CAD"/>
+            <bbox w="80.0" h="40.0" x="335.0" y="25.457922"/>
+            <glyph class="state variable" id="glyph_n0_1">
+                <state value="" variable="T456"/>
+                <bbox w="48.0" h="18.0" x="0.0" y="0.0"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="glyph_n1">
+            <label text="CAD"/>
+            <bbox w="80.0" h="40.0" x="335.0" y="180.0"/>
+            <glyph class="state variable" id="glyph_n1_2">
+                <state value="P" variable="T456"/>
+                <bbox w="48.0" h="18.0" x="0.0" y="0.0"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="glyph_n2">
+            <label text="ERK1/2"/>
+            <bbox w="80.0" h="40.0" x="185.0" y="100.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n3">
+            <label text="ATP"/>
+            <bbox w="60.0" h="30.0" x="276.0" y="270.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n4">
+            <label text="glutamine"/>
+            <bbox w="100.0" h="30.0" x="175.0" y="320.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n5">
+            <label text="HCO3-"/>
+            <bbox w="60.0" h="30.0" x="276.0" y="370.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n6">
+            <label text="ADP"/>
+            <bbox w="60.0" h="30.0" x="415.0" y="270.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n7">
+            <label text="Pi"/>
+            <bbox w="60.0" h="30.0" x="504.0" y="270.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n8">
+            <label text="glutamate"/>
+            <bbox w="100.0" h="30.0" x="409.1602" y="370.0"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="glyph_n9">
+            <bbox w="18.0" h="18.0" x="366.0" y="326.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n10">
+            <label text="carbamoyl-P"/>
+            <bbox w="100.0" h="30.0" x="504.0" y="320.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n11">
+            <label text="ADP"/>
+            <bbox w="60.0" h="30.0" x="415.0" y="150.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n12">
+            <label text="ATP"/>
+            <bbox w="60.0" h="30.0" x="414.0" y="65.457924"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="glyph_n13">
+            <bbox w="18.0" h="18.0" x="366.0" y="111.0"/>
+        </glyph>
+        <arc class="catalysis" id="arc_e0" source="glyph_n1" target="glyph_n9">
+            <start x="375.0" y="228.91046"/>
+            <end x="375.0" y="322.5301"/>
+        </arc>
+        <arc class="consumption" id="arc_e1" source="glyph_n0" target="glyph_n13">
+            <start x="375.0" y="73.9485"/>
+            <next x="375.0" y="102.0"/>
+            <end x="375.0" y="120.0"/>
+        </arc>
+        <arc class="production" id="arc_e2" source="glyph_n13" target="glyph_n1">
+            <start x="375.0" y="120.0"/>
+            <next x="375.0" y="138.0"/>
+            <end x="375.0" y="200.0"/>
+        </arc>
+        <arc class="catalysis" id="arc_e3" source="glyph_n2" target="glyph_n13">
+            <start x="225.0" y="120.0"/>
+            <end x="362.4756" y="120.0"/>
+        </arc>
+        <arc class="consumption" id="arc_e4" source="glyph_n3" target="glyph_n9">
+            <start x="306.0" y="285.0"/>
+            <next x="357.0" y="335.0"/>
+            <end x="375.0" y="335.0"/>
+        </arc>
+        <arc class="consumption" id="arc_e5" source="glyph_n4" target="glyph_n9">
+            <start x="225.0" y="335.0"/>
+            <next x="357.0" y="335.0"/>
+            <end x="375.0" y="335.0"/>
+        </arc>
+        <arc class="consumption" id="arc_e6" source="glyph_n5" target="glyph_n9">
+            <start x="306.0" y="385.0"/>
+            <next x="357.0" y="335.0"/>
+            <end x="375.0" y="335.0"/>
+        </arc>
+        <arc class="production" id="arc_e7" source="glyph_n9" target="glyph_n6">
+            <start x="375.0" y="335.0"/>
+            <next x="393.0" y="335.0"/>
+            <end x="431.1527" y="286.8306"/>
+        </arc>
+        <arc class="production" id="arc_e8" source="glyph_n9" target="glyph_n7">
+            <start x="375.0" y="335.0"/>
+            <next x="393.0" y="335.0"/>
+            <end x="534.0" y="285.0"/>
+        </arc>
+        <arc class="production" id="arc_e9" source="glyph_n9" target="glyph_n8">
+            <start x="375.0" y="335.0"/>
+            <next x="393.0" y="335.0"/>
+            <end x="439.23688" y="383.512"/>
+        </arc>
+        <arc class="production" id="arc_e10" source="glyph_n9" target="glyph_n10">
+            <start x="375.0" y="335.0"/>
+            <next x="393.0" y="335.0"/>
+            <end x="554.0" y="335.0"/>
+        </arc>
+        <arc class="production" id="arc_e11" source="glyph_n13" target="glyph_n11">
+            <start x="375.0" y="120.0"/>
+            <next x="375.0" y="138.0"/>
+            <end x="445.0" y="165.0"/>
+        </arc>
+        <arc class="consumption" id="arc_e12" source="glyph_n12" target="glyph_n13">
+            <start x="444.0" y="80.457924"/>
+            <next x="375.0" y="102.0"/>
+            <end x="375.0" y="120.0"/>
+        </arc>
+    </map>
+</sbgn>
