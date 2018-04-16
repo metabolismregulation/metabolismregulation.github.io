@@ -74,16 +74,16 @@ permalink: /gallery/
 <a href="/downloads/F014-carnitine-SBGNv02.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/srebp/">SREBP signalling</a> <br /> <font size="2"> 
-<a href="/downloads/test.graphml">GraphML</a> &nbsp; 
-<a href="/downloads/test.sbgn">SBGN-ML</a> &nbsp; 
+<a href="/downloads/F005-SREBP.graphml">GraphML</a> &nbsp; 
+<a href="/downloads/F005-SREBP.sbgn">SBGN-ML</a> &nbsp; 
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/tag/">Triacylglycerol hydrolysis</a> <br /> <font size="2"> 
 <a href="/downloads/F015-tag.graphml">GraphML</a> &nbsp; 
 <a href="/downloads/F015-tag.sbgn">SBGN-ML</a> &nbsp; 
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/estrogen/">Estradiol biosynthesis</a> <br /> <font size="2"> 
-<a href="/downloads/test.graphml">GraphML</a> &nbsp;
-<a href="/downloads/test.sbgn">SBGN-ML</a> &nbsp;
+<a href="/downloads/F018-estrogen.graphml">GraphML</a> &nbsp;
+<a href="/downloads/F018-estrogen.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
     </tr>
 </table>
@@ -113,8 +113,8 @@ permalink: /gallery/
 <a href="/downloads/F020-pyrimidine.sbgn">SBGN-ML</a> &nbsp; 
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/estrogen/">Estradiol biosynthesis</a> <br /> <font size="2"> 
-<a href="/downloads/test.graphml">GraphML</a> &nbsp;
-<a href="/downloads/test.sbgn">SBGN-ML</a> &nbsp;
+<a href="/downloads/F018-estrogen.graphml">GraphML</a> &nbsp;
+<a href="/downloads/F018-estrogen.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
     </tr>
 </table>
