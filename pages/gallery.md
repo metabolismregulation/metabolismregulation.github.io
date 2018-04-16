@@ -27,10 +27,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/downloads/F001-glycolysis-alt.svg"><img src="/images/gallery/F001-glycolysis-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F002-eicosanoids.svg"><img src="/images/gallery/F002-eicosanoids-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F003-mevalonate.svg"><img src="/images/gallery/F003-mevalonate-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F004-glycogen-muscle.svg"><img src="/images/gallery/F004-glycogen-muscle-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycolysis/"><img src="/images/gallery/F001-glycolysis-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/eicosanoids/"><img src="/images/gallery/F002-eicosanoids-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/mevalonate/"><img src="/images/gallery/F003-mevalonate-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glycogen/"><img src="/images/gallery/F004-glycogen-muscle-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
@@ -58,10 +58,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/downloads/F006-ACLY.svg"><img src="/images/gallery/F006-ACLY-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F012-cAMP.svg"><img src="/images/gallery/F012-cAMP-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F007-inos.svg"><img src="/images/gallery/F007-inos-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F008-enos.svg"><img src="/images/gallery/F008-enos-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/acly/"><img src="/images/gallery/F006-ACLY-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/camp/"><img src="/images/gallery/F012-cAMP-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/inos/"><img src="/images/gallery/F007-inos-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/enos/"><img src="/images/gallery/F008-enos-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
@@ -89,10 +89,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/downloads/F014-carnitine.svg"><img src="/images/gallery/F014-carnitine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F005-SREBP.svg"><img src="/images/gallery/F005-SREBP-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F015-tag.svg"><img src="/images/gallery/F015-tag-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F018-estrogen.svg"><img src="/images/gallery/F018-estrogen-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/carnitine/"><img src="/images/gallery/F014-carnitine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/srebp/"><img src="/images/gallery/F005-SREBP-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/tag/"><img src="/images/gallery/F015-tag-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/estrogen/"><img src="/images/gallery/F018-estrogen-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
@@ -120,10 +120,10 @@ permalink: /gallery/
 </table>
 <table>
     <tr>
-      <td style="width: 225px;" align="center"><a href="/downloads/F009-phosphoinositides.svg"><img src="/images/gallery/F009-phosphoinositides-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F019-glutaminase.svg"><img src="/images/gallery/F019-glutaminase-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F020-pyrimidine.svg"><img src="/images/gallery/F020-pyrimidine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/downloads/F018-estrogen.svg"><img src="/images/gallery/F018-estrogen-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/phosphoinositides/"><img src="/images/gallery/F009-phosphoinositides-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/glutaminase/"><img src="/images/gallery/F019-glutaminase-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/pyrimidine/"><img src="/images/gallery/F020-pyrimidine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/estrogen/"><img src="/images/gallery/F018-estrogen-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
