@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Colours
-parmalink: /colours/
+permalink: /colours/
 ---
 
 ## Colour Scheme #002
