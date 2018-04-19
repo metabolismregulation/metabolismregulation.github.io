@@ -7,7 +7,7 @@ permalink: /colours/
 ## Colour Scheme #003
 
 <a href="/images/colours/CS003.graphml">GraphML</a> &nbsp; 
-<img src="/images/colours/CS003.png" width="900"/>  
+<img src="/images/colours/CS003.png" width="600"/>  
 
 ## Colour Scheme #002
 
