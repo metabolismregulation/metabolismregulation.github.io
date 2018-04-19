@@ -24,3 +24,7 @@ permalink: /colours/
 <a href="/images/colours/CS001.graphml">GraphML</a>  
 <img src="/images/colours/CS001.png" width="600"/>  
 
+## Colour Scheme #005
+
+<a href="/images/colours/CS005.graphml">GraphML</a>  
+<img src="/images/colours/CS005.png" width="600"/>  
