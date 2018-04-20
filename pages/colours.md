@@ -29,18 +29,8 @@ permalink: /colours/
 <a href="/images/colours/CS005.graphml">GraphML</a>  
 <img src="/images/colours/CS005.png" width="600"/>  
 
-## Colour Scheme #006
-
-<a href="/images/colours/CS006.graphml">GraphML</a>  
-<img src="/images/colours/CS006.png" width="600"/>  
-
 ## Colour Scheme #007
 
 <a href="/images/colours/CS007.graphml">GraphML</a>  
 <img src="/images/colours/CS007.png" width="600"/>  
-
-## Colour Scheme #008
-
-<a href="/images/colours/CS008.graphml">GraphML</a>  
-<img src="/images/colours/CS008.png" width="600"/>  
 
