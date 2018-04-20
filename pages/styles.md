@@ -20,9 +20,9 @@ permalink: /styles/
 </table>
 <table>
     <tr>
-      <td style="width: 300px;" align="center"><img src="/images/colours/CS004.png" style="border: #c6c6c6 1px solid; width: 280px;"/></td>
-      <td style="width: 300px;" align="center"><img src="/images/colours/CS003.png" style="border: #c6c6c6 1px solid; width: 280px;"/></td>
-      <td style="width: 300px;" align="center"><img src="/images/colours/CS002.png" style="border: #c6c6c6 1px solid; width: 280px;"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/colours/CS004.png" style="border: #c6c6c6 1px solid; width: 260px;"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/colours/CS003.png" style="border: #c6c6c6 1px solid; width: 260px;"/></td>
+      <td style="width: 300px;" align="center"><img src="/images/colours/CS002.png" style="border: #c6c6c6 1px solid; width: 260px;"/></td>
     </tr>
 </table>
 
