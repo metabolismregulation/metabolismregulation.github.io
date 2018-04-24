@@ -32,11 +32,11 @@
             <bbox y="98.771484" x="483.76782" h="40.0" w="80.0"/>
             <glyph id="glyph_n2a" class="unit of information">
                 <label text="N:2"/>
-                <bbox y="90.771484" x="528.2678" h="16.0" w="31.0"/>
+                <bbox y="90.771484" x="488.26782" h="16.0" w="31.0"/>
             </glyph>
             <glyph id="glyph_n2b" class="state variable">
                 <state variable="S516" value="Ac"/>
-                <bbox y="125.771484" x="509.76782" h="26.0" w="68.0"/>
+                <bbox y="125.771484" x="489.76782" h="26.0" w="68.0"/>
             </glyph>
         </glyph>
         <glyph id="glyph_n11" orientation="vertical" class="process">
@@ -54,11 +54,11 @@
             <bbox y="98.771484" x="294.7057" h="40.0" w="80.0"/>
             <glyph id="glyph_n0a" class="unit of information">
                 <label text="N:2"/>
-                <bbox y="90.771484" x="339.2057" h="16.0" w="31.0"/>
+                <bbox y="90.771484" x="299.2057" h="16.0" w="31.0"/>
             </glyph>
             <glyph id="glyph_n0b" class="state variable">
                 <state variable="S516"/>
-                <bbox y="126.771484" x="327.7057" h="24.0" w="54.0"/>
+                <bbox y="126.771484" x="307.7057" h="24.0" w="54.0"/>
             </glyph>
         </glyph>
         <glyph id="glyph_n15" class="macromolecule multimer">
@@ -66,15 +66,15 @@
             <bbox y="268.36694" x="483.76782" h="40.0" w="80.0"/>
             <glyph id="glyph_n15a" class="unit of information">
                 <label text="N:2"/>
-                <bbox y="260.36694" x="508.26782" h="16.0" w="31.0"/>
+                <bbox y="260.36694" x="488.26782" h="16.0" w="31.0"/>
             </glyph>
             <glyph id="glyph_n15b" class="state variable">
-                <state variable="S530" value="Ac"/>
-                <bbox y="295.36694" x="509.76782" h="26.0" w="68.0"/>
-            </glyph>
-            <glyph id="glyph_n15c" class="state variable">
                 <state value="inactive"/>
                 <bbox y="296.36694" x="476.76782" h="24.0" w="54.0"/>
+            </glyph>
+            <glyph id="glyph_n15c" class="state variable">
+                <state variable="S530" value="Ac"/>
+                <bbox y="295.36694" x="509.76782" h="26.0" w="68.0"/>
             </glyph>
         </glyph>
         <glyph id="glyph_n8" class="simple chemical">
@@ -93,26 +93,28 @@
         <glyph id="glyph_n13" class="or">
             <bbox y="214.36693" x="150.0" h="30.0" w="30.0"/>
             <port y="229.36693" x="135.0" id="glyph_n13.1"/>
+            <port y="229.36693" x="195.0" id="glyph_n13.2"/>
         </glyph>
         <glyph id="glyph_n14" class="macromolecule multimer">
             <label text="COX-1"/>
             <bbox y="268.36694" x="294.7057" h="40.0" w="80.0"/>
             <glyph id="glyph_n14a" class="unit of information">
                 <label text="N:2"/>
-                <bbox y="260.36694" x="319.2057" h="16.0" w="31.0"/>
+                <bbox y="260.36694" x="299.2057" h="16.0" w="31.0"/>
             </glyph>
             <glyph id="glyph_n14b" class="state variable">
-                <state variable="S530"/>
-                <bbox y="296.36694" x="327.7057" h="24.0" w="54.0"/>
-            </glyph>
-            <glyph id="glyph_n14c" class="state variable">
                 <state value="active"/>
                 <bbox y="297.36694" x="291.7057" h="22.0" w="46.0"/>
+            </glyph>
+            <glyph id="glyph_n14c" class="state variable">
+                <state variable="S530"/>
+                <bbox y="296.36694" x="327.7057" h="24.0" w="54.0"/>
             </glyph>
         </glyph>
         <glyph id="glyph_n12" class="or">
             <bbox y="103.771484" x="150.0" h="30.0" w="30.0"/>
             <port y="118.771484" x="135.0" id="glyph_n12.1"/>
+            <port y="118.771484" x="195.0" id="glyph_n12.2"/>
         </glyph>
         <arc target="glyph_n2" source="glyph_n3.2" id="arc_e0" class="production">
             <start y="118.771484" x="447.23676"/>
@@ -157,7 +159,7 @@
             <next y="68.0" x="722.83"/>
             <end y="100.771484" x="722.83"/>
         </arc>
-        <arc target="glyph_n6" source="glyph_n12.1" id="arc_e10" class="catalysis">
+        <arc target="glyph_n6" source="glyph_n12.1" id="arc_e10" class="logic arc">
             <start y="118.771484" x="135.0"/>
             <end y="118.771484" x="109.0"/>
         </arc>
@@ -165,18 +167,18 @@
             <start y="118.771484" x="563.7678"/>
             <end y="118.771484" x="713.83"/>
         </arc>
-        <arc target="glyph_n7" source="glyph_n13.1" id="arc_e12" class="catalysis">
+        <arc target="glyph_n7" source="glyph_n13.1" id="arc_e12" class="logic arc">
             <start y="229.36693" x="135.0"/>
             <end y="229.36693" x="109.0"/>
         </arc>
-        <arc target="glyph_n12" source="glyph_n0" id="arc_e13" class="consumption">
+        <arc target="glyph_n12.2" source="glyph_n0" id="arc_e13" class="logic arc">
             <start y="118.771484" x="294.7057"/>
-            <end y="118.771484" x="180.0"/>
+            <end y="118.771484" x="195.0"/>
         </arc>
-        <arc target="glyph_n13" source="glyph_n0" id="arc_e14" class="consumption">
+        <arc target="glyph_n13.2" source="glyph_n0" id="arc_e14" class="logic arc">
             <start y="138.77148" x="308.80258"/>
             <next y="229.36693" x="191.4674"/>
-            <end y="229.36693" x="180.0"/>
+            <end y="229.36693" x="195.0"/>
         </arc>
         <arc target="glyph_n15" source="glyph_n16.2" id="arc_e15" class="production">
             <start y="288.36694" x="447.23676"/>
@@ -196,15 +198,15 @@
             <next y="288.3669" x="448.7619"/>
             <end y="215.78423" x="480.04828"/>
         </arc>
-        <arc target="glyph_n13" source="glyph_n14" id="arc_e19" class="consumption">
+        <arc target="glyph_n13.2" source="glyph_n14" id="arc_e19" class="logic arc">
             <start y="271.8909" x="294.7057"/>
             <next y="229.36693" x="191.4674"/>
-            <end y="229.36693" x="180.0"/>
+            <end y="229.36693" x="195.0"/>
         </arc>
-        <arc target="glyph_n12" source="glyph_n14" id="arc_e20" class="consumption">
+        <arc target="glyph_n12.2" source="glyph_n14" id="arc_e20" class="logic arc">
             <start y="268.36694" x="317.99136"/>
             <next y="118.771484" x="192.9721"/>
-            <end y="118.771484" x="180.0"/>
+            <end y="118.771484" x="195.0"/>
         </arc>
     </map>
 </sbgn>
