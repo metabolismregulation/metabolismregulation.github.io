@@ -8,4 +8,4 @@ permalink: /test/
 
 ![](/images/F100-aspirin-V003B-URL.svg)  
 
-![](/images/F100-aspirin-V003B-URL.pdf)  
+![](/images/F100-aspirin-V003B-URL.html)  
