@@ -10,7 +10,6 @@ permalink: /reactome-recon-proteins/
 These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs.
 Table 1 includes phosphorylation processes, while Table 2 includes other types of processes.
 
-<br />
 ## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
@@ -35,7 +34,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)
 [P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898)
 
-<br /><br />
+<br />
 ## Table 2 : Other signalling processes & Recon2 catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
