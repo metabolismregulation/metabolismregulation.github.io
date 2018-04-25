@@ -7,10 +7,11 @@ permalink: /reactome-recon-proteins/
 
 # Reactome-Recon List 1
 
-This table contains proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs.
+These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs.
+Table 1 includes phosphorylation processes, while Table 2 includes other types of processes.
 
 <br />
-
+## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
 :---:|:---:|:---
 [Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) | ANAPC11 | [Phosphorylation of Cdh1 by Cyclin A:Cdk2](http://reactome.org/PathwayBrowser/#/R-HSA-174079)
@@ -33,7 +34,8 @@ This table contains proteins from the Human Metabolic Reconstruction Recon2 that
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)
 [P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898)
 
-
+<br /><br />
+## Table 2 : Other signalling processes & Recon2 catalyzers
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
 :---:|:---:|:---
 [P11926](http://www.uniprot.org/uniprot/P11926) | ODC1 | [Antizyme OAZ binds to Ornithine decarboxylase](http://reactome.org/PathwayBrowser/#/R-HSA-350567)
