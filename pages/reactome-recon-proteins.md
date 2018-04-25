@@ -12,6 +12,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 
 <br />
 ## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
+
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
 :---:|:---:|:---
 [Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) | ANAPC11 | [Phosphorylation of Cdh1 by Cyclin A:Cdk2](http://reactome.org/PathwayBrowser/#/R-HSA-174079)
@@ -36,6 +37,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 
 <br /><br />
 ## Table 2 : Other signalling processes & Recon2 catalyzers
+
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
 :---:|:---:|:---
 [P11926](http://www.uniprot.org/uniprot/P11926) | ODC1 | [Antizyme OAZ binds to Ornithine decarboxylase](http://reactome.org/PathwayBrowser/#/R-HSA-350567)
