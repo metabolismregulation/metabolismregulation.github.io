@@ -37,4 +37,4 @@ The list includes proteins from Recon2 that match those in Reactome pathways and
 
 ### <a href="/reactome-recon-complexes/">Reactome-Recon List 2 - Complexes</a>
 
-This list inlcudes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
+This list includes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
