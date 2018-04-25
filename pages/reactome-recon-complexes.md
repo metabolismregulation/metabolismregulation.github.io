@@ -8,11 +8,20 @@ permalink: /reactome-recon-complexes/
 # Reactome-Recon List 2
 
 This list inlcudes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
+Table 1 includes phosphorylation processes, while Table 2 includes other types of processes.
 
-<br />
+## Table 1 : Signalling phosphorylation processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** 
-:---|:---|:---
+:---:|:---:|:---
+[Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8 | [Phosphorylation of cohesin by PLK1 at centromeres](http://reactome.org/PathwayBrowser/#/R-HSA-1638803)
+[P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)
+
+<br />
+## Table 2 : Other signalling processes & Recon2 compounds-catalyzers
+
+**UniProt ID** | **HGNC Symbol** | **Reactome Process** 
+:---:|:---:|:---
 [P06865](http://www.uniprot.org/uniprot/P06865) | HEXA | [Hexosaminidase A cleaves GalNAc from GM2 to form GM3](http://reactome.org/PathwayBrowser/#/R-HSA-1605595)
 [P08559](http://www.uniprot.org/uniprot/P08559) | PDHA1 | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946)
 [P51970](http://www.uniprot.org/uniprot/P51970) | NDUFA8 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178)
