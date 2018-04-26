@@ -12,7 +12,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 
 ## Table 1 : Signalling phosphorylation processes & Recon2 compounds-catalyzers
 
-**UniProt ID** | **HGNC Symbol** | **Reactome Process** 
+**UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
 :---:|:---:|:---
 [Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8 | [Phosphorylation of cohesin by PLK1 at centromeres](http://reactome.org/PathwayBrowser/#/R-HSA-1638803)
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)

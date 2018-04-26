@@ -38,7 +38,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 <br />
 ## Table 2 : Other signalling processes & Recon2 catalyzers
 
-**UniProt ID** | **HGNC Symbol** | **Reactome Process** 
+**UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
 :---:|:---:|:---
 [P11926](http://www.uniprot.org/uniprot/P11926) | ODC1 | [Antizyme OAZ binds to Ornithine decarboxylase](http://reactome.org/PathwayBrowser/#/R-HSA-350567)
 [Q5FWF5](http://www.uniprot.org/uniprot/Q5FWF5) | ESCO1 | [Acetylation of SMC3 subunit of chromosomal arm associated cohesin by ESCO1 or ESCO2](http://reactome.org/PathwayBrowser/#/R-HSA-2468039)
