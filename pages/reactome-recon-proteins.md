@@ -29,7 +29,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P14672](http://www.uniprot.org/uniprot/P14672) | SLC2A4 | [GLUT4 vesicle fuses with the plasma membrane](http://reactome.org/PathwayBrowser/#/R-HSA-1449574) |
 [P35270](http://www.uniprot.org/uniprot/P35270) | SPR | [Sepiapterin reductase (SPR) is phosphorylated by Ca2+/calmodulin-dependent protein kinase II](http://reactome.org/PathwayBrowser/#/R-HSA-1497853) |
 [Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8 | [Phosphorylation of cohesin by PLK1 at centromeres](http://reactome.org/PathwayBrowser/#/R-HSA-1638803) |
-[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [Phosphorylation of SHC1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1225952) | F009-phosphoinositides-SBGNv02.sbgn
+[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [Phosphorylation of SHC1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1225952) |  <a href="/phosphoinositides/">Inositol phosphate</a>
 [Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Phosphorylation of CRMPs by Cdk5](http://reactome.org/PathwayBrowser/#/R-HSA-399944) |
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148) |
 [P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898) |
