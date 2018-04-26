@@ -26,7 +26,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P08559](http://www.uniprot.org/uniprot/P08559) | PDHA1 | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946) |
 [P51970](http://www.uniprot.org/uniprot/P51970) | NDUFA8 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178) |
 [P31350](http://www.uniprot.org/uniprot/P31350) | RRM2 | [RNR (M1M2) reduces nucleotide diphosphates to deoxynucleotide diphosphates (glutaredoxin)](http://reactome.org/PathwayBrowser/#/R-HSA-111742) |
-[O00763](http://www.uniprot.org/uniprot/O00763) | ACACB | [Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)](http://reactome.org/PathwayBrowser/#/R-HSA-1655830) | F014-carnitine-SBGNv02.sbgn
+[O00763](http://www.uniprot.org/uniprot/O00763) | ACACB | [Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)](http://reactome.org/PathwayBrowser/#/R-HSA-1655830) | <a href="/carnitine/">Acyl-carnitine synthesis</a>
 [O95299](http://www.uniprot.org/uniprot/O95299) | NDUFA10 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178) |
 [O75251](http://www.uniprot.org/uniprot/O75251) | NDUFS7 | [NUBPL transfers 4Fe-4S to Complex I subunits](http://reactome.org/PathwayBrowser/#/R-HSA-6788523) |
 [P11310](http://www.uniprot.org/uniprot/P11310) | ACADM | [Expression of ACADM](http://reactome.org/PathwayBrowser/#/R-HSA-1989745) |
