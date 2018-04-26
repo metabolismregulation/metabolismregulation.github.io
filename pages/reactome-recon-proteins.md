@@ -19,7 +19,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P06737](http://www.uniprot.org/uniprot/P06737) | PYGL | [glycogen phosphorylase (PYGL) dimer b + 2 ATP => glycogen phosphorylase (PYGL) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71588) |
 [P09917](http://www.uniprot.org/uniprot/P09917) | ALOX5 | [ALOX5 is phosphorylated by MAPKAP2](http://reactome.org/PathwayBrowser/#/R-HSA-429016) |
 [P29474](http://www.uniprot.org/uniprot/P29474) | NOS3 | [AKT1 phosphorylates eNOS](http://reactome.org/PathwayBrowser/#/R-HSA-202111) |
-[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [glycogen phosphorylase (PYGM) dimer b + 2 ATP => glycogen phosphorylase (PYGM) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71541) | <a href="/glycogen/"><br />Glycogen metabolism</a>
+[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [glycogen phosphorylase (PYGM) dimer b + 2 ATP => glycogen phosphorylase (PYGM) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71541) | <a href="/glycogen/">Glycogen metabolism</a>
 [P19174](http://www.uniprot.org/uniprot/P19174) | PLCG1 | [Phosphorylation of PLCG1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1247844) |
 [Q06830](http://www.uniprot.org/uniprot/Q06830) | PRDX1 | [CDK5:p25 phosphorylates PRDX1](http://reactome.org/PathwayBrowser/#/R-HSA-8868567) |
 [P11216](http://www.uniprot.org/uniprot/P11216) | PYGB | [glycogen phosphorylase (PYGB) dimer b + 2 ATP => glycogen phosphorylase (PYGB) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-453337) |
@@ -32,7 +32,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [Phosphorylation of SHC1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1225952) |  <a href="/phosphoinositides/">Inositol phosphate</a>
 [Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Phosphorylation of CRMPs by Cdk5](http://reactome.org/PathwayBrowser/#/R-HSA-399944) |
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148) |
-[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898) | <a href="/eicosanoids/"><br />Eicosanoid production</a>
+[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898) | <a href="/eicosanoids/">Eicosanoid production</a>
 
 
 <br />
@@ -61,12 +61,12 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [Q16795](http://www.uniprot.org/uniprot/Q16795) | NDUFA9 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178)
 [Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Interaction of NUMB with L1](http://reactome.org/PathwayBrowser/#/R-HSA-443783)
 [Q16790](http://www.uniprot.org/uniprot/Q16790) | CA9 | [Expression of Carbonic Anhydrase IX (CA9)](http://reactome.org/PathwayBrowser/#/R-HSA-1235035)
-[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phospho-cPLA2 translocates to membranes when intracellular calcium levels increase](http://reactome.org/PathwayBrowser/#/R-HSA-111881) | <a href="/eicosanoids/"><br />Eicosanoid production</a>
+[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phospho-cPLA2 translocates to membranes when intracellular calcium levels increase](http://reactome.org/PathwayBrowser/#/R-HSA-111881) | <a href="/eicosanoids/">Eicosanoid production</a>
 [P06865](http://www.uniprot.org/uniprot/P06865) | HEXA | [Hexosaminidase A cleaves GalNAc from GM2 to form GM3](http://reactome.org/PathwayBrowser/#/R-HSA-1605595)
 [P32019](http://www.uniprot.org/uniprot/P32019) | INPP5B | [GAPs inactivate Rho GTPase:GTP by hydrolysis](http://reactome.org/PathwayBrowser/#/R-HSA-194922)
 [Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) | ELOVL6 | [Expression of ELOVL6](http://reactome.org/PathwayBrowser/#/R-HSA-1655835)
 [Q8TC12](http://www.uniprot.org/uniprot/Q8TC12) | RDH11 | [RDH10,11 oxidise 11cROL to 11cRAL](http://reactome.org/PathwayBrowser/#/R-HSA-74872)
-[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [poly((1,4)-alpha-glycosyl) glycogenin-1 + n orthophosphate => glycogenin-1 + n D-glucose 1-phosphate [PYGM,PYGB]](http://reactome.org/PathwayBrowser/#/R-HSA-453358) | <a href="/glycogen/"><br />Glycogen metabolism</a>
+[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [poly((1,4)-alpha-glycosyl) glycogenin-1 + n orthophosphate => glycogenin-1 + n D-glucose 1-phosphate [PYGM,PYGB]](http://reactome.org/PathwayBrowser/#/R-HSA-453358) | <a href="/glycogen/">Glycogen metabolism</a>
 [O75610](http://www.uniprot.org/uniprot/O75610) | LEFTY1 | [LEFTY binds NODAL](http://reactome.org/PathwayBrowser/#/R-HSA-1181352)
 [Q9UBC3](http://www.uniprot.org/uniprot/Q9UBC3) | DNMT3B | [PRC2 recruits DNA methyltransferases](http://reactome.org/PathwayBrowser/#/R-HSA-212222)
 [O75452](http://www.uniprot.org/uniprot/O75452) | RDH16 | [RDH5 oxidises 11cROL to 11cRAL](http://reactome.org/PathwayBrowser/#/R-HSA-2454081)
