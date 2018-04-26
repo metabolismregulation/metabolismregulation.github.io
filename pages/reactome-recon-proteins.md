@@ -49,7 +49,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P19174](http://www.uniprot.org/uniprot/P19174) | PLCG1 | [PLCG1 binds to ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1247841)
 [Q5VV43](http://www.uniprot.org/uniprot/Q5VV43) | KIAA0319 | [F- and N- BAR domain proteins bind the clathrin-coated pit](http://reactome.org/PathwayBrowser/#/R-HSA-8867754)
 [P15328](http://www.uniprot.org/uniprot/P15328) | FOLR1 | [Vesicle budding](http://reactome.org/PathwayBrowser/#/R-HSA-203973)
-[P25092](http://www.uniprot.org/uniprot/P25092) | GUCY2C | [GUCY2C trimer binds GUCA2A,B](http://reactome.org/PathwayBrowser/#/R-HSA-8936214)
+[P25092](http://www.uniprot.org/uniprot/P25092) | GUCY2C | [GUCY2C trimer binds GUCA2A,B](http://reactome.org/PathwayBrowser/#/R-HSA-8936214) | <a href="/estrogen/">Estradiol biosynthesis</a>
 [Q9Y4K0](http://www.uniprot.org/uniprot/Q9Y4K0) | LOXL2 | [Elastin cross-linking by lysyl oxidase](http://reactome.org/PathwayBrowser/#/R-HSA-2129375)
 [Q9Y6K1](http://www.uniprot.org/uniprot/Q9Y6K1) | DNMT3A | [PRC2 recruits DNA methyltransferases](http://reactome.org/PathwayBrowser/#/R-HSA-212222)
 [P30048](http://www.uniprot.org/uniprot/P30048) | PRDX3 | [PRDX3,5 catalyze TXN2 reduced + H2O2 => TXN2 oxidized + 2H2O](http://reactome.org/PathwayBrowser/#/R-HSA-3322995)
@@ -63,7 +63,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [Q16790](http://www.uniprot.org/uniprot/Q16790) | CA9 | [Expression of Carbonic Anhydrase IX (CA9)](http://reactome.org/PathwayBrowser/#/R-HSA-1235035)
 [P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phospho-cPLA2 translocates to membranes when intracellular calcium levels increase](http://reactome.org/PathwayBrowser/#/R-HSA-111881) | <a href="/eicosanoids/">Eicosanoid production</a>
 [P06865](http://www.uniprot.org/uniprot/P06865) | HEXA | [Hexosaminidase A cleaves GalNAc from GM2 to form GM3](http://reactome.org/PathwayBrowser/#/R-HSA-1605595)
-[P32019](http://www.uniprot.org/uniprot/P32019) | INPP5B | [GAPs inactivate Rho GTPase:GTP by hydrolysis](http://reactome.org/PathwayBrowser/#/R-HSA-194922)
+[P32019](http://www.uniprot.org/uniprot/P32019) | INPP5B | [GAPs inactivate Rho GTPase:GTP by hydrolysis](http://reactome.org/PathwayBrowser/#/R-HSA-194922) | <a href="/phosphoinositides/">Inositol phosphate</a>
 [Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) | ELOVL6 | [Expression of ELOVL6](http://reactome.org/PathwayBrowser/#/R-HSA-1655835)
 [Q8TC12](http://www.uniprot.org/uniprot/Q8TC12) | RDH11 | [RDH10,11 oxidise 11cROL to 11cRAL](http://reactome.org/PathwayBrowser/#/R-HSA-74872)
 [P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [poly((1,4)-alpha-glycosyl) glycogenin-1 + n orthophosphate => glycogenin-1 + n D-glucose 1-phosphate [PYGM,PYGB]](http://reactome.org/PathwayBrowser/#/R-HSA-453358) | <a href="/glycogen/">Glycogen metabolism</a>
@@ -73,7 +73,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P11216](http://www.uniprot.org/uniprot/P11216) | PYGB | [PGYB b dimer:AMP complex <=> PGYB dimer, b form + 2 AMP](http://reactome.org/PathwayBrowser/#/R-HSA-453346)
 [Q9NQR1](http://www.uniprot.org/uniprot/Q9NQR1) | KMT5A | [SETD8 monomethylates histone H4](http://reactome.org/PathwayBrowser/#/R-HSA-2301205)
 [P17516](http://www.uniprot.org/uniprot/P17516) | AKR1C4 | [AKRs reduce RBP2:atRAL to RBP2:atROL](http://reactome.org/PathwayBrowser/#/R-HSA-2855252)
-[P54868](http://www.uniprot.org/uniprot/P54868) | HMGCS2 | [Expression of HMGCS2](http://reactome.org/PathwayBrowser/#/R-HSA-1989760)
+[P54868](http://www.uniprot.org/uniprot/P54868) | HMGCS2 | [Expression of HMGCS2](http://reactome.org/PathwayBrowser/#/R-HSA-1989760) | <a href="/mevalonate/">Mevalonate biosynthesis</a>
 [P11498](http://www.uniprot.org/uniprot/P11498) | PC | [HLCS biotinylates PC:Mn2+](http://reactome.org/PathwayBrowser/#/R-HSA-2993802)
 [O75251](http://www.uniprot.org/uniprot/O75251) | NDUFS7 | [NUBPL transfers 4Fe-4S to Complex I subunits](http://reactome.org/PathwayBrowser/#/R-HSA-6788523)
 [Q9BYF1](http://www.uniprot.org/uniprot/Q9BYF1) | ACE2 | [ACE2 hydrolyzes Angiotensin-(1-10) to Angiotensin-(1-9)](http://reactome.org/PathwayBrowser/#/R-HSA-2022378)
@@ -93,7 +93,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P31350](http://www.uniprot.org/uniprot/P31350) | RRM2 | [RNR (M1M2) reduces nucleotide diphosphates to deoxynucleotide diphosphates (glutaredoxin)](http://reactome.org/PathwayBrowser/#/R-HSA-111742)
 [Q06520](http://www.uniprot.org/uniprot/Q06520) | SULT2A1 | [Expression of SULT2A1](http://reactome.org/PathwayBrowser/#/R-HSA-1989775)
 [P35354](http://www.uniprot.org/uniprot/P35354) | PTGS2 | [PTGS2 dimer binds celecoxib](http://reactome.org/PathwayBrowser/#/R-HSA-2309779)
-[O00763](http://www.uniprot.org/uniprot/O00763) | ACACB | [Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)](http://reactome.org/PathwayBrowser/#/R-HSA-1655830)
+[O00763](http://www.uniprot.org/uniprot/O00763) | ACACB | [Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)](http://reactome.org/PathwayBrowser/#/R-HSA-1655830) | <a href="/carnitine/">Acyl-carnitine synthesis</a>
 [O00443](http://www.uniprot.org/uniprot/O00443) | PIK3C2A | [trans-Golgi Network Coat Assembly](http://reactome.org/PathwayBrowser/#/R-HSA-421831)
 [O95299](http://www.uniprot.org/uniprot/O95299) | NDUFA10 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178)
 [P35558](http://www.uniprot.org/uniprot/P35558) | PCK1 | [Expression of Phosphoenolpyruvate carboxykinase 1 (PEPCK-C)](http://reactome.org/PathwayBrowser/#/R-HSA-560472)
