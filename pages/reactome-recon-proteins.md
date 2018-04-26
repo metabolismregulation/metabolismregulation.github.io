@@ -32,7 +32,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [Phosphorylation of SHC1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1225952) |  <a href="/phosphoinositides/">Inositol phosphate</a>
 [Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Phosphorylation of CRMPs by Cdk5](http://reactome.org/PathwayBrowser/#/R-HSA-399944) |
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148) |
-[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898) |
+[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898) | <a href="/eicosanoids/"><br />Eicosanoid production</a>
 
 
 <br />
@@ -61,7 +61,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [Q16795](http://www.uniprot.org/uniprot/Q16795) | NDUFA9 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178)
 [Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Interaction of NUMB with L1](http://reactome.org/PathwayBrowser/#/R-HSA-443783)
 [Q16790](http://www.uniprot.org/uniprot/Q16790) | CA9 | [Expression of Carbonic Anhydrase IX (CA9)](http://reactome.org/PathwayBrowser/#/R-HSA-1235035)
-[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phospho-cPLA2 translocates to membranes when intracellular calcium levels increase](http://reactome.org/PathwayBrowser/#/R-HSA-111881)
+[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phospho-cPLA2 translocates to membranes when intracellular calcium levels increase](http://reactome.org/PathwayBrowser/#/R-HSA-111881) | <a href="/eicosanoids/"><br />Eicosanoid production</a>
 [P06865](http://www.uniprot.org/uniprot/P06865) | HEXA | [Hexosaminidase A cleaves GalNAc from GM2 to form GM3](http://reactome.org/PathwayBrowser/#/R-HSA-1605595)
 [P32019](http://www.uniprot.org/uniprot/P32019) | INPP5B | [GAPs inactivate Rho GTPase:GTP by hydrolysis](http://reactome.org/PathwayBrowser/#/R-HSA-194922)
 [Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) | ELOVL6 | [Expression of ELOVL6](http://reactome.org/PathwayBrowser/#/R-HSA-1655835)
