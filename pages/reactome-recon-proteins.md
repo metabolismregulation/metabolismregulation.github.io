@@ -12,27 +12,27 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 
 ## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
 
-**UniProt ID** | **HGNC Symbol** | **Reactome Process** 
+**UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps** 
 :---:|:---:|:---
-[Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) | ANAPC11 | [Phosphorylation of Cdh1 by Cyclin A:Cdk2](http://reactome.org/PathwayBrowser/#/R-HSA-174079)
-[P32119](http://www.uniprot.org/uniprot/P32119) | PRDX2 | [CDK5:p25 phosphorylates PRDX2](http://reactome.org/PathwayBrowser/#/R-HSA-8868573)
-[P06737](http://www.uniprot.org/uniprot/P06737) | PYGL | [glycogen phosphorylase (PYGL) dimer b + 2 ATP => glycogen phosphorylase (PYGL) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71588)
-[P09917](http://www.uniprot.org/uniprot/P09917) | ALOX5 | [ALOX5 is phosphorylated by MAPKAP2](http://reactome.org/PathwayBrowser/#/R-HSA-429016)
-[P29474](http://www.uniprot.org/uniprot/P29474) | NOS3 | [AKT1 phosphorylates eNOS](http://reactome.org/PathwayBrowser/#/R-HSA-202111)
-[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [glycogen phosphorylase (PYGM) dimer b + 2 ATP => glycogen phosphorylase (PYGM) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71541)
-[P19174](http://www.uniprot.org/uniprot/P19174) | PLCG1 | [Phosphorylation of PLCG1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1247844)
-[Q06830](http://www.uniprot.org/uniprot/Q06830) | PRDX1 | [CDK5:p25 phosphorylates PRDX1](http://reactome.org/PathwayBrowser/#/R-HSA-8868567)
-[P11216](http://www.uniprot.org/uniprot/P11216) | PYGB | [glycogen phosphorylase (PYGB) dimer b + 2 ATP => glycogen phosphorylase (PYGB) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-453337)
-[P15328](http://www.uniprot.org/uniprot/P15328) | FOLR1 | [CSNK1D phosphorylates SEC23](http://reactome.org/PathwayBrowser/#/R-HSA-5694441)
-[Q03393](http://www.uniprot.org/uniprot/Q03393) | PTS | [PTPS is phosphorylated by cGMP-dependant protein kinase II](http://reactome.org/PathwayBrowser/#/R-HSA-1475422)
-[P16885](http://www.uniprot.org/uniprot/P16885) | PLCG2 | [Phosphorylation and activation of PLCG](http://reactome.org/PathwayBrowser/#/R-HSA-2029268)
-[P14672](http://www.uniprot.org/uniprot/P14672) | SLC2A4 | [GLUT4 vesicle fuses with the plasma membrane](http://reactome.org/PathwayBrowser/#/R-HSA-1449574)
-[P35270](http://www.uniprot.org/uniprot/P35270) | SPR | [Sepiapterin reductase (SPR) is phosphorylated by Ca2+/calmodulin-dependent protein kinase II](http://reactome.org/PathwayBrowser/#/R-HSA-1497853)
-[Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8 | [Phosphorylation of cohesin by PLK1 at centromeres](http://reactome.org/PathwayBrowser/#/R-HSA-1638803)
-[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [Phosphorylation of SHC1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1225952)
-[Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Phosphorylation of CRMPs by Cdk5](http://reactome.org/PathwayBrowser/#/R-HSA-399944)
-[P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)
-[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898)
+[Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) | ANAPC11 | [Phosphorylation of Cdh1 by Cyclin A:Cdk2](http://reactome.org/PathwayBrowser/#/R-HSA-174079) |
+[P32119](http://www.uniprot.org/uniprot/P32119) | PRDX2 | [CDK5:p25 phosphorylates PRDX2](http://reactome.org/PathwayBrowser/#/R-HSA-8868573) |
+[P06737](http://www.uniprot.org/uniprot/P06737) | PYGL | [glycogen phosphorylase (PYGL) dimer b + 2 ATP => glycogen phosphorylase (PYGL) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71588) |
+[P09917](http://www.uniprot.org/uniprot/P09917) | ALOX5 | [ALOX5 is phosphorylated by MAPKAP2](http://reactome.org/PathwayBrowser/#/R-HSA-429016) |
+[P29474](http://www.uniprot.org/uniprot/P29474) | NOS3 | [AKT1 phosphorylates eNOS](http://reactome.org/PathwayBrowser/#/R-HSA-202111) |
+[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [glycogen phosphorylase (PYGM) dimer b + 2 ATP => glycogen phosphorylase (PYGM) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71541) | F004-glycogen-muscle-SBGNv02.sbgn
+[P19174](http://www.uniprot.org/uniprot/P19174) | PLCG1 | [Phosphorylation of PLCG1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1247844) |
+[Q06830](http://www.uniprot.org/uniprot/Q06830) | PRDX1 | [CDK5:p25 phosphorylates PRDX1](http://reactome.org/PathwayBrowser/#/R-HSA-8868567) |
+[P11216](http://www.uniprot.org/uniprot/P11216) | PYGB | [glycogen phosphorylase (PYGB) dimer b + 2 ATP => glycogen phosphorylase (PYGB) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-453337) |
+[P15328](http://www.uniprot.org/uniprot/P15328) | FOLR1 | [CSNK1D phosphorylates SEC23](http://reactome.org/PathwayBrowser/#/R-HSA-5694441) |
+[Q03393](http://www.uniprot.org/uniprot/Q03393) | PTS | [PTPS is phosphorylated by cGMP-dependant protein kinase II](http://reactome.org/PathwayBrowser/#/R-HSA-1475422) |
+[P16885](http://www.uniprot.org/uniprot/P16885) | PLCG2 | [Phosphorylation and activation of PLCG](http://reactome.org/PathwayBrowser/#/R-HSA-2029268) |
+[P14672](http://www.uniprot.org/uniprot/P14672) | SLC2A4 | [GLUT4 vesicle fuses with the plasma membrane](http://reactome.org/PathwayBrowser/#/R-HSA-1449574) |
+[P35270](http://www.uniprot.org/uniprot/P35270) | SPR | [Sepiapterin reductase (SPR) is phosphorylated by Ca2+/calmodulin-dependent protein kinase II](http://reactome.org/PathwayBrowser/#/R-HSA-1497853) |
+[Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8 | [Phosphorylation of cohesin by PLK1 at centromeres](http://reactome.org/PathwayBrowser/#/R-HSA-1638803) |
+[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [Phosphorylation of SHC1 by ligand-responsive p-6Y-EGFR mutants](http://reactome.org/PathwayBrowser/#/R-HSA-1225952) | F009-phosphoinositides-SBGNv02.sbgn
+[Q16555](http://www.uniprot.org/uniprot/Q16555) | DPYSL2 | [Phosphorylation of CRMPs by Cdk5](http://reactome.org/PathwayBrowser/#/R-HSA-399944) |
+[P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148) |
+[P47712](http://www.uniprot.org/uniprot/P47712) | PLA2G4A | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898) |
 
 
 <br />
@@ -66,7 +66,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P32019](http://www.uniprot.org/uniprot/P32019) | INPP5B | [GAPs inactivate Rho GTPase:GTP by hydrolysis](http://reactome.org/PathwayBrowser/#/R-HSA-194922)
 [Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) | ELOVL6 | [Expression of ELOVL6](http://reactome.org/PathwayBrowser/#/R-HSA-1655835)
 [Q8TC12](http://www.uniprot.org/uniprot/Q8TC12) | RDH11 | [RDH10,11 oxidise 11cROL to 11cRAL](http://reactome.org/PathwayBrowser/#/R-HSA-74872)
-[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [poly((1,4)-alpha-glycosyl) glycogenin-1 + n orthophosphate => glycogenin-1 + n D-glucose 1-phosphate [PYGM,PYGB]](http://reactome.org/PathwayBrowser/#/R-HSA-453358)
+[P11217](http://www.uniprot.org/uniprot/P11217) | PYGM | [poly((1,4)-alpha-glycosyl) glycogenin-1 + n orthophosphate => glycogenin-1 + n D-glucose 1-phosphate [PYGM,PYGB]](http://reactome.org/PathwayBrowser/#/R-HSA-453358) | F004-glycogen-muscle-SBGNv02.sbgn
 [O75610](http://www.uniprot.org/uniprot/O75610) | LEFTY1 | [LEFTY binds NODAL](http://reactome.org/PathwayBrowser/#/R-HSA-1181352)
 [Q9UBC3](http://www.uniprot.org/uniprot/Q9UBC3) | DNMT3B | [PRC2 recruits DNA methyltransferases](http://reactome.org/PathwayBrowser/#/R-HSA-212222)
 [O75452](http://www.uniprot.org/uniprot/O75452) | RDH16 | [RDH5 oxidises 11cROL to 11cRAL](http://reactome.org/PathwayBrowser/#/R-HSA-2454081)
@@ -82,7 +82,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [Q9NY59](http://www.uniprot.org/uniprot/Q9NY59) | SMPD3 | [TNF-alpha:TNFR1:NSMAF:GNB2L1 associates with SMPD2,3](http://reactome.org/PathwayBrowser/#/R-HSA-5626981)
 [P08574](http://www.uniprot.org/uniprot/P08574) | CYC1 | [Electron transfer from ubiquinol to cytochrome c of complex III](http://reactome.org/PathwayBrowser/#/R-HSA-164651)
 [P47985](http://www.uniprot.org/uniprot/P47985) | UQCRFS1 | [Electron transfer from ubiquinol to cytochrome c of complex III](http://reactome.org/PathwayBrowser/#/R-HSA-164651)
-[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [F- and N- BAR domain proteins bind the clathrin-coated pit](http://reactome.org/PathwayBrowser/#/R-HSA-8867754)
+[P00533](http://www.uniprot.org/uniprot/P00533) | EGFR | [F- and N- BAR domain proteins bind the clathrin-coated pit](http://reactome.org/PathwayBrowser/#/R-HSA-8867754) | F009-phosphoinositides-SBGNv02.sbgn
 [P07686](http://www.uniprot.org/uniprot/P07686) | HEXB | [Hexosaminidase A cleaves GalNAc from GM2 to form GM3](http://reactome.org/PathwayBrowser/#/R-HSA-1605595)
 [P47989](http://www.uniprot.org/uniprot/P47989) | XDH | [BTN1A1 binds xanthine oxidoreductase (XDH)](http://reactome.org/PathwayBrowser/#/R-HSA-8851044)
 [P04179](http://www.uniprot.org/uniprot/P04179) | SOD2 | [SOD2 (MnSOD) gene expression](http://reactome.org/PathwayBrowser/#/R-HSA-8870703)
