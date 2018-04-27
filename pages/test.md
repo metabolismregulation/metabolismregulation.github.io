@@ -127,7 +127,7 @@ tooltip.style.display = "none";
 
     <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
       <tr>
-        <td><img class="yimage" src="images/F100-aspirin-V003B-URL1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+        <td><img class="yimage" src="F100-aspirin-V003B-URL1_1.png" usemap="#image1_1" border="0" alt=""/></td>
       </tr>
     </table>
 
