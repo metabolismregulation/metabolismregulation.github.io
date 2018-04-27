@@ -13,7 +13,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 ## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps** 
-:---:|:---:|:---:|:---
+:---:|:---:|:---|:---
 [Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) | ANAPC11 | [Phosphorylation of Cdh1 by Cyclin A:Cdk2](http://reactome.org/PathwayBrowser/#/R-HSA-174079) |
 [P32119](http://www.uniprot.org/uniprot/P32119) | PRDX2 | [CDK5:p25 phosphorylates PRDX2](http://reactome.org/PathwayBrowser/#/R-HSA-8868573) |
 [P06737](http://www.uniprot.org/uniprot/P06737) | PYGL | [glycogen phosphorylase (PYGL) dimer b + 2 ATP => glycogen phosphorylase (PYGL) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71588) |
@@ -39,7 +39,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 ## Table 2a : Other signalling processes & Recon2 catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
-:---:|:---:|:---:|:---
+:---:|:---:|:---|:---
 [P11926](http://www.uniprot.org/uniprot/P11926) | ODC1 | [Antizyme OAZ binds to Ornithine decarboxylase](http://reactome.org/PathwayBrowser/#/R-HSA-350567)
 [Q5FWF5](http://www.uniprot.org/uniprot/Q5FWF5) | ESCO1 | [Acetylation of SMC3 subunit of chromosomal arm associated cohesin by ESCO1 or ESCO2](http://reactome.org/PathwayBrowser/#/R-HSA-2468039)
 [P08559](http://www.uniprot.org/uniprot/P08559) | PDHA1 | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946)
@@ -114,7 +114,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 ## Table 2b :  Expression signalling processes & Recon2 catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
-:---:|:---:|:---:|:---
+:---:|:---:|:---|:---
 [O95477](http://www.uniprot.org/uniprot/O95477) | ABCA1 | [Expression of ABCA1](http://reactome.org/PathwayBrowser/#/R-HSA-1989765)
 [Q16790](http://www.uniprot.org/uniprot/Q16790) | CA9 | [Expression of Carbonic Anhydrase IX (CA9)](http://reactome.org/PathwayBrowser/#/R-HSA-1235035)
 [Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) | ELOVL6 | [Expression of ELOVL6](http://reactome.org/PathwayBrowser/#/R-HSA-1655835)

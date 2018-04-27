@@ -13,7 +13,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 ## Table 1 : Signalling phosphorylation processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
-:---:|:---:|:---:|:---
+:---:|:---:|:---|:---
 [Q9NY65](http://www.uniprot.org/uniprot/Q9NY65) | TUBA8 | [Phosphorylation of cohesin by PLK1 at centromeres](http://reactome.org/PathwayBrowser/#/R-HSA-1638803)
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)
 
@@ -21,7 +21,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 ## Table 2a : Other signalling processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps** 
-:---:|:---:|:---:|:---
+:---:|:---:|:---|:---
 [P06865](http://www.uniprot.org/uniprot/P06865) | HEXA | [Hexosaminidase A cleaves GalNAc from GM2 to form GM3](http://reactome.org/PathwayBrowser/#/R-HSA-1605595) |
 [P08559](http://www.uniprot.org/uniprot/P08559) | PDHA1 | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946) |
 [P51970](http://www.uniprot.org/uniprot/P51970) | NDUFA8 | [Intermediate 1 binds HP subcomplex to form Intermediate 2](http://reactome.org/PathwayBrowser/#/R-HSA-6799178) |
@@ -43,7 +43,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 ## Table 2b :  Expression signalling processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
-:---:|:---:|:---:|:---
+:---:|:---:|:---|:---
 [O00763](http://www.uniprot.org/uniprot/O00763) | ACACB | [Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)](http://reactome.org/PathwayBrowser/#/R-HSA-1655830) | <a href="/carnitine/">Acyl-carnitine synthesis</a>
 [P11310](http://www.uniprot.org/uniprot/P11310) | ACADM | [Expression of ACADM](http://reactome.org/PathwayBrowser/#/R-HSA-1989745) |
 [P49748](http://www.uniprot.org/uniprot/P49748) | ACADVL | [Expression of ACADVL](http://reactome.org/PathwayBrowser/#/R-HSA-1791069) |
