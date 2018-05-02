@@ -88,7 +88,7 @@ permalink: /team/
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"> </td>
+      <td style="width: 200px;" align="center"><img src="/images/team/MichaelBlinov.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"> </td>
       <td style="width: 200px;" align="center"> </td>
     </tr>
@@ -96,7 +96,7 @@ permalink: /team/
 <table>
     <tr>
       <td style="width: 200px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
-      <td style="width: 200px;" align="center"> </td>
+      <td style="width: 200px;" align="center"><strong>Michael Blinov</strong><br />UConn School of Medicine, University in Farmington, Connecticut, USA</td>
       <td style="width: 200px;" align="center"> </td>
       <td style="width: 200px;" align="center"> </td>
     </tr>
