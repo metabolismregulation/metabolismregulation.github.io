@@ -50,36 +50,17 @@ permalink: /team/
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/BertrandDeMeulder.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/AugustinLuna.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/HuaiyuMi.jpg" width="130"/></td>
     </tr>
 </table>
 <table>
     <tr>
       <td style="width: 200px;" align="center"><strong>Valeriya Berzhitskaya</strong><br />Moscow Institute of Physics and Technology, Moscow, Russia</td>
-      <td style="width: 200px;" align="center"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>
       <td style="width: 200px;" align="center"><strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands</td>
-    </tr>
-</table>
-
-<br />
-
-<table>
-    <tr>
-      <td style="width: 200px;" align="center"><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/HuaiyuMi.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/FalkSchreiber.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></td>
-    </tr>
-</table>
-<table>
-    <tr>
       <td style="width: 200px;" align="center"><font size="3"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></td>
       <td style="width: 200px;" align="center"><font size="3"><strong>Huaiyu Mi</strong><br />University of Southern California, Keck School of Medicine, Los Angeles, USA</font></td>
-      <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
-      <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
     </tr>
 </table>
 
@@ -87,23 +68,25 @@ permalink: /team/
 
 <table>
     <tr>
+      <td style="width: 200px;" align="center"><img src="/images/team/FalkSchreiber.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/MichaelBlinov.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"> </td>
-      <td style="width: 200px;" align="center"> </td>
     </tr>
 </table>
 <table>
     <tr>
+      <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
+      <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
       <td style="width: 200px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
       <td style="width: 200px;" align="center"><strong>Michael Blinov</strong><br />UConn School of Medicine, University in Farmington, Connecticut, USA</td>
-      <td style="width: 200px;" align="center"> </td>
-      <td style="width: 200px;" align="center"> </td>
     </tr>
 </table>
 
 <br />
 
+<!--<td style="width: 200px;" align="center"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
+<td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>-->
 
 <br />
 
