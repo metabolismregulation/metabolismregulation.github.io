@@ -6,7 +6,7 @@ permalink: /help/
 
 # How to draw SBGN diagrams in yEd
 
-This is a collection of tips on drawing SBGN diagrams in yEd Graph Editor. This page is not meant as an introduction to drawing in yEd in general. To learn more about yEd please review tutorials at the yEd website and relevant YouTube videos. Here we offer a quick help for the use of the new yEd SBGN palette.
+This is a collection of tips on drawing SBGN diagrams in yEd Graph Editor. This page is not meant to be an introduction to yEd. To learn more about yEd please review tutorials at the yEd website and relevant YouTube videos. Here we offer a quick help for the use of the SBGN palette.
 
 ## Modifying general settings
 
