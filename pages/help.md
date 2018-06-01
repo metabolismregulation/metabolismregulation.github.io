@@ -49,7 +49,7 @@ Auto-Rotate with Edge: check
 
 Then move the label manually to the desired position.  
 
-<img src="/images/yEd/cardinality.png" alt="cardinality" style="width:300px;">
+<img src="/images/yEd/cardinality.png" alt="cardinality" style="width:400px;">
 
 ## Other tips
 
