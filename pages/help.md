@@ -47,7 +47,9 @@ Side of Edge: On Edge
 Orientation: Parallel  
 Auto-Rotate with Edge: check  
 
-Then move the label manually to the desired position.
+Then move the label manually to the desired position.  
+
+<img src="/images/yEd/cardinality.png" alt="cardinality" style="width:300px;">
 
 ## Other tips
 
