@@ -79,7 +79,7 @@ permalink: /team/
       <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
       <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
       <td style="width: 200px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
-      <td style="width: 200px;" align="center"><strong>Michael Blinov</strong><br />UConn School of Medicine, University in Farmington, Connecticut, USA</td>
+      <td style="width: 200px;" align="center"><strong>Michael Blinov</strong><br />University of Connecticut Health Center, Farmington, USA</td>
     </tr>
 </table>
 
@@ -95,7 +95,7 @@ permalink: /team/
 </table>
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><strong>James Greene</strong><br />UConn School of Medicine, University in Farmington, Connecticut, USA</td>
+      <td style="width: 200px;" align="center"><strong>James Greene</strong><br />University of Connecticut Health Center, Farmington, USA</td>
       <td style="width: 200px;" align="center"> </td>
       <td style="width: 200px;" align="center"> </td>
       <td style="width: 200px;" align="center"> </td>
