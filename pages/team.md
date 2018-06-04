@@ -157,7 +157,7 @@ permalink: /team/
 
 <table>
     <tr>
-      <td style="width:260px;" align="center"><img src="/images/logos/uconn_logo.jpg" width="180"/></td>
+      <td style="width:260px;" align="center"><img src="/images/logos/uconn_logo.jpg" width="160"/></td>
       <td style="width:260px;" align="center"> </td>
       <td style="width:260px;" align="center"> </td>
     </tr>
