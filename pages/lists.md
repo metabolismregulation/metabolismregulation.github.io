@@ -9,7 +9,7 @@ permalink: /lists/
 This list includes the developed diagrams and suggested topics. Some initial information for suggested topics is provided in this [online document](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing) accessible for collaborative editing.
 
 1. <a href="/glycolysis/">Regulation of glycolysis via PFKFB</a> (Alexander Mazein, Vasundra Touré)
-1. <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a> (Alexander Mazein)
+1. <a href="/mevalonate/">Regulation of mevalonate biosynthesis</a> (James Greene, Michael Blinov, Alexander Mazein)
 1. <a href="/eicosanoids/">Regulation of eicosanoid production</a> (Alexander Mazein)
 1. <a href="/glycogen/">Regulation of glycogen metabolism</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya, Vasundra Touré)
 1. <a href="/srebp/">Regulation of cholesterol metabolism via SREBP</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
