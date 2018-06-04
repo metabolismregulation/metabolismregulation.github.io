@@ -8,7 +8,7 @@ Downloads: &nbsp;
 [SBGN-ML](../downloads/F003-mevalonate-SBGNv02.sbgn) &nbsp;
 [Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F003-mevalonate.sbgn) &nbsp;
 <!--<a href="/mevalonate/"><img id="logo" src="/images/figure03v04.png" style="width:100%;"/></a>-->
-<p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.png" width="600"/></a></p>
+<p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.png" width="800"/></a></p>
 
 ## Contributors
 
