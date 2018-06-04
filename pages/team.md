@@ -85,6 +85,25 @@ permalink: /team/
 
 <br />
 
+<table>
+    <tr>
+      <td style="width: 200px;" align="center"><img src="/images/team/JamesGreene.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"> </td>
+      <td style="width: 200px;" align="center"> </td>
+      <td style="width: 200px;" align="center"> </td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 200px;" align="center"><strong>James Greene</strong><br />UConn School of Medicine, University in Farmington, Connecticut, USA</td>
+      <td style="width: 200px;" align="center"> </td>
+      <td style="width: 200px;" align="center"> </td>
+      <td style="width: 200px;" align="center"> </td>
+    </tr>
+</table>
+
+<br />
+
 <!--<td style="width: 200px;" align="center"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
 <td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>-->
 
