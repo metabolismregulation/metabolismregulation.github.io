@@ -16,7 +16,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/acly/">Regulation of acetyl-CoA synthesis</a> (Adrien Rougny)
 1. <a href="/inos/">Regulation of nitric oxide production - iNOS pathway</a> (Alexander Mazein)
 1. <a href="/enos/">Regulation of nitric oxide production - eNOS pathway</a> (Olga Ivanova)
-1. <a href="/phosphoinositides/">Regulation of inositol phosphate metabolism</a> (Nicolas Le Novère)
+1. <a href="/phosphoinositides/">Regulation of phosphoinositide metabolism</a> (Nicolas Le Novère)
 1. <a href="/camp/">Regulation of cAMP hydrolysis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/carnitine/">Regulation of acyl-carnitine synthesis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
 1. <a href="/tag/">Regulation of triacylglycerol hydrolysis</a> (Tatiana Serebriyskaya, Valeriya Berzhitskaya)
