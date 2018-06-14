@@ -100,7 +100,7 @@ permalink: /gallery/
 
 <table>
     <tr valign="bottom">
-      <td style="width: 225px;" align="center"> <a href="/phosphoinositides/">Inositol phosphate</a> <br /> <font size="2"> 
+      <td style="width: 225px;" align="center"> <a href="/phosphoinositides/">Phosphoinositide</a> <br /> <font size="2"> 
 <a href="/downloads/F009-phosphoinositides.graphml">GraphML</a> &nbsp;
 <a href="/downloads/F009-phosphoinositides-SBGNv02.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
