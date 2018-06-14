@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Regulation of inositol phosphate metabolism
+title: Regulation of phosphoinositide metabolism
 ---
 
 Downloads: &nbsp; 
