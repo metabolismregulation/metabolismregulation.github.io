@@ -11,7 +11,7 @@ Downloads: &nbsp;
 
 ## Contributors 
 
-Nicolas Le Novère  
+James Greene, Michael Blinov  
 
 ## References
 
