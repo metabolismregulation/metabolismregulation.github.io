@@ -21,9 +21,8 @@ Japan.
 To join the effort please use this email address:  
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
 
-<!--Project coordinators:  
-Alexander Mazein [amazein@eisbm.org](mailto:amazein@eisbm.org)  
-Irina Balaur [ibalaur@eisbm.org](mailto:ibalaur@eisbm.org)  -->
+Project coordinator:  
+Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)
 
 # How to contribute
 
