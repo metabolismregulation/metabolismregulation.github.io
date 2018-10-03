@@ -13,6 +13,14 @@ permalink: /tools/
 <p>Since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a> yEd provides a palette section for Systems Biology Graphical Notation.</p>
 
 <p>There are some <a href="/help/" target="_blank">tips</a> available on how to use yEd for drawing SBGN diagrams.</p>
+
+# ySBGN
+
+<p><a href="https://github.com/sbgn/ySBGN" target="_blank">ySBGN</a> is a standalone Java application, a bidirectional converter between GraphML format of the <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> and the SBGN Process Description or Activity Flow languages. </p>
+
+<p>Now diagrams can be created in the intuitive general-purpose <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> using the SBGN Palette available since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a>, and, thanks to the converter, the outcome could be offered in the standard Systems Biology format. ySBGN tool supports keeping annotation information in the SBGN-ML format.</p>
+
+<p>For reporting issues please use <a href="https://github.com/sbgn/ySBGN/issues" target="_blank">ySBGN GitHub Issues</a>page.</p>
         
 # Newt Editor
 
