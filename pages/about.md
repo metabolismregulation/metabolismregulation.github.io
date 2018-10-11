@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-The project was initiated by the European Institute for Systems Biology and Medicine in collaboration with the European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI). The [project team](/team/) includes participants with expertise in Computational Biology, pathway curation and standard formats from research groups in 
+The project was initiated by the European Institute for Systems Biology and Medicine (EISBM) in collaboration with the European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI). The [project team](/team/) includes participants with expertise in Computational Biology, pathway curation and standard formats from research groups in 
 France, 
 the United Kingdom, 
 Luxembourg, 
