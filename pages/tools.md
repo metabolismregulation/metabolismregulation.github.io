@@ -30,7 +30,11 @@ permalink: /tools/
 
 # SBGN-ED
 
-<a href="www.sbgn-ed.org/" target="_blank">SBGN-ED</a> is an open-source software, a VANTED add-on, which allows creating and editing diagrams in all three SBGN languages: Process Description, Activity Flow and Entity Relationship (Czauderna et al., 2010, <a href="https://doi.org/10.1093/bioinformatics/btq407" target="_blank">doi:/10.1093/bioinformatics/btq407</a>). It offers a validation tool that highlights questionable parts if discovered. SBGN-ED is kept uptodate and supports the latest version of the SBGN standard. 
+<a href="www.sbgn-ed.org/" target="_blank">SBGN-ED</a> is an open-source software, a VANTED add-on, which allows creating and editing diagrams in all three SBGN languages: Process Description, Activity Flow and Entity Relationship (Czauderna et al., 2010, <a href="https://doi.org/10.1093/bioinformatics/btq407" target="_blank">doi:/10.1093/bioinformatics/btq407</a>). It offers a validation tool that highlights questionable parts if discovered. SBGN-ED is kept uptodate and supports the latest version of the SBGN standard.  
+
+[SBGN-ED](www.sbgn-ed.org) is an SBGN editor which allows creating, editing and exploring all types of SBGN maps. It allows validation of the syntactical and semantical correctness of created or edited maps. Already existing non-SBGN maps from the KEGG database can be translated into SBGN PD maps including automatic layout. Translation of PD to AF maps and visualisation of SBML models in SBGN PD are also provided. Additionally, the tool allows exporting of SBGN maps into several file and image formats including the SBGN-ML format.  
+
+SBGN-ED is an add-on of the [VANTED framework](www.vanted.org). VANTED is an integrative and extendable framework for systems biology applications which aims at the integration, analysis and visual exploration of experimental data in the context of biological networks as well as the modelling, simulation and analysis of molecular biological processes.
 
 # CellDesigner
 
