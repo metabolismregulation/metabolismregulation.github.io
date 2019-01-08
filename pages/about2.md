@@ -41,17 +41,16 @@ Ways to contribute:
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/AlexanderMazein.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
     </tr>
 </table>
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><strong>Irina Balaur</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Astrid Junker</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Leibniz Institute of Plant Genetics and Crop Plant Research, Gatersleben, Germany</font></p></td>
-      <td style="width: 200px;" align="center"><strong>Alexander Mazein</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;" align="center"><strong>Charles Auffray</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
-      <td style="width: 200px;" align="center"><strong>Antonio Fabregat</strong><br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Irina Balaur</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Alexander Mazein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Antonio Fabregat</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Adrien Rougny</strong></p><p style="margin:4px; line-height:100%;"><font size="2">National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
     </tr>
 </table>
 
@@ -79,7 +78,7 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
+      
       <td style="width: 200px;" align="center"><img src="/images/team/FalkSchreiber.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></td>
     </tr>
@@ -87,7 +86,7 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width: 200px;" align="center"><strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands</td>
-      <td style="width: 200px;" align="center"><font size="2"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></td>
+      
       <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
       <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
     </tr>
@@ -100,6 +99,7 @@ Ways to contribute:
       <td style="width: 200px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/MichaelBlinov.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/JamesGreene.jpg" width="130"/></td>
+      <td style="width: 200px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"> </td>
     </tr>
 </table>
