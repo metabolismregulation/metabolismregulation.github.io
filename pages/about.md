@@ -37,9 +37,6 @@ Ways to contribute:
 
 # Project team
 
-
-<br />
-
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
@@ -89,7 +86,7 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width: 200px;" align="center"><strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands</td>
-      <td style="width: 200px;" align="center"><font size="2"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></td>
+      <td style="width: 200px;" align="center"><strong>Adrien Rougny</strong><br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</td>
       <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
       <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
     </tr>
