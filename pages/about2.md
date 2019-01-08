@@ -39,10 +39,10 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width: 200px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
-      <td style="width: 200px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></td>
-      <td style="width: 200px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
-      <td style="width: 200px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
+      <td style="width:200px; margin:4px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
+      <td style="width:200px; margin:4px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></td>
+      <td style="width:200px; margin:4px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
+      <td style="width:200px; margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
     </tr>
 </table>
 <table>
