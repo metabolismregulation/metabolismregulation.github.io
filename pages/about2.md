@@ -91,24 +91,31 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/MariaKondratova.jpg" width="130"/></p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/InnaKuperstein.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
     </tr>
 </table>
 <table>
     <tr>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"> </p></td>
-      <td style="width: 200px;"><p style="margin:4px;"> </p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Maria Kondratova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Inna Kuperstein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"> </p></td>
     </tr>
 </table>
 
+
+
+
+
+
+
+
+
+
 <!--
-<td style="width: 200px;" align="center"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut 
 <td style="width: 200px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
-<td style="width: 200px;" align="center"><strong>Bertrand De Meulder</strong><br />European Institute for Systems Biology and Medicine, Lyon, France</td>
 <td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>
 <td style="width: 200px;" align="center"><font size="3"><strong>Huaiyu Mi</strong><br />University of Southern California, Keck School of Medicine, Los Angeles, USA</font></td>
 -->
