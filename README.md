@@ -1,2 +1,2 @@
 # Metabolism Regulation
-Metabolism Regulation project website: http://metabolismregulation.org/.
+Metabolism Regulation project website: http://metabolismregulation.org/
