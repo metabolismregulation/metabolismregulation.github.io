@@ -47,10 +47,10 @@ Ways to contribute:
 </table>
 <table>
     <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Irina Balaur</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Alexander Mazein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Charles Auffray</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Antonio Fabregat</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Irina Balaur</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Alexander Mazein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Charles Auffray</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Antonio Fabregat</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></p></td>
     </tr>
 </table>
 
@@ -64,10 +64,10 @@ Ways to contribute:
 </table>
 <table>
     <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Adrien Rougny</strong></p><p style="margin:4px; line-height:100%;"><font size="2">National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Vasundra Touré</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Hanna Borlinghaus</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Falk Schreiber</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Adrien Rougny</strong></p><p style="margin:4px; line-height:100%;"><font size="2">National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Vasundra Touré</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Hanna Borlinghaus</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Falk Schreiber</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
     </tr>
 </table>
 
@@ -81,10 +81,10 @@ Ways to contribute:
 </table>
 <table>
     <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Olga Ivanova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>James Greene</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Michael Blinov</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Tatiana Serebriiskaia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Olga Ivanova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>James Greene</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Michael Blinov</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Tatiana Serebriiskaia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
     </tr>
 </table>
 
@@ -98,10 +98,10 @@ Ways to contribute:
 </table>
 <table>
     <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Maria Kondratova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Inna Kuperstein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"> </p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Maria Kondratova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Inna Kuperstein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
+      <td style="width:210px;"><p style="margin:4px;"> </p></td>
     </tr>
 </table>
 
@@ -109,9 +109,9 @@ Ways to contribute:
 
 
 <!--
-<td style="width: 200px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
-<td style="width: 200px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>
-<td style="width: 200px;" align="center"><font size="3"><strong>Huaiyu Mi</strong><br />University of Southern California, Keck School of Medicine, Los Angeles, USA</font></td>
+<td style="width:210px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
+<td style="width:210px;" align="center"><strong>Augustin Luna</strong><br />Dana-Farber Cancer Institute, Harvard Medical School, Boston, USA</td>
+<td style="width:210px;" align="center"><font size="3"><strong>Huaiyu Mi</strong><br />University of Southern California, Keck School of Medicine, Los Angeles, USA</font></td>
 -->
 
 <br />
