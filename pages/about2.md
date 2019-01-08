@@ -91,9 +91,9 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/OlgaIvanova.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"> </p></td>
-      <td style="width:200px;"><p style="margin:4px;"> </p></td>
-      <td style="width:200px;"><p style="margin:4px;"> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
     </tr>
 </table>
 <table>
