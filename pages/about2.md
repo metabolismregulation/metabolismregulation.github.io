@@ -56,7 +56,7 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><img src="/images/team/VasundraToure.jpg" width="130"/></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/VasundraToure.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/FalkSchreiber.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></p></td>
