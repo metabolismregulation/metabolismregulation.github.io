@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about2/
+permalink: /about/
 ---
 
 The project was initiated by the European Institute for Systems Biology and Medicine (EISBM) in collaboration with the European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI). The [project team](#project-team) includes participants with expertise in Computational Biology, pathway curation and standard formats from research groups in 
