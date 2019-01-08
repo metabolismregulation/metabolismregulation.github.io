@@ -73,32 +73,32 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/TatianaSerebriiskaia.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/OlgaIvanova.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/JamesGreene.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/MichaelBlinov.jpg" width="130"/></p></td>
-    </tr>
-</table>
-<table>
-    <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Tatiana Serebriiskaia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>James Greene</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Michael Blinov</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/OlgaIvanova.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/TatianaSerebriiskaia.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
     <tr>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Olga Ivanova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">VU University Amsterdam, Amsterdam, Netherlands</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>James Greene</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Michael Blinov</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Tatiana Serebriiskaia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"> </p></td>
       <td style="width: 200px;"><p style="margin:4px;"> </p></td>
       <td style="width: 200px;"><p style="margin:4px;"> </p></td>
