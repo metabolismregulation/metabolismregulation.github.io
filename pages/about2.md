@@ -56,16 +56,16 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/VasundraToure.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/VasundraToure.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/FalkSchreiber.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
     <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Vasundra Touré</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Adrien Rougny</strong></p><p style="margin:4px; line-height:100%;"><font size="2">National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Vasundra Touré</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Falk Schreiber</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Hanna Borlinghaus</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
     </tr>
