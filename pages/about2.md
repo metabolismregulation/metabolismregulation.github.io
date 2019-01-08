@@ -41,23 +41,6 @@ Ways to contribute:
     <tr>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
-    </tr>
-</table>
-<table>
-    <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Irina Balaur</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Alexander Mazein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Antonio Fabregat</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></p></td>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Adrien Rougny</strong></p><p style="margin:4px; line-height:100%;"><font size="2">National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/CharlesAuffray.jpg" width="130"/></p></td>
       <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></p></td>
     </tr>
@@ -71,6 +54,28 @@ Ways to contribute:
     </tr>
 </table>
 
+<table>
+    <tr>
+      <td style="width: 200px;" align="center"><img src="/images/team/VasundraToure.jpg" width="130"/></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/FalkSchreiber.jpg" width="130"/></p></td>
+      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></p></td>
+    </tr>
+</table>
+<table>
+    <tr>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Vasundra Touré</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Adrien Rougny</strong></p><p style="margin:4px; line-height:100%;"><font size="2">National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Falk Schreiber</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Hanna Borlinghaus</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
+    </tr>
+</table>
+
+
+
+
+
+
 
 
 
@@ -82,7 +87,6 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/InnaKuperstein.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/VasundraToure.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/TatianaSerebriiskaia.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></td>
     </tr>
@@ -90,7 +94,6 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width: 200px;" align="center"><strong>Inna Kuperstein</strong><br />Computational Systems Biology of Cancer, Institut Curie, Paris, France</td>
-      <td style="width: 200px;" align="center"><strong>Vasundra Touré</strong><br />Norwegian University of Science and Technology (NTNU), Trondheim, Norway</td>
       <td style="width: 220px;" align="center"><strong>Tatiana Serebriyskaya</strong><br />Moscow Institute of Physics and Technology, Moscow, Russia</td>
       <td style="width: 200px;" align="center"><strong>Valeriya Berzhitskaya</strong><br />Moscow Institute of Physics and Technology, Moscow, Russia</td>
     </tr>
@@ -101,17 +104,11 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width: 200px;" align="center"><img src="/images/team/OlgaIvanova.jpg" width="130"/></td>
-      
-      <td style="width: 200px;" align="center"><img src="/images/team/FalkSchreiber.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></td>
     </tr>
 </table>
 <table>
     <tr>
       <td style="width: 200px;" align="center"><strong>Olga Ivanova</strong><br />VU University Amsterdam, Amsterdam, Netherlands</td>
-      
-      <td style="width: 200px;" align="center"><strong>Falk Schreiber</strong><br />University of Konstanz, Konstanz, Germany</td>
-      <td style="width: 200px;" align="center"><strong>Hanna Borlinghaus</strong><br />University of Konstanz, Konstanz, Germany</td>
     </tr>
 </table>
 
@@ -122,7 +119,6 @@ Ways to contribute:
       <td style="width: 200px;" align="center"><img src="/images/team/InesThiele.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/MichaelBlinov.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"><img src="/images/team/JamesGreene.jpg" width="130"/></td>
-      <td style="width: 200px;" align="center"><img src="/images/team/CharlesAuffray.jpg" width="130"/></td>
       <td style="width: 200px;" align="center"> </td>
     </tr>
 </table>
