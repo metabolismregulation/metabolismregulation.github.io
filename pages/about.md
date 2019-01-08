@@ -81,7 +81,7 @@ Ways to contribute:
 </table>
 <table>
     <tr>
-      <td style="width: 200px;"><p style="margin:4px;"><strong>Olga Ivanova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">VU University Amsterdam, Amsterdam, Netherlands</font></p></td>
+      <td style="width: 200px;"><p style="margin:4px;"><strong>Olga Ivanova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"><strong>James Greene</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Michael Blinov</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Connecticut School of Medicine, Farmington, USA</font></p></td>
       <td style="width: 200px;"><p style="margin:4px;"><strong>Tatiana Serebriiskaia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
