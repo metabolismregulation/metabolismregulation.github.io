@@ -37,12 +37,14 @@ Ways to contribute:
 
 # Project team
 
+<br />
+
 <table>
     <tr>
-      <td style="width:200px; margin:8px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
-      <td style="width:200px; margin:6px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></td>
-      <td style="width:200px; margin:4px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
-      <td style="width:200px; margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></td>
+      <td style="width:200px; margin:8px;"><img src="/images/team/IrinaBalaur.jpg" width="130"/></td>
+      <td style="width:200px; margin:6px;"><img src="/images/team/AlexanderMazein.jpg" width="130"/></td>
+      <td style="width:200px; margin:4px;"><img src="/images/team/AntonioFabregat.jpg" width="130"/></td>
+      <td style="width:200px;"><p style="margin:4px;"><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
