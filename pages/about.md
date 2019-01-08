@@ -39,10 +39,10 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/CharlesAuffray.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/AlexanderMazein.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/CharlesAuffray.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/AntonioFabregat.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
@@ -56,10 +56,10 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/VasundraToure.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/FalkSchreiber.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/VasundraToure.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/HannaBorlinghaus.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/FalkSchreiber.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
@@ -73,10 +73,10 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/OlgaIvanova.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/JamesGreene.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/MichaelBlinov.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/TatianaSerebriiskaia.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/OlgaIvanova.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/JamesGreene.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MichaelBlinov.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/TatianaSerebriiskaia.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
@@ -90,10 +90,10 @@ Ways to contribute:
 
 <table>
     <tr>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/MariaKondratova.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /><img src="/images/team/InnaKuperstein.jpg" width="130"/></p></td>
-      <td style="width:200px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MariaKondratova.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/InnaKuperstein.jpg" width="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /> </p></td>
     </tr>
 </table>
 <table>
