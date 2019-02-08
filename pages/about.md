@@ -93,7 +93,7 @@ Ways to contribute:
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MariaKondratova.jpg" width="130"/></p></td>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/InnaKuperstein.jpg" width="130"/></p></td>
-      <td style="width:210px;"><p style="margin:4px;"><br /> </p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MatthiasKonig.jpg" width="130"/></p></td>
     </tr>
 </table>
 <table>
@@ -101,11 +101,9 @@ Ways to contribute:
       <td style="width:210px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
       <td style="width:210px;"><p style="margin:4px;"><strong>Maria Kondratova</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
       <td style="width:210px;"><p style="margin:4px;"><strong>Inna Kuperstein</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Computational Systems Biology of Cancer, Institut Curie, Paris, France</font></p></td>
-      <td style="width:210px;"><p style="margin:4px;"> </p></td>
+      <td style="width:210px;"><p style="margin:4px;"><strong>Matthias König</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Systems Medicine of the Liver, Humboldt University of Berlin, Germany</font></p></td>
     </tr>
 </table>
-
-
 
 
 <!--
