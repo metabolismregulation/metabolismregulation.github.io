@@ -22,7 +22,7 @@ To join the effort please use this email address:
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
 
 Project coordinator:  
-Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)
+Alexander Mazein [alexander.mazein@uni.lu](mailto:alexander.mazein@uni.lu)
 
 # How to contribute
 
