@@ -51,6 +51,7 @@
         </glyph>
         <glyph class="simple chemical" id="n3">
             <label text="ATP"/>
+            <clone/>
             <bbox w="60.0" h="30.0" x="276.0" y="270.0"/>
         </glyph>
         <glyph class="simple chemical" id="n4">
@@ -63,6 +64,7 @@
         </glyph>
         <glyph class="simple chemical" id="n6">
             <label text="ADP"/>
+            <clone/>
             <bbox w="60.0" h="30.0" x="415.0" y="270.0"/>
         </glyph>
         <glyph class="simple chemical" id="n7">
@@ -74,7 +76,10 @@
             <bbox w="100.0" h="30.0" x="409.1602" y="370.0"/>
         </glyph>
         <glyph class="process" orientation="horizontal" id="n9">
+            <clone/>
             <bbox w="18.0" h="18.0" x="366.0" y="326.0"/>
+            <port id="n9.1" x="357.0" y="335.0"/>
+            <port id="n9.2" x="393.0" y="335.0"/>
         </glyph>
         <glyph class="simple chemical" id="n10">
             <label text="carbamoyl-P"/>
@@ -82,77 +87,71 @@
         </glyph>
         <glyph class="simple chemical" id="n11">
             <label text="ADP"/>
+            <clone/>
             <bbox w="60.0" h="30.0" x="415.0" y="150.0"/>
         </glyph>
         <glyph class="simple chemical" id="n12">
             <label text="ATP"/>
+            <clone/>
             <bbox w="60.0" h="30.0" x="414.0" y="65.457924"/>
         </glyph>
         <glyph class="process" orientation="vertical" id="n13">
+            <clone/>
             <bbox w="18.0" h="18.0" x="366.0" y="111.0"/>
+            <port id="n13.1" x="375.0" y="138.0"/>
+            <port id="n13.2" x="375.0" y="102.0"/>
         </glyph>
         <arc class="catalysis" id="e0" source="n1" target="n9">
             <start x="375.0" y="228.91046"/>
             <end x="375.0" y="322.5301"/>
         </arc>
-        <arc class="consumption" id="e1" source="n0" target="n13">
+        <arc class="consumption" id="e1" source="n0" target="n13.2">
             <start x="375.0" y="73.9485"/>
-            <next x="375.0" y="102.0"/>
-            <end x="375.0" y="120.0"/>
+            <end x="375.0" y="102.0"/>
         </arc>
-        <arc class="production" id="e2" source="n13" target="n1">
-            <start x="375.0" y="120.0"/>
-            <next x="375.0" y="138.0"/>
+        <arc class="production" id="e2" source="n13.1" target="n1">
+            <start x="375.0" y="138.0"/>
             <end x="375.0" y="200.0"/>
         </arc>
         <arc class="catalysis" id="e3" source="n2" target="n13">
             <start x="225.0" y="120.0"/>
             <end x="362.4756" y="120.0"/>
         </arc>
-        <arc class="consumption" id="e4" source="n3" target="n9">
+        <arc class="consumption" id="e4" source="n3" target="n9.1">
             <start x="306.0" y="285.0"/>
-            <next x="357.0" y="335.0"/>
-            <end x="375.0" y="335.0"/>
+            <end x="357.0" y="335.0"/>
         </arc>
-        <arc class="consumption" id="e5" source="n4" target="n9">
+        <arc class="consumption" id="e5" source="n4" target="n9.1">
             <start x="225.0" y="335.0"/>
-            <next x="357.0" y="335.0"/>
-            <end x="375.0" y="335.0"/>
+            <end x="357.0" y="335.0"/>
         </arc>
-        <arc class="consumption" id="e6" source="n5" target="n9">
+        <arc class="consumption" id="e6" source="n5" target="n9.1">
             <start x="306.0" y="385.0"/>
-            <next x="357.0" y="335.0"/>
-            <end x="375.0" y="335.0"/>
+            <end x="357.0" y="335.0"/>
         </arc>
-        <arc class="production" id="e7" source="n9" target="n6">
-            <start x="375.0" y="335.0"/>
-            <next x="393.0" y="335.0"/>
+        <arc class="production" id="e7" source="n9.2" target="n6">
+            <start x="393.0" y="335.0"/>
             <end x="431.1527" y="286.8306"/>
         </arc>
-        <arc class="production" id="e8" source="n9" target="n7">
-            <start x="375.0" y="335.0"/>
-            <next x="393.0" y="335.0"/>
+        <arc class="production" id="e8" source="n9.2" target="n7">
+            <start x="393.0" y="335.0"/>
             <end x="534.0" y="285.0"/>
         </arc>
-        <arc class="production" id="e9" source="n9" target="n8">
-            <start x="375.0" y="335.0"/>
-            <next x="393.0" y="335.0"/>
+        <arc class="production" id="e9" source="n9.2" target="n8">
+            <start x="393.0" y="335.0"/>
             <end x="439.23688" y="383.512"/>
         </arc>
-        <arc class="production" id="e10" source="n9" target="n10">
-            <start x="375.0" y="335.0"/>
-            <next x="393.0" y="335.0"/>
+        <arc class="production" id="e10" source="n9.2" target="n10">
+            <start x="393.0" y="335.0"/>
             <end x="554.0" y="335.0"/>
         </arc>
-        <arc class="production" id="e11" source="n13" target="n11">
-            <start x="375.0" y="120.0"/>
-            <next x="375.0" y="138.0"/>
+        <arc class="production" id="e11" source="n13.1" target="n11">
+            <start x="375.0" y="138.0"/>
             <end x="445.0" y="165.0"/>
         </arc>
-        <arc class="consumption" id="e12" source="n12" target="n13">
+        <arc class="consumption" id="e12" source="n12" target="n13.2">
             <start x="444.0" y="80.457924"/>
-            <next x="375.0" y="102.0"/>
-            <end x="375.0" y="120.0"/>
+            <end x="375.0" y="102.0"/>
         </arc>
     </map>
 </sbgn>

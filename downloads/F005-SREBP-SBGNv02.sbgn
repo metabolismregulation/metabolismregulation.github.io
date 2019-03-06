@@ -1,365 +1,367 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
     <map language="process description">
-        <glyph compartmentOrder="-53.0" id="glyph_n2" class="compartment">
-            <label text="Endoplasmic Reticulum">
-                <bbox y="313.5712" x="328.60782" h="18.0" w="157.0"/>
-            </label>
-            <bbox y="50.0" x="50.0" h="545.1424" w="714.21564"/>
-        </glyph>
-        <glyph compartmentOrder="-52.0" id="glyph_n5" class="compartment">
-            <label text="Golgi">
-                <bbox y="847.7833" x="594.4518" h="18.0" w="42.0"/>
-            </label>
-            <bbox y="615.89996" x="466.688" h="481.76678" w="297.52762"/>
-        </glyph>
-        <glyph compartmentOrder="-51.0" id="glyph_n6" class="compartment">
-            <label text="Nucleus">
-                <bbox y="985.92126" x="219.08209" h="18.0" w="60.0"/>
-            </label>
-            <bbox y="892.1758" x="51.476166" h="205.49104" w="395.21185"/>
-        </glyph>
-        <glyph compartmentOrder="-50.0" id="glyph_n4" class="compartment">
-            <label text="COPII-coated vesicle">
-                <bbox y="733.62195" x="117.343994" h="18.0" w="142.0"/>
-            </label>
-            <bbox y="616.9732" x="50.0" h="251.29747" w="276.688"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n5" id="glyph_n5_n2" class="macromolecule">
-            <label text="S1P"/>
-            <bbox y="758.7013" x="485.19733" h="40.0" w="80.0"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n5" id="glyph_n5_n3" class="macromolecule">
-            <label text="S2P"/>
-            <bbox y="926.3031" x="485.19733" h="40.0" w="80.0"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n5" id="glyph_n5_n0" class="macromolecule">
-            <label text="SREBP2"/>
-            <bbox y="856.3031" x="575.1973" h="40.0" w="80.0"/>
-            <glyph id="glyph_n5_n0a" class="unit of information">
-                <label text="processed form"/>
-                <bbox y="848.3031" x="572.1973" h="16.0" w="86.0"/>
+        <glyph class="complex" id="glyph_n1">
+            <bbox w="100.0" h="116.2" x="391.67188" y="670.6013"/>
+            <glyph class="macromolecule" id="glyph_n1_n1_n0">
+                <label text="Sec23"/>
+                <bbox w="80.0" h="40.0" x="401.67188" y="731.8014"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n1_n1_n1">
+                <label text="Sec24"/>
+                <bbox w="80.0" h="40.0" x="401.67188" y="684.6013"/>
             </glyph>
         </glyph>
-        <glyph id="glyph_n5_n5" orientation="vertical" class="process">
-            <bbox y="937.3031" x="606.1973" h="18.0" w="18.0"/>
-            <port y="928.3031" x="615.1973" id="glyph_n5_n5.1"/>
-            <port y="964.3031" x="615.1973" id="glyph_n5_n5.2"/>
+        <glyph class="compartment" id="glyph_n2">
+            <label text="Endoplasmic Reticulum"/>
+            <bbox w="714.21564" h="545.1424" x="94.98389" y="0.0"/>
         </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n0" class="simple chemical">
-            <label text="Sterol"/>
-            <bbox y="101.4526" x="361.313" h="32.0" w="70.75"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n3" class="complex">
-            <bbox y="101.03343" x="530.5362" h="161.83832" w="207.82872"/>
-            <glyph id="glyph_n2_n3_n2_n3_n0" class="macromolecule">
+        <glyph class="complex" id="glyph_n2_n3" compartmentRef="glyph_n2">
+            <bbox w="207.82872" h="161.83832" x="575.5201" y="51.033432"/>
+            <glyph class="macromolecule" id="glyph_n2_n3_n2_n3_n0">
                 <label text="SCAP"/>
-                <bbox y="157.4526" x="549.9112" h="40.0" w="80.0"/>
+                <bbox w="80.0" h="40.0" x="594.8951" y="107.4526"/>
             </glyph>
-            <glyph id="glyph_n2_n3_n2_n3_n1" class="macromolecule">
+            <glyph class="macromolecule" id="glyph_n2_n3_n2_n3_n1">
                 <label text="INSIG1/2"/>
-                <bbox y="207.87177" x="549.9112" h="40.0" w="80.0"/>
+                <bbox w="80.0" h="40.0" x="594.8951" y="157.87177"/>
             </glyph>
-            <glyph id="glyph_n2_n3_n2_n3_n2" class="simple chemical">
+            <glyph class="simple chemical" id="glyph_n2_n3_n2_n3_n2">
                 <label text="Sterol"/>
-                <bbox y="115.03343" x="551.1612" h="32.0" w="77.5"/>
+                <bbox w="77.5" h="32.0" x="596.1451" y="65.03343"/>
             </glyph>
-            <glyph id="glyph_n2_n3_n2_n3_n3" class="macromolecule">
+            <glyph class="macromolecule" id="glyph_n2_n3_n2_n3_n3">
                 <label text="SREBP2"/>
-                <bbox y="157.4526" x="641.9493" h="40.0" w="79.0"/>
-                <glyph id="glyph_n2_n3_n2_n3_n3a" class="unit of information">
+                <bbox w="79.0" h="40.0" x="686.93317" y="107.4526"/>
+                <glyph class="unit of information" id="glyph_n2_n3_n2_n3_n3_1">
                     <label text="precursor"/>
-                    <bbox y="149.4526" x="652.4493" h="16.0" w="58.0"/>
+                    <bbox w="59.679836" h="16.0" x="696.09534" y="678.0907"/>
                 </glyph>
             </glyph>
         </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n2" class="macromolecule">
+        <glyph class="complex" id="glyph_n2_n4" compartmentRef="glyph_n2">
+            <bbox w="199.32227" h="79.5" x="124.791885" y="87.7026"/>
+            <glyph class="macromolecule" id="glyph_n2_n4_n2_n4_n0">
+                <label text="SCAP"/>
+                <bbox w="80.0" h="40.0" x="139.79189" y="111.55766"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n2_n4_n2_n4_n1">
+                <label text="SREBP2"/>
+                <bbox w="79.0" h="40.0" x="228.88684" y="111.55766"/>
+                <glyph class="unit of information" id="glyph_n2_n4_n2_n4_n1_1">
+                    <label text="precursor"/>
+                    <bbox w="59.679836" h="16.0" x="696.09534" y="678.0907"/>
+                </glyph>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="glyph_n2_n5" compartmentRef="glyph_n2">
+            <bbox w="199.32227" h="173.79507" x="123.66675" y="320.69168"/>
+            <glyph class="macromolecule" id="glyph_n2_n5_n2_n5_n0">
+                <label text="SCAP"/>
+                <bbox w="80.0" h="40.0" x="138.66675" y="342.40674"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n2_n5_n2_n5_n1">
+                <label text="Sec23"/>
+                <bbox w="80.0" h="40.0" x="139.12328" y="390.48676"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n2_n5_n2_n5_n2">
+                <label text="Sec24"/>
+                <bbox w="80.0" h="40.0" x="139.12328" y="439.48676"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n2_n5_n2_n5_n3">
+                <label text="Sar1"/>
+                <bbox w="80.0" h="40.0" x="228.12328" y="390.48676"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n2_n5_n2_n5_n4">
+                <label text="SREBP2"/>
+                <bbox w="79.0" h="40.0" x="228.62328" y="342.40674"/>
+                <glyph class="unit of information" id="glyph_n2_n5_n2_n5_n4_1">
+                    <label text="precursor"/>
+                    <bbox w="59.679836" h="16.0" x="696.09534" y="678.0907"/>
+                </glyph>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="glyph_n2_n8" compartmentRef="glyph_n2">
+            <bbox w="100.0" h="116.2" x="256.67188" y="178.34674"/>
+            <glyph class="macromolecule" id="glyph_n2_n8_n2_n8_n0">
+                <label text="Sec23"/>
+                <bbox w="80.0" h="40.0" x="266.67188" y="239.54675"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n2_n8_n2_n8_n1">
+                <label text="Sec24"/>
+                <bbox w="80.0" h="40.0" x="266.67188" y="192.34674"/>
+            </glyph>
+        </glyph>
+        <glyph class="compartment" id="glyph_n4">
+            <label text="COPII-coated vesicle"/>
+            <bbox w="276.688" h="251.29747" x="94.98389" y="566.9732"/>
+        </glyph>
+        <glyph class="complex" id="glyph_n4_n0" compartmentRef="glyph_n4">
+            <bbox w="199.32227" h="173.79507" x="123.48081" y="588.8252"/>
+            <glyph class="macromolecule" id="glyph_n4_n0_n4_n0_n0">
+                <label text="SCAP"/>
+                <bbox w="80.0" h="40.0" x="138.4808" y="610.5403"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n4_n0_n4_n0_n1">
+                <label text="Sec23"/>
+                <bbox w="80.0" h="40.0" x="138.93733" y="658.62024"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n4_n0_n4_n0_n2">
+                <label text="Sec24"/>
+                <bbox w="80.0" h="40.0" x="138.93733" y="707.62024"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n4_n0_n4_n0_n3">
+                <label text="Sar1"/>
+                <bbox w="80.0" h="40.0" x="227.93733" y="658.62024"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n4_n0_n4_n0_n4">
+                <label text="SREBP2"/>
+                <bbox w="79.0" h="40.0" x="228.43733" y="610.5403"/>
+                <glyph class="unit of information" id="glyph_n4_n0_n4_n0_n4_1">
+                    <label text="precursor"/>
+                    <bbox w="59.679836" h="16.0" x="696.09534" y="678.0907"/>
+                </glyph>
+            </glyph>
+        </glyph>
+        <glyph class="compartment" id="glyph_n5">
+            <label text="Golgi"/>
+            <bbox w="297.52762" h="481.76678" x="511.67188" y="565.9"/>
+        </glyph>
+        <glyph class="complex" id="glyph_n5_n6" compartmentRef="glyph_n5">
+            <bbox w="199.32227" h="79.5" x="560.5201" y="605.36536"/>
+            <glyph class="macromolecule" id="glyph_n5_n6_n5_n6_n0">
+                <label text="SCAP"/>
+                <bbox w="80.0" h="40.0" x="575.5201" y="629.86536"/>
+            </glyph>
+            <glyph class="macromolecule" id="glyph_n5_n6_n5_n6_n1">
+                <label text="SREBP2"/>
+                <bbox w="79.0" h="40.0" x="665.10785" y="629.86536"/>
+                <glyph class="unit of information" id="glyph_n5_n6_n5_n6_n1_1">
+                    <label text="precursor"/>
+                    <bbox w="59.679836" h="16.0" x="696.09534" y="678.0907"/>
+                </glyph>
+            </glyph>
+        </glyph>
+        <glyph class="compartment" id="glyph_n6">
+            <label text="Nucleus"/>
+            <bbox w="395.21185" h="205.49104" x="96.46004" y="842.1758"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="glyph_n0">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="394.0762" y="636.11536"/>
+            <port id="glyph_n0_port_n0.1" x="385.0762" y="645.11536"/>
+            <port id="glyph_n0_port_n0.2" x="421.0762" y="645.11536"/>
+        </glyph>
+        <glyph class="simple chemical" id="glyph_n2_n0" compartmentRef="glyph_n2">
+            <label text="Sterol"/>
+            <bbox w="70.75" h="32.0" x="406.29688" y="51.4526"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="glyph_n2_n1" compartmentRef="glyph_n2">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="463.67188" y="118.4526"/>
+            <port id="glyph_n2_n1_port_n2_n1.1" x="454.67188" y="127.4526"/>
+            <port id="glyph_n2_n1_port_n2_n1.2" x="490.67188" y="127.4526"/>
+        </glyph>
+        <glyph class="macromolecule" id="glyph_n2_n2" compartmentRef="glyph_n2">
             <label text="INSIG1/2"/>
-            <bbox y="217.4526" x="356.688" h="40.0" w="80.0"/>
+            <bbox w="80.0" h="40.0" x="401.67188" y="167.45259"/>
         </glyph>
-        <glyph id="glyph_n2_n1" class="process">
-            <bbox y="168.45259" x="418.688" h="18.0" w="18.0"/>
-            <port y="177.45259" x="409.688" id="glyph_n2_n1.1"/>
-            <port y="177.45259" x="445.688" id="glyph_n2_n1.2"/>
+        <glyph class="macromolecule" id="glyph_n2_n6" compartmentRef="glyph_n2">
+            <label text="Sar1"/>
+            <bbox w="80.0" h="40.0" x="109.98389" y="222.34674"/>
         </glyph>
-        <glyph compartmentRef="glyph_n6" id="glyph_n8" class="macromolecule">
-            <label text="Importin-β"/>
-            <bbox y="1077.4999" x="350.02676" h="40.0" w="80.0"/>
+        <glyph class="process" orientation="vertical" id="glyph_n2_n7" compartmentRef="glyph_n2">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="214.32788" y="263.34674"/>
+            <port id="glyph_n2_n7_port_n2_n7.1" x="223.32788" y="290.34674"/>
+            <port id="glyph_n2_n7_port_n2_n7.2" x="223.32788" y="254.34674"/>
         </glyph>
-        <glyph compartmentRef="glyph_n5" id="glyph_n5_n1" class="macromolecule">
+        <glyph class="macromolecule" id="glyph_n3">
+            <label text="Sar1"/>
+            <bbox w="80.0" h="40.0" x="401.67188" y="577.5824"/>
+        </glyph>
+        <glyph class="macromolecule" id="glyph_n5_n0" compartmentRef="glyph_n5">
             <label text="SREBP2"/>
-            <bbox y="1007.4999" x="575.1973" h="40.0" w="80.0"/>
-            <glyph id="glyph_n5_n1a" class="unit of information">
+            <bbox w="80.0" h="40.0" x="620.1812" y="806.3031"/>
+            <glyph class="unit of information" id="glyph_n5_n0_2">
+                <label text="processed form"/>
+                <bbox w="79.0" h="16.0" x="632.396" y="798.3031"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="glyph_n5_n1" compartmentRef="glyph_n5">
+            <label text="SREBP2"/>
+            <bbox w="80.0" h="40.0" x="620.1812" y="957.4999"/>
+            <glyph class="unit of information" id="glyph_n5_n1_3">
                 <label text="mature form"/>
-                <bbox y="999.4999" x="580.1973" h="16.0" w="70.0"/>
+                <bbox w="65.66446" h="16.0" x="627.1812" y="949.4999"/>
             </glyph>
         </glyph>
-        <glyph id="glyph_n7" class="process">
-            <bbox y="1018.4999" x="381.02676" h="18.0" w="18.0"/>
-            <port y="1027.4999" x="408.02676" id="glyph_n7.2"/>
-            <port y="1027.4999" x="372.02676" id="glyph_n7.1"/>
+        <glyph class="macromolecule" id="glyph_n5_n2" compartmentRef="glyph_n5">
+            <label text="S1P"/>
+            <bbox w="80.0" h="40.0" x="530.1812" y="708.7013"/>
         </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n4" class="complex">
-            <bbox y="137.7026" x="79.808" h="79.5" w="199.32227"/>
-            <glyph id="glyph_n2_n4_n2_n4_n0" class="macromolecule">
-                <label text="SCAP"/>
-                <bbox y="161.55766" x="94.808" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n2_n4_n2_n4_n1" class="macromolecule">
-                <label text="SREBP2"/>
-                <bbox y="161.55766" x="183.90295" h="40.0" w="79.0"/>
-                <glyph id="glyph_n2_n4_n2_n4_n1a" class="unit of information">
-                    <label text="precursor"/>
-                    <bbox y="153.55766" x="214.15295" h="16.0" w="58.0"/>
-                </glyph>
-            </glyph>
+        <glyph class="macromolecule" id="glyph_n5_n3" compartmentRef="glyph_n5">
+            <label text="S2P"/>
+            <bbox w="80.0" h="40.0" x="530.1812" y="876.3031"/>
         </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n6" class="macromolecule">
-            <label text="Sar1"/>
-            <bbox y="272.34674" x="65.0" h="40.0" w="80.0"/>
+        <glyph class="process" orientation="vertical" id="glyph_n5_n4" compartmentRef="glyph_n5">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="651.1812" y="719.7013"/>
+            <port id="glyph_n5_n4_port_n5_n4.1" x="660.1812" y="746.7013"/>
+            <port id="glyph_n5_n4_port_n5_n4.2" x="660.1812" y="710.7013"/>
         </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n8" class="complex">
-            <bbox y="228.34674" x="211.68799" h="116.2" w="100.0"/>
-            <glyph id="glyph_n2_n8_n2_n8_n0" class="macromolecule">
-                <label text="Sec23"/>
-                <bbox y="289.54675" x="221.68799" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n2_n8_n2_n8_n1" class="macromolecule">
-                <label text="Sec24"/>
-                <bbox y="242.34674" x="221.68799" h="40.0" w="80.0"/>
-            </glyph>
+        <glyph class="process" orientation="vertical" id="glyph_n5_n5" compartmentRef="glyph_n5">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="651.1812" y="887.3031"/>
+            <port id="glyph_n5_n5_port_n5_n5.1" x="660.1812" y="914.3031"/>
+            <port id="glyph_n5_n5_port_n5_n5.2" x="660.1812" y="878.3031"/>
         </glyph>
-        <glyph id="glyph_n2_n7" orientation="vertical" class="process">
-            <bbox y="313.34674" x="169.344" h="18.0" w="18.0"/>
-            <port y="340.34674" x="178.344" id="glyph_n2_n7.2"/>
-            <port y="304.34674" x="178.344" id="glyph_n2_n7.1"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n2" id="glyph_n2_n5" class="complex">
-            <bbox y="370.69165" x="78.68286" h="173.79507" w="199.32227"/>
-            <glyph id="glyph_n2_n5_n2_n5_n0" class="macromolecule">
-                <label text="SCAP"/>
-                <bbox y="392.40674" x="93.68286" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n2_n5_n2_n5_n1" class="macromolecule">
-                <label text="Sec23"/>
-                <bbox y="440.48672" x="94.13939" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n2_n5_n2_n5_n2" class="macromolecule">
-                <label text="Sec24"/>
-                <bbox y="489.48676" x="94.13939" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n2_n5_n2_n5_n3" class="macromolecule">
-                <label text="Sar1"/>
-                <bbox y="440.48672" x="183.1394" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n2_n5_n2_n5_n4" class="macromolecule">
-                <label text="SREBP2"/>
-                <bbox y="392.40674" x="183.6394" h="40.0" w="79.0"/>
-                <glyph id="glyph_n2_n5_n2_n5_n4a" class="unit of information">
-                    <label text="precursor"/>
-                    <bbox y="384.40674" x="213.8894" h="16.0" w="58.0"/>
-                </glyph>
-            </glyph>
-        </glyph>
-        <glyph id="glyph_n9" orientation="vertical" class="process">
-            <bbox y="557.9973" x="169.344" h="18.0" w="18.0"/>
-            <port y="584.9973" x="178.344" id="glyph_n9.2"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n4" id="glyph_n4_n0" class="complex">
-            <bbox y="638.8252" x="78.49692" h="173.79507" w="199.32227"/>
-            <glyph id="glyph_n4_n0_n4_n0_n0" class="macromolecule">
-                <label text="SCAP"/>
-                <bbox y="660.5403" x="93.49692" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n4_n0_n4_n0_n1" class="macromolecule">
-                <label text="Sec23"/>
-                <bbox y="708.62024" x="93.953445" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n4_n0_n4_n0_n2" class="macromolecule">
-                <label text="Sec24"/>
-                <bbox y="757.62024" x="93.953445" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n4_n0_n4_n0_n3" class="macromolecule">
-                <label text="Sar1"/>
-                <bbox y="708.62024" x="182.95343" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n4_n0_n4_n0_n4" class="macromolecule">
-                <label text="SREBP2"/>
-                <bbox y="660.5403" x="183.45343" h="40.0" w="79.0"/>
-                <glyph id="glyph_n4_n0_n4_n0_n4a" class="unit of information">
-                    <label text="precursor"/>
-                    <bbox y="662.5403" x="233.45343" h="16.0" w="58.0"/>
-                </glyph>
-            </glyph>
-        </glyph>
-        <glyph compartmentRef="glyph_n5" id="glyph_n5_n6" class="complex">
-            <bbox y="655.36536" x="515.5362" h="79.5" w="199.32227"/>
-            <glyph id="glyph_n5_n6_n5_n6_n0" class="macromolecule">
-                <label text="SCAP"/>
-                <bbox y="679.86536" x="530.5362" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n5_n6_n5_n6_n1" class="macromolecule">
-                <label text="SREBP2"/>
-                <bbox y="679.86536" x="620.12396" h="40.0" w="79.0"/>
-                <glyph id="glyph_n5_n6_n5_n6_n1a" class="unit of information">
-                    <label text="precursor"/>
-                    <bbox y="681.86536" x="670.12396" h="16.0" w="58.0"/>
-                </glyph>
-            </glyph>
-        </glyph>
-        <glyph id="glyph_n3" class="macromolecule">
-            <label text="Sar1"/>
-            <bbox y="627.5824" x="356.688" h="40.0" w="80.0"/>
-        </glyph>
-        <glyph id="glyph_n0" class="process">
-            <bbox y="686.11536" x="349.09232" h="18.0" w="18.0"/>
-            <port y="695.11536" x="376.09232" id="glyph_n0.2"/>
-        </glyph>
-        <glyph id="glyph_n1" class="complex">
-            <bbox y="720.6013" x="346.688" h="116.2" w="100.0"/>
-            <glyph id="glyph_n1_n1_n0" class="macromolecule">
-                <label text="Sec23"/>
-                <bbox y="781.8014" x="356.688" h="40.0" w="80.0"/>
-            </glyph>
-            <glyph id="glyph_n1_n1_n1" class="macromolecule">
-                <label text="Sec24"/>
-                <bbox y="734.6013" x="356.688" h="40.0" w="80.0"/>
-            </glyph>
-        </glyph>
-        <glyph id="glyph_n5_n4" orientation="vertical" class="process">
-            <bbox y="769.7013" x="606.1973" h="18.0" w="18.0"/>
-            <port y="796.7013" x="615.1973" id="glyph_n5_n4.2"/>
-        </glyph>
-        <glyph compartmentRef="glyph_n5" id="glyph_n5_n7" class="macromolecule">
+        <glyph class="macromolecule" id="glyph_n5_n7" compartmentRef="glyph_n5">
             <label text="SCAP"/>
-            <bbox y="788.7013" x="654.1973" h="40.0" w="80.0"/>
+            <bbox w="80.0" h="40.0" x="699.1812" y="738.7013"/>
         </glyph>
-        <glyph compartmentRef="glyph_n6" id="glyph_n6_n0" class="macromolecule">
+        <glyph class="macromolecule" id="glyph_n6_n0" compartmentRef="glyph_n6">
             <label text="SREBP2"/>
-            <bbox y="1007.4999" x="253.4415" h="40.0" w="79.0"/>
-            <glyph id="glyph_n6_n0a" class="unit of information">
+            <bbox w="79.0" h="40.0" x="298.42538" y="957.4999"/>
+            <glyph class="unit of information" id="glyph_n6_n0_4">
                 <label text="mature form"/>
-                <bbox y="999.4999" x="257.9415" h="16.0" w="70.0"/>
+                <bbox w="65.66446" h="16.0" x="307.42538" y="949.4999"/>
             </glyph>
         </glyph>
-        <glyph id="glyph_n6_n1" class="submap">
-            <label text="Transcription &#xA;of target genes"/>
-            <bbox y="997.94916" x="74.6494" h="59.101543" w="130.20682"/>
+        <glyph class="submap" id="glyph_n6_n1" compartmentRef="glyph_n6">
+            <label text="Transcription &#10;of target genes"/>
+            <bbox w="130.20682" h="59.101543" x="119.633286" y="947.9491"/>
         </glyph>
-        <glyph id="glyph_n10" class="submap">
-            <label text="Cholesterol &#xA;biosynthesis"/>
-            <bbox y="1127.6667" x="74.6494" h="57.50154" w="130.20682"/>
+        <glyph class="process" orientation="horizontal" id="glyph_n7">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="426.01065" y="968.4999"/>
+            <port id="glyph_n7_port_n7.1" x="417.01065" y="977.4999"/>
+            <port id="glyph_n7_port_n7.2" x="453.01065" y="977.4999"/>
         </glyph>
-        <arc target="glyph_n5_n4" source="glyph_n5_n2" id="arc_n5_e0" class="catalysis">
-            <start y="778.7013" x="565.1973"/>
-            <end y="778.7013" x="606.1973"/>
+        <glyph class="macromolecule" id="glyph_n8">
+            <label text="Importin-β"/>
+            <bbox w="80.0" h="40.0" x="395.01065" y="1027.4999"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="glyph_n9">
+            <clone/>
+            <bbox w="18.0" h="18.0" x="214.32788" y="507.99728"/>
+            <port id="glyph_n9_port_n9.1" x="223.32788" y="534.9973"/>
+            <port id="glyph_n9_port_n9.2" x="223.32788" y="498.99728"/>
+        </glyph>
+        <glyph class="submap" id="glyph_n10">
+            <label text="Cholesterol &#10;biosynthesis"/>
+            <bbox w="130.20682" h="57.50154" x="119.633286" y="1077.6667"/>
+        </glyph>
+        <arc class="catalysis" id="arc_n5_e0" source="glyph_n5_n2" target="glyph_n5_n4">
+            <start x="570.1812" y="728.7013"/>
+            <end x="660.1812" y="728.7013"/>
         </arc>
-        <arc target="glyph_n5_n5" source="glyph_n5_n3" id="arc_n5_e1" class="catalysis">
-            <start y="946.3031" x="565.1973"/>
-            <end y="946.3031" x="606.1973"/>
+        <arc class="catalysis" id="arc_n5_e1" source="glyph_n5_n3" target="glyph_n5_n5">
+            <start x="570.1812" y="896.3031"/>
+            <end x="660.1812" y="896.3031"/>
         </arc>
-        <arc target="glyph_n5_n5.1" source="glyph_n5_n0" id="arc_n5_e2" class="consumption">
-            <start y="896.3031" x="615.1973"/>
-            <end y="928.3031" x="615.1973"/>
+        <arc class="consumption" id="arc_n5_e2" source="glyph_n5_n0" target="glyph_n5_n5_port_n5_n5.2">
+            <start x="660.1812" y="826.3031"/>
+            <end x="660.1812" y="878.3031"/>
         </arc>
-        <arc target="glyph_n5_n0" source="glyph_n5_n4.2" id="arc_n5_e3" class="production">
-            <start y="796.7013" x="615.1973"/>
-            <end y="856.3031" x="615.1973"/>
+        <arc class="production" id="arc_n5_e3" source="glyph_n5_n4_port_n5_n4.1" target="glyph_n5_n0">
+            <start x="660.1812" y="746.7013"/>
+            <end x="660.1812" y="798.3031"/>
         </arc>
-        <arc target="glyph_n5_n1" source="glyph_n5_n5.2" id="arc_n5_e4" class="production">
-            <start y="964.3031" x="615.1973"/>
-            <end y="1007.4999" x="615.1973"/>
+        <arc class="production" id="arc_n5_e4" source="glyph_n5_n5_port_n5_n5.1" target="glyph_n5_n1">
+            <start x="660.1812" y="914.3031"/>
+            <end x="660.1812" y="949.4999"/>
         </arc>
-        <arc target="glyph_n2_n1.1" source="glyph_n2_n4" id="arc_n2_e0" class="consumption">
-            <start y="177.4526" x="279.13025"/>
-            <end y="177.45259" x="409.688"/>
+        <arc class="consumption" id="arc_n2_e0" source="glyph_n2_n4" target="glyph_n2_n1_port_n2_n1.1">
+            <start x="224.45302" y="127.4526"/>
+            <end x="454.67188" y="127.4526"/>
         </arc>
-        <arc target="glyph_n2_n1.1" source="glyph_n2_n0" id="arc_n2_e1" class="consumption">
-            <start y="133.4526" x="396.688"/>
-            <next y="177.45259" x="396.688"/>
-            <end y="177.45259" x="409.688"/>
+        <arc class="consumption" id="arc_n2_e1" source="glyph_n2_n0" target="glyph_n2_n1_port_n2_n1.1">
+            <start x="441.67188" y="67.4526"/>
+            <next x="441.67188" y="127.4526"/>
+            <end x="454.67188" y="127.4526"/>
         </arc>
-        <arc target="glyph_n2_n3" source="glyph_n2_n1.2" id="arc_n2_e2" class="production">
-            <start y="177.45259" x="445.688"/>
-            <end y="178.0993" x="692.5276"/>
+        <arc class="production" id="arc_n2_e2" source="glyph_n2_n1_port_n2_n1.2" target="glyph_n2_n3">
+            <start x="490.67188" y="127.4526"/>
+            <end x="737.5115" y="128.0993"/>
         </arc>
-        <arc target="glyph_n2_n1.1" source="glyph_n2_n2" id="arc_n2_e3" class="consumption">
-            <start y="217.4526" x="396.688"/>
-            <next y="177.45259" x="396.688"/>
-            <end y="177.45259" x="409.688"/>
+        <arc class="consumption" id="arc_n2_e3" source="glyph_n2_n2" target="glyph_n2_n1_port_n2_n1.1">
+            <start x="441.67188" y="187.4526"/>
+            <next x="441.67188" y="127.4526"/>
+            <end x="454.67188" y="127.4526"/>
         </arc>
-        <arc target="glyph_n7" source="glyph_n8" id="arc_e0" class="stimulation">
-            <start y="1077.4999" x="390.02676"/>
-            <end y="1036.4999" x="390.02676"/>
+        <arc class="stimulation" id="arc_e0" source="glyph_n8" target="glyph_n7">
+            <start x="435.01065" y="1047.4999"/>
+            <end x="435.01065" y="977.4999"/>
         </arc>
-        <arc target="glyph_n7.2" source="glyph_n5_n1" id="arc_e1" class="consumption">
-            <start y="1027.4999" x="575.1973"/>
-            <end y="1027.4999" x="408.02676"/>
+        <arc class="consumption" id="arc_e1" source="glyph_n5_n1" target="glyph_n7_port_n7.2">
+            <start x="660.1812" y="977.4999"/>
+            <end x="453.01065" y="977.4999"/>
         </arc>
-        <arc target="glyph_n6_n0" source="glyph_n7.1" id="arc_e2" class="production">
-            <start y="1027.4999" x="372.02676"/>
-            <end y="1027.4999" x="332.4415"/>
+        <arc class="production" id="arc_e2" source="glyph_n7_port_n7.1" target="glyph_n6_n0">
+            <start x="417.01065" y="977.4999"/>
+            <end x="337.92538" y="977.4999"/>
         </arc>
-        <arc target="glyph_n5_n6" source="glyph_n5_n4" id="arc_n5_e5" class="consumption">
-            <start y="769.7013" x="615.1973"/>
-            <end y="734.86536" x="615.1973"/>
+        <arc class="consumption" id="arc_n5_e5" source="glyph_n5_n6" target="glyph_n5_n4_port_n5_n4.2">
+            <start x="660.1812" y="645.11536"/>
+            <end x="660.1812" y="710.7013"/>
         </arc>
-        <arc target="glyph_n2_n4" source="glyph_n2_n7" id="arc_n2_e4" class="consumption">
-            <start y="313.34674" x="178.41388"/>
-            <end y="217.2026" x="179.16046"/>
+        <arc class="consumption" id="arc_n2_e4" source="glyph_n2_n4" target="glyph_n2_n7_port_n2_n7.2">
+            <start x="224.45302" y="127.4526"/>
+            <end x="223.32788" y="254.34674"/>
         </arc>
-        <arc target="glyph_n2_n5" source="glyph_n2_n7.2" id="arc_n2_e5" class="production">
-            <start y="340.34674" x="178.344"/>
-            <end y="370.69165" x="178.344"/>
+        <arc class="production" id="arc_n2_e5" source="glyph_n2_n7_port_n2_n7.1" target="glyph_n2_n5">
+            <start x="223.32788" y="290.34674"/>
+            <end x="221.86038" y="324.5372"/>
         </arc>
-        <arc target="glyph_n2_n7.1" source="glyph_n2_n6" id="arc_n2_e6" class="consumption">
-            <start y="292.34674" x="145.0"/>
-            <next y="292.34674" x="178.344"/>
-            <end y="304.34674" x="178.344"/>
+        <arc class="consumption" id="arc_n2_e6" source="glyph_n2_n6" target="glyph_n2_n7_port_n2_n7.2">
+            <start x="149.98389" y="242.34674"/>
+            <next x="223.32788" y="242.34674"/>
+            <end x="223.32788" y="254.34674"/>
         </arc>
-        <arc target="glyph_n2_n7.1" source="glyph_n2_n8" id="arc_n2_e7" class="consumption">
-            <start y="289.9863" x="211.68799"/>
-            <next y="292.34674" x="178.344"/>
-            <end y="304.34674" x="178.344"/>
+        <arc class="consumption" id="arc_n2_e7" source="glyph_n2_n8" target="glyph_n2_n7_port_n2_n7.2">
+            <start x="256.6441" y="242.34674"/>
+            <next x="223.32788" y="242.34674"/>
+            <end x="223.32788" y="254.34674"/>
         </arc>
-        <arc target="glyph_n2_n5" source="glyph_n9" id="arc_e3" class="consumption">
-            <start y="557.9973" x="178.344"/>
-            <end y="544.48676" x="178.344"/>
+        <arc class="consumption" id="arc_e3" source="glyph_n2_n5" target="glyph_n9_port_n9.2">
+            <start x="223.32788" y="407.5892"/>
+            <end x="223.32788" y="498.99728"/>
         </arc>
-        <arc target="glyph_n4_n0" source="glyph_n0" id="arc_e4" class="consumption">
-            <start y="696.6463" x="349.09232"/>
-            <end y="696.7765" x="178.01376"/>
+        <arc class="consumption" id="arc_e4" source="glyph_n4_n0" target="glyph_n0_port_n0.1">
+            <start x="223.14194" y="675.7228"/>
+            <end x="385.0762" y="645.11536"/>
         </arc>
-        <arc target="glyph_n4_n0" source="glyph_n9.2" id="arc_e5" class="production">
-            <start y="584.9973" x="178.344"/>
-            <end y="638.8252" x="178.25984"/>
+        <arc class="production" id="arc_e5" source="glyph_n9_port_n9.1" target="glyph_n4_n0">
+            <start x="223.32788" y="534.9973"/>
+            <end x="223.14194" y="592.6582"/>
         </arc>
-        <arc target="glyph_n5_n6" source="glyph_n0.2" id="arc_e6" class="production">
-            <start y="695.11536" x="376.09232"/>
-            <end y="695.11536" x="515.5362"/>
+        <arc class="production" id="arc_e6" source="glyph_n0_port_n0.2" target="glyph_n5_n6">
+            <start x="421.0762" y="645.11536"/>
+            <end x="660.1812" y="645.11536"/>
         </arc>
-        <arc target="glyph_n3" source="glyph_n0.2" id="arc_e7" class="production">
-            <start y="695.11536" x="376.09232"/>
-            <next y="695.11536" x="396.688"/>
-            <end y="667.5824" x="396.688"/>
+        <arc class="production" id="arc_e7" source="glyph_n0_port_n0.2" target="glyph_n3">
+            <start x="421.0762" y="645.11536"/>
+            <next x="441.67188" y="645.11536"/>
+            <end x="441.67188" y="597.5824"/>
         </arc>
-        <arc target="glyph_n1" source="glyph_n0.2" id="arc_e8" class="production">
-            <start y="695.11536" x="376.09232"/>
-            <next y="695.11536" x="396.688"/>
-            <end y="720.6013" x="396.688"/>
+        <arc class="production" id="arc_e8" source="glyph_n0_port_n0.2" target="glyph_n1">
+            <start x="421.0762" y="645.11536"/>
+            <next x="441.67188" y="645.11536"/>
+            <end x="441.67188" y="728.7013"/>
         </arc>
-        <arc target="glyph_n5_n7" source="glyph_n5_n4.2" id="arc_n5_e6" class="production">
-            <start y="796.7013" x="615.1973"/>
-            <next y="808.7013" x="615.1973"/>
-            <end y="808.7013" x="654.1973"/>
+        <arc class="production" id="arc_n5_e6" source="glyph_n5_n4_port_n5_n4.1" target="glyph_n5_n7">
+            <start x="660.1812" y="746.7013"/>
+            <next x="660.1812" y="758.7013"/>
+            <end x="739.1812" y="758.7013"/>
         </arc>
-        <arc target="glyph_n6_n1" source="glyph_n6_n0" id="arc_n6_e0" class="stimulation">
-            <start y="1027.4999" x="253.4415"/>
-            <end y="1027.4999" x="204.85622"/>
+        <arc class="stimulation" id="arc_n6_e0" source="glyph_n6_n0" target="glyph_n6_n1">
+            <start x="337.92538" y="977.4999"/>
+            <end x="184.7367" y="977.4999"/>
         </arc>
-        <arc target="glyph_n10" source="glyph_n6_n1" id="arc_e9" class="stimulation">
-            <start y="1057.0507" x="139.7528"/>
-            <end y="1127.6667" x="139.7528"/>
+        <arc class="stimulation" id="arc_e9" source="glyph_n6_n1" target="glyph_n10">
+            <start x="184.7367" y="977.4999"/>
+            <end x="184.7367" y="1106.4176"/>
         </arc>
     </map>
 </sbgn>
