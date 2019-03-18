@@ -108,17 +108,18 @@ Ways to contribute:
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MarekOstaszewski.jpg" width="130"/></p></td>
-      <td style="width:210px;"><p style="margin:4px;"> </td>
-      <td style="width:210px;"><p style="margin:4px;"> </td>
-      <td style="width:210px;"><p style="margin:4px;"> </td>
+      <td style="width:210px;"> </td>
+      <td style="width:210px;"> </td>
+      <td style="width:210px;"> </td>
     </tr>
 </table>
+
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><strong>Marek Ostaszewski</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belvaux, Luxembourg</font></p></td>
-      <td style="width:210px;"><p style="margin:4px;"> </td>
-      <td style="width:210px;"><p style="margin:4px;"> </td>
-      <td style="width:210px;"><p style="margin:4px;"> </td>
+      <td style="width:210px;"> </td>
+      <td style="width:210px;"> </td>
+      <td style="width:210px;"> </td>
     </tr>
 </table>
 
