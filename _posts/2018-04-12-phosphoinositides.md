@@ -5,8 +5,8 @@ title: Regulation of phosphoinositide metabolism
 
 Downloads: &nbsp; 
 [GraphML](../downloads/F009-phosphoinositides.graphml) &nbsp;
-[SBGN-ML 0.2](../downloads/F009-phosphoinositides-SBGNv02.sbgn) &nbsp;
-[SBGN-ML 0.3](../downloads/F009-phosphoinositides-SBGNv02.sbgn) &nbsp;
+[SBGN-ML2](../downloads/F009-phosphoinositides-SBGNv02.sbgn) &nbsp;
+[SBGN-ML3](../downloads/F009-phosphoinositides.sbgn) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.org/downloads/F009-phosphoinositides.sbgn) &nbsp;
 <p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="500"/></a></p>
 
