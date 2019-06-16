@@ -1,0 +1,147 @@
+<html>
+<head><title>Image map created by yEd</title>
+<style type="text/css">
+.tooltip {
+  font-size:10pt;
+  background-color:#FFFFCC;
+  border:1px solid black;
+  padding:2px
+}
+</style>
+<style type="text/css">
+.tooltip {
+  position:absolute;
+  display:none
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+tooltip = null;
+document.onmousemove = updateTooltip;
+function updateTooltip(e) {
+try {
+if (document.all) {
+if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+x = document.documentElement.scrollLeft + window.event.x;
+y = document.documentElement.scrollTop + window.event.y;
+}
+else { // all other Explorers
+x = document.body.scrollLeft + window.event.x;
+y = document.body.scrollTop + window.event.y;
+}
+}
+else {
+x = e.pageX;
+y = e.pageY;
+}
+if (tooltip != null) {
+o = 20;
+var sx, sy;
+if (self.pageYOffset) { // all except Explorer
+sx = self.pageXOffset;
+sy = self.pageYOffset;
+}
+else if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+sx = document.documentElement.scrollLeft;
+sy = document.documentElement.scrollTop;
+}
+else if (document.body) { // all other Explorers
+sx = document.body.scrollLeft;
+sy = document.body.scrollTop;
+}
+t = y + o + tooltip.offsetHeight;
+w = sy + document.body.clientHeight;
+if (t > w) {
+y = y - o - tooltip.offsetHeight;
+}
+else {
+y = y + o;
+}
+t = x + o + tooltip.offsetWidth;
+w = sx + document.body.clientWidth;
+if (t > w) {
+x = x - o - tooltip.offsetWidth;
+}
+else {
+x = x + o;
+}
+if ((tooltip.style.top == '' || tooltip.style.top == 0) && (tooltip.style.left == '' || tooltip.style.left == 0))
+{
+tooltip.style.width = tooltip.offsetWidth + 'px';
+tooltip.style.height = tooltip.offsetHeight + 'px';
+}
+tooltip.style.left = x + "px";
+tooltip.style.top = y + "px";
+}
+} catch (error) { error = null; }
+}
+function showTooltip(id) {
+try {
+tooltip = document.getElementById(id);
+tooltip.style.display = "block";
+} catch (error) { error = null; }
+}
+function hideTooltip() {
+try {
+tooltip.style.display = "none";
+} catch (error) { error = null; }
+}
+</script>
+
+<div class="tooltip" id="n0">citrate</div>
+<div class="tooltip" id="n1">acetyl-CoA</div>
+<div class="tooltip" id="n2">oxaloacetate</div>
+<div class="tooltip" id="n4">ATP-citrate lyase</div>
+<div class="tooltip" id="n5">ATP-citrate lyase</div>
+<div class="tooltip" id="n7">RAC-alpha serine/threonine-protein kinase</div>
+<div class="tooltip" id="n8">RAC-alpha serine/threonine-protein kinase</div>
+<div class="tooltip" id="n10">ATP</div>
+<div class="tooltip" id="n11">ADP</div>
+<div class="tooltip" id="n12">Pi</div>
+<div class="tooltip" id="n13">Histone <br>acetylation</div>
+<div class="tooltip" id="n14">Phosphatidylinositol 3-kinase regulatory subunit</div>
+<div class="tooltip" id="n17">ATP-citrate lyase</div>
+<div class="tooltip" id="n20">ATP-citrate lyase</div>
+<div class="tooltip" id="n21">Sterol regulatory element-binding protein 1</div>
+<div class="tooltip" id="n22">Tyrosine-protein kinase receptor</div>
+<div class="tooltip" id="n23">Phosphatidylinositol 3-kinase regulatory subunit</div>
+<div class="tooltip" id="n26">Sterol regulatory element-binding protein 1</div>
+<div class="tooltip" id="n27">coenzyme A</div>
+
+<map name="image1_1">
+  <area shape="poly" coords="484,281,484,281,484,377,474,377,474,281,474,281" href="doi: 10.1074/jbc.M204681200" alt="" target="_blank"/>
+  <area shape="poly" coords="439,266,439,266,79,266,79,256,439,256,439,256" href="doi: 10.1016/j.tem.2010.01.001" alt="" target="_blank"/>
+  <area shape="poly" coords="95,557,95,557,141,558,141,568,95,567,95,567" href="doi: 10.1074/jbc.275.17.12497 " alt="" target="_blank"/>
+  <area shape="poly" coords="744,528,744,528,744,598,734,598,734,528,734,528" href="doi: 10.1016/j.cmet.2014.06.004" alt="" target="_blank"/>
+  <area shape="rect" coords="604,307,704,339" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15346" alt="" onmouseover="showTooltip('n27')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="16,167,96,207" href="https://www.uniprot.org/uniprot/P36956" alt="" onmouseover="showTooltip('n26')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="320,23,400,63" href="https://www.uniprot.org/uniprot/P27986" alt="" onmouseover="showTooltip('n23')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="192,87,272,127" href="https://www.uniprot.org/uniprot/P55144" alt="" onmouseover="showTooltip('n22')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="15,542,95,582" href="https://www.uniprot.org/uniprot/P36956" alt="" onmouseover="showTooltip('n21')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="235,543,315,583" href="https://www.uniprot.org/uniprot/P53396" alt="" onmouseover="showTooltip('n20')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="125,460,205,500" href="https://www.uniprot.org/uniprot/P53396" alt="" onmouseover="showTooltip('n17')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="320,167,400,207" href="https://www.uniprot.org/uniprot/P27986" alt="" onmouseover="showTooltip('n14')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="674,613,805,682" alt="" onmouseover="showTooltip('n13')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="776,398,876,430" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:24838" alt="" onmouseover="showTooltip('n12')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="776,454,876,486" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16761" alt="" onmouseover="showTooltip('n11')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="776,307,876,339" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15422" alt="" onmouseover="showTooltip('n10')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="439,95,519,135" href="https://www.uniprot.org/uniprot/P31749" alt="" onmouseover="showTooltip('n8')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="439,241,519,281" href="https://www.uniprot.org/uniprot/P31749" alt="" onmouseover="showTooltip('n7')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="342,377,422,417" href="https://www.uniprot.org/uniprot/P53396" alt="" onmouseover="showTooltip('n5')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="536,376,616,416" href="https://www.uniprot.org/uniprot/P53396" alt="" onmouseover="showTooltip('n4')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="604,454,704,486" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16452" alt="" onmouseover="showTooltip('n2')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="689,496,789,528" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15351" alt="" onmouseover="showTooltip('n1')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="689,266,789,298" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16947" alt="" onmouseover="showTooltip('n0')" onmouseout="hideTooltip()" target="_blank"/>
+</map>
+
+
+    <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td><img class="yimage" src="F006-ACLY1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+      </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<html>
+<head><title>Image map created by yEd</title>
+<style type="text/css">
+.tooltip {
+  font-size:10pt;
+  background-color:#FFFFCC;
+  border:1px solid black;
+  padding:2px
+}
+</style>
+<style type="text/css">
+.tooltip {
+  position:absolute;
+  display:none
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+tooltip = null;
+document.onmousemove = updateTooltip;
+function updateTooltip(e) {
+try {
+if (document.all) {
+if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+x = document.documentElement.scrollLeft + window.event.x;
+y = document.documentElement.scrollTop + window.event.y;
+}
+else { // all other Explorers
+x = document.body.scrollLeft + window.event.x;
+y = document.body.scrollTop + window.event.y;
+}
+}
+else {
+x = e.pageX;
+y = e.pageY;
+}
+if (tooltip != null) {
+o = 20;
+var sx, sy;
+if (self.pageYOffset) { // all except Explorer
+sx = self.pageXOffset;
+sy = self.pageYOffset;
+}
+else if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+sx = document.documentElement.scrollLeft;
+sy = document.documentElement.scrollTop;
+}
+else if (document.body) { // all other Explorers
+sx = document.body.scrollLeft;
+sy = document.body.scrollTop;
+}
+t = y + o + tooltip.offsetHeight;
+w = sy + document.body.clientHeight;
+if (t > w) {
+y = y - o - tooltip.offsetHeight;
+}
+else {
+y = y + o;
+}
+t = x + o + tooltip.offsetWidth;
+w = sx + document.body.clientWidth;
+if (t > w) {
+x = x - o - tooltip.offsetWidth;
+}
+else {
+x = x + o;
+}
+if ((tooltip.style.top == '' || tooltip.style.top == 0) && (tooltip.style.left == '' || tooltip.style.left == 0))
+{
+tooltip.style.width = tooltip.offsetWidth + 'px';
+tooltip.style.height = tooltip.offsetHeight + 'px';
+}
+tooltip.style.left = x + "px";
+tooltip.style.top = y + "px";
+}
+} catch (error) { error = null; }
+}
+function showTooltip(id) {
+try {
+tooltip = document.getElementById(id);
+tooltip.style.display = "block";
+} catch (error) { error = null; }
+}
+function hideTooltip() {
+try {
+tooltip.style.display = "none";
+} catch (error) { error = null; }
+}
+</script>
+
+<div class="tooltip" id="n0">hormone-sensitive lipase</div>
+<div class="tooltip" id="n3">triacylglycerol</div>
+<div class="tooltip" id="n4">glycerol</div>
+<div class="tooltip" id="n5">fatty acids</div>
+<div class="tooltip" id="n6">cGMP-dependent protein kinase 1</div>
+<div class="tooltip" id="n7">cGMP-dependent protein kinase 1</div>
+<div class="tooltip" id="n8">cGMP</div>
+<div class="tooltip" id="n11">protein kinase A catalytic subunit</div>
+<div class="tooltip" id="n12">protein kinase a regulatory subunit</div>
+<div class="tooltip" id="n13">cAMP</div>
+<div class="tooltip" id="n15">protein kinase A catalytic subunit</div>
+<div class="tooltip" id="n16">protein kinase A regulatory subunit</div>
+<div class="tooltip" id="n17">protein kinase A catalytic subunit</div>
+<div class="tooltip" id="n18">protein kinase A regulatory subunit</div>
+<div class="tooltip" id="n19"><br></div>
+<div class="tooltip" id="n20"><br></div>
+<div class="tooltip" id="n21">hormone-sensitive lipase</div>
+<div class="tooltip" id="n24">Perilipin 1</div>
+<div class="tooltip" id="n25">hormone-sensitive lipase</div>
+<div class="tooltip" id="n27">Perilipin 1</div>
+<div class="tooltip" id="n29">Perilipin 1</div>
+<div class="tooltip" id="n30">hormone-sensitive lipase</div>
+<div class="tooltip" id="e12">2</div>
+<div class="tooltip" id="e14">4</div>
+
+<map name="image1_1">
+  <area shape="poly" coords="653,46,653,46,652,129,652,129,652,130,651,134,651,135,650,136,648,139,648,140,647,141,644,143,643,143,642,143,637,144,637,144,637,144,625,144,625,134,637,134,637,139,636,134,640,133,641,138,638,134,642,132,644,136,640,134,642,131,646,133,641,132,642,128,647,129,642,129,643,45,643,45" alt="" onmouseover="showTooltip('e14')" onmouseout="hideTooltip()"/>
+  <area shape="poly" coords="396,144,396,144,386,144,386,139,387,144,382,144,382,139,384,144,381,146,378,141,383,144,381,147,377,144,381,145,381,150,376,149,381,149,381,191,371,191,371,149,371,148,371,148,372,144,372,143,372,142,374,139,375,138,376,137,379,135,380,135,381,135,385,134,386,134,386,134,396,134,396,134" alt="" onmouseover="showTooltip('e12')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="38,116,118,156" href="https://www.uniprot.org/uniprot/Q05469" alt="" onmouseover="showTooltip('n30')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="38,46,118,86" href="https://www.uniprot.org/uniprot/O60240" alt="" onmouseover="showTooltip('n29')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="38,533,118,573" href="https://www.uniprot.org/uniprot/O60240" alt="" onmouseover="showTooltip('n27')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="38,359,118,399" href="https://www.uniprot.org/uniprot/Q05469" alt="" onmouseover="showTooltip('n25')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="38,293,118,333" href="https://www.uniprot.org/uniprot/O60240" alt="" onmouseover="showTooltip('n24')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="236,480,316,520" href="https://www.uniprot.org/uniprot/Q05469" alt="" onmouseover="showTooltip('n21')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="607,130,625,148" alt="" onmouseover="showTooltip('n20')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="396,130,414,148" alt="" onmouseover="showTooltip('n19')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="336,33,416,73" href="https://www.uniprot.org/uniprot/Q2VWB6" alt="" onmouseover="showTooltip('n18')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="336,202,416,242" href="https://www.uniprot.org/uniprot/P17612" alt="" onmouseover="showTooltip('n17')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="474,84,554,124" href="https://www.uniprot.org/uniprot/Q2VWB6" alt="" onmouseover="showTooltip('n16')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="471,154,551,194" href="https://www.uniprot.org/uniprot/P17612" alt="" onmouseover="showTooltip('n15')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="618,15,678,45" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17489" alt="" onmouseover="showTooltip('n13')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="688,84,768,124" href="https://www.uniprot.org/uniprot/Q2VWB6" alt="" onmouseover="showTooltip('n12')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="688,154,768,194" href="https://www.uniprot.org/uniprot/P17612" alt="" onmouseover="showTooltip('n11')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="174,370,234,399" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16356" alt="" onmouseover="showTooltip('n8')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="236,404,316,444" href="https://www.uniprot.org/uniprot/Q13976#names_and_taxonomy" alt="" onmouseover="showTooltip('n7')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="236,265,316,305" href="https://www.uniprot.org/uniprot/Q13976#names_and_taxonomy" alt="" onmouseover="showTooltip('n6')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="523,570,638,600" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=35366" alt="" onmouseover="showTooltip('n5')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="661,570,776,600" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17754" alt="" onmouseover="showTooltip('n4')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="588,430,703,460" href="https://www.ebi.ac.uk/chebi/searchId.do;jsessionid=0A1E4473C2674A3A07C8E5CE2B1DB3FE?chebiId=CHEBI%3A90294" alt="" onmouseover="showTooltip('n3')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="430,480,510,520" href="https://www.uniprot.org/uniprot/Q05469" alt="" onmouseover="showTooltip('n0')" onmouseout="hideTooltip()" target="_blank"/>
+</map>
+
+
+    <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td><img class="yimage" src="F015-tag1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+      </tr>
+    </table>
+
+</body>
+</html>

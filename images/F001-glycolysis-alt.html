@@ -1,0 +1,133 @@
+<html>
+<head><title>Image map created by yEd</title>
+<style type="text/css">
+.tooltip {
+  font-size:10pt;
+  background-color:#FFFFCC;
+  border:1px solid black;
+  padding:2px
+}
+</style>
+<style type="text/css">
+.tooltip {
+  position:absolute;
+  display:none
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+tooltip = null;
+document.onmousemove = updateTooltip;
+function updateTooltip(e) {
+try {
+if (document.all) {
+if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+x = document.documentElement.scrollLeft + window.event.x;
+y = document.documentElement.scrollTop + window.event.y;
+}
+else { // all other Explorers
+x = document.body.scrollLeft + window.event.x;
+y = document.body.scrollTop + window.event.y;
+}
+}
+else {
+x = e.pageX;
+y = e.pageY;
+}
+if (tooltip != null) {
+o = 20;
+var sx, sy;
+if (self.pageYOffset) { // all except Explorer
+sx = self.pageXOffset;
+sy = self.pageYOffset;
+}
+else if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+sx = document.documentElement.scrollLeft;
+sy = document.documentElement.scrollTop;
+}
+else if (document.body) { // all other Explorers
+sx = document.body.scrollLeft;
+sy = document.body.scrollTop;
+}
+t = y + o + tooltip.offsetHeight;
+w = sy + document.body.clientHeight;
+if (t > w) {
+y = y - o - tooltip.offsetHeight;
+}
+else {
+y = y + o;
+}
+t = x + o + tooltip.offsetWidth;
+w = sx + document.body.clientWidth;
+if (t > w) {
+x = x - o - tooltip.offsetWidth;
+}
+else {
+x = x + o;
+}
+if ((tooltip.style.top == '' || tooltip.style.top == 0) && (tooltip.style.left == '' || tooltip.style.left == 0))
+{
+tooltip.style.width = tooltip.offsetWidth + 'px';
+tooltip.style.height = tooltip.offsetHeight + 'px';
+}
+tooltip.style.left = x + "px";
+tooltip.style.top = y + "px";
+}
+} catch (error) { error = null; }
+}
+function showTooltip(id) {
+try {
+tooltip = document.getElementById(id);
+tooltip.style.display = "block";
+} catch (error) { error = null; }
+}
+function hideTooltip() {
+try {
+tooltip.style.display = "none";
+} catch (error) { error = null; }
+}
+</script>
+
+<div class="tooltip" id="n0">3',5'-cyclic AMP</div>
+<div class="tooltip" id="n1">PKA activated after cAMP binding to regulatory subunits</div>
+<div class="tooltip" id="n2">a-D-glucose 6-phosphate</div>
+<div class="tooltip" id="n3">D-fructose 6-phosphate</div>
+<div class="tooltip" id="n4">Glucose-6-phosphate isomerase</div>
+<div class="tooltip" id="n8">aka b-D-fructofuranose 1,6-bisphosphate</div>
+<div class="tooltip" id="n9">fructose-1,6-bisphosphatase 1</div>
+<div class="tooltip" id="n10">ATP-dependent 6-phosphofructokinase</div>
+<div class="tooltip" id="n11">aka b-D-fructofuranose 2,6-bisphosphate</div>
+<div class="tooltip" id="n14">fructose-2,6-bisphosphatase</div>
+<div class="tooltip" id="n16">fructose-2,6-bisphosphatase phosphorilated at serine 36</div>
+<div class="tooltip" id="n17">Adenosin Triphosphate</div>
+<div class="tooltip" id="n19">Adenylate Cyclase</div>
+<div class="tooltip" id="n20">cAMP Protein Kinase dependent, tetramer composed of 2 regularoty subunits and 2 catalytic subunits</div>
+
+<map name="image1_1">
+  <area shape="rect" coords="678,36,758,76" alt="" onmouseover="showTooltip('n20')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="477,15,557,55" href="https://www.uniprot.org/uniprot/A0A0K0K1K3" alt="" onmouseover="showTooltip('n19')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="404,103,464,135" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15422  " alt="" onmouseover="showTooltip('n17')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="560,348,640,388" href="https://www.uniprot.org/uniprot/O60825" alt="" onmouseover="showTooltip('n16')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="560,218,640,258" href="https://www.uniprot.org/uniprot/O60825" alt="" onmouseover="showTooltip('n14')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="379,287,519,319" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:28602" alt="" onmouseover="showTooltip('n11')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="225,348,305,388" href="https://www.uniprot.org/uniprot/F8VTQ3" alt="" onmouseover="showTooltip('n10')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="15,348,95,388" href="https://www.uniprot.org/uniprot/P09467" alt="" onmouseover="showTooltip('n9')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="90,417,230,449" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:28013" alt="" onmouseover="showTooltip('n8')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="15,218,95,258" href="https://www.uniprot.org/uniprot/P06744" alt="" onmouseover="showTooltip('n4')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="90,287,230,319" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:78697" alt="" onmouseover="showTooltip('n3')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="90,157,230,189" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17665" alt="" onmouseover="showTooltip('n2')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="678,283,758,323" alt="" onmouseover="showTooltip('n1')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="570,103,630,135" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17489" alt="" onmouseover="showTooltip('n0')" onmouseout="hideTooltip()" target="_blank"/>
+</map>
+
+
+    <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td><img class="yimage" src="F001-glycolysis-alt1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+      </tr>
+    </table>
+
+</body>
+</html>

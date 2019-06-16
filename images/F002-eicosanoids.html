@@ -1,0 +1,129 @@
+<html>
+<head><title>Image map created by yEd</title>
+<style type="text/css">
+.tooltip {
+  font-size:10pt;
+  background-color:#FFFFCC;
+  border:1px solid black;
+  padding:2px
+}
+</style>
+<style type="text/css">
+.tooltip {
+  position:absolute;
+  display:none
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+tooltip = null;
+document.onmousemove = updateTooltip;
+function updateTooltip(e) {
+try {
+if (document.all) {
+if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+x = document.documentElement.scrollLeft + window.event.x;
+y = document.documentElement.scrollTop + window.event.y;
+}
+else { // all other Explorers
+x = document.body.scrollLeft + window.event.x;
+y = document.body.scrollTop + window.event.y;
+}
+}
+else {
+x = e.pageX;
+y = e.pageY;
+}
+if (tooltip != null) {
+o = 20;
+var sx, sy;
+if (self.pageYOffset) { // all except Explorer
+sx = self.pageXOffset;
+sy = self.pageYOffset;
+}
+else if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+sx = document.documentElement.scrollLeft;
+sy = document.documentElement.scrollTop;
+}
+else if (document.body) { // all other Explorers
+sx = document.body.scrollLeft;
+sy = document.body.scrollTop;
+}
+t = y + o + tooltip.offsetHeight;
+w = sy + document.body.clientHeight;
+if (t > w) {
+y = y - o - tooltip.offsetHeight;
+}
+else {
+y = y + o;
+}
+t = x + o + tooltip.offsetWidth;
+w = sx + document.body.clientWidth;
+if (t > w) {
+x = x - o - tooltip.offsetWidth;
+}
+else {
+x = x + o;
+}
+if ((tooltip.style.top == '' || tooltip.style.top == 0) && (tooltip.style.left == '' || tooltip.style.left == 0))
+{
+tooltip.style.width = tooltip.offsetWidth + 'px';
+tooltip.style.height = tooltip.offsetHeight + 'px';
+}
+tooltip.style.left = x + "px";
+tooltip.style.top = y + "px";
+}
+} catch (error) { error = null; }
+}
+function showTooltip(id) {
+try {
+tooltip = document.getElementById(id);
+tooltip.style.display = "block";
+} catch (error) { error = null; }
+}
+function hideTooltip() {
+try {
+tooltip.style.display = "none";
+} catch (error) { error = null; }
+}
+</script>
+
+<div class="tooltip" id="n0">Phosphatidylcholine</div>
+<div class="tooltip" id="n2">Cytosolic phospholipase A2 Bisphosphorilated<br></div>
+<div class="tooltip" id="n3">Arachidonic acid</div>
+<div class="tooltip" id="n4">prostaglandin G2</div>
+<div class="tooltip" id="n6">aka: PTGS1/2 or Cyclooxygenase 1/2</div>
+<div class="tooltip" id="n7">Cytosolic phospholipase A2 monophosphorilated</div>
+<div class="tooltip" id="n8">Mitogen-activated protein kinase 1/2 or<br>MAP Kinase</div>
+<div class="tooltip" id="n9">Dual specificity mitogen-activated protein kinase kinase Phosphorilated</div>
+<div class="tooltip" id="n10">Dual specificity mitogen-activated protein kinase kinase </div>
+<div class="tooltip" id="n12">Mitogen-activated protein kinase 1/2 or<br>MAP Kinase</div>
+<div class="tooltip" id="n15">Serine/threonine-protein kinase B-raf<br>phosphorilated<br></div>
+<div class="tooltip" id="n16">Serine/threonine-protein kinase B-raf<br></div>
+
+<map name="image1_1">
+  <area shape="rect" coords="15,15,95,55" href="https://www.uniprot.org/uniprot/P15056" alt="" onmouseover="showTooltip('n16')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="180,15,260,55" href="Serine/threonine-protein kinase B-raf" alt="" onmouseover="showTooltip('n15')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="345,231,425,271" href="https://www.uniprot.org/uniprot/P28482" alt="" onmouseover="showTooltip('n12')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="97,123,177,163" href="https://www.uniprot.org/uniprot/P46734" alt="" onmouseover="showTooltip('n10')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="263,123,343,163" href="https://www.uniprot.org/uniprot/P46734" alt="" onmouseover="showTooltip('n9')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="180,231,260,271" href="https://www.uniprot.org/uniprot/P28482" alt="" onmouseover="showTooltip('n8')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="263,339,343,379" href="https://www.uniprot.org/uniprot/P47712" alt="" onmouseover="showTooltip('n7')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="433,447,513,487" href="https://www.uniprot.org/uniprot/P23219" alt="" onmouseover="showTooltip('n6')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="508,506,648,536" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:27647" alt="" onmouseover="showTooltip('n4')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="508,398,648,428" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15843" alt="" onmouseover="showTooltip('n3')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="428,339,508,379" href="https://www.uniprot.org/uniprot/P47712" alt="" onmouseover="showTooltip('n2')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="508,290,648,320" href="https://www.ebi.ac.uk/chebi/searchId.do;?chebiId=CHEBI:64482" alt="" onmouseover="showTooltip('n0')" onmouseout="hideTooltip()" target="_blank"/>
+</map>
+
+
+    <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td><img class="yimage" src="F002-eicosanoids1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+      </tr>
+    </table>
+
+</body>
+</html>

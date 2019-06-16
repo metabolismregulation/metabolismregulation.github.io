@@ -1,0 +1,175 @@
+<html>
+<head><title>Image map created by yEd</title>
+<style type="text/css">
+.tooltip {
+  font-size:10pt;
+  background-color:#FFFFCC;
+  border:1px solid black;
+  padding:2px
+}
+</style>
+<style type="text/css">
+.tooltip {
+  position:absolute;
+  display:none
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+tooltip = null;
+document.onmousemove = updateTooltip;
+function updateTooltip(e) {
+try {
+if (document.all) {
+if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+x = document.documentElement.scrollLeft + window.event.x;
+y = document.documentElement.scrollTop + window.event.y;
+}
+else { // all other Explorers
+x = document.body.scrollLeft + window.event.x;
+y = document.body.scrollTop + window.event.y;
+}
+}
+else {
+x = e.pageX;
+y = e.pageY;
+}
+if (tooltip != null) {
+o = 20;
+var sx, sy;
+if (self.pageYOffset) { // all except Explorer
+sx = self.pageXOffset;
+sy = self.pageYOffset;
+}
+else if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+sx = document.documentElement.scrollLeft;
+sy = document.documentElement.scrollTop;
+}
+else if (document.body) { // all other Explorers
+sx = document.body.scrollLeft;
+sy = document.body.scrollTop;
+}
+t = y + o + tooltip.offsetHeight;
+w = sy + document.body.clientHeight;
+if (t > w) {
+y = y - o - tooltip.offsetHeight;
+}
+else {
+y = y + o;
+}
+t = x + o + tooltip.offsetWidth;
+w = sx + document.body.clientWidth;
+if (t > w) {
+x = x - o - tooltip.offsetWidth;
+}
+else {
+x = x + o;
+}
+if ((tooltip.style.top == '' || tooltip.style.top == 0) && (tooltip.style.left == '' || tooltip.style.left == 0))
+{
+tooltip.style.width = tooltip.offsetWidth + 'px';
+tooltip.style.height = tooltip.offsetHeight + 'px';
+}
+tooltip.style.left = x + "px";
+tooltip.style.top = y + "px";
+}
+} catch (error) { error = null; }
+}
+function showTooltip(id) {
+try {
+tooltip = document.getElementById(id);
+tooltip.style.display = "block";
+} catch (error) { error = null; }
+}
+function hideTooltip() {
+try {
+tooltip.style.display = "none";
+} catch (error) { error = null; }
+}
+</script>
+
+<div class="tooltip" id="n0">NUCLEUS</div>
+<div class="tooltip" id="n2">Liver Kinase B1 (Serine/threonine-protein kinase)</div>
+<div class="tooltip" id="n3">Liver Kinase B1 phosphorilated</div>
+<div class="tooltip" id="n4">cAMP-dependent protein kinase</div>
+<div class="tooltip" id="n5">Acetyl-CoA carboxylase 2</div>
+<div class="tooltip" id="n6">Acetyl-CoA carboxylase 2</div>
+<div class="tooltip" id="n8">acetyl-CoA</div>
+<div class="tooltip" id="n9">malonyl-CoA</div>
+<div class="tooltip" id="n13">Carnitine O-palmitoyltransferase 1</div>
+<div class="tooltip" id="n14">malonyl-CoA</div>
+<div class="tooltip" id="n15">adenosine 5'-monophosphate</div>
+<div class="tooltip" id="n19">5'-AMP-activated protein kinase subunit beta</div>
+<div class="tooltip" id="n20">5'-AMP-activated protein kinase catalytic subunit alpha</div>
+<div class="tooltip" id="n21">5'-AMP-activated protein kinase subunit gamma</div>
+<div class="tooltip" id="n23">5'-AMP-activated protein kinase subunit beta</div>
+<div class="tooltip" id="n24">5'-AMP-activated protein kinase catalytic subunit alpha</div>
+<div class="tooltip" id="n25">5'-AMP-activated protein kinase subunit gamma</div>
+<div class="tooltip" id="n27">5'-AMP-activated protein kinase subunit beta</div>
+<div class="tooltip" id="n28">5'-AMP-activated protein kinase catalytic subunit alpha</div>
+<div class="tooltip" id="n29">5'-AMP-activated protein kinase subunit gamma</div>
+<div class="tooltip" id="n31">calcium binding protein 39 </div>
+<div class="tooltip" id="n32">STRAD</div>
+<div class="tooltip" id="n33">LKB1</div>
+<div class="tooltip" id="n34">STE20-related kinase adapter protein</div>
+<div class="tooltip" id="n35">calcium binding protein 39 </div>
+<div class="tooltip" id="n37">MITOCHONDRION</div>
+<div class="tooltip" id="n39">L-carnitine</div>
+<div class="tooltip" id="n40">acyl-L-carnitine</div>
+<div class="tooltip" id="n41">acyl-CoA</div>
+<div class="tooltip" id="n42">Carnitine O-palmitoyltransferase 1</div>
+<div class="tooltip" id="n43">Liver Kinase B1 phosphorilated and trnslocated</div>
+<div class="tooltip" id="n44">Carnitine O-palmitoyltransferase 1</div>
+<div class="tooltip" id="n47">cAMP-dependent protein kinase</div>
+<div class="tooltip" id="n48">3',5'-cyclic AMP </div>
+<div class="tooltip" id="n50">cAMP-dependent protein kinase</div>
+
+<map name="image1_1">
+  <area shape="rect" coords="484,116,564,156" href="https://www.genome.jp/dbget-bin/www_bget?enzyme+2.7.11.11" alt="" onmouseover="showTooltip('n50')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="584,16,644,48" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17489 " alt="" onmouseover="showTooltip('n48')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="664,116,744,156" href="https://www.genome.jp/dbget-bin/www_bget?enzyme+2.7.11.11" alt="" onmouseover="showTooltip('n47')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="378,982,458,1022" href="https://www.uniprot.org/uniprot/P50416" alt="" onmouseover="showTooltip('n44')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="154,337,234,377" href="https://www.uniprot.org/uniprot/Q15831" alt="" onmouseover="showTooltip('n43')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="130,982,210,1022" href="https://www.uniprot.org/uniprot/P50416" alt="" onmouseover="showTooltip('n42')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="30,1135,150,1167" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17984" alt="" onmouseover="showTooltip('n41')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="213,1089,333,1121" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:75659" alt="" onmouseover="showTooltip('n40')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="30,1042,150,1074" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17126" alt="" onmouseover="showTooltip('n39')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="15,948,348,1182" alt="" onmouseover="showTooltip('n37')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="244,407,324,447" href="https://www.uniprot.org/uniprot/Q9Y376" alt="" onmouseover="showTooltip('n35')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="64,407,144,447" href="https://www.uniprot.org/uniprot/Q7RTN6" alt="" onmouseover="showTooltip('n34')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="198,549,278,589" alt="" onmouseover="showTooltip('n33')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="111,524,191,564" href="https://www.uniprot.org/uniprot/Q7RTN6" alt="" onmouseover="showTooltip('n32')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="111,574,191,614" href="https://www.uniprot.org/uniprot/Q9Y376" alt="" onmouseover="showTooltip('n31')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="776,461,856,501" href="https://www.uniprot.org/uniprot/P54619" alt="" onmouseover="showTooltip('n29')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="688,461,768,501" href="https://www.uniprot.org/uniprot/P54646" alt="" onmouseover="showTooltip('n28')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="732,413,812,453" href="https://www.uniprot.org/uniprot/Q9Y478" alt="" onmouseover="showTooltip('n27')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="466,686,546,726" href="https://www.uniprot.org/uniprot/P54619" alt="" onmouseover="showTooltip('n25')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="378,686,458,726" href="https://www.uniprot.org/uniprot/P54646" alt="" onmouseover="showTooltip('n24')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="422,638,502,678" href="https://www.uniprot.org/uniprot/Q9Y478" alt="" onmouseover="showTooltip('n23')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="466,461,546,501" href="https://www.uniprot.org/uniprot/P54619" alt="" onmouseover="showTooltip('n21')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="378,461,458,501" href="https://www.uniprot.org/uniprot/P54646" alt="" onmouseover="showTooltip('n20')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="422,412,502,452" href="https://www.uniprot.org/uniprot/Q9Y478" alt="" onmouseover="showTooltip('n19')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="609,365,669,397" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16027" alt="" onmouseover="showTooltip('n15')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="585,960,705,992" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15531" alt="" onmouseover="showTooltip('n14')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="605,1004,685,1044" href="https://www.uniprot.org/uniprot/P50416" alt="" onmouseover="showTooltip('n13')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="418,882,538,914" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15531" alt="" onmouseover="showTooltip('n9')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="189,882,309,914" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15351" alt="" onmouseover="showTooltip('n8')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="525,792,605,832" href="https://www.uniprot.org/uniprot/O00763" alt="" onmouseover="showTooltip('n6')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="319,792,399,832" href="https://www.uniprot.org/uniprot/O00763" alt="" onmouseover="showTooltip('n5')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="274,115,354,155" href="https://www.genome.jp/dbget-bin/www_bget?enzyme+2.7.11.11" alt="" onmouseover="showTooltip('n4')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="154,176,234,216" href="https://www.uniprot.org/uniprot/Q15831" alt="" onmouseover="showTooltip('n3')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="154,49,234,89" href="https://www.uniprot.org/uniprot/Q15831" alt="" onmouseover="showTooltip('n2')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="111,15,458,240" alt="" onmouseover="showTooltip('n0')" onmouseout="hideTooltip()"/>
+</map>
+
+
+    <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td><img class="yimage" src="F014-carnitine1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+      </tr>
+    </table>
+
+</body>
+</html>

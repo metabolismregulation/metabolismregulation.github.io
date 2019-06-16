@@ -1,0 +1,151 @@
+<html>
+<head><title>Image map created by yEd</title>
+<style type="text/css">
+.tooltip {
+  font-size:10pt;
+  background-color:#FFFFCC;
+  border:1px solid black;
+  padding:2px
+}
+</style>
+<style type="text/css">
+.tooltip {
+  position:absolute;
+  display:none
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+tooltip = null;
+document.onmousemove = updateTooltip;
+function updateTooltip(e) {
+try {
+if (document.all) {
+if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+x = document.documentElement.scrollLeft + window.event.x;
+y = document.documentElement.scrollTop + window.event.y;
+}
+else { // all other Explorers
+x = document.body.scrollLeft + window.event.x;
+y = document.body.scrollTop + window.event.y;
+}
+}
+else {
+x = e.pageX;
+y = e.pageY;
+}
+if (tooltip != null) {
+o = 20;
+var sx, sy;
+if (self.pageYOffset) { // all except Explorer
+sx = self.pageXOffset;
+sy = self.pageYOffset;
+}
+else if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+sx = document.documentElement.scrollLeft;
+sy = document.documentElement.scrollTop;
+}
+else if (document.body) { // all other Explorers
+sx = document.body.scrollLeft;
+sy = document.body.scrollTop;
+}
+t = y + o + tooltip.offsetHeight;
+w = sy + document.body.clientHeight;
+if (t > w) {
+y = y - o - tooltip.offsetHeight;
+}
+else {
+y = y + o;
+}
+t = x + o + tooltip.offsetWidth;
+w = sx + document.body.clientWidth;
+if (t > w) {
+x = x - o - tooltip.offsetWidth;
+}
+else {
+x = x + o;
+}
+if ((tooltip.style.top == '' || tooltip.style.top == 0) && (tooltip.style.left == '' || tooltip.style.left == 0))
+{
+tooltip.style.width = tooltip.offsetWidth + 'px';
+tooltip.style.height = tooltip.offsetHeight + 'px';
+}
+tooltip.style.left = x + "px";
+tooltip.style.top = y + "px";
+}
+} catch (error) { error = null; }
+}
+function showTooltip(id) {
+try {
+tooltip = document.getElementById(id);
+tooltip.style.display = "block";
+} catch (error) { error = null; }
+}
+function hideTooltip() {
+try {
+tooltip.style.display = "none";
+} catch (error) { error = null; }
+}
+</script>
+
+<div class="tooltip" id="n0">3',5'-cyclic AMP</div>
+<div class="tooltip" id="n1">PKA regulatory Subunit binded to two cAMP</div>
+<div class="tooltip" id="n3">Tetramer composed by two catalytic and two regulatory subunits</div>
+<div class="tooltip" id="n4">PKA regulatory subunit</div>
+<div class="tooltip" id="n5">PKA catalytic subunit</div>
+<div class="tooltip" id="n7">PKA tetramer, consisting in two catalytic and two regulatory subunits</div>
+<div class="tooltip" id="n8">PKA catalytic subunit</div>
+<div class="tooltip" id="n9">a-D-glucose 6-phosphate</div>
+<div class="tooltip" id="n10">b-D-fructose 6-phosphate</div>
+<div class="tooltip" id="n11">Glucose-6-phosphate isomerase</div>
+<div class="tooltip" id="n15">AKA:b- D-fructofuranose 1,6-bisphosphate</div>
+<div class="tooltip" id="n16">Fructose-1,6-bisphosphatase</div>
+<div class="tooltip" id="n17">ATP-dependent 6-phosphofructokinase</div>
+<div class="tooltip" id="n18">b-D-fructofuranose 2,6-bisphosphate</div>
+<div class="tooltip" id="n21">fructose-2,6-bisphosphatase </div>
+<div class="tooltip" id="n23">6-phosphofructo-2-kinase phosphorilated at serine 36</div>
+<div class="tooltip" id="n24">ATP</div>
+<div class="tooltip" id="n26">Adenylate cyclase</div>
+<div class="tooltip" id="n27">diphosphate ion </div>
+<div class="tooltip" id="n28">cAMP-dependent protein kinase regulatory subunit</div>
+<div class="tooltip" id="n29">PKA catalytic subunit</div>
+<div class="tooltip" id="e0">2</div>
+<div class="tooltip" id="e5">4</div>
+
+<map name="image1_1">
+  <area shape="poly" coords="630,175,630,175,709,175,710,175,710,175,715,175,716,175,716,176,720,178,721,178,721,180,723,183,724,183,724,184,724,189,724,189,724,190,724,200,714,200,714,190,719,190,715,190,714,186,719,185,715,188,713,185,717,182,714,186,711,185,714,180,713,185,709,185,709,180,709,185,630,185,630,185" alt="" onmouseover="showTooltip('e5')" onmouseout="hideTooltip()"/>
+  <area shape="poly" coords="724,437,724,437,724,486,714,486,714,437,714,437" alt="" onmouseover="showTooltip('e0')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="510,226,570,258" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:35782" alt="" onmouseover="showTooltip('n27')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="477,75,557,115" href="https://www.uniprot.org/uniprot/A0A0K0K1K3" alt="" onmouseover="showTooltip('n26')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="404,164,464,196" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15422" alt="" onmouseover="showTooltip('n24')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="560,562,640,602" href="https://www.uniprot.org/uniprot/O60825" alt="" onmouseover="showTooltip('n23')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="560,432,640,472" href="https://www.uniprot.org/uniprot/O60825" alt="" onmouseover="showTooltip('n21')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="379,501,519,533" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:28602" alt="" onmouseover="showTooltip('n18')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="225,562,305,602" href="https://www.uniprot.org/uniprot/F8VTQ3" alt="" onmouseover="showTooltip('n17')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="15,562,95,602" href="https://www.uniprot.org/uniprot/P09467" alt="" onmouseover="showTooltip('n16')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="90,631,230,663" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:28013" alt="" onmouseover="showTooltip('n15')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="15,432,95,472" href="https://www.uniprot.org/uniprot/P06744" alt="" onmouseover="showTooltip('n11')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="90,501,230,533" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:78697" alt="" onmouseover="showTooltip('n10')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="90,371,230,403" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17665" alt="" onmouseover="showTooltip('n9')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="678,497,758,537" href="https://www.uniprot.org/uniprot/P17612" alt="" onmouseover="showTooltip('n8')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="679,328,759,368" href="https://www.uniprot.org/uniprot/P17612" alt="" onmouseover="showTooltip('n29')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="679,267,759,307" href="https://www.uniprot.org/uniprot/P36600" alt="" onmouseover="showTooltip('n28')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="668,245,775,389" alt="" onmouseover="showTooltip('n7')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="676,96,756,136" href="https://www.uniprot.org/uniprot/P17612" alt="" onmouseover="showTooltip('n5')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="676,37,756,77" href="https://www.uniprot.org/uniprot/P36600" alt="" onmouseover="showTooltip('n4')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="666,15,772,157" alt="" onmouseover="showTooltip('n3')" onmouseout="hideTooltip()"/>
+  <area shape="rect" coords="765,432,845,472" href="https://www.uniprot.org/uniprot/P36600" alt="" onmouseover="showTooltip('n1')" onmouseout="hideTooltip()" target="_blank"/>
+  <area shape="rect" coords="570,164,630,196" href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17489" alt="" onmouseover="showTooltip('n0')" onmouseout="hideTooltip()" target="_blank"/>
+</map>
+
+
+    <table class="yimagetable" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td><img class="yimage" src="F001-glycolysis1_1.png" usemap="#image1_1" border="0" alt=""/></td>
+      </tr>
+    </table>
+
+</body>
+</html>
