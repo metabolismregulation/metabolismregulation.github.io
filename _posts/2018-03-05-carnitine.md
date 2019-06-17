@@ -7,11 +7,12 @@ Downloads: &nbsp;
 [GraphML](../downloads/F014-carnitine.graphml) &nbsp;
 [SBGN-ML](../downloads/F014-carnitine-SBGNv02.sbgn) &nbsp;
 [Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F014-carnitine.sbgn) &nbsp;
+[Annotated Map](http://metabolismregulation.org/images/F014-carnitine.html) &nbsp;
 <p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.png" width="600"/></a></p>
 
 ## Contributors
 
-Tatiana Serebriyskaya, Valeriya Berzhitskaya
+Tatiana Serebriyskaya, Valeriya Berzhitskaya, Maria Heredia Chavez (annotation)
 
 ## Description
 
