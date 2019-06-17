@@ -6,7 +6,8 @@ title: Regulation of glycolysis
 Downloads: &nbsp; 
 [GraphML](../downloads/F001-glycolysis-alt.graphml) &nbsp;
 [SBGN-ML](../downloads/F001-glycolysis-alt-SBGNv02.sbgn) &nbsp;
-[Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis-alt.sbgn) &nbsp;
+[Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis-alt.sbgn) &nbsp; &nbsp; 
+[Annotated Map](https://metabolismregulation.org/images/F001-glycolysis-alt.html)
 <p align="middle"><a href="/downloads/F001-glycolysis-alt.svg"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="500"/></a></p>
 
 <br />
@@ -17,6 +18,7 @@ Downloads: &nbsp;
 [GraphML](../downloads/F001-glycolysis.graphml) &nbsp;
 [SBGN-ML](../downloads/F001-glycolysis-SBGNv02.sbgn) &nbsp;
 [Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F001-glycolysis.sbgn) &nbsp;
+[Annotated Map](https://metabolismregulation.org/images/F001-glycolysis.html)
 <!--[yEd Live](https://www.yworks.com/yed-live/#file=https://metabolismregulation.org/downloads/F001-glycolysis.graphml
 ) &nbsp;
 <a href="/glycolysis/"><img id="logo" src="/images/figure01v04.png" style="width:90%;"/></a>-->
@@ -24,7 +26,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Alexander Mazein, Vasundra Touré
+Alexander Mazein, Vasundra Touré, Maria Heredia Chavez (Annotations)
 
 ## References
 
