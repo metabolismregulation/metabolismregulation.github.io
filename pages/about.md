@@ -111,7 +111,7 @@ Ways to contribute:
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MarekOstaszewski.jpg" width="130"/></p></td>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/ReinhardSchneider.jpg" width="130"/></p></td>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MariaHeredia.jpg" height="130"/></p></td>
-      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/JackAlbanese.png" height="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/JackAlbanese.jpg" height="130"/></p></td>
     </tr>
 </table>
 
