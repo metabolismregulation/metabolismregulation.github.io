@@ -110,8 +110,8 @@ Ways to contribute:
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MarekOstaszewski.jpg" width="130"/></p></td>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/ReinhardSchneider.jpg" width="130"/></p></td>
-      <td style="width:210px;"> </td>
-      <td style="width:210px;"> </td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MariaHeredia.jpg" height="130"/></p></td>
+      <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/JackAlbanese.png" height="130"/></p></td>
     </tr>
 </table>
 
@@ -119,10 +119,12 @@ Ways to contribute:
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><strong>Marek Ostaszewski</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belvaux, Luxembourg</font></p></td>
       <td style="width:210px;"><p style="margin:4px;"><strong>Reinhard Schneider</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belvaux, Luxembourg</font></p></td>
-      <td style="width:210px;"> </td>
-      <td style="width:210px;"> </td>
-    </tr>
+        <table>
+<td style="width: 210px;"><p style="margin:4px;"><strong>Maria del Carmen Heredia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">UConn, Storrs, USA</font></p></td>
+<td style="width: 210px;"><p style="margin:4px;"><strong>John Albanese</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Trinity College, <br /> Hartford, USA</font></p></td>
+</tr>
 </table>
+
 
 <!--
 <td style="width:210px;" align="center"><strong>Ines Thiele</strong><br />Luxembough Centre for Systems Biomedicine, Belval, Luxembourg</td>
