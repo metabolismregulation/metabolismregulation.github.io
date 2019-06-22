@@ -8,7 +8,7 @@ Downloads: &nbsp;
 [SBGN-ML 0.2](../downloads/F009-phosphoinositides-SBGNv02.sbgn) &nbsp;
 [SBGN-ML 0.3](../downloads/F009-phosphoinositides.sbgn) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.org/downloads/F009-phosphoinositides.sbgn) &nbsp;
-[Annotated Map](https://metabolismregulation.org/images/F009-phosphoinositides.html)
+[Annotated Map](https://metabolismregulation.org/images/F009-phosphoinositides.htm)
 <p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="500"/></a></p>
 
 ## Contributors 
