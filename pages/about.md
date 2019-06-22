@@ -97,6 +97,7 @@ Ways to contribute:
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MatthiasKonig.jpg" width="130"/></p></td>
     </tr>
 </table>
+
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
@@ -119,9 +120,8 @@ Ways to contribute:
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><strong>Marek Ostaszewski</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belvaux, Luxembourg</font></p></td>
       <td style="width:210px;"><p style="margin:4px;"><strong>Reinhard Schneider</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belvaux, Luxembourg</font></p></td>
-        <table>
-<td style="width: 210px;"><p style="margin:4px;"><strong>Maria del Carmen Heredia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">UConn, Storrs, USA</font></p></td>
-<td style="width: 210px;"><p style="margin:4px;"><strong>John Albanese</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Trinity College, <br /> Hartford, USA</font></p></td>
+       <td style="width: 210px;"><p style="margin:4px;"><strong>Maria del Carmen Heredia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">UConn, Storrs, USA</font></p></td>
+        <td style="width: 210px;"><p style="margin:4px;"><strong>John Albanese</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Trinity College, Hartford, USA</font></p></td>
 </tr>
 </table>
 
