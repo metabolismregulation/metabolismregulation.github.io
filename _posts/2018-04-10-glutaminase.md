@@ -6,7 +6,7 @@ title: Regulation of glutaminolysis via the NF-kB-PKCe axis in lung cancer cells
 Downloads: &nbsp; 
 [GraphML](../downloads/F019-glutaminase.graphml) &nbsp;
 [SBGN-ML](../downloads/F019-glutaminase-SBGNv02.sbgn) &nbsp;
-[Newt](http://web.newteditor.org/?URL=http://metabolismregulation.org/downloads/F019-glutaminase.sbgn) &nbsp;
+[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.org/downloads/F019-glutaminase.sbgn) &nbsp;
 [Annotated Map](../images/F019-glutaminase.html) &nbsp;
 <p align="middle"><a href="/glutaminase/"><img id="image" src="/downloads/F019-glutaminase.png" width="500"/></a></p>
 
