@@ -7,7 +7,7 @@ permalink: /team/
 
 [Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), 
 [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), 
-[Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
+[Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
 
 
 <table>
