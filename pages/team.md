@@ -32,6 +32,14 @@ permalink: /team/
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Vasundra Toure</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">PhD Student<br />Norwegian University of Science and Technology, Trondheim, Norway<br />Contribution: <a href="../glycolysis/">Glycolysis</a>, <a href="../glycogen/">Glycogen</a></font></p></td>
     </tr>
     <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="HannaBorlinghaus"><img src="../images/team/HannaBorlinghaus.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Hanna Borlinghaus</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">PhD Student<br />University of Konstanz, Konstanz, Germany<br />Contribution: <a href="../estrogen/">Estradiol biosynthesis</a>, <a href="../pyrimidine/">Pyrimidine biosynthesis</a>, <a href="../glutaminase/">Glutaminolysis</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FalkSchreiber"><img src="../images/team/FalkSchreiber.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Falk Schreiber</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Chair for Life Science Informatics<br />University of Konstanz, Konstanz, Germany<br />Contribution: <a href="../estrogen/">Estradiol biosynthesis</a>, <a href="../pyrimidine/">Pyrimidine biosynthesis</a>, <a href="../glutaminase/">Glutaminolysis</a></font></p></td>
+    </tr>
+    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientists<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg</font></p></td>
     </tr>
