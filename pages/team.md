@@ -20,23 +20,23 @@ permalink: /team/
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Irina Balaur</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Project Coordinator<br />Researcher<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordinatioin, Recon2Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
     </tr>
     <tr>
-    <td style="width:130px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="120"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Adrien Rougny</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan<br />Contibution: <a href="../acly/">Acetyl-CoA synthesis</a></font></p></td>
     </tr>
     <tr>
-    <td style="width:130px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VasundraToure"><img src="../images/team/VasundraToure.jpg" width="120"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VasundraToure"><img src="../images/team/VasundraToure.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Vasundra Toure</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">PhD Student<br />Norwegian University of Science and Technology, Trondheim, Norway</font></p></td>
     </tr>
     <tr>
-    <td style="width:130px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="120"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientists<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg</font></p></td>
     </tr>
     <tr>
-    <td style="width:130px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="120"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
     </tr>
     <tr>
-    <td style="width:130px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ReinhardSchneider"><img src="../images/team/ReinhardSchneider.jpg" width="120"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ReinhardSchneider"><img src="../images/team/ReinhardSchneider.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Full professor / Chief Scientist 1 in Bioinformatics<br />Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg</font></p></td>
     </tr>
 </table>
