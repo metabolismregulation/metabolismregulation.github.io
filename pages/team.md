@@ -13,11 +13,11 @@ permalink: /team/
 <table>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><img src="../images/team/AlexanderMazein.jpg" width="100"/></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Project Coordinator<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordination, pathway curation</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Project Coordinator<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordination, <a href="../glycolysis/">Glycolysis</a>, <a href="../aspirin/">Aspirin action mechanism</a>, <a href="../eicosanoids/">Eicosanoids</a>, <a href="../inos/">iNOS pathway</a></font></p></td>
     </tr>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IrinaBalaur"><img src="../images/team/IrinaBalaur.jpg" width="100"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Irina Balaur</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordinatioin, Recon2Neo4j, Reactome-Recon lists</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Irina Balaur</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Project Coordinator<br />Researcher<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordinatioin, Recon2Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
     </tr>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="100"/></a></td>
