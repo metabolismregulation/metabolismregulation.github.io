@@ -13,7 +13,7 @@ permalink: /team/
 <table>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><img src="../images/team/AlexanderMazein.jpg" width="100"/></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">PD2AF Project Coordinator<br />Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Metabolism Regulation Project Coordinator<br />Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
     </tr>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IrinaBalaur"><img src="../images/team/IrinaBalaur.jpg" width="100"/></a></td>
@@ -21,7 +21,7 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="100"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Adrien Rougny</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">SBGN Editor elected for 2018 - 2020<br />Researcher<br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Adrien Rougny</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan<br />Contibution: <a href="../acly/">Acetyl-CoA synthesis</a></font></p></td>
     </tr>
     <tr>
     <td style="width:110px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VasundraToure"><img src="../images/team/VasundraToure.jpg" width="100"/></a></td>
