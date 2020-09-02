@@ -29,7 +29,7 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VasundraToure"><img src="../images/team/VasundraToure.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Vasundra Toure</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">PhD Student<br />Norwegian University of Science and Technology, Trondheim, Norway</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Vasundra Toure</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">PhD Student<br />Norwegian University of Science and Technology, Trondheim, Norway<br />Contribution: <a href="../glycolysis/">Glycolysis</a>, <a href="../glycogen/">Glycogen</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
