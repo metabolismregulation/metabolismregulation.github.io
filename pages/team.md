@@ -40,16 +40,24 @@ permalink: /team/
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Falk Schreiber</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Chair for Life Science Informatics<br />University of Konstanz, Konstanz, Germany<br />Contribution: <a href="../estrogen/">Estradiol biosynthesis</a>, <a href="../pyrimidine/">Pyrimidine biosynthesis</a>, <a href="../glutaminase/">Glutaminolysis</a></font></p></td>
     </tr>
     <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FrankBergmann"><img src="../images/team/FrankBergmann.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Frank Bergmann</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Member of Scientific Staff<br />University of Heidelberg, Heidelberg, Germany<br />Contribution: SBGN-ML 0.3 support</font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="PiotrGawron"><img src="../images/team/PiotrGawron.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Piotr Gawron</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
+    </tr>
+    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientists<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientist<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Support at the EISBM</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ReinhardSchneider"><img src="../images/team/ReinhardSchneider.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Full professor / Chief Scientist 1 in Bioinformatics<br />Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Full professor / Chief Scientist 1 in Bioinformatics<br />Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support</font></p></td>
     </tr>
 </table>
 
