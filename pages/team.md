@@ -1,19 +1,9 @@
 ---
 layout: page
-title: Team
+title: Project team
 permalink: /team/
 ---
 
-## Contact
-
-To join the effort please use this email address:  
-[metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
-
-Project coordinators:  
-Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)  
-Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)  
-
-## Project team
 
 [Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), 
 [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), 
