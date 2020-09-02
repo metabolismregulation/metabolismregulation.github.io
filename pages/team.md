@@ -4,8 +4,6 @@ title: Team
 permalink: /team/
 ---
 
-# Team
-
 ## Contact
 
 To join the effort please use this email address:  
