@@ -22,8 +22,8 @@ To join the effort please use this email address:
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
 
 Project coordinators:  
-Alexander Mazein [alexander.mazein@uni.lu](mailto:alexander.mazein@uni.lu)  
-Irina Balaur [irinaa.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com )  
+Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)  
+Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)  
 
 # How to contribute
 
