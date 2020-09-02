@@ -16,12 +16,12 @@ permalink: /team/
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordination, <a href="../glycolysis/">Glycolysis</a>, <a href="../mevalonate/">Mevalonate</a>, <a href="../eicosanoids/">Eicosanoids</a>, <a href="../inos/">iNOS pathway</a>, <a href="../aspirin/">Aspirin</a></font></p></td>
     </tr>
     <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AntonioFabregat"><img src="../images/team/AntonioFabregat.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Reactome Project Coordinator / Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
-    </tr>
-    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IrinaBalaur"><img src="../images/team/IrinaBalaur.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Irina Balaur</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordinatioin, Recon2Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AntonioFabregat"><img src="../images/team/AntonioFabregat.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Reactome Project Coordinator / Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="110"/></a></td>
@@ -50,6 +50,14 @@ permalink: /team/
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientist<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="HongWuMa"><img src="../images/team/HongWuMa.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Hong-Wu Ma</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor<br />Tianjin Institute of Industrial Biotechnology, Chinese Academy of Science, Tianjin, China<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IgorGoryanin"><img src="../images/team/IgorGoryanin.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Igor Goryanin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Henrik Kacser Chair in Computational Systems Biology<br />School of Informatics, University of Edinburgh, Edinburgh, United Kingdom<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
