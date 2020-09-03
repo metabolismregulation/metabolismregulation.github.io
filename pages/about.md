@@ -105,7 +105,7 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IgorGoryanin"><img src="../images/team/IgorGoryanin.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Igor Goryanin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Henrik Kacser Chair in Systems Biology<br />School of Informatics, University of Edinburgh, Edinburgh, United Kingdom<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="InesThiele"><img src="../images/team/InesThiele.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Discussion, project planning, Recon2 project</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Project planning, Recon2 project</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
