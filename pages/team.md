@@ -53,11 +53,11 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MariadelCarmenHeredia"><img src="../images/team/MariadelCarmenHeredia.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria del Carmen Heredia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: Annotation</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria del Carmen Heredia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut, Storrs, USA<br />Contribution: Annotation</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="JohnAlbanese"><img src="../images/team/JohnAlbanese.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>John Albanese</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: Annotation</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>John Albanese</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />Trinity College, Hartford, USA<br />Contribution: Annotation</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MichaelBlinov"><img src="../images/team/MichaelBlinov.jpg" width="110"/></a></td>
