@@ -99,6 +99,8 @@ permalink: /team/
 
 <br />
 
+
+<!--
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/IrinaBalaur.jpg" width="130"/></p></td>
@@ -115,7 +117,6 @@ permalink: /team/
       <td style="width:210px;"><p style="margin:4px;"><strong>Antonio Fabregat</strong></p><p style="margin:4px; line-height:100%;"><font size="2">European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, UK</font></p></td>
     </tr>
 </table>
-
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/AdrienRougny.jpg" width="130"/></p></td>
@@ -132,7 +133,9 @@ permalink: /team/
       <td style="width:210px;"><p style="margin:4px;"><strong>Falk Schreiber</strong></p><p style="margin:4px; line-height:100%;"><font size="2">University of Konstanz, Konstanz, Germany</font></p></td>
     </tr>
 </table>
+-->
 
+<!--
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/OlgaIvanova.jpg" width="130"/></p></td>
@@ -149,7 +152,6 @@ permalink: /team/
       <td style="width:210px;"><p style="margin:4px;"><strong>Tatiana Serebriiskaia</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
     </tr>
 </table>
-
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/ValeriyaBerzhitskaya.jpg" width="130"/></p></td>
@@ -158,7 +160,6 @@ permalink: /team/
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MatthiasKonig.jpg" width="130"/></p></td>
     </tr>
 </table>
-
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><strong>Valeriya Berzhitskaya</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Moscow Institute of Physics and Technology, Moscow, Russia</font></p></td>
@@ -167,7 +168,6 @@ permalink: /team/
       <td style="width:210px;"><p style="margin:4px;"><strong>Matthias König</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Systems Medicine of the Liver, Humboldt University of Berlin, Germany</font></p></td>
     </tr>
 </table>
-
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/MarekOstaszewski.jpg" width="130"/></p></td>
@@ -176,7 +176,6 @@ permalink: /team/
       <td style="width:210px;"><p style="margin:4px;"><br /><img src="/images/team/JackAlbanese.jpg" height="130"/></p></td>
     </tr>
 </table>
-
 <table>
     <tr>
       <td style="width:210px;"><p style="margin:4px;"><strong>Marek Ostaszewski</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belvaux, Luxembourg</font></p></td>
@@ -185,6 +184,7 @@ permalink: /team/
         <td style="width: 210px;"><p style="margin:4px;"><strong>John Albanese</strong></p><p style="margin:4px; line-height:100%;"><font size="2">Trinity College, Hartford, USA</font></p></td>
 </tr>
 </table>
+-->
 
 
 <!--
