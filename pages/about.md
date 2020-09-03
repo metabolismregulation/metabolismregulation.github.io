@@ -36,6 +36,10 @@ Ways to contribute:
 * Proposing new topics: it can be done through direct search on the subject of metabolism regulation or by working with the automatically assembled [lists](/lists/).
 * Proposing new [colour schemes](/colours/). We are looking for ways to improve the diagrams aestetically. To experiment with colours and layouts, download any diagram in GraphML format and edit as you prefer. 
 
+# Availability
+
+The Metabolism Regulation maps are available as an open source and open access resource under the terms of the [Creative Commons Public Domain (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/). This applies to map images, downloadable map files and annotation data from maps.
+
 # Project team
 
 [Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), 
