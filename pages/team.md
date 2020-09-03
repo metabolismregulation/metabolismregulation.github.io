@@ -5,7 +5,7 @@ permalink: /team/
 ---
 
 
-[Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), 
+[Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), 
 [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), 
 [Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
 
@@ -22,6 +22,14 @@ permalink: /team/
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AntonioFabregat"><img src="../images/team/AntonioFabregat.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Reactome Project Coordinator / Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ValeriyaBerzhitskaya"><img src="../images/team/ValeriyaBerzhitskaya.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Valeriya Berzhitskaya</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="TatianaSerebriiskaia"><img src="../images/team/TatianaSerebriiskaia.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Tatiana Serebriiskaia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="110"/></a></td>
