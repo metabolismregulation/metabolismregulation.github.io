@@ -38,7 +38,7 @@ Ways to contribute:
 
 # Availability
 
-The Metabolism Regulation maps are available as an open source and open access resource under the terms of the [Creative Commons Public Domain (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/). This applies to map images, downloadable map files and annotation data from maps.
+The Metabolism Regulation maps are available as an open access resource under the terms of the [Creative Commons Public Domain (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/). This applies to map images, downloadable map files and annotation data from maps.
 
 # Project team
 
