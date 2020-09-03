@@ -24,14 +24,6 @@ permalink: /team/
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Reactome Project Coordinator / Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
     </tr>
     <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ValeriyaBerzhitskaya"><img src="../images/team/ValeriyaBerzhitskaya.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Valeriya Berzhitskaya</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
-    </tr>
-    <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="TatianaSerebriiskaia"><img src="../images/team/TatianaSerebriiskaia.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Tatiana Serebriiskaia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
-    </tr>
-    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Adrien Rougny</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan<br />Contibution: <a href="../acly/">Acetyl-CoA synthesis</a></font></p></td>
     </tr>
@@ -46,6 +38,14 @@ permalink: /team/
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FalkSchreiber"><img src="../images/team/FalkSchreiber.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Falk Schreiber</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Chair for Life Science Informatics<br />University of Konstanz, Konstanz, Germany<br />Contribution: <a href="../estrogen/">Estradiol biosynthesis</a>, <a href="../pyrimidine/">Pyrimidine biosynthesis</a>, <a href="../glutaminase/">Glutaminolysis</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ValeriyaBerzhitskaya"><img src="../images/team/ValeriyaBerzhitskaya.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Valeriya Berzhitskaya</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="TatianaSerebriiskaia"><img src="../images/team/TatianaSerebriiskaia.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Tatiana Serebriiskaia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FrankBergmann"><img src="../images/team/FrankBergmann.jpg" width="110"/></a></td>
