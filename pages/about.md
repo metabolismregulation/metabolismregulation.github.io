@@ -87,7 +87,7 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MichaelBlinov"><img src="../images/team/MichaelBlinov.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Michael Blinov</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Assistant Professor<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: Resources, <a href="../mevalonate/">Mevalonate</a>, <a href="../phosphoinositides/">Phosphoinositides</a></font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="OlgaIvanova"><img src="../images/team/OlgaIvanova.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Olga Ivanova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Junior Researcher<br />Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands<br />Contribution: <a href="../enos/">eNOS pathway</a></font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Olga Ivanova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Junior Researcher<br />Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands<br />Contribution: <a href="../enos/">eNOS</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FrankBergmann"><img src="../images/team/FrankBergmann.jpg" width="110"/></a></td>
