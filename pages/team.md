@@ -45,15 +45,27 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="TatianaSerebriiskaia"><img src="../images/team/TatianaSerebriiskaia.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Tatiana Serebriiskaia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Tatiana Serebriiskaia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Researcher<br />Moscow Institute of Physics and Technology, Moscow, Russia<br />Contribution: Resources, <a href="../srebp/">Cholesterol</a>, <a href="../glycogen/">Glycogen</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="JamesGreene"><img src="../images/team/JamesGreene.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>James Greene</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: <a href="../mevalonate/">Mevalonate</a>, <a href="../phosphoinositides/">Phosphoinositides</a></font></p></td>
     </tr>
     <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MariadelCarmenHeredia"><img src="../images/team/MariadelCarmenHeredia.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria del Carmen Heredia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: Annotation</font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="JohnAlbanese"><img src="../images/team/JohnAlbanese.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>John Albanese</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: Annotation</font></p></td>
+    </tr>
+    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MichaelBlinov"><img src="../images/team/MichaelBlinov.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Michael Blinov</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Assistant Professor, Center for Cell Analysis and Modeling<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: <a href="../mevalonate/">Mevalonate</a>, <a href="../phosphoinositides/">Phosphoinositides</a></font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Michael Blinov</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Assistant Professor, Center for Cell Analysis and Modeling<br />University of Connecticut School of Medicine, Farmington, USA<br />Contribution: Resources, <a href="../mevalonate/">Mevalonate</a>, <a href="../phosphoinositides/">Phosphoinositides</a></font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="OlgaIvanova"><img src="../images/team/OlgaIvanova.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Olga Ivanova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Junior Researcher<br />Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands<br />Contribution: <a href="../enos/">eNOS pathway</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FrankBergmann"><img src="../images/team/FrankBergmann.jpg" width="110"/></a></td>
