@@ -7,7 +7,7 @@ permalink: /team/
 
 [Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), 
 [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), 
-[Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
+[Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Reinhard Schneider](#ReinhardSchneider), [Charles Auffray](#CharlesAuffray)   
 
 
 <table>
@@ -92,12 +92,12 @@ permalink: /team/
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Discussion, project planning, Recon2 project</font></p></td>
     </tr>
     <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Support at the EISBM</font></p></td>
-    </tr>
-    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ReinhardSchneider"><img src="../images/team/ReinhardSchneider.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Full professor / Chief Scientist 1 in Bioinformatics<br />Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
+    </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Support at the EISBM</font></p></td>
     </tr>
 </table>
 
