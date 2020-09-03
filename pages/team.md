@@ -19,7 +19,7 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AntonioFabregat"><img src="../images/team/AntonioFabregat.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Reactome Project Coordinator / Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Adrien Rougny</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />National Institute of Advanced Industrial Science and Technology, Tokyo, Japan<br />Contibution: <a href="../acly/">Acetyl-CoA synthesis</a></font></p></td>
     </tr>
@@ -75,7 +75,7 @@ permalink: /team/
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Support at the EISBM</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ReinhardSchneider"><img src="../images/team/ReinhardSchneider.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Full professor / Chief Scientist 1 in Bioinformatics<br />Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
     </tr>
 </table>
 
@@ -94,7 +94,7 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AntonioFabregat"><img src="../images/team/AntonioFabregat.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Reactome Project Coordinator / Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Antonio Fabregat</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Software Engineer<br />European Molecular Biology Laboratory, European Bioinformatics Institute (EMBL-EBI), Hinxton, United Kingdom<br />Contribution: Reactome Neo4j, <a href="../lists/">Reactome-Recon lists</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AdrienRougny"><img src="../images/team/AdrienRougny.jpg" width="110"/></a></td>
