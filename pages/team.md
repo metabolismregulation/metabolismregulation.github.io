@@ -13,7 +13,7 @@ permalink: /team/
 <table>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><img src="../images/team/AlexanderMazein.jpg" width="110"/></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordination, <a href="../glycolysis/">Glycolysis</a>, <a href="../mevalonate/">Mevalonate</a>, <a href="../eicosanoids/">Eicosanoids</a>, <a href="../inos/">iNOS pathway</a>, <a href="../aspirin/">Aspirin action mechanism</a></font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em"><strong>Alexander Mazein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Project coordination, <a href="../glycolysis/">Glycolysis</a>, <a href="../glycogen/">Glycogen</a>, <a href="../mevalonate/">Mevalonate</a>, <a href="../eicosanoids/">Eicosanoids</a>, <a href="../inos/">iNOS pathway</a>, <a href="../aspirin/">Aspirin action mechanism</a></font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IrinaBalaur"><img src="../images/team/IrinaBalaur.jpg" width="110"/></a></td>
@@ -53,11 +53,11 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MariadelCarmenHeredia"><img src="../images/team/MariadelCarmenHeredia.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria del Carmen Heredia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut, Storrs, USA<br />Contribution: Annotation</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria del Carmen Heredia</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />University of Connecticut, Storrs, USA<br />Contribution: Annotation, <a href="../glycolysis/">Glycolysis</a>, <a href="../eicosanoids/">Eicosanoids</a>, <a href="../srebp/">Cholesterol</a>, <a href="../inos/">iNOS pathway</a>, <a href="../carnitine/">Acyl-carnitine synthesis</a>, <a href="../glutaminase/">Glutaminolysis</a>, <a href="../aspirin/">Aspirin action mechanisms</a> </font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="JohnAlbanese"><img src="../images/team/JohnAlbanese.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>John Albanese</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />Trinity College, Hartford, USA<br />Contribution: Annotation</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>John Albanese</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">MSc Student<br />Trinity College, Hartford, USA<br />Contribution: Annotation, <a href="../glycogen/">Glycogen</a>, <a href="../glycogen/">Glycogen</a>, <a href="../acly/">Acetyl-CoA synthesis</a>, <a href="../enos/">eNOS pathway</a>, <a href="../camp/">cAMP hydrolysis</a>, <a href="../tag/">Triacylglycerol hydrolysis</a>, <a href="../estrogen/">Estradiol biosynthesis</a>, <a href="../pyrimidine/">Pyrimidine</a> </font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MichaelBlinov"><img src="../images/team/MichaelBlinov.jpg" width="110"/></a></td>
@@ -89,7 +89,7 @@ permalink: /team/
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="InesThiele"><img src="../images/team/InesThiele.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Discussion, project planning</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Discussion, project planning, Recon2 project</font></p></td>
     </tr>
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
