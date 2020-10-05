@@ -16,15 +16,6 @@ Russia
 and 
 Japan.
 
-# Contact
-
-To join the effort please use this email address:  
-[metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
-
-Project coordinators:  
-Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)  
-Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)  
-
 # How to contribute
 
 To learn more and to contribute, please review the available [maps](/gallery/), a collection of diagrams in Systems Biology Graphical Notation (SBGN). There is a list of [selected topics](/lists/) that are already in work or being prepared for curation. 
@@ -35,6 +26,15 @@ Ways to contribute:
 * Drawing diagrams: please join the work on one of the existing topics or propose a new one. Diagrams can be drawn using the SBGN palette in the yEd Graph Editor, the main tool in this project. Resulting format: GraphML. Please review tips on [how to draw SBGN diagrams in yEd](/help/). Also, any tool that generates valid SBGN-ML can be used, for example SBGN-ED or Newt Editor, and in that case the files are to be provided in SBGN-ML.
 * Proposing new topics: it can be done through direct search on the subject of metabolism regulation or by working with the automatically assembled [lists](/lists/).
 * Proposing new [colour schemes](/colours/). We are looking for ways to improve the diagrams aestetically. To experiment with colours and layouts, download any diagram in GraphML format and edit as you prefer. 
+
+# Contact
+
+To join the effort please use this email address:  
+[metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
+
+Project coordinators:  
+Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)  
+Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)  
 
 <!--# Availability
 The Metabolism Regulation maps are available as an open access resource under the terms of the [Creative Commons Public Domain (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/). This applies to map images, downloadable map files and annotation data from maps.-->
