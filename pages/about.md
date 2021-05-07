@@ -89,12 +89,14 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="OlgaIvanova"><img src="../images/team/OlgaIvanova.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Olga Ivanova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Junior Researcher<br />Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands<br />Contribution: <a href="../enos/">eNOS</a></font></p></td>
     </tr>
+<!--
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MariaKondratova"><img src="../images/team/MariaKondratova.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria Kondratova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Computational Systems Biology of Cancer, Institut Curie, Paris, France<br />Contribution: </font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="InnaKuperstein"><img src="../images/team/InnaKuperstein.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Inna Kuperstein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Scientific coordinator of the ACSN project<br />Computational Systems Biology of Cancer, Institut Curie, Paris, France<br />Contribution: </font></p></td>
     </tr>
+-->
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FrankBergmann"><img src="../images/team/FrankBergmann.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Frank Bergmann</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Member of Scientific Staff<br />University of Heidelberg, Heidelberg, Germany<br />Contribution: SBGN-ML 0.3 support</font></p></td>
