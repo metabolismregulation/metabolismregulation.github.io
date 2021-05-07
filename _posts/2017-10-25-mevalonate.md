@@ -6,7 +6,7 @@ title: Regulation of mevalonate synthesis
 Downloads: &nbsp; 
 [GraphML](../downloads/F003-mevalonate.graphml) &nbsp; 
 [SBGN-ML](../downloads/F003-mevalonate-SBGNv02.sbgn) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.org/downloads/F003-mevalonate.sbgn) &nbsp;
+[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn) &nbsp;
 [Anotated Map](http://metabolismregulation.org/images/F003-mevalonate.html) &nbsp;
 <!--<a href="/mevalonate/"><img id="logo" src="/images/figure03v04.png" style="width:100%;"/></a>-->
 <p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.png" width="800"/></a></p>
