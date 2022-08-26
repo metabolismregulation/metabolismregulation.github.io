@@ -113,8 +113,8 @@ permalink: /gallery/
 <a href="/downloads/F020-pyrimidine.sbgn">SBGN-ML</a> &nbsp; 
 </font> </td>
       <td style="width: 225px;" align="center"> <a href="/aspirin/">Aspirin</a> <br /> <font size="2"> 
-<a href="/downloads/F100-aspirin.graphml">GraphML</a> &nbsp;
-<a href="/downloads/F100-aspirin.sbgn">SBGN-ML</a> &nbsp;
+<a href="/downloads/F100-aspirin-V003B.graphml">GraphML</a> &nbsp;
+<a href="/downloads/F100-aspirin-V003B.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
     </tr>
 </table>
