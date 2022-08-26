@@ -112,9 +112,9 @@ permalink: /gallery/
 <a href="/downloads/F020-pyrimidine.graphml">GraphML</a> &nbsp; 
 <a href="/downloads/F020-pyrimidine.sbgn">SBGN-ML</a> &nbsp; 
 </font> </td>
-      <td style="width: 225px;" align="center"> <a href="/estrogen/">Estradiol biosynthesis</a> <br /> <font size="2"> 
-<a href="/downloads/F018-estrogen.graphml">GraphML</a> &nbsp;
-<a href="/downloads/F018-estrogen.sbgn">SBGN-ML</a> &nbsp;
+      <td style="width: 225px;" align="center"> <a href="/aspirin/">Aspirin</a> <br /> <font size="2"> 
+<a href="/downloads/F100-aspirin.graphml">GraphML</a> &nbsp;
+<a href="/downloads/F100-aspirin.sbgn">SBGN-ML</a> &nbsp;
 </font> </td>
     </tr>
 </table>
@@ -123,7 +123,7 @@ permalink: /gallery/
       <td style="width: 225px;" align="center"><a href="/phosphoinositides/"><img src="/images/gallery/F009-phosphoinositides-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/glutaminase/"><img src="/images/gallery/F019-glutaminase-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/pyrimidine/"><img src="/images/gallery/F020-pyrimidine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/estrogen/"><img src="/images/gallery/F018-estrogen-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/aspirin/"><img src="/images/gallery/F100-aspirin-cut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
