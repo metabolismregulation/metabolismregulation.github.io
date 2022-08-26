@@ -123,7 +123,7 @@ permalink: /gallery/
       <td style="width: 225px;" align="center"><a href="/phosphoinositides/"><img src="/images/gallery/F009-phosphoinositides-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/glutaminase/"><img src="/images/gallery/F019-glutaminase-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
       <td style="width: 225px;" align="center"><a href="/pyrimidine/"><img src="/images/gallery/F020-pyrimidine-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
-      <td style="width: 225px;" align="center"><a href="/aspirin/"><img src="/images/gallery/F100-aspirin-cut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
+      <td style="width: 225px;" align="center"><a href="/aspirin/"><img src="/images/gallery/F100-aspirin-vcut.png" style="border: #c6c6c6 1px solid; width: 190px;"/></a></td>
     </tr>
 </table>
 
