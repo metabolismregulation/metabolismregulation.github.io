@@ -16,7 +16,7 @@ permalink: /tools/
 
 # ySBGN
 
-<p><a href="https://github.com/sbgn/ySBGN" target="_blank">ySBGN</a> is a standalone Java application, a bidirectional converter between GraphML format of the <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> and the SBGN Process Description or Activity Flow languages. </p>
+<p><a href="https://github.com/sbgn/ySBGN" target="_blank">ySBGN</a> is a standalone Java application, a bidirectional converter between GraphML format of the <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> and the SBGN Process Description or Activity Flow languages [Balaur et al. 2022, PMID: 36563404; DOI: <a href="https://www.degruyter.com/document/doi/10.1515/jib-2022-0030/html">10.1515/jib-2022-0030</a>. </p>
 
 <p>Now diagrams can be created in the intuitive general-purpose <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> using the SBGN Palette available since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a>, and, thanks to the converter, the outcome could be offered in the standard Systems Biology format. The ySBGN tool supports keeping annotation information in the SBGN-ML format.</p>
 
