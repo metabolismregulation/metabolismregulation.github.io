@@ -48,7 +48,7 @@ In Systems Biology, graph database approaches aim to facilitate integration, exp
 
 A signalling process was defined as a process where at least one reactant and at least one product are proteins or protein complexes (as shown in the brief SBGN representation illustrated in the Signalling process figure below). We used Cypher queries and we extracted information on the set of signalling processes using the Reactome Knowledgebase. Details on the Cypher query for the identification of the set of signalling processes using the Reactome Knowledgebase are available in the <a href="/pages/ReactomeCypherQueries.pdf">ReactomeCypherQueries</a> file.
 
-<p align="middle"><a href="/signallingprocess/"><img id="image" src="/downloads/F012-cAMP.png" width="500"/></a></p>
+<p align="middle"><a href="/signallingprocess/"><img id="image" src="/images/graphdatamodel/SignallingProcessExample.jpg" width="500"/></a></p>
 <i>Figure caption: An illustration of a signalling process structure.</i>
 
 In Recon2Neo4j, a metabolic reaction is shown as a detailed subgraph with a node (given by the metabolic reaction name itself), connected by a set of edges (e.g. Consumption, Production, Catalysis) to nodes representing the involved biological entities, including the metabolites (reactants and products) and enzymes/catalyzers (proteins and complexes). In addition, the relationship between biological complexes and compound proteins (represented also as nodes) was represented by the "Part_Of" edge. 
