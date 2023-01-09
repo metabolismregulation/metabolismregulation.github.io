@@ -46,7 +46,7 @@ In Systems Biology, graph database approaches aim to facilitate integration, exp
 
 ## Signalling-metabolic data model 
 
-A signalling process was defined as a process where at least one reactant and at least one product are proteins or protein complexes (as shown in the brief SBGN representation illustrated in the Signalling process figure below). We used Cypher queries and we extracted information on the set of signalling processes using the Reactome Knowledgebase. Details on the Cypher query for the identification of the set of signalling processes using the Reactome Knowledgebase are available in the <a href="/pages/ReactomeCypherQueries.pdf">ReactomeCypherQueries</a> file.
+A signalling process was defined as a process where at least one reactant and at least one product are proteins or protein complexes (as shown in the brief SBGN representation - figure below). We used Cypher queries and we extracted information on the set of signalling processes using the Reactome Knowledgebase. Details on the Cypher query for the identification of the set of signalling processes using the Reactome Knowledgebase are available in the <a href="/pages/ReactomeCypherQueries.pdf">ReactomeCypherQueries</a> file.
 
 <p align="middle"><img id="image" src="/images/graphdatamodel/SignallingProcessExample.jpg" width="500"/></a></p>
 <i>Figure caption: An illustration of a signalling process structure.</i>
