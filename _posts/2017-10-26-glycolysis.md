@@ -6,8 +6,9 @@ title: Regulation of glycolysis
 Downloads: &nbsp; 
 [GraphML](../downloads/F001-glycolysis-alt.graphml) &nbsp;
 [SBGN-ML](../downloads/F001-glycolysis-alt-SBGNv02.sbgn) &nbsp;
+[CellDesigner](../downloads/model_F001.xml) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F001) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis-alt.sbgn) &nbsp; &nbsp; 
-[Annotated Map](https://metabolismregulation.org/images/F001-glycolysis-alt.html)
 <p align="middle"><a href="/downloads/F001-glycolysis-alt.svg"><img id="image" src="/downloads/F001-glycolysis-alt.png" width="500"/></a></p>
 
 <br />
