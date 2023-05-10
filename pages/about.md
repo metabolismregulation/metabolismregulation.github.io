@@ -110,7 +110,7 @@ The Metabolism Regulation maps are available as an open access resource under th
     </tr> 
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="LuizLadeira"><img src="../images/team/LuizLadeira.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Belgium<br />Contribution: <a href="../glycogen/">Glycogen</a>, curation</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Belgium<br />Contribution: Annotation, <a href="../glycogen/">Glycogen</a></font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AnatolySorokin"><img src="../images/team/AnatolySorokin.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Anatoly Sorokin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Computational Biologist<br />Okinawa Institute of Science and Technology, Japan<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
     </tr>  
