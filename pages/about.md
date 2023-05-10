@@ -108,7 +108,13 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientist<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="HongWuMa"><img src="../images/team/HongWuMa.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Hong-Wu Ma</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor<br />Tianjin Institute of Industrial Biotechnology, Chinese Academy of Science, Tianjin, China<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
-    </tr>
+    </tr> 
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="LuizLadeira"><img src="../images/team/LuizLadeira.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Belgium<br />Contribution: <a href="../glycogen/">Glycogen</a>, curation</font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AnatolySorokin"><img src="../images/team/AnatolySorokin.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Anatoly Sorokin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Computational Biologist<br />Okinawa Institute of Science and Technology, Japan<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
+    </tr>  
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IgorGoryanin"><img src="../images/team/IgorGoryanin.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Igor Goryanin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Henrik Kacser Chair in Systems Biology<br />School of Informatics, University of Edinburgh, Edinburgh, UK<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
