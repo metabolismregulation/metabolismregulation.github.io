@@ -41,11 +41,9 @@ The Metabolism Regulation maps are available as an open access resource under th
 
 # Project team
 
-<!--
 [Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Michael Blinov](#MichaelBlinov), [Maria Kondratova](#MariaKondratova), [Inna Kuperstein](#InnaKuperstein), 
-[Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), 
-[Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
--->
+[Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), [Luiz Ladeira](#LuizLadeira), [Anatoly Sorokin](#AnatolySorokin), [Hong-Wu Ma](#HongWuMa), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
+
 
 <table>
     <tr>
