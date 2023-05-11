@@ -116,7 +116,7 @@ The Metabolism Regulation maps are available as an open access resource under th
     </tr>  
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="NikolausBerndt"><img src="../images/team/NikolausBerndt.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Nikolaus Berndt</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Group Leader, Metabolic and Biophysical Simulations in Systems Medicine<br />Charité Universitätsmedizin Berlin, Berlin, Germany<br />Contribution: Glycogen metabolism example, modelling</font></p></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Nikolaus Berndt</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Group Leader, Metabolic and Biophysical Simulations in Systems Medicine<br />Charité Universitätsmedizin Berlin, Germany<br />Contribution: Glycogen metabolism example, modelling</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VenkataSatagopam"><img src="../images/team/VenkataSatagopam.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Venkata Satagopam</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Deputy Head of Bioinformatics Core<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
     </tr>
@@ -135,15 +135,6 @@ The Metabolism Regulation maps are available as an open access resource under th
 </table>
 
 <br />
-
-<!--
-    <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="NikolausBerndt"><img src="../images/team/NikolausBerndt.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Nikolaus Berndt</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Group Leader, Metabolic and Biophysical Simulations in Systems Medicine<br />Charité Universitätsmedizin Berlin, Berlin, Germany<br />Contribution: Glycogen metabolism example, modelling</font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VenkataSatagopam"><img src="../images/team/VenkataSatagopam.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Venkata Satagopam</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Deputy Head of Bioinformatics Core<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
-    </tr>
-    -->
 
 # Collaborative network
 
