@@ -105,32 +105,38 @@ The Metabolism Regulation maps are available as an open access resource under th
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientist<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="HongWuMa"><img src="../images/team/HongWuMa.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Hong-Wu Ma</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor<br />Tianjin Institute of Industrial Biotechnology, Chinese Academy of Science, Tianjin, China<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VenkataSatagopam"><img src="../images/team/VenkataSatagopam.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Venkata Satagopam</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Deputy Head of Bioinformatics Core<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
     </tr> 
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="LuizLadeira"><img src="../images/team/LuizLadeira.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Liège, Belgium<br />Contribution: Annotation, <a href="../glycogen/">Glycogen</a></font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AnatolySorokin"><img src="../images/team/AnatolySorokin.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Anatoly Sorokin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Computational Biologist<br />Okinawa Institute of Science and Technology, Tancha, Japan<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AlexanderKuritsyn"><img src="../images/team/noprofile.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Alexander Kuritsyn</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Independent Researcher<br />Tbilisi, Georgia<br />Contribution: Annotation</font></p></td>
     </tr>  
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="NikolausBerndt"><img src="../images/team/NikolausBerndt.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Nikolaus Berndt</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Group Leader, Metabolic and Biophysical Simulations in Systems Medicine<br />Charité Universitätsmedizin Berlin, Germany<br />Contribution: Glycogen metabolism example, modelling</font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VenkataSatagopam"><img src="../images/team/VenkataSatagopam.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Venkata Satagopam</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Deputy Head of Bioinformatics Core<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AnatolySorokin"><img src="../images/team/AnatolySorokin.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Anatoly Sorokin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Senior Computational Biologist<br />Okinawa Institute of Science and Technology, Tancha, Japan<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
     </tr>
     <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="HongWuMa"><img src="../images/team/HongWuMa.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Hong-Wu Ma</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor<br />Tianjin Institute of Industrial Biotechnology, Chinese Academy of Science, Tianjin, China<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="IgorGoryanin"><img src="../images/team/IgorGoryanin.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Igor Goryanin</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Henrik Kacser Chair in Systems Biology<br />School of Informatics, University of Edinburgh, Edinburgh, UK<br />Contribution: Initial discussion, concept development, Recon2 project</font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="InesThiele"><img src="../images/team/InesThiele.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Project planning, Recon2 project</font></p></td>
     </tr>
     <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="InesThiele"><img src="../images/team/InesThiele.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ines Thiele</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Professor in Systems Biomedicine<br />National University of Ireland Galway (NUI Galway), Galway, Ireland<br />Contribution: Project planning, Recon2 project</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="CharlesAuffray"><img src="../images/team/CharlesAuffray.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Charles Auffray</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Director at CNRS<br />Founding Director of the EISBM<br />European Institute for Systems Biology and Medicine, Lyon, France<br />Contribution: Support at the EISBM</font></p></td>
+    </tr>
+    <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="ReinhardSchneider"><img src="../images/team/ReinhardSchneider.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Reinhard Schneider</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Head of Bioinformatics Core Facility<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"> </td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"> </td>
     </tr>
 </table>
 
