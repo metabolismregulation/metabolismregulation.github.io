@@ -88,6 +88,12 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="OlgaIvanova"><img src="../images/team/OlgaIvanova.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Olga Ivanova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Junior Researcher<br />Amsterdam University Medical Centers, University of Amsterdam, Amsterdam, Netherlands<br />Contribution: <a href="../enos/">eNOS</a></font></p></td>
     </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="LuizLadeira"><img src="../images/team/LuizLadeira.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Liège, Belgium<br />Contribution: Annotation, <a href="../glycogen/">Glycogen</a></font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AlexanderKuritsyn"><img src="../images/team/noprofile.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Alexander Kuritsyn</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Independent Researcher<br />Tbilisi, Georgia<br />Contribution: Annotation</font></p></td>
+    </tr>  
 <!--
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MariaKondratova"><img src="../images/team/MariaKondratova.jpg" width="110"/></a></td>
@@ -108,12 +114,6 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="VenkataSatagopam"><img src="../images/team/VenkataSatagopam.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Venkata Satagopam</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Deputy Head of Bioinformatics Core<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Support at the LCSB, MINERVA support</font></p></td>
     </tr> 
-    <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="LuizLadeira"><img src="../images/team/LuizLadeira.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Liège, Belgium<br />Contribution: Annotation, <a href="../glycogen/">Glycogen</a></font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AlexanderKuritsyn"><img src="../images/team/noprofile.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Alexander Kuritsyn</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Independent Researcher<br />Tbilisi, Georgia<br />Contribution: Annotation</font></p></td>
-    </tr>  
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="NikolausBerndt"><img src="../images/team/NikolausBerndt.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Nikolaus Berndt</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Group Leader, Metabolic and Biophysical Simulations in Systems Medicine<br />Charité Universitätsmedizin Berlin, Germany<br />Contribution: Glycogen metabolism example, modelling</font></p></td>
