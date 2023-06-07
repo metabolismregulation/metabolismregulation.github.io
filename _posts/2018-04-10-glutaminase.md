@@ -7,7 +7,7 @@ Downloads: &nbsp;
 [GraphML](../downloads/F019-glutaminase.graphml) &nbsp;
 [SBGN-ML](../downloads/F019-glutaminase-SBGNv02.sbgn) &nbsp;
 [CellDesigner](../downloads/model_F019-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F019-1) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F019-1 ) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F019-glutaminase.sbgn) &nbsp;
 <p align="middle"><a href="/glutaminase/"><img id="image" src="/downloads/F019-glutaminase.png" width="500"/></a></p>
 
