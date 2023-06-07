@@ -7,7 +7,7 @@ Downloads: &nbsp;
 [GraphML](../downloads/F014-carnitine.graphml) &nbsp;
 [SBGN-ML](../downloads/F014-carnitine-SBGNv02.sbgn) &nbsp;
 [CellDesigner](../downloads/model_F014-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F014-1) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F014-1 ) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn) &nbsp;
 <p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.png" width="600"/></a></p>
 
