@@ -12,7 +12,8 @@ Norway,
 the Netherlands, 
 Germany, 
 Belgium, 
-the United States
+the United States, 
+China 
 and 
 Japan.
 
