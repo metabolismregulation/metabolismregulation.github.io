@@ -11,8 +11,8 @@ Luxembourg,
 Norway, 
 the Netherlands, 
 Germany, 
-the United States, 
-Russia 
+Belgium, 
+the United States
 and 
 Japan.
 
@@ -40,12 +40,10 @@ Project coordinators:
 Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)  
 Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)  
 
-<!--# Availability
-The Metabolism Regulation maps are available as an open access resource under the terms of the [Creative Commons Public Domain (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/). This applies to map images, downloadable map files and annotation data from maps.-->
 
 # Project team
 
-[Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [Michael Blinov](#MichaelBlinov), [Luiz Ladeira](#LuizLadeira), [Alexander Kuritsyn](#AlexanderKuritsyn), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), [Anatoly Sorokin](#AnatolySorokin), [Hong-Wu Ma](#HongWuMa), [Nikolaus Berndt](#NikolausBerndt), [Venkata Satagopam](#VenkataSatagopam), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
+[Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [Marcio Luis Acencio](#MarcioLuisAcencio), [Michael Blinov](#MichaelBlinov), [Luiz Ladeira](#LuizLadeira), [Alexander Kuritsyn](#AlexanderKuritsyn), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Ahmed Hemedan](#AhmedHemedan), [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), [Anatoly Sorokin](#AnatolySorokin), [Hong-Wu Ma](#HongWuMa), [Nikolaus Berndt](#NikolausBerndt), [Venkata Satagopam](#VenkataSatagopam), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
 
 
 <table>
@@ -97,20 +95,18 @@ The Metabolism Regulation maps are available as an open access resource under th
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AlexanderKuritsyn"><img src="../images/team/AlexanderKuritsyn.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Alexander Kuritsyn</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Independent Researcher<br />Tbilisi, Georgia<br />Contribution: Annotation</font></p></td>
     </tr>  
-<!--
-    <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MariaKondratova"><img src="../images/team/MariaKondratova.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Maria Kondratova</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Computational Systems Biology of Cancer, Institut Curie, Paris, France<br />Contribution: </font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="InnaKuperstein"><img src="../images/team/InnaKuperstein.jpg" width="110"/></a></td>
-    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Inna Kuperstein</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Scientific coordinator of the ACSN project<br />Computational Systems Biology of Cancer, Institut Curie, Paris, France<br />Contribution: </font></p></td>
-    </tr>
--->
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="FrankBergmann"><img src="../images/team/FrankBergmann.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Frank Bergmann</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Member of Scientific Staff<br />University of Heidelberg, Heidelberg, Germany<br />Contribution: SBGN-ML 0.3 support</font></p></td>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="PiotrGawron"><img src="../images/team/PiotrGawron.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Piotr Gawron</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
     </tr>
+    <tr>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="Marcio Luis Acencio"><img src="../images/team/MarcioAcencio.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marcio Luis Acencio</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researchert<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Citrullination</font></p></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="Ahmed Hemedan"><img src="../images/team/AhmedHemedan.jpg" width="110"/></a></td>
+    <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ahmed Hemedan</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researchert<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Computational modelling</font></p></td>
+    </tr> 
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarekOstaszewski"><img src="../images/team/MarekOstaszewski.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marek Ostaszewski</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Research Scientist<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
@@ -144,55 +140,4 @@ The Metabolism Regulation maps are available as an open access resource under th
 </table>
 
 <br />
-
-# Collaborative network
-
-<br />
-
-<table>
-    <tr>
-      <td width="260" align="center"><img src="/images/logos/eisbm_logo.jpg" width="130"/></td>
-      <td width="260" align="center"><img src="/images/logos/embl-ebi_logo.jpg" width="220"/></td>
-      <td width="260" align="center"><img src="/images/logos/institut_curie_logo.jpg" width="160"/></td>
-    </tr>
-</table>
-
-<!--<td width="320" align="center"><img src="/images/logos/lcsb_logo.jpg" width="140"/></td>-->
-
-<br />
-
-<table>
-    <tr>
-      <td style="width:260px;" align="center"><img src="/images/logos/ntnu_logo.jpg" width="200"/></td>
-      <td style="width:260px;" align="center"><img src="/images/logos/mipt_logo.jpg" width="190"/></td>
-      <td style="width:260px;" align="center"><img src="/images/logos/lcsb_logo.jpg" width="120"/></td>
-    </tr>
-</table>
-
-<br />
-
-<table>
-    <tr>
-      <td style="width:260px;" align="center"><img src="/images/logos/uconn_logo.jpg" width="140"/></td>
-      <td style="width:260px;" align="center"><img src="/images/logos/vu_logo.jpg" width="220"/></td>
-      <td style="width:260px;" align="center"><img src="/images/logos/konstanz_logo.jpg" width="220"/></td>
-    </tr>
-</table>
-
-<br />
-
-<table>
-    <tr>
-      <td style="width:260px;" align="center"><img src="/images/logos/aist_logo.jpg" width="180"/></td>
-      <td style="width:260px;" align="center"> </td>
-      <td style="width:260px;" align="center"> </td>
-    </tr>
-</table>
-
-<br />
-
-<!--
-<td style="width:260px;" align="center"><img src="/images/logos/usc_logo.jpg" width="240"/></td>
-<td style="width:260px;" align="center"><img src="/images/logos/dfci.jpg" width="170"/></td>
--->
 
