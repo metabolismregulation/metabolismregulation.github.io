@@ -103,9 +103,9 @@ Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Piotr Gawron</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: MINERVA support, SBGN-ML import/export support in MINERVA</font></p></td>
     </tr>
     <tr>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="Marcio Luis Acencio"><img src="../images/team/MarcioAcencio.jpg" width="110"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="MarcioLuisAcencio"><img src="../images/team/MarcioAcencio.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Marcio Luis Acencio</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Citrullination</font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="Ahmed Hemedan"><img src="../images/team/AhmedHemedan.jpg" width="110"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AhmedHemedan"><img src="../images/team/AhmedHemedan.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Ahmed Hemedan</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Researcher<br />Luxembourg Centre for Systems Biomedicine, University of Luxembourg, Belval, Luxembourg<br />Contribution: Computational modelling</font></p></td>
     </tr> 
     <tr>
