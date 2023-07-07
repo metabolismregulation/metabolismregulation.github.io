@@ -20,7 +20,6 @@ Marcio Luis Acencio
 
 Text
 
-
 ## References
 
 1. 
