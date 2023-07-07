@@ -4,6 +4,8 @@ title: Regulation of urea cycle
 permalink: /ureacycle/
 ---
 
+# Regulation of urea cycle
+
 Downloads: &nbsp; 
 [CellDesigner](../downloads/F007-10.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F007-10) &nbsp;
