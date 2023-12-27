@@ -93,7 +93,7 @@ Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)
     <tr>
     <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="LuizLadeira"><img src="../images/team/LuizLadeira.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Luiz Ladeira</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Postdoctoral Researcher<br />GIGA In Silico Medicine, University of Liège, Liège, Belgium<br />Contribution: Annotation, <a href="../glycogen/">Glycogen</a></font></p></td>
-    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AlexanderKuritsyn"><img src="../images/team/AlexanderKuritsyn.jpg" width="110"/></a></td>
+    <td style="width:120px; text-align:center; font-size:90%; padding-top:0.4em;"><a id="AlexanderKuritsyn"><img src="../images/team/noprofile.jpg" width="110"/></a></td>
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"><strong>Alexander Kuritsyn</strong> <p style="margin-top:4px; line-height:100%;"><font size="2">Independent Researcher<br />Tbilisi, Georgia<br />Contribution: Annotation</font></p></td>
     </tr>  
     <tr>
