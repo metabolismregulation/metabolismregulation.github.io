@@ -30,7 +30,7 @@ Ways to contribute:
 
 # License
 
-The map diagrams and the corresponding data files are distributed under the terms of the [Creative Commons Public Domain (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/).
+The map diagrams and the corresponding data files are distributed under the terms of the [the Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 # Contact
 
