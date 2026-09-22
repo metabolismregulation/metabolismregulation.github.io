@@ -13,7 +13,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Alexander Mazein, Vasundra Touré, Maria Heredia Chavez (Annotations)
+Alexander Mazein, Vasundra Touré, Maria Heredia Chavez
 
 ## References
 
