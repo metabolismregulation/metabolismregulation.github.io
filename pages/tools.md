@@ -44,6 +44,7 @@ SBGN-ED is an add-on of the [VANTED framework](http://www.vanted.org). VANTED is
 
 In Systems Biology, graph database approaches aim to facilitate integration, exploration and visualisation of information, which can be represented by graphs, with nodes and edges representing entities and relationships/connections among them, respectively (Lysenko et al. 2016). Previously, we developed the Recon2Neo4j framework (Balaur et al. 2016 PMID: 27993779) that offers a graph database representation to the human metabolic information (Thiele et. al. 2013) and aims to facilitate exploration of the integrated data. We extended the Recon2Neo4j framework to integrate information on the set of signalling processes and corresponding human pathways, extracted from the Neo4j graph database version of the Reactome Knowledgebase (http://www.reactome.org, accessed 20/03/2017) [Fabregat et al. 2018, PMID: 29377902; Fabregat et al. 2016, PMID: 26656494]. 
 
+<!--
 ## Signalling-metabolic data model 
 
 A signalling process was defined as a process where at least one reactant and at least one product are proteins or protein complexes (as shown in the brief SBGN representation): 
@@ -58,3 +59,4 @@ Every protein acting as an enzyme in metabolic reactions in the Recon2Neo4j fram
 
 <p align="middle"><img id="image" src="/images/graphdatamodel/MetabolicSignallingDataModel.jpg" width="500"/></p>
 <i>Figure caption: Data model of the extended version of the Recon2Neo4j framework to include signalling processes and pathway information (Fabregat 2016 PMID 26656494). Biological concepts such as metabolites, metabolic reactions, proteins, biological complexes, compound proteins, signalling processes and involving human pathways are represented by nodes, with relationships among these classes represented by edges. For example, the protein-signalling process involvement is shown by the "In Process" edge connecting the Protein and Process nodes (classes). Figure adapted from Balaur et al. (Balaur 2016 PMID: 27993779) with newly-added process and pathway information representation (the Process and Pathway nodes and the "In Process" and "In Pathway" relationships) shown in blue colour.</i>
+-→
