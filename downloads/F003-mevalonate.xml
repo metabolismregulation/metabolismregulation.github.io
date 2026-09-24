@@ -482,6 +482,23 @@
 </celldesigner:speciesIdentity>
 </celldesigner:annotation>
 </celldesigner:species>
+<celldesigner:species id="s70" name="AMPK_gamma_">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s56</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>p_s_id_glyph_n30</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
 </celldesigner:listOfIncludedSpecies>
 <celldesigner:listOfCompartmentAliases/>
 <celldesigner:listOfComplexSpeciesAliases>
@@ -1393,6 +1410,7 @@
 <celldesigner:view state="usual"/>
 <celldesigner:structuralState angle="1.9589793690540855"/>
 <celldesigner:usualView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
 <celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="ffc8d8eb" scheme="Color"/>
@@ -1413,6 +1431,25 @@
 <celldesigner:structuralState angle="1.9589793690540855"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="56.0770263671875" y="74.31987762451172"/>
+<celldesigner:boxSize width="80.0" height="40.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffc8d8eb" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="80.0" height="40.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffc8d8eb" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa45" species="s70" complexSpeciesAlias="glyph_n23">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="537.5" y="346.5" w="80.0" h="40.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="102.0770263671875" y="77.31987762451172"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
 <celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="ffc8d8eb" scheme="Color"/>
@@ -2150,7 +2187,7 @@ RefSeq_ID: NM_005518
 </celldesigner:connectScheme>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:modification>
-<celldesigner:modification type="CATALYSIS" modifiers="s54" aliases="glyph_n20" targetLineIndex="-1,0" editPoints="0.7308269892334751,0.14445448357629687">
+<celldesigner:modification type="CATALYSIS" modifiers="s54" aliases="glyph_n20" targetLineIndex="-1,0" editPoints="0.7308269892334742,0.14445448357629864">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -2730,7 +2767,7 @@ RefSeq_ID: NM_005518
 </celldesigner:linkTarget>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:modification>
-<celldesigner:modification type="CATALYSIS" modifiers="s63" aliases="glyph_n27" targetLineIndex="-1,0" editPoints="0.762266035262988,0.13088776345843023">
+<celldesigner:modification type="CATALYSIS" modifiers="s63" aliases="glyph_n27" targetLineIndex="-1,0" editPoints="0.7622660352629889,0.13088776345842845">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -2803,7 +2840,7 @@ RefSeq_ID: NM_005518
 <celldesigner:lineDirection index="1" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.8640237698566026,-0.10359871129747411</celldesigner:editPoints>
+<celldesigner:editPoints>0.864023769856603,-0.103598711297475</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000" type="Straight"/>
 </celldesigner:reactantLink>
 <celldesigner:reactantLink reactant="s_id_glyph_n44" alias="glyph_n44" targetLineIndex="-1,0">
@@ -2814,7 +2851,7 @@ RefSeq_ID: NM_005518
 <celldesigner:lineDirection index="1" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.8663355602287117,0.1074319601261019</celldesigner:editPoints>
+<celldesigner:editPoints>0.8663355602287108,0.10743196012610234</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000" type="Straight"/>
 </celldesigner:reactantLink>
 </celldesigner:listOfReactantLinks>
@@ -3040,18 +3077,13 @@ RefSeq_ID: NM_005518
 <celldesigner:extension>
 <celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
 <celldesigner:baseReactants>
-<celldesigner:baseReactant species="s69" alias="sa43">
-<celldesigner:linkAnchor position="INACTIVE"/>
-</celldesigner:baseReactant>
+<celldesigner:baseReactant species="s69" alias="sa43"/>
 </celldesigner:baseReactants>
 <celldesigner:baseProducts>
-<celldesigner:baseProduct species="s_id_glyph_n18" alias="glyph_n18">
-<celldesigner:linkAnchor position="INACTIVE"/>
-</celldesigner:baseProduct>
+<celldesigner:baseProduct species="s_id_glyph_n18" alias="glyph_n18"/>
 </celldesigner:baseProducts>
 <celldesigner:listOfReactantLinks>
 <celldesigner:reactantLink reactant="s_id_glyph_n45" alias="glyph_n45" targetLineIndex="-1,0">
-<celldesigner:linkAnchor position="INACTIVE"/>
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
