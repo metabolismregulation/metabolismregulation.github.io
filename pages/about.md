@@ -41,7 +41,7 @@ Project coordinators:
 Alexander Mazein [a.mazein@gmail.com](mailto:a.mazein@gmail.com)  
 Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)  
 
-
+<!--
 # Project team
 
 [Alexander Mazein](#AlexanderMazein), [Irina Balaur](#IrinaBalaur), [Antonio Fabregat](#AntonioFabregat), [Hanna Borlinghaus](#HannaBorlinghaus), [Falk Schreiber](#FalkSchreiber), [Valeriya Berzhitskaya](#ValeriyaBerzhitskaya), [Tatiana Serebriiskaia](#TatianaSerebriiskaia), [Adrien Rougny](#AdrienRougny), [Vasundra Toure](#VasundraToure), [Olga Ivanova](#OlgaIvanova), [Marcio Luis Acencio](#MarcioLuisAcencio), [Michael Blinov](#MichaelBlinov), [Luiz Ladeira](#LuizLadeira), [Alexander Kuritsyn](#AlexanderKuritsyn), [James Greene](#JamesGreene), [John Albanese](#JohnAlbanese), [Maria del Carmen Heredia](#MariadelCarmenHeredia), [Ahmed Hemedan](#AhmedHemedan), [Marek Ostaszewski](#MarekOstaszewski), [Piotr Gawron](#PiotrGawron), [Frank Bergmann](#FrankBergmann), [Anatoly Sorokin](#AnatolySorokin), [Hong-Wu Ma](#HongWuMa), [Nikolaus Berndt](#NikolausBerndt), [Venkata Satagopam](#VenkataSatagopam), [Igor Goryanin](#IgorGoryanin), [Ines Thiele](#InesThiele), [Charles Auffray](#CharlesAuffray), [Reinhard Schneider](#ReinhardSchneider)   
@@ -139,6 +139,6 @@ Irina Balaur [irina.a.balaur@gmail.com ](mailto:irinaa.balaur@gmail.com)
     <td style="vertical-align:top; padding-left:0.8em; padding-top:0.4em;"> </td>
     </tr>
 </table>
-
+-->
 <br />
 
