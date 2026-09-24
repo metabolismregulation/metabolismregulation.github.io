@@ -19,7 +19,7 @@ Japan.
 
 # How to contribute
 
-To learn more and to contribute, please review the available [maps](/gallery/), a collection of diagrams in Systems Biology Graphical Notation (SBGN). There is a list of [selected topics](/lists/) that are already in work or being prepared for curation. 
+To learn more and to contribute, please review the available [maps](/gallery/), a collection of diagrams in Systems Biology Graphical Notation (SBGN).  
 
 In additon to GraphML and SBGN-ML, we aim to provide maps in various formats including CellDesigner, SBML and BioPAX, so the models are easily accessible and can be downloaded, reused and improved. These formats will be generated automatically.
 
