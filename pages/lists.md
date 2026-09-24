@@ -27,7 +27,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/aspirin/">Regulation of eisocanoid metabolism by aspirin</a> (Alexander Mazein)
 1. PKA activation (versions, important for many metabolism regulation pathways)
 1. AMPK activation (versions, important for many metabolism regulation pathways)
--→
+-->
 
 # Reactome-Recon lists
 
