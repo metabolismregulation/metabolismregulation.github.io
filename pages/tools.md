@@ -40,11 +40,11 @@ SBGN-ED is an add-on of the [VANTED framework](http://www.vanted.org). VANTED is
         
 <p>CellDesigner supports a system of symbols based on a draft of the Systems Biology Graphical Notation (SBGN) Process Description language Level 1 proposed in 2008 (more information can be found <a href="http://www.celldesigner.org/features.html" target="_blank">here</a>). <a href="http://www.celldesigner.org/help/CDH_View_08.html" target="_blank">SBGN Viewer</a> tool in CellDesigner can be used to see a diagram in the current version of <a href="http://sbgn.org/" target="_blank">SBGN</a> (Le Novère et al., 2009, PMID <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=19668183" target="_blank">19668183</a>).</p>
 
+<!--
 # Network-based approach for metabolic and signalling data integration
 
 In Systems Biology, graph database approaches aim to facilitate integration, exploration and visualisation of information, which can be represented by graphs, with nodes and edges representing entities and relationships/connections among them, respectively (Lysenko et al. 2016). Previously, we developed the Recon2Neo4j framework (Balaur et al. 2016 PMID: 27993779) that offers a graph database representation to the human metabolic information (Thiele et. al. 2013) and aims to facilitate exploration of the integrated data. We extended the Recon2Neo4j framework to integrate information on the set of signalling processes and corresponding human pathways, extracted from the Neo4j graph database version of the Reactome Knowledgebase (http://www.reactome.org, accessed 20/03/2017) [Fabregat et al. 2018, PMID: 29377902; Fabregat et al. 2016, PMID: 26656494]. 
 
-<!--
 ## Signalling-metabolic data model 
 
 A signalling process was defined as a process where at least one reactant and at least one product are proteins or protein complexes (as shown in the brief SBGN representation): 
