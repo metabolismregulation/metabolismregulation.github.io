@@ -4,6 +4,7 @@ title: Lists
 permalink: /lists/
 ---
 
+<!--
 # Selected topics
 
 This list includes the developed diagrams and suggested topics. Some initial information for suggested topics is provided in this [online document](https://docs.google.com/document/d/1gk5YU7tp95t3LJwD252geeZupY-QJU6CikFAbsRQeRI/edit?usp=sharing) accessible for collaborative editing.
@@ -26,6 +27,7 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 1. <a href="/aspirin/">Regulation of eisocanoid metabolism by aspirin</a> (Alexander Mazein)
 1. PKA activation (versions, important for many metabolism regulation pathways)
 1. AMPK activation (versions, important for many metabolism regulation pathways)
+-→
 
 # Reactome-Recon lists
 
