@@ -59,4 +59,4 @@ Every protein acting as an enzyme in metabolic reactions in the Recon2Neo4j fram
 
 <p align="middle"><img id="image" src="/images/graphdatamodel/MetabolicSignallingDataModel.jpg" width="500"/></p>
 <i>Figure caption: Data model of the extended version of the Recon2Neo4j framework to include signalling processes and pathway information (Fabregat 2016 PMID 26656494). Biological concepts such as metabolites, metabolic reactions, proteins, biological complexes, compound proteins, signalling processes and involving human pathways are represented by nodes, with relationships among these classes represented by edges. For example, the protein-signalling process involvement is shown by the "In Process" edge connecting the Protein and Process nodes (classes). Figure adapted from Balaur et al. (Balaur 2016 PMID: 27993779) with newly-added process and pathway information representation (the Process and Pathway nodes and the "In Process" and "In Pathway" relationships) shown in blue colour.</i>
--→
+-->
