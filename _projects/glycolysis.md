@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F001-glycolysis.graphml) &nbsp;
-[SBGN-ML](/downloads/F001-glycolysis.sbgn) &nbsp;
+<a href="/downloads/F001-glycolysis.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F001-glycolysis.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/model-F001-05.xml" download>CellDesigner</a> &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-05) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis.sbgn) &nbsp; 
-<a href="/downloads/F001-glycolysis.csv" download>Annotation</a> &nbsp; 
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-05" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F001-glycolysis.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/downloads/F001-glycolysis.svg"><img id="image" src="/downloads/F001-glycolysis.png" width="580"/></a></p>
 
 ## Contributors
