@@ -1,0 +1,25 @@
+---
+layout: default
+title: Regulation of nitric oxide production - eNOS pathway
+permalink: /enos/
+project: true
+---
+
+# {{ page.title }}
+
+Downloads: &nbsp; 
+[GraphML](/downloads/F008-enos.graphml) &nbsp; &nbsp; [Annotated Map](https://metabolismregulation.org/images/F008-enos.html) &nbsp;
+[SBGN-ML](/downloads/F008-enos-SBGNv02.sbgn) &nbsp;
+[CellDesigner](/downloads/model_F008-1.xml) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F008-1) &nbsp;
+[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos-SBGNv02.sbgn ) &nbsp;
+<p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.png" width="700"/></a></p>
+
+## Contributors 
+
+Olga Ivanova; John Albanese (Annotation)
+
+## References
+
+1. Reactome Pathways: [eNOS activation and regulation](https://reactome.org/PathwayBrowser/#/R-HSA-202131&SEL=R-HSA-203765&PATH=R-HSA-1430728)
+

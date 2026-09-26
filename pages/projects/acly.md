@@ -1,0 +1,29 @@
+---
+layout: default
+title: Regulation of acetyl-CoA synthesis
+permalink: /acly/
+project: true
+---
+
+# {{ page.title }}
+
+Downloads: &nbsp; 
+[GraphML](/downloads/F006-ACLY.graphml) &nbsp; 
+[SBGN-ML](/downloads/F006-ACLY-SBGNv02.sbgn) &nbsp;
+[CellDesigner](/downloads/model_F006-1.xml) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F006-1) &nbsp;
+[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-ACLY.sbgn) &nbsp;
+<p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-ACLY.png" width="600"/></a></p>
+
+## Contributors
+
+Adrien Rougny; John Albanese (annotation)
+
+## Description
+
+The ATP citrate lyase (ACLY) catalyses the transformation of citrate, which is an intermediary product of the metabolism of carbohydrates, into acetyl-CoA. This latter plays a major role in the fatty acids synthesis pathways, but also in gene expression, through the acetylation of histones. Hence, ACLY (i) serves as a bridge between the carbohydrates and the fatty acids metabolisms, and (ii) is a key player in the regulation of gene expression, in particular the one mediated by glucose availability.
+
+## References
+
+
+

@@ -1,0 +1,34 @@
+---
+layout: default
+title: Regulation of cholesterol metabolism via SREBP
+permalink: /srebp/
+project: true
+---
+
+# {{ page.title }}
+
+Downloads: &nbsp; 
+[GraphML](/downloads/F005-SREBP.graphml) &nbsp; 
+[SBGN-ML](/downloads/F005-SREBP-SBGNv02.sbgn) &nbsp;
+[CellDesigner](/downloads/model_F005-1.xml) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F005-1) &nbsp;
+[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-SREBP.sbgn) &nbsp;
+<p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-SREBP.png" width="500"/></a></p>
+
+## Contributors
+
+Tatiana Serebriyskaya, Valeriya Berzhitskaya, Maria Heredia Chavez (Annotation)
+
+## Description
+
+Cholesterol biosynthesis and uptake are tightly regulated at the transcriptional level through a negative feedback control. The transcription factor family known as sterol regulatory element-binding proteins (SREBPs) is in charge of this feedback control. In particular, SREBP2 is activated in a cholesterol-dependent manner, and hence is deeply involved in regulation of the expression of genes closely related to cholesterol metabolism.
+
+## References
+
+1. Mazein A, Watterson S, Gibbs H, Hsieh W, Abdullah M Ba, Blanc M, Griffiths WJ, Freeman TC, Ghazal P. Regulation and feedback of cholesterol metabolism. 2011. [doi:10.1038/npre.2011.6315.1](http://dx.doi.org/10.1038/npre.2011.6315.1)
+1. Shimano H, Sato R. SREBP-regulated lipid metabolism: convergent physiology - divergent pathophysiology. Nat Rev Endocrinol. 2017 Dec;13(12):710-730. doi:10.1038/nrendo.2017.91. Epub 2017 Aug 29. Review. [PMID: 28849786](https://www.ncbi.nlm.nih.gov/pubmed/28849786)
+1. Sato R. Arch Biochem Biophys. Sterol metabolism and SREBP activation.2010 Sep 15;501(2):177-81. [PMID: 20541520](https://www.ncbi.nlm.nih.gov/pubmed/20541520)
+1. Bengoechea-Alonso MT, Ericsson J. SREBP in signal transduction: cholesterol metabolism and beyond.Curr Opin Cell Biol. 2007 Apr;19(2):215-22. [PMID: 17303406](https://www.ncbi.nlm.nih.gov/pubmed/17303406)
+1. Lee SJ, Sekimoto T, Yamashita E, Nagoshi E, Nakagawa A, Imamoto N, Yoshimura M, Sakai H, Chong KT, Tsukihara T, Yoneda Y. The structure of importin-beta bound to SREBP-2: nuclear import of a transcription factor. Science. 2003 Nov 28;302(5650):1571-5. [PMID: 14645851](https://www.ncbi.nlm.nih.gov/pubmed/14645851)
+
+

@@ -1,0 +1,24 @@
+---
+layout: default
+title: Regulation of nitric oxide production - iNOS pathway
+permalink: /inos/
+project: true
+---
+
+# {{ page.title }}
+
+Downloads: &nbsp; 
+[GraphML](/downloads/F007-inos.graphml) &nbsp;
+[SBGN-ML](/downloads/F007-inos-SBGNv02.sbgn) &nbsp;
+[CellDesigner](/downloads/F007-10.xml) &nbsp;
+[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F007-10) &nbsp;
+[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F007-inos.sbgn) &nbsp;
+<p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.png"/></a></p>
+
+## Contributors 
+
+Alexander Mazein; Maria Heredia Chavez (annotation) 
+
+## References
+
+1. SBGN Bricks: http://sbgnbricks.sourceforge.net/
