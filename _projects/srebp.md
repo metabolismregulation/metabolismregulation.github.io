@@ -11,7 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F005-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F005-1) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-SREBP.sbgn) &nbsp;
-<p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-SREBP.png" width="735"/></a></p>
+<p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-SREBP.png" width="500"/></a></p>
 
 ## Contributors
 

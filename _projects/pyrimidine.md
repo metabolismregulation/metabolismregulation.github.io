@@ -11,7 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F020.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F020) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn) &nbsp;
-<p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="300"/></a></p>
+<p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="340"/></a></p>
 
 ## Contributors 
 
