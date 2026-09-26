@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of eicosanoid production
 permalink: /eicosanoids/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F002-eicosanoids.graphml) &nbsp; 

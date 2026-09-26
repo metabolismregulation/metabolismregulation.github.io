@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of acetyl-CoA synthesis
 permalink: /acly/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F006-ACLY.graphml) &nbsp; 

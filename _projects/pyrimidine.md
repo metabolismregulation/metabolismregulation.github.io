@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of pyrimidine biosynthesis via MAPK signalling
 permalink: /pyrimidine/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F020-pyrimidine.graphml) &nbsp;

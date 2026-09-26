@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of cholesterol metabolism via SREBP
 permalink: /srebp/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F005-SREBP.graphml) &nbsp; 

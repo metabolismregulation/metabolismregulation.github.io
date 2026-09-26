@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of acyl-carnitine synthesis
 permalink: /carnitine/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F014-carnitine.graphml) &nbsp;

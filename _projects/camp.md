@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of cAMP hydrolysis
 permalink: /camp/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F012-cAMP.graphml) &nbsp;

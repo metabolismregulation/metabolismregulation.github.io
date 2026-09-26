@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of nitric oxide production - eNOS pathway
 permalink: /enos/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F008-enos.graphml) &nbsp; &nbsp; [Annotated Map](https://metabolismregulation.org/images/F008-enos.html) &nbsp;

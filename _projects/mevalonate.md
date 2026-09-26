@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of mevalonate synthesis
 permalink: /mevalonate/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F003-mevalonate.graphml) &nbsp; 

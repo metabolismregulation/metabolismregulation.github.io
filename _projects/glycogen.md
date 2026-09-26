@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of glycogen metabolism, muscle
 permalink: /glycogen/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F004-M02.graphml) &nbsp;
