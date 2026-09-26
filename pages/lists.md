@@ -35,8 +35,8 @@ Reactome-Recon lists were generated automatically using a combination of two res
 
 ### <a href="/reactome-recon-proteins/">Reactome-Recon List 1 - Proteins</a>
   
-The list includes proteins from Recon2 that match those in Reactome pathways and participate in signalling processes in Reactome pathways as a reactant or a product, the cases when a protein is connected to a process via a production or a consumption arc.
+The list includes proteins from Recon2 that match those in Reactome pathways and participate in signalling processes in Reactome pathways as reactants or products, i.e. cases in which a protein is connected to a process via a production or consumption arc.
 
 ### <a href="/reactome-recon-complexes/">Reactome-Recon List 2 - Complexes</a>
 
-This list includes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
+This list includes proteins from Recon2 that are also involved in complexes participating in signalling processes in Reactome pathways as reactants or products.
