@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F005-SREBP.graphml) &nbsp; 
-[SBGN-ML](/downloads/F005-SREBP-SBGNv02.sbgn) &nbsp;
-[CellDesigner](/downloads/model_F005-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F005-1) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-SREBP.sbgn) &nbsp;
-[Annotation](../downloads/F005-SREBP.csv) &nbsp; 
+<a href="/downloads/F005-SREBP.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F005-SREBP-SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/model_F005-1.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F005-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-SREBP.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F005-SREBP.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-SREBP.png" width="500"/></a></p>
 
 ## Contributors

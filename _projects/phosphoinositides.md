@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F009-phosphoinositides.graphml) &nbsp;
-[SBGN-ML](/downloads/F009-phosphoinositides.sbgn) &nbsp;
-[CellDesigner](/downloads/model_F009-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F009-1) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F009-phosphoinositides.sbgn) &nbsp;
-[Annotation](../downloads/F009-phosphoinositides.csv) &nbsp; 
+<a href="/downloads/F009-phosphoinositides.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F009-phosphoinositides.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/model_F009-1.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F009-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F009-phosphoinositides.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F009-phosphoinositides.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="495"/></a></p>
 
 ## Contributors 

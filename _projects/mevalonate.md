@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F003-mevalonate.graphml) &nbsp; 
-[SBGN-ML](/downloads/F003-mevalonate.sbgn) &nbsp;
-[CellDesigner](/downloads/F003-mevalonate.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F003-06) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn) &nbsp;
-[Annotation](../downloads/F003-mevalonate.csv) &nbsp; 
+<a href="/downloads/F003-mevalonate.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F003-mevalonate.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F003-mevalonate.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F003-06" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F003-mevalonate.csv" download>Annotation</a> &nbsp;
 <!--<a href="/mevalonate/"><img id="logo" src="/images/figure03v04.png" style="width:100%;"/></a>-->
 <p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.png" width="1030"/></a></p>
 

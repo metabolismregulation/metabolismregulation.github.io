@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F020-pyrimidine.graphml) &nbsp;
-[SBGN-ML](/downloads/F020-pyrimidine.sbgn) &nbsp;
-[CellDesigner](/downloads/model_F020.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F020) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn) &nbsp;
-[Annotation](../downloads/F020-pyrimidine.csv) &nbsp; 
+<a href="/downloads/F020-pyrimidine.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F020-pyrimidine.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/model_F020.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F020" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F020-pyrimidine.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="315"/></a></p>
 
 ## Contributors 

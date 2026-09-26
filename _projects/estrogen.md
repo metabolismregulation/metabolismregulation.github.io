@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F018-estrogen.graphml) &nbsp;
-[SBGN-ML](/downloads/F018-estrogen_SBGNv02.sbgn) &nbsp;
-[CellDesigner](/downloads/model_F018-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F018-1 ) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen-SBGNv02.sbgn) &nbsp;
-[Annotation](../downloads/F018-estrogen.csv) &nbsp; 
+<a href="/downloads/F018-estrogen.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F018-estrogen_SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/model_F018-1.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F018-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen-SBGNv02.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F018-estrogen.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/estrogen/"><img id="image" src="/downloads/F018-estrogen.png" width="830"/></a></p>
 
 ## Contributors 

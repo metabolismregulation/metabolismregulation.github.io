@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F014-carnitine.graphml) &nbsp;
-[SBGN-ML](/downloads/F014-carnitine-SBGNv02.sbgn) &nbsp;
-[CellDesigner](/downloads/model_F014-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F014-1 ) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn) &nbsp;
-[Annotation](../downloads/F014-carnitine.csv) &nbsp; 
+<a href="/downloads/F014-carnitine.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F014-carnitine-SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/model_F014-1.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F014-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F014-carnitine.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.png" width="600"/></a></p>
 
 ## Contributors
