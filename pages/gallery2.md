@@ -7,22 +7,20 @@ permalink: /gallery2/
 <style>
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px 18px;
-  margin-top: 10px;
+  grid-template-columns: repeat(4, 225px);
+  justify-content: center;
+  column-gap: 0;
+  row-gap: 28px;
 }
 
 .gallery-item {
+  width: 225px;
   text-align: center;
-  background-color: #edebe472;
-  padding: 12px 10px 14px 10px;
-  border: 1px solid #d8d8d8;
-  box-sizing: border-box;
 }
 
 .gallery-title {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .gallery-downloads {
@@ -36,20 +34,19 @@ permalink: /gallery2/
 
 .gallery-image {
   width: 190px;
-  max-width: 100%;
   border: 1px solid #c6c6c6;
-  background-color: white;
+  background-color: #edebe472;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 920px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 225px);
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns: 225px;
   }
 }
 </style>
