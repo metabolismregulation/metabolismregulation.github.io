@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Regulation of estradiol biosynthesis via prostaglandin-mediated cAMP signalling in ovarian endometric stroma cells
+title: Regulation of estradiol biosynthesis via prostaglandin–cAMP signalling in endometriotic stromal cells
 permalink: /estrogen/
 project: true
 ---
