@@ -21,20 +21,20 @@ Japan.
 
 To learn more and to contribute, please review the available [maps](/gallery/), a collection of diagrams in Systems Biology Graphical Notation (SBGN).  
 
-In additon to GraphML and SBGN-ML, we aim to provide maps in various formats including CellDesigner, SBML and BioPAX, so the models are easily accessible and can be downloaded, reused and improved. These formats will be generated automatically.
+In addition to GraphML and SBGN-ML, we aim to provide maps in various formats including CellDesigner, SBML and BioPAX, so the maps are easily accessible and can be downloaded, reused and improved. These formats will be generated automatically.
 
 Ways to contribute: 
-* Drawing diagrams: please join the work on one of the existing topics or propose a new one. Diagrams can be drawn using the SBGN palette in the yEd Graph Editor, the main tool in this project. Resulting format: GraphML. Please review tips on [how to draw SBGN diagrams in yEd](/help/). Also, any tool that generates valid SBGN-ML can be used, for example SBGN-ED or Newt Editor, and in that case the files are to be provided in SBGN-ML.
-* Proposing new topics: it can be done through direct search on the subject of metabolism regulation or by working with the automatically assembled [lists](/lists/).
-* Proposing new [colour schemes](/colours/). We are looking for ways to improve the diagrams aestetically. To experiment with colours and layouts, download any diagram in GraphML format and edit as you prefer. 
+* Drawing diagrams: please join the work on one of the existing topics or propose a new one. Diagrams can be drawn using the SBGN palette in the yEd Graph Editor, one of the main tools used in this project. The resulting format is GraphML. Please review tips on [how to draw SBGN diagrams in yEd](/help/). Any tool that generates valid SBGN-ML can also be used, for example SBGN-ED or Newt Editor, in which case the files are to be provided in SBGN-ML.
+* Proposing new topics: this can be done through direct search on the subject of metabolism regulation or by working with the automatically assembled [lists](/lists/).
+* Proposing new [colour schemes](/colours/). We are looking for ways to improve the diagrams aesthetically. To experiment with colours and layouts, download any diagram in GraphML format and edit it as you prefer. 
 
 # License
 
-The map diagrams and the corresponding data files are distributed under the terms of the [the Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+The map diagrams and the corresponding data files are distributed under the terms of the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 # Contact
 
-To join the effort please use this email address:  
+To join the effort, please use this email address:  
 [metabolismregulation@googlegroups.com](mailto:metabolismregulation@googlegroups.com)  
 
 Project coordinators:  
