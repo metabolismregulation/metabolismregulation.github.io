@@ -11,7 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F014-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F014-1 ) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn) &nbsp;
-<p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.png" width="600"/></a></p>
+<p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.png" width="1035"/></a></p>
 
 ## Contributors
 
