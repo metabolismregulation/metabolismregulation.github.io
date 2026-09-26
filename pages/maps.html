@@ -1,0 +1,42 @@
+---
+layout: default
+title: Maps
+permalink: /maps/
+
+projects:
+  - glycolysis
+  - eicosanoids
+  - mevalonate
+  - glycogen
+  - cholesterol
+  - acetylcoa
+  - inos
+  - enos
+  - phosphoinositide
+  - camp
+  - acylcarnitine
+  - triacylglycerol
+  - estradiol
+  - glutaminolysis
+  - pyrimidine
+  - aspirin
+---
+
+<div class="posts">
+  {% for project_name in page.projects %}
+    {% assign post = site.projects | where: "slug", project_name | first %}
+    {% if post %}
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+<!--
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+-->
+    </article>
+    {% endif %}
+  {% endfor %}
+</div>
