@@ -11,6 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F015-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F015-1 ) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F015-tag-SBGNv02.sbgn) &nbsp;
+[Annotation](../downloads/F015-tag.csv) &nbsp; 
 <p align="middle"><a href="/tag/"><img id="image" src="/downloads/F015-tag.png" width="540"/></a></p>
 
 ## Contributors

@@ -11,6 +11,7 @@ Downloads: &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F100-aspirin.sbgn) &nbsp;
 [CellDesigner](/downloads/F100-aspirin.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F100-09) &nbsp;
+[Annotation](../downloads/F100-aspirin.csv) &nbsp; 
 <p align="middle"><a href="/aspirin/"><img id="image" src="/downloads/F100-aspirin.png" width="630"/></a></p>
 
 ## Contributors
