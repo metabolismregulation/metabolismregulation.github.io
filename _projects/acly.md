@@ -6,12 +6,12 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F006-ACLY.graphml) &nbsp; 
-[SBGN-ML](/downloads/F006-ACLY-SBGNv02.sbgn) &nbsp;
-[CellDesigner](/downloads/model_F006-1.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F006-1) &nbsp;
-[Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-ACLY.sbgn) &nbsp;
-[Annotation](../downloads/F006-ACLY.csv) &nbsp; 
+<a href="/downloads/F006-ACLY.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F006-ACLY-SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/model_F006-1.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F006-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-ACLY.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
+<a href="/downloads/F006-ACLY.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-ACLY.png" width="600"/></a></p>
 
 ## Contributors
