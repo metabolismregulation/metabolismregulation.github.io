@@ -6,7 +6,7 @@ project: true
 ---
 
 Downloads: &nbsp; 
-[GraphML](/downloads/F008-enos.graphml) &nbsp; &nbsp; [Annotated Map](https://metabolismregulation.org/images/F008-enos.html) &nbsp;
+[GraphML](/downloads/F008-enos.graphml) &nbsp; &nbsp; 
 [SBGN-ML](/downloads/F008-enos-SBGNv02.sbgn) &nbsp;
 [CellDesigner](/downloads/model_F008-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F008-1) &nbsp;
