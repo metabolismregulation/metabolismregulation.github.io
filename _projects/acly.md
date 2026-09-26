@@ -11,7 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F006-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F006-1) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-ACLY.sbgn) &nbsp;
-<p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-ACLY.png" width="600"/></a></p>
+<p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-ACLY.png" width="450"/></a></p>
 
 ## Contributors
 
