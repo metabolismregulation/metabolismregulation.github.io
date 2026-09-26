@@ -11,6 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/F004-M02.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-M02) &nbsp;
 [Newt](https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-M02.sbgn) &nbsp;
+[Annotation](../downloads/F004-glycogen.csv) &nbsp; 
 <p align="middle"><a href="/downloads/F004-M02.svg"><img id="image" src="/downloads/F004-M02.png" width="915"/></a></p>
 
 # Regulation of glycogen metabolism, liver

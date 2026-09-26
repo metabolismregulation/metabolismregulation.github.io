@@ -11,6 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F012-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F012-1 ) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F012-cAMP.sbgn) &nbsp;
+[Annotation](../downloads/F012-cAMP.csv) &nbsp; 
 <p align="middle"><a href="/camp/"><img id="image" src="/downloads/F012-cAMP.png" width="505"/></a></p>
 
 ## Contributors
