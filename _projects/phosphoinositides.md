@@ -11,7 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/model_F009-1.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F009-1) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F009-phosphoinositides.sbgn) &nbsp;
-<p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="500"/></a></p>
+<p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="495"/></a></p>
 
 ## Contributors 
 

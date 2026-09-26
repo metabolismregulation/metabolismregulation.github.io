@@ -11,7 +11,7 @@ Downloads: &nbsp;
 [CellDesigner](/downloads/F007-10.xml) &nbsp;
 [MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F007-10) &nbsp;
 [Newt](http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F007-inos.sbgn) &nbsp;
-<p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.png"/></a></p>
+<p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.png" width="1190"/></a></p>
 
 ## Contributors 
 
