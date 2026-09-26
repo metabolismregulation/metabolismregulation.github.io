@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of nitric oxide production - iNOS pathway
 permalink: /inos/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F007-inos.graphml) &nbsp;

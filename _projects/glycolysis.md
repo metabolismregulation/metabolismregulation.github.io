@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of glycolysis
 permalink: /glycolysis/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F001-glycolysis.graphml) &nbsp;

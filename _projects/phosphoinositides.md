@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of phosphoinositide metabolism
 permalink: /phosphoinositides/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F009-phosphoinositides.graphml) &nbsp;

@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of eisocanoid metabolism by aspirin
 permalink: /aspirin/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F100-aspirin.graphml) &nbsp;

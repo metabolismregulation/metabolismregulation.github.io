@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of glutaminolysis via the NF-kB-PKCe axis in lung cancer cells
 permalink: /glutaminase/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F019-glutaminase.graphml) &nbsp;

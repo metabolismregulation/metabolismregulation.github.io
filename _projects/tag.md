@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: post
 title: Regulation of triacylglycerol hydrolysis
 permalink: /tag/
 project: true
 ---
-
-# {{ page.title }}
 
 Downloads: &nbsp; 
 [GraphML](/downloads/F015-tag.graphml) &nbsp;
