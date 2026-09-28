@@ -159,7 +159,7 @@ permalink: /gallery/
       <a href="/downloads/F005-srebp.sbgn">SBGN-ML</a>
     </div>
     <a href="/srebp/">
-      <img class="gallery-image" src="/images/gallery/F005-SREBP-vcut.png" alt="SREBP signalling map">
+      <img class="gallery-image" src="/images/gallery/F005-srebp-vcut.png" alt="SREBP signalling map">
     </a>
   </div>
 
