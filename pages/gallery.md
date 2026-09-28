@@ -225,7 +225,7 @@ permalink: /gallery/
       <a href="/downloads/F100-aspirin.sbgn">SBGN-ML</a>
     </div>
     <a href="/aspirin/">
-      <img class="gallery-image" src="/images/gallery/F100-aspirin-cut.png" alt="Aspirin map">
+      <img class="gallery-image" src="/images/gallery/F100-aspirin-vcut.png" alt="Aspirin map">
     </a>
   </div>
 
