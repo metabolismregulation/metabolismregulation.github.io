@@ -32,4 +32,4 @@ James Greene, Michael Blinov, Alexander Mazein
 1. Ching YP, Kobayashi T, Tamura S, Hardie DG. Specificity of different isoforms of protein phosphatase-2A and protein phosphatase-2C studied using site-directed mutagenesis of HMG-CoA reductase. FEBS Lett. 1997 Jul 14;411(2-3):265-8. doi: 10.1016/s0014-5793(97)00712-6. PMID: 9271218.
 1. Hawley SA, Pan DA, Mustard KJ, Ross L, Bain J, Edelman AM, Frenguelli BG, Hardie DG. Calmodulin-dependent protein kinase kinase-beta is an alternative upstream kinase for AMP-activated protein kinase. Cell Metab. 2005 Jul;2(1):9-19. doi: 10.1016/j.cmet.2005.05.009. PMID: 16054095.
 1. Reactome: Phosphorylated AMPK binds AMP. [R-HSA-380930](https://reactome.org/content/detail/R-HSA-380930).
-1. Figshare: Pappa et al., 2012, Regulation of HMGCR in the mevalonte pathway. [10.6084/m9.figshare.105160.v2](https://doi.org/10.6084/m9.figshare.105160.v2).
+1. Pappa E, Mazein A, Watterson S, Roy D, Ghazal P. Regulation of HMGCR in the mevalonte pathway. Figshare. 2012. doi: 10.6084/m9.figshare.105160.v2.
