@@ -36,9 +36,9 @@ permalink: /reactome-recon-complexes/
 # Reactome-Recon List 2
 
 This list inlcudes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
-Table 1 includes phosphorylation processes, while Table 2 includes other types of processes.
+Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes.
 
-## Table 1 : Signalling phosphorylation processes & Recon2 compounds-catalyzers
+## Table 2a : Signalling phosphorylation processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
 |:---|:---|:---|:---|
@@ -46,7 +46,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)
 {: .rr-table}
 
-## Table 2a : Other signalling processes & Recon2 compounds-catalyzers
+## Table 2b : Other signalling processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps** 
 |:---|:---|:---|:---|
@@ -68,7 +68,7 @@ Table 1 includes phosphorylation processes, while Table 2 includes other types o
 [P09622](http://www.uniprot.org/uniprot/P09622) | DLD | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946) |
 {: .rr-table}
 
-## Table 2b :  Expression signalling processes & Recon2 compounds-catalyzers
+## Table 2c :  Expression signalling processes & Recon2 compounds-catalyzers
 
 **UniProt ID** | **HGNC Symbol** | **Reactome Process** | **Available Maps**
 |:---|:---|:---|:---|

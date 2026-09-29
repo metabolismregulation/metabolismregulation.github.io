@@ -34,9 +34,9 @@ permalink: /reactome-recon-proteins/
 
 # Reactome-Recon List 1
 
-These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs. Table 1 includes phosphorylation processes, while Table 2 includes other types of processes.
+These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs. Table 1a includes phosphorylation processes, while Tables 1b and 1c include other types of processes.
 
-## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
+## Table 1a : Signalling phosphorylation processes & Recon2 catalyzers
 
 |                 **UniProt ID**                  | **HGNC Symbol** | **Reactome Process**                                                                                                                                 | **Available Maps**                                   |
 |:---|:---|:---|:---|
@@ -61,7 +61,7 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 | [P47712](http://www.uniprot.org/uniprot/P47712) |     PLA2G4A     | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898)                                                               | <a href="/eicosanoids/">Eicosanoid production</a>    |
 {: .rr-table}
 
-## Table 2a : Other signalling processes & Recon2 catalyzers
+## Table 1b : Other signalling processes & Recon2 catalyzers
 
 |                 **UniProt ID**                  | **HGNC Symbol** | **Reactome Process**                                                                                                                                                   | **Available Maps**                                   |
 |:---|:---|:---|:---|
@@ -136,7 +136,7 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 | [P25874](http://www.uniprot.org/uniprot/P25874) |      UCP1       | [FA anion flip-flops to the opposite surface](http://reactome.org/PathwayBrowser/#/R-HSA-166214)                                                                       |                                                      |
 {: .rr-table}
 
-## Table 2b : Expression signalling processes & Recon2 catalyzers
+## Table 1c : Expression signalling processes & Recon2 catalyzers
 
 |                 **UniProt ID**                  | **HGNC Symbol** | **Reactome Process**                                                                                             | **Available Maps**                                 |
 |:---|:---|:---|:---|
