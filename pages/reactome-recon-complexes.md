@@ -82,7 +82,7 @@ Table 2a includes phosphorylation processes, while Tables 2b and 2c include othe
     <tr><th>UniProt</th><th>HGNC</th><th>Reactome processes</th><th>MRegAtlas maps</th></tr>
   </thead>
   <tbody>
-    <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/O00763">O00763</a></td><td>ACACB</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1655830">Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)</a></td><td><a target="_blank" rel="noopener" href="/carnitine/">Acyl-carnitine synthesis</a></td></tr>
+    <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/O00763">O00763</a></td><td>ACACB</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1655830">Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)</a></td><td><a target="_blank" rel="noopener" href="/carnitine/">Acyl-carnitine</a></td></tr>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/P11310">P11310</a></td><td>ACADM</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1989745">Expression of ACADM</a></td><td></td></tr>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/P49748">P49748</a></td><td>ACADVL</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1791069">Expression of ACADVL</a></td><td></td></tr>
   </tbody>
