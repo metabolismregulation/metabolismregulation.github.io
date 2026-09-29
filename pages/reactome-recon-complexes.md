@@ -31,11 +31,14 @@ permalink: /reactome-recon-complexes/
   .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 15%; }
 </style>
 
-<h1>Reactome-Recon List 2</h1>
 
-<p>This list inlcudes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products. Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes.</p>
 
-<h2>Table 2a : Signalling phosphorylation processes &amp; Recon2 compounds-catalyzers</h2>
+# Reactome-Recon List 2
+
+This list inlcudes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
+Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes.
+
+## Table 2a : Signalling phosphorylation processes & Recon2 compounds-catalyzers
 
 <table class="rr-table">
   <thead>
@@ -47,7 +50,7 @@ permalink: /reactome-recon-complexes/
   </tbody>
 </table>
 
-<h2>Table 2b : Other signalling processes &amp; Recon2 compounds-catalyzers</h2>
+## Table 2b : Other signalling processes & Recon2 compounds-catalyzers
 
 <table class="rr-table">
   <thead>
@@ -73,7 +76,7 @@ permalink: /reactome-recon-complexes/
   </tbody>
 </table>
 
-<h2>Table 2c :  Expression signalling processes &amp; Recon2 compounds-catalyzers</h2>
+## Table 2c :  Expression signalling processes & Recon2 compounds-catalyzers
 
 <table class="rr-table">
   <thead>
