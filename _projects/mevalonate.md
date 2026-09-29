@@ -30,6 +30,6 @@ James Greene, Michael Blinov, Alexander Mazein
 1. Joseph BK, Liu HY, Francisco J, Pandya D, Donigan M, Gallo-Ebert C, Giordano C, Bata A, Nickels JT. Inhibition of AMP Kinase by the Protein Phosphatase 2A Heterotrimer, PP2APpp2r2d. J Biol Chem. 2015 Apr 24;290(17):10588-98. doi: 10.1074/jbc.M114.626259. PMID: 25694423.
 1. Miziorko HM. Enzymes of the mevalonate pathway of isoprenoid biosynthesis. Arch Biochem Biophys. 2011 Jan 15;505(2):131-43. doi: 10.1016/j.abb.2010.09.028. PMID: 20932952.
 1. Pappa E, Mazein A, Watterson S, Roy D, Ghazal P. Regulation of HMGCR in the mevalonte pathway. Figshare. 2012. doi: 10.6084/m9.figshare.105160.v2.
-1. Reactome: Cholesterol biosynthesis. [R-HSA-191273](https://reactome.org/content/detail/R-HSA-191273).
-1. Reactome: Phosphorylated AMPK binds AMP. [R-HSA-380930](https://reactome.org/content/detail/R-HSA-380930).
+1. Reactome: Cholesterol biosynthesis. [Reactome:R-HSA-191273](https://reactome.org/content/detail/R-HSA-191273).
+1. Reactome: Phosphorylated AMPK binds AMP. [Reactome:R-HSA-380930](https://reactome.org/content/detail/R-HSA-380930).
 1. Sharpe LJ, Brown AJ. Controlling cholesterol synthesis beyond 3-hydroxy-3-methylglutaryl-CoA reductase (HMGCR). J Biol Chem. 2013 Jun 28;288(26):18707-15. doi: 10.1074/jbc.R113.479808. PMID: 23696639.

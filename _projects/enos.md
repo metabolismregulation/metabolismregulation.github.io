@@ -20,5 +20,5 @@ Olga Ivanova, John Albanese
 
 ## References
 
-1. Reactome: Metabolism of nitric oxide: NOS3 activation and regulation. [R-HSA-202131](https://reactome.org/content/detail/R-HSA-202131).
+1. Reactome: Metabolism of nitric oxide: NOS3 activation and regulation. [Reactome:R-HSA-202131](https://reactome.org/content/detail/R-HSA-202131).
 
