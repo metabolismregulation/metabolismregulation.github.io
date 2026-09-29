@@ -29,6 +29,7 @@ permalink: /reactome-recon-complexes/
   .rr-table th:nth-child(3), .rr-table td:nth-child(3) { width: 59%; }
   .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 15%; }
   .rr-space { margin-top: 36px; }
+  #main h3 { font-family: inherit; font-size: 16px; font-weight: bold; color: inherit; line-height: 1.4; margin: 36px 0 15px; }
 </style>
 
 
@@ -43,8 +44,7 @@ Downloads (all tables): &nbsp;
 <a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
 {: .rr-space}
 
-**Table 2a. Signalling phosphorylation processes & Recon2 compounds-catalysers**
-{: .rr-space}
+### Table 2a. Signalling phosphorylation processes & Recon2 compounds-catalysers
 
 <table class="rr-table">
   <thead>
@@ -56,8 +56,7 @@ Downloads (all tables): &nbsp;
   </tbody>
 </table>
 
-**Table 2b. Other signalling processes & Recon2 compounds-catalysers**
-{: .rr-space}
+### Table 2b. Other signalling processes & Recon2 compounds-catalysers
 
 <table class="rr-table">
   <thead>
@@ -83,8 +82,7 @@ Downloads (all tables): &nbsp;
   </tbody>
 </table>
 
-**Table 2c. Expression signalling processes & Recon2 compounds-catalysers**
-{: .rr-space}
+### Table 2c. Expression signalling processes & Recon2 compounds-catalysers
 
 <table class="rr-table">
   <thead>
