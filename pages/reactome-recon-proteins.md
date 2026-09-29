@@ -3,6 +3,35 @@ layout: default
 title: Reactome-Recon List 1
 permalink: /reactome-recon-proteins/
 ---
+<style>
+  /* Scoped to this page: uniform Reactome-Recon tables */
+  .rr-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 10px 0 25px;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+  .rr-table th,
+  .rr-table td {
+    text-align: left !important;
+    vertical-align: top;
+    padding: 6px 8px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 1em;
+    overflow-wrap: break-word;
+  }
+  .rr-table th {
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+  }
+  .rr-table th:nth-child(1), .rr-table td:nth-child(1) { width: 13%; }
+  .rr-table th:nth-child(2), .rr-table td:nth-child(2) { width: 13%; }
+  .rr-table th:nth-child(3), .rr-table td:nth-child(3) { width: 49%; }
+  .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 25%; }
+</style>
+
 
 # Reactome-Recon List 1
 
@@ -11,7 +40,7 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 ## Table 1 : Signalling phosphorylation processes & Recon2 catalyzers
 
 |                 **UniProt ID**                  | **HGNC Symbol** | **Reactome Process**                                                                                                                                 | **Available Maps**                                   |
-|:-----------------:|:-----------------:|:----------------|:----------------|
+|:---|:---|:---|:---|
 | [Q9NYG5](http://www.uniprot.org/uniprot/Q9NYG5) |     ANAPC11     | [Phosphorylation of Cdh1 by Cyclin A:Cdk2](http://reactome.org/PathwayBrowser/#/R-HSA-174079)                                                        |                                                      |
 | [P32119](http://www.uniprot.org/uniprot/P32119) |      PRDX2      | [CDK5:p25 phosphorylates PRDX2](http://reactome.org/PathwayBrowser/#/R-HSA-8868573)                                                                  |                                                      |
 | [P06737](http://www.uniprot.org/uniprot/P06737) |      PYGL       | [glycogen phosphorylase (PYGL) dimer b + 2 ATP =\> glycogen phosphorylase (PYGL) dimer a + 2 ADP](http://reactome.org/PathwayBrowser/#/R-HSA-71588)  | <a href="/glycogen/">Glycogen metabolism</a>         |
@@ -31,11 +60,12 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 | [Q16555](http://www.uniprot.org/uniprot/Q16555) |     DPYSL2      | [Phosphorylation of CRMPs by Cdk5](http://reactome.org/PathwayBrowser/#/R-HSA-399944)                                                                |                                                      |
 | [P09622](http://www.uniprot.org/uniprot/P09622) |       DLD       | [BCKDK phosphorylates BCKDH](http://reactome.org/PathwayBrowser/#/R-HSA-5693148)                                                                     |                                                      |
 | [P47712](http://www.uniprot.org/uniprot/P47712) |     PLA2G4A     | [Phosphorylation of cPLA2 by ERK-2](http://reactome.org/PathwayBrowser/#/R-HSA-111898)                                                               | <a href="/eicosanoids/">Eicosanoid production</a>    |
+{: .rr-table}
 
-<br /> \## Table 2a : Other signalling processes & Recon2 catalyzers
+## Table 2a : Other signalling processes & Recon2 catalyzers
 
 |                 **UniProt ID**                  | **HGNC Symbol** | **Reactome Process**                                                                                                                                                   | **Available Maps**                                   |
-|:-----------------:|:-----------------:|:----------------|:----------------|
+|:---|:---|:---|:---|
 | [P11926](http://www.uniprot.org/uniprot/P11926) |      ODC1       | [Antizyme OAZ binds to Ornithine decarboxylase](http://reactome.org/PathwayBrowser/#/R-HSA-350567)                                                                     |                                                      |
 | [Q5FWF5](http://www.uniprot.org/uniprot/Q5FWF5) |      ESCO1      | [Acetylation of SMC3 subunit of chromosomal arm associated cohesin by ESCO1 or ESCO2](http://reactome.org/PathwayBrowser/#/R-HSA-2468039)                              |                                                      |
 | [P08559](http://www.uniprot.org/uniprot/P08559) |      PDHA1      | [PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit](http://reactome.org/PathwayBrowser/#/R-HSA-203946)                                              |                                                      |
@@ -105,11 +135,12 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 | [P15289](http://www.uniprot.org/uniprot/P15289) |      ARSA       | [Active ARSA translocates to the lysosome](http://reactome.org/PathwayBrowser/#/R-HSA-2248891)                                                                         |                                                      |
 | [P08195](http://www.uniprot.org/uniprot/P08195) |     SLC3A2      | [Basigin binds CD98 complex](http://reactome.org/PathwayBrowser/#/R-HSA-375131)                                                                                        |                                                      |
 | [P25874](http://www.uniprot.org/uniprot/P25874) |      UCP1       | [FA anion flip-flops to the opposite surface](http://reactome.org/PathwayBrowser/#/R-HSA-166214)                                                                       |                                                      |
+{: .rr-table}
 
-<br /> \## Table 2b : Expression signalling processes & Recon2 catalyzers
+## Table 2b : Expression signalling processes & Recon2 catalyzers
 
 |                 **UniProt ID**                  | **HGNC Symbol** | **Reactome Process**                                                                                             | **Available Maps**                                 |
-|:-----------------:|:-----------------:|:----------------|:----------------|
+|:---|:---|:---|:---|
 | [O95477](http://www.uniprot.org/uniprot/O95477) |      ABCA1      | [Expression of ABCA1](http://reactome.org/PathwayBrowser/#/R-HSA-1989765)                                        |                                                    |
 | [Q16790](http://www.uniprot.org/uniprot/Q16790) |       CA9       | [Expression of Carbonic Anhydrase IX (CA9)](http://reactome.org/PathwayBrowser/#/R-HSA-1235035)                  |                                                    |
 | [Q9H5J4](http://www.uniprot.org/uniprot/Q9H5J4) |     ELOVL6      | [Expression of ELOVL6](http://reactome.org/PathwayBrowser/#/R-HSA-1655835)                                       |                                                    |
@@ -125,3 +156,4 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 | [O14773](http://www.uniprot.org/uniprot/O14773) |      TPP1       | [Expression of TPP1](http://reactome.org/PathwayBrowser/#/R-HSA-1791138)                                         |                                                    |
 | [P0DMM9](http://www.uniprot.org/uniprot/P0DMM9) |     SULT1A3     | [Expression of SULT1A3](http://reactome.org/PathwayBrowser/#/R-HSA-1791108)                                      |                                                    |
 | [P49748](http://www.uniprot.org/uniprot/P49748) |     ACADVL      | [Expression of ACADVL](http://reactome.org/PathwayBrowser/#/R-HSA-1791069)                                       |                                                    |
+{: .rr-table}
