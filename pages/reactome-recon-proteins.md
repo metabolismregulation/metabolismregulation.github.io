@@ -29,7 +29,6 @@ permalink: /reactome-recon-proteins/
   .rr-table th:nth-child(3), .rr-table td:nth-child(3) { width: 59%; }
   .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 15%; }
   .rr-space { margin-top: 36px; }
-  #main h3 { font-family: inherit; font-size: 16px; font-weight: bold; color: inherit; line-height: 1.4; margin: 36px 0 15px; }
 </style>
 
 
