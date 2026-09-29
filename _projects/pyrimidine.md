@@ -26,5 +26,5 @@ The activation of de novo pyrimidine biosynthesis is a requirement for cell prol
 
 ## References
 
-1. Sigoillot FD, Sigoillot SM, Guy HI. Breakdown of the regulatory control of pyrimidine biosynthesis in human breast cancer cells. Int J Cancer. 2004 Apr 20;109(4):491-8. doi: 10.1002/ijc.11717. PMID: 14991569.
 1. Sigoillot FD, Evans DR, Guy HI. Growth-dependent regulation of mammalian pyrimidine biosynthesis by the protein kinase A and MAPK signaling cascades. J Biol Chem. 2002 May 3;277(18):15745-51. doi: 10.1074/jbc.M201112200. PMID: 11872754.
+1. Sigoillot FD, Sigoillot SM, Guy HI. Breakdown of the regulatory control of pyrimidine biosynthesis in human breast cancer cells. Int J Cancer. 2004 Apr 20;109(4):491-8. doi: 10.1002/ijc.11717. PMID: 14991569.

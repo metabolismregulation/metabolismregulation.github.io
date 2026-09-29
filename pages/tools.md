@@ -43,9 +43,9 @@ SBGN-ED is an add-on to the [VANTED framework](http://www.vanted.org). VANTED is
 # References
 
 1. Balaur I, Roy L, Touré V, Mazein A, Auffray C. GraphML-SBGN bidirectional converter for metabolic networks. J Integr Bioinform. 2022 Dec 1;19(4):20220030. doi: 10.1515/jib-2022-0030. PMID: 36563404.
+1. Czauderna T, Klukas C, Schreiber F. Editing, validating and translating of SBGN maps. Bioinformatics. 2010 Sep 15;26(18):2340-1. doi: 10.1093/bioinformatics/btq407. PMID: 20628075.
 1. Kitano H, Funahashi A, Matsuoka Y, Oda K. Using process diagrams for the graphical representation of biological networks. Nat Biotechnol. 2005 Aug;23(8):961-6. doi: 10.1038/nbt1111. PMID: 16082367.
 1. Le Novère N, Hucka M, Mi H, Moodie S, Schreiber F, Sorokin A, Demir E, Wegner K, Aladjem MI, Wimalaratne SM, Bergman FT, Gauges R, Ghazal P, Kawaji H, Li L, Matsuoka Y, Villéger A, Boyd SE, Calzone L, Courtot M, Dogrusoz U, Freeman TC, Funahashi A, Ghosh S, Jouraku A, Kim S, Kolpakov F, Luna A, Sahle S, Schmidt E, Watterson S, Wu G, Goryanin I, Kell DB, Sander C, Sauro H, Snoep JL, Kohn K, Kitano H. The Systems Biology Graphical Notation. Nat Biotechnol. 2009 Aug;27(8):735-41. doi: 10.1038/nbt.1558. PMID: 19668183.
-1. Czauderna T, Klukas C, Schreiber F. Editing, validating and translating of SBGN maps. Bioinformatics. 2010 Sep 15;26(18):2340-1. doi: 10.1093/bioinformatics/btq407. PMID: 20628075.
 
 <!--
 # Network-based approach for metabolic and signalling data integration

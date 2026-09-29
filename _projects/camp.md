@@ -24,12 +24,12 @@ Cyclic AMP (cAMP) is one of the key second messengers in the cell, and regulatio
 
 ## References
 
-1. KEGG: Insulin signaling pathway. [hsa04910](https://www.kegg.jp/pathway/hsa04910).
+1. Charles MS, Drunalini Perera PN, Doycheva DM, Tang J. Granulocyte-colony stimulating factor activates JAK2/PI3K/PDE3B pathway to inhibit corticosterone synthesis in a neonatal hypoxic-ischemic brain injury rat model. Exp Neurol. 2015 Oct;272:152-9. doi: 10.1016/j.expneurol.2015.03.019. PMID: 25816736.
 1. dbPTM: PDE3B. [PDE3B_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=PDE3B_HUMAN).
 1. Degerman E, Ahmad F, Chung YW, Guirguis E, Omar B, Stenson L, Manganiello V. From PDE3B to the regulation of energy homeostasis. Curr Opin Pharmacol. 2011 Dec;11(6):676-82. doi: 10.1016/j.coph.2011.09.015. PMID: 22001403.
-1. Tsubai T, Noda Y, Ito K, Nakao M, Seino Y, Oiso Y, Hamada Y. Insulin elevates leptin secretion and mRNA levels via cyclic AMP in 3T3-L1 adipocytes deprived of glucose. Heliyon. 2016 Nov;2(11):e00194. doi: 10.1016/j.heliyon.2016.e00194. PMID: 27896318.
-1. DiPilato LM, Ahmad F, Harms M, Seale P, Manganiello V, Birnbaum MJ. The Role of PDE3B Phosphorylation in the Inhibition of Lipolysis by Insulin. Mol Cell Biol. 2015 Aug;35(16):2752-60. doi: 10.1128/MCB.00422-15. PMID: 26031333.
-1. Charles MS, Drunalini Perera PN, Doycheva DM, Tang J. Granulocyte-colony stimulating factor activates JAK2/PI3K/PDE3B pathway to inhibit corticosterone synthesis in a neonatal hypoxic-ischemic brain injury rat model. Exp Neurol. 2015 Oct;272:152-9. doi: 10.1016/j.expneurol.2015.03.019. PMID: 25816736.
-1. Omar B, Zmuda-Trzebiatowska E, Manganiello V, Göransson O, Degerman E. Regulation of AMP-activated protein kinase by cAMP in adipocytes: roles for phosphodiesterases, protein kinase B, protein kinase A, Epac and lipolysis. Cell Signal. 2009 May;21(5):760-6. doi: 10.1016/j.cellsig.2009.01.015. PMID: 19167487.
-1. Vanhaesebroeck B, Alessi DR. The PI3K-PDK1 connection: more than just a road to PKB. Biochem J. 2000 Mar 15;346(Pt 3):561-76. doi: 10.1042/bj3460561. PMID: 10698680.
 1. Degerman E, Landström TR, Wijkander J, Holst LS, Ahmad F, Belfrage P, Manganiello V. Phosphorylation and activation of hormone-sensitive adipocyte phosphodiesterase type 3B. Methods. 1998 Jan;14(1):43-53. doi: 10.1006/meth.1997.0564. PMID: 9500857.
+1. DiPilato LM, Ahmad F, Harms M, Seale P, Manganiello V, Birnbaum MJ. The Role of PDE3B Phosphorylation in the Inhibition of Lipolysis by Insulin. Mol Cell Biol. 2015 Aug;35(16):2752-60. doi: 10.1128/MCB.00422-15. PMID: 26031333.
+1. KEGG: Insulin signaling pathway. [hsa04910](https://www.kegg.jp/pathway/hsa04910).
+1. Omar B, Zmuda-Trzebiatowska E, Manganiello V, Göransson O, Degerman E. Regulation of AMP-activated protein kinase by cAMP in adipocytes: roles for phosphodiesterases, protein kinase B, protein kinase A, Epac and lipolysis. Cell Signal. 2009 May;21(5):760-6. doi: 10.1016/j.cellsig.2009.01.015. PMID: 19167487.
+1. Tsubai T, Noda Y, Ito K, Nakao M, Seino Y, Oiso Y, Hamada Y. Insulin elevates leptin secretion and mRNA levels via cyclic AMP in 3T3-L1 adipocytes deprived of glucose. Heliyon. 2016 Nov;2(11):e00194. doi: 10.1016/j.heliyon.2016.e00194. PMID: 27896318.
+1. Vanhaesebroeck B, Alessi DR. The PI3K-PDK1 connection: more than just a road to PKB. Biochem J. 2000 Mar 15;346(Pt 3):561-76. doi: 10.1042/bj3460561. PMID: 10698680.
