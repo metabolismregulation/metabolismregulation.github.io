@@ -27,8 +27,8 @@ permalink: /reactome-recon-proteins/
   }
   .rr-table th:nth-child(1), .rr-table td:nth-child(1) { width: 13%; }
   .rr-table th:nth-child(2), .rr-table td:nth-child(2) { width: 13%; }
-  .rr-table th:nth-child(3), .rr-table td:nth-child(3) { width: 49%; }
-  .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 25%; }
+  .rr-table th:nth-child(3), .rr-table td:nth-child(3) { width: 59%; }
+  .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 15%; }
 </style>
 
 
