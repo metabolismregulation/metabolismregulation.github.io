@@ -42,6 +42,7 @@ Downloads (all tables): &nbsp;
 {: .rr-space}
 
 **Table 1a. Signalling phosphorylation processes & Recon2 catalysers**
+{: .rr-space}
 
 <table class="rr-table">
   <thead>
