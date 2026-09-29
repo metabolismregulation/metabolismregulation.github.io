@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Regulation of eisocanoid metabolism by aspirin
+title: Regulation of eicosanoid metabolism by aspirin
 permalink: /aspirin/
 project: true
 ---
