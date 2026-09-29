@@ -23,7 +23,6 @@ permalink: /reactome-recon-proteins/
   }
   .rr-table th {
     font-weight: bold;
-    border-bottom: 2px solid #ccc;
   }
   .rr-table th:nth-child(1), .rr-table td:nth-child(1) { width: 13%; }
   .rr-table th:nth-child(2), .rr-table td:nth-child(2) { width: 13%; }
