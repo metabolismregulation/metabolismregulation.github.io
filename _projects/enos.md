@@ -14,9 +14,9 @@ Downloads: &nbsp;
 <a href="/downloads/F008-enos.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.png" width="775"/></a></p>
 
-## Contributors 
+## Contributors
 
-Olga Ivanova; John Albanese (Annotation)
+Olga Ivanova, John Albanese
 
 ## References
 

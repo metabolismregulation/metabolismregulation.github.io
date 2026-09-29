@@ -14,9 +14,9 @@ Downloads: &nbsp;
 <a href="/downloads/F020-pyrimidine.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/pyrimidine/"><img id="image" src="/downloads/F020-pyrimidine.png" width="315"/></a></p>
 
-## Contributors 
+## Contributors
 
-Hanna Borlinghaus, Falk Schreiber, John Albanese (annotation)  
+Hanna Borlinghaus, Falk Schreiber, John Albanese
 
 ## Description
 

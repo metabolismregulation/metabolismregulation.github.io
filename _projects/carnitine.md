@@ -16,7 +16,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Tatiana Serebriyskaya, Valeriya Berzhitskaya, Maria Heredia Chavez (annotation)
+Tatiana Serebriyskaya, Valeriya Berzhitskaya, Maria Heredia Chavez
 
 ## Description
 

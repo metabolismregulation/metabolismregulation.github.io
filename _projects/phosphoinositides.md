@@ -14,9 +14,9 @@ Downloads: &nbsp;
 <a href="/downloads/F009-phosphoinositides.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="495"/></a></p>
 
-## Contributors 
+## Contributors
 
-James Greene, Michael Blinov  
+James Greene, Michael Blinov
 
 ## References
 

@@ -16,7 +16,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Tatiana Serebriyskaya, Valeriya Berzhitskaya; John Albanese (annotation)
+Tatiana Serebriyskaya, Valeriya Berzhitskaya, John Albanese
 
 ## Description
 

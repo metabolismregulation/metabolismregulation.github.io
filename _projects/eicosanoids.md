@@ -17,4 +17,4 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Alexander Mazein, Maria Heredia Chavez (Annotations)
+Alexander Mazein, Maria Heredia Chavez

@@ -14,9 +14,9 @@ Downloads: &nbsp;
 <a href="/downloads/F019-glutaminase.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/glutaminase/"><img id="image" src="/downloads/F019-glutaminase.png" width="470"/></a></p>
 
-## Contributors 
+## Contributors
 
-Hanna Borlinghaus, Falk Schreiber, Maria Heredia Chavez (annotation) 
+Hanna Borlinghaus, Falk Schreiber, Maria Heredia Chavez
 
 ## Description
 

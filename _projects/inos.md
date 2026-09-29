@@ -14,9 +14,9 @@ Downloads: &nbsp;
 <a href="/downloads/F007-inos.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.png" width="1190"/></a></p>
 
-## Contributors 
+## Contributors
 
-Alexander Mazein; Maria Heredia Chavez (annotation) 
+Alexander Mazein, Maria Heredia Chavez
 
 ## References
 

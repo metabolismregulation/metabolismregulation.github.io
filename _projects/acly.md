@@ -16,7 +16,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Adrien Rougny; John Albanese (annotation)
+Adrien Rougny, John Albanese
 
 ## Description
 

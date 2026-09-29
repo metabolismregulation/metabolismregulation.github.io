@@ -14,9 +14,9 @@ Downloads: &nbsp;
 <a href="/downloads/F018-estrogen.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/estrogen/"><img id="image" src="/downloads/F018-estrogen.png" width="830"/></a></p>
 
-## Contributors 
+## Contributors
 
-Hanna Borlinghaus, Falk Schreiber, John Albanese (Annotation)
+Hanna Borlinghaus, Falk Schreiber, John Albanese
 
 ## Description
 
