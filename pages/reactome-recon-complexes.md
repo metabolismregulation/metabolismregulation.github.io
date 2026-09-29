@@ -41,7 +41,7 @@ Table 2a includes phosphorylation processes, while Tables 2b and 2c include othe
 
 <table class="rr-table">
   <thead>
-    <tr><th>UniProt ID</th><th>HGNC Symbol</th><th>Reactome Process</th><th>Available Maps</th></tr>
+    <tr><th>UniProt</th><th>HGNC</th><th>Reactome Process</th><th>Available Maps</th></tr>
   </thead>
   <tbody>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/Q9NY65">Q9NY65</a></td><td>TUBA8</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1638803">Phosphorylation of cohesin by PLK1 at centromeres</a></td><td></td></tr>
@@ -53,7 +53,7 @@ Table 2a includes phosphorylation processes, while Tables 2b and 2c include othe
 
 <table class="rr-table">
   <thead>
-    <tr><th>UniProt ID</th><th>HGNC Symbol</th><th>Reactome Process</th><th>Available Maps</th></tr>
+    <tr><th>UniProt</th><th>HGNC</th><th>Reactome Process</th><th>Available Maps</th></tr>
   </thead>
   <tbody>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/P06865">P06865</a></td><td>HEXA</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1605595">Hexosaminidase A cleaves GalNAc from GM2 to form GM3</a></td><td></td></tr>
@@ -79,7 +79,7 @@ Table 2a includes phosphorylation processes, while Tables 2b and 2c include othe
 
 <table class="rr-table">
   <thead>
-    <tr><th>UniProt ID</th><th>HGNC Symbol</th><th>Reactome Process</th><th>Available Maps</th></tr>
+    <tr><th>UniProt</th><th>HGNC</th><th>Reactome Process</th><th>Available Maps</th></tr>
   </thead>
   <tbody>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/O00763">O00763</a></td><td>ACACB</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1655830">Expression of Acetyl CoA Carboxylase 2 (ACACB, ACC2)</a></td><td><a target="_blank" rel="noopener" href="/carnitine/">Acyl-carnitine synthesis</a></td></tr>

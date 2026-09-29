@@ -39,7 +39,7 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 
 <table class="rr-table">
   <thead>
-    <tr><th>UniProt ID</th><th>HGNC Symbol</th><th>Reactome Process</th><th>Available Maps</th></tr>
+    <tr><th>UniProt</th><th>HGNC</th><th>Reactome Process</th><th>Available Maps</th></tr>
   </thead>
   <tbody>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/Q9NYG5">Q9NYG5</a></td><td>ANAPC11</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-174079">Phosphorylation of Cdh1 by Cyclin A:Cdk2</a></td><td></td></tr>
@@ -68,7 +68,7 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 
 <table class="rr-table">
   <thead>
-    <tr><th>UniProt ID</th><th>HGNC Symbol</th><th>Reactome Process</th><th>Available Maps</th></tr>
+    <tr><th>UniProt</th><th>HGNC</th><th>Reactome Process</th><th>Available Maps</th></tr>
   </thead>
   <tbody>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/P11926">P11926</a></td><td>ODC1</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-350567">Antizyme OAZ binds to Ornithine decarboxylase</a></td><td></td></tr>
@@ -147,7 +147,7 @@ These tables contain proteins from the Human Metabolic Reconstruction Recon2 tha
 
 <table class="rr-table">
   <thead>
-    <tr><th>UniProt ID</th><th>HGNC Symbol</th><th>Reactome Process</th><th>Available Maps</th></tr>
+    <tr><th>UniProt</th><th>HGNC</th><th>Reactome Process</th><th>Available Maps</th></tr>
   </thead>
   <tbody>
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/O95477">O95477</a></td><td>ABCA1</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-1989765">Expression of ABCA1</a></td><td></td></tr>
