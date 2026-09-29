@@ -10,7 +10,7 @@ permalink: /reactome-recon-proteins/
     table-layout: fixed;
     border-collapse: collapse;
     margin: 10px 0 25px;
-    font-size: 1em;
+    font-size: 14px;
     line-height: 1.4;
   }
   .rr-table th,
@@ -18,8 +18,7 @@ permalink: /reactome-recon-proteins/
     text-align: left !important;
     vertical-align: top;
     padding: 6px 8px;
-    border-bottom: 1px solid #e5e5e5;
-    font-size: 1em;
+    font-size: 14px;
     overflow-wrap: break-word;
   }
   .rr-table th {
