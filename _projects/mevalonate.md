@@ -23,13 +23,13 @@ James Greene, Michael Blinov, Alexander Mazein
 
 ## References
 
-1. Miziorko, H. M. (2011). Enzymes of the mevalonate pathway of isoprenoid biosynthesis. Archives of biochemistry and biophysics, 505(2), 131-143.  
-1. Goldstein, J. L., and Brown, S. B. (1990) Regulation of the mevalonate pathway. Nature 343, 425−430  
-1. Reactome Pathways https://reactome.org/content/detail/R-HSA-191273  
-1. Clarke, P. R., & Hardie, D. G. (1990). Regulation of HMG‐CoA reductase: identification of the site phosphorylated by the AMP‐activated protein kinase in vitro and in intact rat liver. The EMBO journal, 9(8), 2439-2446.  
-1. Sharpe, L. J., & Brown, A. J. (2013). Controlling cholesterol synthesis beyond 3-hydroxy-3-methylglutaryl-CoA reductase (HMGCR). Journal of Biological Chemistry, 288(26), 18707-18715.  
-1. Joseph, B. K., Liu, H. Y., Francisco, J., Pandya, D., Donigan, M., Gallo-Ebert, C., ... & Nickels, J. T. (2015). Inhibition of AMP kinase by the protein phosphatase 2A heterotrimer, PP2APpp2r2d. Journal of Biological Chemistry, 290(17), 10588-10598.  
-1. Pang Ching, Y., Kobayashi, T., Tamura, S., & Grahame Hardie, D. (1997). Specificity of different isoforms of protein phosphatase‐2A and protein phosphatase‐2C studied using site‐directed mutagenesis of HMG‐CoA reductase. FEBS letters, 411(2-3), 265-268.  
-1. Hawley, S. A., Pan, D. A., Mustard, K. J., Ross, L., Bain, J., Edelman, A. M., ... & Hardie, D. G. (2005). Calmodulin-dependent protein kinase kinase-β is an alternative upstream kinase for AMP-activated protein kinase. Cell metabolism, 2(1), 9-19.  
-1. Reactome Pathways https://reactome.org/content/detail/R-HSA-380930  
+1. Miziorko HM. Enzymes of the mevalonate pathway of isoprenoid biosynthesis. Arch Biochem Biophys. 2011 Jan 15;505(2):131-43. doi: 10.1016/j.abb.2010.09.028. PMID: 20932952.
+1. Goldstein JL, Brown MS. Regulation of the mevalonate pathway. Nature. 1990 Feb 1;343(6257):425-30. doi: 10.1038/343425a0. PMID: 1967820.
+1. Reactome Pathways https://reactome.org/content/detail/R-HSA-191273
+1. Clarke PR, Hardie DG. Regulation of HMG-CoA reductase: identification of the site phosphorylated by the AMP-activated protein kinase in vitro and in intact rat liver. EMBO J. 1990 Aug;9(8):2439-46. doi: 10.1002/j.1460-2075.1990.tb07420.x. PMID: 2369897.
+1. Sharpe LJ, Brown AJ. Controlling cholesterol synthesis beyond 3-hydroxy-3-methylglutaryl-CoA reductase (HMGCR). J Biol Chem. 2013 Jun 28;288(26):18707-15. doi: 10.1074/jbc.R113.479808. PMID: 23696639.
+1. Joseph BK, Liu HY, Francisco J, Pandya D, Donigan M, Gallo-Ebert C, Giordano C, Bata A, Nickels JT. Inhibition of AMP Kinase by the Protein Phosphatase 2A Heterotrimer, PP2APpp2r2d. J Biol Chem. 2015 Apr 24;290(17):10588-98. doi: 10.1074/jbc.M114.626259. PMID: 25694423.
+1. Ching YP, Kobayashi T, Tamura S, Hardie DG. Specificity of different isoforms of protein phosphatase-2A and protein phosphatase-2C studied using site-directed mutagenesis of HMG-CoA reductase. FEBS Lett. 1997 Jul 14;411(2-3):265-8. doi: 10.1016/s0014-5793(97)00712-6. PMID: 9271218.
+1. Hawley SA, Pan DA, Mustard KJ, Ross L, Bain J, Edelman AM, Frenguelli BG, Hardie DG. Calmodulin-dependent protein kinase kinase-beta is an alternative upstream kinase for AMP-activated protein kinase. Cell Metab. 2005 Jul;2(1):9-19. doi: 10.1016/j.cmet.2005.05.009. PMID: 16054095.
+1. Reactome Pathways https://reactome.org/content/detail/R-HSA-380930
 1. Figshare: Pappa et al., 2012, Regulation of HMGCR in the mevalonte pathway, https://doi.org/10.6084/m9.figshare.105160.v2

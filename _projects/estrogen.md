@@ -25,10 +25,7 @@ The rate-limiting step of steroid biosynthesis is the transfer of cholesterol fr
 ## References
 
 1. Stocco DM, Selvaraj V. Yet Another Scenario in the Regulation of the Steroidogenic Acute Regulatory (STAR) Protein Gene. Endocrinology. 2017 Feb 1;158(2):235-238. doi: 10.1210/en.2016-1874. PMID: 28430922.
-
 1. Xu JN, Zeng C, Zhou Y, Peng C, Zhou YF, Xue Q. Metformin inhibits StAR expression in human endometriotic stromal cells via AMPK-mediated disruption of CREB-CRTC2 complex formation. J Clin Endocrinol Metab. 2014 Aug;99(8):2795-803. doi: 10.1210/jc.2014-1593. PMID: 24823468.
-
 1. Wu MH, Lu CW, Chuang PC, Tsai SJ. Prostaglandin E2: the master of endometriosis? Exp Biol Med (Maywood). 2010 Jun;235(6):668-77. doi: 10.1258/ebm.2010.009321. PMID: 20511671.
-
-1. Sun HS, Hsiao KY, Hsu CC, Wu MH, Tsai SJ. Transactivation of steroidogenic acute regulatory protein in human endometriotic stromalcells is mediated by the prostaglandin EP2 receptor. Endocrinology. 2003 Sep;144(9):3934-42. PMID: 12933667.
+1. Sun HS, Hsiao KY, Hsu CC, Wu MH, Tsai SJ. Transactivation of steroidogenic acute regulatory protein in human endometriotic stromalcells is mediated by the prostaglandin EP2 receptor. Endocrinology. 2003 Sep;144(9):3934-42. doi: 10.1210/en.2003-0289. PMID: 12933667.
 
