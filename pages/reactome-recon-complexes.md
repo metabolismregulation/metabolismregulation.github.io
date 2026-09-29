@@ -37,6 +37,8 @@ permalink: /reactome-recon-complexes/
 This list includes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
 Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes.
 
+<br />
+
 Downloads (all tables): &nbsp;
 <a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
 <a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
@@ -52,6 +54,8 @@ Downloads (all tables): &nbsp;
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/P09622">P09622</a></td><td>DLD</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-5693148">BCKDK phosphorylates BCKDH</a></td><td></td></tr>
   </tbody>
 </table>
+
+<br />
 
 **Table 2b. Other signalling processes & Recon2 compounds-catalysers**
 
@@ -78,6 +82,8 @@ Downloads (all tables): &nbsp;
     <tr><td><a target="_blank" rel="noopener" href="http://www.uniprot.org/uniprot/P09622">P09622</a></td><td>DLD</td><td><a target="_blank" rel="noopener" href="http://reactome.org/PathwayBrowser/#/R-HSA-203946">PDK-catalyzed phosphorylation (inactivation) of PDC E1 alpha subunit</a></td><td></td></tr>
   </tbody>
 </table>
+
+<br />
 
 **Table 2c. Expression signalling processes & Recon2 compounds-catalysers**
 
