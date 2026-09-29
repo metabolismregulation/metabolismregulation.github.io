@@ -20,4 +20,4 @@ Alexander Mazein, Maria Heredia Chavez
 
 ## References
 
-1. SBGN Bricks: http://sbgnbricks.sourceforge.net/
+1. SBGN Bricks: SBGN Bricks library. [sbgnbricks.sourceforge.net](http://sbgnbricks.sourceforge.net/).

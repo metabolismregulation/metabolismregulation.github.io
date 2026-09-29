@@ -24,9 +24,9 @@ The carnitine palmitoyltransferase system is responsible for delivering the long
 
 ## References
 
-1. KEGG Pathway Maps: [ Glucagon signaling pathway](http://www.kegg.jp/kegg-bin/show_pathway?map=hsa04922&show_description=show)
-1. Database dbPTM: [STK11_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=STK11_HUMAN#overview)
-1. Database dbPTM: [ACACB_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=ACACB_HUMAN)
+1. KEGG: Glucagon signaling pathway. [hsa04922](https://www.kegg.jp/pathway/hsa04922).
+1. dbPTM: STK11. [STK11_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=STK11_HUMAN).
+1. dbPTM: ACACB. [ACACB_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=ACACB_HUMAN).
 1. Qu Q, Zeng F, Liu X, Wang QJ, Deng F. Fatty acid oxidation and carnitine palmitoyltransferase I: emerging therapeutic targets in cancer. Cell Death Dis. 2016 May 19;7(5):e2226. doi: 10.1038/cddis.2016.132. PMID: 27195673.
 1. Bonnefont JP, Djouadi F, Prip-Buus C, Gobin S, Munnich A, Bastin J. Carnitine palmitoyltransferases 1 and 2: biochemical, molecular and medical aspects. Mol Aspects Med. 2004;25(5-6):495-520. doi: 10.1016/j.mam.2004.06.004. PMID: 15363638.
 1. Flavin R, Peluso S, Nguyen PL, Loda M. Fatty acid synthase as a potential therapeutic target in cancer. Future Oncol. 2010 Apr;6(4):551-62. doi: 10.2217/fon.10.11. PMID: 20373869.

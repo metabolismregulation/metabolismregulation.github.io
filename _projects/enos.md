@@ -20,5 +20,5 @@ Olga Ivanova, John Albanese
 
 ## References
 
-1. Reactome Pathways: [eNOS activation and regulation](https://reactome.org/PathwayBrowser/#/R-HSA-202131&SEL=R-HSA-203765&PATH=R-HSA-1430728)
+1. Reactome: Metabolism of nitric oxide: NOS3 activation and regulation. [R-HSA-202131](https://reactome.org/content/detail/R-HSA-202131).
 

@@ -39,10 +39,10 @@ The liver map represents complementary regulation by insulin and glucagon. Gluca
 
 ## References
 
-1. Reactome: Glycogen metabolism. [Id: R-HSA-8982491](https://reactome.org/PathwayBrowser/#/R-HSA-8982491). Release 84. Accessed 15 May 2023.
-1. Reactome: Glucagon signalling in metabolic regulation. Integration of energy metabolism. [Id: R-HSA-163685](https://reactome.org/PathwayBrowser/#/R-HSA-163685&SEL=R-HSA-163359&PATH=R-HSA-1430728). Release 84. Accessed 15 May 2023.
-1. KEGG: Glucagon signaling pathway. [Id: hsa04922](https://www.kegg.jp/kegg-bin/show_pathway?map=hsa04922). Accessed 15 May 2023.
-1. MetaCore: Glycogen metabolism. [Id: 919](https://portal.genego.com/cgi/imagemap.cgi?id=919). Accessed 15 May 2023.
+1. Reactome: Glycogen metabolism. [R-HSA-8982491](https://reactome.org/content/detail/R-HSA-8982491).
+1. Reactome: Glucagon signaling in metabolic regulation. [R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359).
+1. KEGG: Glucagon signaling pathway. [hsa04922](https://www.kegg.jp/pathway/hsa04922).
+1. MetaCore: Glycogen metabolism. [919](http://pathwaymaps.com/maps/919/).
 1. Adeva-Andany MM, González-Lucán M, Donapetry-García C, Fernández-Fernández C, Ameneiros-Rodríguez E. Glycogen metabolism in humans. BBA Clin. 2016 Jun;5:85-100. doi: 10.1016/j.bbacli.2016.02.001. PMID: 27051594.
 1. Zois CE, Harris AL. Glycogen metabolism has a key role in the cancer microenvironment and provides new targets for cancer therapy. J Mol Med (Berl). 2016 Feb;94(2):137-54. doi: 10.1007/s00109-015-1377-9. PMID: 26882899.
 1. Brushia RJ, Walsh DA. Phosphorylase kinase: the complexity of its regulation is reflected in the complexity of its structure. Front Biosci. 1999 Sep 15;4:D618-41. doi: 10.2741/brushia. PMID: 10487978.

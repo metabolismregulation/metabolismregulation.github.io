@@ -24,8 +24,8 @@ Hormone-sensitive lipase (HSL) is a major enzyme involved in triacylglycerol lip
 
 ## References
 
-1. KEGG Pathway Maps: [Regulation of lipolysis in adipocytes](http://www.genome.jp/kegg-bin/show_pathway?map=hsa04923&show_description=show)
-1. Database dbPTM: [LIPS_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=LIPS_HUMAN#reference)
+1. KEGG: Regulation of lipolysis in adipocytes. [hsa04923](https://www.kegg.jp/pathway/hsa04923).
+1. dbPTM: LIPS. [LIPS_HUMAN](http://dbptm.mbc.nctu.edu.tw/search_result.php?search_type=db_id&swiss_id=LIPS_HUMAN).
 1. Duncan RE, Ahmadian M, Jaworski K, Sarkadi-Nagy E, Sul HS. Regulation of lipolysis in adipocytes. Annu Rev Nutr. 2007;27:79-101. doi: 10.1146/annurev.nutr.27.061406.093734. PMID: 17313320.
 1. Carmen GY, Víctor SM. Signalling mechanisms regulating lipolysis. Cell Signal. 2006 Apr;18(4):401-8. doi: 10.1016/j.cellsig.2005.08.009. PMID: 16182514.
 1. Watt MJ, Holmes AG, Pinnamaneni SK, Garnham AP, Steinberg GR, Kemp BE, Febbraio MA. Regulation of HSL serine phosphorylation in skeletal muscle and adipose tissue. Am J Physiol Endocrinol Metab. 2006 Mar;290(3):E500-8. doi: 10.1152/ajpendo.00361.2005. PMID: 16188906.
