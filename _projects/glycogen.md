@@ -45,7 +45,7 @@ The liver map represents complementary regulation by insulin and glucagon. Gluca
 1. Cross DA, Watt PW, Shaw M, van der Kaay J, Downes CP, Holder JC, Cohen P. Insulin activates protein kinase B, inhibits glycogen synthase kinase-3 and activates glycogen synthase by rapamycin-insensitive pathways in skeletal muscle and adipose tissue. FEBS Lett. 1997 Apr 7;406(1-2):211-5. doi: 10.1016/s0014-5793(97)00240-8. PMID: 9109420.
 1. Jiang G, Zhang BB. Glucagon and regulation of glucose metabolism. Am J Physiol Endocrinol Metab. 2003 Apr;284(4):E671-8. doi: 10.1152/ajpendo.00492.2002. PMID: 12626323.
 1. KEGG: Glucagon signaling pathway. [KEGG:hsa04922](https://www.kegg.jp/pathway/hsa04922).
-1. MetaCore: Glycogen metabolism. [MetaCore:919](http://pathwaymaps.com/maps/919/).
+1. MetaCore: Glycogen metabolism. MetaCore:919.
 1. Newgard CB, Hwang PK, Fletterick RJ. The family of glycogen phosphorylases: structure and function. Crit Rev Biochem Mol Biol. 1989;24(1):69-99. doi: 10.3109/10409238909082552. PMID: 2667896.
 1. Raz I, Katz A, Spencer MK. Epinephrine inhibits insulin-mediated glycogenesis but enhances glycolysis in human skeletal muscle. Am J Physiol. 1991 Mar;260(3 Pt 1):E430-5. doi: 10.1152/ajpendo.1991.260.3.E430. PMID: 1900669.
 1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359).

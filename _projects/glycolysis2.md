@@ -21,7 +21,7 @@ Alexander Mazein, Vasundra Touré, Maria Heredia Chavez
 ## References
 
 1. Deprez J, Vertommen D, Alessi DR, Hue L, Rider MH. Phosphorylation and activation of heart 6-phosphofructo-2-kinase by protein kinase B and other protein kinases of the insulin signaling cascades. J Biol Chem. 1997 Jul 11;272(28):17269-75. doi: 10.1074/jbc.272.28.17269. PMID: 9211863.
-1. MetaCore: Glycolysis and gluconeogenesis (short map). [MetaCore:930](http://pathwaymaps.com/maps/930/).
+1. MetaCore: Glycolysis and gluconeogenesis (short map). MetaCore:930.
 1. Reactome: DAG and IP3 signaling. [Reactome:R-HSA-1489509](https://reactome.org/content/detail/R-HSA-1489509).
 1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359).
 1. Rider MH, Bertrand L, Vertommen D, Michels PA, Rousseau GG, Hue L. 6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase: head-to-head with a bifunctional enzyme that controls glycolysis. Biochem J. 2004 Aug 1;381(Pt 3):561-79. doi: 10.1042/BJ20040752. PMID: 15170386.
