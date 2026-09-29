@@ -68,6 +68,21 @@ p {
   margin: 15px 0;
 }
 
+// Justified body text: only top-level paragraphs and list items of page content.
+// Skips <p align="..."> (centred images), text inside tables and custom blocks.
+#main > p:not([align]),
+#main > ul > li,
+#main > ol > li,
+.entry > p:not([align]),
+.entry > ul > li,
+.entry > ol > li {
+  text-align: justify;
+
+  @include mobile {
+    text-align: left;
+  }
+}
+
 a {
   color: $blue;
   text-decoration: none;
