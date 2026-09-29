@@ -28,6 +28,7 @@ permalink: /reactome-recon-proteins/
   .rr-table th:nth-child(2), .rr-table td:nth-child(2) { width: 13%; }
   .rr-table th:nth-child(3), .rr-table td:nth-child(3) { width: 59%; }
   .rr-table th:nth-child(4), .rr-table td:nth-child(4) { width: 15%; }
+  .rr-space { margin-top: 36px; }
 </style>
 
 
@@ -35,11 +36,10 @@ permalink: /reactome-recon-proteins/
 
 These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs. Table 1a includes phosphorylation processes, while Tables 1b and 1c include other types of processes.
 
-<br />
-
 Downloads (all tables): &nbsp;
 <a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
 <a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
+{: .rr-space}
 
 **Table 1a. Signalling phosphorylation processes & Recon2 catalysers**
 
@@ -70,9 +70,8 @@ Downloads (all tables): &nbsp;
   </tbody>
 </table>
 
-<br />
-
 **Table 1b. Other signalling processes & Recon2 catalysers**
+{: .rr-space}
 
 <table class="rr-table">
   <thead>
@@ -151,9 +150,8 @@ Downloads (all tables): &nbsp;
   </tbody>
 </table>
 
-<br />
-
 **Table 1c. Expression signalling processes & Recon2 catalysers**
+{: .rr-space}
 
 <table class="rr-table">
   <thead>
