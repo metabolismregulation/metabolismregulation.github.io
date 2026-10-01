@@ -45,7 +45,7 @@ The map below is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 
 <section>
 <h3>Roles</h3>
-<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl"> Highlighted protein and complex</label><br>Off: they take the protein and complex colours.</p>
+<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label><br>Off: highlighted proteins take the protein colour.</p>
 <div id="c2-roles"></div>
 <p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
 </section>
@@ -82,7 +82,7 @@ Clusters: <select id="c2-k"><option>6</option><option selected>8</option><option
   <option value="tritanopia">tritanopia</option>
 </select></p>
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
-<p class="c2-small" style="margin:2px 0">Order: compartment, complex, protein, chemical, highlighted protein, highlighted complex, white elements, page, ink. Paste a theme here and press Apply.</p>
+<p class="c2-small" style="margin:2px 0">Order: compartment, complex, protein, chemical, highlighted protein, white elements, page, ink. Paste a theme here and press Apply.</p>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
 <button type="button" class="c2-act" id="c2-download">Download PNG</button>
 </section>
@@ -101,4 +101,4 @@ Clusters: <select id="c2-k"><option>6</option><option selected>8</option><option
 3. Check each candidate under deuteranopia. Blue against yellow or orange survives; green against red does not.
 4. From a figure in Nature or Science, take the hues only. Journal figures are usually printed at full saturation on white, so their colours are too strong as fills behind text; the swatch picker above keeps the hue and resets lightness and chroma for each role.
 
-<script src="/images/colours2/colours2.js"></script>
+<script src="/images/colours2/colours2.js?v={{ site.time | date: '%s' }}"></script>

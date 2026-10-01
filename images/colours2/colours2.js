@@ -11,29 +11,28 @@
     { id: 'protein', name: 'Protein (macromolecule)', cls: 2, L: 0.87, C: 0.05 },
     { id: 'metabolite', name: 'Simple chemical', cls: 4, L: 0.91, C: 0.05 },
     { id: 'hlProtein', name: 'Highlighted protein', cls: 6, L: 0.80, C: 0.08, hl: true },
-    { id: 'hlComplex', name: 'Highlighted complex', cls: 5, L: 0.93, C: 0.035, hl: true },
     { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1, L: 1, C: 0 },
     { id: 'page', name: 'Page background', cls: 7, L: 1, C: 0 },
     { id: 'ink', name: 'Lines and text', cls: -1, L: 0.2, C: 0.01 }
   ];
 
-  // Themes: compartment, complex, protein, metabolite, hlProtein, hlComplex, white, page, ink
+  // Themes: compartment, complex, protein, metabolite, hlProtein, white, page, ink
   var PRESETS = [
-    ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Sage and clay', 'F6F4EF FFFFFF C9DCD3 F1DEC6 E5AE9F FFFFFF FFFFFF FFFFFF 000000'],
-    ['Okabe-Ito pastel', 'F6F7F8 FFFFFF C3DCEC F6DFB0 F2C1A4 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Lavender and mint', 'F7F6F9 FFFFFF D5D3EC D3EADF EDBFC0 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Slate', 'F3F4F6 FFFFFF CDD6E0 E4E1D3 E3B0A8 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Sky and butter', 'F9F6F2 FFFFFF B4D6EF F0E2AD E9A89C FFFFFF FFFFFF FFFFFF 000000'],
-    ['Teal and peach', 'F9F6F2 FFFFFF B0DBDA FDD9C2 E9A6AA FFFFFF FFFFFF FFFFFF 000000'],
-    ['Periwinkle and olive', 'F8F7F2 FFFFFF C7CFF3 E0E6BD E9A89C FFFFFF FFFFFF FFFFFF 000000'],
-    ['Mist and sand', 'F9F6F2 FFFFFF BDD6E0 F3DEC1 E7A8A2 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Ocean', 'F3F8FA FFFFFF BCD3F2 C0EBEA E9A998 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Moss and stone', 'F9F6F2 FFFFFF BFD9BF F3DDC5 EAA7A1 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Heather and celadon', 'F9F6F2 FFFFFF DDC9E2 CAEADB E3AD89 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Arctic', 'F3F8FA FFFFFF B9D6E8 C9E9E4 E2A8B4 FFFFFF FFFFFF FFFFFF 000000'],
-    ['Apricot and denim', 'F9F6F2 FFFFFF ECC9B2 CEE4FC EBA4AE FFFFFF FFFFFF FFFFFF 000000'],
-    ['Grey with red accent', 'F9F6F2 FFFFFF CBD2D9 E4E1D8 EFA49D FFFFFF FFFFFF FFFFFF 000000']
+    ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
+    ['Sage and clay', 'F6F4EF FFFFFF C9DCD3 F1DEC6 E5AE9F FFFFFF FFFFFF 000000'],
+    ['Okabe-Ito pastel', 'F6F7F8 FFFFFF C3DCEC F6DFB0 F2C1A4 FFFFFF FFFFFF 000000'],
+    ['Lavender and mint', 'F7F6F9 FFFFFF D5D3EC D3EADF EDBFC0 FFFFFF FFFFFF 000000'],
+    ['Slate', 'F3F4F6 FFFFFF CDD6E0 E4E1D3 E3B0A8 FFFFFF FFFFFF 000000'],
+    ['Sky and butter', 'F9F6F2 FFFFFF B4D6EF F0E2AD E9A89C FFFFFF FFFFFF 000000'],
+    ['Teal and peach', 'F9F6F2 FFFFFF B0DBDA FDD9C2 E9A6AA FFFFFF FFFFFF 000000'],
+    ['Periwinkle and olive', 'F8F7F2 FFFFFF C7CFF3 E0E6BD E9A89C FFFFFF FFFFFF 000000'],
+    ['Mist and sand', 'F9F6F2 FFFFFF BDD6E0 F3DEC1 E7A8A2 FFFFFF FFFFFF 000000'],
+    ['Ocean', 'F3F8FA FFFFFF BCD3F2 C0EBEA E9A998 FFFFFF FFFFFF 000000'],
+    ['Moss and stone', 'F9F6F2 FFFFFF BFD9BF F3DDC5 EAA7A1 FFFFFF FFFFFF 000000'],
+    ['Heather and celadon', 'F9F6F2 FFFFFF DDC9E2 CAEADB E3AD89 FFFFFF FFFFFF 000000'],
+    ['Arctic', 'F3F8FA FFFFFF B9D6E8 C9E9E4 E2A8B4 FFFFFF FFFFFF 000000'],
+    ['Apricot and denim', 'F9F6F2 FFFFFF ECC9B2 CEE4FC EBA4AE FFFFFF FFFFFF 000000'],
+    ['Grey with red accent', 'F9F6F2 FFFFFF CBD2D9 E4E1D8 EFA49D FFFFFF FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
@@ -154,10 +153,9 @@
       if (r.cls >= 0) fills[r.cls] = simulate(hexToRgb(theme[r.id]), mode);
     });
     // Highlight off: highlighted elements are drawn like ordinary ones
-    if (!document.getElementById('c2-hl').checked) {
-      fills[6] = fills[2];
-      fills[5] = fills[3];
-    }
+    if (!document.getElementById('c2-hl').checked) fills[6] = fills[2];
+    // A highlighted complex is always drawn like any other complex
+    fills[5] = fills[3];
     var ink = simulate(hexToRgb(theme.ink), mode);
     var d = out.data, cls = layers.cls, t = layers.t, n = layers.w * layers.h;
     for (var i = 0, j = 0; i < n; i++, j += 4) {
@@ -365,7 +363,6 @@
     theme.protein = pastelise(picks[0].hex, role('protein'));
     theme.metabolite = pastelise(picks[1].hex, role('metabolite'));
     theme.hlProtein = pastelise(hl.hex, role('hlProtein'));
-    theme.hlComplex = '#FFFFFF';
     theme.complex = '#FFFFFF';
     var neutral = sw.filter(function (s) { return chroma(s) < 0.04; })[0] || sw[0];
     theme.compartment = pastelise(neutral.hex, role('compartment'));
@@ -410,7 +407,7 @@
   document.getElementById('c2-auto').addEventListener('click', autoAssign);
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
-    if (/^([0-9a-fA-F]{6}\s+){8}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
+    if (/^([0-9a-fA-F]{6}\s+){7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
   });
   document.getElementById('c2-download').addEventListener('click', function () {
     canvas.toBlob(function (blob) {
