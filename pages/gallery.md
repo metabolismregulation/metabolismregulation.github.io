@@ -100,7 +100,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/acly/">Acetyl-CoA synthesis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F006-ACLY.graphml">GraphML</a>
+      <a href="/downloads/F006-acly.graphml">GraphML</a>
       <a href="/downloads/F006-acly.sbgn">SBGN-ML</a>
     </div>
     <a href="/acly/">
@@ -111,7 +111,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/camp/">cAMP hydrolysis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F012-cAMP.graphml">GraphML</a>
+      <a href="/downloads/F012-camp.graphml">GraphML</a>
       <a href="/downloads/F012-camp.sbgn">SBGN-ML</a>
     </div>
     <a href="/camp/">
