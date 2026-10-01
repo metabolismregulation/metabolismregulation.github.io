@@ -24,4 +24,5 @@ Glutaminase C (GAC) catalyses the conversion of glutamine to glutamate. Glutamat
 
 ## References
 
+1. Han T, Zhan W, Gan M, Liu F, Yu B, Chin YE, Wang JB. Phosphorylation of glutaminase by PKCε is essential for its enzymatic activity and critically contributes to tumorigenesis. Cell Res. 2018 Jun;28(6):655-669. doi: 10.1038/s41422-018-0021-y. PMID: 29515166.
 1. Ryu JM, Lee SH, Seong JK, Han HJ. Glutamine contributes to maintenance of mouse embryonic stem cell self-renewal through PKC-dependent downregulation of HDAC1 and DNMT1/3a. Cell Cycle. 2015;14(20):3292-305. doi: 10.1080/15384101.2015.1087620. PMID: 26375799.
