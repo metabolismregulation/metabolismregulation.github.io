@@ -8,7 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F009-phosphoinositides.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F009-phosphoinositides.sbgn" download>SBGN-ML</a> &nbsp;
-<a href="/downloads/model_F009-1.xml" download>CellDesigner</a> &nbsp;
+<a href="/downloads/F009-phosphoinositides.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F009-phosphoinositides" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F009-phosphoinositides.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F009-phosphoinositides.csv" download>Annotation</a> &nbsp;

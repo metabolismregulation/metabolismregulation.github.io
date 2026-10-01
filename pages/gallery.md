@@ -101,7 +101,7 @@ permalink: /gallery/
     <a class="gallery-title" href="/acly/">Acetyl-CoA synthesis</a>
     <div class="gallery-downloads">
       <a href="/downloads/F006-ACLY.graphml">GraphML</a>
-      <a href="/downloads/F006-ACLY.sbgn">SBGN-ML</a>
+      <a href="/downloads/F006-acly.sbgn">SBGN-ML</a>
     </div>
     <a href="/acly/">
       <img class="gallery-image" src="/images/gallery/F006-ACLY-vcut.png" alt="Acetyl-CoA synthesis map">
@@ -112,7 +112,7 @@ permalink: /gallery/
     <a class="gallery-title" href="/camp/">cAMP hydrolysis</a>
     <div class="gallery-downloads">
       <a href="/downloads/F012-cAMP.graphml">GraphML</a>
-      <a href="/downloads/F012-cAMP.sbgn">SBGN-ML</a>
+      <a href="/downloads/F012-camp.sbgn">SBGN-ML</a>
     </div>
     <a href="/camp/">
       <img class="gallery-image" src="/images/gallery/F012-cAMP-vcut.png" alt="cAMP hydrolysis map">
