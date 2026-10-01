@@ -9,7 +9,7 @@ Downloads: &nbsp;
 <a href="/downloads/F004-M02.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F004-M02.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/F004-M02.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-M02" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-M02.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F004-glycogen.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/glycogen/"><img id="image" src="/downloads/F004-M02.png" width="915"/></a></p>
@@ -20,7 +20,7 @@ Downloads: &nbsp;
 <a href="/downloads/F004-L02.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F004-L02.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/F004-L02.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-L02" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-liver" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-L02.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F004-glycogen.csv" download>Annotation</a> &nbsp; 
 <p align="middle"><a href="/glycogen/"><img id="image" src="/downloads/F004-L02.png" width="915"/></a></p>

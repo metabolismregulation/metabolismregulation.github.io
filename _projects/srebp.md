@@ -9,7 +9,7 @@ Downloads: &nbsp;
 <a href="/downloads/F005-srebp.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F005-srebp.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/F005-srebp.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F005-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-srebp.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F005-srebp.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-srebp.png" width="500"/></a></p>

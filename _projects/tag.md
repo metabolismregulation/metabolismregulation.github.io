@@ -9,7 +9,7 @@ Downloads: &nbsp;
 <a href="/downloads/F015-tag.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F015-tag-SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/model_F015-1.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F015-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F015-tag" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F015-tag.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F015-tag.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/tag/"><img id="image" src="/downloads/F015-tag.png" width="540"/></a></p>
