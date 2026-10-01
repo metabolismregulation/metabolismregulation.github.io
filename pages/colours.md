@@ -15,6 +15,7 @@ permalink: /colours/
   .c2-role input[type=color] { width: 28px; height: 22px; padding: 0; border: 1px solid #bbb; background: none; cursor: pointer; }
   .c2-role code { font-size: 11px; color: #555; }
   .c2-cr { font-size: 11px; color: #777; min-width: 42px; text-align: right; }
+  .c2-nohl .c2-hl { display: none; }
   .c2-low { color: #b3261e; font-weight: bold; }
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
@@ -44,6 +45,7 @@ The map below is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 
 <section>
 <h3>Roles</h3>
+<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl"> Highlighted protein and complex</label><br>Off: they take the protein and complex colours.</p>
 <div id="c2-roles"></div>
 <p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
 </section>

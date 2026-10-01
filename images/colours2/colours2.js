@@ -10,8 +10,8 @@
     { id: 'complex', name: 'Complex', cls: 3, L: 0.99, C: 0.012 },
     { id: 'protein', name: 'Protein (macromolecule)', cls: 2, L: 0.87, C: 0.05 },
     { id: 'metabolite', name: 'Simple chemical', cls: 4, L: 0.91, C: 0.05 },
-    { id: 'hlProtein', name: 'Highlighted protein', cls: 6, L: 0.80, C: 0.08 },
-    { id: 'hlComplex', name: 'Highlighted complex', cls: 5, L: 0.93, C: 0.035 },
+    { id: 'hlProtein', name: 'Highlighted protein', cls: 6, L: 0.80, C: 0.08, hl: true },
+    { id: 'hlComplex', name: 'Highlighted complex', cls: 5, L: 0.93, C: 0.035, hl: true },
     { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1, L: 1, C: 0 },
     { id: 'page', name: 'Page background', cls: 7, L: 1, C: 0 },
     { id: 'ink', name: 'Lines and text', cls: -1, L: 0.2, C: 0.01 }
@@ -153,6 +153,11 @@
     ROLES.forEach(function (r) {
       if (r.cls >= 0) fills[r.cls] = simulate(hexToRgb(theme[r.id]), mode);
     });
+    // Highlight off: highlighted elements are drawn like ordinary ones
+    if (!document.getElementById('c2-hl').checked) {
+      fills[6] = fills[2];
+      fills[5] = fills[3];
+    }
     var ink = simulate(hexToRgb(theme.ink), mode);
     var d = out.data, cls = layers.cls, t = layers.t, n = layers.w * layers.h;
     for (var i = 0, j = 0; i < n; i++, j += 4) {
@@ -171,7 +176,7 @@
   function buildRoles() {
     ROLES.forEach(function (r) {
       var row = document.createElement('div');
-      row.className = 'c2-role';
+      row.className = 'c2-role' + (r.hl ? ' c2-hl' : '');
       row.innerHTML =
         '<input type="color" id="c2-in-' + r.id + '">' +
         '<span class="c2-role-name">' + r.name + '</span>' +
@@ -232,7 +237,7 @@
       b.className = 'c2-preset';
       var hs = p[1].split(' ');
       b.innerHTML = '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
-        return '<i style="background:#' + hs[k] + '"></i>';
+        return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
       }).join('') + '</span>' + p[0];
       b.addEventListener('click', function () { applyPreset(p[1]); });
       box.appendChild(b);
@@ -375,6 +380,13 @@
   loadLayers(document.getElementById('c2-map').getAttribute('data-layers'), render);
 
   document.getElementById('c2-cvd').addEventListener('change', render);
+  var hlBox = document.getElementById('c2-hl');
+  function syncHighlight() {
+    document.querySelector('.c2-wide').classList.toggle('c2-nohl', !hlBox.checked);
+    render();
+  }
+  hlBox.addEventListener('change', syncHighlight);
+  syncHighlight();
   document.getElementById('c2-file').addEventListener('change', function (e) {
     if (e.target.files[0]) readImage(e.target.files[0]);
   });
