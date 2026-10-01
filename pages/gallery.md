@@ -58,6 +58,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F001-glycolysis.graphml">GraphML</a>
       <a href="/downloads/F001-glycolysis.sbgn">SBGN-ML</a>
+      <a href="/downloads/F001-glycolysis-SBML.xml">SBML</a>
     </div>
     <a href="/glycolysis/">
       <img class="gallery-image" src="/images/gallery/F001-glycolysis-vcut.png" alt="Glycolysis map">
@@ -69,6 +70,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F002-eicosanoids.graphml">GraphML</a>
       <a href="/downloads/F002-eicosanoids.sbgn">SBGN-ML</a>
+      <a href="/downloads/F002-eicosanoids-SBML.xml">SBML</a>
     </div>
     <a href="/eicosanoids/">
       <img class="gallery-image" src="/images/gallery/F002-eicosanoids-vcut.png" alt="Eicosanoid production map">
@@ -80,6 +82,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F003-mevalonate.graphml">GraphML</a>
       <a href="/downloads/F003-mevalonate.sbgn">SBGN-ML</a>
+      <a href="/downloads/F003-mevalonate-SBML.xml">SBML</a>
     </div>
     <a href="/mevalonate/">
       <img class="gallery-image" src="/images/gallery/F003-mevalonate-vcut.png" alt="Mevalonate biosynthesis map">
@@ -91,6 +94,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F004-glycogen-muscle.graphml">GraphML</a>
       <a href="/downloads/F004-glycogen-muscle.sbgn">SBGN-ML</a>
+      <a href="/downloads/F004-glycogen-muscle-SBML.xml">SBML</a>
     </div>
     <a href="/glycogen/">
       <img class="gallery-image" src="/images/gallery/F004-glycogen-muscle-vcut.png" alt="Glycogen metabolism map">
@@ -102,6 +106,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F006-acly.graphml">GraphML</a>
       <a href="/downloads/F006-acly.sbgn">SBGN-ML</a>
+      <a href="/downloads/F006-acly-SBML.xml">SBML</a>
     </div>
     <a href="/acly/">
       <img class="gallery-image" src="/images/gallery/F006-ACLY-vcut.png" alt="Acetyl-CoA synthesis map">
@@ -113,6 +118,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F012-camp.graphml">GraphML</a>
       <a href="/downloads/F012-camp.sbgn">SBGN-ML</a>
+      <a href="/downloads/F012-camp-SBML.xml">SBML</a>
     </div>
     <a href="/camp/">
       <img class="gallery-image" src="/images/gallery/F012-cAMP-vcut.png" alt="cAMP hydrolysis map">
@@ -124,6 +130,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F007-inos.graphml">GraphML</a>
       <a href="/downloads/F007-inos.sbgn">SBGN-ML</a>
+      <a href="/downloads/F007-inos-SBML.xml">SBML</a>
     </div>
     <a href="/inos/">
       <img class="gallery-image" src="/images/gallery/F007-inos-vcut.png" alt="iNOS pathway map">
@@ -135,6 +142,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F008-enos.graphml">GraphML</a>
       <a href="/downloads/F008-enos.sbgn">SBGN-ML</a>
+      <a href="/downloads/F008-enos-SBML.xml">SBML</a>
     </div>
     <a href="/enos/">
       <img class="gallery-image" src="/images/gallery/F008-enos-vcut.png" alt="eNOS pathway map">
@@ -146,6 +154,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F014-carnitine.graphml">GraphML</a>
       <a href="/downloads/F014-carnitine.sbgn">SBGN-ML</a>
+      <a href="/downloads/F014-carnitine-SBML.xml">SBML</a>
     </div>
     <a href="/carnitine/">
       <img class="gallery-image" src="/images/gallery/F014-carnitine-vcut.png" alt="Acyl-carnitine synthesis map">
@@ -157,6 +166,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F005-srebp.graphml">GraphML</a>
       <a href="/downloads/F005-srebp.sbgn">SBGN-ML</a>
+      <a href="/downloads/F005-srebp-SBML.xml">SBML</a>
     </div>
     <a href="/srebp/">
       <img class="gallery-image" src="/images/gallery/F005-srebp-vcut.png" alt="SREBP signalling map">
@@ -168,6 +178,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F015-tag.graphml">GraphML</a>
       <a href="/downloads/F015-tag.sbgn">SBGN-ML</a>
+      <a href="/downloads/F015-tag-SBML.xml">SBML</a>
     </div>
     <a href="/tag/">
       <img class="gallery-image" src="/images/gallery/F015-tag-vcut.png" alt="Triacylglycerol hydrolysis map">
@@ -179,6 +190,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F018-estrogen.graphml">GraphML</a>
       <a href="/downloads/F018-estrogen.sbgn">SBGN-ML</a>
+      <a href="/downloads/F018-estrogen-SBML.xml">SBML</a>
     </div>
     <a href="/estrogen/">
       <img class="gallery-image" src="/images/gallery/F018-estrogen-vcut.png" alt="Estradiol biosynthesis map">
@@ -190,6 +202,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F009-phosphoinositides.graphml">GraphML</a>
       <a href="/downloads/F009-phosphoinositides.sbgn">SBGN-ML</a>
+      <a href="/downloads/F009-phosphoinositides-SBML.xml">SBML</a>
     </div>
     <a href="/phosphoinositides/">
       <img class="gallery-image" src="/images/gallery/F009-phosphoinositides-vcut.png" alt="Phosphoinositide map">
@@ -201,6 +214,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F019-glutaminase.graphml">GraphML</a>
       <a href="/downloads/F019-glutaminase.sbgn">SBGN-ML</a>
+      <a href="/downloads/F019-glutaminase-SBML.xml">SBML</a>
     </div>
     <a href="/glutaminase/">
       <img class="gallery-image" src="/images/gallery/F019-glutaminase-vcut.png" alt="Glutaminolysis map">
@@ -212,6 +226,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F020-pyrimidine.graphml">GraphML</a>
       <a href="/downloads/F020-pyrimidine.sbgn">SBGN-ML</a>
+      <a href="/downloads/F020-pyrimidine-SBML.xml">SBML</a>
     </div>
     <a href="/pyrimidine/">
       <img class="gallery-image" src="/images/gallery/F020-pyrimidine-vcut.png" alt="Pyrimidine biosynthesis map">
@@ -223,6 +238,7 @@ permalink: /gallery/
     <div class="gallery-downloads">
       <a href="/downloads/F100-aspirin.graphml">GraphML</a>
       <a href="/downloads/F100-aspirin.sbgn">SBGN-ML</a>
+      <a href="/downloads/F100-aspirin-SBML.xml">SBML</a>
     </div>
     <a href="/aspirin/">
       <img class="gallery-image" src="/images/gallery/F100-aspirin-vcut.png" alt="Aspirin map">
