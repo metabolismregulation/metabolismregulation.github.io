@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F002-eicosanoids.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F002-eicosanoids.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F002-eicosanoids-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F002-eicosanoids.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F002-eicosanoids" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F002-eicosanoids.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;

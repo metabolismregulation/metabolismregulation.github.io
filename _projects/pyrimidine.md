@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F020-pyrimidine.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F020-pyrimidine.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F020-pyrimidine-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F020-pyrimidine.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;

@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F012-camp.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F012-camp.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F012-camp-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F012-camp.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F012-camp" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F012-camp.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
