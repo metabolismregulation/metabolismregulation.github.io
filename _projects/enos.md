@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F008-enos.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F008-enos.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F008-enos-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F008-enos.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;

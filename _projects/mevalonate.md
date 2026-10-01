@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F003-mevalonate.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F003-mevalonate.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F003-mevalonate-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F003-mevalonate.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;

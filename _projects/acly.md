@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F006-acly.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F006-acly.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F006-acly-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F006-acly.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-acly.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;

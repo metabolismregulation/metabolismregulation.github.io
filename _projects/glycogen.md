@@ -8,6 +8,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F004-glycogen-muscle.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F004-glycogen-muscle.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F004-glycogen-muscle.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-muscle.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
@@ -19,6 +20,7 @@ Downloads: &nbsp;
 Downloads: &nbsp; 
 <a href="/downloads/F004-glycogen-liver.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F004-glycogen-liver.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F004-glycogen-liver.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-liver" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-liver.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
