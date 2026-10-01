@@ -184,13 +184,13 @@
   // Named colours from the presets; pick one per column to build a theme.
   var MIX = [
     { role: 'compartment', title: 'Background', items: [
-      ['Warm paper', 'F7F6F3'], ['Linen', 'F9F6F2'], ['Clay', 'F6F4EF'], ['Lilac', 'F7F6F9'],
-      ['Slate', 'F3F4F6'], ['Fog', 'F3F7FA'], ['Cool', 'F3F8FA'], ['White', 'FFFFFF']] },
+      ['Warm paper', 'F7F6F3'], ['Linen', 'F9F6F2'], ['Clay', 'F6F4EF'],
+      ['Slate', 'F3F4F6'], ['Fog', 'F3F7FA']] },
     { role: 'protein', title: 'Protein', items: [
       ['Mushroom', 'DECEC1'], ['Stone', 'E3CDB5'], ['Light stone', 'DACFC3'], ['Clay', 'E1CEB6'],
       ['Sand', 'E3CDB1'], ['Linen', 'DAD0BF'], ['Paper', 'D3D1CA'], ['Grey', 'CBD2D9'],
       ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Arctic', 'B9D6E8'], ['Blue', 'C8D8EB'],
-      ['Ocean', 'BCD3F2'], ['Lavender', 'D5D3EC']] },
+      ['Ocean', 'BCD3F2']] },
     { role: 'metabolite', title: 'Chemical', items: [
       ['Oat', 'E4E1D3'], ['Pebble', 'E4E1D8'], ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
       ['Sage', 'D3E7DE'], ['Mint', 'C9EBD7'], ['Seafoam', 'C5ECDD'], ['Ice', 'C9E9E4'],
