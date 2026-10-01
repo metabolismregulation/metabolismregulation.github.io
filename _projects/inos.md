@@ -7,7 +7,7 @@ project: true
 
 Downloads: &nbsp; 
 <a href="/downloads/F007-inos.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F007-inos-SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F007-inos.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/F007-10.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F007-inos.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;

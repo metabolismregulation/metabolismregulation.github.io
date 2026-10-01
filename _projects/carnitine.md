@@ -7,7 +7,7 @@ project: true
 
 Downloads: &nbsp; 
 <a href="/downloads/F014-carnitine.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F014-carnitine-SBGNv02.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F014-carnitine.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/model_F014-1.xml" download>CellDesigner</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
