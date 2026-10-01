@@ -20,6 +20,13 @@ permalink: /colours/
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
   #c2-presets { display: flex; flex-direction: column; gap: 4px; }
+  #c2-mixer { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .c2-mixtitle { font-size: 12px; color: #666; margin-bottom: 2px; }
+  .c2-dot { display: flex; align-items: center; gap: 5px; width: 100%; font-size: 12px; padding: 2px 3px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
+  .c2-dot i { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #0003; }
+  .c2-dot:hover { border-color: #bbb; }
+  .c2-dot.c2-on { border-color: #333; font-weight: bold; }
+  .c2-dot.c2-close { opacity: 0.35; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 13px; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }
@@ -42,6 +49,13 @@ permalink: /colours/
 <div class="c2-wide">
 <div class="c2-grid">
 <div class="c2-panel">
+
+<section>
+<h3>Mixer</h3>
+<div id="c2-mixer"></div>
+<p class="c2-small" id="c2-mixname" style="margin:6px 0 0"></p>
+<p class="c2-small" style="margin:2px 0 0">Pick one colour per column. Faded chemicals are too close to the chosen protein, in normal or red-green colour-blind vision.</p>
+</section>
 
 <section>
 <h3>Presets</h3>

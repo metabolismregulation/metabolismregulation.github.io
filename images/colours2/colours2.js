@@ -180,6 +180,72 @@
     ctx.putImageData(out, 0, 0);
   }
 
+  // ---------- mixer ----------
+  // Named colours from the presets; pick one per column to build a theme.
+  var MIX = [
+    { role: 'compartment', title: 'Background', items: [
+      ['Warm paper', 'F7F6F3'], ['Linen', 'F9F6F2'], ['Clay', 'F6F4EF'], ['Lilac', 'F7F6F9'],
+      ['Slate', 'F3F4F6'], ['Fog', 'F3F7FA'], ['Cool', 'F3F8FA'], ['White', 'FFFFFF']] },
+    { role: 'protein', title: 'Protein', items: [
+      ['Mushroom', 'DECEC1'], ['Stone', 'E3CDB5'], ['Light stone', 'DACFC3'], ['Clay', 'E1CEB6'],
+      ['Sand', 'E3CDB1'], ['Linen', 'DAD0BF'], ['Paper', 'D3D1CA'], ['Grey', 'CBD2D9'],
+      ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Arctic', 'B9D6E8'], ['Blue', 'C8D8EB'],
+      ['Ocean', 'BCD3F2'], ['Lavender', 'D5D3EC']] },
+    { role: 'metabolite', title: 'Chemical', items: [
+      ['Oat', 'E4E1D3'], ['Pebble', 'E4E1D8'], ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
+      ['Sage', 'D3E7DE'], ['Mint', 'C9EBD7'], ['Seafoam', 'C5ECDD'], ['Ice', 'C9E9E4'],
+      ['Aqua', 'C0EBEA'], ['Teal', 'BCECEB'], ['Mist', 'CDE6F0'], ['Sky', 'C5E7FB'],
+      ['Ink blue', 'CCE4FE'], ['Cornflower', 'D1E2FE']] }
+  ];
+  var CLOSE = 4.5; // OKLab distance x100 below which protein and chemical are hard to tell apart
+
+  function oklabDist(a, b, mode) {
+    var x = rgbToOklab(simulate(hexToRgb(a), mode)), y = rgbToOklab(simulate(hexToRgb(b), mode));
+    return 100 * Math.sqrt(dist(x, y));
+  }
+  function pairDistance(a, b) {
+    return Math.min(oklabDist(a, b, 'none'), oklabDist(a, b, 'deuteranopia'));
+  }
+
+  function buildMixer() {
+    var box = document.getElementById('c2-mixer');
+    MIX.forEach(function (col) {
+      var c = document.createElement('div');
+      c.className = 'c2-mixcol';
+      c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
+      col.items.forEach(function (it) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'c2-dot';
+        b.setAttribute('data-role', col.role);
+        b.setAttribute('data-hex', '#' + it[1]);
+        b.title = it[0] + ' #' + it[1];
+        b.innerHTML = '<i style="background:#' + it[1] + '"></i>' + it[0];
+        b.addEventListener('click', function () { setRole(col.role, '#' + it[1]); });
+        c.appendChild(b);
+      });
+      box.appendChild(c);
+    });
+  }
+
+  function syncMixer() {
+    var names = {};
+    Array.prototype.forEach.call(document.querySelectorAll('.c2-dot'), function (b) {
+      var role = b.getAttribute('data-role'), hex = b.getAttribute('data-hex');
+      var on = theme[role] === hex;
+      b.classList.toggle('c2-on', on);
+      if (on) names[role] = b.textContent;
+      // fade chemicals that sit too close to the chosen protein
+      b.classList.toggle('c2-close', role === 'metabolite' && pairDistance(theme.protein, hex) < CLOSE);
+    });
+    var label = (names.compartment || 'custom') + ' background, ' +
+      (names.protein || 'custom') + ' and ' + (names.metabolite || 'custom');
+    var near = pairDistance(theme.protein, theme.metabolite) < CLOSE;
+    var el = document.getElementById('c2-mixname');
+    el.textContent = label + (near ? ' (protein and chemical too close)' : '');
+    el.classList.toggle('c2-low', near);
+  }
+
   // ---------- controls ----------
   var roleBox = document.getElementById('c2-roles');
 
@@ -226,6 +292,7 @@
       cr.title = 'Contrast of text on this fill (WCAG). Below 7:1 reads poorly at small sizes.';
     });
     document.getElementById('c2-export').value = exportText();
+    syncMixer();
   }
 
   function applyPreset(str) {
@@ -439,6 +506,7 @@
   }
 
   // ---------- wiring ----------
+  buildMixer();
   buildRoles();
   buildPresets();
   applyPreset(PRESETS[0][1]);
