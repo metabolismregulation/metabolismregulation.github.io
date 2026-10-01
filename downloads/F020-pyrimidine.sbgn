@@ -79,7 +79,7 @@
                <ns2:style ns2:idList="n8">
                   <ns2:g ns2:fill="#dbebdb" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
                </ns2:style>
-               <ns2:style ns2:idList="n13">
+               <ns2:style ns2:idList="n9">
                   <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
                </ns2:style>
                <ns2:style ns2:idList="arc0">
@@ -97,9 +97,6 @@
                <ns2:style ns2:idList="arc4">
                   <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
                </ns2:style>
-               <ns2:style ns2:idList="n9">
-                  <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
-               </ns2:style>
                <ns2:style ns2:idList="arc5">
                   <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
                </ns2:style>
@@ -107,6 +104,9 @@
                   <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
                </ns2:style>
                <ns2:style ns2:idList="arc7">
+                  <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
+               </ns2:style>
+               <ns2:style ns2:idList="n13">
                   <ns2:g ns2:fill="#ffffff" ns2:stroke="#000000" ns2:stroke-width="1.0"/>
                </ns2:style>
                <ns2:style ns2:idList="arc8">
@@ -166,7 +166,7 @@
          </label>
          <bbox h="40.0" w="80.0" x="335.0" y="25.457922"/>
          <glyph class="state variable" id="n0-mr0">
-            <state value="" variable="T456"/>
+            <state value="" variable=""/>
             <bbox h="15.0" w="15.0" x="367.5" y="57.957924"/>
          </glyph>
       </glyph>
@@ -208,7 +208,7 @@
          </label>
          <bbox h="40.0" w="80.0" x="335.0" y="180.0"/>
          <glyph class="state variable" id="n1-mr0">
-            <state value="P" variable="T456"/>
+            <state value="P" variable=""/>
             <bbox h="15.0" w="15.0" x="367.5" y="212.5"/>
          </glyph>
       </glyph>
@@ -557,25 +557,6 @@
          </label>
          <bbox h="40.0" w="40.0" x="419.1602" y="369.0"/>
       </glyph>
-      <glyph class="process" id="n13" orientation="vertical">
-         <extension>
-            <annotation xmlns="" xmlns:ns3="http://sbgn.org/libsbgn/0.3">
-               <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                        xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
-                        xmlns:bqmodel="http://biomodels.net/model-qualifiers/"
-                        xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:dcterms="http://purl.org/dc/terms/"
-                        xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#">
-                  <rdf:Description rdf:about="#n13">
-                     <dcterms:modified rdf:parseType="Resource"/>
-                  </rdf:Description>
-               </rdf:RDF>
-            </annotation>
-         </extension>
-         <bbox h="10.0" w="10.0" x="370.0" y="117.72896"/>
-         <port id="n13.1" x="375.0" y="112.72896"/>
-         <port id="n13.2" x="375.0" y="132.72896"/>
-      </glyph>
       <glyph class="process" id="n9" orientation="horizontal">
          <extension>
             <annotation xmlns="" xmlns:ns3="http://sbgn.org/libsbgn/0.3">
@@ -595,57 +576,76 @@
          <port id="n9.1" x="365.0" y="331.85785"/>
          <port id="n9.2" x="385.0" y="331.85785"/>
       </glyph>
-      <arc class="consumption" id="arc0" source="n12" target="n13.1">
-         <start x="415.5224" y="93.111595"/>
-         <end x="375.0" y="112.72896"/>
-      </arc>
-      <arc class="consumption" id="arc1" source="n0" target="n13.1">
-         <start x="375.0" y="65.457924"/>
-         <end x="375.0" y="112.72896"/>
-      </arc>
-      <arc class="production" id="arc2" source="n13.2" target="n11">
-         <start x="375.0" y="132.72896"/>
-         <end x="420.85785" y="155.85786"/>
-      </arc>
-      <arc class="production" id="arc3" source="n13.2" target="n1">
-         <start x="375.0" y="132.72896"/>
-         <end x="375.0" y="180.0"/>
-      </arc>
-      <arc class="catalysis" id="arc4" source="n2" target="n13">
-         <start x="290.0" y="123.0"/>
-         <end x="370.0" y="122.72896"/>
-      </arc>
-      <arc class="consumption" id="arc5" source="n3" target="n9.1">
+      <glyph class="process" id="n13" orientation="vertical">
+         <extension>
+            <annotation xmlns="" xmlns:ns3="http://sbgn.org/libsbgn/0.3">
+               <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
+                        xmlns:bqmodel="http://biomodels.net/model-qualifiers/"
+                        xmlns:dc="http://purl.org/dc/elements/1.1/"
+                        xmlns:dcterms="http://purl.org/dc/terms/"
+                        xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#">
+                  <rdf:Description rdf:about="#n13">
+                     <dcterms:modified rdf:parseType="Resource"/>
+                  </rdf:Description>
+               </rdf:RDF>
+            </annotation>
+         </extension>
+         <bbox h="10.0" w="10.0" x="370.0" y="117.72896"/>
+         <port id="n13.1" x="375.0" y="112.72896"/>
+         <port id="n13.2" x="375.0" y="132.72896"/>
+      </glyph>
+      <arc class="consumption" id="arc0" source="n3" target="n9.1">
          <start x="320.14215" y="303.14215"/>
          <end x="365.0" y="331.85785"/>
       </arc>
-      <arc class="consumption" id="arc6" source="n5" target="n9.1">
+      <arc class="consumption" id="arc1" source="n5" target="n9.1">
          <start x="320.14215" y="374.85785"/>
          <end x="365.0" y="331.85785"/>
       </arc>
-      <arc class="consumption" id="arc7" source="n4" target="n9.1">
+      <arc class="consumption" id="arc2" source="n4" target="n9.1">
          <start x="224.14214" y="331.85785"/>
          <end x="365.0" y="331.85785"/>
       </arc>
-      <arc class="production" id="arc8" source="n9.2" target="n6">
+      <arc class="production" id="arc3" source="n9.2" target="n6">
          <start x="385.0" y="331.85785"/>
          <end x="430.85785" y="303.14215"/>
       </arc>
-      <arc class="production" id="arc9" source="n9.2" target="n7">
+      <arc class="production" id="arc4" source="n9.2" target="n7">
          <start x="385.0" y="331.85785"/>
          <end x="515.5224" y="296.65366"/>
       </arc>
-      <arc class="production" id="arc10" source="n9.2" target="n8">
+      <arc class="production" id="arc5" source="n9.2" target="n8">
          <start x="385.0" y="331.85785"/>
          <end x="425.01804" y="374.85785"/>
       </arc>
-      <arc class="production" id="arc11" source="n9.2" target="n10">
+      <arc class="production" id="arc6" source="n9.2" target="n10">
          <start x="385.0" y="331.85785"/>
          <end x="525.85785" y="331.85785"/>
       </arc>
-      <arc class="catalysis" id="arc12" source="n1" target="n9">
+      <arc class="catalysis" id="arc7" source="n1" target="n9">
          <start x="375.0" y="220.0"/>
          <end x="375.0" y="326.85785"/>
+      </arc>
+      <arc class="consumption" id="arc8" source="n12" target="n13.1">
+         <start x="415.5224" y="93.111595"/>
+         <end x="375.0" y="112.72896"/>
+      </arc>
+      <arc class="consumption" id="arc9" source="n0" target="n13.1">
+         <start x="375.0" y="65.457924"/>
+         <end x="375.0" y="112.72896"/>
+      </arc>
+      <arc class="production" id="arc10" source="n13.2" target="n11">
+         <start x="375.0" y="132.72896"/>
+         <end x="420.85785" y="155.85786"/>
+      </arc>
+      <arc class="production" id="arc11" source="n13.2" target="n1">
+         <start x="375.0" y="132.72896"/>
+         <end x="375.0" y="180.0"/>
+      </arc>
+      <arc class="catalysis" id="arc12" source="n2" target="n13">
+         <start x="290.0" y="123.0"/>
+         <end x="370.0" y="122.72896"/>
       </arc>
    </map>
 </sbgn>
