@@ -44,17 +44,17 @@ permalink: /colours/
 <div class="c2-panel">
 
 <section>
-<h3>Roles</h3>
-<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label><br>Off: highlighted proteins take the protein colour.</p>
-<div id="c2-roles"></div>
-<p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
-</section>
-
-<section>
 <h3>Presets</h3>
 <div id="c2-presets"></div>
 <p class="c2-small" style="margin:6px 0 0">Drag the &#8942;&#8942; handle to reorder; the order is kept in this browser. <button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
 <p class="c2-small">Fills share fixed lightness per role and vary in hue; text on every fill stays above 10:1. The earlier colour schemes are on the <a href="/colours-backup/">backup page</a>.</p>
+</section>
+
+<section>
+<h3>Roles</h3>
+<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label><br>Off: highlighted proteins take the protein colour.</p>
+<div id="c2-roles"></div>
+<p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
 </section>
 
 <section>
