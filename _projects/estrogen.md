@@ -9,7 +9,7 @@ Downloads: &nbsp;
 <a href="/downloads/F018-estrogen.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F018-estrogen.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/model_F018-1.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F018-1" target="_blank" rel="noopener">MINERVA</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F018-estrogen.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/estrogen/"><img id="image" src="/downloads/F018-estrogen.png" width="830"/></a></p>
