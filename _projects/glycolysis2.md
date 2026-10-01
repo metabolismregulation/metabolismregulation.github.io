@@ -12,7 +12,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F001-glycolysis.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/downloads/F001-glycolysis.svg"><img id="image" src="/downloads/F001-glycolysis.png" width="580"/></a></p>
+<p align="middle"><a href="/glycolysis2/"><img id="image" src="/downloads/F001-glycolysis.png" width="580"/></a></p>
 
 ## Contributors
 
