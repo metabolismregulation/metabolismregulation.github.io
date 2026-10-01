@@ -89,7 +89,6 @@
 <celldesigner:bounds x="460.0" y="390.0" w="80.0" h="40.0"/>
 <celldesigner:font size="12"/>
 <celldesigner:view state="usual"/>
-<celldesigner:structuralState angle="5.07787957272691"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
@@ -109,7 +108,6 @@
 <celldesigner:bounds x="299.4834289550781" y="390.0" w="80.0" h="40.0"/>
 <celldesigner:font size="12"/>
 <celldesigner:view state="usual"/>
-<celldesigner:structuralState angle="5.077879572726917"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
@@ -167,7 +165,6 @@
 <celldesigner:bounds x="379.4834289550781" y="280.0" w="80.0" h="40.0"/>
 <celldesigner:font size="12"/>
 <celldesigner:view state="usual"/>
-<celldesigner:structuralState angle="5.077879572726917"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
@@ -187,7 +184,6 @@
 <celldesigner:bounds x="220.0" y="60.0" w="80.0" h="40.0"/>
 <celldesigner:font size="12"/>
 <celldesigner:view state="usual"/>
-<celldesigner:structuralState angle="5.077879572726916"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
@@ -226,7 +222,6 @@
 <celldesigner:bounds x="299.4834289550781" y="170.0" w="80.0" h="40.0"/>
 <celldesigner:font size="12"/>
 <celldesigner:view state="usual"/>
-<celldesigner:structuralState angle="5.077879572726917"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
@@ -254,6 +249,7 @@
 <celldesigner:protein id="p_s_id_glyph_n7" name="cPLA2" type="GENERIC">
 <celldesigner:listOfModificationResidues>
 <celldesigner:modificationResidue angle="4.415926998111822" id="glyph_n10_8" side="none"/>
+<celldesigner:modificationResidue angle="5.07787957272691" id="rP_p_s_id_glyph_n7" side="none"/>
 </celldesigner:listOfModificationResidues>
 </celldesigner:protein>
 <celldesigner:protein id="p_s_id_glyph_n8" name="ERK1_slash_2" type="GENERIC">
@@ -262,11 +258,20 @@
 <celldesigner:modificationResidue angle="5.076745072243429" id="glyph_n8_6" side="none"/>
 </celldesigner:listOfModificationResidues>
 </celldesigner:protein>
-<celldesigner:protein id="p_s_id_glyph_n12" name="ERK1_slash_2" type="GENERIC"/>
-<celldesigner:protein id="p_s_id_glyph_n9" name="MEK1_slash_2" type="GENERIC"/>
+<celldesigner:protein id="p_s_id_glyph_n12" name="ERK1_slash_2" type="GENERIC">
+<celldesigner:listOfModificationResidues>
+<celldesigner:modificationResidue angle="5.077879572726917" id="rP_p_s_id_glyph_n12" side="none"/>
+</celldesigner:listOfModificationResidues>
+</celldesigner:protein>
+<celldesigner:protein id="p_s_id_glyph_n9" name="MEK1_slash_2" type="GENERIC">
+<celldesigner:listOfModificationResidues>
+<celldesigner:modificationResidue angle="5.077879572726917" id="rP_p_s_id_glyph_n9" side="none"/>
+</celldesigner:listOfModificationResidues>
+</celldesigner:protein>
 <celldesigner:protein id="p_s_id_glyph_n16" name="RAF1" type="GENERIC">
 <celldesigner:listOfModificationResidues>
 <celldesigner:modificationResidue angle="5.076745072243425" id="glyph_n10_8" side="none"/>
+<celldesigner:modificationResidue angle="5.077879572726916" id="rP_p_s_id_glyph_n16" side="none"/>
 </celldesigner:listOfModificationResidues>
 </celldesigner:protein>
 </celldesigner:listOfProteins>
@@ -393,9 +398,9 @@
 <celldesigner:class>PROTEIN</celldesigner:class>
 <celldesigner:proteinReference>p_s_id_glyph_n7</celldesigner:proteinReference>
 <celldesigner:state>
-<celldesigner:listOfStructuralStates>
-<celldesigner:structuralState structuralState="P"/>
-</celldesigner:listOfStructuralStates>
+<celldesigner:listOfModifications>
+<celldesigner:modification residue="rP_p_s_id_glyph_n7" state="phosphorylated"/>
+</celldesigner:listOfModifications>
 </celldesigner:state>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
@@ -473,9 +478,9 @@
 <celldesigner:class>PROTEIN</celldesigner:class>
 <celldesigner:proteinReference>p_s_id_glyph_n12</celldesigner:proteinReference>
 <celldesigner:state>
-<celldesigner:listOfStructuralStates>
-<celldesigner:structuralState structuralState="P"/>
-</celldesigner:listOfStructuralStates>
+<celldesigner:listOfModifications>
+<celldesigner:modification residue="rP_p_s_id_glyph_n12" state="phosphorylated"/>
+</celldesigner:listOfModifications>
 </celldesigner:state>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
@@ -532,9 +537,9 @@
 <celldesigner:class>PROTEIN</celldesigner:class>
 <celldesigner:proteinReference>p_s_id_glyph_n9</celldesigner:proteinReference>
 <celldesigner:state>
-<celldesigner:listOfStructuralStates>
-<celldesigner:structuralState structuralState="P"/>
-</celldesigner:listOfStructuralStates>
+<celldesigner:listOfModifications>
+<celldesigner:modification residue="rP_p_s_id_glyph_n9" state="phosphorylated"/>
+</celldesigner:listOfModifications>
 </celldesigner:state>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
@@ -600,9 +605,9 @@
 <celldesigner:class>PROTEIN</celldesigner:class>
 <celldesigner:proteinReference>p_s_id_glyph_n16</celldesigner:proteinReference>
 <celldesigner:state>
-<celldesigner:listOfStructuralStates>
-<celldesigner:structuralState structuralState="P"/>
-</celldesigner:listOfStructuralStates>
+<celldesigner:listOfModifications>
+<celldesigner:modification residue="rP_p_s_id_glyph_n16" state="phosphorylated"/>
+</celldesigner:listOfModifications>
 </celldesigner:state>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>

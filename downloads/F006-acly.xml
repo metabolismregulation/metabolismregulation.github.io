@@ -319,7 +319,6 @@
 <celldesigner:bounds x="449.296142578125" y="243.49176025390625" w="80.0" h="40.0"/>
 <celldesigner:font size="12"/>
 <celldesigner:view state="usual"/>
-<celldesigner:structuralState angle="2.0852168989353386"/>
 <celldesigner:usualView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="40.0"/>
@@ -424,16 +423,20 @@
 </celldesigner:protein>
 <celldesigner:protein id="p_s_id_glyph_n5" name="ACLY" type="GENERIC">
 <celldesigner:listOfModificationResidues>
-<celldesigner:modificationResidue angle="4.691211193694196" id="glyph_n8_4" name="S455" side="none"/>
+<celldesigner:modificationResidue angle="4.691211193694196" id="glyph_n8_4" side="none"/>
 </celldesigner:listOfModificationResidues>
 </celldesigner:protein>
 <celldesigner:protein id="p_s_id_glyph_n4" name="ACLY" type="GENERIC">
 <celldesigner:listOfModificationResidues>
-<celldesigner:modificationResidue angle="4.71238898038469" id="glyph_n8_4" name="S455" side="none"/>
+<celldesigner:modificationResidue angle="4.71238898038469" id="glyph_n8_4" side="none"/>
 </celldesigner:listOfModificationResidues>
 </celldesigner:protein>
 <celldesigner:protein id="p_s_id_glyph_n21" name="SREBP_minus_1" type="GENERIC"/>
-<celldesigner:protein id="p_s_id_glyph_n7" name="AKT" type="GENERIC"/>
+<celldesigner:protein id="p_s_id_glyph_n7" name="AKT" type="GENERIC">
+<celldesigner:listOfModificationResidues>
+<celldesigner:modificationResidue angle="2.0852168989353386" id="rP_p_s_id_glyph_n7" side="none"/>
+</celldesigner:listOfModificationResidues>
+</celldesigner:protein>
 <celldesigner:protein id="p_s_id_glyph_n26" name="SREBP_minus_1" type="GENERIC"/>
 <celldesigner:protein id="p_s_id_glyph_n14" name="PI3K" type="GENERIC"/>
 <celldesigner:protein id="p_s_id_glyph_n23" name="PI3K" type="GENERIC"/>
@@ -879,9 +882,9 @@
 <celldesigner:class>PROTEIN</celldesigner:class>
 <celldesigner:proteinReference>p_s_id_glyph_n7</celldesigner:proteinReference>
 <celldesigner:state>
-<celldesigner:listOfStructuralStates>
-<celldesigner:structuralState structuralState="P"/>
-</celldesigner:listOfStructuralStates>
+<celldesigner:listOfModifications>
+<celldesigner:modification residue="rP_p_s_id_glyph_n7" state="phosphorylated"/>
+</celldesigner:listOfModifications>
 </celldesigner:state>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
