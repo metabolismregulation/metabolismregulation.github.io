@@ -39,10 +39,6 @@ permalink: /colours/
   .c2-panel button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; }
 </style>
 
-## Colour themes on the iNOS map
-
-The map below is the <a href="/inos/">iNOS pathway</a> export, recoloured live in the browser. Every pixel of the original PNG was split into a fill (one of the colour roles) and the black ink of lines and text, so changing a role recolours the map exactly as yEd would draw it, without touching the GraphML.
-
 <div class="c2-wide">
 <div class="c2-grid">
 <div class="c2-panel">
@@ -95,15 +91,22 @@ Clusters: <select id="c2-k"><option>6</option><option selected>8</option><option
 </div>
 <div>
 <canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png"></canvas>
-</div>
-</div>
-</div>
+<div class="c2-text" markdown="1">
+
+## Colour themes on the iNOS map
+
+The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live in the browser. Every pixel of the original PNG was split into a fill (one of the colour roles) and the black ink of lines and text, so changing a role recolours the map exactly as yEd would draw it, without touching the GraphML.
 
 ## How to build a theme
 
 1. Fix lightness first, then choose hues. Fills that carry black text work best between OKLCH lightness 0.85 and 0.92 with low chroma. Two fills at the same lightness but different hues read as categories; fills at different lightness read as importance.
 2. Keep to three hues: one for proteins, one for small molecules, one for highlights. Complexes and compartments stay near-neutral so the nesting reads from borders, not colour.
 3. Check each candidate under deuteranopia. Blue against yellow or orange survives; green against red does not.
-4. From a figure in Nature or Science, take the hues only. Journal figures are usually printed at full saturation on white, so their colours are too strong as fills behind text; the swatch picker above keeps the hue and resets lightness and chroma for each role.
+4. From a figure in Nature or Science, take the hues only. Journal figures are usually printed at full saturation on white, so their colours are too strong as fills behind text; the swatch picker keeps the hue and resets lightness and chroma for each role.
+
+</div>
+</div>
+</div>
+</div>
 
 <script src="/images/colours2/colours2.js?v={{ site.time | date: '%s' }}"></script>
