@@ -22,6 +22,10 @@ permalink: /colours/
   #c2-presets { display: flex; flex-direction: column; gap: 4px; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 13px; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
+  .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }
+  .c2-handle:hover { color: #333; }
+  .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; }
+  .c2-dragging .c2-handle { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
   .c2-chips i { width: 14px; height: 14px; border: 1px solid #0003; margin-right: -1px; }
   #c2-drop { border: 2px dashed #bbb; border-radius: 6px; padding: 10px; font-size: 13px; text-align: center; }
@@ -53,6 +57,7 @@ The map below is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 <section>
 <h3>Presets</h3>
 <div id="c2-presets"></div>
+<p class="c2-small" style="margin:6px 0 0">Drag the &#8942;&#8942; handle to reorder; the order is kept in this browser. <button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
 <p class="c2-small">Fills share fixed lightness per role and vary in hue; text on every fill stays above 10:1. The earlier colour schemes are on the <a href="/colours-backup/">backup page</a>.</p>
 </section>
 

@@ -227,17 +227,73 @@
     return ROLES.map(function (r) { return theme[r.id].slice(1); }).join(' ');
   }
 
+  // Preset order can be rearranged by dragging the handle; the order is kept
+  // in this browser only. Reset order returns to the order in PRESETS.
+  var ORDER_KEY = 'colours.presetOrder';
+  var dragging = null, dragged = false;
+
+  function loadOrder() {
+    try { return JSON.parse(localStorage.getItem(ORDER_KEY)) || []; } catch (e) { return []; }
+  }
+  function saveOrder() {
+    var names = Array.prototype.map.call(document.querySelectorAll('.c2-preset'), function (el) {
+      return el.getAttribute('data-name');
+    });
+    try { localStorage.setItem(ORDER_KEY, JSON.stringify(names)); } catch (e) { /* storage blocked */ }
+  }
+
+  document.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var box = dragging.parentNode;
+    var over = document.elementFromPoint(e.clientX, e.clientY);
+    over = over && over.closest('.c2-preset');
+    if (!over || over === dragging || over.parentNode !== box) return;
+    var r = over.getBoundingClientRect();
+    box.insertBefore(dragging, e.clientY < r.top + r.height / 2 ? over : over.nextSibling);
+    dragged = true;
+  });
+  function stopDrag() {
+    if (!dragging) return;
+    dragging.classList.remove('c2-dragging');
+    dragging = null;
+    if (dragged) {
+      saveOrder();
+      // swallow the click that follows the drag, wherever it lands
+      setTimeout(function () { dragged = false; }, 0);
+    }
+  }
+  document.addEventListener('pointerup', stopDrag);
+  document.addEventListener('pointercancel', stopDrag);
+
   function buildPresets() {
     var box = document.getElementById('c2-presets');
-    PRESETS.forEach(function (p) {
+    box.innerHTML = '';
+    var saved = loadOrder();
+    var rank = function (p) {
+      var i = saved.indexOf(p[0]);
+      return i < 0 ? saved.length + PRESETS.indexOf(p) : i;
+    };
+    PRESETS.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (p) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'c2-preset';
+      b.setAttribute('data-name', p[0]);
       var hs = p[1].split(' ');
-      b.innerHTML = '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
-        return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
-      }).join('') + '</span>' + p[0];
-      b.addEventListener('click', function () { applyPreset(p[1]); });
+      b.innerHTML = '<span class="c2-handle" title="Drag to reorder">&#8942;&#8942;</span>' +
+        '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
+          return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
+        }).join('') + '</span>' + p[0];
+      b.addEventListener('click', function () {
+        if (dragged) return;
+        applyPreset(p[1]);
+      });
+      var handle = b.querySelector('.c2-handle');
+      handle.addEventListener('pointerdown', function (e) {
+        e.preventDefault();
+        dragging = b;
+        dragged = false;
+        b.classList.add('c2-dragging');
+      });
       box.appendChild(b);
     });
   }
@@ -405,6 +461,10 @@
     }
   });
   document.getElementById('c2-auto').addEventListener('click', autoAssign);
+  document.getElementById('c2-reset-order').addEventListener('click', function () {
+    try { localStorage.removeItem(ORDER_KEY); } catch (e) { /* storage blocked */ }
+    buildPresets();
+  });
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
     if (/^([0-9a-fA-F]{6}\s+){7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
