@@ -102,7 +102,7 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 1. Fix lightness first, then choose hues. Fills that carry black text work best between OKLCH lightness 0.85 and 0.92 with low chroma. Two fills at the same lightness but different hues read as categories; fills at different lightness read as importance.
 2. Keep to three hues: one for proteins, one for small molecules, one for highlights. Complexes and compartments stay near-neutral so the nesting reads from borders, not colour.
 3. Check each candidate under deuteranopia. Blue against yellow or orange survives; green against red does not.
-4. From a figure in Nature or Science, take the hues only. Journal figures are usually printed at full saturation on white, so their colours are too strong as fills behind text; the swatch picker keeps the hue and resets lightness and chroma for each role.
+4. From a figure in Nature or Science, or a Cell SnapShot, take the hues only. Journal figures are usually printed at full saturation on white, so their colours are too strong as fills behind text; the swatch picker keeps the hue and resets lightness and chroma for each role.
 
 </div>
 </div>
