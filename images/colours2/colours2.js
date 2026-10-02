@@ -202,26 +202,42 @@
     { role: 'metabolite', title: 'Chemical', generated: true }
   ];
 
-  // Chemicals are generated from the chosen protein: five cool hues (OKLCH
-  // degrees), one lightness step above the protein, with colour strength
-  // taken from the protein.
-  var CHEM_HUES = [['Green', 145], ['Mint', 165], ['Aqua', 195], ['Mist', 220], ['Sky', 240]];
-  var CHEM_LEVELS = [{ name: '', dL: 0.03, k: 1 }];
+  // Chemicals are calculated from the chosen protein: hues 60 to 180 degrees
+  // away from it in 20-degree steps, either way round the OKLCH wheel, kept
+  // where they land in the cool band (100 to 250 degrees). Lightness is one
+  // step above the protein; colour strength follows the protein.
+  var CHEM_BAND = [100, 250];
+  var CHEM_OFFSETS = [60, 80, 100, 120, 140, 160, 180];
+  var CHEM_NAMES = [[115, 'Straw'], [135, 'Leaf'], [155, 'Green'], [175, 'Mint'], [190, 'Seafoam'],
+    [205, 'Aqua'], [225, 'Mist'], [240, 'Sky'], [251, 'Blue']];
 
-  function chemHex(protein, hi, li) {
-    var o = rgbToOklab(hexToRgb(protein));
-    var lv = CHEM_LEVELS[li];
-    var L = Math.min(o[0] + lv.dL, 0.955);
-    var c = Math.min(Math.max(Math.hypot(o[1], o[2]), 0.025), 0.045) * lv.k;
-    var h = CHEM_HUES[hi][1] * Math.PI / 180;
-    var lab = [L, c * Math.cos(h), c * Math.sin(h)];
+  function lchOf(hex) {
+    var o = rgbToOklab(hexToRgb(hex));
+    return { L: o[0], C: Math.hypot(o[1], o[2]), h: (Math.atan2(o[2], o[1]) * 180 / Math.PI + 360) % 360 };
+  }
+  function lchHex(L, C, hDeg) {
+    var h = hDeg * Math.PI / 180, c = C, lab = [L, c * Math.cos(h), c * Math.sin(h)];
     while (!inGamut(lab) && c > 0) {
       c -= 0.002;
       lab = [L, c * Math.cos(h), c * Math.sin(h)];
     }
     return rgbToHex(oklabToRgb(lab));
   }
-  var chemSlot = null; // [hue, level] of the chosen chemical, kept when the protein changes
+  function chemOptions(protein) {
+    var p = lchOf(protein), seen = {}, out = [];
+    var L = Math.min(p.L + 0.03, 0.955), C = Math.min(Math.max(p.C, 0.025), 0.045);
+    CHEM_OFFSETS.forEach(function (d) {
+      [d, -d].forEach(function (off) {
+        var h = Math.round((p.h + off + 360) % 360);
+        if (h < CHEM_BAND[0] || h > CHEM_BAND[1] || seen[h]) return;
+        seen[h] = true;
+        var name = CHEM_NAMES.filter(function (n) { return h <= n[0]; })[0][1];
+        out.push({ off: off, h: h, name: name + ' ' + (off > 0 ? '+' : '\u2212') + Math.abs(off) + '\u00B0', hex: lchHex(L, C, h) });
+      });
+    });
+    return out.sort(function (a, b) { return a.h - b.h; });
+  }
+  var chemSlot = null; // offset of the chosen chemical; null when it is not from the list
   var CLOSE = 4.5; // OKLab distance x100 below which protein and chemical are hard to tell apart
 
   function oklabDist(a, b, mode) {
@@ -239,19 +255,7 @@
       c.className = 'c2-mixcol';
       c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
       if (col.generated) {
-        CHEM_HUES.forEach(function (hue, hi) {
-          var b = document.createElement('button');
-          b.type = 'button';
-          b.className = 'c2-dot c2-sw';
-          b.setAttribute('data-hi', hi);
-          b.setAttribute('data-li', 0);
-          b.innerHTML = '<i></i>' + hue[0];
-          b.addEventListener('click', function () {
-            chemSlot = [hi, 0];
-            setRole('metabolite', chemHex(theme.protein, hi, 0));
-          });
-          c.appendChild(b);
-        });
+        c.id = 'c2-chemcol';
         box.appendChild(c);
         return;
       }
@@ -265,7 +269,14 @@
         b.innerHTML = '<i style="background:#' + it[1] + '"></i>' + it[0];
         b.addEventListener('click', function () {
           // a new protein brings the chosen chemical along, recalculated for it
-          if (col.role === 'protein' && chemSlot) theme.metabolite = chemHex('#' + it[1], chemSlot[0], chemSlot[1]);
+          // a chosen chemical moves to the nearest hue offered for the new protein
+          if (col.role === 'protein' && chemSlot !== null) {
+            var h0 = lchOf(theme.metabolite).h, near = null;
+            chemOptions('#' + it[1]).forEach(function (o) {
+              if (!near || Math.abs(o.h - h0) < Math.abs(near.h - h0)) near = o;
+            });
+            if (near) theme.metabolite = near.hex;
+          }
           setRole(col.role, '#' + it[1]);
         });
         c.appendChild(b);
@@ -282,18 +293,25 @@
       b.classList.toggle('c2-on', on);
       if (on) names[role] = b.textContent;
     });
+    // rebuild the chemical column for the current protein
+    var col = document.getElementById('c2-chemcol');
+    col.innerHTML = '<div class="c2-mixtitle">Chemical</div>';
     var match = null;
-    Array.prototype.forEach.call(document.querySelectorAll('.c2-sw'), function (b) {
-      var hi = +b.getAttribute('data-hi'), li = +b.getAttribute('data-li');
-      var hex = chemHex(theme.protein, hi, li);
-      b.querySelector('i').style.background = hex;
-      b.title = CHEM_HUES[hi][0] + CHEM_LEVELS[li].name + ' ' + hex;
-      var on = theme.metabolite === hex;
-      b.classList.toggle('c2-on', on);
-      if (on) match = [hi, li];
+    chemOptions(theme.protein).forEach(function (o) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'c2-dot';
+      b.title = o.name + ' #' + o.hex.slice(1);
+      b.innerHTML = '<i style="background:' + o.hex + '"></i>' + o.name;
+      if (theme.metabolite === o.hex) { b.classList.add('c2-on'); match = o; }
+      b.addEventListener('click', function () {
+        chemSlot = o.off;
+        setRole('metabolite', o.hex);
+      });
+      col.appendChild(b);
     });
-    chemSlot = match;
-    if (match) names.metabolite = CHEM_HUES[match[0]][0] + CHEM_LEVELS[match[1]].name;
+    chemSlot = match ? match.off : null;
+    if (match) names.metabolite = match.name;
     var label = (names.compartment || 'custom') + ' background, ' +
       (names.protein || 'custom') + ' and ' + (names.metabolite || 'custom');
     var near = pairDistance(theme.protein, theme.metabolite) < CLOSE;
