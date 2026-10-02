@@ -199,12 +199,33 @@
       ['Sand', 'E3CDB1'], ['Linen', 'DAD0BF'], ['Paper', 'D3D1CA'], ['Grey', 'CBD2D9'],
       ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Blue', 'C8D8EB'],
       ['Ocean', 'BCD3F2']] },
-    { role: 'metabolite', title: 'Chemical', items: [
-      ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
-      ['Sage', 'D3E7DE'], ['Mint', 'C9EBD7'], ['Seafoam', 'C5ECDD'], ['Ice', 'C9E9E4'],
-      ['Aqua', 'C0EBEA'], ['Teal', 'BCECEB'], ['Mist', 'CDE6F0'], ['Sky', 'C5E7FB'],
-      ['Ink blue', 'CCE4FE'], ['Cornflower', 'D1E2FE']] }
+    { role: 'metabolite', title: 'Chemical', generated: true }
   ];
+
+  // Chemicals are generated from the chosen protein: five cool hues (OKLCH
+  // degrees), each at three lightness steps above the protein, with colour
+  // strength taken from the protein and eased off as they get lighter.
+  var CHEM_HUES = [['Green', 145], ['Mint', 165], ['Aqua', 195], ['Mist', 220], ['Sky', 240]];
+  var CHEM_LEVELS = [
+    { name: '', dL: 0.03, k: 1 },
+    { name: ' light', dL: 0.05, k: 0.9 },
+    { name: ' pale', dL: 0.08, k: 0.75 }
+  ];
+
+  function chemHex(protein, hi, li) {
+    var o = rgbToOklab(hexToRgb(protein));
+    var lv = CHEM_LEVELS[li];
+    var L = Math.min(o[0] + lv.dL, 0.955);
+    var c = Math.min(Math.max(Math.hypot(o[1], o[2]), 0.025), 0.045) * lv.k;
+    var h = CHEM_HUES[hi][1] * Math.PI / 180;
+    var lab = [L, c * Math.cos(h), c * Math.sin(h)];
+    while (!inGamut(lab) && c > 0) {
+      c -= 0.002;
+      lab = [L, c * Math.cos(h), c * Math.sin(h)];
+    }
+    return rgbToHex(oklabToRgb(lab));
+  }
+  var chemSlot = null; // [hue, level] of the chosen chemical, kept when the protein changes
   var CLOSE = 4.5; // OKLab distance x100 below which protein and chemical are hard to tell apart
 
   function oklabDist(a, b, mode) {
@@ -221,6 +242,28 @@
       var c = document.createElement('div');
       c.className = 'c2-mixcol';
       c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
+      if (col.generated) {
+        CHEM_HUES.forEach(function (hue, hi) {
+          var row = document.createElement('div');
+          row.className = 'c2-chemrow';
+          row.innerHTML = '<span>' + hue[0] + '</span>';
+          CHEM_LEVELS.forEach(function (lv, li) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'c2-sw';
+            b.setAttribute('data-hi', hi);
+            b.setAttribute('data-li', li);
+            b.addEventListener('click', function () {
+              chemSlot = [hi, li];
+              setRole('metabolite', chemHex(theme.protein, hi, li));
+            });
+            row.appendChild(b);
+          });
+          c.appendChild(row);
+        });
+        box.appendChild(c);
+        return;
+      }
       col.items.forEach(function (it) {
         var b = document.createElement('button');
         b.type = 'button';
@@ -229,7 +272,11 @@
         b.setAttribute('data-hex', '#' + it[1]);
         b.title = it[0] + ' #' + it[1];
         b.innerHTML = '<i style="background:#' + it[1] + '"></i>' + it[0];
-        b.addEventListener('click', function () { setRole(col.role, '#' + it[1]); });
+        b.addEventListener('click', function () {
+          // a new protein brings the chosen chemical along, recalculated for it
+          if (col.role === 'protein' && chemSlot) theme.metabolite = chemHex('#' + it[1], chemSlot[0], chemSlot[1]);
+          setRole(col.role, '#' + it[1]);
+        });
         c.appendChild(b);
       });
       box.appendChild(c);
@@ -244,6 +291,18 @@
       b.classList.toggle('c2-on', on);
       if (on) names[role] = b.textContent;
     });
+    var match = null;
+    Array.prototype.forEach.call(document.querySelectorAll('.c2-sw'), function (b) {
+      var hi = +b.getAttribute('data-hi'), li = +b.getAttribute('data-li');
+      var hex = chemHex(theme.protein, hi, li);
+      b.style.background = hex;
+      b.title = CHEM_HUES[hi][0] + CHEM_LEVELS[li].name + ' ' + hex;
+      var on = theme.metabolite === hex;
+      b.classList.toggle('c2-on', on);
+      if (on) match = [hi, li];
+    });
+    chemSlot = match;
+    if (match) names.metabolite = CHEM_HUES[match[0]][0] + CHEM_LEVELS[match[1]].name;
     var label = (names.compartment || 'custom') + ' background, ' +
       (names.protein || 'custom') + ' and ' + (names.metabolite || 'custom');
     var near = pairDistance(theme.protein, theme.metabolite) < CLOSE;
