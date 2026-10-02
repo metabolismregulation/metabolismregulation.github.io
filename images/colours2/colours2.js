@@ -180,7 +180,7 @@
     { role: 'protein', title: 'Protein', items: [
       ['Mushroom', 'DECEC1'], ['Stone', 'E3CDB5'], ['Light stone', 'DACFC3'], ['Clay', 'E1CEB6'],
       ['Sand', 'E3CDB1'], ['Linen', 'DAD0BF'], ['Paper', 'D3D1CA'], ['Grey', 'CBD2D9'],
-      ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Arctic', 'B9D6E8'], ['Blue', 'C8D8EB'],
+      ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Blue', 'C8D8EB'],
       ['Ocean', 'BCD3F2']] },
     { role: 'metabolite', title: 'Chemical', items: [
       ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
