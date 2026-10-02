@@ -202,11 +202,11 @@
     { role: 'metabolite', title: 'Chemical', generated: true }
   ];
 
-  // Chemicals are calculated from the chosen protein: twelve hues evenly
-  // round the OKLCH wheel from the protein's own hue (0, +30, +60 ... +180,
-  // -150 ... -30 degrees), one lightness step above the protein, with colour
-  // strength taken from the protein. Same twelve offsets for every protein.
-  var CHEM_OFFSETS = [0, 30, 60, 90, 120, 150, 180, -150, -120, -90, -60, -30];
+  // Chemicals are calculated from the chosen protein: eleven hues on the
+  // OKLCH wheel from +80 through 180 to -80 degrees from the protein's hue in
+  // 20-degree steps (hues within 60 degrees of the protein are left out), one
+  // lightness step above the protein, colour strength taken from the protein.
+  var CHEM_OFFSETS = [80, 100, 120, 140, 160, 180, -160, -140, -120, -100, -80];
   var CHEM_NAMES = [[20, 'Rose'], [50, 'Peach'], [80, 'Sand'], [110, 'Straw'], [135, 'Leaf'], [155, 'Green'],
     [175, 'Mint'], [195, 'Teal'], [210, 'Aqua'], [228, 'Mist'], [245, 'Sky'], [265, 'Blue'], [290, 'Iris'],
     [320, 'Lilac'], [345, 'Pink'], [360, 'Rose']];
