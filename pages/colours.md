@@ -14,7 +14,7 @@ permalink: /colours/
   @media (max-width: 900px) { .c2-grid { grid-template-columns: 1fr; grid-template-areas: "left" "map" "right"; } }
   .c2-panel h3 { margin: 0 0 8px; font-size: 15px; }
   .c2-panel section { margin-bottom: 18px; }
-  #c2-map { width: 100%; height: auto; display: block; border: 1px solid #ddd; }
+  #c2-map { width: 100%; height: auto; display: block; }
   .c2-role { display: grid; grid-template-columns: 30px 1fr auto auto; gap: 6px; align-items: center; font-size: 13px; padding: 2px 4px; border-radius: 4px; }
   .c2-role input[type=color] { width: 28px; height: 22px; padding: 0; border: 1px solid #bbb; background: none; cursor: pointer; }
   .c2-role code { font-size: 11px; color: #555; }
@@ -92,7 +92,7 @@ Clusters: <select id="c2-k"><option>6</option><option selected>8</option><option
   <option value="tritanopia">tritanopia</option>
 </select></p>
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
-<p class="c2-small" style="margin:2px 0">Order: compartment, complex, protein, chemical, highlighted protein, white elements, page, ink. Paste a theme here and press Apply.</p>
+<p class="c2-small" style="margin:2px 0">Order: compartment, complex, protein, chemical, highlighted protein, white elements, ink. Paste a theme here and press Apply.</p>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
 <button type="button" class="c2-act" id="c2-download">Download PNG</button>
 </section>

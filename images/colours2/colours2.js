@@ -12,28 +12,27 @@
     { id: 'metabolite', name: 'Simple chemical', cls: 4, L: 0.91, C: 0.05 },
     { id: 'hlProtein', name: 'Highlighted protein', cls: 6, L: 0.80, C: 0.08, hl: true },
     { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1, L: 1, C: 0 },
-    { id: 'page', name: 'Page background', cls: 7, L: 1, C: 0 },
     { id: 'ink', name: 'Lines and text', cls: -1, L: 0.2, C: 0.01 }
   ];
 
-  // Themes: compartment, complex, protein, metabolite, hlProtein, white, page, ink
+  // Themes: compartment, complex, protein, metabolite, hlProtein, white, ink
   var PRESETS = [
-    ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Mushroom and green', 'F7F6F3 FFFFFF DECEC1 DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Stone and moss', 'F9F6F2 FFFFFF E3CDB5 CFEACF E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Stone and mist', 'F9F6F2 FFFFFF E3CDB5 CDE6F0 E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Stone and cornflower', 'F9F6F2 FFFFFF DACFC3 D1E2FE E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Clay and sage', 'F6F4EF FFFFFF E1CEB6 D3E7DE E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Sand and aqua', 'F9F6F2 FFFFFF E3CDB1 C0EBEA E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Sand and cornflower', 'F9F6F2 FFFFFF E3CDB1 D1E2FE E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Linen and green', 'F9F6F2 FFFFFF DAD0BF DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Linen and mist', 'F9F6F2 FFFFFF DAD0BF CDE6F0 E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Driftwood and light pebble', 'F7F6F3 FFFFFF CDC2B1 E9E6DD E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Paper and ink blue', 'F9F6F2 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Fog and green', 'F3F7FA FFFFFF CAD2DB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Arctic and green', 'F3F4F6 FFFFFF B9D6E8 DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Blue and moss', 'F7F6F3 FFFFFF C8D8EB CFEACF E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Ocean', 'F3F8FA FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF FFFFFF 000000']
+    ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
+    ['Mushroom and green', 'F7F6F3 FFFFFF DECEC1 DBEBDB E2ACA3 FFFFFF 000000'],
+    ['Stone and moss', 'F9F6F2 FFFFFF E3CDB5 CFEACF E2ACA3 FFFFFF 000000'],
+    ['Stone and mist', 'F9F6F2 FFFFFF E3CDB5 CDE6F0 E2ACA3 FFFFFF 000000'],
+    ['Stone and cornflower', 'F9F6F2 FFFFFF DACFC3 D1E2FE E2ACA3 FFFFFF 000000'],
+    ['Clay and sage', 'F6F4EF FFFFFF E1CEB6 D3E7DE E2ACA3 FFFFFF 000000'],
+    ['Sand and aqua', 'F9F6F2 FFFFFF E3CDB1 C0EBEA E2ACA3 FFFFFF 000000'],
+    ['Sand and cornflower', 'F9F6F2 FFFFFF E3CDB1 D1E2FE E2ACA3 FFFFFF 000000'],
+    ['Linen and green', 'F9F6F2 FFFFFF DAD0BF DBEBDB E2ACA3 FFFFFF 000000'],
+    ['Linen and mist', 'F9F6F2 FFFFFF DAD0BF CDE6F0 E2ACA3 FFFFFF 000000'],
+    ['Driftwood and light pebble', 'F7F6F3 FFFFFF CDC2B1 E9E6DD E2ACA3 FFFFFF 000000'],
+    ['Paper and ink blue', 'F9F6F2 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF 000000'],
+    ['Fog and green', 'F3F7FA FFFFFF CAD2DB DBEBDB E2ACA3 FFFFFF 000000'],
+    ['Arctic and green', 'F3F4F6 FFFFFF B9D6E8 DBEBDB E2ACA3 FFFFFF 000000'],
+    ['Blue and moss', 'F7F6F3 FFFFFF C8D8EB CFEACF E2ACA3 FFFFFF 000000'],
+    ['Ocean', 'F3F8FA FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
@@ -133,14 +132,31 @@
       var tctx = tmp.getContext('2d');
       tctx.drawImage(img, 0, 0);
       var d = tctx.getImageData(0, 0, w, h).data;
-      var n = w * h, cls = new Uint8Array(n), t = new Uint8Array(n);
-      for (var i = 0; i < n; i++) {
-        cls[i] = Math.round(d[i * 4] / 32);
-        t[i] = d[i * 4 + 1];
+      // Crop the white page margin (class 7) so only the map is shown
+      var x0 = w, y0 = h, x1 = -1, y1 = -1, x, y, k;
+      for (y = 0; y < h; y++) {
+        for (x = 0; x < w; x++) {
+          k = (y * w + x) * 4;
+          // pure margin: page class with no ink in it
+          if (Math.round(d[k] / 32) === 7 && d[k + 1] > 250) continue;
+          if (x < x0) x0 = x;
+          if (x > x1) x1 = x;
+          if (y < y0) y0 = y;
+          if (y > y1) y1 = y;
+        }
       }
-      layers = { w: w, h: h, cls: cls, t: t };
-      canvas.width = w; canvas.height = h;
-      out = ctx.createImageData(w, h);
+      var cw = x1 - x0 + 1, ch = y1 - y0 + 1;
+      var cls = new Uint8Array(cw * ch), t = new Uint8Array(cw * ch);
+      for (y = 0; y < ch; y++) {
+        for (x = 0; x < cw; x++) {
+          k = ((y + y0) * w + x + x0) * 4;
+          cls[y * cw + x] = Math.round(d[k] / 32);
+          t[y * cw + x] = d[k + 1];
+        }
+      }
+      layers = { w: cw, h: ch, cls: cls, t: t };
+      canvas.width = cw; canvas.height = ch;
+      out = ctx.createImageData(cw, ch);
       done();
     };
     img.src = src;
@@ -160,7 +176,14 @@
     var ink = simulate(hexToRgb(theme.ink), mode);
     var d = out.data, cls = layers.cls, t = layers.t, n = layers.w * layers.h;
     for (var i = 0, j = 0; i < n; i++, j += 4) {
-      var f = fills[cls[i]], a = t[i] / 255, b = 1 - a;
+      var a = t[i] / 255, b = 1 - a;
+      if (cls[i] === 7) {
+        // margin left at the rounded outer corners: transparent, keeping the ink edge
+        d[j] = ink[0]; d[j + 1] = ink[1]; d[j + 2] = ink[2];
+        d[j + 3] = 255 * b;
+        continue;
+      }
+      var f = fills[cls[i]];
       d[j] = f[0] * a + ink[0] * b;
       d[j + 1] = f[1] * a + ink[1] * b;
       d[j + 2] = f[2] * a + ink[2] * b;
@@ -272,7 +295,7 @@
       document.getElementById('c2-in-' + r.id).value = theme[r.id].toLowerCase();
       document.getElementById('c2-hex-' + r.id).textContent = theme[r.id];
       var cr = document.getElementById('c2-cr-' + r.id);
-      if (r.id === 'ink' || r.id === 'page') { cr.textContent = ''; return; }
+      if (r.id === 'ink') { cr.textContent = ''; return; }
       var v = contrast(theme[r.id], theme.ink);
       cr.textContent = v.toFixed(1) + ':1';
       cr.className = 'c2-cr' + (v < 7 ? ' c2-low' : '');
@@ -534,7 +557,7 @@
   });
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
-    if (/^([0-9a-fA-F]{6}\s+){7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
+    if (/^([0-9a-fA-F]{6}\s+){6}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
   });
   document.getElementById('c2-download').addEventListener('click', function () {
     canvas.toBlob(function (blob) {
