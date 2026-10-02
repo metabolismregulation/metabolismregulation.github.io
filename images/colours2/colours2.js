@@ -27,8 +27,7 @@
     ['Stone and mist', 'F7F6F3 FFFFFF E3CDB5 CDE6F0 E2ACA3 FFFFFF 000000'],
     ['Default, shaded', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
     ['Ocean and green', 'F3F4F6 FFFFFF BCD3F2 DBEBDB E2ACA3 FFFFFF 000000'],
-    ['Powder and mint', 'F2F2F2 FFFFFF B3CDE3 CCEBC5 E2ACA3 FFFFFF 000000'],
-    ['Okabe-Ito sky and green', 'F8F8F6 FFFFFF ACD8F4 C0E9D6 E2ACA3 FFFFFF 000000']
+    ['Powder and mint', 'F2F2F2 FFFFFF B3CDE3 CCEBC5 E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
