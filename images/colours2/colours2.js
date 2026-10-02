@@ -472,41 +472,43 @@
     document.getElementById('c2-auto').disabled = sw.length === 0;
   }
 
-  // Auto-assign: the three most chromatic, well separated hues go to protein,
-  // simple chemical and highlight (the reddest of the three); the most common
-  // near-neutral colour tints the compartment.
+  // Auto-assign: the protein takes the most colourful prominent swatch. The
+  // chemical is then chosen among all other swatches, each tried at a few
+  // lightness steps after softening, keeping the one that stays furthest from
+  // the protein in normal and deuteranopia vision without fading into the
+  // compartment. The highlight colour is left as it is.
   function autoAssign() {
     var sw = lastSwatches.slice();
     if (!sw.length) return;
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
-    var hue = function (s) { return Math.atan2(s.lab[2], s.lab[1]); };
-    var picks = [];
-    sw.filter(function (s) { return chroma(s) > 0.02; })
-      .sort(function (a, b) { return chroma(b) * Math.sqrt(b.share) - chroma(a) * Math.sqrt(a.share); })
-      .forEach(function (s) {
-        if (picks.length >= 3) return;
-        var far = picks.every(function (p) {
-          var dh = Math.abs(hue(p) - hue(s));
-          return Math.min(dh, 2 * Math.PI - dh) > 0.6;
-        });
-        if (far) picks.push(s);
-      });
-    while (picks.length < 3) picks.push(sw[picks.length % sw.length]);
-    // red-orange hue sits around 0.5 rad in OKLab
-    var redIdx = 0, redD = Infinity;
-    picks.forEach(function (p, i) {
-      var dh = Math.abs(hue(p) - 0.5);
-      dh = Math.min(dh, 2 * Math.PI - dh);
-      if (dh < redD) { redD = dh; redIdx = i; }
-    });
-    var hl = picks.splice(redIdx, 1)[0];
     var role = function (id) { return ROLES.filter(function (r) { return r.id === id; })[0]; };
-    theme.protein = pastelise(picks[0].hex, role('protein'));
-    theme.metabolite = pastelise(picks[1].hex, role('metabolite'));
-    theme.hlProtein = pastelise(hl.hex, role('hlProtein'));
-    theme.complex = '#FFFFFF';
+
     var neutral = sw.filter(function (s) { return chroma(s) < 0.04; })[0] || sw[0];
-    theme.compartment = pastelise(neutral.hex, role('compartment'));
+    var compartment = pastelise(neutral.hex, role('compartment'));
+
+    var ranked = sw.slice().sort(function (a, b) {
+      return chroma(b) * Math.sqrt(b.share) - chroma(a) * Math.sqrt(a.share);
+    });
+    var proteinSw = ranked[0];
+    var protein = pastelise(proteinSw.hex, role('protein'));
+
+    var chemRole = role('metabolite');
+    var best = null;
+    sw.forEach(function (s) {
+      if (s === proteinSw) return;
+      [0.90, 0.92, 0.94].forEach(function (L) {
+        var hex = pastelise(s.hex, { L: L, C: chemRole.C });
+        if (pairDistance(hex, compartment) < 4) return;
+        // separation first; a small bonus for colours that matter in the image
+        var score = pairDistance(protein, hex) + 2 * Math.sqrt(s.share);
+        if (!best || score > best.score) best = { score: score, hex: hex };
+      });
+    });
+
+    theme.compartment = compartment;
+    theme.complex = '#FFFFFF';
+    theme.protein = protein;
+    if (best) theme.metabolite = best.hex;
     syncControls();
     render();
   }
