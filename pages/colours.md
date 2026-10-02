@@ -26,7 +26,6 @@ permalink: /colours/
   .c2-dot i { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #0003; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
-  .c2-dot.c2-close { opacity: 0.35; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 13px; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }
@@ -54,7 +53,6 @@ permalink: /colours/
 <h3>Mixer</h3>
 <div id="c2-mixer"></div>
 <p class="c2-small" id="c2-mixname" style="margin:6px 0 0"></p>
-<p class="c2-small" style="margin:2px 0 0">Pick one colour per column. Faded chemicals are too close to the chosen protein, in normal or red-green colour-blind vision, or are warm while the protein is cool.</p>
 </section>
 
 <section>

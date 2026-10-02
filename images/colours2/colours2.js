@@ -29,7 +29,6 @@
     ['Sand and aqua', 'F9F6F2 FFFFFF E3CDB1 C0EBEA E2ACA3 FFFFFF FFFFFF 000000'],
     ['Sand and cornflower', 'F9F6F2 FFFFFF E3CDB1 D1E2FE E2ACA3 FFFFFF FFFFFF 000000'],
     ['Linen and green', 'F9F6F2 FFFFFF DAD0BF DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Linen and sage', 'F9F6F2 FFFFFF DAD0BF D3E7DE E2ACA3 FFFFFF FFFFFF 000000'],
     ['Linen and mist', 'F9F6F2 FFFFFF DAD0BF CDE6F0 E2ACA3 FFFFFF FFFFFF 000000'],
     ['Paper and ink blue', 'F9F6F2 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF FFFFFF 000000'],
     ['Fog and green', 'F3F7FA FFFFFF CAD2DB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
@@ -198,16 +197,6 @@
     return Math.min(oklabDist(a, b, 'none'), oklabDist(a, b, 'deuteranopia'));
   }
 
-  // Rule: a cool protein needs a cool chemical. With a warm chemical the red
-  // highlight would sit closer to the chemicals than to the proteins.
-  function hueOf(hex) {
-    var o = rgbToOklab(hexToRgb(hex));
-    return { C: Math.hypot(o[1], o[2]), h: (Math.atan2(o[2], o[1]) * 180 / Math.PI + 360) % 360 };
-  }
-  function isCool(hex) { var x = hueOf(hex); return x.C >= 0.01 && x.h >= 130 && x.h <= 300; }
-  function isWarm(hex) { var x = hueOf(hex); return x.C >= 0.01 && (x.h < 130 || x.h > 300); }
-  function warmOnCool(protein, chem) { return isCool(protein) && isWarm(chem); }
-
   function buildMixer() {
     var box = document.getElementById('c2-mixer');
     MIX.forEach(function (col) {
@@ -236,9 +225,6 @@
       var on = theme[role] === hex;
       b.classList.toggle('c2-on', on);
       if (on) names[role] = b.textContent;
-      // fade chemicals that sit too close to the chosen protein
-      b.classList.toggle('c2-close', role === 'metabolite' &&
-        (pairDistance(theme.protein, hex) < CLOSE || warmOnCool(theme.protein, hex)));
     });
     var label = (names.compartment || 'custom') + ' background, ' +
       (names.protein || 'custom') + ' and ' + (names.metabolite || 'custom');
