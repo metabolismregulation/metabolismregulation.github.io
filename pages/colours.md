@@ -30,10 +30,6 @@ permalink: /colours/
   .c2-dot i { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #0003; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
-  .c2-chemrow { display: flex; align-items: center; gap: 5px; font-size: 12px; padding: 2px 3px; }
-  .c2-chemrow span { width: 38px; }
-  .c2-sw { width: 15px; height: 15px; padding: 0; border-radius: 50%; border: 1px solid #0003; cursor: pointer; }
-  .c2-sw.c2-on { outline: 2px solid #333; outline-offset: 1px; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 13px; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }

@@ -203,14 +203,10 @@
   ];
 
   // Chemicals are generated from the chosen protein: five cool hues (OKLCH
-  // degrees), each at three lightness steps above the protein, with colour
-  // strength taken from the protein and eased off as they get lighter.
+  // degrees), one lightness step above the protein, with colour strength
+  // taken from the protein.
   var CHEM_HUES = [['Green', 145], ['Mint', 165], ['Aqua', 195], ['Mist', 220], ['Sky', 240]];
-  var CHEM_LEVELS = [
-    { name: '', dL: 0.03, k: 1 },
-    { name: ' light', dL: 0.05, k: 0.9 },
-    { name: ' pale', dL: 0.08, k: 0.75 }
-  ];
+  var CHEM_LEVELS = [{ name: '', dL: 0.03, k: 1 }];
 
   function chemHex(protein, hi, li) {
     var o = rgbToOklab(hexToRgb(protein));
@@ -244,22 +240,17 @@
       c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
       if (col.generated) {
         CHEM_HUES.forEach(function (hue, hi) {
-          var row = document.createElement('div');
-          row.className = 'c2-chemrow';
-          row.innerHTML = '<span>' + hue[0] + '</span>';
-          CHEM_LEVELS.forEach(function (lv, li) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'c2-sw';
-            b.setAttribute('data-hi', hi);
-            b.setAttribute('data-li', li);
-            b.addEventListener('click', function () {
-              chemSlot = [hi, li];
-              setRole('metabolite', chemHex(theme.protein, hi, li));
-            });
-            row.appendChild(b);
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'c2-dot c2-sw';
+          b.setAttribute('data-hi', hi);
+          b.setAttribute('data-li', 0);
+          b.innerHTML = '<i></i>' + hue[0];
+          b.addEventListener('click', function () {
+            chemSlot = [hi, 0];
+            setRole('metabolite', chemHex(theme.protein, hi, 0));
           });
-          c.appendChild(row);
+          c.appendChild(b);
         });
         box.appendChild(c);
         return;
@@ -295,7 +286,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('.c2-sw'), function (b) {
       var hi = +b.getAttribute('data-hi'), li = +b.getAttribute('data-li');
       var hex = chemHex(theme.protein, hi, li);
-      b.style.background = hex;
+      b.querySelector('i').style.background = hex;
       b.title = CHEM_HUES[hi][0] + CHEM_LEVELS[li].name + ' ' + hex;
       var on = theme.metabolite === hex;
       b.classList.toggle('c2-on', on);
