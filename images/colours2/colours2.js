@@ -265,9 +265,11 @@
         b.innerHTML = '<i style="background:#' + it[1] + '"></i>' + it[0];
         b.addEventListener('click', function () {
           // a new protein brings the chosen chemical along, recalculated for it
-          // a chosen chemical keeps its offset when the protein changes
-          if (col.role === 'protein' && chemSlot !== null) {
-            theme.metabolite = chemOptions('#' + it[1]).filter(function (o) { return o.off === chemSlot; })[0].hex;
+          // the chemical keeps its offset when the protein changes; 180 degrees
+          // when no chemical from the list was chosen yet
+          if (col.role === 'protein') {
+            var off = chemSlot !== null ? chemSlot : 180;
+            theme.metabolite = chemOptions('#' + it[1]).filter(function (o) { return o.off === off; })[0].hex;
           }
           setRole(col.role, '#' + it[1]);
         });
