@@ -6,8 +6,12 @@ permalink: /colours/
 
 <style>
   .c2-wide { width: 96vw; max-width: 1500px; position: relative; left: 50%; transform: translateX(-50%); }
-  .c2-grid { display: grid; grid-template-columns: 300px 1fr; gap: 20px; align-items: start; }
-  @media (max-width: 900px) { .c2-grid { grid-template-columns: 1fr; } }
+  .c2-grid { display: grid; grid-template-columns: 270px 1fr 270px; grid-template-areas: "left map right"; gap: 20px; align-items: start; }
+  .c2-left { grid-area: left; }
+  .c2-mapcol { grid-area: map; min-width: 0; }
+  .c2-right { grid-area: right; }
+  @media (max-width: 1150px) { .c2-grid { grid-template-columns: 270px 1fr; grid-template-areas: "left map" "right map"; } }
+  @media (max-width: 900px) { .c2-grid { grid-template-columns: 1fr; grid-template-areas: "left" "map" "right"; } }
   .c2-panel h3 { margin: 0 0 8px; font-size: 15px; }
   .c2-panel section { margin-bottom: 18px; }
   #c2-map { width: 100%; height: auto; display: block; border: 1px solid #ddd; }
@@ -47,19 +51,12 @@ permalink: /colours/
 
 <div class="c2-wide">
 <div class="c2-grid">
-<div class="c2-panel">
+<div class="c2-panel c2-left">
 
 <section>
 <h3>Mixer</h3>
 <div id="c2-mixer"></div>
 <p class="c2-small" id="c2-mixname" style="margin:6px 0 0"></p>
-</section>
-
-<section>
-<h3>Presets</h3>
-<div id="c2-presets"></div>
-<p class="c2-small" style="margin:6px 0 0">Drag the &#8942;&#8942; handle to reorder; the order is kept in this browser. <button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
-<p class="c2-small">Fills share fixed lightness per role and vary in hue; text on every fill stays above 10:1. The earlier colour schemes are on the <a href="/colours-backup/">backup page</a>.</p>
 </section>
 
 <section>
@@ -101,7 +98,7 @@ Clusters: <select id="c2-k"><option>6</option><option selected>8</option><option
 </section>
 
 </div>
-<div>
+<div class="c2-mapcol">
 <canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png"></canvas>
 <div class="c2-text" markdown="1">
 
@@ -117,6 +114,16 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 4. From a figure in Nature or Science, or a Cell SnapShot, take the hues only. Journal figures are usually printed at full saturation on white, so their colours are too strong as fills behind text; the swatch picker keeps the hue and resets lightness and chroma for each role.
 
 </div>
+</div>
+<div class="c2-panel c2-right">
+
+<section>
+<h3>Presets</h3>
+<div id="c2-presets"></div>
+<p class="c2-small" style="margin:6px 0 0">Drag the &#8942;&#8942; handle to reorder; the order is kept in this browser. <button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
+<p class="c2-small">Text on every fill stays above 10:1. The earlier colour schemes are on the <a href="/colours-backup/">backup page</a>.</p>
+</section>
+
 </div>
 </div>
 </div>
