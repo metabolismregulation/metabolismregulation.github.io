@@ -18,6 +18,7 @@
   // Themes: compartment, complex, protein, metabolite, hlProtein, white, ink
   var PRESETS = [
     ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
+    ['Glacier and pistachio', 'F8F7F5 FFFFFF C1D9E4 D9E8C4 E2ACA3 FFFFFF 000000'],
     ['Ocean', 'F3F4F6 FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF 000000'],
     ['Fog and green', 'F9F6F2 FFFFFF CAD2DB DBEBDB E2ACA3 FFFFFF 000000'],
     ['Paper and ink blue', 'F9F6F2 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF 000000'],
