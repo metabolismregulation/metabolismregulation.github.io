@@ -19,7 +19,6 @@
   // Themes: compartment, complex, protein, metabolite, hlProtein, white, page, ink
   var PRESETS = [
     ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Mushroom and teal', 'F9F6F2 FFFFFF DECEC1 BCECEB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Mushroom and green', 'F7F6F3 FFFFFF DECEC1 DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Stone and moss', 'F9F6F2 FFFFFF E3CDB5 CFEACF E2ACA3 FFFFFF FFFFFF 000000'],
     ['Stone and mist', 'F9F6F2 FFFFFF E3CDB5 CDE6F0 E2ACA3 FFFFFF FFFFFF 000000'],
