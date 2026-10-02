@@ -67,7 +67,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <br><img id="c2-thumb" hidden alt="">
 </div>
 <p class="c2-small" style="margin:6px 0 0">
-Clusters: <select id="c2-k"><option>6</option><option selected>8</option><option>10</option><option>12</option></select>
+Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option selected>12</option></select>
 &nbsp; <label><input type="checkbox" id="c2-raw"> use raw colour</label>
 </p>
 <div id="c2-swatches"></div>
