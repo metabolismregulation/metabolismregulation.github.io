@@ -183,7 +183,7 @@
       ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Arctic', 'B9D6E8'], ['Blue', 'C8D8EB'],
       ['Ocean', 'BCD3F2']] },
     { role: 'metabolite', title: 'Chemical', items: [
-      ['Light pebble', 'E9E6DD'], ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
+      ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
       ['Sage', 'D3E7DE'], ['Mint', 'C9EBD7'], ['Seafoam', 'C5ECDD'], ['Ice', 'C9E9E4'],
       ['Aqua', 'C0EBEA'], ['Teal', 'BCECEB'], ['Mist', 'CDE6F0'], ['Sky', 'C5E7FB'],
       ['Ink blue', 'CCE4FE'], ['Cornflower', 'D1E2FE']] }
