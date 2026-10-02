@@ -18,7 +18,7 @@
   // Themes: compartment, complex, protein, metabolite, hlProtein, white, ink
   var PRESETS = [
     ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
-    ['Ocean', 'F7F6F3 FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF 000000'],
+    ['Ocean', 'F3F4F6 FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF 000000'],
     ['Paper and ink blue', 'F7F6F3 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF 000000'],
     ['Mushroom and green', 'F7F6F3 FFFFFF DECEC1 DBEBDB E2ACA3 FFFFFF 000000'],
     ['Clay and sage', 'F7F6F3 FFFFFF E1CEB6 D3E7DE E2ACA3 FFFFFF 000000'],
@@ -27,7 +27,7 @@
     ['Stone and moss', 'F7F6F3 FFFFFF E3CDB5 CFEACF E2ACA3 FFFFFF 000000'],
     ['Stone and mist', 'F7F6F3 FFFFFF E3CDB5 CDE6F0 E2ACA3 FFFFFF 000000'],
     ['Default, shaded', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
-    ['Ocean and green', 'F7F6F3 FFFFFF BCD3F2 DBEBDB E2ACA3 FFFFFF 000000']
+    ['Ocean and green', 'F3F4F6 FFFFFF BCD3F2 DBEBDB E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
