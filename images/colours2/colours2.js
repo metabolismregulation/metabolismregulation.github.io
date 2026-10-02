@@ -203,11 +203,11 @@
   ];
 
   // Chemicals are calculated from the chosen protein: hues 60 to 180 degrees
-  // away from it in 20-degree steps, either way round the OKLCH wheel, kept
+  // away from it in 10-degree steps, either way round the OKLCH wheel, kept
   // where they land in the cool band (100 to 250 degrees). Lightness is one
   // step above the protein; colour strength follows the protein.
   var CHEM_BAND = [100, 250];
-  var CHEM_OFFSETS = [60, 80, 100, 120, 140, 160, 180];
+  var CHEM_OFFSETS = [60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180];
   var CHEM_NAMES = [[115, 'Straw'], [135, 'Leaf'], [155, 'Green'], [175, 'Mint'], [190, 'Seafoam'],
     [205, 'Aqua'], [225, 'Mist'], [240, 'Sky'], [251, 'Blue']];
 
