@@ -31,7 +31,13 @@
     ['Okabe-Ito sky and green', 'F8F8F6 FFFFFF ACD8F4 C0E9D6 E2ACA3 FFFFFF 000000'],
     ['Blue and straw (split-complementary)', 'F7F6F3 FFFFFF C8D8EB E6E3C5 E2ACA3 FFFFFF 000000'],
     ['Blue and leaf (triadic)', 'F7F6F3 FFFFFF C8D8EB D7E7CC E2ACA3 FFFFFF 000000'],
-    ['Blue and mint (square)', 'F7F6F3 FFFFFF C8D8EB CBEADA E2ACA3 FFFFFF 000000']
+    ['Blue and mint (square)', 'F7F6F3 FFFFFF C8D8EB CBEADA E2ACA3 FFFFFF 000000'],
+    ['Stone and straw (30°)', 'F7F6F3 FFFFFF E3CDB5 E7E2C4 E2ACA3 FFFFFF 000000'],
+    ['Stone and leaf (63°)', 'F7F6F3 FFFFFF E3CDB5 D7E7CC E2ACA3 FFFFFF 000000'],
+    ['Stone and mint (90°)', 'F7F6F3 FFFFFF E3CDB5 CCEAD8 E2ACA3 FFFFFF 000000'],
+    ['Stone and aqua (120°)', 'F7F6F3 FFFFFF E3CDB5 C4EAE7 E2ACA3 FFFFFF 000000'],
+    ['Stone and sky (150°)', 'F7F6F3 FFFFFF E3CDB5 C5E8F4 E2ACA3 FFFFFF 000000'],
+    ['Stone and blue (180°)', 'F7F6F3 FFFFFF E3CDB5 CEE4FC E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
