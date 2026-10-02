@@ -54,7 +54,7 @@ permalink: /colours/
 <h3>Mixer</h3>
 <div id="c2-mixer"></div>
 <p class="c2-small" id="c2-mixname" style="margin:6px 0 0"></p>
-<p class="c2-small" style="margin:2px 0 0">Pick one colour per column. Faded chemicals are too close to the chosen protein, in normal or red-green colour-blind vision.</p>
+<p class="c2-small" style="margin:2px 0 0">Pick one colour per column. Faded chemicals are too close to the chosen protein, in normal or red-green colour-blind vision, or are warm while the protein is cool.</p>
 </section>
 
 <section>

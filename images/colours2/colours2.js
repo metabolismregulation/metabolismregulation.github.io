@@ -32,12 +32,10 @@
     ['Linen and sky', 'F9F6F2 FFFFFF DAD0BF C5E7FB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Linen and cornflower', 'F9F6F2 FFFFFF DAD0BF D1E2FE E2ACA3 FFFFFF FFFFFF 000000'],
     ['Paper and ink blue', 'F9F6F2 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Slate', 'F3F4F6 FFFFFF CDD6E0 E4E1D3 E2ACA3 FFFFFF FFFFFF 000000'],
     ['Fog and green', 'F3F7FA FFFFFF CAD2DB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Arctic and green', 'F3F4F6 FFFFFF B9D6E8 DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Arctic', 'F3F4F6 FFFFFF B9D6E8 C9E9E4 E2ACA3 FFFFFF FFFFFF 000000'],
     ['Blue and moss', 'F7F6F3 FFFFFF C8D8EB CFEACF E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Ocean and oat', 'F3F8FA FFFFFF BCD3F2 E4E1D3 E2ACA3 FFFFFF FFFFFF 000000'],
     ['Ocean', 'F3F8FA FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF FFFFFF 000000']
   ];
 
@@ -201,6 +199,16 @@
     return Math.min(oklabDist(a, b, 'none'), oklabDist(a, b, 'deuteranopia'));
   }
 
+  // Rule: a cool protein needs a cool chemical. With a warm chemical the red
+  // highlight would sit closer to the chemicals than to the proteins.
+  function hueOf(hex) {
+    var o = rgbToOklab(hexToRgb(hex));
+    return { C: Math.hypot(o[1], o[2]), h: (Math.atan2(o[2], o[1]) * 180 / Math.PI + 360) % 360 };
+  }
+  function isCool(hex) { var x = hueOf(hex); return x.C >= 0.01 && x.h >= 130 && x.h <= 300; }
+  function isWarm(hex) { var x = hueOf(hex); return x.C >= 0.01 && (x.h < 130 || x.h > 300); }
+  function warmOnCool(protein, chem) { return isCool(protein) && isWarm(chem); }
+
   function buildMixer() {
     var box = document.getElementById('c2-mixer');
     MIX.forEach(function (col) {
@@ -230,14 +238,17 @@
       b.classList.toggle('c2-on', on);
       if (on) names[role] = b.textContent;
       // fade chemicals that sit too close to the chosen protein
-      b.classList.toggle('c2-close', role === 'metabolite' && pairDistance(theme.protein, hex) < CLOSE);
+      b.classList.toggle('c2-close', role === 'metabolite' &&
+        (pairDistance(theme.protein, hex) < CLOSE || warmOnCool(theme.protein, hex)));
     });
     var label = (names.compartment || 'custom') + ' background, ' +
       (names.protein || 'custom') + ' and ' + (names.metabolite || 'custom');
     var near = pairDistance(theme.protein, theme.metabolite) < CLOSE;
+    var warm = warmOnCool(theme.protein, theme.metabolite);
     var el = document.getElementById('c2-mixname');
-    el.textContent = label + (near ? ' (protein and chemical too close)' : '');
-    el.classList.toggle('c2-low', near);
+    el.textContent = label + (near ? ' (protein and chemical too close)' : '') +
+      (warm ? ' (cool protein with warm chemical)' : '');
+    el.classList.toggle('c2-low', near || warm);
   }
 
   // ---------- controls ----------
