@@ -190,7 +190,7 @@
   // Named colours from the presets; pick one per column to build a theme.
   var MIX = [
     { role: 'compartment', title: 'Background', items: [
-      ['Paper', 'F7F6F3'], ['Linen', 'F9F6F2'], ['Clay', 'F6F4EF'],
+      ['Paper', 'F7F6F3'], ['Shade', 'F3F0EA'], ['Linen', 'F9F6F2'], ['Clay', 'F6F4EF'],
       ['Slate', 'F3F4F6'], ['Fog', 'F3F7FA']] },
     { role: 'protein', title: 'Protein', items: [
       ['Mushroom', 'DECEC1'], ['Stone', 'E3CDB5'], ['Putty', 'DACFC3'], ['Clay', 'E1CEB6'],
