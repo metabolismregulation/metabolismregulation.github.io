@@ -28,10 +28,7 @@
     ['Default, shaded', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
     ['Ocean and green', 'F3F4F6 FFFFFF BCD3F2 DBEBDB E2ACA3 FFFFFF 000000'],
     ['Powder and mint', 'F2F2F2 FFFFFF B3CDE3 CCEBC5 E2ACA3 FFFFFF 000000'],
-    ['Okabe-Ito sky and green', 'F8F8F6 FFFFFF ACD8F4 C0E9D6 E2ACA3 FFFFFF 000000'],
-    ['Blue and straw (split-complementary)', 'F7F6F3 FFFFFF C8D8EB E6E3C5 E2ACA3 FFFFFF 000000'],
-    ['Blue and leaf (triadic)', 'F7F6F3 FFFFFF C8D8EB D7E7CC E2ACA3 FFFFFF 000000'],
-    ['Blue and mint (square)', 'F7F6F3 FFFFFF C8D8EB CBEADA E2ACA3 FFFFFF 000000']
+    ['Okabe-Ito sky and green', 'F8F8F6 FFFFFF ACD8F4 C0E9D6 E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
