@@ -243,11 +243,9 @@
     var label = (names.compartment || 'custom') + ' background, ' +
       (names.protein || 'custom') + ' and ' + (names.metabolite || 'custom');
     var near = pairDistance(theme.protein, theme.metabolite) < CLOSE;
-    var warm = warmOnCool(theme.protein, theme.metabolite);
     var el = document.getElementById('c2-mixname');
-    el.textContent = label + (near ? ' (protein and chemical too close)' : '') +
-      (warm ? ' (cool protein with warm chemical)' : '');
-    el.classList.toggle('c2-low', near || warm);
+    el.textContent = label + (near ? ' (protein and chemical too close)' : '');
+    el.classList.toggle('c2-low', near);
   }
 
   // ---------- controls ----------
