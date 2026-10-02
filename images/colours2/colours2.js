@@ -30,9 +30,7 @@
     ['Sand and cornflower', 'F9F6F2 FFFFFF E3CDB1 D1E2FE E2ACA3 FFFFFF FFFFFF 000000'],
     ['Linen and green', 'F9F6F2 FFFFFF DAD0BF DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Linen and mist', 'F9F6F2 FFFFFF DAD0BF CDE6F0 E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Taupe and pebble', 'F7F6F3 FFFFFF D4C7B5 E4E1D8 E2ACA3 FFFFFF FFFFFF 000000'],
     ['Taupe and light pebble', 'F7F6F3 FFFFFF D4C7B5 E9E6DD E2ACA3 FFFFFF FFFFFF 000000'],
-    ['Taupe and pale pebble', 'F7F6F3 FFFFFF D4C7B5 ECE9E0 E2ACA3 FFFFFF FFFFFF 000000'],
     ['Paper and ink blue', 'F9F6F2 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF FFFFFF 000000'],
     ['Fog and green', 'F3F7FA FFFFFF CAD2DB DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
     ['Arctic and green', 'F3F4F6 FFFFFF B9D6E8 DBEBDB E2ACA3 FFFFFF FFFFFF 000000'],
@@ -185,7 +183,7 @@
       ['Slate', 'CDD6E0'], ['Fog', 'CAD2DB'], ['Arctic', 'B9D6E8'], ['Blue', 'C8D8EB'],
       ['Ocean', 'BCD3F2']] },
     { role: 'metabolite', title: 'Chemical', items: [
-      ['Oat', 'E4E1D3'], ['Pebble', 'E4E1D8'], ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
+      ['Light pebble', 'E9E6DD'], ['Green', 'DBEBDB'], ['Moss', 'CFEACF'],
       ['Sage', 'D3E7DE'], ['Mint', 'C9EBD7'], ['Seafoam', 'C5ECDD'], ['Ice', 'C9E9E4'],
       ['Aqua', 'C0EBEA'], ['Teal', 'BCECEB'], ['Mist', 'CDE6F0'], ['Sky', 'C5E7FB'],
       ['Ink blue', 'CCE4FE'], ['Cornflower', 'D1E2FE']] }
