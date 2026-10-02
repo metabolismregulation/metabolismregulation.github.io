@@ -57,7 +57,6 @@ permalink: /colours/
 <h3>Presets</h3>
 <div id="c2-presets"></div>
 <p class="c2-small" style="margin:6px 0 0">Drag the &#8942;&#8942; handle to reorder; the order is kept in this browser. <button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
-<p class="c2-small">Text on every fill stays above 10:1. The earlier colour schemes are on the <a href="/colours-backup/">backup page</a>.</p>
 </section>
 
 <section>
