@@ -320,15 +320,15 @@
       var row = document.createElement('div');
       row.className = 'c2-role' + (r.hl ? ' c2-hl' : '');
       row.innerHTML =
-        '<input type="color" id="c2-in-' + r.id + '">' +
+        '<span class="c2-box" id="c2-in-' + r.id + '"></span>' +
         '<span class="c2-role-name">' + r.name + '</span>' +
         '<input type="text" class="c2-hexin" id="c2-hex-' + r.id + '" maxlength="7" spellcheck="false">' +
         '<span class="c2-cr" id="c2-cr-' + r.id + '"></span>';
       roleBox.appendChild(row);
-      var input = row.querySelector('input[type=color]');
-      input.addEventListener('input', function () { setRole(r.id, input.value); });
-      // hex field: click selects it for copying; typing or pasting a hex applies it
+      // hex field: click selects it and opens the picker (in hex); typing,
+      // pasting or picking a colour applies it
       var hexIn = row.querySelector('.c2-hexin');
+      row.querySelector('.c2-box').addEventListener('click', function () { if (!armed) { hexIn.focus(); hexIn.click(); } });
       hexIn.addEventListener('focus', function () { hexIn.select(); });
       hexIn.addEventListener('input', function () {
         var v = hexIn.value.trim().replace(/^#?/, '#');
@@ -370,7 +370,7 @@
 
   function syncControls() {
     ROLES.forEach(function (r) {
-      document.getElementById('c2-in-' + r.id).value = theme[r.id].toLowerCase();
+      document.getElementById('c2-in-' + r.id).style.background = theme[r.id];
       var hx = document.getElementById('c2-hex-' + r.id);
       if (document.activeElement !== hx) hx.value = theme[r.id];
       var cr = document.getElementById('c2-cr-' + r.id);
@@ -599,6 +599,10 @@
   // ---------- wiring ----------
   buildMixer();
   buildRoles();
+  if (window.Coloris) {
+    Coloris({ el: '.c2-hexin', wrap: false, format: 'hex', alpha: false, themeMode: 'light',
+      selectInput: true, focusInput: true, clearButton: false, closeButton: true, closeLabel: 'Done' });
+  }
   buildPresets();
   applyPreset(PRESETS[0][1]);
   loadLayers(document.getElementById('c2-map').getAttribute('data-layers'), render);

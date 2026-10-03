@@ -16,7 +16,7 @@ permalink: /colours/
   .c2-panel section { margin-bottom: 18px; }
   #c2-map { width: 100%; height: auto; display: block; }
   .c2-role { display: grid; grid-template-columns: 30px 1fr auto auto; gap: 6px; align-items: center; font-size: 13px; padding: 2px 4px; border-radius: 4px; }
-  .c2-role input[type=color] { width: 28px; height: 22px; padding: 0; border: 1px solid #bbb; background: none; cursor: pointer; }
+  .c2-box { display: block; width: 28px; height: 22px; border: 1px solid #bbb; border-radius: 3px; cursor: pointer; box-sizing: border-box; }
   .c2-hexin { width: 62px; font: 11px monospace; color: #333; border: 1px solid #ccc; border-radius: 3px; padding: 2px 3px; }
   .c2-role[draggable=true] { cursor: grab; }
   .c2-dropping { background: #e8eef6; outline: 1px dashed #666; }
@@ -129,4 +129,6 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 </div>
 </div>
 
+<link rel="stylesheet" href="/images/colours2/coloris.min.css">
+<script src="/images/colours2/coloris.min.js"></script>
 <script src="/images/colours2/colours2.js?v={{ site.time | date: '%s' }}"></script>
