@@ -27,8 +27,7 @@
     ['Blue and silver', 'F7F6F3 FFFFFF C8D8EB E8E6E2 E2ACA3 FFFFFF 000000'],
     ['Sage and pearl', 'F7F6F3 FFFFFF C7DDCA EFEDE7 E2ACA3 FFFFFF 000000'],
     ['Ocean and silver', 'F7F6F3 FFFFFF BCD3F2 E8E6E2 E2ACA3 FFFFFF 000000'],
-    ['Slate and pearl', 'F7F6F3 FFFFFF CDD6E0 EFEDE7 E2ACA3 FFFFFF 000000'],
-    ['Linen and pearl', 'F7F6F3 FFFFFF DAD0BF EFEDE7 E2ACA3 FFFFFF 000000']
+    ['Slate and pearl', 'F7F6F3 FFFFFF CDD6E0 EFEDE7 E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
