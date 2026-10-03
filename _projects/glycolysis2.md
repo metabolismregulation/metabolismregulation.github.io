@@ -1,19 +1,15 @@
 ---
 layout: post
-title: Regulation of glycolysis
+title: Regulation of glycolysis, cardiac muscle
 permalink: /glycolysis2/
 project: true
 ---
 
 Downloads: &nbsp; 
-<a href="/downloads/F001-glycolysis.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F001-glycolysis.sbgn" download>SBGN-ML</a> &nbsp;
-<a href="/downloads/F001-glycolysis-SBML.xml" download>SBML</a> &nbsp;
-<a href="/downloads/F001-glycolysis.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis" target="_blank" rel="noopener">MINERVA</a> &nbsp;
-<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
-<a href="/downloads/F001-glycolysis.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/glycolysis2/"><img id="image" src="/downloads/F001-glycolysis.png" width="580"/></a></p>
+<a href="/downloads/F001-glycolysis-cardiac.graphml" download>GraphML</a> &nbsp;
+<p align="middle"><a href="/glycolysis2/"><img id="image" src="/downloads/F001-glycolysis-cardiac.png" width="580"/></a></p>
+
+This diagram represents cardiac muscle, using specific human proteins rather than generic families. PFKFB2, PFKM and FBP2 reflect the cardiac/muscle context, with FBP2 used instead of liver-associated FBP1. ADCY5 and ADCY6 represent major cardiac adenylyl cyclases; other isoforms are relevant in other tissues, including ADCY9 in skeletal muscle. PKA has alternative catalytic (PRKACA/PRKACB) and regulatory (PRKAR1A/B, PRKAR2A/B) subunits; PRKACA and PRKAR2A are used here as a specific cardiac example.
 
 ## Contributors
 
