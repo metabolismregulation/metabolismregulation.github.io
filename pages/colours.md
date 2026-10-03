@@ -17,7 +17,9 @@ permalink: /colours/
   #c2-map { width: 100%; height: auto; display: block; }
   .c2-role { display: grid; grid-template-columns: 30px 1fr auto auto; gap: 6px; align-items: center; font-size: 13px; padding: 2px 4px; border-radius: 4px; }
   .c2-role input[type=color] { width: 28px; height: 22px; padding: 0; border: 1px solid #bbb; background: none; cursor: pointer; }
-  .c2-role code { font-size: 11px; color: #555; }
+  .c2-hexin { width: 62px; font: 11px monospace; color: #333; border: 1px solid #ccc; border-radius: 3px; padding: 2px 3px; }
+  .c2-role[draggable=true] { cursor: grab; }
+  .c2-dropping { background: #e8eef6; outline: 1px dashed #666; }
   .c2-cr { font-size: 11px; color: #777; min-width: 42px; text-align: right; }
   .c2-nohl .c2-hl { display: none; }
   .c2-low { color: #b3261e; font-weight: bold; }
@@ -120,7 +122,7 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 <h3>Roles</h3>
 <p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label><br>Off: highlighted proteins take the protein colour.</p>
 <div id="c2-roles"></div>
-<p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
+<p class="c2-small">Type or paste a hex code, or drag one row onto another to copy its colour. Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
 </section>
 
 </div>

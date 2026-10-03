@@ -322,13 +322,35 @@
       row.innerHTML =
         '<input type="color" id="c2-in-' + r.id + '">' +
         '<span class="c2-role-name">' + r.name + '</span>' +
-        '<code id="c2-hex-' + r.id + '"></code>' +
+        '<input type="text" class="c2-hexin" id="c2-hex-' + r.id + '" maxlength="7" spellcheck="false">' +
         '<span class="c2-cr" id="c2-cr-' + r.id + '"></span>';
       roleBox.appendChild(row);
-      var input = row.querySelector('input');
+      var input = row.querySelector('input[type=color]');
       input.addEventListener('input', function () { setRole(r.id, input.value); });
+      // hex field: click selects it for copying; typing or pasting a hex applies it
+      var hexIn = row.querySelector('.c2-hexin');
+      hexIn.addEventListener('focus', function () { hexIn.select(); });
+      hexIn.addEventListener('input', function () {
+        var v = hexIn.value.trim().replace(/^#?/, '#');
+        if (/^#[0-9a-fA-F]{6}$/.test(v)) setRole(r.id, v);
+      });
+      hexIn.addEventListener('blur', function () { hexIn.value = theme[r.id]; });
+      // drag a row onto another row to copy its colour there
+      row.draggable = true;
+      row.addEventListener('dragstart', function (e) {
+        e.dataTransfer.setData('text/plain', theme[r.id]);
+        e.dataTransfer.effectAllowed = 'copy';
+      });
+      row.addEventListener('dragover', function (e) { e.preventDefault(); row.classList.add('c2-dropping'); });
+      row.addEventListener('dragleave', function () { row.classList.remove('c2-dropping'); });
+      row.addEventListener('drop', function (e) {
+        e.preventDefault();
+        row.classList.remove('c2-dropping');
+        var v = e.dataTransfer.getData('text/plain').trim().replace(/^#?/, '#');
+        if (/^#[0-9a-fA-F]{6}$/.test(v)) setRole(r.id, v);
+      });
       row.addEventListener('click', function (e) {
-        if (!armed || e.target === input) return;
+        if (!armed || e.target.tagName === 'INPUT') return;
         e.preventDefault();
         var keep = document.getElementById('c2-raw').checked;
         setRole(r.id, keep ? armed : pastelise(armed, r));
@@ -349,7 +371,8 @@
   function syncControls() {
     ROLES.forEach(function (r) {
       document.getElementById('c2-in-' + r.id).value = theme[r.id].toLowerCase();
-      document.getElementById('c2-hex-' + r.id).textContent = theme[r.id];
+      var hx = document.getElementById('c2-hex-' + r.id);
+      if (document.activeElement !== hx) hx.value = theme[r.id];
       var cr = document.getElementById('c2-cr-' + r.id);
       if (r.id === 'ink') { cr.textContent = ''; return; }
       var v = contrast(theme[r.id], theme.ink);
