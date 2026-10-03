@@ -23,8 +23,7 @@
     ['Mushroom and green', 'F7F6F3 FFFFFF DECEC1 DBEBDB E2ACA3 FFFFFF 000000'],
     ['Linen and sage', 'F7F6F3 FFFFFF DAD0BF D3E7DE E2ACA3 FFFFFF 000000'],
     ['Linen and mist', 'F7F6F3 FFFFFF DAD0BF CDE6F0 E2ACA3 FFFFFF 000000'],
-    ['Ocean and green', 'F3F4F6 FFFFFF BCD3F2 DBEBDB E2ACA3 FFFFFF 000000'],
-    ['Powder and mint', 'F2F2F2 FFFFFF B3CDE3 CCEBC5 E2ACA3 FFFFFF 000000']
+    ['Ocean and green', 'F3F4F6 FFFFFF BCD3F2 DBEBDB E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
