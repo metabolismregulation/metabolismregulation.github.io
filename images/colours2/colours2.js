@@ -24,7 +24,8 @@
     ['Linen and sky', 'F7F6F3 FFFFFF DAD0BF D2E1ED E2ACA3 FFFFFF 000000'],
     ['Paper and ink blue', 'F7F6F3 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF 000000'],
     ['Ocean and silver', 'F3F4F6 FFFFFF BCD3F2 E8E6E2 E2ACA3 FFFFFF 000000'],
-    ['Sage and pearl', 'F7F6F3 FFFFFF C7DDCA EFEDE7 E2ACA3 FFFFFF 000000']
+    ['Sage and pearl', 'F7F6F3 FFFFFF C7DDCA EFEDE7 E2ACA3 FFFFFF 000000'],
+    ['Lavender and orchid (from image)', 'F7F6FB FFFFFF D5D0E9 ECDCE9 E4A9C9 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
