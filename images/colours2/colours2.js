@@ -26,7 +26,6 @@
     ['Ocean and silver', 'F3F4F6 FFFFFF BCD3F2 E8E6E2 E2ACA3 FFFFFF 000000'],
     ['Sage and pearl', 'F7F6F3 FFFFFF C7DDCA EFEDE7 E2ACA3 FFFFFF 000000'],
     ['Blue and seafoam (image)', 'F3F4F6 FFFFFF C8D5EA CCE8E3 E2ACA3 FFFFFF 000000'],
-    ['Lavender and orchid (image)', 'F7F6FB FFFFFF D5D0E9 ECDCE9 E4A9C9 FFFFFF 000000'],
     ['Dusk and lilac (image)', 'F3F4F6 FFFFFF B8BED6 E0DCE4 CFABB9 FFFFFF 000000'],
     ['Cornflower and sage (image)', 'F3F4F6 FFFFFF BBC6DD D1E5DF DDBBBD FFFFFF 000000']
   ];
