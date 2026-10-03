@@ -5,7 +5,7 @@ permalink: /colours/
 ---
 
 <style>
-  .c2-wide { width: 96vw; max-width: 1500px; position: relative; left: 50%; transform: translateX(-50%); }
+  .c2-wide { width: 96vw; max-width: 2000px; position: relative; left: 50%; transform: translateX(-50%); }
   .c2-grid { display: grid; grid-template-columns: 270px 1fr 270px; grid-template-areas: "left map right"; gap: 20px; align-items: start; }
   .c2-left { grid-area: left; }
   .c2-mapcol { grid-area: map; min-width: 0; }
