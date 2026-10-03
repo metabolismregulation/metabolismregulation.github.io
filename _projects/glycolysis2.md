@@ -9,7 +9,7 @@ Downloads: &nbsp;
 <a href="/downloads/F001-glycolysis-cardiac.graphml" download>GraphML</a> &nbsp;
 <p align="middle"><a href="/glycolysis2/"><img id="image" src="/downloads/F001-glycolysis-cardiac.png" width="580"/></a></p>
 
-This diagram represents cardiac muscle, using specific human proteins. PFKFB2, PFKM and FBP2 reflect the cardiac/muscle context, with FBP2 used instead of liver-associated FBP1. ADCY5 and ADCY6 represent major cardiac adenylyl cyclases; other isoforms are relevant in other tissues, including ADCY9 in skeletal muscle. PKA has alternative catalytic (PRKACA/PRKACB) and regulatory (PRKAR1A/B, PRKAR2A/B) subunits; PRKACA and PRKAR2A are used here as a specific cardiac example.
+This diagram represents cardiac muscle. PFKFB2, PFKM and FBP2 reflect the cardiac/muscle context, with FBP2 used, not liver-associated FBP1. ADCY5 and ADCY6 represent major cardiac adenylyl cyclases. Other isoforms are relevant in other tissues, including ADCY9 in skeletal muscle. PKA has alternative catalytic (PRKACA/PRKACB) and regulatory (PRKAR1A/B, PRKAR2A/B) subunits; PRKACA and PRKAR2A are used here as a specific cardiac example.
 
 ## Contributors
 
