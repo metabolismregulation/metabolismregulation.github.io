@@ -509,27 +509,60 @@
     return x * x + y * y + z * z;
   }
 
+  // Two modes: 'avg' shrinks the image to 160 px and shows cluster averages
+  // (good for photos); 'exact' samples at 600 px without smoothing and lists
+  // the most frequent exact colours (clean fills from diagrams).
+  var lastImage = null;
   function readImage(file) {
     var url = URL.createObjectURL(file);
     var img = new Image();
     img.onload = function () {
-      var s = Math.min(1, 160 / Math.max(img.naturalWidth, img.naturalHeight));
-      var w = Math.max(1, Math.round(img.naturalWidth * s)), h = Math.max(1, Math.round(img.naturalHeight * s));
-      var tmp = document.createElement('canvas');
-      tmp.width = w; tmp.height = h;
-      var tctx = tmp.getContext('2d');
-      tctx.drawImage(img, 0, 0, w, h);
-      var d = tctx.getImageData(0, 0, w, h).data, px = [];
-      for (var i = 0; i < d.length; i += 4) {
-        if (d[i + 3] < 128) continue;
-        px.push(rgbToOklab([d[i], d[i + 1], d[i + 2]]));
-      }
+      lastImage = img;
       var thumb = document.getElementById('c2-thumb');
       thumb.src = url;
       thumb.hidden = false;
-      showSwatches(kmeans(px, +document.getElementById('c2-k').value));
+      extractPalette();
     };
     img.src = url;
+  }
+
+  function extractPalette() {
+    var img = lastImage;
+    if (!img) return;
+    var exact = document.getElementById('c2-mode').value === 'exact';
+    var s = Math.min(1, (exact ? 600 : 160) / Math.max(img.naturalWidth, img.naturalHeight));
+    var w = Math.max(1, Math.round(img.naturalWidth * s)), h = Math.max(1, Math.round(img.naturalHeight * s));
+    var tmp = document.createElement('canvas');
+    tmp.width = w; tmp.height = h;
+    var tctx = tmp.getContext('2d');
+    tctx.imageSmoothingEnabled = !exact;
+    tctx.drawImage(img, 0, 0, w, h);
+    var d = tctx.getImageData(0, 0, w, h).data, px = [], rgb = [];
+    for (var i = 0; i < d.length; i += 4) {
+      if (d[i + 3] < 128) continue;
+      if (exact) rgb.push(d[i] << 16 | d[i + 1] << 8 | d[i + 2]);
+      else px.push(rgbToOklab([d[i], d[i + 1], d[i + 2]]));
+    }
+    var k = +document.getElementById('c2-k').value;
+    showSwatches(exact ? exactColours(rgb, k) : kmeans(px, k));
+  }
+
+  // Exact mode: count identical pixels, then keep the most frequent colours
+  // that differ visibly from those already kept. Edge and text pixels are all
+  // slightly different, so each is rare and drops out; flat fills win.
+  function exactColours(rgb, k) {
+    var count = {};
+    rgb.forEach(function (c) { count[c] = (count[c] || 0) + 1; });
+    var keys = Object.keys(count).sort(function (a, b) { return count[b] - count[a]; });
+    var out = [];
+    for (var i = 0; i < keys.length && out.length < k; i++) {
+      var share = count[keys[i]] / rgb.length;
+      if (share < 0.002) break;
+      var c = +keys[i], m = [c >> 16 & 255, c >> 8 & 255, c & 255], lab = rgbToOklab(m);
+      var distinct = out.every(function (o) { return 100 * Math.sqrt(dist(o.lab, lab)) > 2; });
+      if (distinct) out.push({ lab: lab, hex: rgbToHex(m), share: share });
+    }
+    return out;
   }
 
   var lastSwatches = [];
@@ -543,7 +576,7 @@
       b.className = 'c2-swatch';
       b.style.background = s.hex;
       b.style.color = s.lab[0] > 0.6 ? '#000' : '#fff';
-      b.textContent = s.hex + ' · ' + Math.round(s.share * 100) + '%';
+      b.textContent = s.hex + ' · ' + (s.share < 0.01 ? '<1' : Math.round(s.share * 100)) + '%';
       b.addEventListener('click', function () {
         armed = armed === s.hex ? null : s.hex;
         Array.prototype.forEach.call(box.children, function (el) {
@@ -633,6 +666,8 @@
     }
   });
   document.getElementById('c2-auto').addEventListener('click', autoAssign);
+  document.getElementById('c2-mode').addEventListener('change', extractPalette);
+  document.getElementById('c2-k').addEventListener('change', extractPalette);
   document.getElementById('c2-reset-order').addEventListener('click', function () {
     try { localStorage.removeItem(ORDER_KEY); } catch (e) { /* storage blocked */ }
     buildPresets();
