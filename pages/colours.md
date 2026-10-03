@@ -70,10 +70,10 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </div>
 <p class="c2-small" style="margin:6px 0 0">
 Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option selected>12</option></select>
-&nbsp; <label><input type="checkbox" id="c2-raw"> use raw colour</label>
+&nbsp; <label><input type="checkbox" id="c2-soften"> soften for role</label>
 </p>
 <div id="c2-swatches"></div>
-<p class="c2-small">Click a swatch, then click a role to give it that hue. By default the hue is kept and its lightness and saturation are set for the role, so labels stay readable. Tick "use raw colour" to apply it as is.</p>
+<p class="c2-small">Click a swatch, then click a role to give it that colour as it is. Tick "soften for role" to keep only the hue and set lightness and saturation for the role, so labels stay readable.</p>
 <button type="button" class="c2-act" id="c2-auto" disabled>Auto-assign</button>
 </section>
 
