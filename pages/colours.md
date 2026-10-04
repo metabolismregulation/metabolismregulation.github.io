@@ -75,7 +75,6 @@ Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</opti
 &nbsp; <label><input type="checkbox" id="c2-soften"> soften for role</label>
 </p>
 <div id="c2-swatches"></div>
-<p class="c2-small">Click a swatch, then click a role to give it that colour as it is. Tick "soften for role" to keep only the hue and set lightness and saturation for the role, so labels stay readable.</p>
 <button type="button" class="c2-act" id="c2-auto" disabled>Auto-assign</button>
 </section>
 
@@ -89,7 +88,6 @@ Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</opti
   <option value="tritanopia">tritanopia</option>
 </select></p>
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
-<p class="c2-small" style="margin:2px 0">Order: compartment, complex, protein, chemical, highlighted protein, white elements, ink. Paste a theme here and press Apply.</p>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
 <button type="button" class="c2-act" id="c2-download">Download PNG</button>
 </section>
