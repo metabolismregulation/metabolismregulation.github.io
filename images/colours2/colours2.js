@@ -665,12 +665,4 @@
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
     if (/^([0-9a-fA-F]{6}\s+){6}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
   });
-  document.getElementById('c2-download').addEventListener('click', function () {
-    canvas.toBlob(function (blob) {
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'F007-inos-' + exportText().split(' ').slice(0, 4).join('-') + '.png';
-      a.click();
-    });
-  });
 })();
