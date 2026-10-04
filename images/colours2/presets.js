@@ -1,4 +1,4 @@
-// Colour theme presets, shared by /colours/ and /colour-examples/.
+// Colour theme presets for /colours/.
 // Themes: compartment, complex, protein, metabolite, hlProtein, white, ink
 window.C2_PRESETS = [
   ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
