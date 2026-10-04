@@ -63,7 +63,7 @@ permalink: /colours/
 </section>
 
 <section>
-<h3>Palette from an image</h3>
+<h3>Palette from image</h3>
 <div id="c2-drop">
 Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<input type="file" id="c2-file" accept="image/*" hidden></label> an image
 <br><span class="c2-small">Processed in your browser only.</span>
