@@ -94,7 +94,6 @@ Mode: <select id="c2-mode"><option value="avg" selected>average</option><option 
 </div>
 <div class="c2-mapcol">
 <canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png"></canvas>
-<p class="c2-small" style="margin-top:10px">This page was created to experiment with colour schemas. The Palette from image tool allows adapting colours from figures, for example from Nature or Science publications or the Cell SnapShots archive.</p>
 </div>
 <div class="c2-panel c2-right">
 
