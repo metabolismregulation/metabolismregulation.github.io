@@ -168,6 +168,8 @@
     // Highlight off: highlighted elements are drawn like ordinary ones
     if (!document.getElementById('c2-hl').checked) fills[6] = fills[2];
     // A highlighted complex is always drawn like any other complex
+    // "Complex as background": complexes take the compartment colour
+    if (document.getElementById('c2-cxbg').checked) fills[3] = fills[0];
     fills[5] = fills[3];
     var ink = simulate(hexToRgb(theme.ink), mode);
     var d = out.data, cls = layers.cls, t = layers.t, n = layers.w * layers.h;
@@ -394,7 +396,10 @@
   }
 
   function exportText() {
-    return ROLES.map(function (r) { return theme[r.id].slice(1); }).join(' ');
+    var cxbg = document.getElementById('c2-cxbg').checked;
+    return ROLES.map(function (r) {
+      return (cxbg && r.id === 'complex' ? theme.compartment : theme[r.id]).slice(1);
+    }).join(' ');
   }
 
   // Preset order can be rearranged by dragging the handle; the order is kept
@@ -645,6 +650,11 @@
     render();
   }
   hlBox.addEventListener('change', syncHighlight);
+  document.getElementById('c2-cxbg').addEventListener('change', function (e) {
+    document.querySelector('.c2-wide').classList.toggle('c2-cxbg', e.target.checked);
+    syncControls();
+    render();
+  });
   syncHighlight();
   document.getElementById('c2-file').addEventListener('change', function (e) {
     if (e.target.files[0]) readImage(e.target.files[0]);
