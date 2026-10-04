@@ -208,7 +208,7 @@
   // Chemicals are calculated from the chosen protein: eleven hues on the
   // OKLCH wheel from +80 through 180 to -80 degrees from the protein's hue in
   // 20-degree steps (hues within 60 degrees of the protein are left out), one
-  // lightness step (+0.04) above the protein, colour strength 90% of the protein's.
+  // lightness step (+0.04) above the protein, then 10% closer to white, colour strength 90% of the protein's.
   var CHEM_OFFSETS = [80, 100, 120, 140, 160, 180, -160, -140, -120, -100, -80];
   var CHEM_NAMES = [[20, 'Rose'], [50, 'Peach'], [80, 'Sand'], [110, 'Straw'], [135, 'Leaf'], [155, 'Green'],
     [175, 'Mint'], [195, 'Teal'], [210, 'Aqua'], [228, 'Mist'], [245, 'Sky'], [265, 'Blue'], [290, 'Iris'],
@@ -228,7 +228,7 @@
   }
   function chemOptions(protein) {
     var p = lchOf(protein);
-    var L = Math.min(p.L + 0.04, 0.955), C = 0.9 * Math.min(Math.max(p.C, 0.025), 0.045);
+    var L0 = p.L + 0.04, L = Math.min(L0 + 0.1 * (1 - L0), 0.96), C = 0.9 * Math.min(Math.max(p.C, 0.025), 0.045);
     return CHEM_OFFSETS.map(function (off) {
       var h = Math.round((p.h + off + 360) % 360);
       var name = CHEM_NAMES.filter(function (n) { return h <= n[0]; })[0][1];
