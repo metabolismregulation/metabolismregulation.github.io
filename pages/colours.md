@@ -59,7 +59,7 @@ permalink: /colours/
 <section>
 <h3>Presets</h3>
 <div id="c2-presets"></div>
-<p class="c2-small" style="margin:6px 0 0">Drag the &#8942;&#8942; handle to reorder; the order is kept in this browser. <button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
+<p class="c2-small" style="margin:6px 0 0"><button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
 </section>
 
 <section>
@@ -122,7 +122,7 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 <h3>Roles</h3>
 <p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label> &nbsp; <label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex transparent</label></p>
 <div id="c2-roles"></div>
-<p class="c2-small">Type or paste a hex code, or drag one row onto another to copy its colour. Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
+<p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
 </section>
 
 </div>
