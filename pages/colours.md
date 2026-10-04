@@ -115,7 +115,6 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 <section>
 <h3>Mixer</h3>
 <div id="c2-mixer"></div>
-<p class="c2-small" id="c2-mixname" style="margin:6px 0 0"></p>
 </section>
 
 <section>
