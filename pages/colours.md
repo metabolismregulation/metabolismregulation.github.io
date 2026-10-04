@@ -122,7 +122,7 @@ The map above is the <a href="/inos/">iNOS pathway</a> export, recoloured live i
 
 <section>
 <h3>Roles</h3>
-<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label><br>Off: highlighted proteins take the protein colour.<br><label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex as background</label></p>
+<p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label> &nbsp; <label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex transparent</label></p>
 <div id="c2-roles"></div>
 <p class="c2-small">Type or paste a hex code, or drag one row onto another to copy its colour. Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
 </section>
