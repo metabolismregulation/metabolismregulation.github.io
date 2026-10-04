@@ -28,7 +28,6 @@
     ['Blue and seafoam (image)', 'F3F4F6 FFFFFF C8D5EA CCE8E3 E2ACA3 FFFFFF 000000'],
     ['Dusk and blush (image)', 'F3F4F6 FFFFFF C5CADD DFD8D8 CFABB9 FFFFFF 000000'],
     ['Cornflower and sage (image)', 'F3F4F6 FFFFFF BBC6DD D1E5DF DDBBBD FFFFFF 000000'],
-    ['Steel and cloud', 'F2F2F3 FFFFFF C1D0D7 E2E6E9 E2ACA3 FFFFFF 000000'],
     ['Lichen and celadon', 'F4F5F4 FFFFFF C7CAC4 E2E7DE E2ACA3 FFFFFF 000000']
   ];
 
