@@ -47,9 +47,7 @@ permalink: /colours/
   #c2-swatches { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
   .c2-swatch { font-size: 11px; padding: 6px; border: 1px solid #0002; border-radius: 4px; cursor: pointer; font-family: monospace; }
   .c2-armed { outline: 3px solid #000; outline-offset: 1px; }
-  .c2-under { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 8px; }
-  .c2-under button.c2-act { margin: 0; }
-  #c2-export { flex: 1 1 320px; max-width: 460px; font-family: monospace; font-size: 11px; box-sizing: border-box; resize: none; }
+  #c2-export { width: 100%; font-family: monospace; font-size: 11px; box-sizing: border-box; }
   .c2-small { font-size: 12px; color: #666; }
   button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; }
 </style>
@@ -79,20 +77,22 @@ Mode: <select id="c2-mode"><option value="avg" selected>average</option><option 
 <button type="button" class="c2-act" id="c2-auto" disabled>Auto-assign</button>
 </section>
 
-</div>
-<div class="c2-mapcol">
-<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png"></canvas>
-<div class="c2-under">
-<label class="c2-small">Colour vision:
+<section>
+<h3>Colour vision and theme code</h3>
+<p class="c2-small" style="margin:0 0 6px">Colour vision:
 <select id="c2-cvd">
   <option value="none">normal</option>
   <option value="deuteranopia">deuteranopia</option>
   <option value="protanopia">protanopia</option>
   <option value="tritanopia">tritanopia</option>
-</select></label>
-<textarea id="c2-export" rows="1" spellcheck="false"></textarea>
+</select></p>
+<textarea id="c2-export" rows="3" spellcheck="false"></textarea>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
+</section>
+
 </div>
+<div class="c2-mapcol">
+<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png"></canvas>
 </div>
 <div class="c2-panel c2-right">
 
