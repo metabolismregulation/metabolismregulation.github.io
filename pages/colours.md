@@ -113,4 +113,5 @@ Mode: <select id="c2-mode"><option value="avg" selected>average</option><option 
 </div>
 </div>
 
+<script src="/images/colours2/presets.js?v={{ site.time | date: '%s' }}"></script>
 <script src="/images/colours2/colours2.js?v={{ site.time | date: '%s' }}"></script>

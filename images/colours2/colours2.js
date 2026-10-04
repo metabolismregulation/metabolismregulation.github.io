@@ -15,20 +15,7 @@
     { id: 'ink', name: 'Lines and text', cls: -1, L: 0.2, C: 0.01 }
   ];
 
-  // Themes: compartment, complex, protein, metabolite, hlProtein, white, ink
-  var PRESETS = [
-    ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
-    ['Ocean', 'F3F4F6 FFFFFF BCD3F2 C0EBEA E2ACA3 FFFFFF 000000'],
-    ['Dusk and blush (image)', 'F7F7F8 FFFFFF C5CADD EBE5E5 CFABB9 FFFFFF 000000'],
-    ['Mushroom and green', 'F9F6F2 FFFFFF DECEC1 DBEBDB E2ACA3 FFFFFF 000000'],
-    ['Linen and sky', 'F7F6F3 FFFFFF DAD0BF D2E1ED E2ACA3 FFFFFF 000000'],
-    ['Paper and ink blue', 'F7F6F3 FFFFFF D3D1CA CCE4FE E2ACA3 FFFFFF 000000'],
-    ['Ocean and silver', 'F3F4F6 FFFFFF BCD3F2 E8E6E2 E2ACA3 FFFFFF 000000'],
-    ['Sage and pearl', 'F7F6F3 FFFFFF C7DDCA EFEDE7 E2ACA3 FFFFFF 000000'],
-    ['Blue and seafoam (image)', 'F3F4F6 FFFFFF C8D5EA CCE8E3 E2ACA3 FFFFFF 000000'],
-    ['Cornflower and sage (image)', 'F3F4F6 FFFFFF BBC6DD D1E5DF DDBBBD FFFFFF 000000'],
-    ['Paper and periwinkle', 'F3F4F6 FFFFFF D3D1CA DCE1F1 DDBBBD FFFFFF 000000'],
-  ];
+  var PRESETS = window.C2_PRESETS;
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
   var CVD = {
