@@ -350,8 +350,7 @@
       row.addEventListener('click', function (e) {
         if (!armed || e.target.tagName === 'INPUT') return;
         e.preventDefault();
-        var soften = document.getElementById('c2-soften').checked;
-        setRole(r.id, soften ? pastelise(armed, r) : armed);
+        setRole(r.id, armed);
       });
     });
   }

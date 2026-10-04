@@ -70,9 +70,8 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <br><img id="c2-thumb" hidden alt="">
 </div>
 <p class="c2-small" style="margin:6px 0 0">
-Mode: <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select><br>
-Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
-&nbsp; <label><input type="checkbox" id="c2-soften"> soften for role</label>
+Mode: <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select>
+&nbsp; Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
 </p>
 <div id="c2-swatches"></div>
 <button type="button" class="c2-act" id="c2-auto" disabled>Auto-assign</button>
