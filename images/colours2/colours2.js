@@ -28,7 +28,6 @@
     ['Blue and seafoam (image)', 'F3F4F6 FFFFFF C8D5EA CCE8E3 E2ACA3 FFFFFF 000000'],
     ['Dusk and blush (image)', 'F7F7F8 FFFFFF C5CADD EBE5E5 CFABB9 FFFFFF 000000'],
     ['Cornflower and sage (image)', 'F3F4F6 FFFFFF BBC6DD D1E5DF DDBBBD FFFFFF 000000'],
-    ['Lichen and celadon', 'F4F5F4 FFFFFF C7CAC4 E2E7DE E2ACA3 FFFFFF 000000']
   ];
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
