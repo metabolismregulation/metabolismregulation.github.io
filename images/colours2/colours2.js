@@ -394,6 +394,7 @@
   // in this browser only. Reset order returns to the order in PRESETS.
   var ORDER_KEY = 'colours.presetOrder';
   var dragging = null, dragged = false;
+  var lastPreset = null;
 
   function loadOrder() {
     try { return JSON.parse(localStorage.getItem(ORDER_KEY)) || []; } catch (e) { return []; }
@@ -450,14 +451,7 @@
       b.addEventListener('click', function () {
         if (dragged) return;
         applyPreset(p[1]);
-        b.focus(); // Safari does not focus buttons on click; arrow keys need it
-      });
-      // Up and down arrows step through the presets
-      b.addEventListener('keydown', function (e) {
-        var next = e.key === 'ArrowDown' ? b.nextElementSibling : e.key === 'ArrowUp' ? b.previousElementSibling : undefined;
-        if (next === undefined) return;
-        e.preventDefault();
-        if (next) next.click();
+        lastPreset = p[0];
       });
       var handle = b.querySelector('.c2-handle');
       handle.addEventListener('pointerdown', function (e) {
@@ -633,6 +627,36 @@
     syncControls();
     render();
   }
+
+  // ---------- arrow keys ----------
+  // Down/right and up/left step through the list last clicked: the presets (the default
+  // on load) or one Mixer column. Keys typed into a field are left alone.
+  var keyGroup = null; // null = presets, otherwise a .c2-mixcol element
+  document.getElementById('c2-presets').addEventListener('click', function () { keyGroup = null; });
+  document.getElementById('c2-mixer').addEventListener('click', function (e) {
+    var dot = e.target.closest('.c2-dot');
+    if (dot) keyGroup = dot.closest('.c2-mixcol');
+  }, true); // capture: the chemical column is rebuilt by the click itself
+  document.addEventListener('keydown', function (e) {
+    var dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    if (!dir) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (e.target.closest && e.target.closest('input, select, textarea, [contenteditable]')) return;
+    var items, i;
+    if (keyGroup) {
+      items = keyGroup.querySelectorAll('.c2-dot');
+    } else {
+      items = document.querySelectorAll('.c2-preset');
+    }
+    items = Array.prototype.slice.call(items);
+    i = items.findIndex(function (b) { return b.classList.contains('c2-on'); });
+    if (i < 0 && !keyGroup && lastPreset) {
+      i = items.findIndex(function (b) { return b.getAttribute('data-name') === lastPreset; });
+    }
+    e.preventDefault();
+    var next = i < 0 ? (dir > 0 ? 0 : items.length - 1) : i + dir;
+    if (items[next]) items[next].click();
+  });
 
   // ---------- wiring ----------
   buildMixer();
