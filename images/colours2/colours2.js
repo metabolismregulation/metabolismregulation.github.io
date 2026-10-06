@@ -654,7 +654,8 @@
       i = items.findIndex(function (b) { return b.getAttribute('data-name') === lastPreset; });
     }
     e.preventDefault();
-    var next = i < 0 ? (dir > 0 ? 0 : items.length - 1) : i + dir;
+    var n = items.length;
+    var next = i < 0 ? (dir > 0 ? 0 : n - 1) : (i + dir + n) % n; // wraps around
     if (items[next]) items[next].click();
   });
 
