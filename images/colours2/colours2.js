@@ -364,6 +364,16 @@
     });
     document.getElementById('c2-export').value = exportText();
     syncMixer();
+    syncPresets();
+  }
+
+  // Mark the preset that matches the current colours, if any
+  function syncPresets() {
+    if (!theme.ink) return; // before the first theme is applied
+    var cur = ROLES.map(function (r) { return theme[r.id].slice(1).toUpperCase(); }).join(' ');
+    Array.prototype.forEach.call(document.querySelectorAll('.c2-preset'), function (b) {
+      b.classList.toggle('c2-on', b.getAttribute('data-theme') === cur);
+    });
   }
 
   function applyPreset(str) {
@@ -431,6 +441,7 @@
       b.type = 'button';
       b.className = 'c2-preset';
       b.setAttribute('data-name', p[0]);
+      b.setAttribute('data-theme', p[1].toUpperCase());
       var hs = p[1].split(' ');
       b.innerHTML = '<span class="c2-handle" title="Drag to reorder">&#8942;&#8942;</span>' +
         '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
@@ -439,6 +450,14 @@
       b.addEventListener('click', function () {
         if (dragged) return;
         applyPreset(p[1]);
+        b.focus(); // Safari does not focus buttons on click; arrow keys need it
+      });
+      // Up and down arrows step through the presets
+      b.addEventListener('keydown', function (e) {
+        var next = e.key === 'ArrowDown' ? b.nextElementSibling : e.key === 'ArrowUp' ? b.previousElementSibling : undefined;
+        if (next === undefined) return;
+        e.preventDefault();
+        if (next) next.click();
       });
       var handle = b.querySelector('.c2-handle');
       handle.addEventListener('pointerdown', function (e) {
@@ -449,6 +468,7 @@
       });
       box.appendChild(b);
     });
+    syncPresets();
   }
 
   // ---------- palette from an image ----------
