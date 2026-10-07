@@ -185,9 +185,10 @@
   var MIX = [
     { role: 'compartment', title: 'Background', items: [
       // warm to cool around Paper and Slate: OKLCH lightness ~0.97, chroma
-      // stepping 0.011, 0.007, 0.004, 0, 0.003, 0.007, 0.011
-      ['Cream', 'F8F5ED'], ['Shell', 'F8F4F0'], ['Paper', 'F7F6F3'], ['Grey', 'F5F5F5'],
-      ['Slate', 'F3F4F6'], ['Frost', 'F2F6FA'], ['Ice', 'EFF6FC']] },
+      // falling from 0.015 to 0 at Grey and rising again to 0.011
+      ['Sand', 'FAF4EA'], ['Cream', 'F8F5ED'], ['Shell', 'F9F4EF'], ['Linen', 'F7F5F1'],
+      ['Paper', 'F7F6F3'], ['Chalk', 'F6F5F4'], ['Grey', 'F5F5F5'], ['Slate', 'F3F4F6'],
+      ['Mist', 'F3F5F8'], ['Frost', 'F1F6FA'], ['Ice', 'EFF6FC']] },
     { role: 'protein', title: 'Protein', items: [
       // OKLCH lightness 0.865, hue 40 to 272 degrees in ~25 degree steps,
       // chroma 0.03 to 0.04 (Paper 0.012): the range the presets use
