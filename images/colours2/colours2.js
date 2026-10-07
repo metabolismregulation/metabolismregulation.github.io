@@ -188,11 +188,11 @@
       ['Shade', 'F3F0EA'], ['Clay', 'F6F4EF'], ['Linen', 'F9F6F2'], ['Paper', 'F7F6F3'],
       ['Dove', 'F4F2F1'], ['Grey', 'F2F2F2'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
-      // the preset proteins, warm to cool; Blue also stands in for the two
-      // near-identical preset blues C6D9E7 and C5D8F1
-      ['Taupe', 'DBCCC7'], ['Mushroom', 'DECEC1'], ['Stone', 'D9D2C7'], ['Paper', 'D3D1CA'],
-      ['Lichen', 'DCDDCA'], ['Sage', 'C7DDCA'], ['Celadon', 'BFD8C8'], ['Blue', 'C8D8EB'],
-      ['Ocean', 'BCD3F2'], ['Sky', 'CDDCF4'], ['Dusk', 'C5CADD']] },
+      // OKLCH lightness 0.865, hue 40 to 272 degrees in ~25 degree steps,
+      // chroma 0.03 to 0.04 (Paper 0.012): the range the presets use
+      ['Taupe', 'E5CDC4'], ['Mushroom', 'E3CFBC'], ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'],
+      ['Lichen', 'CED7C0'], ['Sage', 'C3DAC6'], ['Celadon', 'BBDBD1'], ['Sea', 'B8DADC'],
+      ['Haze', 'B9D9E6'], ['Blue', 'BFD5EE'], ['Dusk', 'CAD2EA']] },
     { role: 'metabolite', title: 'Chemical', generated: true }
   ];
 
@@ -272,11 +272,14 @@
     });
   }
 
+  // The Mixer marks its items only once it is being used: a preset click
+  // clears the marks, a Mixer click brings them back.
+  var mixerLinked = false;
   function syncMixer() {
     var names = {};
     Array.prototype.forEach.call(document.querySelectorAll('.c2-dot'), function (b) {
       var role = b.getAttribute('data-role'), hex = b.getAttribute('data-hex');
-      var on = theme[role] === hex;
+      var on = mixerLinked && theme[role] === hex;
       b.classList.toggle('c2-on', on);
       if (on) names[role] = b.textContent;
     });
@@ -290,7 +293,7 @@
       b.className = 'c2-dot';
       b.title = o.name + ' #' + o.hex.slice(1);
       b.innerHTML = '<i style="background:' + o.hex + '"></i>' + o.name;
-      if (theme.metabolite === o.hex) { b.classList.add('c2-on'); match = o; }
+      if (mixerLinked && theme.metabolite === o.hex) { b.classList.add('c2-on'); match = o; }
       b.addEventListener('click', function () {
         chemSlot = o.off;
         setRole('metabolite', o.hex);
@@ -463,6 +466,7 @@
         }).join('') + '</span>' + p[0];
       b.addEventListener('click', function () {
         if (dragged) return;
+        mixerLinked = false;
         applyPreset(p[1]);
         lastPreset = p[0];
       });
@@ -648,7 +652,7 @@
   document.getElementById('c2-presets').addEventListener('click', function () { keyGroup = null; });
   document.getElementById('c2-mixer').addEventListener('click', function (e) {
     var dot = e.target.closest('.c2-dot');
-    if (dot) keyGroup = dot.closest('.c2-mixcol');
+    if (dot) { keyGroup = dot.closest('.c2-mixcol'); mixerLinked = true; }
   }, true); // capture: the chemical column is rebuilt by the click itself
   document.addEventListener('keydown', function (e) {
     var dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
