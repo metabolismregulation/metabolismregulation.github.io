@@ -655,10 +655,10 @@
     suggestThemes(sw).forEach(function (sg, n) {
       var b = document.createElement('button');
       b.type = 'button';
-      b.className = 'c2-preset';
+      b.className = 'c2-sugg';
       b.innerHTML = '<span class="c2-chips">' + sg.theme.map(function (h, k) {
         return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:' + h + '"></i>';
-      }).join('') + '</span>Suggestion ' + (n + 1);
+      }).join('') + '</span>';
       b.addEventListener('click', function () {
         ['compartment', 'complex', 'protein', 'metabolite', 'hlProtein'].forEach(function (id, k) {
           theme[id] = sg.theme[k].toUpperCase();
@@ -669,6 +669,8 @@
       });
       box.appendChild(b);
     });
+    // the first suggestion is applied straight away
+    if (box.firstChild) box.firstChild.click();
   }
 
   // ---------- arrow keys ----------

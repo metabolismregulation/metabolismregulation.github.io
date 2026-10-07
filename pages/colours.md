@@ -46,6 +46,12 @@ permalink: /colours/
   #c2-drop { border: 2px dashed #bbb; border-radius: 6px; padding: 10px; font-size: 13px; text-align: center; }
   #c2-drop.c2-over { border-color: #333; background: #f6f6f6; }
   #c2-thumb { max-width: 100%; max-height: 140px; margin-top: 8px; }
+  #c2-suggest { display: flex; gap: 6px; margin-top: 8px; }
+  #c2-suggest:empty { display: none; }
+  .c2-sugg { flex: 1; display: flex; justify-content: center; padding: 5px 4px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
+  .c2-sugg:hover { border-color: #888; }
+  .c2-sugg.c2-on { border-color: #333; }
+  .c2-sugg:focus { outline: none; }
   #c2-swatches { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
   .c2-swatch { font-size: 11px; padding: 6px; border: 1px solid #0002; border-radius: 4px; cursor: pointer; font-family: monospace; }
   .c2-armed { outline: 3px solid #000; outline-offset: 1px; }
@@ -75,8 +81,8 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 Mode: <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select>
 &nbsp; Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
 </p>
+<div id="c2-suggest"></div>
 <div id="c2-swatches"></div>
-<div id="c2-suggest" style="display:flex;flex-direction:column;gap:4px;margin-top:8px"></div>
 </section>
 
 <section>
