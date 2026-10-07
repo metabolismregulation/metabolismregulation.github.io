@@ -602,54 +602,71 @@
 
   // Suggestions: whole themes built from the swatches as they are. Every
   // protein and chemical pair is scored; the best three are offered.
-  //   protein: muted rather than loud (it covers the most area), important
-  //            in the image
-  //   pair:    similar lightness and chroma, hues 60-150 degrees apart, still
-  //            distinct under deuteranopia
-  //   both:    clearly light (black text) or clearly dark (white text), not
-  //            mid-tone
-  //   order:   pairs with black text on both fills and the protein darker
-  //            than the chemical come first, then the rest by score
-  //   highlight: the most saturated remaining swatch, a small accent
-  //   background: the most common light, near-neutral swatch
+  //   background: the lightest near-neutral swatch
+  //   protein:    muted, mid-light (lightness 0.80 to 0.90), important in
+  //               the image
+  //   chemical:   a softer, lighter partner: 0.05 to 0.10 lighter, about
+  //               a third to four fifths of the protein's chroma, close in
+  //               hue or 60 to 150 degrees away, clearly apart from the
+  //               protein and the background
+  //   order:      black text on both and the protein darker come first
+  //   highlight:  a darker tone near the protein's hue; failing that, the
+  //               most saturated remaining swatch
   function suggestThemes(sw) {
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
     var hue = function (s) { return Math.atan2(s.lab[2], s.lab[1]) * 180 / Math.PI; };
+    var hueGap = function (a, b) {
+      if (chroma(a) < 0.008 || chroma(b) < 0.008) return null; // a neutral has no hue to speak of
+      return Math.abs(((hue(a) - hue(b)) % 360 + 540) % 360 - 180);
+    };
+    var band = function (x, lo, hi, soft) { // 1 inside [lo, hi], falling to 0 over soft
+      return x < lo ? Math.max(0, 1 - (lo - x) / soft) : x > hi ? Math.max(0, 1 - (x - hi) / soft) : 1;
+    };
     var textFit = function (s) { // 0 for mid-tones, 1 when text reads easily
       var c = Math.max(contrast(s.hex, '#000000'), contrast(s.hex, '#FFFFFF'));
       return Math.max(0, Math.min(1, (c - 4.5) / 4.5));
     };
     var blackText = function (s) { return contrast(s.hex, '#000000') >= contrast(s.hex, '#FFFFFF'); };
-    var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.04; });
-    var bg = light.length ? light[0] : sw.slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
+
+    var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.03; });
+    var bg = (light.length ? light : sw).slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
     var rest = sw.filter(function (s) { return s !== bg && pairDistance(s.hex, bg.hex) >= 4; });
+
     var pairs = [];
     rest.forEach(function (p) {
       rest.forEach(function (c) {
-        if (p === c || pairDistance(p.hex, c.hex) < 6) return;
-        var Cp = chroma(p), Cc = chroma(c);
-        var dh = Cp > 0.02 && Cc > 0.02 ? Math.abs(((hue(p) - hue(c)) % 360 + 540) % 360 - 180) : 90;
-        var hueFit = dh < 60 ? dh / 60 : dh > 150 ? Math.max(0, 1 - (dh - 150) / 60) : 1;
-        var lightFit = Math.max(0, 1 - Math.abs(p.lab[0] - c.lab[0]) / 0.15);
-        var chromaFit = 1 - Math.min(1, Math.abs(Cp - Cc) / 0.08);
+        var d = pairDistance(p.hex, c.hex);
+        if (p === c || d < 5) return;
+        var Cp = chroma(p), Cc = chroma(c), gap = hueGap(p, c);
+        var step = band(c.lab[0] - p.lab[0], 0.05, 0.10, 0.06);
+        var tint = Cp < 0.01 ? 1 : band(Cc / Cp, 0.3, 0.8, 0.4);
+        var hueFit = gap === null ? 0.9 : gap <= 35 ? 1 : gap >= 60 && gap <= 150 ? 0.9 : 0.5;
+        var apart = Math.min(1, (d - 5) / 4);
+        var offBg = Math.max(0, Math.min(1, (pairDistance(c.hex, bg.hex) - 3) / 2));
+        var protL = band(p.lab[0], 0.80, 0.90, 0.1);
         var muted = 1 - Math.min(1, Math.max(0, Cp - 0.05) / 0.1);
-        var weight = 0.5 + Math.sqrt(p.share) + 0.5 * Math.sqrt(c.share);
+        var weight = 0.7 + 0.6 * Math.sqrt(p.share) + 0.2 * Math.sqrt(c.share);
         var text = 0.3 + 0.7 * textFit(p) * textFit(c);
-        // first preference: black text on both, and the protein darker
-        var black = blackText(p) && blackText(c), darker = p.lab[0] < c.lab[0];
-        var tier = (black ? 0 : 2) + (darker ? 0 : 1);
-        pairs.push({ p: p, c: c, tier: tier, score: (hueFit + lightFit + chromaFit + muted) * weight * text });
+        var tier = (blackText(p) && blackText(c) ? 0 : 2) + (p.lab[0] < c.lab[0] ? 0 : 1);
+        pairs.push({ p: p, c: c, tier: tier,
+          score: (1.5 * step + tint + hueFit + apart + offBg + protL + muted) * weight * text });
       });
     });
     pairs.sort(function (a, b) { return a.tier - b.tier || b.score - a.score; });
+
     var out = [];
     pairs.forEach(function (x) {
       if (out.length >= 3) return;
       // vary the suggestions: no protein twice, no pair twice in either order
       if (out.some(function (o) { return o.p === x.p || (o.p === x.c && o.c === x.p); })) return;
-      var accent = rest.filter(function (s) {
-        return s !== x.p && s !== x.c && pairDistance(s.hex, x.p.hex) >= 8 && textFit(s) > 0;
-      }).sort(function (a, b) { return chroma(b) - chroma(a); })[0];
+      var left = rest.filter(function (s) { return s !== x.p && s !== x.c && textFit(s) > 0; });
+      var tone = left.filter(function (s) { return x.p.lab[0] - s.lab[0] >= 0.12; }).map(function (s) {
+        var gap = hueGap(s, x.p);
+        var near = gap === null ? 0.5 : Math.max(0, 1 - gap / 90);
+        return { s: s, score: near + 10 * Math.min(chroma(s), 0.05) + 0.5 * textFit(s) };
+      }).sort(function (a, b) { return b.score - a.score; })[0];
+      var accent = tone ? tone.s : left.filter(function (s) { return pairDistance(s.hex, x.p.hex) >= 8; })
+        .sort(function (a, b) { return chroma(b) - chroma(a); })[0];
       out.push({ p: x.p, c: x.c, theme: [bg.hex, '#FFFFFF', x.p.hex, x.c.hex, accent ? accent.hex : theme.hlProtein] });
     });
     return out;
