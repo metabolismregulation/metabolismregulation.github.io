@@ -8,14 +8,14 @@
   'use strict';
 
   var ROLES = [
-    { id: 'compartment', name: 'Compartment', cls: 0, L: 0.975, C: 0.008 },
-    { id: 'complex', name: 'Complex', cls: 3, L: 0.99, C: 0.012 },
-    { id: 'protein', name: 'Protein (macromolecule)', cls: 2, L: 0.87, C: 0.05 },
-    { id: 'metabolite', name: 'Simple chemical', cls: 4, L: 0.91, C: 0.05 },
-    { id: 'hlProtein', name: 'Highlighted protein', cls: 6, L: 0.80, C: 0.08, hl: true },
-    { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1, L: 1, C: 0 },
-    { id: 'ink', name: 'Lines', cls: -1, L: 0.2, C: 0.01 },
-    { id: 'text', name: 'Text', cls: -1, L: 0.2, C: 0.01 }
+    { id: 'compartment', name: 'Compartment', cls: 0 },
+    { id: 'complex', name: 'Complex', cls: 3 },
+    { id: 'protein', name: 'Protein (macromolecule)', cls: 2 },
+    { id: 'metabolite', name: 'Simple chemical', cls: 4 },
+    { id: 'hlProtein', name: 'Highlighted protein', cls: 6, hl: true },
+    { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1 },
+    { id: 'ink', name: 'Lines', cls: -1 },
+    { id: 'text', name: 'Text', cls: -1 }
   ];
 
   var PRESETS = window.C2_PRESETS;
@@ -75,25 +75,15 @@
     return oklabToRgbLinear(o).every(function (v) { return v >= -0.0005 && v <= 1.0005; });
   }
 
-  // Keep the hue of a colour, move it to a fixed lightness and cap its chroma,
-  // so black text stays readable on it whatever the source image looked like.
-  function pastelise(hex, role) {
-    var o = rgbToOklab(hexToRgb(hex));
-    var C = Math.hypot(o[1], o[2]);
-    var hue = Math.atan2(o[2], o[1]);
-    var c = Math.min(C, role.C);
-    var lab = [role.L, c * Math.cos(hue), c * Math.sin(hue)];
-    while (!inGamut(lab) && c > 0) {
-      c -= 0.002;
-      lab = [role.L, c * Math.cos(hue), c * Math.sin(hue)];
-    }
-    return rgbToHex(oklabToRgb(lab));
-  }
-
   function luminance(c) { return 0.2126 * lin(c[0]) + 0.7152 * lin(c[1]) + 0.0722 * lin(c[2]); }
   function contrast(a, b) {
     var la = luminance(hexToRgb(a)), lb = luminance(hexToRgb(b));
     return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+  }
+  // Text on a fill: the Text colour, or white where white reads better
+  // (dark fills)
+  function textOn(fill) {
+    return contrast('#FFFFFF', fill) > contrast(theme.text, fill) ? '#FFFFFF' : theme.text;
   }
 
   function simulate(rgb, mode) {
@@ -151,20 +141,24 @@
   function render() {
     if (!layers) return;
     var mode = document.getElementById('c2-cvd').value;
-    var fills = [];
-    ROLES.forEach(function (r) {
-      if (r.cls >= 0) fills[r.cls] = simulate(hexToRgb(theme[r.id]), mode);
-    });
+    var hex = [];
+    ROLES.forEach(function (r) { if (r.cls >= 0) hex[r.cls] = theme[r.id]; });
     // Highlight off: highlighted elements are drawn like ordinary ones
-    if (!document.getElementById('c2-hl').checked) fills[6] = fills[2];
-    // A highlighted complex is always drawn like any other complex
-    // "Complex as background": complexes take the compartment colour
-    if (document.getElementById('c2-cxbg').checked) fills[3] = fills[0];
-    fills[5] = fills[3];
+    if (!document.getElementById('c2-hl').checked) hex[6] = hex[2];
+    // "Complex transparent": complexes take the compartment colour;
+    // a highlighted complex is always drawn like any other complex
+    if (document.getElementById('c2-cxbg').checked) hex[3] = hex[0];
+    hex[5] = hex[3];
+    var fills = [], texts = [];
+    hex.forEach(function (h, k) {
+      fills[k] = simulate(hexToRgb(h), mode);
+      texts[k] = simulate(hexToRgb(textOn(h)), mode);
+    });
     var line = simulate(hexToRgb(theme.ink), mode), text = simulate(hexToRgb(theme.text), mode);
     var d = out.data, cls = layers.cls, t = layers.t, txt = layers.txt, n = layers.w * layers.h;
     for (var i = 0, j = 0; i < n; i++, j += 4) {
-      var a = t[i] / 255, b = 1 - a, ink = txt[i] ? text : line;
+      var a = t[i] / 255, b = 1 - a;
+      var ink = !txt[i] ? line : cls[i] === 7 ? text : texts[cls[i]];
       if (cls[i] === 7) {
         // margin left at the rounded outer corners: transparent, keeping the ink edge
         d[j] = ink[0]; d[j + 1] = ink[1]; d[j + 2] = ink[2];
@@ -366,10 +360,12 @@
       if (document.activeElement !== hx) hx.value = theme[r.id];
       var cr = document.getElementById('c2-cr-' + r.id);
       if (r.cls < 0) { cr.textContent = ''; return; }
-      var v = contrast(theme[r.id], theme.text);
-      cr.textContent = v.toFixed(1) + ':1';
+      var white = textOn(theme[r.id]) === '#FFFFFF' && theme.text !== '#FFFFFF';
+      var v = contrast(theme[r.id], textOn(theme[r.id]));
+      cr.textContent = v.toFixed(1) + ':1' + (white ? ' w' : '');
       cr.className = 'c2-cr' + (v < 7 ? ' c2-low' : '');
-      cr.title = 'Contrast of text on this fill (WCAG). Below 7:1 reads poorly at small sizes.';
+      cr.title = 'Contrast of text on this fill (WCAG). Below 7:1 reads poorly at small sizes.' +
+        (white ? ' w: this fill is dark, so its text is drawn white.' : '');
     });
     document.getElementById('c2-export').value = exportText();
     syncMixer();
@@ -609,37 +605,34 @@
   // lightness steps after softening, keeping the one that stays furthest from
   // the protein in normal and deuteranopia vision without fading into the
   // compartment. The highlight colour is left as it is.
+  // Auto-assign uses the image colours as they are; dark fills get white
+  // text when drawn. Background: the most common light, quiet colour.
+  // Protein: the most prominent coloured swatch. Chemical: the swatch that
+  // stands furthest from the protein, also under deuteranopia.
   function autoAssign() {
     var sw = lastSwatches.slice();
     if (!sw.length) return;
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
-    var role = function (id) { return ROLES.filter(function (r) { return r.id === id; })[0]; };
 
-    var neutral = sw.filter(function (s) { return chroma(s) < 0.04; })[0] || sw[0];
-    var compartment = pastelise(neutral.hex, role('compartment'));
+    var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.04; });
+    var bg = light.length ? light[0] : sw.slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
 
-    var ranked = sw.slice().sort(function (a, b) {
+    var rest = sw.filter(function (s) { return s !== bg && pairDistance(s.hex, bg.hex) >= 4; });
+    if (!rest.length) return;
+    var proteinSw = rest.slice().sort(function (a, b) {
       return chroma(b) * Math.sqrt(b.share) - chroma(a) * Math.sqrt(a.share);
-    });
-    var proteinSw = ranked[0];
-    var protein = pastelise(proteinSw.hex, role('protein'));
-
-    var chemRole = role('metabolite');
+    })[0];
     var best = null;
-    sw.forEach(function (s) {
+    rest.forEach(function (s) {
       if (s === proteinSw) return;
-      [0.90, 0.92, 0.94].forEach(function (L) {
-        var hex = pastelise(s.hex, { L: L, C: chemRole.C });
-        if (pairDistance(hex, compartment) < 4) return;
-        // separation first; a small bonus for colours that matter in the image
-        var score = pairDistance(protein, hex) + 2 * Math.sqrt(s.share);
-        if (!best || score > best.score) best = { score: score, hex: hex };
-      });
+      // separation first; a small bonus for colours that matter in the image
+      var score = pairDistance(proteinSw.hex, s.hex) + 2 * Math.sqrt(s.share);
+      if (!best || score > best.score) best = { score: score, hex: s.hex };
     });
 
-    theme.compartment = compartment;
+    theme.compartment = bg.hex;
     theme.complex = '#FFFFFF';
-    theme.protein = protein;
+    theme.protein = proteinSw.hex;
     if (best) theme.metabolite = best.hex;
     syncControls();
     render();
