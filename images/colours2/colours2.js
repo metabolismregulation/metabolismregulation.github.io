@@ -600,18 +600,19 @@
     showSuggestions(sw);
   }
 
-  // Suggestions: whole themes built from the swatches as they are. Every
-  // protein and chemical pair is scored; the best three are offered.
-  //   background: the lightest near-neutral swatch
-  //   protein:    muted, mid-light (lightness 0.80 to 0.90), important in
-  //               the image
-  //   chemical:   a softer, lighter partner: 0.05 to 0.10 lighter, about
+  // Suggestions: three themes built from the swatches as they are, each by
+  // its own rule. All share the background: the lightest near-neutral swatch.
+  //   1 tonal:    protein muted and mid-light (lightness 0.80 to 0.90);
+  //               chemical a softer, lighter partner (0.05 to 0.10 lighter,
   //               a third to four fifths of the protein's chroma, close in
-  //               hue or 60 to 150 degrees away, clearly apart from the
-  //               protein and the background
-  //   order:      black text on both and the protein darker come first
-  //   highlight:  a darker tone near the protein's hue; failing that, the
-  //               most saturated remaining swatch
+  //               hue); black text on both and the protein darker come first;
+  //               highlight a darker tone near the protein's hue
+  //   2 contrast: chemical in another hue (60 to 150 degrees away) at
+  //               similar lightness and chroma; highlight the most saturated
+  //               swatch left
+  //   3 image:    the two most prominent colours of the image as protein and
+  //               chemical, as long as text reads on them; highlight the most
+  //               saturated swatch left
   function suggestThemes(sw) {
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
     var hue = function (s) { return Math.atan2(s.lab[2], s.lab[1]) * 180 / Math.PI; };
@@ -627,47 +628,66 @@
       return Math.max(0, Math.min(1, (c - 4.5) / 4.5));
     };
     var blackText = function (s) { return contrast(s.hex, '#000000') >= contrast(s.hex, '#FFFFFF'); };
+    var muted = function (s) { return 1 - Math.min(1, Math.max(0, chroma(s) - 0.05) / 0.1); };
 
     var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.03; });
     var bg = (light.length ? light : sw).slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
     var rest = sw.filter(function (s) { return s !== bg && pairDistance(s.hex, bg.hex) >= 4; });
+    var offBg = function (s) { return Math.max(0, Math.min(1, (pairDistance(s.hex, bg.hex) - 3) / 2)); };
 
-    var pairs = [];
-    rest.forEach(function (p) {
-      rest.forEach(function (c) {
-        var d = pairDistance(p.hex, c.hex);
-        if (p === c || d < 5) return;
-        var Cp = chroma(p), Cc = chroma(c), gap = hueGap(p, c);
+    var rules = [
+      function tonal(p, c, d) {
+        var Cp = chroma(p), gap = hueGap(p, c);
         var step = band(c.lab[0] - p.lab[0], 0.05, 0.10, 0.06);
-        var tint = Cp < 0.01 ? 1 : band(Cc / Cp, 0.3, 0.8, 0.4);
+        var tint = Cp < 0.01 ? 1 : band(chroma(c) / Cp, 0.3, 0.8, 0.4);
         var hueFit = gap === null ? 0.9 : gap <= 35 ? 1 : gap >= 60 && gap <= 150 ? 0.9 : 0.5;
-        var apart = Math.min(1, (d - 5) / 4);
-        var offBg = Math.max(0, Math.min(1, (pairDistance(c.hex, bg.hex) - 3) / 2));
-        var protL = band(p.lab[0], 0.80, 0.90, 0.1);
-        var muted = 1 - Math.min(1, Math.max(0, Cp - 0.05) / 0.1);
-        var weight = 0.7 + 0.6 * Math.sqrt(p.share) + 0.2 * Math.sqrt(c.share);
-        var text = 0.3 + 0.7 * textFit(p) * textFit(c);
+        var score = (1.5 * step + tint + hueFit + Math.min(1, (d - 5) / 4) + offBg(c) +
+          band(p.lab[0], 0.80, 0.90, 0.1) + muted(p)) *
+          (0.7 + 0.6 * Math.sqrt(p.share) + 0.2 * Math.sqrt(c.share)) *
+          (0.3 + 0.7 * textFit(p) * textFit(c));
         var tier = (blackText(p) && blackText(c) ? 0 : 2) + (p.lab[0] < c.lab[0] ? 0 : 1);
-        pairs.push({ p: p, c: c, tier: tier,
-          score: (1.5 * step + tint + hueFit + apart + offBg + protL + muted) * weight * text });
-      });
-    });
-    pairs.sort(function (a, b) { return a.tier - b.tier || b.score - a.score; });
+        return score - 100 * tier;
+      },
+      function contrasting(p, c, d) {
+        var gap = hueGap(p, c);
+        if (gap === null) return -1;
+        var hueFit = gap < 60 ? gap / 60 : gap > 150 ? Math.max(0, 1 - (gap - 150) / 60) : 1;
+        var lightFit = Math.max(0, 1 - Math.abs(p.lab[0] - c.lab[0]) / 0.15);
+        var chromaFit = 1 - Math.min(1, Math.abs(chroma(p) - chroma(c)) / 0.08);
+        return (2 * hueFit + lightFit + chromaFit + muted(p) + offBg(c)) *
+          (0.5 + Math.sqrt(p.share) + 0.5 * Math.sqrt(c.share)) *
+          (0.3 + 0.7 * textFit(p) * textFit(c));
+      },
+      function image(p, c, d) {
+        if (textFit(p) === 0 || textFit(c) === 0) return -1;
+        return (Math.sqrt(p.share) + Math.sqrt(c.share)) * (1 + Math.min(1, (d - 5) / 4)) * (0.5 + offBg(c));
+      }
+    ];
 
     var out = [];
-    pairs.forEach(function (x) {
-      if (out.length >= 3) return;
-      // vary the suggestions: no protein twice, no pair twice in either order
-      if (out.some(function (o) { return o.p === x.p || (o.p === x.c && o.c === x.p); })) return;
-      var left = rest.filter(function (s) { return s !== x.p && s !== x.c && textFit(s) > 0; });
-      var tone = left.filter(function (s) { return x.p.lab[0] - s.lab[0] >= 0.12; }).map(function (s) {
-        var gap = hueGap(s, x.p);
+    rules.forEach(function (rule, n) {
+      var best = null;
+      rest.forEach(function (p) {
+        rest.forEach(function (c) {
+          if (p === c) return;
+          // each suggestion differs: no protein used before, no pair repeated
+          if (out.some(function (o) { return o.p === p || (o.p === c && o.c === p); })) return;
+          var d = pairDistance(p.hex, c.hex);
+          if (d < 5) return;
+          var score = rule(p, c, d);
+          if (score > -1 && (!best || score > best.score)) best = { p: p, c: c, score: score };
+        });
+      });
+      if (!best) return;
+      var left = rest.filter(function (s) { return s !== best.p && s !== best.c && textFit(s) > 0; });
+      var tone = n === 0 && left.filter(function (s) { return best.p.lab[0] - s.lab[0] >= 0.12; }).map(function (s) {
+        var gap = hueGap(s, best.p);
         var near = gap === null ? 0.5 : Math.max(0, 1 - gap / 90);
         return { s: s, score: near + 10 * Math.min(chroma(s), 0.05) + 0.5 * textFit(s) };
       }).sort(function (a, b) { return b.score - a.score; })[0];
-      var accent = tone ? tone.s : left.filter(function (s) { return pairDistance(s.hex, x.p.hex) >= 8; })
+      var accent = tone ? tone.s : left.filter(function (s) { return pairDistance(s.hex, best.p.hex) >= 8; })
         .sort(function (a, b) { return chroma(b) - chroma(a); })[0];
-      out.push({ p: x.p, c: x.c, theme: [bg.hex, '#FFFFFF', x.p.hex, x.c.hex, accent ? accent.hex : theme.hlProtein] });
+      out.push({ p: best.p, c: best.c, theme: [bg.hex, '#FFFFFF', best.p.hex, best.c.hex, accent ? accent.hex : theme.hlProtein] });
     });
     return out;
   }
