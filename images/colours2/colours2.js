@@ -184,10 +184,9 @@
   // Named colours from the presets; pick one per column to build a theme.
   var MIX = [
     { role: 'compartment', title: 'Background', items: [
-      // the lighter three warm to cool, then Paper, Grey and Slate warm to
-      // cool; also the smoothest order for stepping with the arrow keys
-      ['Shell', 'FBFAF6'], ['Chalk', 'F8F8F8'], ['Mist', 'F6F7F9'],
-      ['Paper', 'F7F6F3'], ['Grey', 'F4F4F4'], ['Slate', 'F3F4F6']] },
+      // warm to cool (OKLab b, yellow to blue)
+      ['Shell', 'FBFAF6'], ['Paper', 'F7F6F3'], ['Chalk', 'F8F8F8'],
+      ['Grey', 'F4F4F4'], ['Mist', 'F6F7F9'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
       // OKLCH lightness 0.865, hue 40 to 272 degrees in ~25 degree steps,
       // chroma 0.03 to 0.04 (Paper 0.012): the range the presets use
