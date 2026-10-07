@@ -608,6 +608,8 @@
   //            distinct under deuteranopia
   //   both:    clearly light (black text) or clearly dark (white text), not
   //            mid-tone
+  //   order:   pairs with black text on both fills and the protein darker
+  //            than the chemical come first, then the rest by score
   //   highlight: the most saturated remaining swatch, a small accent
   //   background: the most common light, near-neutral swatch
   function suggestThemes(sw) {
@@ -617,6 +619,7 @@
       var c = Math.max(contrast(s.hex, '#000000'), contrast(s.hex, '#FFFFFF'));
       return Math.max(0, Math.min(1, (c - 4.5) / 4.5));
     };
+    var blackText = function (s) { return contrast(s.hex, '#000000') >= contrast(s.hex, '#FFFFFF'); };
     var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.04; });
     var bg = light.length ? light[0] : sw.slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
     var rest = sw.filter(function (s) { return s !== bg && pairDistance(s.hex, bg.hex) >= 4; });
@@ -632,10 +635,13 @@
         var muted = 1 - Math.min(1, Math.max(0, Cp - 0.05) / 0.1);
         var weight = 0.5 + Math.sqrt(p.share) + 0.5 * Math.sqrt(c.share);
         var text = 0.3 + 0.7 * textFit(p) * textFit(c);
-        pairs.push({ p: p, c: c, score: (hueFit + lightFit + chromaFit + muted) * weight * text });
+        // first preference: black text on both, and the protein darker
+        var black = blackText(p) && blackText(c), darker = p.lab[0] < c.lab[0];
+        var tier = (black ? 0 : 2) + (darker ? 0 : 1);
+        pairs.push({ p: p, c: c, tier: tier, score: (hueFit + lightFit + chromaFit + muted) * weight * text });
       });
     });
-    pairs.sort(function (a, b) { return b.score - a.score; });
+    pairs.sort(function (a, b) { return a.tier - b.tier || b.score - a.score; });
     var out = [];
     pairs.forEach(function (x) {
       if (out.length >= 3) return;
