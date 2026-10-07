@@ -107,7 +107,7 @@ Mode: <select id="c2-mode"><option value="avg" selected>average</option><option 
 <h3>Roles</h3>
 <p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label> &nbsp; <label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex transparent</label></p>
 <div id="c2-roles"></div>
-<p class="c2-small">Number on the right: contrast of text on that fill against the ink colour. Red means below 7:1.</p>
+<p class="c2-small">Number on the right: contrast of the text colour on that fill. Red means below 7:1.</p>
 </section>
 
 </div>

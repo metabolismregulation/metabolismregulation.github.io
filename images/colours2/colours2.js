@@ -1,7 +1,9 @@
 // Colour theme playground for the iNOS map.
 // F007-inos-layers.png stores, per pixel of F007-inos.png:
 //   R = fill class * 32, G = fill share t (0..255); the rest is ink.
-// A pixel is redrawn as t * fill[class] + (1 - t) * ink.
+//   B = 255 where that ink is text, 0 where it is a line or border.
+// A pixel is redrawn as t * fill[class] + (1 - t) * ink, ink being the
+// text or the line colour.
 (function () {
   'use strict';
 
@@ -12,7 +14,8 @@
     { id: 'metabolite', name: 'Simple chemical', cls: 4, L: 0.91, C: 0.05 },
     { id: 'hlProtein', name: 'Highlighted protein', cls: 6, L: 0.80, C: 0.08, hl: true },
     { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1, L: 1, C: 0 },
-    { id: 'ink', name: 'Lines and text', cls: -1, L: 0.2, C: 0.01 }
+    { id: 'ink', name: 'Lines', cls: -1, L: 0.2, C: 0.01 },
+    { id: 'text', name: 'Text', cls: -1, L: 0.2, C: 0.01 }
   ];
 
   var PRESETS = window.C2_PRESETS;
@@ -128,15 +131,16 @@
         }
       }
       var cw = x1 - x0 + 1, ch = y1 - y0 + 1;
-      var cls = new Uint8Array(cw * ch), t = new Uint8Array(cw * ch);
+      var cls = new Uint8Array(cw * ch), t = new Uint8Array(cw * ch), txt = new Uint8Array(cw * ch);
       for (y = 0; y < ch; y++) {
         for (x = 0; x < cw; x++) {
           k = ((y + y0) * w + x + x0) * 4;
           cls[y * cw + x] = Math.round(d[k] / 32);
           t[y * cw + x] = d[k + 1];
+          txt[y * cw + x] = d[k + 2] > 127 ? 1 : 0;
         }
       }
-      layers = { w: cw, h: ch, cls: cls, t: t };
+      layers = { w: cw, h: ch, cls: cls, t: t, txt: txt };
       canvas.width = cw; canvas.height = ch;
       out = ctx.createImageData(cw, ch);
       done();
@@ -157,10 +161,10 @@
     // "Complex as background": complexes take the compartment colour
     if (document.getElementById('c2-cxbg').checked) fills[3] = fills[0];
     fills[5] = fills[3];
-    var ink = simulate(hexToRgb(theme.ink), mode);
-    var d = out.data, cls = layers.cls, t = layers.t, n = layers.w * layers.h;
+    var line = simulate(hexToRgb(theme.ink), mode), text = simulate(hexToRgb(theme.text), mode);
+    var d = out.data, cls = layers.cls, t = layers.t, txt = layers.txt, n = layers.w * layers.h;
     for (var i = 0, j = 0; i < n; i++, j += 4) {
-      var a = t[i] / 255, b = 1 - a;
+      var a = t[i] / 255, b = 1 - a, ink = txt[i] ? text : line;
       if (cls[i] === 7) {
         // margin left at the rounded outer corners: transparent, keeping the ink edge
         d[j] = ink[0]; d[j + 1] = ink[1]; d[j + 2] = ink[2];
@@ -358,8 +362,8 @@
       var hx = document.getElementById('c2-hex-' + r.id);
       if (document.activeElement !== hx) hx.value = theme[r.id];
       var cr = document.getElementById('c2-cr-' + r.id);
-      if (r.id === 'ink') { cr.textContent = ''; return; }
-      var v = contrast(theme[r.id], theme.ink);
+      if (r.cls < 0) { cr.textContent = ''; return; }
+      var v = contrast(theme[r.id], theme.text);
       cr.textContent = v.toFixed(1) + ':1';
       cr.className = 'c2-cr' + (v < 7 ? ' c2-low' : '');
       cr.title = 'Contrast of text on this fill (WCAG). Below 7:1 reads poorly at small sizes.';
@@ -372,24 +376,31 @@
   // Mark the preset that matches the current colours, if any
   function syncPresets() {
     if (!theme.ink) return; // before the first theme is applied
-    var cur = ROLES.map(function (r) { return theme[r.id].slice(1).toUpperCase(); }).join(' ');
+    var cur = themeCode(false);
     Array.prototype.forEach.call(document.querySelectorAll('.c2-preset'), function (b) {
       b.classList.toggle('c2-on', b.getAttribute('data-theme') === cur);
     });
   }
 
+  // Theme code: 7 colours, or 8 when text differs from lines. A 7-colour
+  // code (all presets) draws text in the line colour.
   function applyPreset(str) {
     var hs = str.split(/\s+/);
+    if (hs.length < 8) hs[7] = hs[6];
     ROLES.forEach(function (r, i) { theme[r.id] = '#' + hs[i]; });
     syncControls();
     render();
   }
 
+  function themeCode(cxbg) {
+    var hs = ROLES.map(function (r) {
+      return (cxbg && r.id === 'complex' ? theme.compartment : theme[r.id]).slice(1).toUpperCase();
+    });
+    if (hs[7] === hs[6]) hs.pop();
+    return hs.join(' ');
+  }
   function exportText() {
-    var cxbg = document.getElementById('c2-cxbg').checked;
-    return ROLES.map(function (r) {
-      return (cxbg && r.id === 'complex' ? theme.compartment : theme[r.id]).slice(1);
-    }).join(' ');
+    return themeCode(document.getElementById('c2-cxbg').checked);
   }
 
   // Preset order can be rearranged by dragging the handle; the order is kept
@@ -710,6 +721,6 @@
   });
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
-    if (/^([0-9a-fA-F]{6}\s+){6}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
+    if (/^([0-9a-fA-F]{6}\s+){6,7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
   });
 })();
