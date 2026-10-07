@@ -184,9 +184,10 @@
   // Named colours from the presets; pick one per column to build a theme.
   var MIX = [
     { role: 'compartment', title: 'Background', items: [
-      // warm to cool
-      ['Shade', 'F3F0EA'], ['Clay', 'F6F4EF'], ['Linen', 'F9F6F2'], ['Paper', 'F7F6F3'],
-      ['Dove', 'F4F2F1'], ['Grey', 'F2F2F2'], ['Slate', 'F3F4F6']] },
+      // warm to cool around Paper and Slate: OKLCH lightness ~0.97, chroma
+      // stepping 0.011, 0.007, 0.004, 0, 0.003, 0.007, 0.011
+      ['Cream', 'F8F5ED'], ['Shell', 'F8F4F0'], ['Paper', 'F7F6F3'], ['Grey', 'F5F5F5'],
+      ['Slate', 'F3F4F6'], ['Frost', 'F2F6FA'], ['Ice', 'EFF6FC']] },
     { role: 'protein', title: 'Protein', items: [
       // OKLCH lightness 0.865, hue 40 to 272 degrees in ~25 degree steps,
       // chroma 0.03 to 0.04 (Paper 0.012): the range the presets use
