@@ -613,6 +613,9 @@
   //   3 image:    the two most prominent colours of the image as protein and
   //               chemical, as long as text reads on them; highlight the most
   //               saturated swatch left
+  //   4, 5        the runners-up of rules 1 and 2 (a different protein)
+  //   6 bold:     a dark protein with white text beside a light chemical;
+  //               without a dark swatch, the runner-up of rule 3
   function suggestThemes(sw) {
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
     var hue = function (s) { return Math.atan2(s.lab[2], s.lab[1]) * 180 / Math.PI; };
@@ -661,11 +664,17 @@
       function image(p, c, d) {
         if (textFit(p) === 0 || textFit(c) === 0) return -1;
         return (Math.sqrt(p.share) + Math.sqrt(c.share)) * (1 + Math.min(1, (d - 5) / 4)) * (0.5 + offBg(c));
+      },
+      function bold(p, c, d) {
+        if (blackText(p) || !blackText(c) || c.lab[0] - p.lab[0] < 0.3) return -1;
+        return (textFit(p) + textFit(c) + muted(p) + offBg(c)) * (0.5 + Math.sqrt(p.share) + 0.5 * Math.sqrt(c.share));
       }
     ];
+    rules = [rules[0], rules[1], rules[2], rules[0], rules[1], rules[3], rules[2]];
 
     var out = [];
-    rules.forEach(function (rule, n) {
+    rules.forEach(function (rule) {
+      if (out.length >= 6) return;
       var best = null;
       rest.forEach(function (p) {
         rest.forEach(function (c) {
@@ -680,7 +689,7 @@
       });
       if (!best) return;
       var left = rest.filter(function (s) { return s !== best.p && s !== best.c && textFit(s) > 0; });
-      var tone = n === 0 && left.filter(function (s) { return best.p.lab[0] - s.lab[0] >= 0.12; }).map(function (s) {
+      var tone = rule === rules[0] && left.filter(function (s) { return best.p.lab[0] - s.lab[0] >= 0.12; }).map(function (s) {
         var gap = hueGap(s, best.p);
         var near = gap === null ? 0.5 : Math.max(0, 1 - gap / 90);
         return { s: s, score: near + 10 * Math.min(chroma(s), 0.05) + 0.5 * textFit(s) };

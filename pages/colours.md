@@ -46,7 +46,7 @@ permalink: /colours/
   #c2-drop { border: 2px dashed #bbb; border-radius: 6px; padding: 10px; font-size: 13px; text-align: center; }
   #c2-drop.c2-over { border-color: #333; background: #f6f6f6; }
   #c2-thumb { max-width: 100%; max-height: 140px; margin-top: 8px; }
-  #c2-suggest { display: flex; gap: 6px; margin-top: 8px; }
+  #c2-suggest { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
   #c2-suggest:empty { display: none; }
   .c2-sugg { flex: 1; display: flex; justify-content: center; padding: 5px 4px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-sugg:hover { border-color: #888; }
