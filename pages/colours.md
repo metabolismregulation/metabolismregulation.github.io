@@ -76,7 +76,7 @@ Mode: <select id="c2-mode"><option value="avg" selected>average</option><option 
 &nbsp; Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
 </p>
 <div id="c2-swatches"></div>
-<button type="button" class="c2-act" id="c2-auto" disabled>Auto-assign</button>
+<div id="c2-suggest" style="display:flex;flex-direction:column;gap:4px;margin-top:8px"></div>
 </section>
 
 <section>

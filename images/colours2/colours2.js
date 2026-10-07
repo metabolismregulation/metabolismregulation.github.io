@@ -376,7 +376,7 @@
   function syncPresets() {
     if (!theme.ink) return; // before the first theme is applied
     var cur = themeCode(false);
-    Array.prototype.forEach.call(document.querySelectorAll('.c2-preset'), function (b) {
+    Array.prototype.forEach.call(document.querySelectorAll('#c2-presets .c2-preset'), function (b) {
       b.classList.toggle('c2-on', b.getAttribute('data-theme') === cur);
     });
   }
@@ -412,7 +412,7 @@
     try { return JSON.parse(localStorage.getItem(ORDER_KEY)) || []; } catch (e) { return []; }
   }
   function saveOrder() {
-    var names = Array.prototype.map.call(document.querySelectorAll('.c2-preset'), function (el) {
+    var names = Array.prototype.map.call(document.querySelectorAll('#c2-presets .c2-preset'), function (el) {
       return el.getAttribute('data-name');
     });
     try { localStorage.setItem(ORDER_KEY, JSON.stringify(names)); } catch (e) { /* storage blocked */ }
@@ -597,45 +597,78 @@
       });
       box.appendChild(b);
     });
-    document.getElementById('c2-auto').disabled = sw.length === 0;
+    showSuggestions(sw);
   }
 
-  // Auto-assign: the protein takes the most colourful prominent swatch. The
-  // chemical is then chosen among all other swatches, each tried at a few
-  // lightness steps after softening, keeping the one that stays furthest from
-  // the protein in normal and deuteranopia vision without fading into the
-  // compartment. The highlight colour is left as it is.
-  // Auto-assign uses the image colours as they are; dark fills get white
-  // text when drawn. Background: the most common light, quiet colour.
-  // Protein: the most prominent coloured swatch. Chemical: the swatch that
-  // stands furthest from the protein, also under deuteranopia.
-  function autoAssign() {
-    var sw = lastSwatches.slice();
-    if (!sw.length) return;
+  // Suggestions: whole themes built from the swatches as they are. Every
+  // protein and chemical pair is scored; the best three are offered.
+  //   protein: muted rather than loud (it covers the most area), important
+  //            in the image
+  //   pair:    similar lightness and chroma, hues 60-150 degrees apart, still
+  //            distinct under deuteranopia
+  //   both:    clearly light (black text) or clearly dark (white text), not
+  //            mid-tone
+  //   highlight: the most saturated remaining swatch, a small accent
+  //   background: the most common light, near-neutral swatch
+  function suggestThemes(sw) {
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
-
+    var hue = function (s) { return Math.atan2(s.lab[2], s.lab[1]) * 180 / Math.PI; };
+    var textFit = function (s) { // 0 for mid-tones, 1 when text reads easily
+      var c = Math.max(contrast(s.hex, '#000000'), contrast(s.hex, '#FFFFFF'));
+      return Math.max(0, Math.min(1, (c - 4.5) / 4.5));
+    };
     var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.04; });
     var bg = light.length ? light[0] : sw.slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
-
     var rest = sw.filter(function (s) { return s !== bg && pairDistance(s.hex, bg.hex) >= 4; });
-    if (!rest.length) return;
-    var proteinSw = rest.slice().sort(function (a, b) {
-      return chroma(b) * Math.sqrt(b.share) - chroma(a) * Math.sqrt(a.share);
-    })[0];
-    var best = null;
-    rest.forEach(function (s) {
-      if (s === proteinSw) return;
-      // separation first; a small bonus for colours that matter in the image
-      var score = pairDistance(proteinSw.hex, s.hex) + 2 * Math.sqrt(s.share);
-      if (!best || score > best.score) best = { score: score, hex: s.hex };
+    var pairs = [];
+    rest.forEach(function (p) {
+      rest.forEach(function (c) {
+        if (p === c || pairDistance(p.hex, c.hex) < 6) return;
+        var Cp = chroma(p), Cc = chroma(c);
+        var dh = Cp > 0.02 && Cc > 0.02 ? Math.abs(((hue(p) - hue(c)) % 360 + 540) % 360 - 180) : 90;
+        var hueFit = dh < 60 ? dh / 60 : dh > 150 ? Math.max(0, 1 - (dh - 150) / 60) : 1;
+        var lightFit = Math.max(0, 1 - Math.abs(p.lab[0] - c.lab[0]) / 0.15);
+        var chromaFit = 1 - Math.min(1, Math.abs(Cp - Cc) / 0.08);
+        var muted = 1 - Math.min(1, Math.max(0, Cp - 0.05) / 0.1);
+        var weight = 0.5 + Math.sqrt(p.share) + 0.5 * Math.sqrt(c.share);
+        var text = 0.3 + 0.7 * textFit(p) * textFit(c);
+        pairs.push({ p: p, c: c, score: (hueFit + lightFit + chromaFit + muted) * weight * text });
+      });
     });
+    pairs.sort(function (a, b) { return b.score - a.score; });
+    var out = [];
+    pairs.forEach(function (x) {
+      if (out.length >= 3) return;
+      // vary the suggestions: no protein twice, no pair twice in either order
+      if (out.some(function (o) { return o.p === x.p || (o.p === x.c && o.c === x.p); })) return;
+      var accent = rest.filter(function (s) {
+        return s !== x.p && s !== x.c && pairDistance(s.hex, x.p.hex) >= 8 && textFit(s) > 0;
+      }).sort(function (a, b) { return chroma(b) - chroma(a); })[0];
+      out.push({ p: x.p, c: x.c, theme: [bg.hex, '#FFFFFF', x.p.hex, x.c.hex, accent ? accent.hex : theme.hlProtein] });
+    });
+    return out;
+  }
 
-    theme.compartment = bg.hex;
-    theme.complex = '#FFFFFF';
-    theme.protein = proteinSw.hex;
-    if (best) theme.metabolite = best.hex;
-    syncControls();
-    render();
+  function showSuggestions(sw) {
+    var box = document.getElementById('c2-suggest');
+    box.innerHTML = '';
+    suggestThemes(sw).forEach(function (sg, n) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'c2-preset';
+      b.innerHTML = '<span class="c2-chips">' + sg.theme.map(function (h, k) {
+        return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:' + h + '"></i>';
+      }).join('') + '</span>Suggestion ' + (n + 1);
+      b.addEventListener('click', function () {
+        ['compartment', 'complex', 'protein', 'metabolite', 'hlProtein'].forEach(function (id, k) {
+          theme[id] = sg.theme[k].toUpperCase();
+        });
+        Array.prototype.forEach.call(box.children, function (el) { el.classList.toggle('c2-on', el === b); });
+        syncControls();
+        render();
+      });
+      box.appendChild(b);
+    });
   }
 
   // ---------- arrow keys ----------
@@ -656,7 +689,7 @@
     if (keyGroup) {
       items = keyGroup.querySelectorAll('.c2-dot');
     } else {
-      items = document.querySelectorAll('.c2-preset');
+      items = document.querySelectorAll('#c2-presets .c2-preset');
     }
     items = Array.prototype.slice.call(items);
     i = items.findIndex(function (b) { return b.classList.contains('c2-on'); });
@@ -709,7 +742,6 @@
       if (/^image\//.test(items[i].type)) { readImage(items[i].getAsFile()); break; }
     }
   });
-  document.getElementById('c2-auto').addEventListener('click', autoAssign);
   document.getElementById('c2-mode').addEventListener('change', extractPalette);
   document.getElementById('c2-k').addEventListener('change', extractPalette);
   document.getElementById('c2-reset-order').addEventListener('click', function () {
