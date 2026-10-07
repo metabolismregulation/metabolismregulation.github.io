@@ -613,9 +613,10 @@
   //   3 image:    the two most prominent colours of the image as protein and
   //               chemical, as long as text reads on them; highlight the most
   //               saturated swatch left
-  //   4, 5        the runners-up of rules 1 and 2 (a different protein)
-  //   6 bold:     a dark protein with white text beside a light chemical;
-  //               without a dark swatch, the runner-up of rule 3
+  //   4, 5, 6     the runners-up of rules 1, 2 and 3 (a different protein)
+  // Very dark swatches (lightness below 0.5) are never suggested; they stay
+  // available as swatches to assign by hand. Fewer than six are shown when
+  // the palette does not allow more.
   function suggestThemes(sw) {
     var chroma = function (s) { return Math.hypot(s.lab[1], s.lab[2]); };
     var hue = function (s) { return Math.atan2(s.lab[2], s.lab[1]) * 180 / Math.PI; };
@@ -635,7 +636,9 @@
 
     var light = sw.filter(function (s) { return s.lab[0] > 0.9 && chroma(s) < 0.03; });
     var bg = (light.length ? light : sw).slice().sort(function (a, b) { return b.lab[0] - a.lab[0]; })[0];
-    var rest = sw.filter(function (s) { return s !== bg && pairDistance(s.hex, bg.hex) >= 4; });
+    var rest = sw.filter(function (s) {
+      return s !== bg && s.lab[0] >= 0.5 && pairDistance(s.hex, bg.hex) >= 4;
+    });
     var offBg = function (s) { return Math.max(0, Math.min(1, (pairDistance(s.hex, bg.hex) - 3) / 2)); };
 
     var rules = [
@@ -664,13 +667,9 @@
       function image(p, c, d) {
         if (textFit(p) === 0 || textFit(c) === 0) return -1;
         return (Math.sqrt(p.share) + Math.sqrt(c.share)) * (1 + Math.min(1, (d - 5) / 4)) * (0.5 + offBg(c));
-      },
-      function bold(p, c, d) {
-        if (blackText(p) || !blackText(c) || c.lab[0] - p.lab[0] < 0.3) return -1;
-        return (textFit(p) + textFit(c) + muted(p) + offBg(c)) * (0.5 + Math.sqrt(p.share) + 0.5 * Math.sqrt(c.share));
       }
     ];
-    rules = [rules[0], rules[1], rules[2], rules[0], rules[1], rules[3], rules[2]];
+    rules = rules.concat(rules);
 
     var out = [];
     rules.forEach(function (rule) {
@@ -721,15 +720,19 @@
       });
       box.appendChild(b);
     });
-    // the first suggestion is applied straight away
+    // the first suggestion is applied straight away, and the arrow keys
+    // step through the suggestions
     if (box.firstChild) box.firstChild.click();
   }
 
   // ---------- arrow keys ----------
   // Down/right and up/left step through the list last clicked: the presets (the default
-  // on load) or one Mixer column. Keys typed into a field are left alone.
-  var keyGroup = null; // null = presets, otherwise a .c2-mixcol element
+  // on load), one Mixer column or the image suggestions. Keys typed into a field are left alone.
+  var keyGroup = null; // null = presets, otherwise a Mixer column or the suggestions
   document.getElementById('c2-presets').addEventListener('click', function () { keyGroup = null; });
+  document.getElementById('c2-suggest').addEventListener('click', function (e) {
+    if (e.target.closest('.c2-sugg')) keyGroup = this;
+  });
   document.getElementById('c2-mixer').addEventListener('click', function (e) {
     var dot = e.target.closest('.c2-dot');
     if (dot) { keyGroup = dot.closest('.c2-mixcol'); mixerLinked = true; }
@@ -741,7 +744,7 @@
     if (e.target.closest && e.target.closest('input, select, textarea, [contenteditable]')) return;
     var items, i;
     if (keyGroup) {
-      items = keyGroup.querySelectorAll('.c2-dot');
+      items = keyGroup.querySelectorAll('.c2-dot, .c2-sugg');
     } else {
       items = document.querySelectorAll('#c2-presets .c2-preset');
     }
