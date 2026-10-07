@@ -184,10 +184,11 @@
       ['Shade', 'F3F0EA'], ['Clay', 'F6F4EF'], ['Linen', 'F9F6F2'], ['Paper', 'F7F6F3'],
       ['Dove', 'F4F2F1'], ['Grey', 'F2F2F2'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
-      ['Mushroom', 'DECEC1'], ['Stone', 'E3CDB5'], ['Putty', 'DACFC3'], ['Clay', 'E1CEB6'],
-      ['Linen', 'DAD0BF'], ['Paper', 'D3D1CA'], ['Grey', 'CBD2D9'],
-      ['Slate', 'CDD6E0'], ['Powder', 'B3CDE3'], ['Blue', 'C8D8EB'],
-      ['Ocean', 'BCD3F2']] },
+      // the preset proteins, warm to cool; Blue also stands in for the two
+      // near-identical preset blues C6D9E7 and C5D8F1
+      ['Taupe', 'DBCCC7'], ['Mushroom', 'DECEC1'], ['Stone', 'D9D2C7'], ['Paper', 'D3D1CA'],
+      ['Lichen', 'DCDDCA'], ['Sage', 'C7DDCA'], ['Celadon', 'BFD8C8'], ['Blue', 'C8D8EB'],
+      ['Ocean', 'BCD3F2'], ['Sky', 'CDDCF4'], ['Dusk', 'C5CADD']] },
     { role: 'metabolite', title: 'Chemical', generated: true }
   ];
 
