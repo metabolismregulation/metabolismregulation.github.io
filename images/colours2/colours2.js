@@ -186,7 +186,7 @@
     { role: 'compartment', title: 'Background', items: [
       // warm to cool (OKLab b, yellow to blue)
       ['Shell', 'FBFAF6'], ['Paper', 'F7F6F3'], ['Chalk', 'F8F8F8'],
-      ['Grey', 'F4F4F4'], ['Mist', 'F6F7F9'], ['Slate', 'F3F4F6']] },
+      ['Mist', 'F6F7F9'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
       // OKLCH lightness 0.865, hue 40 to 272 degrees in ~25 degree steps,
       // chroma 0.03 to 0.04 (Paper 0.012): the range the presets use
