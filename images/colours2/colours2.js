@@ -197,7 +197,7 @@
       // the presets
       ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'],
       ['Celery', 'E4EBDB'], ['Mint', 'DDEDE0'], ['Seafoam', 'D8EDE7'], ['Aqua', 'D6EDEE'],
-      ['Mist', 'D8ECF4'], ['Sky', 'DBEAF9'], ['Periwinkle', 'E2E7F7']] }
+      ['Mist', 'D8ECF4'], ['Sky', 'DBEAF9']] }
   ];
 
   // Backup (CHEM_FROM_ANGLE): chemicals are calculated from the chosen protein: eleven hues on the
