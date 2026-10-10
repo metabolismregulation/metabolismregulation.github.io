@@ -21,7 +21,7 @@ Tatiana Serebriyskaya, Valeriya Berzhitskaya, Maria Heredia Chavez
 
 ## Description
 
-The carnitine palmitoyltransferase system is responsible for delivering the long-chain fatty acid from cytoplasm into mitochondria for oxidation, where carnitine palmitoyltransferase 1 (CPT1) catalyzes the rate-limiting step of fatty acid oxidation that plays an important role in lipid metabolism.
+The carnitine palmitoyltransferase system is responsible for delivering long-chain fatty acids from the cytoplasm into mitochondria for oxidation. Carnitine palmitoyltransferase 1 (CPT1) catalyses the rate-limiting step of fatty acid oxidation, which plays an important role in lipid metabolism.
 
 ## References
 

@@ -21,7 +21,7 @@ Hanna Borlinghaus, Falk Schreiber, Maria Heredia Chavez
 
 ## Description
 
-Glutaminase C (GAC) catalyses the conversion of glutamine to glutamate. Glutamate then enters the tricarboxylic cycle. High availability of glutamate is important for tumor cells to satisfy their increased need for energy and synthesis of macromolecules.
+Glutaminase C (GAC) catalyses the conversion of glutamine to glutamate. Glutamate then enters the tricarboxylic acid cycle. High availability of glutamate is important for tumor cells to satisfy their increased need for energy and synthesis of macromolecules.
 
 ## References
 
