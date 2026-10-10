@@ -66,7 +66,9 @@ permalink: /colours/
   .c2-under { margin: 8px 0 0; }
   #c2-export { width: 100%; font-family: monospace; font-size: 11px; box-sizing: border-box; }
   .c2-small { font-size: 12px; color: #666; }
-  button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; }
+  button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 5px; }
+  button.c2-act:hover { background: #ebebeb; border-color: #999; }
+  button.c2-act:disabled { color: #999; cursor: default; }
 </style>
 
 <div class="c2-wide">

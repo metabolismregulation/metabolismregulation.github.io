@@ -455,6 +455,14 @@
     if (document.getElementById('c2-cxbg').checked) c.complex = c.compartment;
     return c;
   }
+  // File name: the preset's name if the map shows one, otherwise the
+  // background, protein and chemical colours
+  function themeSlug() {
+    var on = document.querySelector('#c2-presets .c2-on');
+    if (on) return on.getAttribute('data-name').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    var c = shownColours();
+    return [c.compartment, c.protein, c.metabolite].join('-');
+  }
   function download(ext, name, lower) {
     var v = document.querySelector('.c2-under').getAttribute('data-v');
     fetch('/images/colours2/F007-inos.template.' + ext + '?v=' + v).then(function (r) { return r.text(); }).then(function (t) {
@@ -464,7 +472,7 @@
       });
       var a = document.createElement('a');
       a.href = URL.createObjectURL(new Blob([t], { type: 'application/xml' }));
-      a.download = name;
+      a.download = name.replace('{theme}', themeSlug());
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -983,10 +991,10 @@
   document.getElementById('c2-add').addEventListener('click', addPreset);
   document.getElementById('c2-link').addEventListener('click', copyLink);
   document.getElementById('c2-yed').addEventListener('click', function () {
-    download('graphml', 'F007-inos-theme.graphml', false);
+    download('graphml', 'F007-inos-{theme}.graphml', false);
   });
   document.getElementById('c2-cd').addEventListener('click', function () {
-    download('xml', 'F007-inos-theme-celldesigner.xml', true);
+    download('xml', 'F007-inos-{theme}-celldesigner.xml', true);
   });
   window.addEventListener('hashchange', function () {
     var v = themeFromLink();
