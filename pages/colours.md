@@ -43,10 +43,10 @@ permalink: /colours/
   #c2-light::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-progress { background: #ddd; }
-  .c2-del { margin-left: auto; position: relative; flex: none; width: 14px; height: 14px; color: #bbb; }
-  .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 6.5px; width: 8px; height: 1px; background: currentColor; transform: rotate(45deg); }
+  .c2-del { margin-left: auto; position: relative; flex: none; width: 16px; height: 16px; color: #aaa; }
+  .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 2px; top: 7.5px; width: 12px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
-  .c2-del:hover { color: #888; }
+  .c2-del:hover { color: #333; }
   .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; }
   .c2-dragging .c2-handle { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
