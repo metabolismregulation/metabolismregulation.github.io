@@ -113,7 +113,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 
 </div>
 <div class="c2-mapcol">
-<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png"></canvas>
+<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}"></canvas>
 </div>
 <div class="c2-panel c2-right">
 
