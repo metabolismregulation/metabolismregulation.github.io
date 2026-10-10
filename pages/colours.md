@@ -134,7 +134,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file</button>
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file</button>
-<button type="button" class="c2-act" id="c2-add">Add to presets</button>
+<button type="button" class="c2-act" id="c2-add">Add to Presets</button>
 </p>
 </div>
 <div class="c2-panel c2-right">
