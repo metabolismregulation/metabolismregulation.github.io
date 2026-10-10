@@ -21,7 +21,7 @@ Japan.
 
 To learn more and to contribute, please review the available [maps](/gallery/), a collection of diagrams in Systems Biology Graphical Notation (SBGN).  
 
-In addition to GraphML and SBGN-ML, we aim to provide maps in various formats including CellDesigner, SBML and BioPAX, so the maps are easily accessible and can be downloaded, reused and improved. These formats will be generated automatically.
+In addition to GraphML and SBGN-ML, we aim to provide maps in various formats including CellDesigner, SBML and BioPAX, so the maps are easily accessible and can be downloaded, reused and improved. Maps are currently available in GraphML, SBGN-ML, CellDesigner and SBML.
 
 Ways to contribute: 
 * Drawing diagrams: please join the work on one of the existing topics or propose a new one. Diagrams can be drawn using the SBGN palette in the yEd Graph Editor, one of the main tools used in this project. The resulting format is GraphML. Please review tips on [how to draw SBGN diagrams in yEd](/help/). Any tool that generates valid SBGN-ML can also be used, for example SBGN-ED or Newt Editor, in which case the files are to be provided in SBGN-ML.
