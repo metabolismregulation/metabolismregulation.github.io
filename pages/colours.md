@@ -40,7 +40,7 @@ permalink: /colours/
   .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }
   .c2-handle:hover { color: #333; }
   .c2-del { margin-left: auto; padding: 0 4px; color: #aaa; font-size: 15px; line-height: 1; }
-  .c2-del:hover { color: #b3261e; }
+  .c2-del:hover { color: #333; }
   .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; }
   .c2-dragging .c2-handle { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
