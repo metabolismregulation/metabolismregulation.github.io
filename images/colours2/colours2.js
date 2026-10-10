@@ -361,7 +361,8 @@
     add.type = 'button';
     add.className = 'c2-mixadd';
     add.title = 'Add the ' + col.title.toLowerCase() + ' colour on the map';
-    add.innerHTML = '<span></span>';
+    add.innerHTML = '<svg viewBox="0 0 15 15"><circle cx="7.5" cy="7.5" r="7"/>' +
+      '<path d="M4 7.5h7M7.5 4v7" stroke="currentColor"/></svg>';
     add.addEventListener('click', function () { addMixColour(c, col); });
     c.appendChild(add);
   }

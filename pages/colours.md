@@ -39,11 +39,12 @@ permalink: /colours/
   .c2-dot .c2-del::before, .c2-dot .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
   .c2-mixadd { display: flex; width: 100%; padding: 2px 3px; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
   .c2-mixadd:hover { border-color: #bbb; }
-  .c2-mixadd span { position: relative; width: 15px; height: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 50%; background: #fff; color: #999; }
-  /* the plus is drawn, so it sits in the exact centre whatever the font */
-  .c2-mixadd span::before, .c2-mixadd span::after { content: ""; position: absolute; left: 3px; top: 6px; width: 7px; height: 1px; background: currentColor; }
-  .c2-mixadd span::after { transform: rotate(90deg); }
-  .c2-mixadd:hover span { border-color: #888; color: #333; }
+  /* circle and plus drawn as one small picture, so the plus stays centred
+     wherever the column puts the circle (columns fall between screen pixels) */
+  .c2-mixadd svg { display: block; width: 15px; height: 15px; color: #999; }
+  .c2-mixadd svg circle { fill: #fff; stroke: #ccc; }
+  .c2-mixadd:hover svg { color: #333; }
+  .c2-mixadd:hover svg circle { stroke: #888; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-pname { flex: 1; min-width: 0; }
