@@ -194,8 +194,8 @@
     { role: 'protein', title: 'Protein', items: [
       // OKLCH lightness 0.865, hue 85 to 255 degrees in ~20 degree steps,
       // chroma 0.033 to 0.042; Paper (0.012) as a near-neutral and Olive
-      // (lightness 0.85, chroma 0.049) a little deeper and stronger
-      ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'], ['Olive', 'D2D0AB'], ['Lichen', 'CDD7BF'],
+      // (D6D5B8) a little stronger
+      ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'], ['Olive', 'D6D5B8'], ['Lichen', 'CDD7BF'],
       ['Sage', 'C3DAC6'], ['Celadon', 'BBDBD1'], ['Sea', 'B8DADA'], ['Haze', 'B8D9E2'],
       ['Powder', 'BBD7E9'], ['Blue', 'C1D5EE']] },
     CHEM_FROM_ANGLE ? { role: 'metabolite', title: 'Chemical', generated: true } :
