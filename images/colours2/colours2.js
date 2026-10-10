@@ -370,7 +370,7 @@
   // moved, left (100) the lightest and softest version
   // (each fill moved 80% of the way to white in OKLab lightness, chroma eased
   // to a half). Any other change to the theme starts from scratch again.
-  var LIGHT_ROLES = ['compartment', 'complex', 'protein', 'metabolite', 'hlProtein'];
+  var LIGHT_ROLES = ['compartment', 'complex', 'protein', 'metabolite'];
   var lightBase = null, adjusting = false;
   function lighten(hex, k) {
     var o = rgbToOklab(hexToRgb(hex)), f = 1 - 0.6 * k;
@@ -426,21 +426,29 @@
     syncPresets();
   }
 
-  // Mark the preset that matches the current colours, if any
+  // Mark the preset that matches the current colours, if any (the highlight
+  // is left out of the comparison: it is set in Roles only)
+  function withoutHl(code) {
+    return code.split(' ').filter(function (h, i) { return i !== 4; }).join(' ');
+  }
   function syncPresets() {
     if (!theme.ink) return; // before the first theme is applied
-    var cur = themeCode(false);
+    var cur = withoutHl(themeCode(false));
     Array.prototype.forEach.call(document.querySelectorAll('#c2-presets .c2-preset'), function (b) {
-      b.classList.toggle('c2-on', b.getAttribute('data-theme') === cur);
+      b.classList.toggle('c2-on', withoutHl(b.getAttribute('data-theme')) === cur);
     });
   }
 
   // Theme code: 7 colours, or 8 when text differs from lines. A 7-colour
   // code (all presets) draws text in the line colour.
-  function applyPreset(str) {
+  // keepHl: leave the highlight as set in Roles (presets); a pasted theme
+  // code sets it too.
+  function applyPreset(str, keepHl) {
     var hs = str.split(/\s+/);
     if (hs.length < 8) hs[7] = hs[6];
-    ROLES.forEach(function (r, i) { theme[r.id] = '#' + hs[i]; });
+    ROLES.forEach(function (r, i) {
+      if (!(keepHl && r.id === 'hlProtein' && theme.hlProtein)) theme[r.id] = '#' + hs[i];
+    });
     syncControls();
     render();
   }
@@ -577,7 +585,7 @@
       b.addEventListener('click', function () {
         if (dragged) return;
         mixerLinked = false;
-        applyPreset(p[1]);
+        applyPreset(p[1], true);
         lastPreset = p[0];
       });
       var handle = b.querySelector('.c2-handle');
@@ -714,19 +722,17 @@
     showSuggestions(sw);
   }
 
-  // Suggestions: three themes built from the swatches as they are, each by
-  // its own rule. All share the background: the lightest near-neutral swatch.
+  // Suggestions: up to six themes built from the swatches as they are, each
+  // by its own rule. All share the background (the lightest near-neutral
+  // swatch); the highlight is left alone, it is set in Roles only.
   //   1 tonal:    protein muted and mid-light (lightness 0.80 to 0.90);
   //               chemical a softer, lighter partner (0.05 to 0.10 lighter,
   //               a third to four fifths of the protein's chroma, close in
-  //               hue); black text on both and the protein darker come first;
-  //               highlight a darker tone near the protein's hue
+  //               hue); black text on both and the protein darker come first
   //   2 contrast: chemical in another hue (60 to 150 degrees away) at
-  //               similar lightness and chroma; highlight the most saturated
-  //               swatch left
+  //               similar lightness and chroma
   //   3 image:    the two most prominent colours of the image as protein and
-  //               chemical, as long as text reads on them; highlight the most
-  //               saturated swatch left
+  //               chemical, as long as text reads on them
   //   4, 5, 6     the runners-up of rules 1, 2 and 3 (a different protein)
   // Very dark swatches (lightness below 0.5) are never suggested; they stay
   // available as swatches to assign by hand. Fewer than six are shown when
@@ -801,15 +807,7 @@
         });
       });
       if (!best) return;
-      var left = rest.filter(function (s) { return s !== best.p && s !== best.c && textFit(s) > 0; });
-      var tone = rule === rules[0] && left.filter(function (s) { return best.p.lab[0] - s.lab[0] >= 0.12; }).map(function (s) {
-        var gap = hueGap(s, best.p);
-        var near = gap === null ? 0.5 : Math.max(0, 1 - gap / 90);
-        return { s: s, score: near + 10 * Math.min(chroma(s), 0.05) + 0.5 * textFit(s) };
-      }).sort(function (a, b) { return b.score - a.score; })[0];
-      var accent = tone ? tone.s : left.filter(function (s) { return pairDistance(s.hex, best.p.hex) >= 8; })
-        .sort(function (a, b) { return chroma(b) - chroma(a); })[0];
-      out.push({ p: best.p, c: best.c, theme: [bg.hex, '#FFFFFF', best.p.hex, best.c.hex, accent ? accent.hex : theme.hlProtein] });
+      out.push({ p: best.p, c: best.c, theme: [bg.hex, '#FFFFFF', best.p.hex, best.c.hex] });
     });
     return out;
   }
@@ -821,11 +819,11 @@
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'c2-sugg';
-      b.innerHTML = '<span class="c2-chips">' + sg.theme.map(function (h, k) {
-        return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:' + h + '"></i>';
+      b.innerHTML = '<span class="c2-chips">' + sg.theme.map(function (h) {
+        return '<i style="background:' + h + '"></i>';
       }).join('') + '</span>';
       b.addEventListener('click', function () {
-        ['compartment', 'complex', 'protein', 'metabolite', 'hlProtein'].forEach(function (id, k) {
+        ['compartment', 'complex', 'protein', 'metabolite'].forEach(function (id, k) {
           theme[id] = sg.theme[k].toUpperCase();
         });
         Array.prototype.forEach.call(box.children, function (el) { el.classList.toggle('c2-on', el === b); });
