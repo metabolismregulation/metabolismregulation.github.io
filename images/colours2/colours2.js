@@ -361,7 +361,7 @@
     add.type = 'button';
     add.className = 'c2-mixadd';
     add.title = 'Add the ' + col.title.toLowerCase() + ' colour on the map';
-    add.innerHTML = '<span>+</span>';
+    add.innerHTML = '<span></span>';
     add.addEventListener('click', function () { addMixColour(c, col); });
     c.appendChild(add);
   }
