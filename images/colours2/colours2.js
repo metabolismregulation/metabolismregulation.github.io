@@ -365,8 +365,8 @@
   }
 
   // ---------- swap and lighter ----------
-  // Lighter works like a volume slider on the fills: 0 is the theme as it was
-  // when the slider was first moved, 100 the lightest and softest version
+  // Lighter works like a volume slider on the fills: right (100) is the theme
+  // as it was when the slider was first moved, left (0) the lightest and softest version
   // (each fill moved 80% of the way to white in OKLab lightness, chroma eased
   // to a half). Any other change to the theme starts from scratch again.
   var LIGHT_ROLES = ['compartment', 'complex', 'protein', 'metabolite', 'hlProtein'];
@@ -376,7 +376,7 @@
     return rgbToHex(oklabToRgb([o[0] + k * (1 - o[0]), o[1] * f, o[2] * f])).toUpperCase();
   }
   function applyLight() {
-    var k = 0.8 * document.getElementById('c2-light').value / 100;
+    var k = 0.8 * (100 - document.getElementById('c2-light').value) / 100;
     if (!lightBase) {
       lightBase = {};
       LIGHT_ROLES.forEach(function (id) { lightBase[id] = theme[id]; });
@@ -405,7 +405,7 @@
   function syncControls() {
     if (!adjusting && lightBase) { // the theme changed some other way
       lightBase = null;
-      document.getElementById('c2-light').value = 0;
+      document.getElementById('c2-light').value = 100;
     }
     ROLES.forEach(function (r) {
       document.getElementById('c2-in-' + r.id).value = theme[r.id].toLowerCase();

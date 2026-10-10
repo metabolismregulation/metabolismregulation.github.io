@@ -79,14 +79,14 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <br><span class="c2-small">Processed in your browser only.</span>
 <br><img id="c2-thumb" hidden alt="">
 </div>
-<p class="c2-small" style="margin:6px 0 0">
-Mode: <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select>
-&nbsp; Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
+<p class="c2-small" style="margin:6px 0 0;display:flex;align-items:center;gap:3px;white-space:nowrap">
+<span>Mode:</span> <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select>
+<span style="margin-left:4px">Clusters:</span> <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
+<button type="button" class="c2-act" id="c2-swap" style="margin:0 0 0 auto" title="Swap protein and chemical colours">Swap</button>
 </p>
 <div id="c2-suggest"></div>
-<p class="c2-small" style="margin:8px 0 0;display:flex;align-items:center;gap:8px">
-<button type="button" class="c2-act" id="c2-swap" style="margin:0" title="Swap protein and chemical colours">&#8645; Swap</button>
-<label style="display:flex;align-items:center;gap:6px;flex:1">Lighter <input type="range" id="c2-light" min="0" max="100" value="0" style="flex:1"></label>
+<p class="c2-small" style="margin:8px 0 0;display:flex;align-items:center;gap:6px">
+<span>Lighter</span><input type="range" id="c2-light" min="0" max="100" value="100" style="flex:1" title="Right: the colours as they are; left: lighter and softer">
 </p>
 <div id="c2-swatches"></div>
 </section>
