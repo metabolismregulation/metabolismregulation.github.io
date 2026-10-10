@@ -193,7 +193,7 @@
       ['Mist', 'F6F7F9'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
       // a small starting set; colours found on the map are added with +
-      ['Paper', 'D4D3CA'], ['Olive', 'D6D5B8'], ['Lichen', 'D3DBC7']] },
+      ['Stone', 'D9D2C7'], ['Paper', 'D4D3CA'], ['Olive', 'D6D5B8'], ['Lichen', 'D3DBC7']] },
     CHEM_FROM_ANGLE ? { role: 'metabolite', title: 'Chemical', generated: true } :
     { role: 'metabolite', title: 'Chemical', items: [
       // a small starting set; colours found on the map are added with +
