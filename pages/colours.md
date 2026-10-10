@@ -37,7 +37,8 @@ permalink: /colours/
   .c2-dname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .c2-dot .c2-del { width: 12px; height: 12px; }
   .c2-dot .c2-del::before, .c2-dot .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
-  .c2-mixadd { display: flex; padding: 2px 3px; background: none; border: 1px solid transparent; cursor: pointer; }
+  .c2-mixadd { display: flex; width: 100%; padding: 2px 3px; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
+  .c2-mixadd:hover { border-color: #bbb; }
   .c2-mixadd span { width: 15px; height: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 50%; background: #fff; color: #999; font-size: 12px; line-height: 13px; text-align: center; }
   .c2-mixadd:hover span { border-color: #888; color: #333; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
