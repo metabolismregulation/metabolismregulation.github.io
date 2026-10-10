@@ -82,6 +82,10 @@ Mode: <select id="c2-mode"><option value="avg" selected>average</option><option 
 &nbsp; Clusters: <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
 </p>
 <div id="c2-suggest"></div>
+<p class="c2-small" style="margin:8px 0 0;display:flex;align-items:center;gap:8px">
+<button type="button" class="c2-act" id="c2-swap" style="margin:0" title="Swap protein and chemical colours">&#8645; Swap</button>
+<label style="display:flex;align-items:center;gap:6px;flex:1">Lighter <input type="range" id="c2-light" min="0" max="100" value="0" style="flex:1"></label>
+</p>
 <div id="c2-swatches"></div>
 </section>
 

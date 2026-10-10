@@ -353,7 +353,49 @@
     }
   }
 
+  // ---------- swap and lighter ----------
+  // Lighter works like a volume slider on the fills: 0 is the theme as it was
+  // when the slider was first moved, 100 the lightest and softest version
+  // (each fill moved 80% of the way to white in OKLab lightness, chroma eased
+  // to a half). Any other change to the theme starts from scratch again.
+  var LIGHT_ROLES = ['compartment', 'complex', 'protein', 'metabolite', 'hlProtein'];
+  var lightBase = null, adjusting = false;
+  function lighten(hex, k) {
+    var o = rgbToOklab(hexToRgb(hex)), f = 1 - 0.6 * k;
+    return rgbToHex(oklabToRgb([o[0] + k * (1 - o[0]), o[1] * f, o[2] * f])).toUpperCase();
+  }
+  function applyLight() {
+    var k = 0.8 * document.getElementById('c2-light').value / 100;
+    if (!lightBase) {
+      lightBase = {};
+      LIGHT_ROLES.forEach(function (id) { lightBase[id] = theme[id]; });
+    }
+    adjusting = true;
+    LIGHT_ROLES.forEach(function (id) { theme[id] = lighten(lightBase[id], k); });
+    syncControls();
+    adjusting = false;
+    render();
+  }
+  function swapProteinChemical() {
+    var t = theme.protein;
+    theme.protein = theme.metabolite;
+    theme.metabolite = t;
+    if (lightBase) {
+      t = lightBase.protein;
+      lightBase.protein = lightBase.metabolite;
+      lightBase.metabolite = t;
+    }
+    adjusting = true;
+    syncControls();
+    adjusting = false;
+    render();
+  }
+
   function syncControls() {
+    if (!adjusting && lightBase) { // the theme changed some other way
+      lightBase = null;
+      document.getElementById('c2-light').value = 0;
+    }
     ROLES.forEach(function (r) {
       document.getElementById('c2-in-' + r.id).value = theme[r.id].toLowerCase();
       var hx = document.getElementById('c2-hex-' + r.id);
@@ -805,6 +847,8 @@
     try { localStorage.removeItem(ORDER_KEY); } catch (e) { /* storage blocked */ }
     buildPresets();
   });
+  document.getElementById('c2-swap').addEventListener('click', swapProteinChemical);
+  document.getElementById('c2-light').addEventListener('input', applyLight);
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
     if (/^([0-9a-fA-F]{6}\s+){6,7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
