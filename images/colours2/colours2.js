@@ -994,7 +994,7 @@
     download('graphml', 'F007-inos-{theme}.graphml', false);
   });
   document.getElementById('c2-cd').addEventListener('click', function () {
-    download('xml', 'F007-inos-{theme}-celldesigner.xml', true);
+    download('xml', 'F007-inos-{theme}.xml', true);
   });
   window.addEventListener('hashchange', function () {
     var v = themeFromLink();
