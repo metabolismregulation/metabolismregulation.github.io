@@ -109,6 +109,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
 <button type="button" class="c2-act" id="c2-add">Add to presets</button>
+<button type="button" class="c2-act" id="c2-link">Copy link</button>
 </section>
 
 </div>
