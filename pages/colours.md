@@ -111,7 +111,6 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </select></p>
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
-<button type="button" class="c2-act" id="c2-add">Add to presets</button>
 </section>
 
 </div>
@@ -121,6 +120,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file</button>
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file</button>
+<button type="button" class="c2-act" id="c2-add">Add to presets</button>
 </p>
 </div>
 <div class="c2-panel c2-right">
