@@ -494,15 +494,70 @@
   document.addEventListener('pointerup', stopDrag);
   document.addEventListener('pointercancel', stopDrag);
 
+  // Presets added with "Add to presets" are kept in this browser only.
+  var CUSTOM_KEY = 'colours.customPresets';
+  function loadCustom() {
+    try { return JSON.parse(localStorage.getItem(CUSTOM_KEY)) || []; } catch (e) { return []; }
+  }
+  function saveCustom(list) {
+    try { localStorage.setItem(CUSTOM_KEY, JSON.stringify(list)); } catch (e) { /* storage blocked */ }
+  }
+
+  // Names for a new preset: the nearest named colour for the protein and for
+  // the chemical, "Mono <name>" when both land on the same name.
+  var COLOUR_NAMES = [
+    ['Rose', 'E8C4C4'], ['Blush', 'F2E1DC'], ['Peach', 'F2D2BC'], ['Apricot', 'EFC8A8'], ['Taupe', 'DBCCC7'],
+    ['Mushroom', 'DECEC1'], ['Sand', 'EFE7D8'], ['Linen', 'DDD1BA'], ['Ochre', 'E3C77A'], ['Straw', 'EDE3B8'],
+    ['Stone', 'D9D2C7'], ['Paper', 'D4D3CA'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'], ['Ash', 'C4C8C1'],
+    ['Lichen', 'D1D6BD'], ['Celery', 'E4EBDB'], ['Moss', 'BFC7B8'], ['Pistachio', 'C9D8C1'], ['Sage', 'C1DAC8'],
+    ['Mint', 'DDEDE0'], ['Celadon', 'BBDBD1'], ['Seafoam', 'D8EDE7'], ['Sea', 'B8DADA'], ['Aqua', 'D6EDEE'],
+    ['Haze', 'B8D9E2'], ['Mist', 'D8ECF4'], ['Powder', 'BBD7E9'], ['Steel', 'BFCFD9'], ['Blue', 'C1D5EE'],
+    ['Sky', 'DBEAF9'], ['Ocean', 'BCD3F2'], ['Dusk', 'C5CADD'], ['Periwinkle', 'E2E7F7'], ['Lavender', 'D9D0E6'],
+    ['Lilac', 'E6D6E6'], ['Grey', 'D6D6D6']];
+  function colourName(hex) {
+    var o = rgbToOklab(hexToRgb(hex)), best = null;
+    COLOUR_NAMES.forEach(function (n) {
+      var d = dist(o, rgbToOklab(hexToRgb('#' + n[1])));
+      if (!best || d < best.d) best = { d: d, name: n[0] };
+    });
+    return best.name;
+  }
+  function suggestName() {
+    var p = colourName(theme.protein), c = colourName(theme.metabolite);
+    return p === c ? 'Mono ' + p.toLowerCase() : p + ' and ' + c.toLowerCase();
+  }
+  function addPreset() {
+    var name = window.prompt('Name for this preset (kept in this browser):', suggestName());
+    if (name === null) return;
+    name = name.trim() || suggestName();
+    var taken = function (n) {
+      return PRESETS.concat(loadCustom()).some(function (p) { return p[0] === n; });
+    };
+    var base = name, i = 2;
+    while (taken(name)) name = base + ' ' + i++;
+    var list = loadCustom();
+    list.push([name, themeCode(false)]);
+    saveCustom(list);
+    buildPresets();
+    lastPreset = name;
+  }
+  function removePreset(name) {
+    if (!window.confirm('Remove "' + name + '" from the presets?')) return;
+    saveCustom(loadCustom().filter(function (p) { return p[0] !== name; }));
+    buildPresets();
+  }
+
   function buildPresets() {
     var box = document.getElementById('c2-presets');
     box.innerHTML = '';
     var saved = loadOrder();
+    var custom = loadCustom();
+    var all = PRESETS.concat(custom);
     var rank = function (p) {
       var i = saved.indexOf(p[0]);
-      return i < 0 ? saved.length + PRESETS.indexOf(p) : i;
+      return i < 0 ? saved.length + all.indexOf(p) : i;
     };
-    PRESETS.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (p) {
+    all.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (p) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'c2-preset';
@@ -513,6 +568,14 @@
         '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
           return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
         }).join('') + '</span>' + p[0];
+      if (custom.indexOf(p) >= 0) {
+        var x = document.createElement('span');
+        x.className = 'c2-del';
+        x.title = 'Remove this preset';
+        x.innerHTML = '&times;';
+        x.addEventListener('click', function (e) { e.stopPropagation(); removePreset(p[0]); });
+        b.appendChild(x);
+      }
       b.addEventListener('click', function () {
         if (dragged) return;
         mixerLinked = false;
@@ -860,6 +923,7 @@
   });
   document.getElementById('c2-swap').addEventListener('click', swapProteinChemical);
   document.getElementById('c2-light').addEventListener('input', applyLight);
+  document.getElementById('c2-add').addEventListener('click', addPreset);
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
     if (/^([0-9a-fA-F]{6}\s+){6,7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
