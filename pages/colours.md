@@ -86,7 +86,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </p>
 <div id="c2-suggest"></div>
 <p class="c2-small" style="margin:8px 0 0;display:flex;align-items:center;gap:6px">
-<span>Lighter</span><input type="range" id="c2-light" min="0" max="100" value="100" style="flex:1" title="Right: the colours as they are; left: lighter and softer">
+<span>Lighter</span><input type="range" id="c2-light" min="0" max="100" value="0" dir="rtl" style="flex:1" title="Right: the colours as they are; left: lighter and softer">
 </p>
 <div id="c2-swatches"></div>
 </section>
