@@ -455,13 +455,13 @@
     if (document.getElementById('c2-cxbg').checked) c.complex = c.compartment;
     return c;
   }
-  // File name: the preset's name if the map shows one, otherwise the
+  // File name: the preset's name if the map shows one, then the
   // background, protein and chemical colours
   function themeSlug() {
     var on = document.querySelector('#c2-presets .c2-on');
-    if (on) return on.getAttribute('data-name').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    var c = shownColours();
-    return [c.compartment, c.protein, c.metabolite].join('-');
+    var c = shownColours(), codes = [c.compartment, c.protein, c.metabolite].join('-');
+    if (!on) return codes;
+    return on.getAttribute('data-name').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + codes;
   }
   function download(ext, name, lower) {
     var v = document.querySelector('.c2-under').getAttribute('data-v');
