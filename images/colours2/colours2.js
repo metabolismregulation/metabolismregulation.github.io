@@ -195,7 +195,7 @@
       // the protein hues again, lighter and softer: OKLCH lightness 0.93,
       // chroma about 0.6 of the protein column's; Pearl and Silver as in
       // the presets
-      ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'],
+      ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'], ['Willow', 'E8E8DE'],
       ['Celery', 'E4EBDB'], ['Mint', 'DDEDE0'], ['Seafoam', 'D8EDE7'], ['Aqua', 'D6EDEE'],
       ['Mist', 'D8ECF4'], ['Sky', 'DBEAF9']] }
   ];
