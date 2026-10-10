@@ -1,6 +1,8 @@
 # Decompose a yEd PNG export into (fill class, ink mix, text flag) per pixel for /colours/.
 # Usage: python3 make_layers.py downloads/F007-inos.png images/colours2/F007-inos-layers.png
-# Fill order must match the cls numbers of ROLES in colours2.js; class 7 is the page margin.
+# Fill order must match the cls numbers of ROLES in colours2.js; class 7 is the page margin,
+# class 8 the white fill of gene and mRNA nodes (split from process nodes and labels).
+# R = class * 24, G = fill share, B = text flag.
 # Needs: pillow, numpy, scipy.
 import sys
 from PIL import Image; import numpy as np; from scipy import ndimage
@@ -25,6 +27,14 @@ best=((a-T[...,None]*f)**2).sum(-1)
 lab,_=ndimage.label(cls==1)
 edge=set(np.unique(np.concatenate([lab[0],lab[-1],lab[:,0],lab[:,-1]])))-{0}
 cls[np.isin(lab,list(edge))]=7
+# gene and mRNA nodes: the large white fills (process squares, labels, state
+# variables, logic and empty-set circles are all smaller) -> class 8, with
+# their anti-aliased edges and text
+glab,_=ndimage.label((cls==1)&solid)
+big=[i+1 for i,(y,x) in enumerate(ndimage.find_objects(glab)) if y.stop-y.start>=60 and x.stop-x.start>=150]
+gene=np.isin(glab[iy,ix],big)&(cls==1)
+cls[gene]=8
+print('gene/mRNA nodes',len(big))
 print('max residual',np.sqrt(best.max()), 'p99.9',np.percentile(np.sqrt(best),99.9))
 # text: ink components of glyph size that do not enclose another component
 # (that rules out small boxes such as stoichiometry labels); every other ink
@@ -44,9 +54,9 @@ _,(iy,ix)=ndimage.distance_transform_edt(~core,return_indices=True)
 text=glyph[lab[iy,ix]]&(T<1)
 print('text components',glyph.sum(),'of',n)
 out=np.zeros(a.shape[:2]+(3,),np.uint8)
-out[...,0]=cls*32; out[...,1]=np.round(T*255); out[...,2]=text*255
+out[...,0]=cls*24; out[...,1]=np.round(T*255); out[...,2]=text*255
 Image.fromarray(out).save(sys.argv[2],optimize=True)
 # reconstruction check
-F2=np.vstack([F,[[255,255,255]]])
+F2=np.vstack([F,[[255,255,255],[255,255,255]]])
 rec=T[...,None]*F2[cls]
 print('mean abs err',np.abs(rec-a).mean())

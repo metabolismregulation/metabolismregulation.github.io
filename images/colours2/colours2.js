@@ -1,6 +1,6 @@
 // Colour theme playground for the iNOS map.
 // F007-inos-layers.png stores, per pixel of F007-inos.png:
-//   R = fill class * 32, G = fill share t (0..255); the rest is ink.
+//   R = fill class * 24, G = fill share t (0..255); the rest is ink.
 //   B = 255 where that ink is text, 0 where it is a line or border.
 // A pixel is redrawn as t * fill[class] + (1 - t) * ink, ink being the
 // text or the line colour.
@@ -13,10 +13,17 @@
     { id: 'protein', name: 'Protein', cls: 2 },
     { id: 'metabolite', name: 'Simple chemical', cls: 4 },
     { id: 'hlProtein', name: 'Highlighted protein', cls: 6, hl: true },
-    { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1 },
+    { id: 'white', name: 'Process, labels', cls: 1 },
     { id: 'ink', name: 'Lines', cls: -1 },
-    { id: 'text', name: 'Text', cls: -1 }
+    { id: 'text', name: 'Text', cls: -1 },
+    { id: 'gene', name: 'Gene, mRNA', cls: 8, after: 'white' }
   ];
+  // Roles as listed on the page: Gene, mRNA right after Process, labels.
+  // ROLES itself keeps the order of the theme code, where gene comes last.
+  var ROLE_VIEW = ROLES.filter(function (r) { return !r.after; });
+  ROLES.forEach(function (r) {
+    if (r.after) ROLE_VIEW.splice(ROLE_VIEW.findIndex(function (v) { return v.id === r.after; }) + 1, 0, r);
+  });
 
   var PRESETS = window.C2_PRESETS;
 
@@ -113,7 +120,7 @@
         for (x = 0; x < w; x++) {
           k = (y * w + x) * 4;
           // pure margin: page class with no ink in it
-          if (Math.round(d[k] / 32) === 7 && d[k + 1] > 250) continue;
+          if (Math.round(d[k] / 24) === 7 && d[k + 1] > 250) continue;
           if (x < x0) x0 = x;
           if (x > x1) x1 = x;
           if (y < y0) y0 = y;
@@ -125,7 +132,7 @@
       for (y = 0; y < ch; y++) {
         for (x = 0; x < cw; x++) {
           k = ((y + y0) * w + x + x0) * 4;
-          cls[y * cw + x] = Math.round(d[k] / 32);
+          cls[y * cw + x] = Math.round(d[k] / 24);
           t[y * cw + x] = d[k + 1];
           txt[y * cw + x] = d[k + 2] > 127 ? 1 : 0;
         }
@@ -313,7 +320,7 @@
   var roleBox = document.getElementById('c2-roles');
 
   function buildRoles() {
-    ROLES.forEach(function (r) {
+    ROLE_VIEW.forEach(function (r) {
       var row = document.createElement('div');
       row.className = 'c2-role' + (r.hl ? ' c2-hl' : '');
       row.innerHTML =
@@ -439,13 +446,15 @@
     });
   }
 
-  // Theme code: 7 colours, or 8 when text differs from lines. A 7-colour
-  // code (all presets) draws text in the line colour.
+  // Theme code: 7 colours; an 8th for text when it differs from the lines,
+  // a 9th for gene and mRNA when they differ from processes. Shorter codes
+  // (all presets) fill in those defaults.
   // keepHl: leave the highlight as set in Roles (presets); a pasted theme
   // code sets it too.
   function applyPreset(str, keepHl) {
     var hs = str.split(/\s+/);
     if (hs.length < 8) hs[7] = hs[6];
+    if (hs.length < 9) hs[8] = hs[5];
     ROLES.forEach(function (r, i) {
       if (!(keepHl && r.id === 'hlProtein' && theme.hlProtein)) theme[r.id] = '#' + hs[i];
     });
@@ -457,7 +466,12 @@
     var hs = ROLES.map(function (r) {
       return (cxbg && r.id === 'complex' ? theme.compartment : theme[r.id]).slice(1).toUpperCase();
     });
-    if (hs[7] === hs[6]) hs.pop();
+    // trailing colours equal to their defaults are left out:
+    // gene (9th) defaults to the process colour, text (8th) to the lines
+    if (hs[8] === hs[5]) {
+      hs.pop();
+      if (hs[7] === hs[6]) hs.pop();
+    }
     return hs.join(' ');
   }
   function exportText() {
@@ -921,6 +935,6 @@
   document.getElementById('c2-add').addEventListener('click', addPreset);
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
-    if (/^([0-9a-fA-F]{6}\s+){6,7}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
+    if (/^([0-9a-fA-F]{6}\s+){6,8}[0-9a-fA-F]{6}$/.test(v)) applyPreset(v);
   });
 })();
