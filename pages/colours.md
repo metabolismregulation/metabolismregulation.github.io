@@ -84,11 +84,6 @@ permalink: /colours/
 
 <section>
 <h3>Palette from image</h3>
-<div id="c2-drop">
-Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<input type="file" id="c2-file" accept="image/*" hidden></label> an image
-<br><span class="c2-small">Processed in your browser only.</span>
-<br><img id="c2-thumb" hidden alt="">
-</div>
 <p class="c2-small" style="margin:6px 0 0;display:flex;align-items:center;gap:3px;white-space:nowrap">
 <span>Mode:</span> <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select>
 <span style="margin-left:4px">Clusters:</span> <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
@@ -99,6 +94,11 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <span>Lighter</span><input type="range" id="c2-light" min="0" max="100" value="0" dir="rtl" style="flex:1" title="Right: the colours as they are; left: lighter and softer">
 </p>
 <div id="c2-swatches"></div>
+<div id="c2-drop" style="margin-top:8px">
+Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<input type="file" id="c2-file" accept="image/*" hidden></label> an image
+<br><span class="c2-small">Processed in your browser only.</span>
+<br><img id="c2-thumb" hidden alt="">
+</div>
 </section>
 
 <section>
