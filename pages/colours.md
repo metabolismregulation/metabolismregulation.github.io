@@ -30,7 +30,8 @@ permalink: /colours/
   #c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
   .c2-mixtitle { font-size: 12px; color: #666; margin-bottom: 2px; }
   .c2-dot { display: flex; align-items: center; gap: 5px; width: 100%; font-size: 12px; padding: 2px 3px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
-  .c2-dot i { flex: none; width: 18px; height: 14px; border-radius: 3px; border: 1px solid #0003; box-sizing: border-box; }
+  .c2-dot i { flex: none; width: 18px; height: 14px; border-radius: 3px; border: 1px solid #0003; box-sizing: border-box; cursor: grab; touch-action: none; }
+  .c2-dot.c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
   .c2-dname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }

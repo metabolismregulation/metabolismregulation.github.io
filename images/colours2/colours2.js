@@ -270,10 +270,52 @@
     fillMixCol(c, col);
     syncMixer();
   }
+  // Mixer colours can be dragged by their swatch to reorder a column; the
+  // order is kept in this browser.
+  var MIX_ORDER_KEY = 'colours.mixerOrder';
+  var mixDrag = null, mixDragged = false;
+  function loadMixOrder() {
+    try { return JSON.parse(localStorage.getItem(MIX_ORDER_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveMixOrder(c, role) {
+    var all = loadMixOrder();
+    all[role] = Array.prototype.map.call(c.querySelectorAll('.c2-dot'), function (b) {
+      return b.getAttribute('data-hex');
+    });
+    try { localStorage.setItem(MIX_ORDER_KEY, JSON.stringify(all)); } catch (e) { /* storage blocked */ }
+  }
+  document.addEventListener('pointermove', function (e) {
+    if (!mixDrag) return;
+    var col = mixDrag.parentNode;
+    var over = document.elementFromPoint(e.clientX, e.clientY);
+    over = over && over.closest('.c2-dot');
+    if (!over || over === mixDrag || over.parentNode !== col) return;
+    var r = over.getBoundingClientRect();
+    col.insertBefore(mixDrag, e.clientY < r.top + r.height / 2 ? over : over.nextSibling);
+    mixDragged = true;
+  });
+  function stopMixDrag() {
+    if (!mixDrag) return;
+    mixDrag.classList.remove('c2-dragging');
+    if (mixDragged) {
+      saveMixOrder(mixDrag.parentNode, mixDrag.getAttribute('data-role'));
+      setTimeout(function () { mixDragged = false; }, 0);
+    }
+    mixDrag = null;
+  }
+  document.addEventListener('pointerup', stopMixDrag);
+  document.addEventListener('pointercancel', stopMixDrag);
+
   function fillMixCol(c, col) {
     c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
     var added = loadMixAdded()[col.role] || [];
-    col.items.concat(added).forEach(function (it, i) {
+    var order = loadMixOrder()[col.role] || [];
+    var all = col.items.concat(added);
+    var rank = function (it) {
+      var i = order.indexOf('#' + it[1]);
+      return i < 0 ? order.length + all.indexOf(it) : i;
+    };
+    all.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (it) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'c2-dot';
@@ -282,7 +324,14 @@
       b.title = it[0] + ' #' + it[1];
       b.innerHTML = '<i style="background:#' + it[1] + '"></i><span class="c2-dname">' +
         it[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
-      b.addEventListener('click', function () {
+      b.querySelector('i').addEventListener('pointerdown', function (e) {
+        e.preventDefault();
+        mixDrag = b;
+        mixDragged = false;
+        b.classList.add('c2-dragging');
+      });
+      b.addEventListener('click', function (e) {
+        if (mixDragged) { e.stopImmediatePropagation(); return; }
         // a new protein brings the chosen chemical along, recalculated for it
         // the chemical keeps its offset when the protein changes; 180 degrees
         // when no chemical from the list was chosen yet
@@ -292,7 +341,7 @@
         }
         setRole(col.role, '#' + it[1]);
       });
-      if (i >= col.items.length) {
+      if (col.items.indexOf(it) < 0) {
         var x = document.createElement('span');
         x.className = 'c2-del';
         x.title = 'Remove this colour';
