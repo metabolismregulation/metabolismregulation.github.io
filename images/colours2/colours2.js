@@ -175,6 +175,9 @@
   }
 
   // ---------- mixer ----------
+  // Chemical column: a fixed list (false), or the backup that calculates
+  // chemicals from the chosen protein by hue angle (true).
+  var CHEM_FROM_ANGLE = false;
   // Named colours from the presets; pick one per column to build a theme.
   var MIX = [
     { role: 'compartment', title: 'Background', items: [
@@ -187,10 +190,17 @@
       ['Taupe', 'E5CDC4'], ['Mushroom', 'E3CFBC'], ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'],
       ['Lichen', 'CED7C0'], ['Sage', 'C3DAC6'], ['Celadon', 'BBDBD1'], ['Sea', 'B8DADC'],
       ['Haze', 'B9D9E6'], ['Blue', 'BFD5EE'], ['Dusk', 'CAD2EA']] },
-    { role: 'metabolite', title: 'Chemical', generated: true }
+    CHEM_FROM_ANGLE ? { role: 'metabolite', title: 'Chemical', generated: true } :
+    { role: 'metabolite', title: 'Chemical', items: [
+      // the protein hues again, lighter and softer: OKLCH lightness 0.93,
+      // chroma about 0.6 of the protein column's; Pearl and Silver as in
+      // the presets
+      ['Blush', 'F5E4DE'], ['Cream', 'F3E5D9'], ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'],
+      ['Celery', 'E4EBDB'], ['Mint', 'DDEDE0'], ['Seafoam', 'D8EDE7'], ['Aqua', 'D6EDEE'],
+      ['Mist', 'D8ECF4'], ['Sky', 'DBEAF9'], ['Periwinkle', 'E2E7F7']] }
   ];
 
-  // Chemicals are calculated from the chosen protein: eleven hues on the
+  // Backup (CHEM_FROM_ANGLE): chemicals are calculated from the chosen protein: eleven hues on the
   // OKLCH wheel from +80 through 180 to -80 degrees from the protein's hue in
   // 20-degree steps (hues within 60 degrees of the protein are left out), one
   // lightness step (+0.04) above the protein, then 10% closer to white, colour strength 90% of the protein's.
@@ -254,7 +264,7 @@
           // a new protein brings the chosen chemical along, recalculated for it
           // the chemical keeps its offset when the protein changes; 180 degrees
           // when no chemical from the list was chosen yet
-          if (col.role === 'protein') {
+          if (CHEM_FROM_ANGLE && col.role === 'protein') {
             var off = chemSlot !== null ? chemSlot : 180;
             theme.metabolite = chemOptions('#' + it[1]).filter(function (o) { return o.off === off; })[0].hex;
           }
@@ -277,6 +287,7 @@
       b.classList.toggle('c2-on', on);
       if (on) names[role] = b.textContent;
     });
+    if (!CHEM_FROM_ANGLE) return;
     // rebuild the chemical column for the current protein
     var col = document.getElementById('c2-chemcol');
     col.innerHTML = '<div class="c2-mixtitle">Chemical</div>';
