@@ -615,15 +615,19 @@
     buildPresets();
     lastPreset = name;
   }
-  // Double-click an added preset to rename it: the row turns into a text
-  // field; Enter or clicking elsewhere keeps the new name, Escape cancels.
+  // Double-click an added preset to rename it in place: its name turns into
+  // a text field inside the row, with the dots and colours left as they are.
+  // Enter or clicking elsewhere keeps the new name, Escape cancels.
   function renamePreset(b, name) {
+    var label = b.querySelector('.c2-pname');
     var input = document.createElement('input');
     input.type = 'text';
     input.className = 'c2-rename';
     input.value = name;
-    b.style.display = 'none';
-    b.parentNode.insertBefore(input, b.nextSibling);
+    label.replaceWith(input);
+    ['click', 'dblclick', 'pointerdown'].forEach(function (ev) {
+      input.addEventListener(ev, function (e) { e.stopPropagation(); });
+    });
     input.focus();
     input.select();
     var done = false;
@@ -645,6 +649,7 @@
       buildPresets();
     };
     input.addEventListener('keydown', function (e) {
+      e.stopPropagation();
       if (e.key === 'Enter') finish(true);
       else if (e.key === 'Escape') finish(false);
     });
@@ -667,8 +672,10 @@
       return i < 0 ? saved.length + all.indexOf(p) : i;
     };
     all.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (p) {
-      var b = document.createElement('button');
-      b.type = 'button';
+      // a div acting as a button, so that a text field can sit inside it
+      var b = document.createElement('div');
+      b.setAttribute('role', 'button');
+      b.tabIndex = 0;
       b.className = 'c2-preset';
       b.setAttribute('data-name', p[0]);
       b.setAttribute('data-theme', p[1].toUpperCase());
@@ -676,7 +683,8 @@
       b.innerHTML = '<span class="c2-handle" title="Drag to reorder">&#8942;&#8942;</span>' +
         '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
           return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
-        }).join('') + '</span>' + p[0].replace(/&/g, '&amp;').replace(/</g, '&lt;');
+        }).join('') + '</span><span class="c2-pname">' +
+        p[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
       if (custom.indexOf(p) >= 0) {
         b.title = 'Double-click to rename';
         b.addEventListener('dblclick', function (e) {
@@ -694,6 +702,9 @@
         mixerLinked = false;
         applyPreset(p[1], true);
         lastPreset = p[0];
+      });
+      b.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); }
       });
       var handle = b.querySelector('.c2-handle');
       handle.addEventListener('pointerdown', function (e) {
