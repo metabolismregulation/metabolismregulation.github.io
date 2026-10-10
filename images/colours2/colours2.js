@@ -244,9 +244,16 @@
   // Colours added to the Mixer with + are kept in this browser, per column,
   // after the built-in ones; they can be removed with their cross.
   var MIX_KEY = 'colours.mixerColours';
+  // added colours are [name, hex, id]; the id tells apart repeats of a colour
   function loadMixAdded() {
-    try { return JSON.parse(localStorage.getItem(MIX_KEY)) || {}; } catch (e) { return {}; }
+    var all;
+    try { all = JSON.parse(localStorage.getItem(MIX_KEY)) || {}; } catch (e) { all = {}; }
+    Object.keys(all).forEach(function (role) {
+      all[role].forEach(function (it, i) { if (!it[2]) it[2] = 'a' + i + it[1]; });
+    });
+    return all;
   }
+  function mixKey(it) { return it[2] || '#' + it[1]; }
   function saveMixAdded(all) {
     try { localStorage.setItem(MIX_KEY, JSON.stringify(all)); } catch (e) { /* storage blocked */ }
   }
@@ -254,18 +261,17 @@
     var hex = theme[col.role].slice(1).toUpperCase();
     var all = loadMixAdded(), mine = all[col.role] || [];
     var list = col.items.concat(mine);
-    if (list.some(function (it) { return it[1].toUpperCase() === hex; })) return;
     var base = colourName('#' + hex), name = base, n = 2;
     while (list.some(function (it) { return it[0] === name; })) name = base + ' ' + n++;
-    mine.push([name, hex]);
+    mine.push([name, hex, 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6)]);
     all[col.role] = mine;
     saveMixAdded(all);
     fillMixCol(c, col);
     syncMixer();
   }
-  function removeMixColour(c, col, hex) {
+  function removeMixColour(c, col, id) {
     var all = loadMixAdded();
-    all[col.role] = (all[col.role] || []).filter(function (it) { return it[1] !== hex; });
+    all[col.role] = (all[col.role] || []).filter(function (it) { return it[2] !== id; });
     saveMixAdded(all);
     fillMixCol(c, col);
     syncMixer();
@@ -280,7 +286,7 @@
   function saveMixOrder(c, role) {
     var all = loadMixOrder();
     all[role] = Array.prototype.map.call(c.querySelectorAll('.c2-dot'), function (b) {
-      return b.getAttribute('data-hex');
+      return b.getAttribute('data-key');
     });
     try { localStorage.setItem(MIX_ORDER_KEY, JSON.stringify(all)); } catch (e) { /* storage blocked */ }
   }
@@ -312,7 +318,7 @@
     var order = loadMixOrder()[col.role] || [];
     var all = col.items.concat(added);
     var rank = function (it) {
-      var i = order.indexOf('#' + it[1]);
+      var i = order.indexOf(mixKey(it));
       return i < 0 ? order.length + all.indexOf(it) : i;
     };
     all.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (it) {
@@ -321,6 +327,7 @@
       b.className = 'c2-dot';
       b.setAttribute('data-role', col.role);
       b.setAttribute('data-hex', '#' + it[1]);
+      b.setAttribute('data-key', mixKey(it));
       b.title = it[0] + ' #' + it[1];
       b.innerHTML = '<i style="background:#' + it[1] + '"></i><span class="c2-dname">' +
         it[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
@@ -345,7 +352,7 @@
         var x = document.createElement('span');
         x.className = 'c2-del';
         x.title = 'Remove this colour';
-        x.addEventListener('click', function (e) { e.stopPropagation(); removeMixColour(c, col, it[1]); });
+        x.addEventListener('click', function (e) { e.stopPropagation(); removeMixColour(c, col, it[2]); });
         b.appendChild(x);
       }
       c.appendChild(b);
