@@ -444,6 +444,34 @@
     var v = decodeURIComponent(location.hash.slice(1)).replace(/[-\s,]+/g, ' ').trim();
     return /^([0-9a-fA-F]{6} ){6,8}[0-9a-fA-F]{6}$/.test(v) ? v.toUpperCase() : null;
   }
+  // ---------- downloads ----------
+  // The yEd and CellDesigner files are built from templates made once by
+  // make_exports.py: each colour there is a role placeholder such as
+  // {protein}, filled here with the colours shown on the map.
+  function shownColours() {
+    var c = {};
+    ROLES.forEach(function (r) { c[r.id] = theme[r.id].slice(1).toUpperCase(); });
+    if (!document.getElementById('c2-hl').checked) c.hlProtein = c.protein;
+    if (document.getElementById('c2-cxbg').checked) c.complex = c.compartment;
+    return c;
+  }
+  function download(ext, name, lower) {
+    var v = document.querySelector('.c2-under').getAttribute('data-v');
+    fetch('/images/colours2/F007-inos.template.' + ext + '?v=' + v).then(function (r) { return r.text(); }).then(function (t) {
+      var c = shownColours();
+      t = t.replace(/\{(\w+)\}/g, function (m, id) {
+        return c[id] ? (lower ? c[id].toLowerCase() : c[id]) : m;
+      });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([t], { type: 'application/xml' }));
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+  }
+
   function copyLink() {
     var url = themeLink();
     if (navigator.clipboard) navigator.clipboard.writeText(url).catch(function () { window.prompt('Link to this theme:', url); });
@@ -954,6 +982,12 @@
   document.getElementById('c2-light').addEventListener('input', applyLight);
   document.getElementById('c2-add').addEventListener('click', addPreset);
   document.getElementById('c2-link').addEventListener('click', copyLink);
+  document.getElementById('c2-yed').addEventListener('click', function () {
+    download('graphml', 'F007-inos-theme.graphml', false);
+  });
+  document.getElementById('c2-cd').addEventListener('click', function () {
+    download('xml', 'F007-inos-theme-celldesigner.xml', true);
+  });
   window.addEventListener('hashchange', function () {
     var v = themeFromLink();
     if (v) applyPreset(v);

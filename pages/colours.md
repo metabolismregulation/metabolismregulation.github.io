@@ -63,6 +63,7 @@ permalink: /colours/
   #c2-swatches { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
   .c2-swatch { font-size: 11px; padding: 6px; border: 1px solid #0002; border-radius: 4px; cursor: pointer; font-family: monospace; }
   .c2-armed { outline: 3px solid #000; outline-offset: 1px; }
+  .c2-under { margin: 8px 0 0; }
   #c2-export { width: 100%; font-family: monospace; font-size: 11px; box-sizing: border-box; }
   .c2-small { font-size: 12px; color: #666; }
   button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; }
@@ -109,12 +110,16 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
 <button type="button" class="c2-act" id="c2-apply">Apply</button>
 <button type="button" class="c2-act" id="c2-add">Add to presets</button>
-<button type="button" class="c2-act" id="c2-link">Copy link</button>
 </section>
 
 </div>
 <div class="c2-mapcol">
 <canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}"></canvas>
+<p class="c2-under" data-v="{{ site.time | date: '%s' }}">
+<button type="button" class="c2-act" id="c2-yed">Download yEd file</button>
+<button type="button" class="c2-act" id="c2-cd">Download CellDesigner file</button>
+<button type="button" class="c2-act" id="c2-link">Copy link</button>
+</p>
 </div>
 <div class="c2-panel c2-right">
 
