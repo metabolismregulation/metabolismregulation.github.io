@@ -527,9 +527,7 @@
     return p === c ? 'Mono ' + p.toLowerCase() : p + ' and ' + c.toLowerCase();
   }
   function addPreset() {
-    var name = window.prompt('Name for this preset (kept in this browser):', suggestName());
-    if (name === null) return;
-    name = name.trim() || suggestName();
+    var name = suggestName();
     var taken = function (n) {
       return PRESETS.concat(loadCustom()).some(function (p) { return p[0] === n; });
     };
@@ -542,7 +540,6 @@
     lastPreset = name;
   }
   function removePreset(name) {
-    if (!window.confirm('Remove "' + name + '" from the presets?')) return;
     saveCustom(loadCustom().filter(function (p) { return p[0] !== name; }));
     buildPresets();
   }
