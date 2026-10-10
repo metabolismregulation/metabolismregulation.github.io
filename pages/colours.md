@@ -33,6 +33,11 @@ permalink: /colours/
   .c2-dot i { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #0003; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
+  .c2-dname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .c2-dot .c2-del { width: 12px; height: 12px; }
+  .c2-dot .c2-del::before, .c2-dot .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
+  .c2-mixadd { display: block; margin: 2px 0 0 3px; padding: 0 5px; font-size: 14px; line-height: 16px; color: #aaa; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
+  .c2-mixadd:hover { color: #333; border-color: #bbb; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-pname { flex: 1; min-width: 0; }

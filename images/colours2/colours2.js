@@ -192,20 +192,12 @@
       ['Shell', 'FBFAF6'], ['Paper', 'F7F6F3'], ['Chalk', 'F8F8F8'],
       ['Mist', 'F6F7F9'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
-      // OKLCH lightness 0.865, hue 85 to 255 degrees in ~20 degree steps,
-      // chroma 0.033 to 0.042; Paper (0.012) as a near-neutral and Olive
-      // (D6D5B8) a little stronger
-      ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'], ['Olive', 'D6D5B8'], ['Lichen', 'CDD7BF'],
-      ['Sage', 'C3DAC6'], ['Celadon', 'BBDBD1'], ['Sea', 'B8DADA'], ['Haze', 'B8D9E2'],
-      ['Powder', 'BBD7E9'], ['Blue', 'C1D5EE']] },
+      // a small starting set; colours found on the map are added with +
+      ['Paper', 'D4D3CA'], ['Olive', 'D6D5B8'], ['Lichen', 'CDD7BF']] },
     CHEM_FROM_ANGLE ? { role: 'metabolite', title: 'Chemical', generated: true } :
     { role: 'metabolite', title: 'Chemical', items: [
-      // the protein hues again, lighter and softer: OKLCH lightness 0.93,
-      // chroma about 0.6 of the protein column's; Pearl and Silver as in
-      // the presets
-      ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'], ['Willow', 'E8E8DE'],
-      ['Celery', 'E4EBDB'], ['Mint', 'DDEDE0'], ['Seafoam', 'D8EDE7'], ['Aqua', 'D6EDEE'],
-      ['Mist', 'D8ECF4'], ['Sky', 'DBEAF9']] }
+      // a small starting set; colours found on the map are added with +
+      ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'], ['Willow', 'E8E8DE']] }
   ];
 
   // Backup (CHEM_FROM_ANGLE): chemicals are calculated from the chosen protein: eleven hues on the
@@ -249,6 +241,74 @@
     return Math.min(oklabDist(a, b, 'none'), oklabDist(a, b, 'deuteranopia'));
   }
 
+  // Colours added to the Mixer with + are kept in this browser, per column,
+  // after the built-in ones; they can be removed with their cross.
+  var MIX_KEY = 'colours.mixerColours';
+  function loadMixAdded() {
+    try { return JSON.parse(localStorage.getItem(MIX_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveMixAdded(all) {
+    try { localStorage.setItem(MIX_KEY, JSON.stringify(all)); } catch (e) { /* storage blocked */ }
+  }
+  function addMixColour(c, col) {
+    var hex = theme[col.role].slice(1).toUpperCase();
+    var all = loadMixAdded(), mine = all[col.role] || [];
+    var list = col.items.concat(mine);
+    if (list.some(function (it) { return it[1].toUpperCase() === hex; })) return;
+    var base = colourName('#' + hex), name = base, n = 2;
+    while (list.some(function (it) { return it[0] === name; })) name = base + ' ' + n++;
+    mine.push([name, hex]);
+    all[col.role] = mine;
+    saveMixAdded(all);
+    fillMixCol(c, col);
+    syncMixer();
+  }
+  function removeMixColour(c, col, hex) {
+    var all = loadMixAdded();
+    all[col.role] = (all[col.role] || []).filter(function (it) { return it[1] !== hex; });
+    saveMixAdded(all);
+    fillMixCol(c, col);
+    syncMixer();
+  }
+  function fillMixCol(c, col) {
+    c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
+    var added = loadMixAdded()[col.role] || [];
+    col.items.concat(added).forEach(function (it, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'c2-dot';
+      b.setAttribute('data-role', col.role);
+      b.setAttribute('data-hex', '#' + it[1]);
+      b.title = it[0] + ' #' + it[1];
+      b.innerHTML = '<i style="background:#' + it[1] + '"></i><span class="c2-dname">' +
+        it[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
+      b.addEventListener('click', function () {
+        // a new protein brings the chosen chemical along, recalculated for it
+        // the chemical keeps its offset when the protein changes; 180 degrees
+        // when no chemical from the list was chosen yet
+        if (CHEM_FROM_ANGLE && col.role === 'protein') {
+          var off = chemSlot !== null ? chemSlot : 180;
+          theme.metabolite = chemOptions('#' + it[1]).filter(function (o) { return o.off === off; })[0].hex;
+        }
+        setRole(col.role, '#' + it[1]);
+      });
+      if (i >= col.items.length) {
+        var x = document.createElement('span');
+        x.className = 'c2-del';
+        x.title = 'Remove this colour';
+        x.addEventListener('click', function (e) { e.stopPropagation(); removeMixColour(c, col, it[1]); });
+        b.appendChild(x);
+      }
+      c.appendChild(b);
+    });
+    var add = document.createElement('button');
+    add.type = 'button';
+    add.className = 'c2-mixadd';
+    add.title = 'Add the ' + col.title.toLowerCase() + ' colour on the map';
+    add.textContent = '+';
+    add.addEventListener('click', function () { addMixColour(c, col); });
+    c.appendChild(add);
+  }
   function buildMixer() {
     var box = document.getElementById('c2-mixer');
     MIX.forEach(function (col) {
@@ -260,29 +320,11 @@
         box.appendChild(c);
         return;
       }
-      col.items.forEach(function (it) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'c2-dot';
-        b.setAttribute('data-role', col.role);
-        b.setAttribute('data-hex', '#' + it[1]);
-        b.title = it[0] + ' #' + it[1];
-        b.innerHTML = '<i style="background:#' + it[1] + '"></i>' + it[0];
-        b.addEventListener('click', function () {
-          // a new protein brings the chosen chemical along, recalculated for it
-          // the chemical keeps its offset when the protein changes; 180 degrees
-          // when no chemical from the list was chosen yet
-          if (CHEM_FROM_ANGLE && col.role === 'protein') {
-            var off = chemSlot !== null ? chemSlot : 180;
-            theme.metabolite = chemOptions('#' + it[1]).filter(function (o) { return o.off === off; })[0].hex;
-          }
-          setRole(col.role, '#' + it[1]);
-        });
-        c.appendChild(b);
-      });
+      fillMixCol(c, col);
       box.appendChild(c);
     });
   }
+
 
   // The Mixer marks its items only once it is being used: a preset click
   // clears the marks, a Mixer click brings them back.
@@ -592,7 +634,8 @@
     ['Lilac', 'E6D6E6'], ['Grey', 'D6D6D6']];
   function colourName(hex) {
     var o = rgbToOklab(hexToRgb(hex)), best = null;
-    COLOUR_NAMES.forEach(function (n) {
+    var bgs = MIX[0].items.concat([['Chalk', 'F8F8F8'], ['Ivory', 'F7F5F3']]);
+    COLOUR_NAMES.concat(bgs).forEach(function (n) {
       var d = dist(o, rgbToOklab(hexToRgb('#' + n[1])));
       if (!best || d < best.d) best = { d: d, name: n[0] };
     });
