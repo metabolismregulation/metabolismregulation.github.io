@@ -185,17 +185,17 @@
       ['Shell', 'FBFAF6'], ['Paper', 'F7F6F3'], ['Chalk', 'F8F8F8'],
       ['Mist', 'F6F7F9'], ['Slate', 'F3F4F6']] },
     { role: 'protein', title: 'Protein', items: [
-      // OKLCH lightness 0.865, hue 40 to 272 degrees in ~25 degree steps,
-      // chroma 0.03 to 0.04 (Paper 0.012): the range the presets use
-      ['Taupe', 'E5CDC4'], ['Mushroom', 'E3CFBC'], ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'],
-      ['Lichen', 'CED7C0'], ['Sage', 'C3DAC6'], ['Celadon', 'BBDBD1'], ['Sea', 'B8DADC'],
-      ['Haze', 'B9D9E6'], ['Blue', 'BFD5EE'], ['Dusk', 'CAD2EA']] },
+      // OKLCH lightness 0.865, hue 85 to 255 degrees in ~20 degree steps,
+      // chroma 0.033 to 0.042; Paper (0.012) as a near-neutral
+      ['Linen', 'DDD1BA'], ['Paper', 'D4D3CA'], ['Lichen', 'D1D6BD'], ['Pistachio', 'C9D8C1'],
+      ['Sage', 'C1DAC8'], ['Celadon', 'BBDBD1'], ['Sea', 'B8DADA'], ['Haze', 'B8D9E2'],
+      ['Powder', 'BBD7E9'], ['Blue', 'C1D5EE']] },
     CHEM_FROM_ANGLE ? { role: 'metabolite', title: 'Chemical', generated: true } :
     { role: 'metabolite', title: 'Chemical', items: [
       // the protein hues again, lighter and softer: OKLCH lightness 0.93,
       // chroma about 0.6 of the protein column's; Pearl and Silver as in
       // the presets
-      ['Blush', 'F5E4DE'], ['Cream', 'F3E5D9'], ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'],
+      ['Sand', 'EFE7D8'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'],
       ['Celery', 'E4EBDB'], ['Mint', 'DDEDE0'], ['Seafoam', 'D8EDE7'], ['Aqua', 'D6EDEE'],
       ['Mist', 'D8ECF4'], ['Sky', 'DBEAF9'], ['Periwinkle', 'E2E7F7']] }
   ];
