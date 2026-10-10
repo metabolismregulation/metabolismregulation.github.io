@@ -43,8 +43,8 @@ permalink: /colours/
   #c2-light::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-progress { background: #ddd; }
-  .c2-del { margin-left: auto; padding: 0 4px; color: #aaa; font-size: 15px; line-height: 1; }
-  .c2-del:hover { color: #333; }
+  .c2-del { margin-left: auto; padding: 0 4px; color: #ccc; font-size: 13px; line-height: 1; }
+  .c2-del:hover { color: #999; }
   .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; }
   .c2-dragging .c2-handle { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
