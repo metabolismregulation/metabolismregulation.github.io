@@ -615,6 +615,42 @@
     buildPresets();
     lastPreset = name;
   }
+  // Double-click an added preset to rename it: the row turns into a text
+  // field; Enter or clicking elsewhere keeps the new name, Escape cancels.
+  function renamePreset(b, name) {
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'c2-rename';
+    input.value = name;
+    b.style.display = 'none';
+    b.parentNode.insertBefore(input, b.nextSibling);
+    input.focus();
+    input.select();
+    var done = false;
+    var finish = function (keep) {
+      if (done) return;
+      done = true;
+      var v = input.value.trim();
+      var taken = PRESETS.concat(loadCustom()).some(function (p) { return p[0] === v; });
+      if (keep && v && v !== name && !taken) {
+        saveCustom(loadCustom().map(function (p) { return p[0] === name ? [v, p[1]] : p; }));
+        var order = loadOrder();
+        if (order.length) {
+          try {
+            localStorage.setItem(ORDER_KEY, JSON.stringify(order.map(function (n) { return n === name ? v : n; })));
+          } catch (e) { /* storage blocked */ }
+        }
+        if (lastPreset === name) lastPreset = v;
+      }
+      buildPresets();
+    };
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') finish(true);
+      else if (e.key === 'Escape') finish(false);
+    });
+    input.addEventListener('blur', function () { finish(true); });
+  }
+
   function removePreset(name) {
     saveCustom(loadCustom().filter(function (p) { return p[0] !== name; }));
     buildPresets();
@@ -640,8 +676,13 @@
       b.innerHTML = '<span class="c2-handle" title="Drag to reorder">&#8942;&#8942;</span>' +
         '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
           return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
-        }).join('') + '</span>' + p[0];
+        }).join('') + '</span>' + p[0].replace(/&/g, '&amp;').replace(/</g, '&lt;');
       if (custom.indexOf(p) >= 0) {
+        b.title = 'Double-click to rename';
+        b.addEventListener('dblclick', function (e) {
+          if (e.target.closest('.c2-del, .c2-handle')) return;
+          renamePreset(b, p[0]);
+        });
         var x = document.createElement('span');
         x.className = 'c2-del';
         x.title = 'Remove this preset';

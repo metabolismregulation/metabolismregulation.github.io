@@ -35,6 +35,7 @@ permalink: /colours/
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 13px; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
+  .c2-rename { font: inherit; font-size: 13px; padding: 4px 6px; border: 1px solid #333; border-radius: 4px; outline: none; }
   .c2-preset.c2-on { border-color: #333; font-weight: bold; }
   .c2-preset:focus, .c2-dot:focus { outline: none; }
   .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }
