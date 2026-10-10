@@ -530,6 +530,39 @@
     document.getElementById('c2-export').value = exportText();
     syncMixer();
     syncPresets();
+    noteChange();
+  }
+
+  // ---------- undo ----------
+  // Ctrl+Z / Cmd+Z goes back one change, with Shift forward again. Every
+  // change passes through syncControls; changes in quick succession (a held
+  // arrow key, dragging the slider or a colour picker) count as one step.
+  var UNDO_MAX = 50, UNDO_GAP = 700;
+  var undoStack = [], redoStack = [], current = null, lastChange = 0, restoring = false;
+  function fullCode() {
+    return ROLES.map(function (r) { return theme[r.id].slice(1).toUpperCase(); }).join(' ');
+  }
+  function noteChange() {
+    var s = fullCode();
+    if (s === current) return;
+    if (current !== null && !restoring) {
+      var now = Date.now();
+      if (now - lastChange > UNDO_GAP) {
+        undoStack.push(current);
+        if (undoStack.length > UNDO_MAX) undoStack.shift();
+      }
+      redoStack = [];
+      lastChange = now;
+    }
+    current = s;
+  }
+  function stepBack(from, to) {
+    if (!from.length) return;
+    to.push(current);
+    restoring = true;
+    applyPreset(from.pop());
+    restoring = false;
+    lastChange = 0;
   }
 
   // Theme link: Copy link copies the page address with the current theme
@@ -1066,6 +1099,14 @@
     var dot = e.target.closest('.c2-dot');
     if (dot) { keyGroup = dot.closest('.c2-mixcol'); mixerLinked = true; }
   }, true); // capture: the chemical column is rebuilt by the click itself
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'z' || e.key === 'Z')) {
+      if (e.target.closest && e.target.closest('input[type=text], textarea, [contenteditable]')) return;
+      e.preventDefault();
+      if (e.shiftKey) stepBack(redoStack, undoStack);
+      else stepBack(undoStack, redoStack);
+    }
+  });
   document.addEventListener('keydown', function (e) {
     var dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
     if (!dir) return;

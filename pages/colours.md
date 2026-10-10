@@ -73,7 +73,7 @@ permalink: /colours/
   .c2-swatch { font-size: 11px; padding: 6px; border: 1px solid #0002; border-radius: 4px; cursor: pointer; font-family: monospace; }
   .c2-armed { outline: 3px solid #000; outline-offset: 1px; }
   .c2-under { margin: 8px 0 0; }
-  #c2-export { width: 100%; font-family: monospace; font-size: 11px; box-sizing: border-box; }
+  #c2-export { width: 100%; resize: none; font-family: monospace; font-size: 11px; box-sizing: border-box; }
   .c2-small { font-size: 12px; color: #666; }
   button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 5px; }
   button.c2-act:hover { background: #ebebeb; border-color: #999; }
@@ -140,7 +140,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </section>
 
 <section>
-<h3 title="Set any single colour. The highlight red is changed only here.">Roles</h3>
+<h3 title="Set any single colour. The highlight red is changed only here. Ctrl+Z or ⌘Z undoes a change, with Shift redoes it.">Roles</h3>
 <p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label> &nbsp; <label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex transparent</label></p>
 <div id="c2-roles"></div>
 <p class="c2-small">Number on the right: contrast of the text colour on that fill. Red means below 7:1.</p>
