@@ -578,7 +578,6 @@
         var x = document.createElement('span');
         x.className = 'c2-del';
         x.title = 'Remove this preset';
-        x.innerHTML = '&times;';
         x.addEventListener('click', function (e) { e.stopPropagation(); removePreset(p[0]); });
         b.appendChild(x);
       }
