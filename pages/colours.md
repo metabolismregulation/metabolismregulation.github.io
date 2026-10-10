@@ -85,13 +85,13 @@ permalink: /colours/
 <div class="c2-panel c2-left">
 
 <section>
-<h3>Presets</h3>
+<h3 title="Arrow keys step through them. Drag ⋮⋮ to reorder. Double-click an added preset to rename it.">Presets</h3>
 <div id="c2-presets"></div>
 <p class="c2-small" style="margin:6px 0 0"><button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
 </section>
 
 <section>
-<h3>Palette from image</h3>
+<h3 title="Drop or paste an image. Arrow keys step through the suggestions. Swap colours between protein and chemical.">Palette from image</h3>
 <p class="c2-small" style="margin:6px 0 0;display:flex;align-items:center;gap:3px;white-space:nowrap">
 <span>Mode:</span> <select id="c2-mode"><option value="avg" selected>average</option><option value="exact">exact fills</option></select>
 <span style="margin-left:4px">Clusters:</span> <select id="c2-k"><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option selected>16</option></select>
@@ -110,7 +110,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </section>
 
 <section>
-<h3>Colour vision and theme code</h3>
+<h3 title="Colour vision shows the map as seen with each type of colour blindness. Paste a theme code of 7 to 9 colours. The last two, for text and gene, are optional.">Colour vision and theme code</h3>
 <p class="c2-small" style="margin:0 0 6px">Colour vision:
 <select id="c2-cvd">
   <option value="none">normal</option>
@@ -135,12 +135,12 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <div class="c2-panel c2-right">
 
 <section>
-<h3>Mixer</h3>
+<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a circle to reorder.">Mixer</h3>
 <div id="c2-mixer"></div>
 </section>
 
 <section>
-<h3>Roles</h3>
+<h3 title="Set any single colour. The highlight red is changed only here.">Roles</h3>
 <p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label> &nbsp; <label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex transparent</label></p>
 <div id="c2-roles"></div>
 <p class="c2-small">Number on the right: contrast of the text colour on that fill. Red means below 7:1.</p>
