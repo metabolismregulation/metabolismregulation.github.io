@@ -118,9 +118,9 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <div class="c2-mapcol">
 <canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}"></canvas>
 <p class="c2-under" data-v="{{ site.time | date: '%s' }}">
+<button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file</button>
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file</button>
-<button type="button" class="c2-act" id="c2-link">Copy link</button>
 </p>
 </div>
 <div class="c2-panel c2-right">
