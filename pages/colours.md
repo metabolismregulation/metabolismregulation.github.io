@@ -27,7 +27,7 @@ permalink: /colours/
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
   #c2-presets { display: flex; flex-direction: column; gap: 4px; }
-  #c2-mixer { display: grid; grid-template-columns: 64px 88px minmax(0, 1fr); gap: 4px; }
+  #c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
   .c2-mixtitle { font-size: 12px; color: #666; margin-bottom: 2px; }
   .c2-dot { display: flex; align-items: center; gap: 5px; width: 100%; font-size: 12px; padding: 2px 3px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
   .c2-dot i { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #0003; }
