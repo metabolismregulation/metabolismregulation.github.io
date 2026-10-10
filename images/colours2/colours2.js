@@ -432,25 +432,21 @@
     document.getElementById('c2-export').value = exportText();
     syncMixer();
     syncPresets();
-    syncLink();
   }
 
-  // Theme link: the address keeps the current theme code after #, so the
-  // page opens with that theme (e.g. /colours/#F7F6F3-FFFFFF-...).
-  function syncLink() {
-    var code = exportText().replace(/ /g, '-');
-    if (location.hash.slice(1) !== code) history.replaceState(null, '', '#' + code);
+  // Theme link: Copy link copies the page address with the current theme
+  // code after # (e.g. /colours/#F7F6F3-FFFFFF-...); opening such a link
+  // applies the theme. The address bar itself is left unchanged.
+  function themeLink() {
+    return location.origin + location.pathname + '#' + exportText().replace(/ /g, '-');
   }
   function themeFromLink() {
     var v = decodeURIComponent(location.hash.slice(1)).replace(/[-\s,]+/g, ' ').trim();
     return /^([0-9a-fA-F]{6} ){6,8}[0-9a-fA-F]{6}$/.test(v) ? v.toUpperCase() : null;
   }
-  function copyLink(btn) {
-    var url = location.href, done = function () {
-      btn.textContent = 'Link copied';
-      setTimeout(function () { btn.textContent = 'Copy link'; }, 1500);
-    };
-    if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { window.prompt('Link to this theme:', url); });
+  function copyLink() {
+    var url = themeLink();
+    if (navigator.clipboard) navigator.clipboard.writeText(url).catch(function () { window.prompt('Link to this theme:', url); });
     else window.prompt('Link to this theme:', url);
   }
 
@@ -911,6 +907,8 @@
   buildPresets();
   var linked = themeFromLink();
   applyPreset(linked || PRESETS[0][1]);
+  // once applied, the theme code leaves the address bar
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   loadLayers(document.getElementById('c2-map').getAttribute('data-layers'), render);
 
   document.getElementById('c2-cvd').addEventListener('change', render);
@@ -955,10 +953,11 @@
   document.getElementById('c2-swap').addEventListener('click', swapProteinChemical);
   document.getElementById('c2-light').addEventListener('input', applyLight);
   document.getElementById('c2-add').addEventListener('click', addPreset);
-  document.getElementById('c2-link').addEventListener('click', function () { copyLink(this); });
+  document.getElementById('c2-link').addEventListener('click', copyLink);
   window.addEventListener('hashchange', function () {
     var v = themeFromLink();
-    if (v && v !== exportText()) applyPreset(v);
+    if (v) applyPreset(v);
+    history.replaceState(null, '', location.pathname + location.search);
   });
   document.getElementById('c2-apply').addEventListener('click', function () {
     var v = document.getElementById('c2-export').value.trim().replace(/#/g, '');
