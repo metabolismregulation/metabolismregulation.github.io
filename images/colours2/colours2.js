@@ -10,7 +10,7 @@
   var ROLES = [
     { id: 'compartment', name: 'Compartment', cls: 0 },
     { id: 'complex', name: 'Complex', cls: 3 },
-    { id: 'protein', name: 'Protein (macromolecule)', cls: 2 },
+    { id: 'protein', name: 'Protein', cls: 2 },
     { id: 'metabolite', name: 'Simple chemical', cls: 4 },
     { id: 'hlProtein', name: 'Highlighted protein', cls: 6, hl: true },
     { id: 'white', name: 'Process, gene, mRNA, labels', cls: 1 },
