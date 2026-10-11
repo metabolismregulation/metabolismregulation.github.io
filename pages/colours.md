@@ -35,7 +35,7 @@ permalink: /colours/
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
   #c2-presets { display: flex; flex-direction: column; gap: 4px; }
   .c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
-  .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
+  .c2-mixcol { display: flex; flex-direction: column; gap: 2px; }
   .c2-mixtitle { font-size: 13px; color: #666; margin-bottom: 2px; }
   .c2-dot { display: flex; align-items: center; gap: 6px; width: 100%; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
   .c2-dot i { flex: none; width: 14px; height: 14px; border: 1px solid #0003; box-sizing: content-box; cursor: grab; touch-action: none; }
