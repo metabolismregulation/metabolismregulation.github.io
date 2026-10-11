@@ -7,6 +7,9 @@
 # download button is clicked; the files in downloads/ are not used by the page.
 # Roles are decided by element type, not by colour, because several roles
 # share white in the source files.
+# yEd names written on a node's fill get {t_<role>} for their colour and
+# {f_<role>} for plain or bold, so that dark fills can take white bold text
+# as on the page; labels on their own boxes and edge labels keep {text}.
 import re, sys
 
 SRC = 'downloads/F007-inos'
@@ -31,6 +34,14 @@ def graphml():
                     'SimpleChemical': 'metabolite', 'Process': 'white', 'EmptySet': 'white',
                     'Operator': 'white', 'NucleicAcidFeature': 'gene'}[conf.group(1)]
         counts[role] = counts.get(role, 0) + 1
+
+        def label(lm):
+            a = lm.group(0)
+            if 'backgroundColor=' in a or 'hasText="false"' in a or 'iconData=' in a:
+                return a
+            return (a.replace('textColor="#000000"', 'textColor="#{t_%s}"' % role)
+                     .replace('fontStyle="plain"', 'fontStyle="{f_%s}"' % role))
+        b = re.sub(r'<y:NodeLabel\b[^>]*>', label, b)
         # every fill of the node, both states of a group, becomes the role colour (opaque)
         return re.sub(r'(<y:Fill color=")#[0-9A-Fa-f]+(")', r'\1#{%s}\2' % role, b)
 
@@ -44,7 +55,8 @@ def graphml():
     s = s.replace('textColor="#000000"', 'textColor="#{text}"')
     left = re.findall(r'color="#[0-9A-Fa-f]{6}', s)
     open(OUT + '.graphml', 'w', encoding='utf-8').write(s)
-    print('yEd nodes by role', counts, '| hex colours left:', len(left))
+    print('yEd nodes by role', counts, '| hex colours left:', len(left),
+          '| names on fills:', len(re.findall(r'textColor="#\{t_', s)))
 
 
 def celldesigner():

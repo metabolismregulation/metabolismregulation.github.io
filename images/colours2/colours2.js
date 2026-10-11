@@ -576,6 +576,7 @@
         (white ? ' w: this fill is dark, so its text is drawn white.' : '');
     }); });
     document.getElementById('c2-export').value = exportText();
+    document.getElementById('c2-cdnote').hidden = true;
     syncMixer();
     syncPresets();
     noteChange();
@@ -632,7 +633,22 @@
     ROLES.forEach(function (r) { c[r.id] = theme[r.id].slice(1).toUpperCase(); });
     if (!document.getElementById('c2-hl').checked) c.hlProtein = c.protein;
     if (document.getElementById('c2-cxbg').checked) c.complex = c.compartment;
+    // names on each fill: white and bold where the map shows white text
+    ROLES.forEach(function (r) {
+      if (r.cls < 0) return;
+      var white = whiteOn('#' + c[r.id]);
+      c['t_' + r.id] = white ? 'FFFFFF' : c.text;
+      c['f_' + r.id] = white ? 'bold' : 'plain';
+    });
     return c;
+  }
+  function whiteOn(fill) {
+    return textOn(fill) === '#FFFFFF' && theme.text !== '#FFFFFF';
+  }
+  // the CellDesigner note shows after that download while some fill has white text
+  function anyWhiteText() {
+    var c = shownColours();
+    return ROLES.some(function (r) { return r.cls >= 0 && c['f_' + r.id] === 'bold'; });
   }
   // File name: the preset's name if the map shows one, then the
   // background, protein and chemical colours
@@ -1260,6 +1276,7 @@
   });
   document.getElementById('c2-cd').addEventListener('click', function () {
     download('xml', 'F007-inos-{theme}.xml', true);
+    document.getElementById('c2-cdnote').hidden = !anyWhiteText();
   });
   window.addEventListener('hashchange', function () {
     var v = themeFromLink();
