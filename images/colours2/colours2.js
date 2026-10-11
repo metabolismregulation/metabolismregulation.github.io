@@ -687,7 +687,8 @@
   }
 
   // Preset order can be rearranged by dragging the colours; the order is kept
-  // in this browser only. Reset order returns to the order in PRESETS.
+  // in this browser only. Reset returns to the order in PRESETS and shows
+  // hidden built-in presets again.
   var ORDER_KEY = 'colours.presetOrder';
   var dragging = null, dragged = false;
   var lastPreset = null;
@@ -813,8 +814,21 @@
     input.addEventListener('blur', function () { finish(true); });
   }
 
+  // Built-in presets removed with their cross are only hidden, in this
+  // browser; Reset brings them back. Added presets are removed for good.
+  var HIDDEN_KEY = 'colours.hiddenPresets';
+  function loadHidden() {
+    try { return JSON.parse(localStorage.getItem(HIDDEN_KEY)) || []; } catch (e) { return []; }
+  }
   function removePreset(name) {
-    saveCustom(loadCustom().filter(function (p) { return p[0] !== name; }));
+    var custom = loadCustom();
+    if (custom.some(function (p) { return p[0] === name; })) {
+      saveCustom(custom.filter(function (p) { return p[0] !== name; }));
+    } else {
+      var hidden = loadHidden();
+      if (hidden.indexOf(name) < 0) hidden.push(name);
+      try { localStorage.setItem(HIDDEN_KEY, JSON.stringify(hidden)); } catch (e) { /* storage blocked */ }
+    }
     buildPresets();
   }
 
@@ -823,7 +837,8 @@
     box.innerHTML = '';
     var saved = loadOrder();
     var custom = loadCustom();
-    var all = PRESETS.concat(custom);
+    var hidden = loadHidden();
+    var all = PRESETS.filter(function (p) { return hidden.indexOf(p[0]) < 0; }).concat(custom);
     var rank = function (p) {
       var i = saved.indexOf(p[0]);
       return i < 0 ? saved.length + all.indexOf(p) : i;
@@ -841,18 +856,19 @@
           return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
         }).join('') + '</span><span class="c2-pname">' +
         p[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
-      if (custom.indexOf(p) >= 0) {
+      var mine = custom.indexOf(p) >= 0;
+      if (mine) {
         b.title = 'Double-click to rename';
         b.addEventListener('dblclick', function (e) {
           if (e.target.closest('.c2-del, .c2-chips')) return;
           renamePreset(b, p[0]);
         });
-        var x = document.createElement('span');
-        x.className = 'c2-del';
-        x.title = 'Remove this preset';
-        x.addEventListener('click', function (e) { e.stopPropagation(); removePreset(p[0]); });
-        b.appendChild(x);
       }
+      var x = document.createElement('span');
+      x.className = 'c2-del';
+      x.title = mine ? 'Remove this preset' : 'Hide this preset (Reset brings it back)';
+      x.addEventListener('click', function (e) { e.stopPropagation(); removePreset(p[0]); });
+      b.appendChild(x);
       b.addEventListener('click', function () {
         if (dragged) return;
         mixerLinked = false;
@@ -1203,7 +1219,10 @@
   document.getElementById('c2-mode').addEventListener('change', extractPalette);
   document.getElementById('c2-k').addEventListener('change', extractPalette);
   document.getElementById('c2-reset-order').addEventListener('click', function () {
-    try { localStorage.removeItem(ORDER_KEY); } catch (e) { /* storage blocked */ }
+    try {
+      localStorage.removeItem(ORDER_KEY);
+      localStorage.removeItem(HIDDEN_KEY);
+    } catch (e) { /* storage blocked */ }
     buildPresets();
   });
   document.getElementById('c2-swap').addEventListener('click', swapProteinChemical);

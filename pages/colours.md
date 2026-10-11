@@ -108,9 +108,9 @@ permalink: /colours/
 <div class="c2-panel c2-left">
 
 <section>
-<h3 title="Arrow keys step through them. Drag the colours to reorder. Double-click an added preset to rename it; hover over it to remove it.">Presets</h3>
+<h3 title="Arrow keys step through them. Drag the colours to reorder. Hover over a preset to remove it; Reset brings back built-in ones. Double-click an added preset to rename it.">Presets</h3>
 <div id="c2-presets"></div>
-<p class="c2-small" style="margin:6px 0 0"><button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
+<p class="c2-small" style="margin:6px 0 0"><button type="button" class="c2-act" id="c2-reset-order" title="Original order, and hidden built-in presets back. Added presets stay.">Reset</button></p>
 </section>
 
 <section>
