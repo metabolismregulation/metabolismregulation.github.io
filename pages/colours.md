@@ -57,14 +57,14 @@ permalink: /colours/
   #c2-light::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-progress { background: #ddd; }
-  /* roomier Mixer for comparison: larger circles, rows near the preset height */
-  #c2-mixer2 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 8px; }
-  #c2-mixer2 .c2-mixcol { display: flex; flex-direction: column; gap: 3px; }
-  #c2-mixer2 .c2-mixtitle { font-size: 13px; margin-bottom: 3px; }
-  #c2-mixer2 .c2-dot { gap: 7px; font-size: 13px; padding: 3px 5px; }
-  #c2-mixer2 .c2-dot i { width: 18px; height: 18px; }
-  #c2-mixer2 .c2-mixadd { padding: 3px 5px; }
-  #c2-mixer2 .c2-mixadd svg { width: 18px; height: 18px; }
+  /* roomier Mixer for comparison: slightly larger circles and spacing */
+  #c2-mixer2 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
+  #c2-mixer2 .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
+  #c2-mixer2 .c2-mixtitle { font-size: 13px; margin-bottom: 2px; }
+  #c2-mixer2 .c2-dot { gap: 6px; font-size: 13px; padding: 2px 4px; }
+  #c2-mixer2 .c2-dot i { width: 17px; height: 17px; }
+  #c2-mixer2 .c2-mixadd { padding: 2px 4px; }
+  #c2-mixer2 .c2-mixadd svg { width: 17px; height: 17px; }
   .c2-del { margin-left: auto; position: relative; flex: none; width: 16px; height: 16px; color: #aaa; }
   .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 7.5px; width: 10px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
