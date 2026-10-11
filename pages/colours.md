@@ -57,6 +57,7 @@ permalink: /colours/
   .c2-preset:hover { border-color: #bbb; }
   .c2-preset .c2-chips { cursor: grab; touch-action: none; }
   .c2-pname { flex: 1; min-width: 0; }
+  .c2-renaming { cursor: default; border-color: #bbb; }
   .c2-rename { flex: 1; min-width: 0; font: inherit; padding: 0 3px; margin: -1px 0; border: 1px solid #999; border-radius: 3px; outline: none; background: #fff; }
   .c2-preset.c2-on { border-color: #333; font-weight: bold; }
   .c2-preset:focus, .c2-dot:focus { outline: none; }
@@ -157,7 +158,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <div class="c2-panel c2-right">
 
 <section>
-<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder. Hover over an added colour to remove it.">Mixer</h3>
+<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder. Hover over an added colour to remove it; double-click it to rename it.">Mixer</h3>
 <div id="c2-mixer" class="c2-mixer"></div>
 </section>
 

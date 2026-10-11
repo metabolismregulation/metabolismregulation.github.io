@@ -301,6 +301,41 @@
     refillMixCols(col);
     syncMixer();
   }
+  // Double-click an added colour to rename it: a text field takes the place
+  // of its row (a field cannot sit inside the button). Enter or clicking
+  // elsewhere keeps the new name, Escape cancels.
+  function renameMixColour(b, col, it) {
+    var row = document.createElement('div');
+    row.className = 'c2-dot c2-renaming';
+    row.innerHTML = '<i style="background:#' + it[1] + '"></i>';
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'c2-rename';
+    input.value = it[0];
+    row.appendChild(input);
+    b.replaceWith(row);
+    input.focus();
+    input.select();
+    var done = false;
+    var finish = function (keep) {
+      if (done) return;
+      done = true;
+      var v = input.value.trim();
+      if (keep && v && v !== it[0]) {
+        var all = loadMixAdded();
+        all[col.role] = (all[col.role] || []).map(function (a) { return a[2] === it[2] ? [v, a[1], a[2]] : a; });
+        saveMixAdded(all);
+      }
+      refillMixCols(col);
+      syncMixer();
+    };
+    input.addEventListener('keydown', function (e) {
+      e.stopPropagation();
+      if (e.key === 'Enter') finish(true);
+      else if (e.key === 'Escape') finish(false);
+    });
+    input.addEventListener('blur', function () { finish(true); });
+  }
   function removeMixColour(c, col, id) {
     var all = loadMixAdded();
     all[col.role] = (all[col.role] || []).filter(function (it) { return it[2] !== id; });
@@ -384,6 +419,10 @@
         setRole(col.role, '#' + it[1]);
       });
       if (col.items.indexOf(it) < 0) {
+        b.addEventListener('dblclick', function (e) {
+          if (e.target.closest('.c2-del, i')) return;
+          renameMixColour(b, col, it);
+        });
         var x = document.createElement('span');
         x.className = 'c2-del';
         x.title = 'Remove this colour';
