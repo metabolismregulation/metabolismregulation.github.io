@@ -1445,27 +1445,17 @@
   drop.addEventListener('drop', function (e) {
     readDropped(e.dataTransfer.files[0]);
   });
-  // the map takes dropped files too (a hidden shortcut): a faint note shows
-  // while a file is dragged over it
-  var mapCol = document.querySelector('.c2-mapcol'), mapDepth = 0;
+  // the map takes dropped files too (a hidden shortcut)
+  var mapCol = document.querySelector('.c2-mapcol');
   var hasFiles = function (e) {
     return Array.prototype.indexOf.call((e.dataTransfer || {}).types || [], 'Files') >= 0;
   };
-  mapCol.addEventListener('dragenter', function (e) {
-    if (!hasFiles(e)) return;
-    e.preventDefault();
-    mapDepth++;
-    mapCol.classList.add('c2-mapover');
-  });
-  mapCol.addEventListener('dragover', function (e) { if (hasFiles(e)) e.preventDefault(); });
-  mapCol.addEventListener('dragleave', function () {
-    if (--mapDepth <= 0) { mapDepth = 0; mapCol.classList.remove('c2-mapover'); }
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    mapCol.addEventListener(ev, function (e) { if (hasFiles(e)) e.preventDefault(); });
   });
   mapCol.addEventListener('drop', function (e) {
     if (!hasFiles(e)) return;
     e.preventDefault();
-    mapDepth = 0;
-    mapCol.classList.remove('c2-mapover');
     readDropped(e.dataTransfer.files[0]);
   });
   document.addEventListener('paste', function (e) {
