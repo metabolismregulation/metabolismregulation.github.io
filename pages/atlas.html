@@ -69,9 +69,10 @@ sitemap: false
 <script>
 (function () {
   // Zoom is measured in screen pixels per yEd unit, so every map shows its
-  // boxes and labels at the same size whatever the resolution of its PNG
-  // (scale = PNG pixels per yEd unit, measured by scripts/make_maps.py).
+  // boxes and labels at the same size whatever the resolution of its image
+  // (scale = image pixels per yEd unit, from scripts/make_maps.py).
   var STANDARD = 0.75, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
+  var START = 0.65; // a map opens at 65% of the standard zoom
   var maps = [], byId = {}, topics = [], current = null, textCache = {};
   var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
   var z = STANDARD, tx = 0, ty = 0;
@@ -113,11 +114,11 @@ sitemap: false
     var s = size(current);
     return Math.min(view.clientWidth / s.w, view.clientHeight / s.h) * 0.96;
   }
-  // standard zoom; a map smaller than the view is centred, a larger one
-  // starts at its top, centred left to right
-  function standard() {
+  // a set zoom (standard by default); a map smaller than the view is
+  // centred, a larger one starts at its top, centred left to right
+  function standard(share) {
     var s = size(current);
-    z = STANDARD;
+    z = STANDARD * (typeof share === 'number' ? share : 1);
     tx = (view.clientWidth - s.w * z) / 2;
     ty = Math.max(0, (view.clientHeight - s.h * z) / 2);
     draw();
@@ -246,7 +247,7 @@ sitemap: false
     img.src = m.image;
     img.width = m.width;
     img.height = m.height;
-    fit();
+    standard(START);
     var dl = document.getElementById('m2-downloads');
     dl.innerHTML = '';
     (m.downloads || []).forEach(function (d) {
