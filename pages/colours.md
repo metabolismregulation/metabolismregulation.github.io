@@ -70,6 +70,8 @@ permalink: /colours/
   .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 7.5px; width: 10px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
   .c2-del:hover { color: #333; }
+  .c2-preset .c2-del { width: 14px; height: 14px; }
+  .c2-preset .c2-del::before, .c2-preset .c2-del::after { left: 2.5px; top: 6.5px; width: 9px; }
   .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
   .c2-dragging .c2-chips { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
