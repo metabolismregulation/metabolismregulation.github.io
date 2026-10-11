@@ -376,8 +376,7 @@
     add.addEventListener('click', function () { addMixColour(c, col); });
     c.appendChild(add);
   }
-  // The page has two Mixers with the same colours (one with more space);
-  // a change in one column is redrawn in every copy of it.
+  // a change in a column is redrawn in every copy of it on the page
   function refillMixCols(col, skip) {
     Array.prototype.forEach.call(document.querySelectorAll('.c2-mixcol[data-role="' + col.role + '"]'), function (c) {
       if (c !== skip) fillMixCol(c, col);
@@ -1153,7 +1152,6 @@
   });
 
   // ---------- wiring ----------
-  buildMixer('c2-mixer2');
   buildMixer('c2-mixer');
   buildRoles();
   buildPresets();

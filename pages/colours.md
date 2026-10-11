@@ -27,21 +27,22 @@ permalink: /colours/
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
   #c2-presets { display: flex; flex-direction: column; gap: 4px; }
-  #c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
-  .c2-mixtitle { font-size: 12px; color: #666; margin-bottom: 2px; }
-  .c2-dot { display: flex; align-items: center; gap: 5px; width: 100%; font-size: 13px; padding: 2px 3px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
-  .c2-dot i { flex: none; width: 15px; height: 15px; border-radius: 50%; border: 1px solid #0003; box-sizing: border-box; cursor: grab; touch-action: none; }
+  #c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
+  .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
+  .c2-mixtitle { font-size: 13px; color: #666; margin-bottom: 2px; }
+  .c2-dot { display: flex; align-items: center; gap: 6px; width: 100%; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
+  .c2-dot i { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 1px solid #0003; box-sizing: border-box; cursor: grab; touch-action: none; }
   .c2-dot.c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
   .c2-dname { flex: 1; min-width: 0; overflow: hidden; text-overflow: clip; }
   .c2-dot .c2-del { width: 12px; height: 12px; }
   .c2-dot .c2-del::before, .c2-dot .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
-  .c2-mixadd { display: flex; width: 100%; padding: 2px 3px; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
+  .c2-mixadd { display: flex; width: 100%; padding: 2px 4px; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
   .c2-mixadd:hover { border-color: #bbb; }
   /* circle and plus drawn as one small picture, so the plus stays centred
      wherever the column puts the circle (columns fall between screen pixels) */
-  .c2-mixadd svg { display: block; width: 15px; height: 15px; color: #999; }
+  .c2-mixadd svg { display: block; width: 16px; height: 16px; color: #999; }
   .c2-mixadd svg circle { fill: #fff; stroke: #ccc; }
   .c2-mixadd:hover svg { color: #333; }
   .c2-mixadd:hover svg circle { stroke: #888; }
@@ -57,14 +58,6 @@ permalink: /colours/
   #c2-light::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-progress { background: #ddd; }
-  /* roomier Mixer for comparison: slightly larger circles and spacing */
-  #c2-mixer2 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
-  #c2-mixer2 .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
-  #c2-mixer2 .c2-mixtitle { font-size: 13px; margin-bottom: 2px; }
-  #c2-mixer2 .c2-dot { gap: 6px; font-size: 13px; padding: 2px 4px; }
-  #c2-mixer2 .c2-dot i { width: 16px; height: 16px; }
-  #c2-mixer2 .c2-mixadd { padding: 2px 4px; }
-  #c2-mixer2 .c2-mixadd svg { width: 16px; height: 16px; }
   .c2-del { margin-left: auto; position: relative; flex: none; width: 16px; height: 16px; color: #aaa; }
   .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 7.5px; width: 10px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
@@ -147,11 +140,6 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </p>
 </div>
 <div class="c2-panel c2-right">
-
-<section>
-<h3 title="The same Mixer with more space, for comparison. Arrow keys move within a column. + adds the map’s current colour. Drag a circle to reorder.">Mixer, more space</h3>
-<div id="c2-mixer2" class="c2-mixer"></div>
-</section>
 
 <section>
 <h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a circle to reorder.">Mixer</h3>
