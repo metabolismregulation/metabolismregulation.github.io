@@ -141,16 +141,18 @@
           txt[y * cw + x] = d[k + 2] > 127 ? 1 : 0;
         }
       }
-      // Bold text: the text ink spread by one pixel left, right, up and down
-      // within the same fill, used where the text is drawn white
+      // Semibold text: half of the text ink spread one pixel left, right, up
+      // and down within the same fill (about half a pixel thicker on each
+      // side), used where the text is drawn white
+      var SPREAD = 0.5;
       var bold = new Uint8Array(cw * ch), i, c, v;
       for (y = 0; y < ch; y++) {
         for (x = 0; x < cw; x++) {
           i = y * cw + x; c = cls[i]; v = txt[i] ? 255 - t[i] : 0;
-          if (x > 0 && txt[i - 1] && cls[i - 1] === c) v = Math.max(v, 255 - t[i - 1]);
-          if (x < cw - 1 && txt[i + 1] && cls[i + 1] === c) v = Math.max(v, 255 - t[i + 1]);
-          if (y > 0 && txt[i - cw] && cls[i - cw] === c) v = Math.max(v, 255 - t[i - cw]);
-          if (y < ch - 1 && txt[i + cw] && cls[i + cw] === c) v = Math.max(v, 255 - t[i + cw]);
+          if (x > 0 && txt[i - 1] && cls[i - 1] === c) v = Math.max(v, SPREAD * (255 - t[i - 1]));
+          if (x < cw - 1 && txt[i + 1] && cls[i + 1] === c) v = Math.max(v, SPREAD * (255 - t[i + 1]));
+          if (y > 0 && txt[i - cw] && cls[i - cw] === c) v = Math.max(v, SPREAD * (255 - t[i - cw]));
+          if (y < ch - 1 && txt[i + cw] && cls[i + cw] === c) v = Math.max(v, SPREAD * (255 - t[i + cw]));
           bold[i] = v;
         }
       }
@@ -184,7 +186,7 @@
     for (var i = 0, j = 0; i < n; i++, j += 4) {
       var a = t[i] / 255, b = 1 - a;
       var ink = !txt[i] ? line : cls[i] === 7 ? text : texts[cls[i]];
-      // white text is drawn bold: thicker where the spread ink is stronger
+      // white text is drawn semibold: thicker where the spread ink is stronger
       if (whiteText[cls[i]] && bold[i] > 255 * b && (txt[i] || b < 0.05)) {
         ink = texts[cls[i]]; b = bold[i] / 255; a = 1 - b;
       }
