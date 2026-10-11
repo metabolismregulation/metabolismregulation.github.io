@@ -23,9 +23,9 @@ permalink: /colours/
   /* experimental Roles in the presets style: no box until hovered, colour as a
      plain rectangle with the preset squares' border */
   #c2-roles2 { display: flex; flex-direction: column; gap: 4px; }
-  #c2-roles2 .c2-role { padding: 2px 4px; border: 1px solid transparent; }
+  #c2-roles2 .c2-role { grid-template-columns: 24px 1fr auto auto; padding: 2px 4px; border: 1px solid transparent; }
   #c2-roles2 .c2-role:hover { border-color: #bbb; }
-  #c2-roles2 .c2-role input[type=color] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 30px; height: 16px; border: 1px solid #0003; border-radius: 0; }
+  #c2-roles2 .c2-role input[type=color] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 24px; height: 16px; border: 1px solid #0003; border-radius: 0; }
   #c2-roles2 .c2-role input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
   #c2-roles2 .c2-role input[type=color]::-webkit-color-swatch { border: none; border-radius: 0; }
   #c2-roles2 .c2-role input[type=color]::-moz-color-swatch { border: none; border-radius: 0; }
