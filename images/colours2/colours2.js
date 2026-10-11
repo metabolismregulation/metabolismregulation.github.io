@@ -437,16 +437,20 @@
   // ---------- controls ----------
   var roleBox = document.getElementById('c2-roles');
 
-  function buildRoles() {
+  // The page has two Roles lists (one in the presets style); sfx tells
+  // their fields apart: '' for the first, '2' for the second.
+  var ROLE_SFX = ['', '2'];
+  function buildRoles(box, sfx) {
+    if (!box) return;
     ROLE_VIEW.forEach(function (r) {
       var row = document.createElement('div');
       row.className = 'c2-role' + (r.hl ? ' c2-hl' : '');
       row.innerHTML =
-        '<input type="color" id="c2-in-' + r.id + '">' +
+        '<input type="color" id="c2-in' + sfx + '-' + r.id + '">' +
         '<span class="c2-role-name">' + r.name + '</span>' +
-        '<input type="text" class="c2-hexin" id="c2-hex-' + r.id + '" maxlength="7" spellcheck="false">' +
-        '<span class="c2-cr" id="c2-cr-' + r.id + '"></span>';
-      roleBox.appendChild(row);
+        '<input type="text" class="c2-hexin" id="c2-hex' + sfx + '-' + r.id + '" maxlength="7" spellcheck="false">' +
+        '<span class="c2-cr" id="c2-cr' + sfx + '-' + r.id + '"></span>';
+      box.appendChild(row);
       var input = row.querySelector('input[type=color]');
       input.addEventListener('input', function () { setRole(r.id, input.value); });
       // hex field: click selects it for copying; typing or pasting a hex applies it
@@ -533,11 +537,12 @@
       lightBase = null;
       document.getElementById('c2-light').value = 0;
     }
-    ROLES.forEach(function (r) {
-      document.getElementById('c2-in-' + r.id).value = theme[r.id].toLowerCase();
-      var hx = document.getElementById('c2-hex-' + r.id);
+    ROLES.forEach(function (r) { ROLE_SFX.forEach(function (sfx) {
+      if (!document.getElementById('c2-in' + sfx + '-' + r.id)) return;
+      document.getElementById('c2-in' + sfx + '-' + r.id).value = theme[r.id].toLowerCase();
+      var hx = document.getElementById('c2-hex' + sfx + '-' + r.id);
       if (document.activeElement !== hx) hx.value = theme[r.id];
-      var cr = document.getElementById('c2-cr-' + r.id);
+      var cr = document.getElementById('c2-cr' + sfx + '-' + r.id);
       if (r.cls < 0) { cr.textContent = ''; return; }
       var white = textOn(theme[r.id]) === '#FFFFFF' && theme.text !== '#FFFFFF';
       var v = contrast(theme[r.id], textOn(theme[r.id]));
@@ -545,7 +550,7 @@
       cr.className = 'c2-cr' + (v < 7 ? ' c2-low' : '');
       cr.title = 'Contrast of text on this fill (WCAG). Below 7:1 reads poorly at small sizes.' +
         (white ? ' w: this fill is dark, so its text is drawn white.' : '');
-    });
+    }); });
     document.getElementById('c2-export').value = exportText();
     syncMixer();
     syncPresets();
@@ -983,7 +988,9 @@
         Array.prototype.forEach.call(box.children, function (el) {
           el.classList.toggle('c2-armed', armed !== null && el === b);
         });
-        roleBox.classList.toggle('c2-assigning', armed !== null);
+        Array.prototype.forEach.call(document.querySelectorAll('.c2-roles'), function (rb) {
+          rb.classList.toggle('c2-assigning', armed !== null);
+        });
       });
       box.appendChild(b);
     });
@@ -1151,7 +1158,8 @@
 
   // ---------- wiring ----------
   buildMixer('c2-mixer');
-  buildRoles();
+  buildRoles(document.getElementById('c2-roles2'), '2');
+  buildRoles(roleBox, '');
   buildPresets();
   var linked = themeFromLink();
   applyPreset(linked || PRESETS[0][1]);

@@ -20,9 +20,18 @@ permalink: /colours/
   .c2-hexin { width: 62px; font: 11px monospace; color: #333; border: 1px solid #ccc; border-radius: 3px; padding: 2px 3px; }
   .c2-role[draggable=true] { cursor: grab; }
   .c2-dropping { background: #e8eef6; outline: 1px dashed #666; }
+  /* experimental Roles in the presets style: no box until hovered, colour as a
+     plain rectangle with the preset squares' border */
+  #c2-roles2 { display: flex; flex-direction: column; gap: 4px; }
+  #c2-roles2 .c2-role { padding: 2px 4px; border: 1px solid transparent; }
+  #c2-roles2 .c2-role:hover { border-color: #bbb; }
+  #c2-roles2 .c2-role input[type=color] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 30px; height: 16px; border: 1px solid #0003; border-radius: 0; }
+  #c2-roles2 .c2-role input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
+  #c2-roles2 .c2-role input[type=color]::-webkit-color-swatch { border: none; border-radius: 0; }
+  #c2-roles2 .c2-role input[type=color]::-moz-color-swatch { border: none; border-radius: 0; }
   .c2-cr { font-size: 11px; color: #777; min-width: 42px; text-align: right; }
   .c2-nohl .c2-hl { display: none; }
-  .c2-cxbg #c2-roles .c2-role:nth-child(2) { opacity: 0.4; pointer-events: none; }
+  .c2-cxbg .c2-roles .c2-role:nth-child(2) { opacity: 0.4; pointer-events: none; }
   .c2-low { color: #b3261e; font-weight: bold; }
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
@@ -146,9 +155,14 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </section>
 
 <section>
+<h3 title="The Roles list in the presets style, for comparison. It uses the checkboxes below.">Roles, presets style</h3>
+<div id="c2-roles2" class="c2-roles"></div>
+</section>
+
+<section>
 <h3 title="Set any single colour. The highlight red is changed only here. Ctrl+Z or ⌘Z undoes a change, with Shift redoes it.">Roles</h3>
 <p class="c2-small" style="margin:0 0 6px"><label><input type="checkbox" id="c2-hl" autocomplete="off"> Highlighted protein</label> &nbsp; <label><input type="checkbox" id="c2-cxbg" autocomplete="off"> Complex transparent</label></p>
-<div id="c2-roles"></div>
+<div id="c2-roles" class="c2-roles"></div>
 <p class="c2-small">Number on the right: contrast of the text colour on that fill. Red means below 7:1.</p>
 </section>
 
