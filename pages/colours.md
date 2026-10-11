@@ -74,8 +74,8 @@ permalink: /colours/
   .c2-preset:hover .c2-del, .c2-preset.c2-on .c2-del, .c2-preset:focus-visible .c2-del,
   .c2-dot:hover .c2-del, .c2-dot.c2-on .c2-del, .c2-dot:focus-visible .c2-del { opacity: 1; }
   @media (hover: none) { .c2-preset .c2-del, .c2-dot .c2-del { opacity: 1; } }
-  .c2-preset .c2-del { width: 14px; height: 14px; }
-  .c2-preset .c2-del::before, .c2-preset .c2-del::after { left: 2.5px; top: 6.5px; width: 9px; }
+  .c2-preset .c2-del { width: 12px; height: 12px; }
+  .c2-preset .c2-del::before, .c2-preset .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
   .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
   .c2-dragging .c2-chips { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
