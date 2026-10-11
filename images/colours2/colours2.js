@@ -1029,6 +1029,157 @@
     img.src = url;
   }
 
+  // ---------- colours from a map file ----------
+  // A map dropped on the image box (CellDesigner XML, yEd GraphML with the
+  // SBGN palette, or SBGN-ML with render colours) gives its colours by
+  // element type: the most common protein and chemical colours, the complex
+  // colour and the compartment colour are applied, and mixes of its protein
+  // and chemical colours are offered as suggestions. Anything else, or a map
+  // without protein or chemical colours, is ignored without a message.
+  var MAP_MAX = 20 * 1024 * 1024;
+  function isMapFile(f) {
+    return /\.(xml|graphml|sbgn|sbgnml)$/i.test(f.name) && f.size <= MAP_MAX;
+  }
+  // #RRGGBBAA, ARGB (CellDesigner) or #RRGGBB, drawn on white
+  function onWhite(rgb, a) {
+    return rgbToHex(rgb.map(function (v) { return v * a + 255 * (1 - a); }));
+  }
+  function hexRGBA(h) {
+    h = h.replace('#', '');
+    if (h.length === 6) return onWhite(hexToRgb('#' + h), 1);
+    if (h.length === 8) return onWhite(hexToRgb('#' + h.slice(0, 6)), parseInt(h.slice(6), 16) / 255);
+    return null;
+  }
+  function hexARGB(h) {
+    if (!/^[0-9a-fA-F]{8}$/.test(h)) return null;
+    return onWhite(hexToRgb('#' + h.slice(2)), parseInt(h.slice(0, 2), 16) / 255);
+  }
+  function tally() {
+    var t = { protein: {}, metabolite: {}, complex: {}, compartment: {} };
+    t.add = function (role, hex) { if (role && hex) t[role][hex] = (t[role][hex] || 0) + 1; };
+    return t;
+  }
+  function fromCellDesigner(s) {
+    if (!/<sbml\b/.test(s) || s.indexOf('celldesigner') < 0) return null;
+    var t = tally(), cls = {}, m;
+    var spRe = /<(species|celldesigner:species)\s[^>]*?id="([^"]+)"[\s\S]*?<\/\1>/g;
+    while ((m = spRe.exec(s))) {
+      var c = /<celldesigner:class>([A-Z_]+)<\/celldesigner:class>/.exec(m[0]);
+      if (c) cls[m[2]] = c[1];
+    }
+    var ROLE = { PROTEIN: 'protein', RECEPTOR: 'protein', ION_CHANNEL: 'protein', TRUNCATED: 'protein',
+      SIMPLE_MOLECULE: 'metabolite', ION: 'metabolite', COMPLEX: 'complex' };
+    var alRe = /<celldesigner:(speciesAlias|complexSpeciesAlias)\s[^>]*?species="([^"]+)"[\s\S]*?<\/celldesigner:\1>/g;
+    while ((m = alRe.exec(s))) {
+      var u = /<celldesigner:usualView>[\s\S]*?<celldesigner:paint color="([0-9a-fA-F]{8})"/.exec(m[0]);
+      if (u) t.add(ROLE[cls[m[2]]], hexARGB(u[1]));
+    }
+    var coRe = /<celldesigner:compartmentAlias\s[\s\S]*?<\/celldesigner:compartmentAlias>/g;
+    while ((m = coRe.exec(s))) {
+      var p = /<celldesigner:paint color="([0-9a-fA-F]{8})"/.exec(m[0]);
+      // CellDesigner draws this colour as the compartment's double border,
+      // with a much paler inside
+      if (p) t.add('compartment', lightMix(hexARGB(p[1]), 0.85));
+    }
+    return t;
+  }
+  function fromGraphML(s) {
+    if (!/<graphml\b/.test(s) || s.indexOf('com.yworks.sbgn') < 0) return null;
+    var t = tally(), m;
+    var ROLE = { Macromolecule: 'protein', SimpleChemical: 'metabolite' };
+    var nRe = /<y:GenericNode\b[^>]*configuration="com\.yworks\.sbgn\.(\w+)"[^>]*>([\s\S]*?)<\/y:GenericNode>/g;
+    while ((m = nRe.exec(s))) {
+      var f = /<y:Fill\b[^>]*color="(#[0-9a-fA-F]{6,8})"/.exec(m[2]);
+      if (f) t.add(ROLE[m[1]], hexRGBA(f[1]));
+    }
+    var gRe = /<y:(GroupNode|GenericGroupNode)\b([^>]*)>([\s\S]*?)<\/y:\1>/g;
+    while ((m = gRe.exec(s))) {
+      var g = /<y:Fill\b[^>]*color="(#[0-9a-fA-F]{6,8})"/.exec(m[3]);
+      if (g) t.add(/sbgn\.Complex"/.test(m[2]) ? 'complex' : 'compartment', hexRGBA(g[1]));
+    }
+    return t;
+  }
+  function fromSBGN(s) {
+    if (!/<sbgn\b/.test(s) || !/renderInformation\b/.test(s)) return null;
+    var doc = new DOMParser().parseFromString(s, 'application/xml');
+    if (doc.getElementsByTagName('parsererror').length) return null;
+    // render elements and attributes may carry a namespace prefix (ns2:fill)
+    var all = function (name) { return Array.prototype.slice.call(doc.getElementsByTagNameNS('*', name)); };
+    var attr = function (el, name) {
+      for (var i = 0; i < el.attributes.length; i++) {
+        if (el.attributes[i].localName === name) return el.attributes[i].value;
+      }
+      return null;
+    };
+    var t = tally(), colours = {}, fill = {}, border = {};
+    all('colorDefinition').forEach(function (c) { colours[attr(c, 'id')] = attr(c, 'value'); });
+    all('style').forEach(function (st) {
+      var g = st.getElementsByTagNameNS('*', 'g')[0], v = g && attr(g, 'fill');
+      if (!v) return;
+      v = colours[v] || v;
+      var line = attr(g, 'stroke');
+      (attr(st, 'idList') || '').split(/\s+/).forEach(function (id) {
+        if (!id) return;
+        fill[id] = v;
+        border[id] = (colours[line] || line || '').toLowerCase() === v.toLowerCase();
+      });
+    });
+    var ROLE = { 'macromolecule': 'protein', 'macromolecule multimer': 'protein',
+      'simple chemical': 'metabolite', 'simple chemical multimer': 'metabolite',
+      'complex': 'complex', 'complex multimer': 'complex', 'compartment': 'compartment' };
+    all('glyph').forEach(function (gl) {
+      var id = gl.getAttribute('id'), v = fill[id], role = ROLE[gl.getAttribute('class')];
+      if (!v || !/^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$/.test(v)) return;
+      // a compartment whose fill is its border colour (maps converted from
+      // CellDesigner) is drawn paler inside, as CellDesigner does
+      var hex = hexRGBA(v);
+      t.add(role, role === 'compartment' && border[id] ? lightMix(hex, 0.85) : hex);
+    });
+    return t;
+  }
+  function lightMix(hex, k) {
+    return rgbToHex(hexToRgb(hex).map(function (v) { return v + (255 - v) * k; }));
+  }
+  function ranked(counts) {
+    return Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+  }
+  function readMapFile(file) {
+    var r = new FileReader();
+    r.onload = function () {
+      var s = String(r.result), t = null;
+      try { t = fromCellDesigner(s) || fromGraphML(s) || fromSBGN(s); } catch (e) { t = null; }
+      if (!t) return;
+      var P = ranked(t.protein), C = ranked(t.metabolite);
+      if (!P.length && !C.length) return;
+      if (P.length) theme.protein = P[0];
+      if (C.length) theme.metabolite = C[0];
+      if (ranked(t.complex).length) theme.complex = ranked(t.complex)[0];
+      if (ranked(t.compartment).length) theme.compartment = ranked(t.compartment)[0];
+      // the protein and chemical colours of the file, by how often they are used
+      var n = {};
+      [t.protein, t.metabolite].forEach(function (c) {
+        Object.keys(c).forEach(function (h) { n[h] = (n[h] || 0) + c[h]; });
+      });
+      var total = Object.keys(n).reduce(function (a, h) { return a + n[h]; }, 0);
+      var pool = ranked(n).map(function (h) { return { hex: h, lab: rgbToOklab(hexToRgb(h)), share: n[h] / total }; });
+      // the file's own pairing first, then mixes of its colours; colours
+      // close to the highlight red are left out of the mixes
+      var base = [theme.compartment, theme.complex];
+      var themes = [{ theme: base.concat([theme.protein, theme.metabolite]) }];
+      if (pool.length > 1) {
+        var mixPool = pool.filter(function (c) { return pairDistance(c.hex, theme.hlProtein) >= 5; });
+        suggestThemes([{ hex: '#FFFFFF', lab: rgbToOklab([255, 255, 255]), share: 0 }].concat(mixPool)).forEach(function (sg) {
+          var th = base.concat([sg.theme[2], sg.theme[3]]);
+          if (!themes.some(function (o) { return o.theme.join() === th.join(); })) themes.push({ theme: th });
+        });
+      }
+      lastImage = null;
+      document.getElementById('c2-thumb').hidden = true;
+      showSwatches(pool, themes.slice(0, 6));
+    };
+    r.readAsText(file);
+  }
+
   function extractPalette() {
     var img = lastImage;
     if (!img) return;
@@ -1069,7 +1220,7 @@
   }
 
   var lastSwatches = [];
-  function showSwatches(sw) {
+  function showSwatches(sw, themes) {
     lastSwatches = sw;
     var box = document.getElementById('c2-swatches');
     box.innerHTML = '';
@@ -1091,7 +1242,7 @@
       });
       box.appendChild(b);
     });
-    showSuggestions(sw);
+    showSuggestions(sw, themes);
   }
 
   // Suggestions: up to six themes built from the swatches as they are, each
@@ -1184,10 +1335,10 @@
     return out;
   }
 
-  function showSuggestions(sw) {
+  function showSuggestions(sw, themes) {
     var box = document.getElementById('c2-suggest');
     box.innerHTML = '';
-    suggestThemes(sw).forEach(function (sg, n) {
+    (themes || suggestThemes(sw)).forEach(function (sg, n) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'c2-sugg';
@@ -1276,8 +1427,13 @@
     render();
   });
   syncHighlight();
+  function readDropped(f) {
+    if (!f) return;
+    if (/^image\//.test(f.type)) readImage(f);
+    else if (isMapFile(f)) readMapFile(f);
+  }
   document.getElementById('c2-file').addEventListener('change', function (e) {
-    if (e.target.files[0]) readImage(e.target.files[0]);
+    readDropped(e.target.files[0]);
   });
   var drop = document.getElementById('c2-drop');
   ['dragenter', 'dragover'].forEach(function (ev) {
@@ -1287,8 +1443,30 @@
     drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('c2-over'); });
   });
   drop.addEventListener('drop', function (e) {
-    var f = e.dataTransfer.files[0];
-    if (f && /^image\//.test(f.type)) readImage(f);
+    readDropped(e.dataTransfer.files[0]);
+  });
+  // the map takes dropped files too (a hidden shortcut): a faint note shows
+  // while a file is dragged over it
+  var mapCol = document.querySelector('.c2-mapcol'), mapDepth = 0;
+  var hasFiles = function (e) {
+    return Array.prototype.indexOf.call((e.dataTransfer || {}).types || [], 'Files') >= 0;
+  };
+  mapCol.addEventListener('dragenter', function (e) {
+    if (!hasFiles(e)) return;
+    e.preventDefault();
+    mapDepth++;
+    mapCol.classList.add('c2-mapover');
+  });
+  mapCol.addEventListener('dragover', function (e) { if (hasFiles(e)) e.preventDefault(); });
+  mapCol.addEventListener('dragleave', function () {
+    if (--mapDepth <= 0) { mapDepth = 0; mapCol.classList.remove('c2-mapover'); }
+  });
+  mapCol.addEventListener('drop', function (e) {
+    if (!hasFiles(e)) return;
+    e.preventDefault();
+    mapDepth = 0;
+    mapCol.classList.remove('c2-mapover');
+    readDropped(e.dataTransfer.files[0]);
   });
   document.addEventListener('paste', function (e) {
     var items = (e.clipboardData || {}).items || [];

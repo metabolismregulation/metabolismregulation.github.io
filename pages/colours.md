@@ -8,7 +8,9 @@ permalink: /colours/
   .c2-wide { width: 96vw; max-width: 2000px; position: relative; left: 50%; transform: translateX(-50%); }
   .c2-grid { display: grid; grid-template-columns: 270px 1fr 270px; grid-template-areas: "left map right"; gap: 20px; align-items: start; }
   .c2-left { grid-area: left; }
-  .c2-mapcol { grid-area: map; min-width: 0; }
+  .c2-mapcol { grid-area: map; min-width: 0; position: relative; }
+  .c2-mapcol::after { content: "Drop a map file to use its colours"; position: absolute; inset: 0 0 auto 0; height: 100%; max-height: 100%; display: none; align-items: center; justify-content: center; font-size: 15px; color: #333; background: #ffffffb3; outline: 2px dashed #888; outline-offset: -2px; pointer-events: none; }
+  .c2-mapcol.c2-mapover::after { display: flex; }
   .c2-right { grid-area: right; }
   @media (max-width: 1150px) { .c2-grid { grid-template-columns: 270px 1fr; grid-template-areas: "left map" "right map"; } }
   @media (max-width: 900px) { .c2-grid { grid-template-columns: 1fr; grid-template-areas: "left" "map" "right"; } }
@@ -125,7 +127,7 @@ permalink: /colours/
 </p>
 <div id="c2-swatches"></div>
 <div id="c2-drop" style="margin-top:8px">
-Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<input type="file" id="c2-file" accept="image/*" hidden></label> an image
+Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<input type="file" id="c2-file" accept="image/*,.xml,.graphml,.sbgn,.sbgnml" hidden></label> an image
 <br><span class="c2-small">Processed in your browser only.</span>
 <br><img id="c2-thumb" hidden alt="">
 </div>
