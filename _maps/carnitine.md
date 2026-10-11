@@ -7,7 +7,7 @@ order: 11
 image: "/downloads/F014-carnitine.svg"
 width: 885
 height: 1197
-scale: 0.423
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F014-carnitine.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F014-carnitine.sbgn"}

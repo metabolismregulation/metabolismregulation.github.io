@@ -14,7 +14,7 @@ Downloads: &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F003-mevalonate.csv" download>Annotation</a> &nbsp;
 <!--<a href="/mevalonate/"><img id="logo" src="/images/figure03v04.png" style="width:100%;"/></a>-->
-<p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.png" width="915"/></a></p>
+<p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.png" width="1030"/></a></p>
 
 ## Contributors
 

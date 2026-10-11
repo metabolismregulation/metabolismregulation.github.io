@@ -7,7 +7,7 @@ order: 18
 image: "/downloads/F100-aspirin.svg"
 width: 943
 height: 290
-scale: 0.754
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F100-aspirin.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F100-aspirin.sbgn"}

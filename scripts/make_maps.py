@@ -6,8 +6,9 @@
 #   - body: the page text (contributors, description, references)
 # A page with several map images (glycogen) gives one file per image; the
 # text goes to the first, the others show it through their shared topic.
-# scale = PNG pixels per yEd unit, measured from the GraphML layout, so the
-# viewer can show every map at the same zoom whatever its PNG resolution.
+# scale = image pixels per yEd unit, so the viewer can show every map at the
+# same zoom. 1 for an SVG (yEd exports it at 1:1); for a PNG only an estimate
+# from the GraphML layout, which can extend beyond what is drawn.
 # Rerun after changing a map page or a map image. Needs: pillow.
 import os, re, glob, json
 from PIL import Image
@@ -79,9 +80,11 @@ def main():
                 w = round(float(re.search(r'\swidth="([\d.]+)"', head).group(1)))
                 h = round(float(re.search(r'\sheight="([\d.]+)"', head).group(1)))
                 ext = '.svg'
+                scale = 1  # yEd exports SVG at 1:1, one px per yEd unit
             else:
                 w, h = Image.open(os.path.join(ROOT, 'downloads', base + '.png')).size
                 ext = '.png'
+                scale = scale_of(base, w)
             downloads = []
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', links):
                 if m.group(2) in LABELS:
@@ -95,7 +98,7 @@ def main():
                   'order: %d' % (len(written) + 1),
                   'image: ' + yaml_str('/downloads/' + base + ext),
                   'width: %d' % w, 'height: %d' % h,
-                  'scale: %s' % (scale_of(base, w) or 'null'),
+                  'scale: %s' % (scale or 'null'),
                   'downloads:']
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']

@@ -7,7 +7,7 @@ order: 17
 image: "/downloads/F020-pyrimidine.svg"
 width: 459
 height: 405
-scale: 0.76
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F020-pyrimidine.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F020-pyrimidine.sbgn"}

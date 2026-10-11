@@ -7,7 +7,7 @@ order: 9
 image: "/downloads/F007-inos.svg"
 width: 1590
 height: 1186
-scale: 0.898
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F007-inos.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F007-inos.sbgn"}

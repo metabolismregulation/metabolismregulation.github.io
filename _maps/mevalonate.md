@@ -7,7 +7,7 @@ order: 4
 image: "/downloads/F003-mevalonate.svg"
 width: 1541
 height: 650
-scale: 0.84
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F003-mevalonate.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F003-mevalonate.sbgn"}

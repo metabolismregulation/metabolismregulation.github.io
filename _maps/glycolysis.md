@@ -7,7 +7,7 @@ order: 1
 image: "/downloads/F001-glycolysis.svg"
 width: 867
 height: 679
-scale: 0.61
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F001-glycolysis.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F001-glycolysis.sbgn"}

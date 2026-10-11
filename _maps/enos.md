@@ -7,7 +7,7 @@ order: 10
 image: "/downloads/F008-enos.svg"
 width: 1297
 height: 1707
-scale: 0.733
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F008-enos.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F008-enos.sbgn"}

@@ -7,7 +7,7 @@ order: 3
 image: "/downloads/F002-eicosanoids.svg"
 width: 664
 height: 552
-scale: 0.731
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F002-eicosanoids.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F002-eicosanoids.sbgn"}

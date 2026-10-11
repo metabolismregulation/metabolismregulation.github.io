@@ -7,7 +7,7 @@ order: 5
 image: "/downloads/F004-glycogen-muscle.svg"
 width: 2110
 height: 1746
-scale: 1.016
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-muscle.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F004-glycogen-muscle.sbgn"}

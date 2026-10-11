@@ -7,7 +7,7 @@ order: 12
 image: "/downloads/F005-srebp.svg"
 width: 746
 height: 1166
-scale: 0.504
+scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F005-srebp.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F005-srebp.sbgn"}
