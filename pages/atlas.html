@@ -36,7 +36,8 @@ sitemap: false
   .m2-ctrl button { font-size: 13px; min-width: 28px; padding: 2px 8px; color: #222; background: #fffffff0; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
   .m2-ctrl button:hover { border-color: #888; }
   #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; } /* square */
-  .m2-ctrl button.m2-mode { border-color: #333; background: #eee; }
+  /* one button for both modes: it shows the current one */
+  #m2-mode { box-sizing: border-box; width: 44px; height: 21px; padding: 0; border-color: #333; background: #eee; }
   #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
 
   #m2-downloads { margin: 10px 0 0; }
@@ -59,8 +60,7 @@ sitemap: false
 <span id="m2-zoom"></span>
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
 <button type="button" id="m2-in" title="Zoom in">+</button>
-<button type="button" id="m2-fit" title="Show the whole map; maps open this way until 100% is pressed">Fit</button>
-<button type="button" id="m2-std" title="Reading zoom, the same for every map; maps open this way until Fit is pressed">100%</button>
+<button type="button" id="m2-mode"></button>
 </div>
 </div>
 <div id="m2-downloads"></div>
@@ -74,13 +74,14 @@ sitemap: false
   // boxes and labels at the same size whatever the resolution of its image
   // (scale = image pixels per yEd unit, from scripts/make_maps.py).
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
-  // how a map opens: 'read' at the standard zoom, or 'fit'. Set by the Fit
-  // and 100% buttons and remembered by the browser where it can
+  // how a map opens: 'read' at the standard zoom, or 'fit'. Set by the mode
+  // button and remembered by the browser where it can
   var mode = 'read';
   try { if (localStorage.getItem('atlas-view') === 'fit') mode = 'fit'; } catch (e) {}
   var maps = [], byId = {}, topics = [], current = null, textCache = {};
   var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
   var z = STANDARD, tx = 0, ty = 0;
+  var moved = false; // zoomed or panned away from the mode's view
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -113,6 +114,7 @@ sitemap: false
     tx = cx - (cx - tx) * nz / z;
     ty = cy - (cy - ty) * nz / z;
     z = nz;
+    moved = true;
     draw();
   }
   function fitZoom() {
@@ -126,6 +128,7 @@ sitemap: false
     z = STANDARD;
     tx = (view.clientWidth - s.w * z) / 2;
     ty = Math.max(0, (view.clientHeight - s.h * z) / 2);
+    moved = false;
     draw();
   }
   function fit() {
@@ -133,6 +136,7 @@ sitemap: false
     z = fitZoom();
     tx = (view.clientWidth - s.w * z) / 2;
     ty = (view.clientHeight - s.h * z) / 2;
+    moved = false;
     draw();
   }
   var centre = function () { return [view.clientWidth / 2, view.clientHeight / 2]; };
@@ -145,12 +149,20 @@ sitemap: false
     if (m === 'fit') fit(); else standard();
   }
   function showMode() {
-    document.getElementById('m2-fit').classList.toggle('m2-mode', mode === 'fit');
-    document.getElementById('m2-std').classList.toggle('m2-mode', mode === 'read');
+    var b = document.getElementById('m2-mode');
+    b.textContent = mode === 'fit' ? 'Fit' : 'Read';
+    b.title = mode === 'fit'
+      ? 'Whole map. Click for reading size, the same for every map'
+      : 'Reading size, the same for every map. Click for the whole map';
   }
   showMode();
-  document.getElementById('m2-fit').addEventListener('click', function () { setMode('fit'); });
-  document.getElementById('m2-std').addEventListener('click', function () { setMode('read'); });
+  // after zooming or panning, a click returns to the mode's view;
+  // from that view, a click switches mode
+  function modeButton() {
+    if (moved) { if (mode === 'fit') fit(); else standard(); }
+    else setMode(mode === 'fit' ? 'read' : 'fit');
+  }
+  document.getElementById('m2-mode').addEventListener('click', modeButton);
   view.addEventListener('wheel', function (e) {
     e.preventDefault();
     var r = view.getBoundingClientRect();
@@ -181,6 +193,7 @@ sitemap: false
     if (ids.length === 1) {
       tx += e.clientX - prev[0];
       ty += e.clientY - prev[1];
+      moved = true;
       draw();
     } else if (ids.length === 2) {
       var a = pts[ids[0]], b = pts[ids[1]], r = view.getBoundingClientRect();
@@ -200,7 +213,7 @@ sitemap: false
     var c = centre();
     if (e.key === '+' || e.key === '=') zoomAt(z * 1.25, c[0], c[1]);
     else if (e.key === '-') zoomAt(z / 1.25, c[0], c[1]);
-    else if (e.key === '0') setMode('read');
+    else if (e.key === '0') modeButton();
     else return;
     e.preventDefault();
   });
