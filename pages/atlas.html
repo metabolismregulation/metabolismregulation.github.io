@@ -196,6 +196,7 @@ sitemap: false
   function label(m) { return m.topic + (m.tab ? ' (' + m.tab + ')' : ''); }
   function buildList(filter) {
     var box = document.getElementById('m2-list');
+    var keep = box.scrollTop;
     box.innerHTML = '';
     var q = (filter || '').trim().toLowerCase();
     var shown = maps.filter(function (m) {
@@ -204,12 +205,35 @@ sitemap: false
     shown.forEach(function (m) {
       var b = el('button', 'm2-item' + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
+      b.setAttribute('data-id', m.id);
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
     });
     if (!shown.length) box.appendChild(el('div', 'm2-none', 'No map matches'));
+    // keep the chosen map visible when the list scrolls (narrow screens)
+    box.scrollTop = keep;
+    var on = box.querySelector('.m2-on');
+    if (on && box.scrollHeight > box.clientHeight) box.scrollTop = Math.max(0, Math.min(box.scrollTop, on.offsetTop - box.offsetTop), on.offsetTop - box.offsetTop + on.offsetHeight - box.clientHeight);
   }
   document.getElementById('m2-search').addEventListener('input', function () { buildList(this.value); });
+  // arrow keys step through the listed maps, as on the Colours page; wraps around.
+  // In the search box only up and down, so left and right still move the cursor
+  document.addEventListener('keydown', function (e) {
+    var dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    if (!dir) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var t = e.target.closest ? e.target.closest('input, select, textarea, [contenteditable]') : null;
+    if (t && !(t.id === 'm2-search' && (e.key === 'ArrowDown' || e.key === 'ArrowUp'))) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll('#m2-list .m2-item'));
+    if (!items.length) return;
+    e.preventDefault();
+    var i = items.findIndex(function (b) { return b.classList.contains('m2-on'); });
+    var n = items.length;
+    var next = i < 0 ? (dir > 0 ? 0 : n - 1) : (i + dir + n) % n;
+    var id = items[next].getAttribute('data-id');
+    // replace, so stepping through the list does not fill the browser history
+    if (id !== location.hash.slice(1)) location.replace('#' + id);
+  });
 
   // ---------- one map ----------
   function show(m) {
