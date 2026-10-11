@@ -48,7 +48,8 @@ permalink: /colours/
   .c2-mixadd:hover svg rect { stroke: #888; }
   .c2-preset { display: flex; align-items: center; gap: 6px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; }
   .c2-preset:hover { border-color: #bbb; }
-  .c2-preset .c2-chips { cursor: grab; touch-action: none; }
+  .c2-preset .c2-chips { cursor: grab; touch-action: none; gap: 2px; }
+  .c2-preset .c2-chips i { margin-right: 0; }
   .c2-pname { flex: 1; min-width: 0; }
   .c2-rename { flex: 1; min-width: 0; font: inherit; padding: 0 3px; margin: -1px 0; border: 1px solid #999; border-radius: 3px; outline: none; background: #fff; }
   .c2-preset.c2-on { border-color: #333; font-weight: bold; }
