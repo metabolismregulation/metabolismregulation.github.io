@@ -17,7 +17,7 @@ permalink: /colours/
   #c2-map { width: 100%; height: auto; display: block; }
   /* Roles in the presets style: no box until hovered, colour as a plain
      rectangle with the preset squares' border */
-  #c2-roles { display: flex; flex-direction: column; gap: 4px; }
+  #c2-roles { display: flex; flex-direction: column; gap: 2px; }
   .c2-role { display: grid; grid-template-columns: 24px 1fr auto auto; gap: 6px; align-items: center; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; }
   .c2-role:hover { border-color: #bbb; }
   .c2-role input[type=color] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 24px; height: 16px; padding: 0; border: 1px solid #0003; border-radius: 0; background: none; cursor: pointer; }
