@@ -62,9 +62,9 @@ permalink: /colours/
   #c2-mixer2 .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
   #c2-mixer2 .c2-mixtitle { font-size: 13px; margin-bottom: 2px; }
   #c2-mixer2 .c2-dot { gap: 6px; font-size: 13px; padding: 2px 4px; }
-  #c2-mixer2 .c2-dot i { width: 17px; height: 17px; }
+  #c2-mixer2 .c2-dot i { width: 16px; height: 16px; }
   #c2-mixer2 .c2-mixadd { padding: 2px 4px; }
-  #c2-mixer2 .c2-mixadd svg { width: 17px; height: 17px; }
+  #c2-mixer2 .c2-mixadd svg { width: 16px; height: 16px; }
   .c2-del { margin-left: auto; position: relative; flex: none; width: 16px; height: 16px; color: #aaa; }
   .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 7.5px; width: 10px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
