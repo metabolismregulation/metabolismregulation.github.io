@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Maps (experimental)
-permalink: /maps2/
+title: Atlas
+permalink: /atlas/
 sitemap: false
 ---
 
@@ -210,7 +210,7 @@ sitemap: false
   function show(m) {
     current = m;
     document.getElementById('m2-title').textContent = m.title;
-    document.title = m.title + ' – Maps (experimental)';
+    document.title = m.title + ' – Atlas';
     var topic = topics.filter(function (t) { return t.name === m.topic; })[0];
     var tabs = document.getElementById('m2-tabs');
     tabs.innerHTML = '';
@@ -260,7 +260,7 @@ sitemap: false
   }
   window.addEventListener('hashchange', route);
 
-  fetch('{{ "/maps2/index.json" | relative_url }}').then(function (r) { return r.json(); }).then(function (list) {
+  fetch('{{ "/atlas/index.json" | relative_url }}').then(function (r) { return r.json(); }).then(function (list) {
     maps = list;
     maps.forEach(function (m) {
       byId[m.id] = m;

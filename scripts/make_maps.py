@@ -1,4 +1,4 @@
-# Build the map files for the experimental /maps2/ page.
+# Build the map files for the experimental /atlas/ page.
 # Usage: python3 scripts/make_maps.py
 # Reads the map pages in _projects/ and the files in downloads/, and writes
 # one file per map image to _maps/<id>.md:
