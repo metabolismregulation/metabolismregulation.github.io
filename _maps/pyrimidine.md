@@ -4,10 +4,10 @@ topic: "Pyrimidine biosynthesis"
 tab: ""
 page: "/pyrimidine/"
 order: 17
-image: "/downloads/F020-pyrimidine.png"
-width: 890
-height: 782
-scale: 1.474
+image: "/downloads/F020-pyrimidine.svg"
+width: 459
+height: 405
+scale: 0.76
 downloads:
   - {label: "GraphML", url: "/downloads/F020-pyrimidine.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F020-pyrimidine.sbgn"}

@@ -72,8 +72,16 @@ def main():
             text.append(line)
         text = re.sub(r'\n{3,}', '\n\n', '\n'.join(text)).strip() + '\n'
         for k, (links, base) in enumerate(blocks):
-            png = os.path.join(ROOT, 'downloads', base + '.png')
-            w, h = Image.open(png).size
+            # the SVG export when there is one (sharp at any zoom), else the PNG
+            svg = os.path.join(ROOT, 'downloads', base + '.svg')
+            if os.path.exists(svg):
+                head = re.search(r'<svg\b[^>]*>', open(svg, encoding='utf-8').read()).group(0)
+                w = round(float(re.search(r'\swidth="([\d.]+)"', head).group(1)))
+                h = round(float(re.search(r'\sheight="([\d.]+)"', head).group(1)))
+                ext = '.svg'
+            else:
+                w, h = Image.open(os.path.join(ROOT, 'downloads', base + '.png')).size
+                ext = '.png'
             downloads = []
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', links):
                 if m.group(2) in LABELS:
@@ -85,7 +93,7 @@ def main():
                   'tab: ' + yaml_str(tab or (TABS.get(base) if len(blocks) > 1 or base in TABS else None) or ''),
                   'page: ' + yaml_str('/' + slug + '/'),
                   'order: %d' % (len(written) + 1),
-                  'image: ' + yaml_str('/downloads/' + base + '.png'),
+                  'image: ' + yaml_str('/downloads/' + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale_of(base, w) or 'null'),
                   'downloads:']

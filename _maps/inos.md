@@ -4,10 +4,10 @@ topic: "iNOS pathway"
 tab: ""
 page: "/inos/"
 order: 9
-image: "/downloads/F007-inos.png"
-width: 3152
-height: 2344
-scale: 1.781
+image: "/downloads/F007-inos.svg"
+width: 1590
+height: 1186
+scale: 0.898
 downloads:
   - {label: "GraphML", url: "/downloads/F007-inos.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F007-inos.sbgn"}

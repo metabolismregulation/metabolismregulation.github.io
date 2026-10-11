@@ -4,10 +4,10 @@ topic: "Eicosanoid production"
 tab: ""
 page: "/eicosanoids/"
 order: 3
-image: "/downloads/F002-eicosanoids.png"
-width: 1300
-height: 1076
-scale: 1.431
+image: "/downloads/F002-eicosanoids.svg"
+width: 664
+height: 552
+scale: 0.731
 downloads:
   - {label: "GraphML", url: "/downloads/F002-eicosanoids.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F002-eicosanoids.sbgn"}

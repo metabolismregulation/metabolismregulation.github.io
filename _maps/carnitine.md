@@ -4,10 +4,10 @@ topic: "Acyl-carnitine synthesis"
 tab: ""
 page: "/carnitine/"
 order: 11
-image: "/downloads/F014-carnitine.png"
-width: 1742
-height: 2366
-scale: 0.833
+image: "/downloads/F014-carnitine.svg"
+width: 885
+height: 1197
+scale: 0.423
 downloads:
   - {label: "GraphML", url: "/downloads/F014-carnitine.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F014-carnitine.sbgn"}

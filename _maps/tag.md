@@ -4,10 +4,10 @@ topic: "Triacylglycerol hydrolysis"
 tab: ""
 page: "/tag/"
 order: 13
-image: "/downloads/F015-tag.png"
-width: 1572
-height: 1204
-scale: 0.865
+image: "/downloads/F015-tag.svg"
+width: 800
+height: 616
+scale: 0.44
 downloads:
   - {label: "GraphML", url: "/downloads/F015-tag.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F015-tag.sbgn"}

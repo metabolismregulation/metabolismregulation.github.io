@@ -4,10 +4,10 @@ topic: "eNOS pathway"
 tab: ""
 page: "/enos/"
 order: 10
-image: "/downloads/F008-enos.png"
-width: 2566
-height: 3386
-scale: 1.45
+image: "/downloads/F008-enos.svg"
+width: 1297
+height: 1707
+scale: 0.733
 downloads:
   - {label: "GraphML", url: "/downloads/F008-enos.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F008-enos.sbgn"}

@@ -4,10 +4,10 @@ topic: "Aspirin"
 tab: ""
 page: "/aspirin/"
 order: 18
-image: "/downloads/F100-aspirin.png"
-width: 1858
-height: 552
-scale: 1.485
+image: "/downloads/F100-aspirin.svg"
+width: 943
+height: 290
+scale: 0.754
 downloads:
   - {label: "GraphML", url: "/downloads/F100-aspirin.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F100-aspirin.sbgn"}

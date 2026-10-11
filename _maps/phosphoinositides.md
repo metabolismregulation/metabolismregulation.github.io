@@ -4,10 +4,10 @@ topic: "Phosphoinositide"
 tab: ""
 page: "/phosphoinositides/"
 order: 15
-image: "/downloads/F009-phosphoinositides.png"
-width: 1450
-height: 1950
-scale: 1.702
+image: "/downloads/F009-phosphoinositides.svg"
+width: 739
+height: 989
+scale: 0.867
 downloads:
   - {label: "GraphML", url: "/downloads/F009-phosphoinositides.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F009-phosphoinositides.sbgn"}

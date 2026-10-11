@@ -4,10 +4,10 @@ topic: "Glycogen metabolism"
 tab: "liver"
 page: "/glycogen/"
 order: 6
-image: "/downloads/F004-glycogen-liver.png"
-width: 4186
-height: 3488
-scale: 2.016
+image: "/downloads/F004-glycogen-liver.svg"
+width: 2107
+height: 1758
+scale: 1.015
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-liver.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F004-glycogen-liver.sbgn"}

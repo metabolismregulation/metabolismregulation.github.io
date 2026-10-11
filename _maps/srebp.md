@@ -4,10 +4,10 @@ topic: "SREBP signalling"
 tab: ""
 page: "/srebp/"
 order: 12
-image: "/downloads/F005-srebp.png"
-width: 1464
-height: 2304
-scale: 0.989
+image: "/downloads/F005-srebp.svg"
+width: 746
+height: 1166
+scale: 0.504
 downloads:
   - {label: "GraphML", url: "/downloads/F005-srebp.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F005-srebp.sbgn"}

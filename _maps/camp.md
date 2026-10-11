@@ -4,10 +4,10 @@ topic: "cAMP hydrolysis"
 tab: ""
 page: "/camp/"
 order: 8
-image: "/downloads/F012-camp.png"
-width: 1462
-height: 1432
-scale: 1.0
+image: "/downloads/F012-camp.svg"
+width: 745
+height: 730
+scale: 0.51
 downloads:
   - {label: "GraphML", url: "/downloads/F012-camp.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F012-camp.sbgn"}

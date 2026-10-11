@@ -4,10 +4,10 @@ topic: "Mevalonate biosynthesis"
 tab: ""
 page: "/mevalonate/"
 order: 4
-image: "/downloads/F003-mevalonate.png"
-width: 3054
-height: 1272
-scale: 1.665
+image: "/downloads/F003-mevalonate.svg"
+width: 1541
+height: 650
+scale: 0.84
 downloads:
   - {label: "GraphML", url: "/downloads/F003-mevalonate.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F003-mevalonate.sbgn"}

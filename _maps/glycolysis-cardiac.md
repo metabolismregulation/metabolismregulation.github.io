@@ -4,10 +4,10 @@ topic: "Glycolysis"
 tab: "cardiac muscle"
 page: "/glycolysis-cardiac/"
 order: 2
-image: "/downloads/F001-glycolysis-cardiac.png"
-width: 1706
-height: 1330
-scale: 1.2
+image: "/downloads/F001-glycolysis-cardiac.svg"
+width: 867
+height: 679
+scale: 0.61
 downloads:
   - {label: "GraphML", url: "/downloads/F001-glycolysis-cardiac.graphml"}
   - {label: "CellDesigner", url: "/downloads/F001-glycolysis-cardiac.xml"}

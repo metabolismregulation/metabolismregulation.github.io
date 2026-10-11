@@ -4,10 +4,10 @@ topic: "Estradiol biosynthesis"
 tab: ""
 page: "/estrogen/"
 order: 14
-image: "/downloads/F018-estrogen.png"
-width: 2438
-height: 2582
-scale: 1.799
+image: "/downloads/F018-estrogen.svg"
+width: 1233
+height: 1305
+scale: 0.91
 downloads:
   - {label: "GraphML", url: "/downloads/F018-estrogen.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F018-estrogen.sbgn"}

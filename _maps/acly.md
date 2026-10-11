@@ -4,10 +4,10 @@ topic: "Acetyl-CoA synthesis"
 tab: ""
 page: "/acly/"
 order: 7
-image: "/downloads/F006-acly.png"
-width: 1756
-height: 1368
-scale: 1.923
+image: "/downloads/F006-acly.svg"
+width: 892
+height: 698
+scale: 0.977
 downloads:
   - {label: "GraphML", url: "/downloads/F006-acly.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F006-acly.sbgn"}

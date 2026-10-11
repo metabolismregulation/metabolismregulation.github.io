@@ -4,10 +4,10 @@ topic: "Glycolysis"
 tab: ""
 page: "/glycolysis/"
 order: 1
-image: "/downloads/F001-glycolysis.png"
-width: 1706
-height: 1330
-scale: 1.2
+image: "/downloads/F001-glycolysis.svg"
+width: 867
+height: 679
+scale: 0.61
 downloads:
   - {label: "GraphML", url: "/downloads/F001-glycolysis.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F001-glycolysis.sbgn"}
