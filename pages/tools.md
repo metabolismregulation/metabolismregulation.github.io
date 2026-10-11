@@ -10,7 +10,7 @@ permalink: /tools/
         
 <p>yEd uses the XML-based GraphML format to load and save diagrams and additionally supports import from Excel spreadsheets (.xls, .xlsx) and arbitrary XML (via XSLT). Creating diagrams manually is easy and fun with the intuitive user interface, and a large collection of powerful layout algorithms allows nodes and edges to be arranged automatically. Diagrams can be exported to bitmap and vector formats: PNG, JPG, SVG and PDF.</p>
         
-<p>Since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a>, yEd provides a palette section for Systems Biology Graphical Notation.</p>
+<p>Since <a href="https://www.yworks.com/products/yed/release-notes" target="_blank">version 3.17.1</a>, yEd provides a palette section for Systems Biology Graphical Notation.</p>
 
 <p>There are some <a href="/help/" target="_blank">tips</a> available on how to use yEd for drawing SBGN diagrams.</p>
 
@@ -18,7 +18,7 @@ permalink: /tools/
 
 <p><a href="https://github.com/sbgn/ySBGN" target="_blank">ySBGN</a> is a standalone Java application, a bidirectional converter between the GraphML format of the <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> and the SBGN Process Description or Activity Flow languages (Balaur et al., 2022, PMID: 36563404).</p>
 
-<p>Now diagrams can be created in the intuitive general-purpose <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> using the SBGN Palette available since <a href="https://www.yworks.com/products/yed/download#ReleaseNotes" target="_blank">version 3.17.1</a>, and, thanks to the converter, the outcome can be offered in the standard SBGN-ML format. The ySBGN tool supports keeping annotation information in the SBGN-ML format.</p>
+<p>Now diagrams can be created in the intuitive general-purpose <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> using the SBGN Palette available since <a href="https://www.yworks.com/products/yed/release-notes" target="_blank">version 3.17.1</a>, and, thanks to the converter, the outcome can be offered in the standard SBGN-ML format. The ySBGN tool supports keeping annotation information in the SBGN-ML format.</p>
 
 <p>For reporting issues please use the <a href="https://github.com/sbgn/ySBGN/issues" target="_blank">ySBGN GitHub Issues</a> page.</p>
 
