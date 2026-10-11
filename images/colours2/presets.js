@@ -3,7 +3,7 @@
 // The highlight is the same red everywhere; it is changed only in Roles.
 window.C2_PRESETS = [
   ['Default', 'F7F6F3 FFFFFF C8D8EB DBEBDB E2ACA3 FFFFFF 000000'],
-  ['Stone and mist', 'F7F6F3 FFFFFF D9D2C7 DCE9F0 E2ACA3 FFFFFF 000000'],
+  ['Paper and frost', 'F8F8F8 FFFFFF D3D1CA D7E3F1 E2ACA3 FFFFFF 000000'],
   ['Dusk and mint', 'F3F4F6 FFFFFF C5CADD D5EBDD E2ACA3 FFFFFF 000000'],
   ['Mono stone', 'F7F6F3 FFFFFF D9D2C7 E8E4DD E2ACA3 FFFFFF 000000'],
   ['Mono moss', 'F7F8F7 FFFFFF CCD3C5 E5E9E2 E2ACA3 FFFFFF 000000'],
