@@ -16,11 +16,11 @@ permalink: /tools/
 
 # ySBGN
 
-<p><a href="https://github.com/sbgn/ySBGN" target="_blank">ySBGN</a> is a standalone Java application, a bidirectional converter between the GraphML format of the <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> and the SBGN Process Description or Activity Flow languages (Balaur et al., 2022, PMID: 36563404).</p>
+<a href="https://github.com/sbgn/ySBGN" target="_blank">ySBGN</a> is a standalone Java application, a bidirectional converter between the GraphML format of the <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> and the SBGN Process Description or Activity Flow languages (Balaur et al., 2022, PMID: 36563404).
 
-<p>Now diagrams can be created in the intuitive general-purpose <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> using the SBGN Palette available since <a href="https://www.yworks.com/products/yed/release-notes" target="_blank">version 3.17.1</a>, and, thanks to the converter, the outcome can be offered in the standard SBGN-ML format. The ySBGN tool supports keeping annotation information in the SBGN-ML format.</p>
+Now diagrams can be created in the intuitive general-purpose <a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> using the SBGN Palette available since <a href="https://www.yworks.com/products/yed/release-notes" target="_blank">version 3.17.1</a>, and, thanks to the converter, the outcome can be offered in the standard SBGN-ML format. The ySBGN tool supports keeping annotation information in the SBGN-ML format.
 
-<p>For reporting issues please use the <a href="https://github.com/sbgn/ySBGN/issues" target="_blank">ySBGN GitHub Issues</a> page.</p>
+For reporting issues please use the <a href="https://github.com/sbgn/ySBGN/issues" target="_blank">ySBGN GitHub Issues</a> page.
 
 # CellDesigner
 
