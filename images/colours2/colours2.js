@@ -88,9 +88,13 @@
     return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
   }
   // Text on a fill: the Text colour, or white where white reads better
-  // (dark fills)
+  // (dark fills). Equal WCAG contrast would switch at a fill luminance of
+  // about 0.18, which keeps black text on fills that already look dark; the
+  // weight WHITE_BIAS moves the switch to about 0.34 (with black text), the
+  // lower end of the 0.34-0.42 range APCA's author gives for text.
+  var WHITE_BIAS = 2.9;
   function textOn(fill) {
-    return contrast('#FFFFFF', fill) > contrast(theme.text, fill) ? '#FFFFFF' : theme.text;
+    return WHITE_BIAS * contrast('#FFFFFF', fill) > contrast(theme.text, fill) ? '#FFFFFF' : theme.text;
   }
 
   function simulate(rgb, mode) {
@@ -137,7 +141,20 @@
           txt[y * cw + x] = d[k + 2] > 127 ? 1 : 0;
         }
       }
-      layers = { w: cw, h: ch, cls: cls, t: t, txt: txt };
+      // Bold text: the text ink spread by one pixel left, right, up and down
+      // within the same fill, used where the text is drawn white
+      var bold = new Uint8Array(cw * ch), i, c, v;
+      for (y = 0; y < ch; y++) {
+        for (x = 0; x < cw; x++) {
+          i = y * cw + x; c = cls[i]; v = txt[i] ? 255 - t[i] : 0;
+          if (x > 0 && txt[i - 1] && cls[i - 1] === c) v = Math.max(v, 255 - t[i - 1]);
+          if (x < cw - 1 && txt[i + 1] && cls[i + 1] === c) v = Math.max(v, 255 - t[i + 1]);
+          if (y > 0 && txt[i - cw] && cls[i - cw] === c) v = Math.max(v, 255 - t[i - cw]);
+          if (y < ch - 1 && txt[i + cw] && cls[i + cw] === c) v = Math.max(v, 255 - t[i + cw]);
+          bold[i] = v;
+        }
+      }
+      layers = { w: cw, h: ch, cls: cls, t: t, txt: txt, bold: bold };
       canvas.width = cw; canvas.height = ch;
       out = ctx.createImageData(cw, ch);
       done();
@@ -156,16 +173,21 @@
     // a highlighted complex is always drawn like any other complex
     if (document.getElementById('c2-cxbg').checked) hex[3] = hex[0];
     hex[5] = hex[3];
-    var fills = [], texts = [];
+    var fills = [], texts = [], whiteText = [];
     hex.forEach(function (h, k) {
       fills[k] = simulate(hexToRgb(h), mode);
       texts[k] = simulate(hexToRgb(textOn(h)), mode);
+      whiteText[k] = textOn(h) === '#FFFFFF' && theme.text !== '#FFFFFF';
     });
     var line = simulate(hexToRgb(theme.ink), mode), text = simulate(hexToRgb(theme.text), mode);
-    var d = out.data, cls = layers.cls, t = layers.t, txt = layers.txt, n = layers.w * layers.h;
+    var d = out.data, cls = layers.cls, t = layers.t, txt = layers.txt, bold = layers.bold, n = layers.w * layers.h;
     for (var i = 0, j = 0; i < n; i++, j += 4) {
       var a = t[i] / 255, b = 1 - a;
       var ink = !txt[i] ? line : cls[i] === 7 ? text : texts[cls[i]];
+      // white text is drawn bold: thicker where the spread ink is stronger
+      if (whiteText[cls[i]] && bold[i] > 255 * b && (txt[i] || b < 0.05)) {
+        ink = texts[cls[i]]; b = bold[i] / 255; a = 1 - b;
+      }
       if (cls[i] === 7) {
         // margin left at the rounded outer corners: transparent, keeping the ink edge
         d[j] = ink[0]; d[j + 1] = ink[1]; d[j + 2] = ink[2];
