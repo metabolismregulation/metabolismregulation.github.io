@@ -27,7 +27,7 @@ permalink: /colours/
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
   #c2-presets { display: flex; flex-direction: column; gap: 4px; }
-  #c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
+  .c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
   .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
   .c2-mixtitle { font-size: 13px; color: #666; margin-bottom: 2px; }
   .c2-dot { display: flex; align-items: center; gap: 6px; width: 100%; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
@@ -43,9 +43,12 @@ permalink: /colours/
   /* circle and plus drawn as one small picture, so the plus stays centred
      wherever the column puts the circle (columns fall between screen pixels) */
   .c2-mixadd svg { display: block; width: 16px; height: 16px; color: #999; }
-  .c2-mixadd svg circle { fill: #fff; stroke: #ccc; }
+  .c2-mixadd svg circle, .c2-mixadd svg rect { fill: #fff; stroke: #ccc; }
+  /* experimental Mixer: squares sized like the preset colour squares */
+  .c2-mixsq .c2-dot i { width: 14px; height: 14px; border-radius: 0; box-sizing: content-box; }
+  .c2-mixsq .c2-mixadd svg { width: 16px; height: 16px; }
   .c2-mixadd:hover svg { color: #333; }
-  .c2-mixadd:hover svg circle { stroke: #888; }
+  .c2-mixadd:hover svg circle, .c2-mixadd:hover svg rect { stroke: #888; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-pname { flex: 1; min-width: 0; }
@@ -140,6 +143,11 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </p>
 </div>
 <div class="c2-panel c2-right">
+
+<section>
+<h3 title="The Mixer with squares like the presets, for comparison. Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder.">Mixer, squares</h3>
+<div id="c2-mixer2" class="c2-mixer c2-mixsq"></div>
+</section>
 
 <section>
 <h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a circle to reorder.">Mixer</h3>

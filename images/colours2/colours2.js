@@ -371,12 +371,14 @@
     add.type = 'button';
     add.className = 'c2-mixadd';
     add.title = 'Add the ' + col.title.toLowerCase() + ' colour on the map';
-    add.innerHTML = '<svg viewBox="0 0 15 15"><circle cx="7.5" cy="7.5" r="7"/>' +
+    add.innerHTML = '<svg viewBox="0 0 15 15">' + (c.closest('.c2-mixsq') ?
+      '<rect x="0.5" y="0.5" width="14" height="14"/>' : '<circle cx="7.5" cy="7.5" r="7"/>') +
       '<path d="M4 7.5h7M7.5 4v7" stroke="currentColor"/></svg>';
     add.addEventListener('click', function () { addMixColour(c, col); });
     c.appendChild(add);
   }
-  // a change in a column is redrawn in every copy of it on the page
+  // The page has two Mixers with the same colours (one with squares);
+  // a change in one column is redrawn in every copy of it.
   function refillMixCols(col, skip) {
     Array.prototype.forEach.call(document.querySelectorAll('.c2-mixcol[data-role="' + col.role + '"]'), function (c) {
       if (c !== skip) fillMixCol(c, col);
@@ -395,8 +397,8 @@
         return;
       }
       c.setAttribute('data-role', col.role);
-      fillMixCol(c, col);
       box.appendChild(c);
+      fillMixCol(c, col);
     });
   }
 
@@ -1152,6 +1154,7 @@
   });
 
   // ---------- wiring ----------
+  buildMixer('c2-mixer2');
   buildMixer('c2-mixer');
   buildRoles();
   buildPresets();
