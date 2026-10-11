@@ -837,7 +837,8 @@
     var saved = loadOrder();
     var custom = loadCustom();
     var hidden = loadHidden();
-    var all = PRESETS.filter(function (p) { return hidden.indexOf(p[0]) < 0; }).concat(custom);
+    // the first preset (Default) is always shown and has no cross
+    var all = PRESETS.filter(function (p, i) { return i === 0 || hidden.indexOf(p[0]) < 0; }).concat(custom);
     var rank = function (p) {
       var i = saved.indexOf(p[0]);
       return i < 0 ? saved.length + all.indexOf(p) : i;
@@ -863,11 +864,13 @@
           renamePreset(b, p[0]);
         });
       }
-      var x = document.createElement('span');
-      x.className = 'c2-del';
-      x.title = mine ? 'Remove this preset' : 'Hide this preset (Reset brings it back)';
-      x.addEventListener('click', function (e) { e.stopPropagation(); removePreset(p[0]); });
-      b.appendChild(x);
+      if (p !== PRESETS[0]) {
+        var x = document.createElement('span');
+        x.className = 'c2-del';
+        x.title = mine ? 'Remove this preset' : 'Hide this preset (Reset brings it back)';
+        x.addEventListener('click', function (e) { e.stopPropagation(); removePreset(p[0]); });
+        b.appendChild(x);
+      }
       b.addEventListener('click', function () {
         if (dragged) return;
         mixerLinked = false;
