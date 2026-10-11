@@ -153,7 +153,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file</button>
 <button type="button" class="c2-act" id="c2-add">Add to Presets</button>
 </p>
-<p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour. The text will remain black in CellDesigner. The yEd file keeps the current view.</p>
+<p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour; the text will remain black in CellDesigner. The yEd file keeps the current view.</p>
 </div>
 <div class="c2-panel c2-right">
 
