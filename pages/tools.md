@@ -6,13 +6,13 @@ permalink: /tools/
 
 # yEd Graph Editor
         
-<p><a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> from yWorks GmbH is a freely available graph editor written in Java that runs on Windows, macOS, and Linux/Unix. It is a powerful desktop application that can be used to quickly and effectively generate high-quality diagrams.</p>
+<a href="https://www.yworks.com/products/yed" target="_blank">yEd Graph Editor</a> from yWorks GmbH is a freely available graph editor written in Java that runs on Windows, macOS, and Linux/Unix. It is a powerful desktop application that can be used to quickly and effectively generate high-quality diagrams.
         
-<p>yEd uses the XML-based GraphML format to load and save diagrams and additionally supports import from Excel spreadsheets (.xls, .xlsx) and arbitrary XML (via XSLT). Creating diagrams manually is easy and fun with the intuitive user interface, and a large collection of powerful layout algorithms allows nodes and edges to be arranged automatically. Diagrams can be exported to bitmap and vector formats: PNG, JPG, SVG and PDF.</p>
+yEd uses the XML-based GraphML format to load and save diagrams and additionally supports import from Excel spreadsheets (.xls, .xlsx) and arbitrary XML (via XSLT). Creating diagrams manually is easy and fun with the intuitive user interface, and a large collection of powerful layout algorithms allows nodes and edges to be arranged automatically. Diagrams can be exported to bitmap and vector formats: PNG, JPG, SVG and PDF.
         
-<p>Since <a href="https://www.yworks.com/products/yed/release-notes" target="_blank">version 3.17.1</a>, yEd provides a palette section for Systems Biology Graphical Notation.</p>
+Since <a href="https://www.yworks.com/products/yed/release-notes" target="_blank">version 3.17.1</a>, yEd provides a palette section for Systems Biology Graphical Notation.
 
-<p>There are some <a href="/help/" target="_blank">tips</a> available on how to use yEd for drawing SBGN diagrams.</p>
+There are some <a href="/help/" target="_blank">tips</a> available on how to use yEd for drawing SBGN diagrams.
 
 # ySBGN
 
