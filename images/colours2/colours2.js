@@ -245,11 +245,18 @@
   // after the built-in ones; they can be removed with their cross.
   var MIX_KEY = 'colours.mixerColours';
   // added colours are [name, hex, id]; the id tells apart repeats of a colour
+  // earlier long names, shortened for colours already added in this browser
+  var SHORT_NAMES = { Mushroom: 'Oat', Pistachio: 'Fern', Celadon: 'Jade', Seafoam: 'Foam',
+    Periwinkle: 'Frost', Lavender: 'Iris' };
   function loadMixAdded() {
     var all;
     try { all = JSON.parse(localStorage.getItem(MIX_KEY)) || {}; } catch (e) { all = {}; }
     Object.keys(all).forEach(function (role) {
-      all[role].forEach(function (it, i) { if (!it[2]) it[2] = 'a' + i + it[1]; });
+      all[role].forEach(function (it, i) {
+        if (!it[2]) it[2] = 'a' + i + it[1];
+        var m = /^(\S+)( \d+)?$/.exec(it[0]);
+        if (m && SHORT_NAMES[m[1]]) it[0] = SHORT_NAMES[m[1]] + (m[2] || '');
+      });
     });
     return all;
   }
@@ -725,14 +732,15 @@
 
   // Names for a new preset: the nearest named colour for the protein and for
   // the chemical, "Mono <name>" when both land on the same name.
+  // Names are kept short so they fit a Mixer column.
   var COLOUR_NAMES = [
     ['Rose', 'E8C4C4'], ['Blush', 'F2E1DC'], ['Peach', 'F2D2BC'], ['Apricot', 'EFC8A8'], ['Taupe', 'DBCCC7'],
-    ['Mushroom', 'DECEC1'], ['Sand', 'EFE7D8'], ['Linen', 'DDD1BA'], ['Ochre', 'E3C77A'], ['Straw', 'EDE3B8'],
+    ['Oat', 'DECEC1'], ['Sand', 'EFE7D8'], ['Linen', 'DDD1BA'], ['Ochre', 'E3C77A'], ['Straw', 'EDE3B8'],
     ['Stone', 'D9D2C7'], ['Paper', 'D4D3CA'], ['Pearl', 'EFEDE7'], ['Silver', 'E8E6E2'], ['Ash', 'C4C8C1'],
-    ['Lichen', 'D1D6BD'], ['Celery', 'E4EBDB'], ['Moss', 'BFC7B8'], ['Pistachio', 'C9D8C1'], ['Sage', 'C1DAC8'],
-    ['Mint', 'DDEDE0'], ['Celadon', 'BBDBD1'], ['Seafoam', 'D8EDE7'], ['Sea', 'B8DADA'], ['Aqua', 'D6EDEE'],
+    ['Lichen', 'D1D6BD'], ['Celery', 'E4EBDB'], ['Moss', 'BFC7B8'], ['Fern', 'C9D8C1'], ['Sage', 'C1DAC8'],
+    ['Mint', 'DDEDE0'], ['Jade', 'BBDBD1'], ['Foam', 'D8EDE7'], ['Sea', 'B8DADA'], ['Aqua', 'D6EDEE'],
     ['Haze', 'B8D9E2'], ['Mist', 'D8ECF4'], ['Powder', 'BBD7E9'], ['Steel', 'BFCFD9'], ['Blue', 'C1D5EE'],
-    ['Sky', 'DBEAF9'], ['Ocean', 'BCD3F2'], ['Dusk', 'C5CADD'], ['Periwinkle', 'E2E7F7'], ['Lavender', 'D9D0E6'],
+    ['Sky', 'DBEAF9'], ['Ocean', 'BCD3F2'], ['Dusk', 'C5CADD'], ['Frost', 'E2E7F7'], ['Iris', 'D9D0E6'],
     ['Lilac', 'E6D6E6'], ['Grey', 'D6D6D6']];
   function colourName(hex) {
     var o = rgbToOklab(hexToRgb(hex)), best = null;
