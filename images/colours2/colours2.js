@@ -266,14 +266,14 @@
     mine.push([name, hex, 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6)]);
     all[col.role] = mine;
     saveMixAdded(all);
-    fillMixCol(c, col);
+    refillMixCols(col);
     syncMixer();
   }
   function removeMixColour(c, col, id) {
     var all = loadMixAdded();
     all[col.role] = (all[col.role] || []).filter(function (it) { return it[2] !== id; });
     saveMixAdded(all);
-    fillMixCol(c, col);
+    refillMixCols(col);
     syncMixer();
   }
   // Mixer colours can be dragged by their swatch to reorder a column; the
@@ -304,7 +304,10 @@
     if (!mixDrag) return;
     mixDrag.classList.remove('c2-dragging');
     if (mixDragged) {
-      saveMixOrder(mixDrag.parentNode, mixDrag.getAttribute('data-role'));
+      var role = mixDrag.getAttribute('data-role');
+      saveMixOrder(mixDrag.parentNode, role);
+      refillMixCols(MIX.filter(function (col) { return col.role === role; })[0], mixDrag.parentNode);
+      syncMixer();
       setTimeout(function () { mixDragged = false; }, 0);
     }
     mixDrag = null;
@@ -366,17 +369,26 @@
     add.addEventListener('click', function () { addMixColour(c, col); });
     c.appendChild(add);
   }
-  function buildMixer() {
-    var box = document.getElementById('c2-mixer');
+  // The page has two Mixers with the same colours (one with more space);
+  // a change in one column is redrawn in every copy of it.
+  function refillMixCols(col, skip) {
+    Array.prototype.forEach.call(document.querySelectorAll('.c2-mixcol[data-role="' + col.role + '"]'), function (c) {
+      if (c !== skip) fillMixCol(c, col);
+    });
+  }
+  function buildMixer(id) {
+    var box = document.getElementById(id);
+    if (!box) return;
     MIX.forEach(function (col) {
       var c = document.createElement('div');
       c.className = 'c2-mixcol';
       c.innerHTML = '<div class="c2-mixtitle">' + col.title + '</div>';
       if (col.generated) {
-        c.id = 'c2-chemcol';
+        if (id === 'c2-mixer') c.id = 'c2-chemcol';
         box.appendChild(c);
         return;
       }
+      c.setAttribute('data-role', col.role);
       fillMixCol(c, col);
       box.appendChild(c);
     });
@@ -1096,10 +1108,12 @@
   document.getElementById('c2-suggest').addEventListener('click', function (e) {
     if (e.target.closest('.c2-sugg')) keyGroup = this;
   });
-  document.getElementById('c2-mixer').addEventListener('click', function (e) {
-    var dot = e.target.closest('.c2-dot');
-    if (dot) { keyGroup = dot.closest('.c2-mixcol'); mixerLinked = true; }
-  }, true); // capture: the chemical column is rebuilt by the click itself
+  Array.prototype.forEach.call(document.querySelectorAll('.c2-mixer'), function (box) {
+    box.addEventListener('click', function (e) {
+      var dot = e.target.closest('.c2-dot');
+      if (dot) { keyGroup = dot.closest('.c2-mixcol'); mixerLinked = true; }
+    }, true); // capture: the chemical column is rebuilt by the click itself
+  });
   document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'z' || e.key === 'Z')) {
       if (e.target.closest && e.target.closest('input[type=text], textarea, [contenteditable]')) return;
@@ -1131,7 +1145,8 @@
   });
 
   // ---------- wiring ----------
-  buildMixer();
+  buildMixer('c2-mixer2');
+  buildMixer('c2-mixer');
   buildRoles();
   buildPresets();
   var linked = themeFromLink();
