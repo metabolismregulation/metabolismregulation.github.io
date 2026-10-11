@@ -6,7 +6,7 @@ page: "/glycogen/"
 order: 6
 image: "/downloads/F004-glycogen-liver.svg"
 width: 2107
-height: 1758
+height: 1746
 scale: 1
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-liver.graphml"}
