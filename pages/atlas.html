@@ -119,13 +119,14 @@ sitemap: false
     var s = size(current);
     return Math.min(view.clientWidth / s.w, view.clientHeight / s.h) * 0.96;
   }
-  // standard zoom; a map smaller than the view is centred, a larger one
-  // starts at its top, centred left to right
+  // standard zoom; every map starts at its top, centred left to right,
+  // below a strip left free for the zoom controls
+  var TOP = 36;
   function standard() {
     var s = size(current);
     z = STANDARD;
     tx = (view.clientWidth - s.w * z) / 2;
-    ty = Math.max(0, (view.clientHeight - s.h * z) / 2);
+    ty = TOP;
     moved = false;
     draw();
   }
