@@ -1,5 +1,5 @@
 ---
-title: "Regulation of estradiol biosynthesis via prostaglandin–cAMP signalling in endometriotic stromal cells"
+title: "Regulation of estradiol biosynthesis via prostaglandin–cAMP signalling"
 topic: "Estradiol biosynthesis"
 tab: ""
 page: "/estrogen/"
@@ -23,7 +23,7 @@ Hanna Borlinghaus, Falk Schreiber, John Albanese
 
 ## Description
 
-The rate-limiting step of steroid biosynthesis is the transfer of cholesterol from the cytosol into the mitochondrion across the outer mitochondrial membrane (OMM). Inside the mitochondrion, cholesterol is converted into pregnenolone that is then converted into estradiol in a four-step process. The transfer of cholesterol across the OMM is facilitated by the steroidogenic acute regulatory (STAR) protein. Endometriosis is associated with high production of ovarian steroids caused by high expression of STAR in endometrial tissue.
+The rate-limiting step of steroid biosynthesis is the transfer of cholesterol from the cytosol into the mitochondrion across the outer mitochondrial membrane (OMM). Inside the mitochondrion, cholesterol is converted into pregnenolone that is then converted into estradiol in a four-step process. The transfer of cholesterol across the OMM is facilitated by the steroidogenic acute regulatory (STAR) protein. Endometriosis is associated with high production of ovarian steroids caused by high expression of STAR in endometrial tissue. The map shows this regulation in endometriotic stromal cells.
 
 ## References
 
