@@ -15,20 +15,18 @@ permalink: /colours/
   .c2-panel h3 { margin: 0 0 8px; font-size: 15px; }
   .c2-panel section { margin-bottom: 18px; }
   #c2-map { width: 100%; height: auto; display: block; }
-  .c2-role { display: grid; grid-template-columns: 30px 1fr auto auto; gap: 6px; align-items: center; font-size: 13px; padding: 2px 4px; border-radius: 4px; }
-  .c2-role input[type=color] { width: 28px; height: 22px; padding: 0; border: 1px solid #bbb; background: none; cursor: pointer; }
+  /* Roles in the presets style: no box until hovered, colour as a plain
+     rectangle with the preset squares' border */
+  #c2-roles { display: flex; flex-direction: column; gap: 4px; }
+  .c2-role { display: grid; grid-template-columns: 24px 1fr auto auto; gap: 6px; align-items: center; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; }
+  .c2-role:hover { border-color: #bbb; }
+  .c2-role input[type=color] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 24px; height: 16px; padding: 0; border: 1px solid #0003; border-radius: 0; background: none; cursor: pointer; }
+  .c2-role input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
+  .c2-role input[type=color]::-webkit-color-swatch { border: none; border-radius: 0; }
+  .c2-role input[type=color]::-moz-color-swatch { border: none; border-radius: 0; }
   .c2-hexin { width: 62px; font: 11px monospace; color: #333; border: 1px solid #ccc; border-radius: 3px; padding: 2px 3px; }
   .c2-role[draggable=true] { cursor: grab; }
   .c2-dropping { background: #e8eef6; outline: 1px dashed #666; }
-  /* experimental Roles in the presets style: no box until hovered, colour as a
-     plain rectangle with the preset squares' border */
-  #c2-roles2 { display: flex; flex-direction: column; gap: 4px; }
-  #c2-roles2 .c2-role { grid-template-columns: 24px 1fr auto auto; padding: 2px 4px; border: 1px solid transparent; }
-  #c2-roles2 .c2-role:hover { border-color: #bbb; }
-  #c2-roles2 .c2-role input[type=color] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 24px; height: 16px; border: 1px solid #0003; border-radius: 0; }
-  #c2-roles2 .c2-role input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
-  #c2-roles2 .c2-role input[type=color]::-webkit-color-swatch { border: none; border-radius: 0; }
-  #c2-roles2 .c2-role input[type=color]::-moz-color-swatch { border: none; border-radius: 0; }
   .c2-cr { font-size: 11px; color: #777; min-width: 42px; text-align: right; }
   .c2-nohl .c2-hl { display: none; }
   .c2-cxbg .c2-roles .c2-role:nth-child(2) { opacity: 0.4; pointer-events: none; }
@@ -160,11 +158,6 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <section>
 <h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder. Hover over an added colour to remove it.">Mixer</h3>
 <div id="c2-mixer" class="c2-mixer"></div>
-</section>
-
-<section>
-<h3 title="The Roles list in the presets style, for comparison. It uses the checkboxes below.">Roles, presets style</h3>
-<div id="c2-roles2" class="c2-roles"></div>
 </section>
 
 <section>

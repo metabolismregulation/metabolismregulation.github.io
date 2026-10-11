@@ -437,9 +437,8 @@
   // ---------- controls ----------
   var roleBox = document.getElementById('c2-roles');
 
-  // The page has two Roles lists (one in the presets style); sfx tells
-  // their fields apart: '' for the first, '2' for the second.
-  var ROLE_SFX = ['', '2'];
+  // sfx tells apart the fields of more than one Roles list ('' for the first)
+  var ROLE_SFX = [''];
   function buildRoles(box, sfx) {
     if (!box) return;
     ROLE_VIEW.forEach(function (r) {
@@ -1174,7 +1173,6 @@
 
   // ---------- wiring ----------
   buildMixer('c2-mixer');
-  buildRoles(document.getElementById('c2-roles2'), '2');
   buildRoles(roleBox, '');
   buildPresets();
   var linked = themeFromLink();
