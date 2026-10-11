@@ -13,7 +13,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-acly.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F006-acly.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-acly.png" width="600"/></a></p>
+<p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-acly.png" width="455"/></a></p>
 
 ## Contributors
 
