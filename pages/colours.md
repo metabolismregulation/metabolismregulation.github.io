@@ -31,7 +31,7 @@ permalink: /colours/
   .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
   .c2-mixtitle { font-size: 13px; color: #666; margin-bottom: 2px; }
   .c2-dot { display: flex; align-items: center; gap: 6px; width: 100%; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
-  .c2-dot i { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 1px solid #0003; box-sizing: border-box; cursor: grab; touch-action: none; }
+  .c2-dot i { flex: none; width: 14px; height: 14px; border: 1px solid #0003; box-sizing: content-box; cursor: grab; touch-action: none; }
   .c2-dot.c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
@@ -40,15 +40,12 @@ permalink: /colours/
   .c2-dot .c2-del::before, .c2-dot .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
   .c2-mixadd { display: flex; width: 100%; padding: 2px 4px; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
   .c2-mixadd:hover { border-color: #bbb; }
-  /* circle and plus drawn as one small picture, so the plus stays centred
-     wherever the column puts the circle (columns fall between screen pixels) */
+  /* square and plus drawn as one small picture, so the plus stays centred
+     wherever the column puts the square (columns fall between screen pixels) */
   .c2-mixadd svg { display: block; width: 16px; height: 16px; color: #999; }
-  .c2-mixadd svg circle, .c2-mixadd svg rect { fill: #fff; stroke: #ccc; }
-  /* experimental Mixer: squares sized like the preset colour squares */
-  .c2-mixsq .c2-dot i { width: 14px; height: 14px; border-radius: 0; box-sizing: content-box; }
-  .c2-mixsq .c2-mixadd svg { width: 16px; height: 16px; }
+  .c2-mixadd svg rect { fill: #fff; stroke: #ccc; }
   .c2-mixadd:hover svg { color: #333; }
-  .c2-mixadd:hover svg circle, .c2-mixadd:hover svg rect { stroke: #888; }
+  .c2-mixadd:hover svg rect { stroke: #888; }
   .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
   .c2-preset:hover { border-color: #888; }
   .c2-pname { flex: 1; min-width: 0; }
@@ -145,12 +142,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <div class="c2-panel c2-right">
 
 <section>
-<h3 title="The Mixer with squares like the presets, for comparison. Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder.">Mixer, squares</h3>
-<div id="c2-mixer2" class="c2-mixer c2-mixsq"></div>
-</section>
-
-<section>
-<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a circle to reorder.">Mixer</h3>
+<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder.">Mixer</h3>
 <div id="c2-mixer" class="c2-mixer"></div>
 </section>
 
