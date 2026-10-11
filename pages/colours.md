@@ -33,7 +33,7 @@ permalink: /colours/
   .c2-low { color: #b3261e; font-weight: bold; }
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
-  #c2-presets { display: flex; flex-direction: column; gap: 4px; }
+  #c2-presets { display: flex; flex-direction: column; gap: 6px; }
   .c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
   .c2-mixcol { display: flex; flex-direction: column; gap: 2px; }
   .c2-mixtitle { font-size: 13px; color: #666; margin-bottom: 2px; }
