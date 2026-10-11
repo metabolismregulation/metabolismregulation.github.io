@@ -1,7 +1,7 @@
 ---
 title: "Regulation of glycolysis, cardiac muscle"
 topic: "Glycolysis"
-tab: "Cardiac muscle"
+tab: "cardiac muscle"
 page: "/glycolysis-cardiac/"
 order: 2
 image: "/downloads/F001-glycolysis-cardiac.png"

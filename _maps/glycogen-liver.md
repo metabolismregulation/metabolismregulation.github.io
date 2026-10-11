@@ -1,7 +1,7 @@
 ---
 title: "Regulation of glycogen metabolism, liver"
 topic: "Glycogen metabolism"
-tab: "Liver"
+tab: "liver"
 page: "/glycogen/"
 order: 6
 image: "/downloads/F004-glycogen-liver.png"

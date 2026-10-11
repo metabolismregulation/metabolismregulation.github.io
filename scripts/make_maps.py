@@ -20,8 +20,10 @@ ORDER = re.findall(r'^  - (\S+)$', open(os.path.join(ROOT, 'pages/maps.html'), e
 SHORT = dict(re.findall(r'class="gallery-title" href="/([^/]+)/">([^<]+)<',
                         open(os.path.join(ROOT, 'pages/gallery.md'), encoding='utf-8').read()))
 # map pages shown as a tab of another page's topic
-JOIN = {'glycolysis-cardiac': ('glycolysis', 'Cardiac muscle')}
-TABS = {'F004-glycogen-muscle': 'Muscle', 'F004-glycogen-liver': 'Liver', 'F001-glycolysis': 'General'}
+# tab: the variant shown in brackets after the topic in the list, as in
+# Glycogen metabolism (muscle)
+JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle')}
+TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver'}
 LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'MINERVA', 'Newt', 'Annotation']
 
 

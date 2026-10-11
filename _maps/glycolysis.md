@@ -1,7 +1,7 @@
 ---
 title: "Regulation of glycolysis"
 topic: "Glycolysis"
-tab: "General"
+tab: ""
 page: "/glycolysis/"
 order: 1
 image: "/downloads/F001-glycolysis.png"

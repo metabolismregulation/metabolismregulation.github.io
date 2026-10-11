@@ -1,7 +1,7 @@
 ---
 title: "Regulation of glycogen metabolism, muscle"
 topic: "Glycogen metabolism"
-tab: "Muscle"
+tab: "muscle"
 page: "/glycogen/"
 order: 5
 image: "/downloads/F004-glycogen-muscle.png"
