@@ -7,17 +7,15 @@ sitemap: false
 
 <style>
   /* the map column keeps the width of the other pages (the site's 840 px
-     column); the list sits to its left on wide screens and above it on
-     narrow ones, so the margin on the right stays free for scrolling */
+     column) and the list sits to its left. When the screen gets narrower,
+     the column first moves right into the free space, then the viewer gets
+     narrower, and only then the list goes above the map (set by layout()) */
   .m2 { position: relative; }
-  .m2-nav { margin-bottom: 16px; }
-  @media (min-width: 1400px) {
-    .m2-nav { position: absolute; top: 0; right: calc(100% + 32px); width: 240px; margin: 0; }
-    #m2-list { max-height: calc(100vh - 200px); overflow-y: auto; }
-  }
-  @media (max-width: 1399px) {
-    #m2-list { max-height: 200px; overflow-y: auto; border-bottom: 1px solid #eee; }
-  }
+  .m2-nav { margin-bottom: 12px; }
+  .m2-side .m2-nav { position: absolute; top: 0; right: calc(100% + 32px); width: 240px; margin: 0; }
+  .m2-side #m2-list { max-height: calc(100vh - 200px); overflow-y: auto; }
+  .m2:not(.m2-side) #m2-search { margin-bottom: 8px; }
+  .m2:not(.m2-side) #m2-list { max-height: 116px; overflow-y: auto; border-bottom: 1px solid #eee; }
 
   #m2-search { width: 100%; box-sizing: border-box; font-size: 13px; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 16px; }
   #m2-list { display: flex; flex-direction: column; gap: 2px; }
@@ -37,7 +35,7 @@ sitemap: false
   .m2-ctrl button:hover { border-color: #888; }
   #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; } /* square */
   /* one button for both modes: it shows the current one */
-  #m2-mode { box-sizing: border-box; width: 44px; height: 21px; padding: 0; border-color: #333; background: #eee; }
+  #m2-mode { box-sizing: border-box; width: 44px; height: 21px; padding: 0; }
   #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
 
   #m2-downloads { margin: 10px 0 0; }
@@ -47,7 +45,7 @@ sitemap: false
   #m2-text h2 { font-size: 18px; }
 </style>
 
-<div class="m2">
+<div class="m2 m2-side">
 <div class="m2-nav">
 <input type="search" id="m2-search" placeholder="Search maps" autocomplete="off">
 <div id="m2-list"></div>
@@ -219,6 +217,28 @@ sitemap: false
   });
   window.addEventListener('resize', draw);
   if (window.ResizeObserver) new ResizeObserver(draw).observe(view);
+
+  // ---------- page layout ----------
+  var NAV = 240, GAP = 32, EDGE = 16, MINVIEW = 600;
+  function layout() {
+    var box = document.querySelector('.m2'), page = box.parentElement;
+    box.style.left = box.style.width = '';
+    var W = document.documentElement.clientWidth; // without the scrollbar
+    var cs = getComputedStyle(page), r = page.getBoundingClientRect();
+    var cl = r.left + parseFloat(cs.paddingLeft), cw = r.right - parseFloat(cs.paddingRight) - cl;
+    var need = NAV + GAP + EDGE; // room the list needs left of the column
+    var side = true;
+    if (cl < need) {
+      if (need - cl <= W - (cl + cw) - EDGE) box.style.left = need - cl + 'px'; // 1: move right
+      else if (W - need - EDGE >= MINVIEW) { // 2: narrower viewer
+        box.style.left = need - cl + 'px';
+        box.style.width = W - need - EDGE + 'px';
+      } else side = false; // 3: list above the map
+    }
+    box.classList.toggle('m2-side', side);
+  }
+  layout();
+  window.addEventListener('resize', layout);
 
   // ---------- navigation ----------
   // one row per map: the topic, with the variant in brackets when a topic
