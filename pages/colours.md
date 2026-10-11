@@ -70,6 +70,12 @@ permalink: /colours/
   .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 7.5px; width: 10px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
   .c2-del:hover { color: #333; }
+  /* the remove cross shows on hover, on the chosen row and where there is no hover;
+     its space stays reserved so names do not move */
+  .c2-preset .c2-del, .c2-dot .c2-del { opacity: 0; transition: opacity 0.12s; }
+  .c2-preset:hover .c2-del, .c2-preset.c2-on .c2-del, .c2-preset:focus-visible .c2-del,
+  .c2-dot:hover .c2-del, .c2-dot.c2-on .c2-del, .c2-dot:focus-visible .c2-del { opacity: 1; }
+  @media (hover: none) { .c2-preset .c2-del, .c2-dot .c2-del { opacity: 1; } }
   .c2-preset .c2-del { width: 14px; height: 14px; }
   .c2-preset .c2-del::before, .c2-preset .c2-del::after { left: 2.5px; top: 6.5px; width: 9px; }
   .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
@@ -102,7 +108,7 @@ permalink: /colours/
 <div class="c2-panel c2-left">
 
 <section>
-<h3 title="Arrow keys step through them. Drag the colours to reorder. Double-click an added preset to rename it.">Presets</h3>
+<h3 title="Arrow keys step through them. Drag the colours to reorder. Double-click an added preset to rename it; hover over it to remove it.">Presets</h3>
 <div id="c2-presets"></div>
 <p class="c2-small" style="margin:6px 0 0"><button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
 </section>
@@ -152,7 +158,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <div class="c2-panel c2-right">
 
 <section>
-<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder.">Mixer</h3>
+<h3 title="Arrow keys move within a column. + adds the map’s current colour. Drag a square to reorder. Hover over an added colour to remove it.">Mixer</h3>
 <div id="c2-mixer" class="c2-mixer"></div>
 </section>
 
