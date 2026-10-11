@@ -90,9 +90,10 @@
   // Text on a fill: the Text colour, or white where white reads better
   // (dark fills). Equal WCAG contrast would switch at a fill luminance of
   // about 0.18, which keeps black text on fills that already look dark; the
-  // weight WHITE_BIAS moves the switch to 0.32 (with black text), just
-  // below the 0.34-0.42 range APCA's author gives for text.
-  var WHITE_BIAS = 2.61;
+  // weight WHITE_BIAS moves the switch to 0.28 (with black text), below
+  // the 0.34-0.42 range APCA's author gives for text; chosen by eye for
+  // this light page.
+  var WHITE_BIAS = 2.074;
   function textOn(fill) {
     return WHITE_BIAS * contrast('#FFFFFF', fill) > contrast(theme.text, fill) ? '#FFFFFF' : theme.text;
   }
