@@ -681,7 +681,7 @@
     return themeCode(document.getElementById('c2-cxbg').checked);
   }
 
-  // Preset order can be rearranged by dragging the handle; the order is kept
+  // Preset order can be rearranged by dragging the colours; the order is kept
   // in this browser only. Reset order returns to the order in PRESETS.
   var ORDER_KEY = 'colours.presetOrder';
   var dragging = null, dragged = false;
@@ -832,15 +832,14 @@
       b.setAttribute('data-name', p[0]);
       b.setAttribute('data-theme', p[1].toUpperCase());
       var hs = p[1].split(' ');
-      b.innerHTML = '<span class="c2-handle" title="Drag to reorder">&#8942;&#8942;</span>' +
-        '<span class="c2-chips">' + [0, 1, 2, 3, 4].map(function (k) {
+      b.innerHTML = '<span class="c2-chips" title="Drag to reorder">' + [0, 1, 2, 3, 4].map(function (k) {
           return '<i' + (k === 4 ? ' class="c2-hl"' : '') + ' style="background:#' + hs[k] + '"></i>';
         }).join('') + '</span><span class="c2-pname">' +
         p[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
       if (custom.indexOf(p) >= 0) {
         b.title = 'Double-click to rename';
         b.addEventListener('dblclick', function (e) {
-          if (e.target.closest('.c2-del, .c2-handle')) return;
+          if (e.target.closest('.c2-del, .c2-chips')) return;
           renamePreset(b, p[0]);
         });
         var x = document.createElement('span');
@@ -858,8 +857,7 @@
       b.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); }
       });
-      var handle = b.querySelector('.c2-handle');
-      handle.addEventListener('pointerdown', function (e) {
+      b.querySelector('.c2-chips').addEventListener('pointerdown', function (e) {
         e.preventDefault();
         dragging = b;
         dragged = false;

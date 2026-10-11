@@ -26,7 +26,7 @@ permalink: /colours/
   .c2-low { color: #b3261e; font-weight: bold; }
   .c2-assigning .c2-role { cursor: copy; outline: 1px dashed #999; margin-bottom: 2px; }
   .c2-assigning .c2-role:hover { background: #f0f0f0; }
-  #c2-presets { display: flex; flex-direction: column; gap: 4px; }
+  #c2-presets { display: flex; flex-direction: column; gap: 1px; }
   .c2-mixer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 6px; }
   .c2-mixcol { display: flex; flex-direction: column; gap: 1px; }
   .c2-mixtitle { font-size: 13px; color: #666; margin-bottom: 2px; }
@@ -46,14 +46,13 @@ permalink: /colours/
   .c2-mixadd svg rect { fill: #fff; stroke: #ccc; }
   .c2-mixadd:hover svg { color: #333; }
   .c2-mixadd:hover svg rect { stroke: #888; }
-  .c2-preset { display: flex; align-items: center; gap: 8px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 4px 6px; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: pointer; }
-  .c2-preset:hover { border-color: #888; }
+  .c2-preset { display: flex; align-items: center; gap: 6px; text-align: left; font: -webkit-small-control; font-size: 13px; line-height: normal; color: #000; user-select: none; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; }
+  .c2-preset:hover { border-color: #bbb; }
+  .c2-preset .c2-chips { cursor: grab; touch-action: none; }
   .c2-pname { flex: 1; min-width: 0; }
   .c2-rename { flex: 1; min-width: 0; font: inherit; padding: 0 3px; margin: -1px 0; border: 1px solid #999; border-radius: 3px; outline: none; background: #fff; }
   .c2-preset.c2-on { border-color: #333; font-weight: bold; }
   .c2-preset:focus, .c2-dot:focus { outline: none; }
-  .c2-handle { color: #aaa; cursor: grab; touch-action: none; user-select: none; letter-spacing: -3px; padding: 0 4px 0 0; }
-  .c2-handle:hover { color: #333; }
   #c2-light { -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: #ddd; outline: none; }
   #c2-light::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
   #c2-light::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 1px solid #888; cursor: pointer; }
@@ -62,8 +61,8 @@ permalink: /colours/
   .c2-del::before, .c2-del::after { content: ""; position: absolute; left: 3px; top: 7.5px; width: 10px; height: 1px; background: currentColor; transform: rotate(45deg); }
   .c2-del::after { transform: rotate(-45deg); }
   .c2-del:hover { color: #333; }
-  .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; }
-  .c2-dragging .c2-handle { cursor: grabbing; }
+  .c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
+  .c2-dragging .c2-chips { cursor: grabbing; }
   .c2-chips { display: inline-flex; }
   .c2-chips i { width: 14px; height: 14px; border: 1px solid #0003; margin-right: -1px; }
   #c2-drop { border: 2px dashed #bbb; border-radius: 6px; padding: 10px; font-size: 13px; text-align: center; }
@@ -92,7 +91,7 @@ permalink: /colours/
 <div class="c2-panel c2-left">
 
 <section>
-<h3 title="Arrow keys step through them. Drag ⋮⋮ to reorder. Double-click an added preset to rename it.">Presets</h3>
+<h3 title="Arrow keys step through them. Drag the colours to reorder. Double-click an added preset to rename it.">Presets</h3>
 <div id="c2-presets"></div>
 <p class="c2-small" style="margin:6px 0 0"><button type="button" class="c2-act" id="c2-reset-order">Reset order</button></p>
 </section>
