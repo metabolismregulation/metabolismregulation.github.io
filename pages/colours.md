@@ -34,7 +34,7 @@ permalink: /colours/
   .c2-dot.c2-dragging { border-color: #333; box-shadow: 0 2px 6px #0003; background: #fff; }
   .c2-dot:hover { border-color: #bbb; }
   .c2-dot.c2-on { border-color: #333; font-weight: bold; }
-  .c2-dname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .c2-dname { flex: 1; min-width: 0; overflow: hidden; text-overflow: clip; }
   .c2-dot .c2-del { width: 12px; height: 12px; }
   .c2-dot .c2-del::before, .c2-dot .c2-del::after { left: 2px; top: 5.5px; width: 8px; }
   .c2-mixadd { display: flex; width: 100%; padding: 2px 3px; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
