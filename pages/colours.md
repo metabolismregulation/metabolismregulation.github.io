@@ -133,15 +133,16 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 
 <section>
 <h3 title="Colour vision shows the map as seen with each type of colour blindness. Paste a theme code of 7 to 9 colours. The last two, for text and gene, are optional.">Colour vision and theme code</h3>
-<p class="c2-small" style="margin:0 0 6px">Colour vision:
+<p class="c2-small" style="margin:0 0 6px;display:flex;align-items:center;gap:6px">Colour vision:
 <select id="c2-cvd">
   <option value="none">normal</option>
   <option value="deuteranopia">deuteranopia</option>
   <option value="protanopia">protanopia</option>
   <option value="tritanopia">tritanopia</option>
-</select></p>
+</select>
+<!-- applies the theme code below -->
+<button type="button" class="c2-act" id="c2-apply" style="margin:0 0 0 auto">Apply</button></p>
 <textarea id="c2-export" rows="3" spellcheck="false"></textarea>
-<button type="button" class="c2-act" id="c2-apply">Apply</button>
 </section>
 
 </div>
