@@ -70,12 +70,16 @@ p {
 
 // Justified body text: only top-level paragraphs and list items of page content.
 // Skips <p align="..."> (centred images), text inside tables and custom blocks.
+// #m2-text: the map text on the Atlas page, loaded into that box.
 #main > p:not([align]),
 #main > ul > li,
 #main > ol > li,
 .entry > p:not([align]),
 .entry > ul > li,
-.entry > ol > li {
+.entry > ol > li,
+#m2-text > p:not([align]),
+#m2-text > ul > li,
+#m2-text > ol > li {
   text-align: justify;
 
   @include mobile {
