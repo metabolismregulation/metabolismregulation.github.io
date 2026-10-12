@@ -4,7 +4,7 @@ topic: "Pyrimidine biosynthesis"
 tab: ""
 page: "/pyrimidine/"
 group: "Nucleotide metabolism"
-order: 17
+order: 15
 image: "/downloads/F020-pyrimidine.svg"
 width: 459
 height: 405

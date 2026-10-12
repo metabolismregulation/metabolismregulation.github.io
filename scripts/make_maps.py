@@ -25,25 +25,23 @@ SHORT = dict(re.findall(r'class="gallery-title" href="/([^/]+)/">([^<]+)<',
 # Glycogen metabolism (muscle)
 JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle')}
 TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver'}
-# the Atlas list: groups in this order, maps in this order within a group
+# the Atlas list: groups in this order, maps in this order within a group.
+# Groups without maps are planned for future maps and are not shown.
+# Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
 GROUPS = [
     ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'aspirin', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides']),
     ('Amino acid metabolism', ['glutaminase']),
-    ('Nitric oxide metabolism', ['inos', 'enos']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
-    # planned groups, for future maps; a group without maps is not shown
-    ('Vitamins & cofactors', []),
+    ('Nitric oxide metabolism', ['inos', 'enos']),
+    ('Vitamin & cofactor metabolism', []),
     ('Energy metabolism', []),
     ('Porphyrin metabolism', []),
+    ('Inositol phosphate metabolism', []),
+    ('Glycan metabolism', []),
     ('Biological oxidations', []),
+    ('Iron-sulfur cluster metabolism', []),
 ]
-# kept for later: a fuller list of groups, in this order (not used yet)
-#   Carbohydrate metabolism, Lipid metabolism, Amino acid metabolism,
-#   Nucleotide metabolism, Nitric oxide metabolism,
-#   Vitamin & cofactor metabolism, Energy metabolism, Porphyrin metabolism,
-#   Biological oxidations, Inositol phosphate metabolism, Glycan metabolism,
-#   Xenobiotic metabolism, Iron-sulfur cluster metabolism
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
