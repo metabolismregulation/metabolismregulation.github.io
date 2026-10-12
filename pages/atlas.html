@@ -97,12 +97,12 @@ sitemap: false
   .m2-info li { margin: 0 0 3px; }
   /* a protein family: one card per member, or one member's record under a
      row of member buttons ("all" returns to the cards) */
-  .m2-card { display: block; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
+  .m2-card { display: block; box-sizing: border-box; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
   .m2-card:hover { border-color: #bbb; }
   .m2-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 10px; }
   .m2-chip { font: inherit; font-size: 14px; line-height: 20px; padding: 0 7px; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
   .m2-chip:hover { background: #ebebeb; border-color: #999; }
-  .m2-chip.m2-on { background: #1c47a9; border-color: #1c47a9; color: #fff; }
+  .m2-chip.m2-on { background: #4183c4; border-color: #4183c4; color: #fff; } /* as the chosen map in the list */
   .m2-chip:focus, .m2-card:focus { outline: none; }
 </style>
 
@@ -415,12 +415,20 @@ sitemap: false
     info.appendChild(fam);
     if (member < 0) {
       sel.members.forEach(function (m, i) {
-        var mp = props(m.props), c = el('button', 'm2-card');
-        c.type = 'button';
+        // a div, not a button, so that it can hold the UniProt link
+        var mp = props(m.props), c = el('div', 'm2-card');
+        c.setAttribute('role', 'button'); c.tabIndex = 0;
         c.appendChild(el('b', null, m.symbol));
         c.appendChild(document.createTextNode(' '));
         c.appendChild(el('span', 'm2-k', mp['Note'] || mp['Full name'] || ''));
+        if (mp['UniProt']) {
+          var u = el('a', null, 'UNIPROT (' + mp['UniProt'] + ')');
+          u.href = LINK['UniProt'] + mp['UniProt']; u.target = '_blank'; u.rel = 'noopener';
+          u.addEventListener('click', function (e) { e.stopPropagation(); }); // the link, not the card
+          var d = el('div'); d.appendChild(u); c.appendChild(d);
+        }
         c.addEventListener('click', function () { member = i; renderInfo(); });
+        c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); member = i; renderInfo(); } });
         info.appendChild(c);
       });
       return;
