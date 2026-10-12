@@ -3,7 +3,7 @@ title: "Regulation of glycogen metabolism, liver"
 topic: "Glycogen metabolism"
 tab: "liver"
 page: "/glycogen/"
-group: "Carbohydrate metabolism"
+group: "Carbon metabolism"
 order: 4
 image: "/downloads/F004-glycogen-liver.svg"
 width: 2106
