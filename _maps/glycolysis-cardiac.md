@@ -3,7 +3,7 @@ title: "Regulation of glycolysis, cardiac muscle"
 topic: "Glycolysis"
 tab: "cardiac muscle"
 page: "/glycolysis-cardiac/"
-group: "Carbon metabolism"
+group: "Carbohydrate metabolism"
 order: 2
 image: "/downloads/F001-glycolysis-cardiac.svg"
 width: 867

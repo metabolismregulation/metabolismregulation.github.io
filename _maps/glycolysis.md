@@ -3,7 +3,7 @@ title: "Regulation of glycolysis"
 topic: "Glycolysis"
 tab: ""
 page: "/glycolysis/"
-group: "Carbon metabolism"
+group: "Carbohydrate metabolism"
 order: 1
 image: "/downloads/F001-glycolysis.svg"
 width: 867

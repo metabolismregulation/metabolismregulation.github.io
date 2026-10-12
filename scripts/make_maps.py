@@ -27,7 +27,7 @@ JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle')}
 TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver'}
 # the Atlas list: groups in this order, maps in this order within a group
 GROUPS = [
-    ('Carbon metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
+    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'aspirin']),
     ('Amino acid metabolism', ['glutaminase']),
     ('Nitric oxide metabolism', ['inos', 'enos']),
@@ -39,7 +39,7 @@ GROUPS = [
     ('Biological oxidations', []),
 ]
 # kept for later: a fuller list of groups, in this order (not used yet)
-#   Carbon metabolism, Lipid metabolism, Amino acid metabolism,
+#   Carbohydrate metabolism, Lipid metabolism, Amino acid metabolism,
 #   Nucleotide metabolism, Nitric oxide metabolism,
 #   Vitamin & cofactor metabolism, Energy metabolism, Porphyrin metabolism,
 #   Biological oxidations, Inositol phosphate metabolism, Glycan metabolism,

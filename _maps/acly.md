@@ -3,7 +3,7 @@ title: "Regulation of acetyl-CoA synthesis"
 topic: "Acetyl-CoA synthesis"
 tab: ""
 page: "/acly/"
-group: "Carbon metabolism"
+group: "Carbohydrate metabolism"
 order: 5
 image: "/downloads/F006-acly.svg"
 width: 892
