@@ -130,9 +130,10 @@ sitemap: false
     moved = true;
     draw();
   }
+  // fits the map below the strip kept free for the zoom controls
   function fitZoom() {
     var s = size(current);
-    return Math.min(view.clientWidth / s.w, view.clientHeight / s.h) * 0.96;
+    return Math.min(view.clientWidth * 0.96 / s.w, (view.clientHeight - TOP - 12) / s.h);
   }
   // standard zoom; every map starts at its top, centred left to right,
   // below a strip left free for the zoom controls
@@ -152,7 +153,7 @@ sitemap: false
     var s = size(current);
     z = Math.min(fitZoom(), STANDARD * FIT_MAX);
     tx = (view.clientWidth - s.w * z) / 2;
-    ty = (view.clientHeight - s.h * z) / 2;
+    ty = TOP; // at the top, centred left to right, as in Read
     moved = false;
     draw();
   }
