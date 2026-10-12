@@ -51,8 +51,8 @@ sitemap: false
   #m2-downloads { margin: 10px 0 0; }
   #m2-downloads a { display: inline-block; font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 5px; text-decoration: none; }
   #m2-downloads a:hover { background: #ebebeb; border-color: #999; }
-  /* the online viewers open another site: an arrow marks them */
-  #m2-downloads a.m2-ext::after { content: ' \2197'; }
+  /* the online viewers open another site: the usual external-link icon */
+  #m2-downloads a.m2-ext svg { width: 12px; height: 12px; margin-left: 5px; vertical-align: -1px; }
   #m2-text h2 { font-size: 18px; }
 </style>
 
@@ -85,6 +85,7 @@ sitemap: false
   // (scale = image pixels per yEd unit, from scripts/make_maps.py).
   // the site's build time, added to the data addresses so a browser that kept
   // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
+  var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
   // how a map opens: 'fit' (the default) or 'read' at the standard zoom. Set by the mode
@@ -345,7 +346,7 @@ sitemap: false
     (m.downloads || []).forEach(function (d) {
       var a = el('a', null, d.label);
       a.href = d.url;
-      if (/^https?:/.test(d.url)) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'm2-ext'; a.title = 'Opens in a new tab'; } else a.setAttribute('download', '');
+      if (/^https?:/.test(d.url)) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'm2-ext'; a.title = 'Opens in a new tab'; a.insertAdjacentHTML('beforeend', EXT_ICON); } else a.setAttribute('download', '');
       dl.appendChild(a);
     });
     // the text: this map's own, or the first map of its topic that has one
