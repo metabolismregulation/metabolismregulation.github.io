@@ -89,9 +89,9 @@ sitemap: false
   // (scale = image pixels per yEd unit, from scripts/make_maps.py).
   // the site's build time, added to the data addresses so a browser that kept
   // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
-  // a yellow and white capsule after the name of a drug action mechanism map
-  // (grey version, likely once there are many drug maps: fill #bbb, stroke #555)
-  var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#FFE067" stroke="#444" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#444" stroke-width="1.6"/></g></svg>';
+  // a grey and white capsule after the name of a drug action mechanism map
+  // (yellow version: fill #FFE067, stroke #444)
+  var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#bbb" stroke="#555" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#555" stroke-width="1.6"/></g></svg>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
