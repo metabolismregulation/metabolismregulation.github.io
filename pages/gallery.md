@@ -60,7 +60,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/glycolysis/">
-      <img class="gallery-image" src="/images/gallery/F001-glycolysis-vcut.png" alt="Glycolysis map">
+      <img class="gallery-image" src="/images/gallery/F001-glycolysis-cut.svg" alt="Glycolysis map">
     </a>
   </div>
 
@@ -71,7 +71,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F002-eicosanoids" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/eicosanoids/">
-      <img class="gallery-image" src="/images/gallery/F002-eicosanoids-vcut.png" alt="Eicosanoid production map">
+      <img class="gallery-image" src="/images/gallery/F002-eicosanoids-cut.svg" alt="Eicosanoid production map">
     </a>
   </div>
 
@@ -82,7 +82,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/mevalonate/">
-      <img class="gallery-image" src="/images/gallery/F003-mevalonate-vcut.png" alt="Mevalonate biosynthesis map">
+      <img class="gallery-image" src="/images/gallery/F003-mevalonate-cut.svg" alt="Mevalonate biosynthesis map">
     </a>
   </div>
 
@@ -93,7 +93,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/glycogen/">
-      <img class="gallery-image" src="/images/gallery/F004-glycogen-muscle-vcut.png" alt="Glycogen metabolism map">
+      <img class="gallery-image" src="/images/gallery/F004-glycogen-muscle-cut.svg" alt="Glycogen metabolism map">
     </a>
   </div>
 
@@ -104,7 +104,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/acly/">
-      <img class="gallery-image" src="/images/gallery/F006-ACLY-vcut.png" alt="Acetyl-CoA synthesis map">
+      <img class="gallery-image" src="/images/gallery/F006-ACLY-cut.svg" alt="Acetyl-CoA synthesis map">
     </a>
   </div>
 
@@ -115,7 +115,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F012-camp" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/camp/">
-      <img class="gallery-image" src="/images/gallery/F012-cAMP-vcut.png" alt="cAMP hydrolysis map">
+      <img class="gallery-image" src="/images/gallery/F012-cAMP-cut.svg" alt="cAMP hydrolysis map">
     </a>
   </div>
 
@@ -126,7 +126,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/inos/">
-      <img class="gallery-image" src="/images/gallery/F007-inos-vcut.png" alt="iNOS pathway map">
+      <img class="gallery-image" src="/images/gallery/F007-inos-cut.svg" alt="iNOS pathway map">
     </a>
   </div>
 
@@ -137,7 +137,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/enos/">
-      <img class="gallery-image" src="/images/gallery/F008-enos-vcut.png" alt="eNOS pathway map">
+      <img class="gallery-image" src="/images/gallery/F008-enos-cut.svg" alt="eNOS pathway map">
     </a>
   </div>
 
@@ -148,7 +148,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/carnitine/">
-      <img class="gallery-image" src="/images/gallery/F014-carnitine-vcut.png" alt="Acyl-carnitine synthesis map">
+      <img class="gallery-image" src="/images/gallery/F014-carnitine-cut.svg" alt="Acyl-carnitine synthesis map">
     </a>
   </div>
 
@@ -159,7 +159,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/srebp/">
-      <img class="gallery-image" src="/images/gallery/F005-srebp-vcut.png" alt="SREBP signalling map">
+      <img class="gallery-image" src="/images/gallery/F005-srebp-cut.svg" alt="SREBP signalling map">
     </a>
   </div>
 
@@ -170,7 +170,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F015-tag" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/tag/">
-      <img class="gallery-image" src="/images/gallery/F015-tag-vcut.png" alt="Triacylglycerol hydrolysis map">
+      <img class="gallery-image" src="/images/gallery/F015-tag-cut.svg" alt="Triacylglycerol hydrolysis map">
     </a>
   </div>
 
@@ -181,7 +181,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/estrogen/">
-      <img class="gallery-image" src="/images/gallery/F018-estrogen-vcut.png" alt="Estradiol biosynthesis map">
+      <img class="gallery-image" src="/images/gallery/F018-estrogen-cut.svg" alt="Estradiol biosynthesis map">
     </a>
   </div>
 
@@ -192,7 +192,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F009-phosphoinositides" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/phosphoinositides/">
-      <img class="gallery-image" src="/images/gallery/F009-phosphoinositides-vcut.png" alt="Phosphoinositide map">
+      <img class="gallery-image" src="/images/gallery/F009-phosphoinositides-cut.svg" alt="Phosphoinositide map">
     </a>
   </div>
 
@@ -203,7 +203,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/glutaminase/">
-      <img class="gallery-image" src="/images/gallery/F019-glutaminase-vcut.png" alt="Glutaminolysis map">
+      <img class="gallery-image" src="/images/gallery/F019-glutaminase-cut.svg" alt="Glutaminolysis map">
     </a>
   </div>
 
@@ -214,7 +214,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/pyrimidine/">
-      <img class="gallery-image" src="/images/gallery/F020-pyrimidine-vcut.png" alt="Pyrimidine biosynthesis map">
+      <img class="gallery-image" src="/images/gallery/F020-pyrimidine-cut.svg" alt="Pyrimidine biosynthesis map">
     </a>
   </div>
 
@@ -225,7 +225,7 @@ permalink: /gallery/
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin" target="_blank" rel="noopener">MINERVA</a>
     </div>
     <a href="/aspirin/">
-      <img class="gallery-image" src="/images/gallery/F100-aspirin-vcut.png" alt="Aspirin map">
+      <img class="gallery-image" src="/images/gallery/F100-aspirin-cut.svg" alt="Aspirin map">
     </a>
   </div>
 
