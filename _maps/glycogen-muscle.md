@@ -10,6 +10,7 @@ image: "/downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1746
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-muscle.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F004-glycogen-muscle.sbgn"}

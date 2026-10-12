@@ -10,6 +10,7 @@ image: "/downloads/F001-glycolysis-cardiac.svg"
 width: 867
 height: 679
 scale: 1
+annotation: "/atlas-data/F001-glycolysis-cardiac.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F001-glycolysis-cardiac.graphml"}
   - {label: "CellDesigner", url: "/downloads/F001-glycolysis-cardiac.xml"}

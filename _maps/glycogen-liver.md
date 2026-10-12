@@ -10,6 +10,7 @@ image: "/downloads/F004-glycogen-liver.svg"
 width: 2106
 height: 1746
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-liver.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F004-glycogen-liver.sbgn"}

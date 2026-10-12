@@ -10,6 +10,7 @@ image: "/downloads/F007-inos.svg"
 width: 1590
 height: 1186
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F007-inos.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F007-inos.sbgn"}

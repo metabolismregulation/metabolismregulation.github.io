@@ -10,6 +10,7 @@ image: "/downloads/F015-tag.svg"
 width: 800
 height: 616
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F015-tag.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F015-tag.sbgn"}

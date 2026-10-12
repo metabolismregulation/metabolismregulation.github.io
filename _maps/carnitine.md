@@ -10,6 +10,7 @@ image: "/downloads/F014-carnitine.svg"
 width: 885
 height: 1197
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F014-carnitine.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F014-carnitine.sbgn"}

@@ -10,6 +10,7 @@ image: "/downloads/F020-pyrimidine.svg"
 width: 459
 height: 405
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F020-pyrimidine.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F020-pyrimidine.sbgn"}

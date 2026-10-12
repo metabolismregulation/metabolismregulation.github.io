@@ -10,6 +10,7 @@ image: "/downloads/F019-glutaminase.svg"
 width: 690
 height: 581
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F019-glutaminase.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F019-glutaminase.sbgn"}

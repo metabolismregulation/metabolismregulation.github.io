@@ -71,6 +71,23 @@ sitemap: false
   /* the online viewers open another site: the usual external-link icon */
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
   #m2-text h2 { font-size: 18px; }
+
+  /* annotation of the clicked protein or metabolite: in the right column, or
+     on narrower windows over the right side of the map */
+  #m2-sel { position: absolute; left: 0; top: 0; border: 2px solid #4183c4; border-radius: 6px; pointer-events: none; display: none; box-sizing: border-box; }
+  .m2-info { grid-column: 3; font-size: 13px; line-height: 1.45; color: #222; max-height: calc(100vh / var(--zoom, 1) - 140px); overflow-y: auto; overflow-wrap: anywhere; }
+  .m2-info.m2-over { position: absolute; z-index: 2; top: 36px; right: 8px; bottom: 8px; width: min(260px, 70%); max-height: none; padding: 10px 12px; background: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 8px #0002; cursor: auto; user-select: text; }
+  .m2-info:empty { display: none; }
+  .m2-info-hint { color: #888; }
+  .m2-info-head { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
+  .m2-info-head h3 { font-size: 17px; font-weight: 400; margin: 0; flex: 1; }
+  .m2-info-head h3 b { font-weight: 600; }
+  .m2-info-close { border: 0; background: none; font-size: 18px; line-height: 1; padding: 0 2px; cursor: pointer; color: #555; }
+  .m2-info p { margin: 0 0 8px; }
+  .m2-info .m2-k { color: #666; }
+  .m2-info h4 { font-size: 13px; font-weight: 600; margin: 12px 0 4px; }
+  .m2-info ul { list-style: none; margin: 0; padding: 0; }
+  .m2-info li { margin: 0 0 3px; }
 </style>
 
 <div class="m2">
@@ -81,6 +98,7 @@ sitemap: false
 <div class="m2-main">
 <div id="m2-view" tabindex="0">
 <img id="m2-img" alt="">
+<div id="m2-sel"></div>
 <div class="m2-ctrl">
 <span id="m2-zoom"></span>
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
@@ -93,6 +111,7 @@ sitemap: false
 <h2 id="m2-title"></h2>
 <div id="m2-text"></div>
 </div>
+<aside class="m2-info" id="m2-info"></aside>
 </div>
 
 <script>
@@ -141,6 +160,7 @@ sitemap: false
     img.style.width = s.w * z + 'px';
     img.style.height = s.h * z + 'px';
     img.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    drawSel();
     document.getElementById('m2-zoom').textContent = Math.round(z / STANDARD * 100) + '%';
   }
   function zoomAt(nz, cx, cy) {
@@ -228,24 +248,27 @@ sitemap: false
   // (style.scss) the viewer works in its own, zoomed pixels
   function pz() { return view.currentCSSZoom || 1; }
   view.addEventListener('wheel', function (e) {
+    if (e.target.closest('.m2-info')) return; // the panel over the map scrolls
     e.preventDefault();
     var r = view.getBoundingClientRect();
     zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   }, { passive: false });
   view.addEventListener('dblclick', function (e) {
-    if (e.target.closest('.m2-ctrl')) return;
+    if (e.target.closest('.m2-ctrl, .m2-info')) return;
     var r = view.getBoundingClientRect();
     zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   });
   // drag with one pointer, pinch with two
-  var pts = {}, last = null;
+  var pts = {}, last = null, press = null;
   view.addEventListener('pointerdown', function (e) {
     if (e.target.closest('.m2-ctrl')) return;
     // leave the lower right corner to the browser's resize handle
     var r = view.getBoundingClientRect();
     if (e.clientX > r.right - 18 && e.clientY > r.bottom - 18) return;
+    if (e.target.closest('.m2-info')) return;
     view.setPointerCapture(e.pointerId);
     pts[e.pointerId] = [e.clientX, e.clientY];
+    press = Object.keys(pts).length === 1 ? [e.clientX, e.clientY] : null;
     last = null;
     view.classList.add('m2-drag');
   });
@@ -267,6 +290,12 @@ sitemap: false
     }
   });
   function release(e) {
+    // a press without a drag is a click on the map
+    if (e.type === 'pointerup' && press && pts[e.pointerId] && Math.hypot(e.clientX - press[0], e.clientY - press[1]) < 5) {
+      var r = view.getBoundingClientRect();
+      pick((e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+    }
+    press = null;
     delete pts[e.pointerId];
     last = null;
     if (!Object.keys(pts).length) view.classList.remove('m2-drag');
@@ -284,6 +313,112 @@ sitemap: false
   window.addEventListener('resize', draw);
   if (window.ResizeObserver) new ResizeObserver(draw).observe(view);
 
+
+  // ---------- annotation ----------
+  // atlas-data/<map>.json (scripts/make_maps.py): every annotated node's box
+  // in image pixels and its properties. A click on the map shows the
+  // smallest box under the pointer (a protein rather than its complex).
+  var info = document.getElementById('m2-info'), selBox = document.getElementById('m2-sel');
+  var annCache = {}, nodes = null, sel = null;
+  var KIND = { Macromolecule: 'Protein', SimpleChemical: 'Simple molecule', NucleicAcidFeature: 'Gene', Complex: 'Complex' };
+  var LINK = {
+    'HGNC': 'https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/',
+    'HGNC symbol': 'https://www.genenames.org/data/gene-symbol-report/#!/symbol/',
+    'Entrez': 'https://www.ncbi.nlm.nih.gov/gene/',
+    'Ensembl': 'https://www.ensembl.org/id/',
+    'RefSeq': 'https://www.ncbi.nlm.nih.gov/nuccore/',
+    'UniProt': 'https://www.uniprot.org/uniprotkb/',
+    'ChEBI': 'https://www.ebi.ac.uk/chebi/searchId.do?chebiId=',
+    'KEGG': 'https://www.kegg.jp/entry/',
+    'HMDB': 'https://hmdb.ca/metabolites/'
+  };
+  var IDS = ['ChEBI', 'HGNC', 'HGNC symbol', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt', 'KEGG', 'HMDB', 'InChI', 'InChIKey'];
+  // wide windows: the right column; narrower: over the right side of the map
+  var wide = window.matchMedia('(min-width: 1030px)');
+  function placeInfo() {
+    var over = !wide.matches;
+    info.classList.toggle('m2-over', over);
+    var home = over ? view : document.querySelector('.m2');
+    if (info.parentNode !== home) home.appendChild(info);
+    renderInfo();
+  }
+  wide.addEventListener ? wide.addEventListener('change', placeInfo) : wide.addListener(placeInfo);
+  function loadNodes(m) {
+    nodes = null; sel = null; renderInfo(); drawSel();
+    if (!m.annotation) return;
+    var done = function (list) { if (current === m) { nodes = list; renderInfo(); } };
+    if (annCache[m.id]) return done(annCache[m.id]);
+    fetch(m.annotation + BUILD).then(function (r) { return r.json(); }).then(function (d) { annCache[m.id] = d.nodes; done(d.nodes); });
+  }
+  function pick(vx, vy) {
+    if (!nodes) return;
+    var k = scaleOf(current), x = (vx - tx) / z * k, y = (vy - ty) / z * k, best = null;
+    nodes.forEach(function (n) {
+      var b = n.box;
+      if (x >= b[0] && x <= b[0] + b[2] && y >= b[1] && y <= b[1] + b[3] && (!best || b[2] * b[3] < best.box[2] * best.box[3])) best = n;
+    });
+    sel = best;
+    renderInfo();
+    drawSel();
+  }
+  function drawSel() {
+    if (!sel || !current) { selBox.style.display = 'none'; return; }
+    var k = scaleOf(current), b = sel.box, pad = 3;
+    selBox.style.display = 'block';
+    selBox.style.width = b[2] / k * z + 2 * pad + 'px';
+    selBox.style.height = b[3] / k * z + 2 * pad + 'px';
+    selBox.style.transform = 'translate(' + (tx + b[0] / k * z - pad) + 'px,' + (ty + b[1] / k * z - pad) + 'px)';
+  }
+  function renderInfo() {
+    info.innerHTML = '';
+    if (!nodes) return;
+    if (!sel) {
+      if (wide.matches) info.appendChild(el('p', 'm2-info-hint', 'Click a protein or metabolite on the map to see its annotation.'));
+      return;
+    }
+    var p = {};
+    sel.props.forEach(function (kv) { p[kv[0]] = kv[1]; });
+    var head = el('div', 'm2-info-head'), h = el('h3', null, (KIND[sel['class']] || sel['class']) + ': ');
+    h.appendChild(el('b', null, sel.label));
+    var x = el('button', 'm2-info-close', '\u00d7');
+    x.type = 'button'; x.title = 'Close';
+    x.addEventListener('click', function () { sel = null; renderInfo(); drawSel(); });
+    head.appendChild(h); head.appendChild(x); info.appendChild(head);
+    var line = function (name, label, strong) {
+      if (!p[name]) return;
+      var q = el('p');
+      q.appendChild(el('span', 'm2-k', (label || name) + ': '));
+      q.appendChild(el(strong ? 'b' : 'span', null, p[name]));
+      info.appendChild(q);
+    };
+    line('Full name', null, true);
+    line('Alternative names');
+    line('Synonyms');
+    if (p['Function'] || p['Definition']) info.appendChild(el('p', null, p['Function'] || p['Definition']));
+    line('Location');
+    line('Formula');
+    if (sel.note) { p['Map note'] = sel.note; line('Map note'); }
+    var ids = IDS.filter(function (n) { return p[n]; });
+    if (!ids.length) return;
+    info.appendChild(el('h4', null, 'Annotations'));
+    var ul = el('ul');
+    ids.forEach(function (n) {
+      var li = el('li');
+      String(p[n]).split(/,\s*/).forEach(function (v, i) {
+        if (i) li.appendChild(document.createTextNode(', '));
+        if (LINK[n]) {
+          var a = el('a', null, n.toUpperCase() + ' (' + v + ')');
+          a.href = LINK[n] + encodeURIComponent(v).replace(/%3A/g, ':'); a.target = '_blank'; a.rel = 'noopener';
+          li.appendChild(a);
+        } else {
+          li.appendChild(el('span', 'm2-k', n + ': '));
+          li.appendChild(document.createTextNode(v));
+        }
+      });
+      ul.appendChild(li);
+    });
+    info.appendChild(ul);
+  }
 
   // ---------- navigation ----------
   // one row per map: the topic, with the variant in brackets when a topic
@@ -365,6 +500,7 @@ sitemap: false
     img.src = m.image;
     img.width = m.width;
     img.height = m.height;
+    loadNodes(m);
     if (mode === 'fit') fit(); else standard();
     var dl = document.getElementById('m2-downloads');
     dl.innerHTML = '';
@@ -401,6 +537,7 @@ sitemap: false
 
   fetch('{{ "/atlas/index.json" | relative_url }}' + BUILD).then(function (r) { return r.json(); }).then(function (list) {
     maps = list;
+    placeInfo();
     maps.forEach(function (m) {
       byId[m.id] = m;
       var t = topics.filter(function (x) { return x.name === m.topic; })[0];

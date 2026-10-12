@@ -9,8 +9,12 @@
 # scale = image pixels per yEd unit, so the viewer can show every map at the
 # same zoom. 1 for an SVG (yEd exports it at 1:1); for a PNG only an estimate
 # from the GraphML layout, which can extend beyond what is drawn.
+# A map whose GraphML has annotation (yEd custom node properties such as
+# Full name, UniProt, ChEBI) also gets atlas-data/<base>.json: each annotated
+# node's box in SVG pixels and its properties, for the Atlas click panel.
 # Rerun after changing a map page or a map image. Needs: pillow.
-import os, re, glob, json
+import os, re, glob, json, collections
+import xml.etree.ElementTree as ET
 from PIL import Image
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -66,6 +70,49 @@ def scale_of(base, width):
     return round(width / (max(xs) - min(xs)), 3) if xs else None
 
 
+GN, YN = '{http://graphml.graphdrawing.org/xmlns}', '{http://www.yworks.com/xml/graphml}'
+# the annotation properties shown in the Atlas panel, in this order (other
+# custom properties, e.g. from a CellDesigner import, are left out)
+ANN_FIELDS = ['Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
+              'HGNC', 'HGNC symbol', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
+              'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey']
+
+
+def annotation(base):
+    """Annotated nodes of a map: box in SVG pixels, label, class, properties.
+    None when the GraphML has no custom node properties."""
+    g = os.path.join(ROOT, 'downloads', base + '.graphml')
+    svg = os.path.join(ROOT, 'downloads', base + '.svg')
+    if not (os.path.exists(g) and os.path.exists(svg)):
+        return None
+    root = ET.parse(g).getroot()
+    keys = {k.get('id'): k.get('attr.name') for k in root.findall(GN + 'key')
+            if k.get('for') == 'node' and k.get('attr.name')}
+    custom = sorted((k for k, n in keys.items() if n in ANN_FIELDS), key=lambda k: ANN_FIELDS.index(keys[k]))
+    if not custom:
+        return None
+    # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty): svg = yEd + (tx, ty)
+    c = collections.Counter(re.findall(r'matrix\(1,0,0,1,(-?[\d.]+),(-?[\d.]+)\)', open(svg, encoding='utf-8').read()))
+    tx, ty = (float(v) for v in c.most_common(1)[0][0])
+    nodes = []
+    for n in root.iter(GN + 'node'):
+        data = {keys.get(d.get('key')): (d.text or '').strip() for d in n.findall(GN + 'data') if d.get('key') in keys}
+        props = [[keys[k], data[keys[k]]] for k in custom if data.get(keys[k])]
+        if not props:
+            continue
+        gn = n.find(GN + 'data/' + YN + 'GenericNode')
+        if gn is None:  # a group node: its open realizer
+            gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
+        geo = gn.find(YN + 'Geometry')
+        labels = [l.text.strip() for l in gn.findall(YN + 'NodeLabel') if l.text and l.text.strip() and not l.get('iconData')]
+        nodes.append({'label': labels[0] if labels else '',
+                      'class': (gn.get('configuration') or '').replace('com.yworks.sbgn.', ''),
+                      'box': [round(float(geo.get('x')) + tx, 1), round(float(geo.get('y')) + ty, 1),
+                              round(float(geo.get('width')), 1), round(float(geo.get('height')), 1)],
+                      'url': data.get('url', ''), 'note': data.get('description', ''), 'props': props})
+    return nodes
+
+
 def yaml_str(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -110,6 +157,12 @@ def main():
                 w, h = Image.open(os.path.join(ROOT, 'downloads', base + '.png')).size
                 ext = '.png'
                 scale = scale_of(base, w)
+            ann = annotation(base) if ext == '.svg' else None
+            ann_url = ''
+            if ann:
+                os.makedirs(os.path.join(ROOT, 'atlas-data'), exist_ok=True)
+                json.dump({'nodes': ann}, open(os.path.join(ROOT, 'atlas-data', base + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+                ann_url = '/atlas-data/' + base + '.json'
             downloads = []
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', links):
                 if m.group(2) in LABELS:
@@ -126,6 +179,7 @@ def main():
                   'image: ' + yaml_str('/downloads/' + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
+                  'annotation: ' + yaml_str(ann_url),
                   'downloads:']
             downloads.sort(key=lambda d: LABELS.index(d['label']))
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]

@@ -10,6 +10,7 @@ image: "/downloads/F100-aspirin.svg"
 width: 943
 height: 290
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F100-aspirin.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F100-aspirin.sbgn"}

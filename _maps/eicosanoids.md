@@ -10,6 +10,7 @@ image: "/downloads/F002-eicosanoids.svg"
 width: 664
 height: 552
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F002-eicosanoids.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F002-eicosanoids.sbgn"}

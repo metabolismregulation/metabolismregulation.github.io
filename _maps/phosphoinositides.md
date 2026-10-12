@@ -10,6 +10,7 @@ image: "/downloads/F009-phosphoinositides.svg"
 width: 739
 height: 989
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F009-phosphoinositides.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F009-phosphoinositides.sbgn"}

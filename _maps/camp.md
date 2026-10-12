@@ -10,6 +10,7 @@ image: "/downloads/F012-camp.svg"
 width: 745
 height: 730
 scale: 1
+annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F012-camp.graphml"}
   - {label: "SBGN-ML", url: "/downloads/F012-camp.sbgn"}
