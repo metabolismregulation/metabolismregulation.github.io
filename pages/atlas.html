@@ -419,8 +419,8 @@ sitemap: false
         var mp = props(m.props), c = el('div', 'm2-card');
         c.setAttribute('role', 'button'); c.tabIndex = 0;
         c.appendChild(el('b', null, m.symbol));
-        c.appendChild(document.createTextNode(' '));
-        c.appendChild(el('span', 'm2-k', mp['Note'] || mp['Full name'] || ''));
+        // the note only; without one the card shows just the symbol and its link
+        if (mp['Note']) { c.appendChild(document.createTextNode(' ')); c.appendChild(el('span', 'm2-k', mp['Note'])); }
         if (mp['UniProt']) {
           var u = el('a', null, 'UNIPROT (' + mp['UniProt'] + ')');
           u.href = LINK['UniProt'] + mp['UniProt']; u.target = '_blank'; u.rel = 'noopener';
