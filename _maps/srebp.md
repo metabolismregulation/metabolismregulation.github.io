@@ -4,7 +4,7 @@ topic: "SREBP signalling"
 tab: ""
 page: "/srebp/"
 group: "Lipid metabolism"
-order: 9
+order: 10
 image: "/downloads/F005-srebp.svg"
 width: 746
 height: 1166

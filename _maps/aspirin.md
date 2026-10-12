@@ -4,7 +4,7 @@ topic: "Aspirin"
 tab: ""
 page: "/aspirin/"
 group: "Lipid metabolism"
-order: 13
+order: 7
 image: "/downloads/F100-aspirin.svg"
 width: 943
 height: 290

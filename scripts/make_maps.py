@@ -28,7 +28,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver'}
 # the Atlas list: groups in this order, maps in this order within a group
 GROUPS = [
     ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
-    ('Lipid metabolism', ['eicosanoids', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'aspirin']),
+    ('Lipid metabolism', ['eicosanoids', 'aspirin', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides']),
     ('Amino acid metabolism', ['glutaminase']),
     ('Nitric oxide metabolism', ['inos', 'enos']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),

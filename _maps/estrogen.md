@@ -4,7 +4,7 @@ topic: "Estradiol biosynthesis"
 tab: ""
 page: "/estrogen/"
 group: "Lipid metabolism"
-order: 11
+order: 12
 image: "/downloads/F018-estrogen.svg"
 width: 1233
 height: 1305

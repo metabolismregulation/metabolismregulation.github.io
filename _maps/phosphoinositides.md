@@ -4,7 +4,7 @@ topic: "Phosphoinositide metabolism"
 tab: ""
 page: "/phosphoinositides/"
 group: "Lipid metabolism"
-order: 12
+order: 13
 image: "/downloads/F009-phosphoinositides.svg"
 width: 739
 height: 989

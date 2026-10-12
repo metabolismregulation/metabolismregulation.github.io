@@ -4,7 +4,7 @@ topic: "Acyl-carnitine synthesis"
 tab: ""
 page: "/carnitine/"
 group: "Lipid metabolism"
-order: 8
+order: 9
 image: "/downloads/F014-carnitine.svg"
 width: 885
 height: 1197
