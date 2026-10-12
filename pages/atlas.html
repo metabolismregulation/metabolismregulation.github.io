@@ -10,11 +10,11 @@ sitemap: false
      the middle, and an empty column of the list's width on the right, so the
      middle stays centred under the header. The middle takes all the room
      there is: with the browser zoomed out (Cmd -) the side columns look
-     smaller and the map larger. The layout is 87% of the window wide, but at
-     least wide enough for a 600 px map; on narrower windows the empty right
-     column gives way first, then the list goes above the map. */
+     smaller and the map larger. The layout spans the window (16 px from each
+     edge, at most 2000 px); on narrower windows the map shrinks to 600 px,
+     then the empty right column gives way, then the list goes above the map. */
   .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
-        width: min(100vw - 32px, max(87vw, 1144px)); position: relative; left: 50%; transform: translateX(-50%); }
+        width: min(100vw - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }
   .m2-nav { grid-column: 1; }
   .m2-main { grid-column: 2; min-width: 0; }
   #m2-list { max-height: calc(100vh - 200px); overflow-y: auto; }
