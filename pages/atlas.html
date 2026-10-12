@@ -169,10 +169,9 @@ sitemap: false
     STEPS.forEach(function (st) { if (Math.abs(r - st) < Math.abs(r - best)) best = st; });
     return Math.abs(r - best) / best < 0.03 ? best : 1;
   }
-  // the site's own 90% (style.scss) counts like browser zoom
-  var bz = browserZoom() * (view.currentCSSZoom || 1);
+  var bz = browserZoom();
   window.addEventListener('resize', function () {
-    var nb = browserZoom() * (view.currentCSSZoom || 1);
+    var nb = browserZoom();
     if (nb === bz || !current) return;
     var old = bz;
     bz = nb;
@@ -195,7 +194,7 @@ sitemap: false
   var FIT_MAX = 1;
   function fit() {
     var s = size(current);
-    z = Math.min(fitZoom(), STANDARD * FIT_MAX); // small maps: 100%
+    z = Math.min(fitZoom(), STANDARD * FIT_MAX / bz);
     tx = (view.clientWidth - s.w * z) / 2;
     ty = TOP; // at the top, centred left to right, as in Read
     moved = false;
