@@ -74,6 +74,8 @@ sitemap: false
 
   /* annotation of the clicked protein or metabolite: in the right column, or
      on narrower windows over the right side of the map */
+  /* a map pin, as in MINERVA, with its tip on the clicked node; it keeps its size at every zoom */
+  #m2-pin { position: absolute; left: 0; top: 0; width: 24px; height: 32px; margin: -32px 0 0 -12px; pointer-events: none; display: none; filter: drop-shadow(0 1px 1px #0005); }
   .m2-info { grid-column: 3; font-size: 13px; line-height: 1.45; color: #222; max-height: calc(100vh / var(--zoom, 1) - 140px); overflow-y: auto; overflow-wrap: anywhere; }
   .m2-info.m2-over { position: absolute; z-index: 2; top: 36px; right: 8px; bottom: 8px; width: min(260px, 70%); max-height: none; padding: 10px 12px; background: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 8px #0002; cursor: auto; user-select: text; }
   .m2-info:empty { display: none; }
@@ -96,6 +98,7 @@ sitemap: false
 <div class="m2-main">
 <div id="m2-view" tabindex="0">
 <img id="m2-img" alt="">
+<svg id="m2-pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 31C12 31 2 18.5 2 11.5a10 10 0 0 1 20 0C22 18.5 12 31 12 31z" fill="#1c74d4" stroke="#fff" stroke-width="1.2"/><circle cx="12" cy="11.5" r="3.6" fill="#fff"/></svg>
 <div class="m2-ctrl">
 <span id="m2-zoom"></span>
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
@@ -157,6 +160,7 @@ sitemap: false
     img.style.width = s.w * z + 'px';
     img.style.height = s.h * z + 'px';
     img.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    drawPin();
     document.getElementById('m2-zoom').textContent = Math.round(z / STANDARD * 100) + '%';
   }
   function zoomAt(nz, cx, cy) {
@@ -314,7 +318,7 @@ sitemap: false
   // atlas-data/<map>.json (scripts/make_maps.py): every annotated node's box
   // in image pixels and its properties. A click on the map shows the
   // smallest box under the pointer (a protein rather than its complex).
-  var info = document.getElementById('m2-info');
+  var info = document.getElementById('m2-info'), pin = document.getElementById('m2-pin');
   var annCache = {}, nodes = null, sel = null;
   var KIND = { Macromolecule: 'Protein', SimpleChemical: 'Simple molecule', NucleicAcidFeature: 'Gene', Complex: 'Complex' };
   var LINK = {
@@ -340,7 +344,7 @@ sitemap: false
   }
   wide.addEventListener ? wide.addEventListener('change', placeInfo) : wide.addListener(placeInfo);
   function loadNodes(m) {
-    nodes = null; sel = null; renderInfo();
+    nodes = null; sel = null; renderInfo(); drawPin();
     if (!m.annotation) return;
     var done = function (list) { if (current === m) { nodes = list; renderInfo(); } };
     if (annCache[m.id]) return done(annCache[m.id]);
@@ -355,6 +359,13 @@ sitemap: false
     });
     sel = best;
     renderInfo();
+    drawPin();
+  }
+  function drawPin() {
+    if (!sel || !current) { pin.style.display = 'none'; return; }
+    var k = scaleOf(current), b = sel.box;
+    pin.style.display = 'block';
+    pin.style.transform = 'translate(' + (tx + (b[0] + b[2] / 2) / k * z) + 'px,' + (ty + (b[1] + b[3] / 2) / k * z) + 'px)';
   }
   function renderInfo() {
     info.innerHTML = '';
@@ -365,7 +376,7 @@ sitemap: false
     h.appendChild(el('b', null, sel.label));
     var x = el('button', 'm2-info-close', '\u00d7');
     x.type = 'button'; x.title = 'Close';
-    x.addEventListener('click', function () { sel = null; renderInfo(); });
+    x.addEventListener('click', function () { sel = null; renderInfo(); drawPin(); });
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
     var line = function (name, label, strong) {
       if (!p[name]) return;
