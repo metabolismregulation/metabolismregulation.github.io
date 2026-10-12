@@ -17,6 +17,15 @@ html {
   font-size: 100%;
 }
 
+// The whole site is shown at 90%, as with the browser's own zoom set to 90%:
+// text, images, column width and spacing all scale together. Not on phones,
+// where the text is already sized for the small screen.
+@media screen and (min-width: 641px) {
+  html {
+    zoom: 0.9;
+  }
+}
+
 body {
 	background: $white;
   font: 16px/1.4 $helvetica;

@@ -193,15 +193,18 @@ sitemap: false
     else setMode(mode === 'fit' ? 'read' : 'fit');
   }
   document.getElementById('m2-mode').addEventListener('click', modeButton);
+  // pointer positions come in screen pixels; with the site's zoom
+  // (style.scss) the viewer works in its own, zoomed pixels
+  function pz() { return view.currentCSSZoom || 1; }
   view.addEventListener('wheel', function (e) {
     e.preventDefault();
     var r = view.getBoundingClientRect();
-    zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), e.clientX - r.left, e.clientY - r.top);
+    zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   }, { passive: false });
   view.addEventListener('dblclick', function (e) {
     if (e.target.closest('.m2-ctrl')) return;
     var r = view.getBoundingClientRect();
-    zoomAt(z * 1.5, e.clientX - r.left, e.clientY - r.top);
+    zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   });
   // drag with one pointer, pinch with two
   var pts = {}, last = null;
@@ -221,14 +224,14 @@ sitemap: false
     pts[e.pointerId] = [e.clientX, e.clientY];
     var ids = Object.keys(pts);
     if (ids.length === 1) {
-      tx += e.clientX - prev[0];
-      ty += e.clientY - prev[1];
+      tx += (e.clientX - prev[0]) / pz();
+      ty += (e.clientY - prev[1]) / pz();
       moved = true;
       draw();
     } else if (ids.length === 2) {
       var a = pts[ids[0]], b = pts[ids[1]], r = view.getBoundingClientRect();
       var d = Math.hypot(a[0] - b[0], a[1] - b[1]);
-      if (last) zoomAt(z * d / last, (a[0] + b[0]) / 2 - r.left, (a[1] + b[1]) / 2 - r.top);
+      if (last) zoomAt(z * d / last, ((a[0] + b[0]) / 2 - r.left) / pz(), ((a[1] + b[1]) / 2 - r.top) / pz());
       last = d;
     }
   });
@@ -255,9 +258,12 @@ sitemap: false
   function layout() {
     var box = document.querySelector('.m2'), page = box.parentElement;
     box.style.left = box.style.width = '';
-    var W = document.documentElement.clientWidth; // without the scrollbar
+    // all in the page's own CSS pixels: with the site's zoom (style.scss),
+    // window width and element positions come back in screen pixels
+    var Z = page.currentCSSZoom || 1;
+    var W = document.documentElement.clientWidth / Z; // without the scrollbar
     var cs = getComputedStyle(page), r = page.getBoundingClientRect();
-    var cl = r.left + parseFloat(cs.paddingLeft), cw = r.right - parseFloat(cs.paddingRight) - cl;
+    var cl = r.left / Z + parseFloat(cs.paddingLeft), cw = r.right / Z - parseFloat(cs.paddingRight) - cl;
     var need = NAV + GAP + EDGE; // room the list needs left of the column
     var side = true;
     if (cl < need) {
