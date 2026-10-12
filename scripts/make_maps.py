@@ -38,6 +38,12 @@ GROUPS = [
     ('Porphyrin metabolism', []),
     ('Biological oxidations', []),
 ]
+# kept for later: a fuller list of groups, in this order (not used yet)
+#   Carbon metabolism, Lipid metabolism, Amino acid metabolism,
+#   Nucleotide metabolism, Nitric oxide metabolism,
+#   Vitamin & cofactor metabolism, Energy metabolism, Porphyrin metabolism,
+#   Biological oxidations, Inositol phosphate metabolism, Glycan metabolism,
+#   Xenobiotic metabolism, Iron-sulfur cluster metabolism
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
