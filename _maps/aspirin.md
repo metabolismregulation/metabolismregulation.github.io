@@ -13,12 +13,12 @@ scale: 1
 annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F100-aspirin.graphml"}
+  - {label: "PNG", url: "/downloads/F100-aspirin.png"}
+  - {label: "SVG", url: "/downloads/F100-aspirin.svg"}
   - {label: "SBGN-ML", url: "/downloads/F100-aspirin.sbgn"}
   - {label: "SBML", url: "/downloads/F100-aspirin-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F100-aspirin.xml"}
   - {label: "Annotation", url: "/downloads/F100-aspirin.csv"}
-  - {label: "PNG", url: "/downloads/F100-aspirin.png"}
-  - {label: "SVG", url: "/downloads/F100-aspirin.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F100-aspirin.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin"}
 ---

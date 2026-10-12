@@ -13,9 +13,9 @@ scale: 1
 annotation: "/atlas-data/F001-glycolysis-cardiac.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F001-glycolysis-cardiac.graphml"}
-  - {label: "CellDesigner", url: "/downloads/F001-glycolysis-cardiac.xml"}
   - {label: "PNG", url: "/downloads/F001-glycolysis-cardiac.png"}
   - {label: "SVG", url: "/downloads/F001-glycolysis-cardiac.svg"}
+  - {label: "CellDesigner", url: "/downloads/F001-glycolysis-cardiac.xml"}
 ---
 ## Contributors
 

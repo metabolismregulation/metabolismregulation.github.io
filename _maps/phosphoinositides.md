@@ -13,12 +13,12 @@ scale: 1
 annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F009-phosphoinositides.graphml"}
+  - {label: "PNG", url: "/downloads/F009-phosphoinositides.png"}
+  - {label: "SVG", url: "/downloads/F009-phosphoinositides.svg"}
   - {label: "SBGN-ML", url: "/downloads/F009-phosphoinositides.sbgn"}
   - {label: "SBML", url: "/downloads/F009-phosphoinositides-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F009-phosphoinositides.xml"}
   - {label: "Annotation", url: "/downloads/F009-phosphoinositides.csv"}
-  - {label: "PNG", url: "/downloads/F009-phosphoinositides.png"}
-  - {label: "SVG", url: "/downloads/F009-phosphoinositides.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F009-phosphoinositides.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F009-phosphoinositides"}
 ---

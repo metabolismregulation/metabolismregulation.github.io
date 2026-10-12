@@ -13,12 +13,12 @@ scale: 1
 annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F015-tag.graphml"}
+  - {label: "PNG", url: "/downloads/F015-tag.png"}
+  - {label: "SVG", url: "/downloads/F015-tag.svg"}
   - {label: "SBGN-ML", url: "/downloads/F015-tag.sbgn"}
   - {label: "SBML", url: "/downloads/F015-tag-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F015-tag.xml"}
   - {label: "Annotation", url: "/downloads/F015-tag.csv"}
-  - {label: "PNG", url: "/downloads/F015-tag.png"}
-  - {label: "SVG", url: "/downloads/F015-tag.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F015-tag.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F015-tag"}
 ---

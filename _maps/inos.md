@@ -13,12 +13,12 @@ scale: 1
 annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F007-inos.graphml"}
+  - {label: "PNG", url: "/downloads/F007-inos.png"}
+  - {label: "SVG", url: "/downloads/F007-inos.svg"}
   - {label: "SBGN-ML", url: "/downloads/F007-inos.sbgn"}
   - {label: "SBML", url: "/downloads/F007-inos-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F007-inos.xml"}
   - {label: "Annotation", url: "/downloads/F007-inos.csv"}
-  - {label: "PNG", url: "/downloads/F007-inos.png"}
-  - {label: "SVG", url: "/downloads/F007-inos.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F007-inos.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos"}
 ---

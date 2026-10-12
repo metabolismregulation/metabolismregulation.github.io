@@ -13,12 +13,12 @@ scale: 1
 annotation: ""
 downloads:
   - {label: "GraphML", url: "/downloads/F006-acly.graphml"}
+  - {label: "PNG", url: "/downloads/F006-acly.png"}
+  - {label: "SVG", url: "/downloads/F006-acly.svg"}
   - {label: "SBGN-ML", url: "/downloads/F006-acly.sbgn"}
   - {label: "SBML", url: "/downloads/F006-acly-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F006-acly.xml"}
   - {label: "Annotation", url: "/downloads/F006-acly.csv"}
-  - {label: "PNG", url: "/downloads/F006-acly.png"}
-  - {label: "SVG", url: "/downloads/F006-acly.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-acly.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly"}
 ---

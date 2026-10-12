@@ -52,9 +52,10 @@ GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
 TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
-# download buttons in this order: the files, then the annotation table, the
-# map images (PNG, SVG; added when downloads/ has them), then the two online viewers
-LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'PNG', 'SVG', 'Newt', 'MINERVA']
+# download buttons in this order: GraphML and the map images (PNG, SVG; added
+# when downloads/ has them), the other files, then the annotation table, then
+# the two online viewers
+LABELS = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
 
 
 def scale_of(base, width):
