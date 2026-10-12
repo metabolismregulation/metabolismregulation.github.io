@@ -75,7 +75,7 @@ GN, YN = '{http://graphml.graphdrawing.org/xmlns}', '{http://www.yworks.com/xml/
 # the annotation properties shown in the Atlas panel, in this order (other
 # custom properties, e.g. from a CellDesigner import, are left out)
 ANN_FIELDS = ['Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
-              'HGNC', 'HGNC symbol', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
+              'HGNC', 'HGNC symbol', 'HGNC aliases', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
               'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey']
 
 

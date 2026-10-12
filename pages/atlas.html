@@ -395,6 +395,9 @@ sitemap: false
       q.appendChild(el(strong ? 'b' : 'span', null, p[name]));
       info.appendChild(q);
     };
+    // a label that is not the gene symbol (COX-2): the HGNC symbol first
+    var sym = p['HGNC symbol'];
+    if (sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase()) line('HGNC symbol');
     line('Full name');
     line('Alternative names');
     line('Synonyms');
