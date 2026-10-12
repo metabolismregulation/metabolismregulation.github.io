@@ -6,20 +6,28 @@ sitemap: false
 ---
 
 <style>
-  /* the map column keeps the width of the other pages (the site's 840 px
-     column) and the list sits to its left. When the screen gets narrower,
-     the column first moves right into the free space, then the viewer gets
-     narrower, and only then the list goes above the map (set by layout()) */
-  .m2 { position: relative; }
-  .m2-nav { margin-bottom: 12px; }
-  .m2-side .m2-nav { position: absolute; top: 0; right: calc(100% + 32px); width: 240px; margin: 0; }
-  .m2-side #m2-list { max-height: calc(100vh - 200px); overflow-y: auto; }
-  .m2:not(.m2-side) #m2-search { margin-bottom: 8px; }
-  .m2:not(.m2-side) #m2-list { max-height: 109px; overflow-y: auto; border-bottom: 1px solid #eee; }
+  /* as on the Colours page: the list on the left, the map and its text in
+     the middle, and an empty column of the list's width on the right, so the
+     middle stays centred under the header. The middle takes all the room
+     there is: with the browser zoomed out (Cmd -) the side columns look
+     smaller and the map larger. The layout is 87% of the window wide, but at
+     least wide enough for a 600 px map; on narrower windows the empty right
+     column gives way first, then the list goes above the map. */
+  .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
+        width: min(100vw - 32px, max(87vw, 1144px)); position: relative; left: 50%; transform: translateX(-50%); }
+  .m2-nav { grid-column: 1; }
+  .m2-main { grid-column: 2; min-width: 0; }
+  #m2-list { max-height: calc(100vh - 200px); overflow-y: auto; }
+  @media (max-width: 940px) {
+    .m2 { display: block; width: auto; left: 0; transform: none; }
+    .m2-nav { margin-bottom: 12px; }
+    #m2-search { margin-bottom: 8px; }
+    #m2-list { max-height: 114px; border-bottom: 1px solid #eee; }
+  }
 
   #m2-search { width: 100%; box-sizing: border-box; font-size: 14px; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 16px; }
   #m2-list { display: flex; flex-direction: column; gap: 2px; }
-  .m2-item { display: block; width: 100%; text-align: left; font-size: 12px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; color: #000; }
+  .m2-item { display: block; width: 100%; text-align: left; font-size: 13px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; color: #000; }
   /* the chosen map: a filled box in the site's link blue, white text */
   .m2-item:hover { background: #f0f0f0; }
   .m2-item.m2-on { background: #4183c4; color: #fff; }
@@ -28,7 +36,7 @@ sitemap: false
   /* groups as a list with sublists: the group name at the size of the
      items, semibold, and its maps indented under it */
   /* a group name opens or closes its maps; all groups start open */
-  .m2-group { display: block; width: 100%; text-align: left; font: inherit; font-size: 12px; font-weight: 600; color: #000; background: none; border: 0; padding: 2px 5px 2px 0; margin-top: 6px; cursor: pointer; }
+  .m2-group { display: block; width: 100%; text-align: left; font: inherit; font-size: 13px; font-weight: 600; color: #000; background: none; border: 0; padding: 2px 5px 2px 0; margin-top: 6px; cursor: pointer; }
   .m2-group:first-child { margin-top: 0; }
   .m2-group:focus { outline: none; }
   /* open / closed sign before a group name: filled triangles. For chevrons
@@ -40,8 +48,9 @@ sitemap: false
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
-  /* the view can be made larger with its lower right corner */
-  #m2-view { position: relative; width: 100%; height: 504px; min-width: 300px; min-height: 240px; max-width: min(738px, 96vw); resize: both; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
+  /* the view keeps the shape 738 x 504 and grows with the middle column, up
+     to the window height; it can also be resized with its lower right corner */
+  #m2-view { position: relative; width: 100%; aspect-ratio: 738 / 504; max-height: calc(100vh - 140px); min-width: 300px; min-height: min(504px, 100vh - 140px); max-width: 100%; resize: both; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
   #m2-view.m2-drag { cursor: grabbing; }
   /* no focus ring on the map and its zoom buttons: they keep focus after a
      click, and the browser draws the ring as soon as a key (such as an arrow
@@ -64,7 +73,7 @@ sitemap: false
   #m2-text h2 { font-size: 18px; }
 </style>
 
-<div class="m2 m2-side">
+<div class="m2">
 <div class="m2-nav">
 <input type="search" id="m2-search" placeholder="Search maps" autocomplete="off">
 <div id="m2-list"></div>
@@ -253,30 +262,6 @@ sitemap: false
   window.addEventListener('resize', draw);
   if (window.ResizeObserver) new ResizeObserver(draw).observe(view);
 
-  // ---------- page layout ----------
-  var NAV = 240, GAP = 32, EDGE = 16, MINVIEW = 600;
-  function layout() {
-    var box = document.querySelector('.m2'), page = box.parentElement;
-    box.style.left = box.style.width = '';
-    // all in the page's own CSS pixels: with the site's zoom (style.scss),
-    // window width and element positions come back in screen pixels
-    var Z = page.currentCSSZoom || 1;
-    var W = document.documentElement.clientWidth / Z; // without the scrollbar
-    var cs = getComputedStyle(page), r = page.getBoundingClientRect();
-    var cl = r.left / Z + parseFloat(cs.paddingLeft), cw = r.right / Z - parseFloat(cs.paddingRight) - cl;
-    var need = NAV + GAP + EDGE; // room the list needs left of the column
-    var side = true;
-    if (cl < need) {
-      if (need - cl <= W - (cl + cw) - EDGE) box.style.left = need - cl + 'px'; // 1: move right
-      else if (W - need - EDGE >= MINVIEW) { // 2: narrower viewer
-        box.style.left = need - cl + 'px';
-        box.style.width = W - need - EDGE + 'px';
-      } else side = false; // 3: list above the map
-    }
-    box.classList.toggle('m2-side', side);
-  }
-  layout();
-  window.addEventListener('resize', layout);
 
   // ---------- navigation ----------
   // one row per map: the topic, with the variant in brackets when a topic
