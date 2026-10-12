@@ -95,6 +95,15 @@ sitemap: false
   .m2-info h4 { font-size: 14px; font-weight: 400; margin: 12px 0 4px; }
   .m2-info ul { list-style: none; margin: 0; padding: 0; }
   .m2-info li { margin: 0 0 3px; }
+  /* a protein family: one card per member, or one member's record under a
+     row of member buttons ("all" returns to the cards) */
+  .m2-card { display: block; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
+  .m2-card:hover { border-color: #bbb; }
+  .m2-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 10px; }
+  .m2-chip { font: inherit; font-size: 14px; line-height: 20px; padding: 0 7px; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
+  .m2-chip:hover { background: #ebebeb; border-color: #999; }
+  .m2-chip.m2-on { background: #1c47a9; border-color: #1c47a9; color: #fff; }
+  .m2-chip:focus, .m2-card:focus { outline: none; }
 </style>
 
 <div class="m2">
@@ -326,7 +335,7 @@ sitemap: false
   // in image pixels and its properties. A click on the map shows the
   // smallest box under the pointer (a protein rather than its complex).
   var info = document.getElementById('m2-info'), pin = document.getElementById('m2-pin');
-  var annCache = {}, nodes = null, sel = null;
+  var annCache = {}, nodes = null, sel = null, member = -1; // member: the family member shown, -1 for the cards
   var KIND = { Macromolecule: 'Protein', SimpleChemical: 'Simple molecule', NucleicAcidFeature: 'Gene', Complex: 'Complex' };
   var LINK = {
     'HGNC': 'https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/',
@@ -365,12 +374,16 @@ sitemap: false
       if (x >= b[0] && x <= b[0] + b[2] && y >= b[1] && y <= b[1] + b[3] && (!best || b[2] * b[3] < best.box[2] * best.box[3])) best = n;
     });
     sel = best;
+    member = -1;
     renderInfo();
     drawPin();
   }
   function closeInfo() { sel = null; renderInfo(); drawPin(); }
-  // Esc closes the annotation too
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel) closeInfo(); });
+  // Esc closes the annotation too; in a family member's record it first returns to the cards
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !sel) return;
+    if (sel.members && member >= 0) { member = -1; renderInfo(); } else closeInfo();
+  });
   function drawPin() {
     if (!sel || !current) { pin.style.display = 'none'; return; }
     var k = scaleOf(current), b = sel.box;
@@ -380,31 +393,69 @@ sitemap: false
   function renderInfo() {
     info.innerHTML = '';
     if (!nodes || !sel) return;
-    var p = {};
-    sel.props.forEach(function (kv) { p[kv[0]] = kv[1]; });
-    var head = el('div', 'm2-info-head'), h = el('h3', null, (KIND[sel['class']] || sel['class']) + ': ');
+    var p = props(sel.props);
+    var family = !!sel.members;
+    var head = el('div', 'm2-info-head'), h = el('h3', null, (family ? 'Protein family' : (KIND[sel['class']] || sel['class'])) + ': ');
     h.appendChild(el('b', null, sel.label));
     var x = el('button', 'm2-info-close', '\u00d7');
     x.type = 'button'; x.title = 'Close';
     x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
-    var line = function (name, label, strong) {
-      if (!p[name]) return;
-      var q = el('p');
-      q.appendChild(el('span', 'm2-k', (label || name) + ': '));
-      q.appendChild(el(strong ? 'b' : 'span', null, p[name]));
-      info.appendChild(q);
-    };
-    // a label that is not the gene symbol (COX-2): the HGNC symbol first
-    var sym = p['HGNC symbol'];
-    if (sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase()) line('HGNC symbol');
-    line('Full name');
-    line('Alternative names');
-    line('Synonyms');
+    if (!family) {
+      // a label that is not the gene symbol (COX-2): the HGNC symbol first
+      var sym = p['HGNC symbol'];
+      if (sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase()) line(p, 'HGNC symbol');
+      if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', 'm2-k', p['Note']));
+      record(p, sel.note);
+      return;
+    }
+    var fam = el('p');
+    if (p['Family']) fam.appendChild(el('span', 'm2-k', p['Family'] + ', '));
+    fam.appendChild(document.createTextNode(sel.members.length + ' members'));
+    info.appendChild(fam);
+    if (member < 0) {
+      sel.members.forEach(function (m, i) {
+        var mp = props(m.props), c = el('button', 'm2-card');
+        c.type = 'button';
+        c.appendChild(el('b', null, m.symbol));
+        c.appendChild(document.createTextNode(' '));
+        c.appendChild(el('span', 'm2-k', mp['Note'] || mp['Full name'] || ''));
+        c.addEventListener('click', function () { member = i; renderInfo(); });
+        info.appendChild(c);
+      });
+      return;
+    }
+    var chips = el('div', 'm2-chips');
+    sel.members.concat([null]).forEach(function (m, i) {
+      var b = el('button', 'm2-chip' + (i === member ? ' m2-on' : ''), m ? m.symbol : 'all');
+      b.type = 'button';
+      b.addEventListener('click', function () { member = m ? i : -1; renderInfo(); });
+      chips.appendChild(b);
+    });
+    info.appendChild(chips);
+    var m = sel.members[member], mp = props(m.props), t = el('p');
+    t.appendChild(el('b', null, m.symbol));
+    if (mp['Note']) { t.appendChild(document.createTextNode(' ')); t.appendChild(el('span', 'm2-k', mp['Note'])); }
+    info.appendChild(t);
+    record(mp, '');
+  }
+  function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
+  function line(p, name) {
+    if (!p[name]) return;
+    var q = el('p');
+    q.appendChild(el('span', 'm2-k', name + ': '));
+    q.appendChild(el('span', null, p[name]));
+    info.appendChild(q);
+  }
+  // one protein's or metabolite's record: names, text, then the database links
+  function record(p, note) {
+    line(p, 'Full name');
+    line(p, 'Alternative names');
+    line(p, 'Synonyms');
     if (p['Function'] || p['Definition']) info.appendChild(el('p', null, p['Function'] || p['Definition']));
-    line('Location');
-    line('Formula');
-    if (sel.note) { p['Map note'] = sel.note; line('Map note'); }
+    line(p, 'Location');
+    line(p, 'Formula');
+    if (note) line({ 'Map note': note }, 'Map note');
     var ids = IDS.filter(function (n) { return p[n]; });
     if (!ids.length) return;
     info.appendChild(el('h4', null, 'Annotations'));

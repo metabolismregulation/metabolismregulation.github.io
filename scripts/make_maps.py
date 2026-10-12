@@ -76,7 +76,9 @@ GN, YN = '{http://graphml.graphdrawing.org/xmlns}', '{http://www.yworks.com/xml/
 # custom properties, e.g. from a CellDesigner import, are left out)
 ANN_FIELDS = ['Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
               'HGNC', 'HGNC symbol', 'HGNC aliases', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
-              'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey']
+              'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey', 'Note', 'Family', 'Members']
+# a protein family node: its members' records, as JSON in this property
+MEMBERS_FIELD = 'Member annotation'
 
 
 def annotation(base):
@@ -90,6 +92,7 @@ def annotation(base):
     keys = {k.get('id'): k.get('attr.name') for k in root.findall(GN + 'key')
             if k.get('for') == 'node' and k.get('attr.name')}
     custom = sorted((k for k, n in keys.items() if n in ANN_FIELDS), key=lambda k: ANN_FIELDS.index(keys[k]))
+    mkey = [k for k, n in keys.items() if n == MEMBERS_FIELD]
     if not custom:
         return None
     # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty): svg = yEd + (tx, ty)
@@ -101,6 +104,9 @@ def annotation(base):
         props = [[keys[k], data[keys[k]]] for k in custom if data.get(keys[k])]
         if not props:
             continue
+        members = json.loads(data[MEMBERS_FIELD]) if mkey and data.get(MEMBERS_FIELD) else None
+        for m in members or []:
+            m['props'] = [kv for kv in m['props'] if kv[0] in ANN_FIELDS]
         gn = n.find(GN + 'data/' + YN + 'GenericNode')
         if gn is None:  # a group node: its open realizer
             gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
@@ -111,6 +117,8 @@ def annotation(base):
                       'box': [round(float(geo.get('x')) + tx, 1), round(float(geo.get('y')) + ty, 1),
                               round(float(geo.get('width')), 1), round(float(geo.get('height')), 1)],
                       'url': data.get('url', ''), 'note': data.get('description', ''), 'props': props})
+        if members:
+            nodes[-1]['members'] = members
     return nodes
 
 

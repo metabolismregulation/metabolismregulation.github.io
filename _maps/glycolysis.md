@@ -10,7 +10,7 @@ image: "/downloads/F001-glycolysis.svg"
 width: 867
 height: 679
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F001-glycolysis.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F001-glycolysis.graphml"}
   - {label: "PNG", url: "/downloads/F001-glycolysis.png"}
