@@ -13,7 +13,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F100-aspirin.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp; 
 <a href="/downloads/F100-aspirin.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/aspirin/"><img id="image" src="/downloads/F100-aspirin.png" width="630"/></a></p>
+<p align="middle"><a href="/aspirin/"><img id="image" src="/downloads/F100-aspirin.svg" width="630"/></a></p>
 
 ## Contributors
 

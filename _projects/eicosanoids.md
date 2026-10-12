@@ -14,7 +14,7 @@ Downloads: &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F002-eicosanoids.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F002-eicosanoids.csv" download>Annotation</a> &nbsp;
 <!--<a href="/eicosanoids/"><img id="logo" src="/images/figure02v04.png" style="width:100%;"/></a>-->
-<p align="middle"><a href="/eicosanoids/"><img id="image" src="/downloads/F002-eicosanoids.png" width="450"/></a></p>
+<p align="middle"><a href="/eicosanoids/"><img id="image" src="/downloads/F002-eicosanoids.svg" width="450"/></a></p>
 
 ## Contributors
 

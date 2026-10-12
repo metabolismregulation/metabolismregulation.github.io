@@ -13,7 +13,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F009-phosphoinositides" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F009-phosphoinositides.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F009-phosphoinositides.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.png" width="495"/></a></p>
+<p align="middle"><a href="/phosphoinositides/"><img id="image" src="/downloads/F009-phosphoinositides.svg" width="495"/></a></p>
 
 ## Contributors
 

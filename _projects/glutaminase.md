@@ -13,7 +13,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F019-glutaminase.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F019-glutaminase.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/glutaminase/"><img id="image" src="/downloads/F019-glutaminase.png" width="470"/></a></p>
+<p align="middle"><a href="/glutaminase/"><img id="image" src="/downloads/F019-glutaminase.svg" width="470"/></a></p>
 
 ## Contributors
 

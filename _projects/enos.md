@@ -13,7 +13,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F008-enos.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.png" width="775"/></a></p>
+<p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.svg" width="775"/></a></p>
 
 ## Contributors
 

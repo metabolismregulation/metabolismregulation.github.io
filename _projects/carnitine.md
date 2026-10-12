@@ -13,7 +13,7 @@ Downloads: &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <a href="/downloads/F014-carnitine.csv" download>Annotation</a> &nbsp;
-<p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.png" width="600"/></a></p>
+<p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.svg" width="600"/></a></p>
 
 ## Contributors
 
