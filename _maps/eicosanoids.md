@@ -17,6 +17,8 @@ downloads:
   - {label: "SBML", url: "/downloads/F002-eicosanoids-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F002-eicosanoids.xml"}
   - {label: "Annotation", url: "/downloads/F002-eicosanoids.csv"}
+  - {label: "PNG", url: "/downloads/F002-eicosanoids.png"}
+  - {label: "SVG", url: "/downloads/F002-eicosanoids.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F002-eicosanoids.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F002-eicosanoids"}
 ---

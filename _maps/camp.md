@@ -17,6 +17,8 @@ downloads:
   - {label: "SBML", url: "/downloads/F012-camp-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F012-camp.xml"}
   - {label: "Annotation", url: "/downloads/F012-camp.csv"}
+  - {label: "PNG", url: "/downloads/F012-camp.png"}
+  - {label: "SVG", url: "/downloads/F012-camp.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F012-camp.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F012-camp"}
 ---

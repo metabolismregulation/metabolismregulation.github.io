@@ -17,6 +17,8 @@ downloads:
   - {label: "SBML", url: "/downloads/F014-carnitine-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F014-carnitine.xml"}
   - {label: "Annotation", url: "/downloads/F014-carnitine.csv"}
+  - {label: "PNG", url: "/downloads/F014-carnitine.png"}
+  - {label: "SVG", url: "/downloads/F014-carnitine.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine"}
 ---

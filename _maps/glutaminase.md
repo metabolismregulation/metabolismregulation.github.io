@@ -17,6 +17,8 @@ downloads:
   - {label: "SBML", url: "/downloads/F019-glutaminase-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F019-glutaminase.xml"}
   - {label: "Annotation", url: "/downloads/F019-glutaminase.csv"}
+  - {label: "PNG", url: "/downloads/F019-glutaminase.png"}
+  - {label: "SVG", url: "/downloads/F019-glutaminase.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F019-glutaminase.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase"}
 ---

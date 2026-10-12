@@ -17,6 +17,8 @@ downloads:
   - {label: "SBML", url: "/downloads/F008-enos-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F008-enos.xml"}
   - {label: "Annotation", url: "/downloads/F008-enos.csv"}
+  - {label: "PNG", url: "/downloads/F008-enos.png"}
+  - {label: "SVG", url: "/downloads/F008-enos.svg"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos"}
 ---

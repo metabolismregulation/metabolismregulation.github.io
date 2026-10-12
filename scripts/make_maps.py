@@ -52,9 +52,9 @@ GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
 TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
-# download buttons in this order: the files, then the annotation table, then
-# the two online viewers
-LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
+# download buttons in this order: the files, then the annotation table, the
+# map images (PNG, SVG; added when downloads/ has them), then the two online viewers
+LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'PNG', 'SVG', 'Newt', 'MINERVA']
 
 
 def scale_of(base, width):
@@ -181,6 +181,9 @@ def main():
                   'scale: %s' % (scale or 'null'),
                   'annotation: ' + yaml_str(ann_url),
                   'downloads:']
+            for label, e in (('PNG', '.png'), ('SVG', '.svg')):
+                if os.path.exists(os.path.join(ROOT, 'downloads', base + e)) and not any(d['label'] == label for d in downloads):
+                    downloads.append({'label': label, 'url': '/downloads/' + base + e})
             downloads.sort(key=lambda d: LABELS.index(d['label']))
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']
