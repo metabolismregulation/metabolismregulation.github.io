@@ -10,7 +10,7 @@ image: "/downloads/F100-aspirin.svg"
 width: 943
 height: 290
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F100-aspirin.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F100-aspirin.graphml"}
   - {label: "PNG", url: "/downloads/F100-aspirin.png"}
