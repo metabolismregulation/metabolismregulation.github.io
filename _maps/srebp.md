@@ -3,7 +3,8 @@ title: "Regulation of cholesterol metabolism via SREBP"
 topic: "SREBP signalling"
 tab: ""
 page: "/srebp/"
-order: 12
+group: "Lipid metabolism"
+order: 9
 image: "/downloads/F005-srebp.svg"
 width: 746
 height: 1166

@@ -3,7 +3,8 @@ title: "Regulation of eicosanoid production"
 topic: "Eicosanoid production"
 tab: ""
 page: "/eicosanoids/"
-order: 3
+group: "Lipid metabolism"
+order: 6
 image: "/downloads/F002-eicosanoids.svg"
 width: 664
 height: 552

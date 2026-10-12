@@ -3,7 +3,8 @@ title: "Regulation of glutaminolysis via the NF-kB-PKCe axis in lung cancer cell
 topic: "Glutaminolysis"
 tab: ""
 page: "/glutaminase/"
-order: 16
+group: "Amino acid metabolism"
+order: 14
 image: "/downloads/F019-glutaminase.svg"
 width: 690
 height: 581

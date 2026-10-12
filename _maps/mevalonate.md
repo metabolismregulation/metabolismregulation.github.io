@@ -3,7 +3,8 @@ title: "Regulation of mevalonate synthesis"
 topic: "Mevalonate biosynthesis"
 tab: ""
 page: "/mevalonate/"
-order: 4
+group: "Lipid metabolism"
+order: 7
 image: "/downloads/F003-mevalonate.svg"
 width: 1541
 height: 650

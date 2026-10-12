@@ -25,6 +25,18 @@ SHORT = dict(re.findall(r'class="gallery-title" href="/([^/]+)/">([^<]+)<',
 # Glycogen metabolism (muscle)
 JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle')}
 TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver'}
+# the Atlas list: groups in this order, maps in this order within a group
+GROUPS = [
+    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
+    ('Lipid metabolism', ['eicosanoids', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'aspirin']),
+    ('Amino acid metabolism', ['glutaminase']),
+    ('Nitric oxide metabolism', ['inos', 'enos']),
+    ('Nucleotide metabolism', ['pyrimidine', 'camp']),
+]
+GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
+POSITION = [m for g, ms in GROUPS for m in ms]
+# list names that differ from the Gallery's short names
+TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
 LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'MINERVA', 'Newt', 'Annotation']
 
 
@@ -58,7 +70,7 @@ def main():
         _, front, body = s.split('---', 2)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
         topic_slug, tab = JOIN.get(slug, (slug, None))
-        topic = SHORT.get(topic_slug, title)
+        topic = TOPIC.get(topic_slug, SHORT.get(topic_slug, title))
         # each map block: download links, then the image
         blocks = re.findall(r'((?:<a [^\n]*\n|Downloads:[^\n]*\n|<!--[^\n]*-->\n)+)<p align="middle"><a [^>]*><img [^>]*src="/downloads/([^"]+)\.png"', body)
         # the text: everything that is not a download line, an image line or a second-map heading
@@ -95,7 +107,8 @@ def main():
                   'topic: ' + yaml_str(topic),
                   'tab: ' + yaml_str(tab or (TABS.get(base) if len(blocks) > 1 or base in TABS else None) or ''),
                   'page: ' + yaml_str('/' + slug + '/'),
-                  'order: %d' % (len(written) + 1),
+                  'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
+                  'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'image: ' + yaml_str('/downloads/' + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),

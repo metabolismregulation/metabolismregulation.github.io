@@ -3,7 +3,8 @@ title: "Regulation of eicosanoid metabolism by aspirin"
 topic: "Aspirin"
 tab: ""
 page: "/aspirin/"
-order: 18
+group: "Lipid metabolism"
+order: 13
 image: "/downloads/F100-aspirin.svg"
 width: 943
 height: 290

@@ -3,6 +3,7 @@ title: "Regulation of pyrimidine biosynthesis via MAPK signalling"
 topic: "Pyrimidine biosynthesis"
 tab: ""
 page: "/pyrimidine/"
+group: "Nucleotide metabolism"
 order: 17
 image: "/downloads/F020-pyrimidine.svg"
 width: 459

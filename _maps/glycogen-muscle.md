@@ -3,7 +3,8 @@ title: "Regulation of glycogen metabolism, muscle"
 topic: "Glycogen metabolism"
 tab: "muscle"
 page: "/glycogen/"
-order: 5
+group: "Carbohydrate metabolism"
+order: 3
 image: "/downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1746

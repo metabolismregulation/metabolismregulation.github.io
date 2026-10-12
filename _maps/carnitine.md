@@ -3,7 +3,8 @@ title: "Regulation of acyl-carnitine synthesis"
 topic: "Acyl-carnitine synthesis"
 tab: ""
 page: "/carnitine/"
-order: 11
+group: "Lipid metabolism"
+order: 8
 image: "/downloads/F014-carnitine.svg"
 width: 885
 height: 1197

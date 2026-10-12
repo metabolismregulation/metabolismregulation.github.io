@@ -3,7 +3,8 @@ title: "Regulation of estradiol biosynthesis via prostaglandin–cAMP signalling
 topic: "Estradiol biosynthesis"
 tab: ""
 page: "/estrogen/"
-order: 14
+group: "Lipid metabolism"
+order: 11
 image: "/downloads/F018-estrogen.svg"
 width: 1233
 height: 1305

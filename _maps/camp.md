@@ -3,7 +3,8 @@ title: "Regulation of cAMP hydrolysis"
 topic: "cAMP hydrolysis"
 tab: ""
 page: "/camp/"
-order: 8
+group: "Nucleotide metabolism"
+order: 18
 image: "/downloads/F012-camp.svg"
 width: 745
 height: 730

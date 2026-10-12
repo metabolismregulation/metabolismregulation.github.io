@@ -3,7 +3,8 @@ title: "Regulation of nitric oxide production - iNOS pathway"
 topic: "iNOS pathway"
 tab: ""
 page: "/inos/"
-order: 9
+group: "Nitric oxide metabolism"
+order: 15
 image: "/downloads/F007-inos.svg"
 width: 1590
 height: 1186

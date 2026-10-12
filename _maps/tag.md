@@ -3,7 +3,8 @@ title: "Regulation of triacylglycerol hydrolysis"
 topic: "Triacylglycerol hydrolysis"
 tab: ""
 page: "/tag/"
-order: 13
+group: "Lipid metabolism"
+order: 10
 image: "/downloads/F015-tag.svg"
 width: 800
 height: 616

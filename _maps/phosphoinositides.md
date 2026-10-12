@@ -1,9 +1,10 @@
 ---
 title: "Regulation of phosphoinositide metabolism"
-topic: "Phosphoinositide"
+topic: "Phosphoinositide metabolism"
 tab: ""
 page: "/phosphoinositides/"
-order: 15
+group: "Lipid metabolism"
+order: 12
 image: "/downloads/F009-phosphoinositides.svg"
 width: 739
 height: 989

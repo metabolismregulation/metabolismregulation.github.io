@@ -3,7 +3,8 @@ title: "Regulation of nitric oxide production - eNOS pathway"
 topic: "eNOS pathway"
 tab: ""
 page: "/enos/"
-order: 10
+group: "Nitric oxide metabolism"
+order: 16
 image: "/downloads/F008-enos.svg"
 width: 1297
 height: 1707
