@@ -25,9 +25,11 @@ sitemap: false
   .m2-item.m2-on { background: #4183c4; color: #fff; }
   .m2-item:focus { outline: none; }
   .m2-none { font-size: 12px; color: #666; padding: 2px 4px; }
-  /* group headings in the list, as in Carbohydrate metabolism */
-  .m2-group { font-size: 13px; font-weight: 600; color: #666; padding: 0 5px; margin: 12px 0 2px; }
+  /* groups as a list with sublists: the group name at the size of the
+     items, semibold, and its maps indented under it */
+  .m2-group { font-size: 14px; font-weight: 600; color: #000; padding: 2px 5px; margin-top: 6px; }
   .m2-group:first-child { margin-top: 0; }
+  .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
   /* the view can be made larger with its lower right corner */
@@ -264,7 +266,7 @@ sitemap: false
     var group = null;
     shown.forEach(function (m) {
       if (m.group && m.group !== group) { group = m.group; box.appendChild(el('div', 'm2-group', group)); }
-      var b = el('button', 'm2-item' + (m === current ? ' m2-on' : ''), label(m));
+      var b = el('button', 'm2-item' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
       b.addEventListener('click', function () { go(m.id); });
