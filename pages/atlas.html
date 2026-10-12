@@ -86,7 +86,7 @@ sitemap: false
   // the site's build time, added to the data addresses so a browser that kept
   // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
   var BUILD = '?v={{ site.time | date: "%s" }}';
-  var STANDARD = 0.6075, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
+  var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
   // how a map opens: 'fit' (the default) or 'read' at the standard zoom. Set by the mode
   // button and remembered by the browser where it can
   var mode = 'fit';
@@ -146,9 +146,9 @@ sitemap: false
     moved = false;
     draw();
   }
-  // the whole map in the view, but never larger than 110% of the standard
-  // zoom, so a small map is not blown up
-  var FIT_MAX = 1.1;
+  // the whole map in the view, but never larger than the standard
+  // zoom (FIT_MAX), so a small map is not blown up
+  var FIT_MAX = 1;
   function fit() {
     var s = size(current);
     z = Math.min(fitZoom(), STANDARD * FIT_MAX);
