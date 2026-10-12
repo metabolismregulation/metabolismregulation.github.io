@@ -71,6 +71,8 @@ sitemap: false
   /* the online viewers open another site: the usual external-link icon */
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
   #m2-text h2 { font-size: 18px; }
+  /* links on this page (text and annotation) in a darker blue than the site's #4183c4 */
+  .m2 a { color: #1f5a99; }
 
   /* annotation of the clicked protein or metabolite: in the right column, or
      on narrower windows over the right side of the map */
@@ -398,7 +400,8 @@ sitemap: false
     var ul = el('ul');
     ids.forEach(function (n) {
       var li = el('li');
-      String(p[n]).split(/,\s*/).forEach(function (v, i) {
+      // several IDs (RefSeq) are separated by commas; InChI has commas of its own
+      (LINK[n] ? String(p[n]).split(/,\s*/) : [String(p[n])]).forEach(function (v, i) {
         if (i) li.appendChild(document.createTextNode(', '));
         if (LINK[n]) {
           var a = el('a', null, n.toUpperCase() + ' (' + v + ')');
