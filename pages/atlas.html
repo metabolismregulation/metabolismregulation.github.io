@@ -75,7 +75,10 @@ sitemap: false
      than the site's #4183c4; underlined in the annotation panel, as in MINERVA */
   .m2 a { color: #1c47a9; }
   .m2-info a { text-decoration: underline; }
-  .m2 a:hover, .m2 a:active { color: #4183c4; } /* on hover the lighter site blue, clearly different */
+  /* on hover: annotation links turn the lighter site blue; links in the map
+     text (references) keep their colour */
+  .m2 a:hover, .m2 a:active { color: #1c47a9; }
+  .m2-info a:hover, .m2-info a:active { color: #4183c4; }
 
   /* annotation of the clicked protein or metabolite: in the right column, or
      on narrower windows over the right side of the map */
