@@ -87,10 +87,10 @@ sitemap: false
   // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.6075, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
-  // how a map opens: 'read' at the standard zoom, or 'fit'. Set by the mode
+  // how a map opens: 'fit' (the default) or 'read' at the standard zoom. Set by the mode
   // button and remembered by the browser where it can
-  var mode = 'read';
-  try { if (localStorage.getItem('atlas-view') === 'fit') mode = 'fit'; } catch (e) {}
+  var mode = 'fit';
+  try { if (localStorage.getItem('atlas-view') === 'read') mode = 'read'; } catch (e) {}
   var maps = [], byId = {}, topics = [], current = null, textCache = {};
   var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
   var z = STANDARD, tx = 0, ty = 0;
