@@ -32,6 +32,11 @@ GROUPS = [
     ('Amino acid metabolism', ['glutaminase']),
     ('Nitric oxide metabolism', ['inos', 'enos']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
+    # planned groups, for future maps; a group without maps is not shown
+    ('Vitamins & cofactors', []),
+    ('Energy metabolism', []),
+    ('Porphyrin metabolism', []),
+    ('Biological oxidations', []),
 ]
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
