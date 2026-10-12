@@ -39,10 +39,10 @@ sitemap: false
   .m2-group { display: block; width: 100%; text-align: left; font: inherit; font-size: 14px; font-weight: 400; color: #000; background: none; border: 0; padding: 2px 5px 2px 0; margin-top: 6px; cursor: pointer; }
   .m2-group:first-child { margin-top: 0; }
   .m2-group:focus { outline: none; }
-  /* open / closed sign before a group name: filled triangles. For chevrons
+  /* open / closed sign at the right end of a group name: filled triangles. For chevrons
      use instead: open url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23777' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
      closed url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23777' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") */
-  .m2-group::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 6px; vertical-align: -1px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M1.5 3.5h9L6 9z' fill='%23888'/%3E%3C/svg%3E") no-repeat center / 12px; }
+  .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M1.5 3.5h9L6 9z' fill='%23888'/%3E%3C/svg%3E") no-repeat center / 12px; }
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3.5 1.5v9L9 6z' fill='%23888'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
