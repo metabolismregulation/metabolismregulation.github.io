@@ -15,7 +15,6 @@ sitemap: false
   .m2-side .m2-nav { position: absolute; top: 0; right: calc(100% + 32px); width: 240px; margin: 0; }
   .m2-side #m2-list { max-height: calc(100vh - 200px); overflow-y: auto; }
   .m2:not(.m2-side) #m2-search { margin-bottom: 8px; }
-  .m2:not(.m2-side) #m2-view { height: 560px; } /* list above the map: fixed height */
   .m2:not(.m2-side) #m2-list { max-height: 119px; overflow-y: auto; border-bottom: 1px solid #eee; }
 
   #m2-search { width: 100%; box-sizing: border-box; font-size: 14px; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 16px; }
@@ -42,9 +41,7 @@ sitemap: false
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
   /* the view can be made larger with its lower right corner */
-  /* the viewer fills the window below the header, keeping the download
-     buttons in view, and is never lower than 560 px */
-  #m2-view { position: relative; width: 100%; height: max(560px, calc(100vh - 180px)); min-width: 300px; min-height: 240px; max-width: 96vw; resize: both; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
+  #m2-view { position: relative; width: 100%; height: 560px; min-width: 300px; min-height: 240px; max-width: 96vw; resize: both; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
   #m2-view.m2-drag { cursor: grabbing; }
   /* no focus ring on the map and its zoom buttons: they keep focus after a
      click, and the browser draws the ring as soon as a key (such as an arrow
