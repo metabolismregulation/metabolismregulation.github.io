@@ -145,11 +145,12 @@ sitemap: false
     moved = false;
     draw();
   }
-  // the whole map in the view, but never larger than the standard zoom,
-  // so a small map is not blown up
+  // the whole map in the view, but never larger than 110% of the standard
+  // zoom, so a small map is not blown up
+  var FIT_MAX = 1.1;
   function fit() {
     var s = size(current);
-    z = Math.min(fitZoom(), STANDARD);
+    z = Math.min(fitZoom(), STANDARD * FIT_MAX);
     tx = (view.clientWidth - s.w * z) / 2;
     ty = (view.clientHeight - s.h * z) / 2;
     moved = false;
