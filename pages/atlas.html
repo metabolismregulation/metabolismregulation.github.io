@@ -75,6 +75,9 @@ sitemap: false
   // Zoom is measured in screen pixels per yEd unit, so every map shows its
   // boxes and labels at the same size whatever the resolution of its image
   // (scale = image pixels per yEd unit, from scripts/make_maps.py).
+  // the site's build time, added to the data addresses so a browser that kept
+  // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
+  var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.6075, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
   // how a map opens: 'read' at the standard zoom, or 'fit'. Set by the mode
   // button and remembered by the browser where it can
@@ -320,7 +323,7 @@ sitemap: false
     if (!source) return;
     var put = function (html) { if (current === m) box.innerHTML = html; };
     if (textCache[source.id]) return put(textCache[source.id]);
-    fetch(source.data).then(function (r) { return r.json(); }).then(function (d) {
+    fetch(source.data + BUILD).then(function (r) { return r.json(); }).then(function (d) {
       textCache[source.id] = d.html;
       put(d.html);
     });
@@ -337,7 +340,7 @@ sitemap: false
   }
   window.addEventListener('hashchange', route);
 
-  fetch('{{ "/atlas/index.json" | relative_url }}').then(function (r) { return r.json(); }).then(function (list) {
+  fetch('{{ "/atlas/index.json" | relative_url }}' + BUILD).then(function (r) { return r.json(); }).then(function (list) {
     maps = list;
     maps.forEach(function (m) {
       byId[m.id] = m;
