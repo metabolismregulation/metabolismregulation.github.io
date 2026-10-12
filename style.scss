@@ -17,6 +17,23 @@ html {
   font-size: 100%;
 }
 
+// The whole site is shown at 90%, as with the browser's own zoom at 90%:
+// text, images, column width and spacing all scale together. Not on phones,
+// where the text is already sized for the small screen.
+// --zoom lets pages correct window-based sizes (vw, vh), which the zoom
+// would otherwise shrink as well: write calc(100vw / var(--zoom)).
+:root {
+  --zoom: 1;
+}
+@media screen and (min-width: 641px) {
+  :root {
+    --zoom: 0.9;
+  }
+  html {
+    zoom: 0.9;
+  }
+}
+
 body {
 	background: $white;
   font: 16px/1.4 $helvetica;
