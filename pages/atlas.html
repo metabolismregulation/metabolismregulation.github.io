@@ -366,6 +366,9 @@ sitemap: false
     renderInfo();
     drawPin();
   }
+  function closeInfo() { sel = null; renderInfo(); drawPin(); }
+  // Esc closes the annotation too
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel) closeInfo(); });
   function drawPin() {
     if (!sel || !current) { pin.style.display = 'none'; return; }
     var k = scaleOf(current), b = sel.box;
@@ -381,7 +384,7 @@ sitemap: false
     h.appendChild(el('b', null, sel.label));
     var x = el('button', 'm2-info-close', '\u00d7');
     x.type = 'button'; x.title = 'Close';
-    x.addEventListener('click', function () { sel = null; renderInfo(); drawPin(); });
+    x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
     var line = function (name, label, strong) {
       if (!p[name]) return;
