@@ -156,12 +156,34 @@ sitemap: false
     var s = size(current);
     return Math.min(view.clientWidth * 0.96 / s.w, (view.clientHeight - TOP - 12) / s.h);
   }
+  // the browser's own zoom (Cmd + / Cmd -). Browsers do not report it, but
+  // the window's width in screen pixels over its width in page pixels gives
+  // it (Chrome, Edge); snapped to the browser's zoom steps, otherwise 100%.
+  // The map zoom is divided by it, so a map keeps its size on screen when
+  // the page is zoomed; the % shown changes instead (111% at 90%)
+  var STEPS = [0.25, 0.33, 0.5, 0.67, 0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5];
+  function browserZoom() {
+    var r = window.outerWidth / window.innerWidth;
+    if (!isFinite(r) || r <= 0) return 1;
+    var best = 1;
+    STEPS.forEach(function (st) { if (Math.abs(r - st) < Math.abs(r - best)) best = st; });
+    return Math.abs(r - best) / best < 0.03 ? best : 1;
+  }
+  var bz = browserZoom();
+  window.addEventListener('resize', function () {
+    var nb = browserZoom();
+    if (nb === bz || !current) return;
+    var old = bz;
+    bz = nb;
+    if (!moved) { if (mode === 'fit') fit(); else standard(); }
+    else { var c = centre(); zoomAt(z * old / nb, c[0], c[1]); }
+  });
   // standard zoom; every map starts at its top, centred left to right,
   // below a strip left free for the zoom controls
   var TOP = 36;
   function standard() {
     var s = size(current);
-    z = STANDARD;
+    z = STANDARD / bz;
     tx = (view.clientWidth - s.w * z) / 2;
     ty = TOP;
     moved = false;
@@ -172,7 +194,7 @@ sitemap: false
   var FIT_MAX = 1;
   function fit() {
     var s = size(current);
-    z = Math.min(fitZoom(), STANDARD * FIT_MAX);
+    z = Math.min(fitZoom(), STANDARD * FIT_MAX / bz);
     tx = (view.clientWidth - s.w * z) / 2;
     ty = TOP; // at the top, centred left to right, as in Read
     moved = false;
