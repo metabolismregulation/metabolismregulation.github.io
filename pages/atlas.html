@@ -195,7 +195,7 @@ sitemap: false
   var FIT_MAX = 1;
   function fit() {
     var s = size(current);
-    z = Math.min(fitZoom(), STANDARD * FIT_MAX / bz);
+    z = Math.min(fitZoom(), STANDARD * FIT_MAX); // small maps: 100%
     tx = (view.clientWidth - s.w * z) / 2;
     ty = TOP; // at the top, centred left to right, as in Read
     moved = false;
