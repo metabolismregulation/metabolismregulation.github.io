@@ -33,6 +33,7 @@ sitemap: false
   .m2-group:focus { outline: none; }
   .m2-group::before { content: '\25BE'; display: inline-block; width: 14px; color: #888; font-size: 12px; }
   .m2-group.m2-shut::before { content: '\25B8'; }
+  .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
@@ -85,6 +86,8 @@ sitemap: false
   // (scale = image pixels per yEd unit, from scripts/make_maps.py).
   // the site's build time, added to the data addresses so a browser that kept
   // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
+  // a yellow and white capsule after the name of a drug action mechanism map
+  var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#FFE067" stroke="#444" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#444" stroke-width="1.6"/></g></svg>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
@@ -293,6 +296,7 @@ sitemap: false
       var b = el('button', 'm2-item' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
+      if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); b.title = 'Drug action mechanism map'; }
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
     });

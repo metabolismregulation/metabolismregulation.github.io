@@ -5,6 +5,7 @@ tab: ""
 page: "/enos/"
 group: "Nitric oxide metabolism"
 order: 18
+kind: "map"
 image: "/downloads/F008-enos.svg"
 width: 1297
 height: 1707

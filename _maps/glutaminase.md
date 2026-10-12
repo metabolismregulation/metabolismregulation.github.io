@@ -5,6 +5,7 @@ tab: ""
 page: "/glutaminase/"
 group: "Amino acid metabolism"
 order: 14
+kind: "map"
 image: "/downloads/F019-glutaminase.svg"
 width: 690
 height: 581

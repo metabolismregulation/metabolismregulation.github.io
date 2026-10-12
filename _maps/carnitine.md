@@ -5,6 +5,7 @@ tab: ""
 page: "/carnitine/"
 group: "Lipid metabolism"
 order: 9
+kind: "map"
 image: "/downloads/F014-carnitine.svg"
 width: 885
 height: 1197

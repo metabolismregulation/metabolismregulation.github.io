@@ -5,6 +5,7 @@ tab: ""
 page: "/aspirin/"
 group: "Lipid metabolism"
 order: 7
+kind: "drug"
 image: "/downloads/F100-aspirin.svg"
 width: 943
 height: 290

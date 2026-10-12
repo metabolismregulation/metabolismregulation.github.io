@@ -5,6 +5,7 @@ tab: ""
 page: "/pyrimidine/"
 group: "Nucleotide metabolism"
 order: 15
+kind: "map"
 image: "/downloads/F020-pyrimidine.svg"
 width: 459
 height: 405

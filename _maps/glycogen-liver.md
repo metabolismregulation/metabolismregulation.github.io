@@ -5,6 +5,7 @@ tab: "liver"
 page: "/glycogen/"
 group: "Carbohydrate metabolism"
 order: 4
+kind: "map"
 image: "/downloads/F004-glycogen-liver.svg"
 width: 2106
 height: 1746

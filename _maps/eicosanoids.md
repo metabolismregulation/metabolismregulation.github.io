@@ -5,6 +5,7 @@ tab: ""
 page: "/eicosanoids/"
 group: "Lipid metabolism"
 order: 6
+kind: "map"
 image: "/downloads/F002-eicosanoids.svg"
 width: 664
 height: 552

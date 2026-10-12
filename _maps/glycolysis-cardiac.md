@@ -5,6 +5,7 @@ tab: "cardiac muscle"
 page: "/glycolysis-cardiac/"
 group: "Carbohydrate metabolism"
 order: 2
+kind: "map"
 image: "/downloads/F001-glycolysis-cardiac.svg"
 width: 867
 height: 679

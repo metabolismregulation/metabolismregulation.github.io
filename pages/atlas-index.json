@@ -4,6 +4,6 @@ permalink: /atlas/index.json
 sitemap: false
 ---
 {% assign maps = site.maps | sort: "order" %}[
-{% for m in maps %}{"id": {{ m.slug | jsonify }}, "title": {{ m.title | jsonify }}, "topic": {{ m.topic | jsonify }}, "group": {{ m.group | jsonify }}, "tab": {{ m.tab | jsonify }}, "page": {{ m.page | jsonify }}, "image": {{ m.image | jsonify }}, "width": {{ m.width | jsonify }}, "height": {{ m.height | jsonify }}, "scale": {{ m.scale | jsonify }}, "downloads": {{ m.downloads | jsonify }}, "data": {{ m.url | jsonify }}, "hasText": {% assign t = m.content | strip %}{% if t != "" %}true{% else %}false{% endif %}}{% unless forloop.last %},
+{% for m in maps %}{"id": {{ m.slug | jsonify }}, "title": {{ m.title | jsonify }}, "topic": {{ m.topic | jsonify }}, "group": {{ m.group | jsonify }}, "kind": {{ m.kind | jsonify }}, "tab": {{ m.tab | jsonify }}, "page": {{ m.page | jsonify }}, "image": {{ m.image | jsonify }}, "width": {{ m.width | jsonify }}, "height": {{ m.height | jsonify }}, "scale": {{ m.scale | jsonify }}, "downloads": {{ m.downloads | jsonify }}, "data": {{ m.url | jsonify }}, "hasText": {% assign t = m.content | strip %}{% if t != "" %}true{% else %}false{% endif %}}{% unless forloop.last %},
 {% endunless %}{% endfor %}
 ]

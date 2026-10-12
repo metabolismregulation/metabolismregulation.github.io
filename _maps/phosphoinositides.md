@@ -5,6 +5,7 @@ tab: ""
 page: "/phosphoinositides/"
 group: "Lipid metabolism"
 order: 13
+kind: "map"
 image: "/downloads/F009-phosphoinositides.svg"
 width: 739
 height: 989

@@ -5,6 +5,7 @@ tab: ""
 page: "/acly/"
 group: "Carbohydrate metabolism"
 order: 5
+kind: "map"
 image: "/downloads/F006-acly.svg"
 width: 892
 height: 698

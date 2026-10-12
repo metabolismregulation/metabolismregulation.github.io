@@ -5,6 +5,7 @@ tab: ""
 page: "/srebp/"
 group: "Lipid metabolism"
 order: 10
+kind: "map"
 image: "/downloads/F005-srebp.svg"
 width: 746
 height: 1166

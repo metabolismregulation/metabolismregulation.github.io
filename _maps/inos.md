@@ -5,6 +5,7 @@ tab: ""
 page: "/inos/"
 group: "Nitric oxide metabolism"
 order: 17
+kind: "map"
 image: "/downloads/F007-inos.svg"
 width: 1590
 height: 1186

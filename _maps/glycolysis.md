@@ -5,6 +5,7 @@ tab: "generic"
 page: "/glycolysis/"
 group: "Carbohydrate metabolism"
 order: 1
+kind: "map"
 image: "/downloads/F001-glycolysis.svg"
 width: 867
 height: 679

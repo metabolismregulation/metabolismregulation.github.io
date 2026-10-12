@@ -5,6 +5,7 @@ tab: ""
 page: "/tag/"
 group: "Lipid metabolism"
 order: 11
+kind: "map"
 image: "/downloads/F015-tag.svg"
 width: 800
 height: 616

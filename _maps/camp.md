@@ -5,6 +5,7 @@ tab: ""
 page: "/camp/"
 group: "Nucleotide metabolism"
 order: 16
+kind: "map"
 image: "/downloads/F012-camp.svg"
 width: 745
 height: 730

@@ -5,6 +5,7 @@ tab: "muscle"
 page: "/glycogen/"
 group: "Carbohydrate metabolism"
 order: 3
+kind: "map"
 image: "/downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1746
