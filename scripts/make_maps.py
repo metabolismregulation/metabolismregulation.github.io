@@ -24,7 +24,7 @@ SHORT = dict(re.findall(r'class="gallery-title" href="/([^/]+)/">([^<]+)<',
 # tab: the variant shown in brackets after the topic in the list, as in
 # Glycogen metabolism (muscle)
 JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle')}
-TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver'}
+TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-glycolysis': 'generic'}
 # the Atlas list: groups in this order, maps in this order within a group.
 # Groups without maps are planned for future maps and are not shown.
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.

@@ -27,8 +27,12 @@ sitemap: false
   .m2-none { font-size: 12px; color: #666; padding: 2px 4px; }
   /* groups as a list with sublists: the group name at the size of the
      items, semibold, and its maps indented under it */
-  .m2-group { font-size: 14px; font-weight: 600; color: #767676; padding: 2px 5px; margin-top: 6px; }
+  /* a group name opens or closes its maps; all groups start open */
+  .m2-group { display: block; width: 100%; text-align: left; font: inherit; font-size: 14px; font-weight: 600; color: #000; background: none; border: 0; padding: 2px 5px 2px 0; margin-top: 6px; cursor: pointer; }
   .m2-group:first-child { margin-top: 0; }
+  .m2-group:focus { outline: none; }
+  .m2-group::before { content: '\25BE'; display: inline-block; width: 14px; color: #888; font-size: 12px; }
+  .m2-group.m2-shut::before { content: '\25B8'; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
@@ -139,9 +143,11 @@ sitemap: false
     moved = false;
     draw();
   }
+  // the whole map in the view, but never larger than the standard zoom,
+  // so a small map is not blown up
   function fit() {
     var s = size(current);
-    z = fitZoom();
+    z = Math.min(fitZoom(), STANDARD);
     tx = (view.clientWidth - s.w * z) / 2;
     ty = (view.clientHeight - s.h * z) / 2;
     moved = false;
@@ -254,6 +260,7 @@ sitemap: false
   // one row per map: the topic, with the variant in brackets when a topic
   // has several maps, as in Glycogen metabolism (muscle)
   function label(m) { return m.topic + (m.tab ? ' (' + m.tab + ')' : ''); }
+  var closed = {}; // groups closed by the reader, by name
   function buildList(filter) {
     var box = document.getElementById('m2-list');
     var keep = box.scrollTop;
@@ -265,7 +272,19 @@ sitemap: false
     });
     var group = null;
     shown.forEach(function (m) {
-      if (m.group && m.group !== group) { group = m.group; box.appendChild(el('div', 'm2-group', group)); }
+      // while searching every group with a match is shown open
+      var shut = !q && closed[m.group];
+      if (m.group && m.group !== group) {
+        group = m.group;
+        var g = el('button', 'm2-group' + (shut ? ' m2-shut' : ''), group);
+        g.type = 'button';
+        g.addEventListener('click', (function (name) { return function () {
+          closed[name] = !closed[name];
+          buildList(document.getElementById('m2-search').value);
+        }; })(group));
+        box.appendChild(g);
+      }
+      if (shut) return;
       var b = el('button', 'm2-item' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
@@ -293,6 +312,13 @@ sitemap: false
     var i = items.findIndex(function (b) { return b.classList.contains('m2-on'); });
     var n = items.length;
     var next = i < 0 ? (dir > 0 ? 0 : n - 1) : (i + dir + n) % n;
+    if (i < 0 && current) {
+      // the chosen map is in a closed group: go on from its place in the list
+      var at = function (b) { return maps.indexOf(byId[b.getAttribute('data-id')]); };
+      var here = maps.indexOf(current);
+      var after = items.filter(function (b) { return dir > 0 ? at(b) > here : at(b) < here; });
+      if (after.length) next = items.indexOf(dir > 0 ? after[0] : after[after.length - 1]);
+    }
     var id = items[next].getAttribute('data-id');
     // replace, so stepping through the list does not fill the browser history
     if (id !== location.hash.slice(1)) location.replace('#' + id);
@@ -337,6 +363,7 @@ sitemap: false
   function route() {
     var m = byId[location.hash.slice(1)] || maps[0];
     if (!m) return;
+    closed[m.group] = false; // the chosen map's group is always open
     show(m);
     buildList(document.getElementById('m2-search').value);
   }

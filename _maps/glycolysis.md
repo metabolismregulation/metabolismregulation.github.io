@@ -1,7 +1,7 @@
 ---
 title: "Regulation of glycolysis"
 topic: "Glycolysis"
-tab: ""
+tab: "generic"
 page: "/glycolysis/"
 group: "Carbohydrate metabolism"
 order: 1
