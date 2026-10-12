@@ -14,9 +14,9 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F003-mevalonate.sbgn"}
   - {label: "SBML", url: "/downloads/F003-mevalonate-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F003-mevalonate.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn"}
   - {label: "Annotation", url: "/downloads/F003-mevalonate.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate"}
 ---
 ## Contributors
 

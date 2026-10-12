@@ -14,9 +14,9 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F100-aspirin.sbgn"}
   - {label: "SBML", url: "/downloads/F100-aspirin-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F100-aspirin.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F100-aspirin.sbgn"}
   - {label: "Annotation", url: "/downloads/F100-aspirin.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F100-aspirin.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin"}
 ---
 ## Contributors
 

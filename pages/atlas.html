@@ -51,6 +51,8 @@ sitemap: false
   #m2-downloads { margin: 10px 0 0; }
   #m2-downloads a { display: inline-block; font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 5px; text-decoration: none; }
   #m2-downloads a:hover { background: #ebebeb; border-color: #999; }
+  /* the online viewers open another site: an arrow marks them */
+  #m2-downloads a.m2-ext::after { content: ' \2197'; }
   #m2-text h2 { font-size: 18px; }
 </style>
 
@@ -341,7 +343,7 @@ sitemap: false
     (m.downloads || []).forEach(function (d) {
       var a = el('a', null, d.label);
       a.href = d.url;
-      if (/^https?:/.test(d.url)) { a.target = '_blank'; a.rel = 'noopener'; } else a.setAttribute('download', '');
+      if (/^https?:/.test(d.url)) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'm2-ext'; a.title = 'Opens in a new tab'; } else a.setAttribute('download', '');
       dl.appendChild(a);
     });
     // the text: this map's own, or the first map of its topic that has one

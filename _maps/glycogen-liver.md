@@ -14,7 +14,7 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F004-glycogen-liver.sbgn"}
   - {label: "SBML", url: "/downloads/F004-glycogen-liver-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F004-glycogen-liver.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-liver"}
-  - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-liver.sbgn"}
   - {label: "Annotation", url: "/downloads/F004-glycogen.csv"}
+  - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-liver.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-liver"}
 ---

@@ -14,9 +14,9 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F005-srebp.sbgn"}
   - {label: "SBML", url: "/downloads/F005-srebp-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F005-srebp.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-srebp.sbgn"}
   - {label: "Annotation", url: "/downloads/F005-srebp.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-srebp.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp"}
 ---
 ## Contributors
 

@@ -14,9 +14,9 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F008-enos.sbgn"}
   - {label: "SBML", url: "/downloads/F008-enos-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F008-enos.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos.sbgn"}
   - {label: "Annotation", url: "/downloads/F008-enos.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos"}
 ---
 ## Contributors
 

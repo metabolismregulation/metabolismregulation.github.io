@@ -14,9 +14,9 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F018-estrogen.sbgn"}
   - {label: "SBML", url: "/downloads/F018-estrogen-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F018-estrogen.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen.sbgn"}
   - {label: "Annotation", url: "/downloads/F018-estrogen.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen"}
 ---
 ## Contributors
 

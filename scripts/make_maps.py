@@ -46,7 +46,9 @@ GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
 TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
-LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'MINERVA', 'Newt', 'Annotation']
+# download buttons in this order: the files, then the annotation table, then
+# the two online viewers
+LABELS = ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
 
 
 def scale_of(base, width):
@@ -122,6 +124,7 @@ def main():
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
                   'downloads:']
+            downloads.sort(key=lambda d: LABELS.index(d['label']))
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']
             out = '\n'.join(fm) + (text if k == 0 else '')

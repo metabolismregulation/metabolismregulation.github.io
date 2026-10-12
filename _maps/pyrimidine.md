@@ -14,9 +14,9 @@ downloads:
   - {label: "SBGN-ML", url: "/downloads/F020-pyrimidine.sbgn"}
   - {label: "SBML", url: "/downloads/F020-pyrimidine-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F020-pyrimidine.xml"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn"}
   - {label: "Annotation", url: "/downloads/F020-pyrimidine.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine"}
 ---
 ## Contributors
 
