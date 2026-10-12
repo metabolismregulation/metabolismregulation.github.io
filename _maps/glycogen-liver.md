@@ -5,7 +5,7 @@ tab: "liver"
 page: "/glycogen/"
 order: 6
 image: "/downloads/F004-glycogen-liver.svg"
-width: 2107
+width: 2106
 height: 1746
 scale: 1
 downloads:

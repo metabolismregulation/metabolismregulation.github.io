@@ -5,7 +5,7 @@ tab: "muscle"
 page: "/glycogen/"
 order: 5
 image: "/downloads/F004-glycogen-muscle.svg"
-width: 2107
+width: 2106
 height: 1746
 scale: 1
 downloads:
