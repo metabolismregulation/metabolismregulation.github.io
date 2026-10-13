@@ -98,13 +98,13 @@ sitemap: false
   .m2-info ul { list-style: none; margin: 0; padding: 0; }
   .m2-info li { margin: 0 0 3px; }
   /* a protein family: one card per member, or one member's record under a
-     row of member buttons (the level-up button returns to the cards) */
+     row of member buttons (the undo button returns to the cards) */
   .m2-card { display: block; box-sizing: border-box; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
   .m2-card:hover { border-color: #999; }
   .m2-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 10px; }
   .m2-chip { font: inherit; font-size: 14px; line-height: 20px; padding: 3px 7px 1px; color: #222; background: #f6f6f6; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
   .m2-chip:hover { background: #ededed; border-color: #999; } /* as the download buttons */
-  /* back to the cards: a square button with a level-up sign, in thin lines as the close cross */
+  /* back to the cards: a square button with an undo sign, in thin lines as the close cross */
   .m2-chip.m2-all { box-sizing: border-box; width: 26px; height: 26px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
   .m2-all svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .m2-chip.m2-on { background: #4183c4; border-color: #4183c4; color: #fff; } /* as the chosen map in the list */
@@ -445,8 +445,8 @@ sitemap: false
       b.type = 'button';
       if (!m) {
         b.title = 'All members'; b.setAttribute('aria-label', 'All members');
-        // level-up sign: up from one member to the whole family
-        b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9L9 4 4 9"/><path d="M9 4v10a6 6 0 0 0 6 6h5"/></svg>';
+        // undo sign: back from one member to the cards
+        b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>';
       }
       b.addEventListener('click', function () { member = m ? i : -1; renderInfo(); });
       chips.appendChild(b);
