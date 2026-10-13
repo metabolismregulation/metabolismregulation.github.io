@@ -12,3 +12,13 @@ Working rules for sessions (handover note, when to suggest a new chat,
 batching, when to take screenshots) are in the CLAUDE.md of
 `metabolismregulation/maps-workbench`; follow them here too. Start a session
 by reading `notes/handover.md` there.
+
+## Where to push
+
+Changes to the website (look, layout, wording, maps, anything visible on
+metabolismregulation.org) go straight to `master`, so they show on the live
+site and can be checked there. A change pushed only to a session branch is
+not visible and does not count as done, even when the session was started
+on such a branch. The only exception is internal work that is not yet meant
+for the website; that stays off `master` (and its working files belong in
+`maps-workbench`, see above).
