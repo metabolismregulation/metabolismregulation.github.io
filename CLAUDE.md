@@ -33,10 +33,17 @@ engines (`_config.yml` defaults, noindex in `_includes/meta.html`). To publish
 it, move the page to `_projects/` (the URL stays the same) and add it to the
 Maps, Gallery and Atlas lists. Working files stay in `maps-workbench`.
 
-## Atlas downloads
+## Two websites: official and Atlas
 
-The Atlas (`/atlas/`, not in the site navigation) uses its own copy of the map
-files, `atlas-downloads/`. New versions of maps (CellDesigner, SBML, SBGN-ML,
-and later others) go there first and are checked on the Atlas; they replace
-the official files in `downloads/` only when the user says so. Run
-`scripts/make_maps.py` after changing either folder or a map page.
+There are two websites in this repository (user, 2026-10-13):
+
+- The official site: the map pages, Maps, Gallery, and their files in
+  `downloads/`. These files are functional and match the MINERVA view. Do not
+  change them unless the user says so.
+- The Atlas (`/atlas/`, hidden: not in the site navigation), the future
+  website. It uses its own copy of every map file, `atlas-downloads/`. All new
+  work on maps goes there: GraphML, SVG, PNG, annotation CSV, CellDesigner,
+  SBML, SBGN-ML. It is checked on the Atlas.
+
+Files move from `atlas-downloads/` to `downloads/` only when the user says so.
+Run `scripts/make_maps.py` after changing either folder or a map page.
