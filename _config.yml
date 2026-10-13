@@ -64,6 +64,14 @@ collections:
     permalink: /atlas/data/:name/
 
 defaults:
+  # draft map pages: public at their final URL for testing and for sharing by
+  # link, but not linked from the site navigation and kept out of the sitemap
+  # and search engines (noindex in _includes/meta.html)
+  - scope:
+      path: draftpages
+    values:
+      draft: true
+      sitemap: false
   - scope:
       type: maps
     values:

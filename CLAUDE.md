@@ -22,3 +22,13 @@ not visible and does not count as done, even when the session was started
 on such a branch. The only exception is internal work that is not yet meant
 for the website; that stays off `master` (and its working files belong in
 `maps-workbench`, see above).
+
+## Draft maps
+
+A draft map's page goes in `draftpages/` with its final permalink (e.g.
+`/ureacycle/`) and its files in `downloads/`. It is public by link (for
+testing and for sharing with collaborators) but not linked from the site
+navigation (Maps, Gallery, Atlas), and kept out of the sitemap and search
+engines (`_config.yml` defaults, noindex in `_includes/meta.html`). To publish
+it, move the page to `_projects/` (the URL stays the same) and add it to the
+Maps, Gallery and Atlas lists. Working files stay in `maps-workbench`.

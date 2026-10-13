@@ -7,10 +7,11 @@ permalink: /ureacycle/
 # Regulation of urea cycle
 
 Downloads: &nbsp; 
-[CellDesigner](../downloads/F007-inos.xml) &nbsp;
-[MINERVA](https://mreg.elixir-luxembourg.org/minerva/index.xhtml?id=F007-10) &nbsp;
+[CellDesigner](../downloads/F021-ass1-ubiquitination.xml) &nbsp;
+[PDF](../downloads/F021-ass1-ubiquitination.pdf) &nbsp;
+[Annotation](../downloads/F021-ass1-ubiquitination.csv) &nbsp;
 
-<p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.png"/></a></p>
+<p align="middle"><a href="/downloads/F021-ass1-ubiquitination.png"><img id="image" src="/downloads/F021-ass1-ubiquitination.png"/></a></p>
 
 ## Contributors 
 
