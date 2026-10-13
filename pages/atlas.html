@@ -47,6 +47,14 @@ sitemap: false
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
+  /* search results on the maps: a heading, then each molecule with the maps
+     it is on; the name it was found by, when not the label, in grey */
+  .m2-head { font-size: 12px; color: #666; padding: 2px 4px 0; margin-top: 12px; }
+  .m2-head:first-child { margin-top: 0; }
+  .m2-mol { font-size: 14px; padding: 2px 4px 0; margin-top: 4px; overflow-wrap: anywhere; }
+  .m2-mol .m2-why { color: #888; }
+  .m2-n { float: right; color: #888; font-size: 12px; margin-left: 6px; }
+  .m2-on .m2-n { color: #fff; }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
   /* the view keeps the shape 738 x 504 and grows with the middle column, up
@@ -113,7 +121,7 @@ sitemap: false
 
 <div class="m2">
 <div class="m2-nav">
-<input type="search" id="m2-search" placeholder="Search maps" autocomplete="off">
+<input type="search" id="m2-search" placeholder="Search maps and molecules" autocomplete="off">
 <div id="m2-list"></div>
 </div>
 <div class="m2-main">
@@ -367,7 +375,7 @@ sitemap: false
   function loadNodes(m) {
     nodes = null; sel = null; renderInfo(); drawPin();
     if (!m.annotation) return;
-    var done = function (list) { if (current === m) { nodes = list; renderInfo(); } };
+    var done = function (list) { if (current === m) { nodes = list; renderInfo(); focusNode(); } };
     if (annCache[m.id]) return done(annCache[m.id]);
     fetch(m.annotation + BUILD).then(function (r) { return r.json(); }).then(function (d) { annCache[m.id] = d.nodes; done(d.nodes); });
   }
@@ -384,6 +392,22 @@ sitemap: false
     drawPin();
   }
   function closeInfo() { sel = null; renderInfo(); drawPin(); }
+  // a search result chosen: its node is selected and centred at reading size
+  var pending = null; // {map, node}: to select once the map's nodes are loaded
+  function focusNode() {
+    if (!pending || !nodes || pending.map !== current.id) return;
+    var n = nodes[pending.node];
+    pending = null;
+    if (!n) return;
+    sel = n; member = -1;
+    var k = scaleOf(current), b = n.box;
+    z = STANDARD / bz;
+    tx = view.clientWidth / 2 - (b[0] + b[2] / 2) / k * z;
+    ty = view.clientHeight / 2 - (b[1] + b[3] / 2) / k * z;
+    moved = true;
+    renderInfo();
+    draw();
+  }
   // Esc closes the annotation too; in a family member's record it first returns to the cards
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape' || !sel) return;
@@ -502,15 +526,86 @@ sitemap: false
   // has several maps, as in Glycogen metabolism (muscle)
   function label(m) { return m.topic + (m.tab ? ' (' + m.tab + ')' : ''); }
   var closed = {}; // groups closed by the reader, by name
+
+  // ---------- search ----------
+  // atlas-data/search.json (scripts/make_maps.py): every molecule on every
+  // map, with its label and symbols (a), other names (b) and database IDs (i).
+  // A search matches the start of a word, not any part of it. A short query
+  // with a capital letter is taken as a symbol: its case counts, so CaM finds
+  // CaM and CaMKK but not cAMP (cam finds all three, CaM first).
+  var index = null;
+  function loadIndex() {
+    if (index) return;
+    index = [];
+    fetch('{{ "/atlas-data/search.json" | relative_url }}' + BUILD).then(function (r) { return r.json(); }).then(function (d) {
+      index = d;
+      buildList(document.getElementById('m2-search').value);
+    });
+  }
+  // 0 the whole name, 2 its start, 4 the start of a later word; one more
+  // for each in another case; -1 no match
+  function matchName(q, name) {
+    if (name === q) return 0;
+    var lq = q.toLowerCase(), ln = name.toLowerCase();
+    if (ln === lq) return 1;
+    var anyCase = q === lq || q.length > 4, best = -1;
+    for (var i = ln.indexOf(lq); i >= 0; i = ln.indexOf(lq, i + 1)) {
+      // a word starts at the beginning, after a non-letter, or at a capital after a small letter (PtdIns)
+      if (i > 0 && /[a-z0-9]/i.test(name[i - 1]) && !(/[a-z]/.test(name[i - 1]) && /[A-Z]/.test(name[i]))) continue;
+      var r = (i ? 4 : 2) + (name.substr(i, q.length) === q ? 0 : 1);
+      if ((r % 2 === 0 || anyCase) && (best < 0 || r < best)) best = r;
+    }
+    return best;
+  }
+  // a molecule's best match: its rank (lower first) and the name it was found by
+  function matchMol(q, e) {
+    var best = null;
+    function take(r, name) { if (r >= 0 && (!best || r < best.r)) best = { r: r, name: name }; }
+    e.a.forEach(function (n) { var r = matchName(q, n); take(r < 0 ? r : r * 2, n); });
+    e.b.forEach(function (n) { var r = matchName(q, n); take(r < 0 ? r : r * 2 + 1, n); });
+    e.i.forEach(function (n) {
+      var id = n.toLowerCase(), lq = q.toLowerCase();
+      if (id === lq || id.replace(/^[a-z]+:/, '') === lq) take(0, n);
+    });
+    return best;
+  }
+  function matchMap(q, m) {
+    return [label(m), m.title, m.group || ''].some(function (t) { return matchName(q, t) >= 0; });
+  }
+  // molecules matching q, joined across maps by their ID (or family members)
+  function findMols(q) {
+    var mols = {}, list = [];
+    (index || []).forEach(function (e) {
+      var r = matchMol(q, e);
+      if (!r || !byId[e.m]) return;
+      var g = mols[e.k];
+      if (!g) { g = mols[e.k] = { label: e.l, r: r.r, name: r.name, hits: [] }; list.push(g); }
+      else if (r.r < g.r) { g.r = r.r; g.name = r.name; }
+      g.hits.push(e);
+    });
+    list.forEach(function (g) { g.hits.sort(function (a, b) { return maps.indexOf(byId[a.m]) - maps.indexOf(byId[b.m]); }); });
+    list.sort(function (a, b) { return a.r - b.r || a.label.localeCompare(b.label); });
+    return list.slice(0, 40);
+  }
+  var lastHit = null, step = 0; // a result clicked again goes to the next copy of the molecule on that map
+  function openHit(e) {
+    var key = e.k + '|' + e.m;
+    step = key === lastHit ? (step + 1) % e.n.length : 0;
+    lastHit = key;
+    pending = { map: e.m, node: e.n[step] };
+    if (current && current.id === e.m) { focusNode(); buildList(document.getElementById('m2-search').value); }
+    else go(e.m);
+  }
   function buildList(filter) {
     var box = document.getElementById('m2-list');
     var keep = box.scrollTop;
     box.innerHTML = '';
-    var q = (filter || '').trim().toLowerCase();
+    var q = (filter || '').trim();
+    if (q) loadIndex();
     // a search matches the list name, the full title or the group name
-    var shown = maps.filter(function (m) {
-      return !q || (label(m) + ' ' + m.title + ' ' + (m.group || '')).toLowerCase().indexOf(q) >= 0;
-    });
+    var shown = maps.filter(function (m) { return !q || matchMap(q, m); });
+    var mols = q ? findMols(q) : [];
+    if (q && shown.length && mols.length) box.appendChild(el('div', 'm2-head', 'Maps'));
     var group = null;
     shown.forEach(function (m) {
       // while searching every group with a match is shown open
@@ -526,14 +621,31 @@ sitemap: false
         box.appendChild(g);
       }
       if (shut) return;
-      var b = el('button', 'm2-item' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
+      var b = el('button', 'm2-item m2-map' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
       if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); b.title = 'Drug action mechanism map'; }
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
     });
-    if (!shown.length) box.appendChild(el('div', 'm2-none', 'No map matches'));
+    if (mols.length) box.appendChild(el('div', 'm2-head', 'On the maps'));
+    mols.forEach(function (g) {
+      var t = el('div', 'm2-mol', g.label);
+      if (g.name !== g.label) t.appendChild(el('span', 'm2-why', ' ' + g.name));
+      box.appendChild(t);
+      g.hits.forEach(function (e) {
+        var on = lastHit === e.k + '|' + e.m && current && current.id === e.m;
+        var b = el('button', 'm2-item m2-hit m2-sub' + (on ? ' m2-on' : ''), label(byId[e.m]));
+        b.type = 'button';
+        if (e.n.length > 1) {
+          b.insertBefore(el('span', 'm2-n', (on ? step + 1 + '/' : '') + e.n.length), b.firstChild);
+          b.title = e.n.length + ' places on this map; click again for the next';
+        }
+        b.addEventListener('click', function () { openHit(e); });
+        box.appendChild(b);
+      });
+    });
+    if (!shown.length && !mols.length) box.appendChild(el('div', 'm2-none', index && index.length || !q ? 'No match' : 'Searching…'));
     // keep the chosen map visible when the list scrolls (narrow screens)
     box.scrollTop = keep;
     var on = box.querySelector('.m2-on');
@@ -548,7 +660,7 @@ sitemap: false
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
     var t = e.target.closest ? e.target.closest('input, select, textarea, [contenteditable]') : null;
     if (t && !(t.id === 'm2-search' && (e.key === 'ArrowDown' || e.key === 'ArrowUp'))) return;
-    var items = Array.prototype.slice.call(document.querySelectorAll('#m2-list .m2-item'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('#m2-list .m2-map'));
     if (!items.length) return;
     e.preventDefault();
     var i = items.findIndex(function (b) { return b.classList.contains('m2-on'); });
@@ -577,8 +689,8 @@ sitemap: false
     img.src = m.image;
     img.width = m.width;
     img.height = m.height;
-    loadNodes(m);
     if (mode === 'fit') fit(); else standard();
+    loadNodes(m); // after the view, so that a search result can centre its node
     var dl = document.getElementById('m2-downloads');
     dl.innerHTML = '';
     (m.downloads || []).forEach(function (d) {
@@ -606,6 +718,7 @@ sitemap: false
   function route() {
     var m = byId[location.hash.slice(1)] || maps[0];
     if (!m) return;
+    if (!pending) lastHit = null; // chosen from the map list, not a search result
     closed[m.group] = false; // the chosen map's group is always open
     show(m);
     buildList(document.getElementById('m2-search').value);

@@ -14,6 +14,8 @@
 # A map whose GraphML has annotation (yEd custom node properties such as
 # Full name, UniProt, ChEBI) also gets atlas-data/<base>.json: each annotated
 # node's box in SVG pixels and its properties, for the Atlas click panel.
+# All maps' annotated nodes also go to atlas-data/search.json, the index of
+# the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
 import os, re, glob, json, collections
 import xml.etree.ElementTree as ET
@@ -128,6 +130,45 @@ def annotation(base):
     return nodes
 
 
+def search_entries(mid, nodes):
+    """The search index of one map: one entry per molecule (copies of a node
+    are joined), with its node indices in atlas-data/<base>.json.
+    a: label and symbols, b: other names, i: database IDs (exact match only)."""
+    out = collections.OrderedDict()
+    for idx, n in enumerate(nodes):
+        p = dict(n['props'])
+        members = n.get('members') or []
+        if members:
+            key = 'fam:' + ','.join(sorted(m['symbol'] for m in members))
+        else:
+            key = (p.get('UniProt') or p.get('ChEBI') or p.get('HGNC symbol') or '').strip()
+            key = key or 'lab:%s:%s' % (n['class'], n['label'].lower())
+        a, b, i = [n['label']], [], []
+        for rec in [p] + [dict(m['props'], _sym=m['symbol']) for m in members]:
+            for f in ('_sym', 'HGNC symbol'):
+                if rec.get(f):
+                    a.append(rec[f])
+            for f in ('Full name', 'Family'):
+                if rec.get(f):
+                    b.append(rec[f])
+            for f in ('Alternative names', 'Synonyms', 'HGNC aliases'):
+                if rec.get(f):
+                    # HGNC aliases are separated by commas, the names by semicolons
+                    b += [x.strip() for x in rec[f].split(',' if f == 'HGNC aliases' else ';') if x.strip()]
+            for f in ('UniProt', 'ChEBI', 'HGNC', 'KEGG', 'HMDB', 'Entrez'):
+                if rec.get(f):
+                    i += [x.strip() for x in rec[f].split(',') if x.strip()]
+        e = out.get(key)
+        if not e:
+            e = out[key] = {'k': key, 'l': n['label'], 'c': n['class'], 'm': mid, 'n': [], 'a': [], 'b': [], 'i': []}
+        e['n'].append(idx)
+        for f, v in (('a', a), ('b', b), ('i', i)):
+            for x in v:
+                if x not in e[f]:
+                    e[f].append(x)
+    return list(out.values())
+
+
 def yaml_str(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -140,6 +181,7 @@ def main():
     slugs = [os.path.basename(p)[:-3] for p in pages]
     rank = lambda s: ORDER.index(JOIN.get(s, (s,))[0]) + (0.5 if s in JOIN else 0) if JOIN.get(s, (s,))[0] in ORDER else 999
     written = []
+    search = []
     for slug in sorted(slugs, key=rank):
         s = open(os.path.join(ROOT, '_projects', slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
@@ -178,6 +220,7 @@ def main():
                 os.makedirs(os.path.join(ROOT, 'atlas-data'), exist_ok=True)
                 json.dump({'nodes': ann}, open(os.path.join(ROOT, 'atlas-data', base + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
                 ann_url = '/atlas-data/' + base + '.json'
+                search += search_entries(base.split('-', 1)[1], ann)
             downloads = []
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', links):
                 if m.group(2) in LABELS:
@@ -206,6 +249,7 @@ def main():
             out = '\n'.join(fm) + (text if k == 0 else '')
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
+    json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     print(len(written), 'maps:', ', '.join(written))
 
 
