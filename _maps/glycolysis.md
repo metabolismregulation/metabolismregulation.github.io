@@ -19,7 +19,6 @@ downloads:
   - {label: "SBML", url: "/downloads/F001-glycolysis-SBML.xml"}
   - {label: "CellDesigner", url: "/downloads/F001-glycolysis.xml"}
   - {label: "Annotation", url: "/downloads/F001-glycolysis.csv"}
-  - {label: "Annotation 2", url: "/downloads/F001-glycolysis-annotation2.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis"}
 ---
