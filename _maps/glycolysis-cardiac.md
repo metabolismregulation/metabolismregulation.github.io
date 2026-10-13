@@ -17,6 +17,7 @@ downloads:
   - {label: "SVG", url: "/downloads/F001-glycolysis-cardiac.svg"}
   - {label: "CellDesigner", url: "/downloads/F001-glycolysis-cardiac.xml"}
   - {label: "Annotation", url: "/downloads/F001-glycolysis-cardiac.csv"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac"}
 ---
 ## Contributors
 

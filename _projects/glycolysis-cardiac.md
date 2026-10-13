@@ -9,6 +9,7 @@ Downloads: &nbsp;
 <a href="/downloads/F001-glycolysis-cardiac.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F001-glycolysis-cardiac.xml" download>CellDesigner</a> &nbsp;
 <a href="/downloads/F001-glycolysis-cardiac.csv" download>Annotation</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <p align="middle"><a href="/glycolysis-cardiac/"><img id="image" src="/downloads/F001-glycolysis-cardiac.svg" width="580"/></a></p>
 
 ## Contributors
