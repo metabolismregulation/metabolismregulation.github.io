@@ -3943,27 +3943,27 @@
 <listOfUnitDefinitions>
 <unitDefinition metaid="substance" id="substance" name="substance">
 <listOfUnits>
-<unit metaid="CDMT00001" kind="mole"/>
+<unit metaid="CDMT00006" kind="mole"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="volume" id="volume" name="volume">
 <listOfUnits>
-<unit metaid="CDMT00002" kind="litre"/>
+<unit metaid="CDMT00007" kind="litre"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="area" id="area" name="area">
 <listOfUnits>
-<unit metaid="CDMT00003" kind="metre" exponent="2"/>
+<unit metaid="CDMT00008" kind="metre" exponent="2"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="length" id="length" name="length">
 <listOfUnits>
-<unit metaid="CDMT00004" kind="metre"/>
+<unit metaid="CDMT00009" kind="metre"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="time" id="time" name="time">
 <listOfUnits>
-<unit metaid="CDMT00005" kind="second"/>
+<unit metaid="CDMT00010" kind="second"/>
 </listOfUnits>
 </unitDefinition>
 </listOfUnitDefinitions>
@@ -4394,7 +4394,7 @@
 <celldesigner:proteinReference>pr_n0__n28</celldesigner:proteinReference>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
-<celldesigner:catalyzed reaction="re_n0__n24"/>
+<celldesigner:catalyzed reaction="re26"/>
 </celldesigner:listOfCatalyzedReactions>
 </celldesigner:extension>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -5057,10 +5057,14 @@
 <celldesigner:extension>
 <celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
 <celldesigner:baseReactants>
-<celldesigner:baseReactant species="s_n0__n1" alias="sa_n0__n1"/>
+<celldesigner:baseReactant species="s_n0__n1" alias="sa_n0__n1">
+<celldesigner:linkAnchor position="SE"/>
+</celldesigner:baseReactant>
 </celldesigner:baseReactants>
 <celldesigner:baseProducts>
-<celldesigner:baseProduct species="s_n0__n0" alias="sa_n0__n0"/>
+<celldesigner:baseProduct species="s_n0__n0" alias="sa_n0__n0">
+<celldesigner:linkAnchor position="NE"/>
+</celldesigner:baseProduct>
 </celldesigner:baseProducts>
 <celldesigner:listOfProductLinks>
 <celldesigner:productLink product="s_n0__n22" alias="sa_n0__n22" targetLineIndex="-1,1">
@@ -5130,10 +5134,14 @@
 <celldesigner:extension>
 <celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
 <celldesigner:baseReactants>
-<celldesigner:baseReactant species="s_n0__n0" alias="sa_n0__n0"/>
+<celldesigner:baseReactant species="s_n0__n0" alias="sa_n0__n0">
+<celldesigner:linkAnchor position="NW"/>
+</celldesigner:baseReactant>
 </celldesigner:baseReactants>
 <celldesigner:baseProducts>
-<celldesigner:baseProduct species="s_n0__n1" alias="sa_n0__n1"/>
+<celldesigner:baseProduct species="s_n0__n1" alias="sa_n0__n1">
+<celldesigner:linkAnchor position="SW"/>
+</celldesigner:baseProduct>
 </celldesigner:baseProducts>
 <celldesigner:listOfReactantLinks>
 <celldesigner:reactantLink reactant="s_n0__n23" alias="sa_n0__n23" targetLineIndex="-1,0">
@@ -5219,7 +5227,7 @@
 </celldesigner:connectScheme>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
-<celldesigner:modification type="CATALYSIS" modifiers="s_n0__n27" aliases="sa_n0__n27" targetLineIndex="-1,3" editPoints="0.40394319445807936,0.4910180145823455">
+<celldesigner:modification type="CATALYSIS" modifiers="s_n0__n27" aliases="sa_n0__n27" targetLineIndex="-1,3" editPoints="0.4039431944580789,0.4910180145823455">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -5400,7 +5408,7 @@
 </celldesigner:connectScheme>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
-<celldesigner:modification type="CATALYSIS" modifiers="s_n0__n27" aliases="sa_n0__n27" targetLineIndex="-1,3" editPoints="0.4653684175775741,-0.4988256441634822">
+<celldesigner:modification type="CATALYSIS" modifiers="s_n0__n27" aliases="sa_n0__n27" targetLineIndex="-1,3" editPoints="0.4653684175775741,-0.49882564416348196">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -5599,98 +5607,6 @@
 <annotation>
 <celldesigner:extension>
 <celldesigner:alias>sa_n0__n16</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</modifierSpeciesReference>
-</listOfModifiers>
-</reaction>
-<reaction metaid="re_n0__n24" id="re_n0__n24" reversible="false">
-<annotation>
-<celldesigner:extension>
-<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
-<celldesigner:baseReactants>
-<celldesigner:baseReactant species="s_n0__n22" alias="sa_n0__n22"/>
-</celldesigner:baseReactants>
-<celldesigner:baseProducts>
-<celldesigner:baseProduct species="s_n0__n26" alias="sa_n0__n26"/>
-</celldesigner:baseProducts>
-<celldesigner:listOfReactantLinks>
-<celldesigner:reactantLink reactant="s_n0__n25" alias="sa_n0__n25" targetLineIndex="-1,0">
-<celldesigner:connectScheme connectPolicy="direct">
-<celldesigner:listOfLineDirection>
-<celldesigner:lineDirection index="0" value="unknown"/>
-</celldesigner:listOfLineDirection>
-</celldesigner:connectScheme>
-<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
-</celldesigner:reactantLink>
-</celldesigner:listOfReactantLinks>
-<celldesigner:listOfProductLinks>
-<celldesigner:productLink product="s_n0__n23" alias="sa_n0__n23" targetLineIndex="-1,1">
-<celldesigner:connectScheme connectPolicy="direct">
-<celldesigner:listOfLineDirection>
-<celldesigner:lineDirection index="0" value="unknown"/>
-</celldesigner:listOfLineDirection>
-</celldesigner:connectScheme>
-<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
-</celldesigner:productLink>
-</celldesigner:listOfProductLinks>
-<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="1">
-<celldesigner:listOfLineDirection>
-<celldesigner:lineDirection index="0" value="unknown"/>
-<celldesigner:lineDirection index="1" value="unknown"/>
-</celldesigner:listOfLineDirection>
-</celldesigner:connectScheme>
-<celldesigner:editPoints>0.32387306462301485,-0.46795224396802637</celldesigner:editPoints>
-<celldesigner:line width="1.0" color="ff000000"/>
-<celldesigner:listOfModification>
-<celldesigner:modification type="CATALYSIS" modifiers="s_n0__n28" aliases="sa_n0__n28" targetLineIndex="-1,2">
-<celldesigner:connectScheme connectPolicy="direct">
-<celldesigner:listOfLineDirection>
-<celldesigner:lineDirection index="0" value="unknown"/>
-</celldesigner:listOfLineDirection>
-</celldesigner:connectScheme>
-<celldesigner:line width="1.0" color="ff000000"/>
-</celldesigner:modification>
-</celldesigner:listOfModification>
-</celldesigner:extension>
-</annotation>
-<listOfReactants>
-<speciesReference metaid="SR30" species="s_n0__n22">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa_n0__n22</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-<speciesReference metaid="SR31" species="s_n0__n25">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa_n0__n25</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-</listOfReactants>
-<listOfProducts>
-<speciesReference metaid="SR32" species="s_n0__n26">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa_n0__n26</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-<speciesReference metaid="SR33" species="s_n0__n23">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa_n0__n23</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-</listOfProducts>
-<listOfModifiers>
-<modifierSpeciesReference metaid="SR34" species="s_n0__n28">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa_n0__n28</celldesigner:alias>
 </celldesigner:extension>
 </annotation>
 </modifierSpeciesReference>
@@ -6589,6 +6505,105 @@
 </annotation>
 </speciesReference>
 </listOfProducts>
+</reaction>
+<reaction metaid="re26" id="re26" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_n0__n25" alias="sa_n0__n25">
+<celldesigner:linkAnchor position="INACTIVE"/>
+</celldesigner:baseReactant>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s_n0__n26" alias="sa_n0__n26">
+<celldesigner:linkAnchor position="INACTIVE"/>
+</celldesigner:baseProduct>
+</celldesigner:baseProducts>
+<celldesigner:listOfReactantLinks>
+<celldesigner:reactantLink reactant="s_n0__n22" alias="sa_n0__n22" targetLineIndex="-1,0">
+<celldesigner:linkAnchor position="INACTIVE"/>
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:reactantLink>
+</celldesigner:listOfReactantLinks>
+<celldesigner:listOfProductLinks>
+<celldesigner:productLink product="s_n0__n23" alias="sa_n0__n23" targetLineIndex="-1,1">
+<celldesigner:linkAnchor position="INACTIVE"/>
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:productLink>
+</celldesigner:listOfProductLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="CATALYSIS" modifiers="s_n0__n28" aliases="sa_n0__n28" targetLineIndex="-1,2">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:linkTarget species="s_n0__n28" alias="sa_n0__n28">
+<celldesigner:linkAnchor position="INACTIVE"/>
+</celldesigner:linkTarget>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="CDMT00001" species="s_n0__n25">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_n0__n25</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="CDMT00002" species="s_n0__n22">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_n0__n22</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="CDMT00003" species="s_n0__n26">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_n0__n26</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="CDMT00004" species="s_n0__n23">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_n0__n23</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="CDMT00005" species="s_n0__n28">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_n0__n28</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
 </reaction>
 </listOfReactions>
 </model>
