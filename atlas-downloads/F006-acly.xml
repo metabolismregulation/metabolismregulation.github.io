@@ -273,7 +273,7 @@
 <celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="ffffffff" scheme="Color"/>
 </celldesigner:briefView>
-<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+<celldesigner:info state="open" prefix="ct" label="mRNA" angle="-1.5707963267948966"/>
 </celldesigner:speciesAlias>
 <celldesigner:speciesAlias id="sa_n18" species="s_n18">
 <celldesigner:activity>inactive</celldesigner:activity>
@@ -311,7 +311,7 @@
 <celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="ffffffff" scheme="Color"/>
 </celldesigner:briefView>
-<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+<celldesigner:info state="open" prefix="ct" label="gene" angle="-1.5707963267948966"/>
 </celldesigner:speciesAlias>
 <celldesigner:speciesAlias id="sa_n21" species="s_n21">
 <celldesigner:activity>inactive</celldesigner:activity>
@@ -430,9 +430,11 @@
 <celldesigner:protein id="pr_n22" name="RTK" type="GENERIC"/>
 </celldesigner:listOfProteins>
 <celldesigner:listOfGenes>
-<celldesigner:gene id="g_n17" name="ACLY" type="GENE"/>
+<celldesigner:gene id="g_n20" name="ACLY" type="GENE"/>
 </celldesigner:listOfGenes>
-<celldesigner:listOfRNAs/>
+<celldesigner:listOfRNAs>
+<celldesigner:RNA id="r_n17" name="ACLY" type="RNA"/>
+</celldesigner:listOfRNAs>
 <celldesigner:listOfAntisenseRNAs/>
 <celldesigner:listOfLayers/>
 <celldesigner:listOfBlockDiagrams/>
@@ -788,8 +790,8 @@
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
 <celldesigner:speciesIdentity>
-<celldesigner:class>GENE</celldesigner:class>
-<celldesigner:geneReference>g_n17</celldesigner:geneReference>
+<celldesigner:class>RNA</celldesigner:class>
+<celldesigner:rnaReference>r_n17</celldesigner:rnaReference>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
 <celldesigner:catalyzed reaction="re_n16"/>
@@ -825,7 +827,7 @@
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
 <celldesigner:speciesIdentity>
 <celldesigner:class>GENE</celldesigner:class>
-<celldesigner:geneReference>g_n17</celldesigner:geneReference>
+<celldesigner:geneReference>g_n20</celldesigner:geneReference>
 </celldesigner:speciesIdentity>
 <celldesigner:listOfCatalyzedReactions>
 <celldesigner:catalyzed reaction="re_n19"/>
