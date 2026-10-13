@@ -6,20 +6,20 @@ page: "/glycogen/"
 group: "Carbohydrate metabolism"
 order: 3
 kind: "map"
-image: "/downloads/F004-glycogen-muscle.svg"
+image: "/atlas-downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1746
 scale: 1
 annotation: "/atlas-data/F004-glycogen-muscle.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F004-glycogen-muscle.graphml"}
-  - {label: "PNG", url: "/downloads/F004-glycogen-muscle.png"}
-  - {label: "SVG", url: "/downloads/F004-glycogen-muscle.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F004-glycogen-muscle.sbgn"}
-  - {label: "SBML", url: "/downloads/F004-glycogen-muscle-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F004-glycogen-muscle.xml"}
-  - {label: "Annotation", url: "/downloads/F004-glycogen.csv"}
-  - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-muscle.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F004-glycogen-muscle.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F004-glycogen-muscle.png"}
+  - {label: "SVG", url: "/atlas-downloads/F004-glycogen-muscle.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F004-glycogen-muscle.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F004-glycogen-muscle-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F004-glycogen-muscle.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F004-glycogen.csv"}
+  - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-muscle.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle"}
 ---
 ## Contributors

@@ -6,20 +6,20 @@ page: "/glycolysis/"
 group: "Carbohydrate metabolism"
 order: 1
 kind: "map"
-image: "/downloads/F001-glycolysis.svg"
+image: "/atlas-downloads/F001-glycolysis.svg"
 width: 867
 height: 679
 scale: 1
 annotation: "/atlas-data/F001-glycolysis.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F001-glycolysis.graphml"}
-  - {label: "PNG", url: "/downloads/F001-glycolysis.png"}
-  - {label: "SVG", url: "/downloads/F001-glycolysis.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F001-glycolysis.sbgn"}
-  - {label: "SBML", url: "/downloads/F001-glycolysis-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F001-glycolysis.xml"}
-  - {label: "Annotation", url: "/downloads/F001-glycolysis.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F001-glycolysis.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F001-glycolysis.png"}
+  - {label: "SVG", url: "/atlas-downloads/F001-glycolysis.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F001-glycolysis.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F001-glycolysis-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F001-glycolysis.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F001-glycolysis.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F001-glycolysis.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis"}
 ---
 ## Contributors

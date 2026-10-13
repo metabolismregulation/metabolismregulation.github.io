@@ -6,20 +6,19 @@ page: "/glycolysis-cardiac/"
 group: "Carbohydrate metabolism"
 order: 2
 kind: "map"
-image: "/downloads/F001-glycolysis-cardiac.svg"
+image: "/atlas-downloads/F001-glycolysis-cardiac.svg"
 width: 867
 height: 679
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-cardiac.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F001-glycolysis-cardiac.graphml"}
-  - {label: "PNG", url: "/downloads/F001-glycolysis-cardiac.png"}
-  - {label: "SVG", url: "/downloads/F001-glycolysis-cardiac.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F001-glycolysis-cardiac.sbgn"}
-  - {label: "SBML", url: "/downloads/F001-glycolysis-cardiac-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F001-glycolysis-cardiac.xml"}
-  - {label: "Annotation", url: "/downloads/F001-glycolysis-cardiac.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F001-glycolysis-cardiac.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F001-glycolysis-cardiac.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F001-glycolysis-cardiac.png"}
+  - {label: "SVG", url: "/atlas-downloads/F001-glycolysis-cardiac.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F001-glycolysis-cardiac.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F001-glycolysis-cardiac-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F001-glycolysis-cardiac.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F001-glycolysis-cardiac.csv"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac"}
 ---
 ## Contributors

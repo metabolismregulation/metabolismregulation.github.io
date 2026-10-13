@@ -6,20 +6,20 @@ page: "/carnitine/"
 group: "Lipid metabolism"
 order: 9
 kind: "map"
-image: "/downloads/F014-carnitine.svg"
+image: "/atlas-downloads/F014-carnitine.svg"
 width: 885
 height: 1197
 scale: 1
 annotation: "/atlas-data/F014-carnitine.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F014-carnitine.graphml"}
-  - {label: "PNG", url: "/downloads/F014-carnitine.png"}
-  - {label: "SVG", url: "/downloads/F014-carnitine.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F014-carnitine.sbgn"}
-  - {label: "SBML", url: "/downloads/F014-carnitine-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F014-carnitine.xml"}
-  - {label: "Annotation", url: "/downloads/F014-carnitine.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F014-carnitine.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F014-carnitine.png"}
+  - {label: "SVG", url: "/atlas-downloads/F014-carnitine.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F014-carnitine.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F014-carnitine-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F014-carnitine.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F014-carnitine.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F014-carnitine.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine"}
 ---
 ## Contributors

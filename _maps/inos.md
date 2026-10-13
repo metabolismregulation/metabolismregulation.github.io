@@ -6,20 +6,20 @@ page: "/inos/"
 group: "Nitric oxide metabolism"
 order: 17
 kind: "map"
-image: "/downloads/F007-inos.svg"
+image: "/atlas-downloads/F007-inos.svg"
 width: 1590
 height: 1186
 scale: 1
 annotation: "/atlas-data/F007-inos.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F007-inos.graphml"}
-  - {label: "PNG", url: "/downloads/F007-inos.png"}
-  - {label: "SVG", url: "/downloads/F007-inos.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F007-inos.sbgn"}
-  - {label: "SBML", url: "/downloads/F007-inos-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F007-inos.xml"}
-  - {label: "Annotation", url: "/downloads/F007-inos.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F007-inos.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F007-inos.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F007-inos.png"}
+  - {label: "SVG", url: "/atlas-downloads/F007-inos.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F007-inos.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F007-inos-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F007-inos.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F007-inos.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F007-inos.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos"}
 ---
 ## Contributors

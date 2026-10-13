@@ -6,20 +6,20 @@ page: "/pyrimidine/"
 group: "Nucleotide metabolism"
 order: 15
 kind: "map"
-image: "/downloads/F020-pyrimidine.svg"
+image: "/atlas-downloads/F020-pyrimidine.svg"
 width: 459
 height: 405
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F020-pyrimidine.graphml"}
-  - {label: "PNG", url: "/downloads/F020-pyrimidine.png"}
-  - {label: "SVG", url: "/downloads/F020-pyrimidine.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F020-pyrimidine.sbgn"}
-  - {label: "SBML", url: "/downloads/F020-pyrimidine-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F020-pyrimidine.xml"}
-  - {label: "Annotation", url: "/downloads/F020-pyrimidine.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F020-pyrimidine.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F020-pyrimidine.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F020-pyrimidine.png"}
+  - {label: "SVG", url: "/atlas-downloads/F020-pyrimidine.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F020-pyrimidine.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F020-pyrimidine-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F020-pyrimidine.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F020-pyrimidine.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F020-pyrimidine.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine"}
 ---
 ## Contributors

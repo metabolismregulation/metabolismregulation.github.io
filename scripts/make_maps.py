@@ -1,6 +1,8 @@
 # Build the map files for the experimental /atlas/ page.
 # Usage: python3 scripts/make_maps.py
-# Reads the map pages in _projects/ and the files in downloads/, and writes
+# Reads the map pages in _projects/ and the files in atlas-downloads/ (the
+# Atlas's own copy of downloads/, where maps are worked on before they replace
+# the official files), and writes
 # one file per map image to _maps/<id>.md:
 #   - front matter: title, topic, tab, image and its size, scale, downloads
 #   - body: the page text (contributors, description, references)
@@ -19,6 +21,7 @@ from PIL import Image
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, '_maps')
+DL = 'atlas-downloads'
 
 # order and short names as on the Maps and Gallery pages
 ORDER = re.findall(r'^  - (\S+)$', open(os.path.join(ROOT, 'pages/maps.html'), encoding='utf-8').read(), re.M)
@@ -53,14 +56,14 @@ POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
 TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
-# when downloads/ has them), the other files, then the annotation table, then
+# and the SBGN-ML, SBML and CellDesigner files are added when DL has them), the other files, then the annotation table, then
 # the two online viewers
 LABELS = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
 
 
 def scale_of(base, width):
     """PNG pixels per yEd unit, from the layout extent in the GraphML file."""
-    g = os.path.join(ROOT, 'downloads', base + '.graphml')
+    g = os.path.join(ROOT, DL, base + '.graphml')
     if not os.path.exists(g):
         return None
     s = open(g, encoding='utf-8', errors='ignore').read()
@@ -84,8 +87,8 @@ MEMBERS_FIELD = 'Member annotation'
 def annotation(base):
     """Annotated nodes of a map: box in SVG pixels, label, class, properties.
     None when the GraphML has no custom node properties."""
-    g = os.path.join(ROOT, 'downloads', base + '.graphml')
-    svg = os.path.join(ROOT, 'downloads', base + '.svg')
+    g = os.path.join(ROOT, DL, base + '.graphml')
+    svg = os.path.join(ROOT, DL, base + '.svg')
     if not (os.path.exists(g) and os.path.exists(svg)):
         return None
     root = ET.parse(g).getroot()
@@ -155,7 +158,7 @@ def main():
         text = re.sub(r'\n{3,}', '\n\n', '\n'.join(text)).strip() + '\n'
         for k, (links, base) in enumerate(blocks):
             # the SVG export when there is one (sharp at any zoom), else the PNG
-            svg = os.path.join(ROOT, 'downloads', base + '.svg')
+            svg = os.path.join(ROOT, DL, base + '.svg')
             if os.path.exists(svg):
                 head = re.search(r'<svg\b[^>]*>', open(svg, encoding='utf-8').read()).group(0)
                 w = round(float(re.search(r'\swidth="([\d.]+)"', head).group(1)))
@@ -163,7 +166,7 @@ def main():
                 ext = '.svg'
                 scale = 1  # yEd exports SVG at 1:1, one px per yEd unit
             else:
-                w, h = Image.open(os.path.join(ROOT, 'downloads', base + '.png')).size
+                w, h = Image.open(os.path.join(ROOT, DL, base + '.png')).size
                 ext = '.png'
                 scale = scale_of(base, w)
             ann = annotation(base) if ext == '.svg' else None
@@ -175,7 +178,7 @@ def main():
             downloads = []
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', links):
                 if m.group(2) in LABELS:
-                    downloads.append({'label': m.group(2), 'url': m.group(1)})
+                    downloads.append({'label': m.group(2), 'url': m.group(1).replace('/downloads/', '/%s/' % DL)})
             mid = base.split('-', 1)[1]
             fm = ['---',
                   'title: ' + yaml_str(title if k == 0 or len(blocks) == 1 else title.replace('muscle', 'liver')),
@@ -185,14 +188,14 @@ def main():
                   'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
-                  'image: ' + yaml_str('/downloads/' + base + ext),
+                  'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
                   'annotation: ' + yaml_str(ann_url),
                   'downloads:']
-            for label, e in (('PNG', '.png'), ('SVG', '.svg')):
-                if os.path.exists(os.path.join(ROOT, 'downloads', base + e)) and not any(d['label'] == label for d in downloads):
-                    downloads.append({'label': label, 'url': '/downloads/' + base + e})
+            for label, e in (('PNG', '.png'), ('SVG', '.svg'), ('SBGN-ML', '.sbgn'), ('SBML', '-SBML.xml'), ('CellDesigner', '.xml')):
+                if os.path.exists(os.path.join(ROOT, DL, base + e)) and not any(d['label'] == label for d in downloads):
+                    downloads.append({'label': label, 'url': '/%s/' % DL + base + e})
             downloads.sort(key=lambda d: LABELS.index(d['label']))
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']

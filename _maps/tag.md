@@ -6,20 +6,20 @@ page: "/tag/"
 group: "Lipid metabolism"
 order: 11
 kind: "map"
-image: "/downloads/F015-tag.svg"
+image: "/atlas-downloads/F015-tag.svg"
 width: 800
 height: 616
 scale: 1
 annotation: "/atlas-data/F015-tag.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F015-tag.graphml"}
-  - {label: "PNG", url: "/downloads/F015-tag.png"}
-  - {label: "SVG", url: "/downloads/F015-tag.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F015-tag.sbgn"}
-  - {label: "SBML", url: "/downloads/F015-tag-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F015-tag.xml"}
-  - {label: "Annotation", url: "/downloads/F015-tag.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F015-tag.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F015-tag.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F015-tag.png"}
+  - {label: "SVG", url: "/atlas-downloads/F015-tag.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F015-tag.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F015-tag-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F015-tag.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F015-tag.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F015-tag.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F015-tag"}
 ---
 ## Contributors

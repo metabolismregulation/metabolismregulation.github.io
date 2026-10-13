@@ -6,20 +6,20 @@ page: "/acly/"
 group: "Carbohydrate metabolism"
 order: 5
 kind: "map"
-image: "/downloads/F006-acly.svg"
+image: "/atlas-downloads/F006-acly.svg"
 width: 892
 height: 698
 scale: 1
 annotation: "/atlas-data/F006-acly.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F006-acly.graphml"}
-  - {label: "PNG", url: "/downloads/F006-acly.png"}
-  - {label: "SVG", url: "/downloads/F006-acly.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F006-acly.sbgn"}
-  - {label: "SBML", url: "/downloads/F006-acly-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F006-acly.xml"}
-  - {label: "Annotation", url: "/downloads/F006-acly.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-acly.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F006-acly.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F006-acly.png"}
+  - {label: "SVG", url: "/atlas-downloads/F006-acly.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F006-acly.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F006-acly-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F006-acly.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F006-acly.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F006-acly.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly"}
 ---
 ## Contributors

@@ -6,20 +6,20 @@ page: "/mevalonate/"
 group: "Lipid metabolism"
 order: 8
 kind: "map"
-image: "/downloads/F003-mevalonate.svg"
+image: "/atlas-downloads/F003-mevalonate.svg"
 width: 1541
 height: 650
 scale: 1
 annotation: "/atlas-data/F003-mevalonate.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F003-mevalonate.graphml"}
-  - {label: "PNG", url: "/downloads/F003-mevalonate.png"}
-  - {label: "SVG", url: "/downloads/F003-mevalonate.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F003-mevalonate.sbgn"}
-  - {label: "SBML", url: "/downloads/F003-mevalonate-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F003-mevalonate.xml"}
-  - {label: "Annotation", url: "/downloads/F003-mevalonate.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F003-mevalonate.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F003-mevalonate.png"}
+  - {label: "SVG", url: "/atlas-downloads/F003-mevalonate.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F003-mevalonate.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F003-mevalonate-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F003-mevalonate.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F003-mevalonate.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F003-mevalonate.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate"}
 ---
 ## Contributors

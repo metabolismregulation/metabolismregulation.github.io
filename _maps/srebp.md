@@ -6,20 +6,20 @@ page: "/srebp/"
 group: "Lipid metabolism"
 order: 10
 kind: "map"
-image: "/downloads/F005-srebp.svg"
+image: "/atlas-downloads/F005-srebp.svg"
 width: 746
 height: 1166
 scale: 1
 annotation: "/atlas-data/F005-srebp.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F005-srebp.graphml"}
-  - {label: "PNG", url: "/downloads/F005-srebp.png"}
-  - {label: "SVG", url: "/downloads/F005-srebp.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F005-srebp.sbgn"}
-  - {label: "SBML", url: "/downloads/F005-srebp-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F005-srebp.xml"}
-  - {label: "Annotation", url: "/downloads/F005-srebp.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-srebp.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F005-srebp.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F005-srebp.png"}
+  - {label: "SVG", url: "/atlas-downloads/F005-srebp.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F005-srebp.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F005-srebp-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F005-srebp.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F005-srebp.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F005-srebp.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp"}
 ---
 ## Contributors

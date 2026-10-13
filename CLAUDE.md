@@ -32,3 +32,11 @@ navigation (Maps, Gallery, Atlas), and kept out of the sitemap and search
 engines (`_config.yml` defaults, noindex in `_includes/meta.html`). To publish
 it, move the page to `_projects/` (the URL stays the same) and add it to the
 Maps, Gallery and Atlas lists. Working files stay in `maps-workbench`.
+
+## Atlas downloads
+
+The Atlas (`/atlas/`, not in the site navigation) uses its own copy of the map
+files, `atlas-downloads/`. New versions of maps (CellDesigner, SBML, SBGN-ML,
+and later others) go there first and are checked on the Atlas; they replace
+the official files in `downloads/` only when the user says so. Run
+`scripts/make_maps.py` after changing either folder or a map page.

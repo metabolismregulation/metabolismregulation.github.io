@@ -6,20 +6,20 @@ page: "/glutaminase/"
 group: "Amino acid metabolism"
 order: 14
 kind: "map"
-image: "/downloads/F019-glutaminase.svg"
+image: "/atlas-downloads/F019-glutaminase.svg"
 width: 690
 height: 581
 scale: 1
 annotation: "/atlas-data/F019-glutaminase.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F019-glutaminase.graphml"}
-  - {label: "PNG", url: "/downloads/F019-glutaminase.png"}
-  - {label: "SVG", url: "/downloads/F019-glutaminase.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F019-glutaminase.sbgn"}
-  - {label: "SBML", url: "/downloads/F019-glutaminase-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F019-glutaminase.xml"}
-  - {label: "Annotation", url: "/downloads/F019-glutaminase.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F019-glutaminase.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F019-glutaminase.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F019-glutaminase.png"}
+  - {label: "SVG", url: "/atlas-downloads/F019-glutaminase.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F019-glutaminase.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F019-glutaminase-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F019-glutaminase.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F019-glutaminase.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F019-glutaminase.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase"}
 ---
 ## Contributors

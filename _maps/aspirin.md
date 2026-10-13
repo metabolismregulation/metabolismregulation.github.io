@@ -6,20 +6,20 @@ page: "/aspirin/"
 group: "Lipid metabolism"
 order: 7
 kind: "drug"
-image: "/downloads/F100-aspirin.svg"
+image: "/atlas-downloads/F100-aspirin.svg"
 width: 943
 height: 290
 scale: 1
 annotation: "/atlas-data/F100-aspirin.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F100-aspirin.graphml"}
-  - {label: "PNG", url: "/downloads/F100-aspirin.png"}
-  - {label: "SVG", url: "/downloads/F100-aspirin.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F100-aspirin.sbgn"}
-  - {label: "SBML", url: "/downloads/F100-aspirin-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F100-aspirin.xml"}
-  - {label: "Annotation", url: "/downloads/F100-aspirin.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F100-aspirin.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F100-aspirin.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F100-aspirin.png"}
+  - {label: "SVG", url: "/atlas-downloads/F100-aspirin.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F100-aspirin.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F100-aspirin-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F100-aspirin.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F100-aspirin.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F100-aspirin.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin"}
 ---
 ## Contributors

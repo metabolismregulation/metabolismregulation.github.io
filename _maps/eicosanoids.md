@@ -6,20 +6,20 @@ page: "/eicosanoids/"
 group: "Lipid metabolism"
 order: 6
 kind: "map"
-image: "/downloads/F002-eicosanoids.svg"
+image: "/atlas-downloads/F002-eicosanoids.svg"
 width: 664
 height: 552
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids.json"
 downloads:
-  - {label: "GraphML", url: "/downloads/F002-eicosanoids.graphml"}
-  - {label: "PNG", url: "/downloads/F002-eicosanoids.png"}
-  - {label: "SVG", url: "/downloads/F002-eicosanoids.svg"}
-  - {label: "SBGN-ML", url: "/downloads/F002-eicosanoids.sbgn"}
-  - {label: "SBML", url: "/downloads/F002-eicosanoids-SBML.xml"}
-  - {label: "CellDesigner", url: "/downloads/F002-eicosanoids.xml"}
-  - {label: "Annotation", url: "/downloads/F002-eicosanoids.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F002-eicosanoids.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/F002-eicosanoids.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F002-eicosanoids.png"}
+  - {label: "SVG", url: "/atlas-downloads/F002-eicosanoids.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F002-eicosanoids.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/F002-eicosanoids-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F002-eicosanoids.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/F002-eicosanoids.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F002-eicosanoids.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F002-eicosanoids"}
 ---
 ## Contributors
