@@ -96,12 +96,15 @@ sitemap: false
   .m2-info ul { list-style: none; margin: 0; padding: 0; }
   .m2-info li { margin: 0 0 3px; }
   /* a protein family: one card per member, or one member's record under a
-     row of member buttons ("all" returns to the cards) */
+     row of member buttons (the reload button returns to the cards) */
   .m2-card { display: block; box-sizing: border-box; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
   .m2-card:hover { border-color: #999; }
   .m2-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 10px; }
-  .m2-chip { font: inherit; font-size: 14px; line-height: 20px; padding: 3px 7px 1px; color: #222; background: #fff; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
-  .m2-chip:hover { border-color: #999; }
+  .m2-chip { font: inherit; font-size: 14px; line-height: 20px; padding: 3px 7px 1px; color: #222; background: #f5f5f5; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
+  .m2-chip:hover { background: #ececec; border-color: #999; } /* as the download buttons */
+  /* back to the cards: a square button with a reload sign */
+  .m2-chip.m2-all { box-sizing: border-box; width: 26px; height: 26px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  .m2-all svg { width: 16px; height: 16px; fill: currentColor; }
   .m2-chip.m2-on { background: #4183c4; border-color: #4183c4; color: #fff; } /* as the chosen map in the list */
   .m2-chip:focus, .m2-card:focus { outline: none; }
 </style>
@@ -435,8 +438,13 @@ sitemap: false
     }
     var chips = el('div', 'm2-chips');
     sel.members.concat([null]).forEach(function (m, i) {
-      var b = el('button', 'm2-chip' + (i === member ? ' m2-on' : ''), m ? m.symbol : 'all');
+      var b = el('button', 'm2-chip' + (i === member ? ' m2-on' : '') + (m ? '' : ' m2-all'), m ? m.symbol : null);
       b.type = 'button';
+      if (!m) {
+        b.title = 'All members'; b.setAttribute('aria-label', 'All members');
+        // reload sign (Material Icons "refresh", Apache 2.0)
+        b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>';
+      }
       b.addEventListener('click', function () { member = m ? i : -1; renderInfo(); });
       chips.appendChild(b);
     });
