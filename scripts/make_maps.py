@@ -116,7 +116,7 @@ def annotation(base):
                       'class': (gn.get('configuration') or '').replace('com.yworks.sbgn.', ''),
                       'box': [round(float(geo.get('x')) + tx, 1), round(float(geo.get('y')) + ty, 1),
                               round(float(geo.get('width')), 1), round(float(geo.get('height')), 1)],
-                      'url': data.get('url', ''), 'note': data.get('description', ''), 'props': props})
+                      'url': data.get('url', ''), 'props': props})
         if members:
             nodes[-1]['members'] = members
     return nodes

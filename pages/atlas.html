@@ -412,7 +412,7 @@ sitemap: false
       var sym = p['HGNC symbol'];
       if (sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase()) line(p, 'HGNC symbol');
       if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', 'm2-k', p['Note']));
-      record(p, sel.note);
+      record(p);
       return;
     }
     var fam = el('p');
@@ -456,7 +456,7 @@ sitemap: false
     t.appendChild(el('b', null, m.symbol));
     if (mp['Note']) { t.appendChild(document.createTextNode(' ')); t.appendChild(el('span', 'm2-k', mp['Note'])); }
     info.appendChild(t);
-    record(mp, '');
+    record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
   function line(p, name) {
@@ -467,14 +467,13 @@ sitemap: false
     info.appendChild(q);
   }
   // one protein's or metabolite's record: names, text, then the database links
-  function record(p, note) {
+  function record(p) {
     line(p, 'Full name');
     line(p, 'Alternative names');
     line(p, 'Synonyms');
     if (p['Function'] || p['Definition']) info.appendChild(el('p', null, p['Function'] || p['Definition']));
     line(p, 'Location');
     line(p, 'Formula');
-    if (note) line({ 'Map note': note }, 'Map note');
     var ids = IDS.filter(function (n) { return p[n]; });
     if (!ids.length) return;
     info.appendChild(el('h4', null, 'Annotations'));
