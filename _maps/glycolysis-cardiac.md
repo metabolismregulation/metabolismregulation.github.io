@@ -19,6 +19,7 @@ downloads:
   - {label: "SBML", url: "/atlas-downloads/F001-glycolysis-cardiac-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F001-glycolysis-cardiac.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F001-glycolysis-cardiac.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F001-glycolysis-cardiac.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac"}
 ---
 ## Contributors

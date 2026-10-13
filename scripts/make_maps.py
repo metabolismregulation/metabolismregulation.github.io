@@ -22,6 +22,8 @@ from PIL import Image
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, '_maps')
 DL = 'atlas-downloads'
+# Newt opens an SBGN-ML file given by its URL
+NEWT = 'http://web.newteditor.org/?URL=https://metabolismregulation.github.io'
 
 # order and short names as on the Maps and Gallery pages
 ORDER = re.findall(r'^  - (\S+)$', open(os.path.join(ROOT, 'pages/maps.html'), encoding='utf-8').read(), re.M)
@@ -56,7 +58,8 @@ POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
 TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
-# and the SBGN-ML, SBML and CellDesigner files are added when DL has them), the other files, then the annotation table, then
+# and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
+# DL has them), the other files, then the annotation table, then
 # the two online viewers
 LABELS = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
 
@@ -193,9 +196,10 @@ def main():
                   'scale: %s' % (scale or 'null'),
                   'annotation: ' + yaml_str(ann_url),
                   'downloads:']
-            for label, e in (('PNG', '.png'), ('SVG', '.svg'), ('SBGN-ML', '.sbgn'), ('SBML', '-SBML.xml'), ('CellDesigner', '.xml')):
+            for label, e in (('PNG', '.png'), ('SVG', '.svg'), ('SBGN-ML', '.sbgn'), ('SBML', '-SBML.xml'), ('CellDesigner', '.xml'), ('Newt', '.sbgn')):
                 if os.path.exists(os.path.join(ROOT, DL, base + e)) and not any(d['label'] == label for d in downloads):
-                    downloads.append({'label': label, 'url': '/%s/' % DL + base + e})
+                    url = '/%s/' % DL + base + e
+                    downloads.append({'label': label, 'url': NEWT + url if label == 'Newt' else url})
             downloads.sort(key=lambda d: LABELS.index(d['label']))
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']
