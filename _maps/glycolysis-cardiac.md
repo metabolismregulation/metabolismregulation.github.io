@@ -7,7 +7,7 @@ group: "Carbohydrate metabolism"
 order: 2
 kind: "map"
 image: "/atlas-downloads/F001-glycolysis-cardiac.svg"
-width: 976
+width: 981
 height: 695
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-cardiac.json"
