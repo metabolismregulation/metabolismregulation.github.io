@@ -34,3 +34,4 @@ The activation of de novo pyrimidine biosynthesis is a requirement for cell prol
 1. Roskoski R Jr. ERK1/2 MAP kinases: structure, function, and regulation. Pharmacol Res. 2012 Aug;66(2):105-43. doi: 10.1016/j.phrs.2012.04.005. PMID: 22569528.
 1. Sigoillot FD, Evans DR, Guy HI. Growth-dependent regulation of mammalian pyrimidine biosynthesis by the protein kinase A and MAPK signaling cascades. J Biol Chem. 2002 May 3;277(18):15745-51. doi: 10.1074/jbc.M201112200. PMID: 11872754.
 1. Sigoillot FD, Sigoillot SM, Guy HI. Breakdown of the regulatory control of pyrimidine biosynthesis in human breast cancer cells. Int J Cancer. 2004 Apr 20;109(4):491-8. doi: 10.1002/ijc.11717. PMID: 14991569.
+1. Sigoillot FD, Kotsis DH, Serre V, Sigoillot SM, Evans DR, Guy HI. Nuclear localization and mitogen-activated protein kinase phosphorylation of the multifunctional protein CAD. J Biol Chem. 2005 Jul 8;280(27):25611-20. doi: 10.1074/jbc.M504581200. PMID: 15890648.
