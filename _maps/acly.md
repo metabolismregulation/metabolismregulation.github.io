@@ -10,7 +10,7 @@ image: "/downloads/F006-acly.svg"
 width: 892
 height: 698
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F006-acly.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F006-acly.graphml"}
   - {label: "PNG", url: "/downloads/F006-acly.png"}

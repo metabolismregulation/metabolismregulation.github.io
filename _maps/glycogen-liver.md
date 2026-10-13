@@ -10,7 +10,7 @@ image: "/downloads/F004-glycogen-liver.svg"
 width: 2106
 height: 1746
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F004-glycogen-liver.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-liver.graphml"}
   - {label: "PNG", url: "/downloads/F004-glycogen-liver.png"}

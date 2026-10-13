@@ -10,7 +10,7 @@ image: "/downloads/F009-phosphoinositides.svg"
 width: 739
 height: 989
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F009-phosphoinositides.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F009-phosphoinositides.graphml"}
   - {label: "PNG", url: "/downloads/F009-phosphoinositides.png"}

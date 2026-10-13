@@ -10,7 +10,7 @@ image: "/downloads/F003-mevalonate.svg"
 width: 1541
 height: 650
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F003-mevalonate.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F003-mevalonate.graphml"}
   - {label: "PNG", url: "/downloads/F003-mevalonate.png"}

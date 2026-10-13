@@ -10,7 +10,7 @@ image: "/downloads/F005-srebp.svg"
 width: 746
 height: 1166
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F005-srebp.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F005-srebp.graphml"}
   - {label: "PNG", url: "/downloads/F005-srebp.png"}

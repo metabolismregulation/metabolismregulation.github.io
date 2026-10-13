@@ -10,7 +10,7 @@ image: "/downloads/F008-enos.svg"
 width: 1297
 height: 1707
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F008-enos.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F008-enos.graphml"}
   - {label: "PNG", url: "/downloads/F008-enos.png"}

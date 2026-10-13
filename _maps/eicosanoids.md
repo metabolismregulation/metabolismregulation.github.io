@@ -10,7 +10,7 @@ image: "/downloads/F002-eicosanoids.svg"
 width: 664
 height: 552
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F002-eicosanoids.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F002-eicosanoids.graphml"}
   - {label: "PNG", url: "/downloads/F002-eicosanoids.png"}

@@ -10,7 +10,7 @@ image: "/downloads/F019-glutaminase.svg"
 width: 690
 height: 581
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F019-glutaminase.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F019-glutaminase.graphml"}
   - {label: "PNG", url: "/downloads/F019-glutaminase.png"}

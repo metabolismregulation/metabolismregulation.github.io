@@ -10,7 +10,7 @@ image: "/downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1746
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F004-glycogen-muscle.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F004-glycogen-muscle.graphml"}
   - {label: "PNG", url: "/downloads/F004-glycogen-muscle.png"}

@@ -10,7 +10,7 @@ image: "/downloads/F015-tag.svg"
 width: 800
 height: 616
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F015-tag.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F015-tag.graphml"}
   - {label: "PNG", url: "/downloads/F015-tag.png"}

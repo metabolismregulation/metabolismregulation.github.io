@@ -10,7 +10,7 @@ image: "/downloads/F007-inos.svg"
 width: 1590
 height: 1186
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F007-inos.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F007-inos.graphml"}
   - {label: "PNG", url: "/downloads/F007-inos.png"}

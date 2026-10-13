@@ -10,7 +10,7 @@ image: "/downloads/F012-camp.svg"
 width: 745
 height: 730
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F012-camp.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F012-camp.graphml"}
   - {label: "PNG", url: "/downloads/F012-camp.png"}

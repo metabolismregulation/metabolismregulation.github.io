@@ -10,7 +10,7 @@ image: "/downloads/F014-carnitine.svg"
 width: 885
 height: 1197
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F014-carnitine.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F014-carnitine.graphml"}
   - {label: "PNG", url: "/downloads/F014-carnitine.png"}

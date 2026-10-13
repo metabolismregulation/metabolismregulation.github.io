@@ -10,7 +10,7 @@ image: "/downloads/F018-estrogen.svg"
 width: 1233
 height: 1305
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F018-estrogen.json"
 downloads:
   - {label: "GraphML", url: "/downloads/F018-estrogen.graphml"}
   - {label: "PNG", url: "/downloads/F018-estrogen.png"}
