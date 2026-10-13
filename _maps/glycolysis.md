@@ -7,8 +7,8 @@ group: "Carbohydrate metabolism"
 order: 1
 kind: "map"
 image: "/atlas-downloads/F001-glycolysis.svg"
-width: 867
-height: 679
+width: 978
+height: 685
 scale: 1
 annotation: "/atlas-data/F001-glycolysis.json"
 downloads:

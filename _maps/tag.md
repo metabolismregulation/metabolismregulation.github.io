@@ -7,8 +7,8 @@ group: "Lipid metabolism"
 order: 11
 kind: "map"
 image: "/atlas-downloads/F015-tag.svg"
-width: 800
-height: 616
+width: 831
+height: 739
 scale: 1
 annotation: "/atlas-data/F015-tag.json"
 downloads:

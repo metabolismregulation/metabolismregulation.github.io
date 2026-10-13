@@ -8,7 +8,7 @@ order: 18
 kind: "map"
 image: "/atlas-downloads/F008-enos.svg"
 width: 1297
-height: 1707
+height: 1805
 scale: 1
 annotation: "/atlas-data/F008-enos.json"
 downloads:

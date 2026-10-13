@@ -8,7 +8,7 @@ order: 3
 kind: "map"
 image: "/atlas-downloads/F004-glycogen-muscle.svg"
 width: 2106
-height: 1746
+height: 1751
 scale: 1
 annotation: "/atlas-data/F004-glycogen-muscle.json"
 downloads:
