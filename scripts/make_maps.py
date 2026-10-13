@@ -55,7 +55,7 @@ TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # when downloads/ has them), the other files, then the annotation table, then
 # the two online viewers
-LABELS = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
+LABELS = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Annotation 2', 'Newt', 'MINERVA']
 
 
 def scale_of(base, width):
