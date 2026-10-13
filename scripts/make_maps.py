@@ -112,7 +112,7 @@ def annotation(base):
             gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
         geo = gn.find(YN + 'Geometry')
         labels = [l.text.strip() for l in gn.findall(YN + 'NodeLabel') if l.text and l.text.strip() and not l.get('iconData')]
-        nodes.append({'label': labels[0] if labels else '',
+        nodes.append({'label': ' '.join(labels[0].split()) if labels else '',
                       'class': (gn.get('configuration') or '').replace('com.yworks.sbgn.', ''),
                       'box': [round(float(geo.get('x')) + tx, 1), round(float(geo.get('y')) + ty, 1),
                               round(float(geo.get('width')), 1), round(float(geo.get('height')), 1)],
