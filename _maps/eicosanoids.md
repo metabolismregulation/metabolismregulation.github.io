@@ -4,7 +4,7 @@ topic: "Eicosanoid production"
 tab: ""
 page: "/eicosanoids/"
 group: "Lipid metabolism"
-order: 6
+order: 7
 kind: "map"
 draft: false
 image: "/atlas-downloads/F002-eicosanoids.svg"

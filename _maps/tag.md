@@ -4,7 +4,7 @@ topic: "Triacylglycerol hydrolysis"
 tab: ""
 page: "/tag/"
 group: "Lipid metabolism"
-order: 11
+order: 12
 kind: "map"
 draft: false
 image: "/atlas-downloads/F015-tag.svg"

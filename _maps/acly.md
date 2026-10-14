@@ -4,7 +4,7 @@ topic: "Acetyl-CoA synthesis"
 tab: ""
 page: "/acly/"
 group: "Carbohydrate metabolism"
-order: 5
+order: 6
 kind: "map"
 draft: false
 image: "/atlas-downloads/F006-acly.svg"

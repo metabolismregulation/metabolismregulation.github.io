@@ -4,7 +4,7 @@ topic: "cAMP hydrolysis"
 tab: ""
 page: "/camp/"
 group: "Nucleotide metabolism"
-order: 18
+order: 19
 kind: "map"
 draft: false
 image: "/atlas-downloads/F012-camp.svg"

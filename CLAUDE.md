@@ -35,6 +35,10 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same) and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py). Working files stay in `maps-workbench`.
 
+A map chosen from the Reactome-Recon lists says so visibly on its page (user,
+2026-10-14): a section "Reactome-Recon connection" above the Description, naming the
+Reactome processes (linked) and the Recon proteins that carry them in each list version.
+
 A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
 when the map is finished.

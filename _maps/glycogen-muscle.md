@@ -4,7 +4,7 @@ topic: "Glycogen metabolism"
 tab: "muscle"
 page: "/glycogen/"
 group: "Carbohydrate metabolism"
-order: 3
+order: 4
 kind: "map"
 draft: false
 image: "/atlas-downloads/F004-glycogen-muscle.svg"

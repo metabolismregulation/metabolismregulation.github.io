@@ -41,7 +41,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-
 # Groups without maps are planned for future maps and are not shown.
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
 GROUPS = [
-    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
+    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'pdh', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'aspirin', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides']),
     ('Amino acid metabolism', ['glutaminase', 'bcaa', 'ureacycle']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
@@ -59,7 +59,7 @@ DRUG = {'aspirin'}
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle'}
+TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then

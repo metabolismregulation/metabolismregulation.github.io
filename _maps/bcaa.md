@@ -4,7 +4,7 @@ topic: "BCAA catabolism"
 tab: ""
 page: "/bcaa/"
 group: "Amino acid metabolism"
-order: 15
+order: 16
 kind: "map"
 draft: true
 image: "/atlas-downloads/F022-bcaa.svg"
@@ -16,6 +16,10 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
   - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
 ---
+## Reactome-Recon connection
+
+This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The BCKDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-5693148">BCKDK phosphorylates BCKDH</a> (R-HSA-5693148) and <a href="https://reactome.org/content/detail/R-HSA-5693153">PPM1K dephosphorylates p-BCKDH</a> (R-HSA-5693153). The lists carry them on DLD (lists on this site) and on DBT (run of October 2026), both subunits of the same complex.
+
 ## Description
 
 The branched-chain amino acids leucine, isoleucine and valine share the first two steps of their breakdown in mitochondria. BCAT2 transfers their amino group to α-ketoglutarate in a reversible reaction, giving glutamate and the branched-chain α-keto acids. The branched-chain α-keto acid dehydrogenase complex (BCKDH) then converts the keto acids to their acyl-CoA esters, the first committed and rate-limiting step of the pathway.

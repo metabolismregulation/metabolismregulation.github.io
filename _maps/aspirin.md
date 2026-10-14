@@ -4,7 +4,7 @@ topic: "Aspirin"
 tab: ""
 page: "/aspirin/"
 group: "Lipid metabolism"
-order: 7
+order: 8
 kind: "drug"
 draft: false
 image: "/atlas-downloads/F100-aspirin.svg"
