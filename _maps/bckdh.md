@@ -8,8 +8,8 @@ order: 15
 kind: "map"
 draft: true
 image: "/atlas-downloads/F022-bckdh.svg"
-width: 962
-height: 507
+width: 1425
+height: 752
 scale: 1
 annotation: "/atlas-data/F022-bckdh.json"
 downloads:
@@ -18,11 +18,11 @@ downloads:
 ---
 ## Description
 
-The branched-chain amino acids leucine, isoleucine and valine are broken down in mitochondria by two shared steps. The mitochondrial branched-chain aminotransferase BCAT2 first transfers their amino group to α-ketoglutarate, giving glutamate and the branched-chain α-keto acids; this transamination is fast and reversible. The branched-chain α-keto acid dehydrogenase complex (BCKDH) then oxidatively decarboxylates the keto acids to their acyl-CoA esters, using coenzyme A and NAD<sup>+</sup>. This is the first committed and rate-limiting step of branched-chain amino acid catabolism. BCKDH is built from E1 (BCKDHA and BCKDHB), E2 (DBT), on which the other components assemble, and E3 (DLD). The map shows leucine as the first example: leucine is converted to α-ketoisocaproate and then to isovaleryl-CoA.
+The branched-chain amino acids leucine, isoleucine and valine are broken down in mitochondria by two shared steps. The mitochondrial branched-chain aminotransferase BCAT2 first transfers their amino group to α-ketoglutarate, giving glutamate and the branched-chain α-keto acids: α-ketoisocaproate from leucine, α-keto-β-methylvalerate from isoleucine and α-ketoisovalerate from valine. This transamination is fast and reversible. The branched-chain α-keto acid dehydrogenase complex (BCKDH) then oxidatively decarboxylates the three keto acids to isovaleryl-CoA, 2-methylbutyryl-CoA and isobutyryl-CoA, using coenzyme A and NAD<sup>+</sup>. This is the first committed and rate-limiting step of branched-chain amino acid catabolism, and one enzyme complex serves all three amino acids. BCKDH is built from E1 (BCKDHA and BCKDHB), E2 (DBT), on which the other components assemble, and E3 (DLD).
 
 BCKDH is switched off and on by reversible phosphorylation of its BCKDHA subunit. The kinase BCKDK phosphorylates Ser337 of the human precursor protein (Ser293 in the rat numbering used in most papers, site 1). The phosphorylated loop no longer lets E1 bind the lipoyl domain of E2, and the complex is inactive. The mitochondrial phosphatase PPM1K (PP2Cm) removes the phosphate and reactivates the complex; BCKDK and PPM1K compete for binding to E2. Mice lacking BCKDK have a much more active complex and low branched-chain amino acid levels, while mice lacking PPM1K accumulate branched-chain amino acids and keto acids, as in a mild form of maple syrup urine disease.
 
-α-Ketoisocaproate, the keto acid of leucine, is the strongest of the branched-chain keto acids in inhibiting BCKDK. An excess of leucine therefore keeps BCKDH dephosphorylated and active, which speeds up its own oxidation.
+The branched-chain keto acids inhibit BCKDK, and α-ketoisocaproate, the keto acid of leucine, is by far the strongest: α-keto-β-methylvalerate is about 7 times and α-ketoisovalerate about 40 times less potent. An excess of leucine therefore keeps BCKDH dephosphorylated and active, which speeds up the oxidation of all three branched-chain amino acids.
 
 ## References
 
