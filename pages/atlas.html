@@ -26,6 +26,8 @@ sitemap: false
   }
 
   #m2-search { width: 100%; box-sizing: border-box; font-size: 14px; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 16px; }
+  /* no blue focus ring: while typing, the edge only gets darker, as buttons on hover */
+  #m2-search:focus { outline: none; border-color: #999; }
   #m2-list { display: flex; flex-direction: column; gap: 2px; }
   .m2-item { display: block; width: 100%; text-align: left; font-size: 14px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; color: #000; }
   /* the chosen map: a filled box in the site's link blue, white text */
