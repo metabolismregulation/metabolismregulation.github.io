@@ -12,7 +12,7 @@ Downloads: &nbsp;
 
 ## Reactome-Recon connection
 
-This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The BCKDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-5693148">BCKDK phosphorylates BCKDH</a> (R-HSA-5693148) and <a href="https://reactome.org/content/detail/R-HSA-5693153">PPM1K dephosphorylates p-BCKDH</a> (R-HSA-5693153). The lists carry them on DLD (lists on this site) and on DBT (run of October 2026), both subunits of the same complex.
+This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The BCKDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-5693148">BCKDK phosphorylates BCKDH</a> (R-HSA-5693148) and <a href="https://reactome.org/content/detail/R-HSA-5693153">PPM1K dephosphorylates p-BCKDH</a> (R-HSA-5693153).
 
 ## Description
 
