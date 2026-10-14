@@ -12,7 +12,7 @@ Downloads: &nbsp;
 
 ## Reactome-Recon connection
 
-This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The PDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-203946">PDK isozymes phosphorylate PDHC subunit E1</a> (R-HSA-203946) and <a href="https://reactome.org/content/detail/R-HSA-204169">PDP1,2 dephosphorylate p-lipo-PDH</a> (R-HSA-204169). The lists carry them on PDHA1 and DLD (lists on this site) and on PDHX (run of October 2026), all subunits of the same complex.
+This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The PDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-203946">PDK isozymes phosphorylate PDHC subunit E1</a> (R-HSA-203946) and <a href="https://reactome.org/content/detail/R-HSA-204169">PDP1,2 dephosphorylate p-lipo-PDH</a> (R-HSA-204169).
 
 ## Description
 
