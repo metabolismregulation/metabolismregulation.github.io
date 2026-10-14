@@ -59,6 +59,9 @@ sitemap: false
   .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
   .m2-draft span { display: block; text-box: trim-both cap alphabetic; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
+  /* the word drug on the same tag in a lighter grey, after the name of a drug map */
+  .m2-draft.m2-drugtag { color: #333; background: #ddd; }
+  .m2-on .m2-draft.m2-drugtag { color: #4183c4; background: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* molecules found on the maps, after the maps found: each with the maps it
      is on; the name it was found by, when not the label, in grey */
@@ -167,6 +170,8 @@ sitemap: false
   var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#d6d6d6" stroke="#777" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#777" stroke-width="1.6"/></g></svg>';
   // the word draft on a small grey tag after the name of a draft map (page in draftpages/)
   var DRAFT_ICON = '<span class="m2-draft"><span>draft</span></span>';
+  // the word drug on a light grey tag after the name of a drug map (in place of the capsule, DRUG_ICON)
+  var DRUG_TAG = '<span class="m2-draft m2-drugtag"><span>drug</span></span>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
@@ -637,7 +642,7 @@ sitemap: false
       var b = el('button', 'm2-item m2-map' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
-      if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); b.title = 'Drug action mechanism map'; }
+      if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_TAG); b.title = 'Drug action mechanism map'; }
       if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); b.title = 'Draft map'; }
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
