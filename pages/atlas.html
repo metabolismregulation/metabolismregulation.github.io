@@ -52,8 +52,11 @@ sitemap: false
   .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
-  /* the word draft has tall letters and no descenders, so centring its line box leaves the ink 1px high: 2px top padding evens it; vertical-align keeps the tag in place */
-  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 2px 5px 0; margin-left: 6px; vertical-align: -2px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
+  /* the word is trimmed to its letters (cap height to baseline), so centring
+     it centres the letters in any font; a line box keeps empty descender room
+     and puts the word high or low depending on the font */
+  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin-left: 6px; vertical-align: -1px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
+  .m2-draft span { display: block; text-box: trim-both cap alphabetic; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* molecules found on the maps, after the maps found: each with the maps it
@@ -162,7 +165,7 @@ sitemap: false
   // (yellow version: fill #FFE067, stroke #444)
   var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#d6d6d6" stroke="#777" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#777" stroke-width="1.6"/></g></svg>';
   // the word draft on a small grey tag after the name of a draft map (page in draftpages/)
-  var DRAFT_ICON = '<span class="m2-draft">draft</span>';
+  var DRAFT_ICON = '<span class="m2-draft"><span>draft</span></span>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
