@@ -7,8 +7,8 @@ group: "Nucleotide metabolism"
 order: 15
 kind: "map"
 image: "/atlas-downloads/F020-pyrimidine.svg"
-width: 836
-height: 879
+width: 877
+height: 880
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
 downloads:
