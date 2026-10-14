@@ -1,6 +1,6 @@
 ---
 title: "Regulation of branched-chain amino acid catabolism via BCKDK and PPM1K"
-topic: "Branched-chain amino acid catabolism"
+topic: "BCAA catabolism"
 tab: ""
 page: "/bckdh/"
 group: "Amino acid metabolism"
