@@ -52,7 +52,8 @@ sitemap: false
   .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
-  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin-left: 6px; vertical-align: -1px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
+  /* the word draft has tall letters and no descenders, so centring its line box leaves the ink 1px high: 2px top padding evens it; vertical-align keeps the tag in place */
+  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 2px 5px 0; margin-left: 6px; vertical-align: -2px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* molecules found on the maps, after the maps found: each with the maps it
