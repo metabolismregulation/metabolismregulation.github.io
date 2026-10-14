@@ -7,6 +7,8 @@ project: true
 
 Downloads: &nbsp; 
 <a href="/downloads/F022-bckdh.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F022-bckdh.svg" download>SVG</a> &nbsp;
+<p align="middle"><a href="/bckdh/"><img id="image" src="/downloads/F022-bckdh.svg" width="315"/></a></p>
 
 ## Description
 

@@ -52,6 +52,8 @@ sitemap: false
   .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
+  .m2-draft { font-size: 11px; color: #666; border: 1px solid #bbb; border-radius: 8px; padding: 0 6px; margin-left: 6px; vertical-align: 1px; }
+  .m2-on .m2-draft { color: #fff; border-color: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* molecules found on the maps, after the maps found: each with the maps it
      is on; the name it was found by, when not the label, in grey */
@@ -158,8 +160,8 @@ sitemap: false
   // a grey and white capsule after the name of a drug action mechanism map
   // (yellow version: fill #FFE067, stroke #444)
   var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#d6d6d6" stroke="#777" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#777" stroke-width="1.6"/></g></svg>';
-  // a grey pencil after the name of a draft map (page in draftpages/, not yet published)
-  var DRAFT_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#888"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>';
+  // the word draft in a grey capsule after the name of a draft map (page in draftpages/)
+  var DRAFT_ICON = '<span class="m2-draft">draft</span>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
