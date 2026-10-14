@@ -4,8 +4,9 @@ topic: "eNOS pathway"
 tab: ""
 page: "/enos/"
 group: "Nitric oxide metabolism"
-order: 18
+order: 19
 kind: "map"
+draft: false
 image: "/atlas-downloads/F008-enos.svg"
 width: 1297
 height: 1805

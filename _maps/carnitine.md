@@ -6,6 +6,7 @@ page: "/carnitine/"
 group: "Lipid metabolism"
 order: 9
 kind: "map"
+draft: false
 image: "/atlas-downloads/F014-carnitine.svg"
 width: 1056
 height: 1207

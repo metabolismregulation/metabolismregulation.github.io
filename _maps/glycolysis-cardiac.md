@@ -6,6 +6,7 @@ page: "/glycolysis-cardiac/"
 group: "Carbohydrate metabolism"
 order: 2
 kind: "map"
+draft: false
 image: "/atlas-downloads/F001-glycolysis-cardiac.svg"
 width: 981
 height: 695

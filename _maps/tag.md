@@ -6,6 +6,7 @@ page: "/tag/"
 group: "Lipid metabolism"
 order: 11
 kind: "map"
+draft: false
 image: "/atlas-downloads/F015-tag.svg"
 width: 831
 height: 739
