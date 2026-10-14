@@ -2,19 +2,19 @@
 title: "Regulation of branched-chain amino acid catabolism via BCKDK and PPM1K"
 topic: "BCAA catabolism"
 tab: ""
-page: "/bckdh/"
+page: "/bcaa/"
 group: "Amino acid metabolism"
 order: 15
 kind: "map"
 draft: true
-image: "/atlas-downloads/F022-bckdh.svg"
+image: "/atlas-downloads/F022-bcaa.svg"
 width: 1425
 height: 752
 scale: 1
-annotation: "/atlas-data/F022-bckdh.json"
+annotation: "/atlas-data/F022-bcaa.json"
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/F022-bckdh.graphml"}
-  - {label: "SVG", url: "/atlas-downloads/F022-bckdh.svg"}
+  - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
+  - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
 ---
 ## Description
 

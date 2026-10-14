@@ -43,7 +43,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-
 GROUPS = [
     ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'aspirin', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides']),
-    ('Amino acid metabolism', ['glutaminase', 'bckdh']),
+    ('Amino acid metabolism', ['glutaminase', 'bcaa']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
     ('Nitric oxide metabolism', ['inos', 'enos']),
     ('Vitamin & cofactor metabolism', []),
@@ -59,7 +59,7 @@ DRUG = {'aspirin'}
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bckdh': 'BCAA catabolism'}
+TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then
