@@ -1,6 +1,7 @@
 # Build the map files for the experimental /atlas/ page.
 # Usage: python3 scripts/make_maps.py
-# Reads the map pages in _projects/ and the files in atlas-downloads/ (the
+# Reads the map pages in _projects/ and draftpages/ (draft maps, listed with a
+# draft mark once their PNG or SVG is in atlas-downloads/) and the files in atlas-downloads/ (the
 # Atlas's own copy of downloads/, where maps are worked on before they replace
 # the official files), and writes
 # one file per map image to _maps/<id>.md:
@@ -42,7 +43,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-
 GROUPS = [
     ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'aspirin', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides']),
-    ('Amino acid metabolism', ['glutaminase']),
+    ('Amino acid metabolism', ['glutaminase', 'bckdh']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
     ('Nitric oxide metabolism', ['inos', 'enos']),
     ('Vitamin & cofactor metabolism', []),
@@ -58,7 +59,7 @@ DRUG = {'aspirin'}
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism'}
+TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bckdh': 'Branched-chain amino acid catabolism'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then
@@ -177,13 +178,14 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     for f in glob.glob(os.path.join(OUT, '*.md')):
         os.remove(f)
-    pages = sorted(glob.glob(os.path.join(ROOT, '_projects', '*.md')))
+    pages = sorted(glob.glob(os.path.join(ROOT, '_projects', '*.md')) + glob.glob(os.path.join(ROOT, 'draftpages', '*.md')))
     slugs = [os.path.basename(p)[:-3] for p in pages]
+    folder = {os.path.basename(p)[:-3]: os.path.basename(os.path.dirname(p)) for p in pages}
     rank = lambda s: ORDER.index(JOIN.get(s, (s,))[0]) + (0.5 if s in JOIN else 0) if JOIN.get(s, (s,))[0] in ORDER else 999
     written = []
     search = []
     for slug in sorted(slugs, key=rank):
-        s = open(os.path.join(ROOT, '_projects', slug + '.md'), encoding='utf-8').read()
+        s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
         topic_slug, tab = JOIN.get(slug, (slug, None))
@@ -234,6 +236,7 @@ def main():
                   'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
+                  'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),

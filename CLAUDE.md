@@ -28,10 +28,12 @@ for the website; that stays off `master` (and its working files belong in
 A draft map's page goes in `draftpages/` with its final permalink (e.g.
 `/ureacycle/`) and its files in `downloads/`. It is public by link (for
 testing and for sharing with collaborators) but not linked from the site
-navigation (Maps, Gallery, Atlas), and kept out of the sitemap and search
-engines (`_config.yml` defaults, noindex in `_includes/meta.html`). To publish
+navigation (Maps, Gallery), and kept out of the sitemap and search
+engines (`_config.yml` defaults, noindex in `_includes/meta.html`). A draft is
+listed in the Atlas with a draft mark once its PNG or SVG is in
+`atlas-downloads/` (user, 2026-10-14; `scripts/make_maps.py` reads draftpages/). To publish
 it, move the page to `_projects/` (the URL stays the same) and add it to the
-Maps, Gallery and Atlas lists. Working files stay in `maps-workbench`.
+Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py). Working files stay in `maps-workbench`.
 
 ## Two websites: official and Atlas
 
