@@ -1,38 +1,31 @@
 ---
-layout: default
-title: Regulation of urea cycle
+layout: post
+title: Regulation of the urea cycle via CPS1
 permalink: /ureacycle/
+project: true
 ---
 
-# Regulation of urea cycle
-
 Downloads: &nbsp; 
-[CellDesigner](../downloads/F021-ass1-ubiquitination.xml) &nbsp;
-[PDF](../downloads/F021-ass1-ubiquitination.pdf) &nbsp;
-[Annotation](../downloads/F021-ass1-ubiquitination.csv) &nbsp;
-
-<p align="middle"><a href="/downloads/F021-ass1-ubiquitination.png"><img id="image" src="/downloads/F021-ass1-ubiquitination.png"/></a></p>
+<a href="/downloads/F021-ureacycle.graphml" download>GraphML</a> &nbsp;
+<a href="/downloads/F021-ureacycle.svg" download>SVG</a> &nbsp;
+<p align="middle"><a href="/ureacycle/"><img id="image" src="/downloads/F021-ureacycle.svg"/></a></p>
 
 ## Contributors 
 
-Marcio Luis Acencio  
+Marcio Luis Acencio
 
 ## Description 
 
-The urea cycle (UC) converts highly toxic ammonia to urea for excretion [1]. It takes place in hepatocytes and consists of five reactions that occur in mitochondria and cytosol. In mitochondria, ammonia (NH3), bicarbonate (HCO3-) and ATP are converted to carbamoyl phosphate, ADP and phosphate (Pi) by the enzyme Carbamoyl-Phosphate Synthase 1 (CPS1). Still in mitochondria, carbamoyl phosphate and ornithine are converted to L-citrulline and Pi by the enzyme ornithine transcarbamylase (OTC) [1]. L-citrulline is then transported to the cytosol through the mitochondrial ornithine-citrulline antiporter SLC25A15, also known as ornithine translocase. This antiporter catalyses the simultaneous exchange between cytosolic ornithine and mitochondrial citrulline [2]. In cytosol, an ATP-dependent condensation reaction catalyzed by the enzyme argininosuccinate synthetase 1 (ASS1) occurs between aspartate and L-citrulline to form argininosuccinate. Argininosuccinate is cleaved by argininosuccinase (ASL) to form L-arginine and fumarate. L-arginine is then cleaved by arginase (ARG1) to form urea and ornithine. While urea is excreted, L-ornithine is transported back to the mitochondria via the antiporter SLC25A15 as described above [1,2].
+The urea cycle converts ammonia into urea in the liver. Its first and rate-limiting step, the synthesis of carbamoyl phosphate from ammonia and bicarbonate by carbamoyl phosphate synthetase 1 (CPS1) in the mitochondrial matrix, is the point of control. CPS1 is practically inactive on its own: it needs N-acetylglutamate, made from acetyl-CoA and glutamate by N-acetylglutamate synthase (NAGS), which binds CPS1 and switches it into its active form [1, 2]. Carbamoyl phosphate then enters the cycle through ornithine transcarbamylase; the mitochondrial carrier SLC25A15 exchanges the citrulline formed for cytosolic ornithine, and argininosuccinate synthetase, argininosuccinate lyase and arginase 1 complete the cycle in the cytosol [3, 4].
 
-Besides generating urea, UC is also the main biochemical pathway in which the amino acid arginine is synthesised. Two enzymes are directly linked to arginine biosynthesis, namely, ASS1 and ASL, of which ASS1 is a key regulator not only in hepatocytes UC, but also in the arginine–citrulline cycle that occurs in many extrahepatic tissues [4]. Post-translational modifications (PTMs) can affect ASS1 activity: when acetylated by protein CLOCK, ASS1 is inhibited and when deacetylated by histone deacetylases, ASS1 activity is restored [5]; in addition, as shown in the diagram, ASS1 can be also ubiquitinated and eventually degraded by proteosome in response to low expression of the DNA binding transcription factor snail family transcriptional repressor 1 (SNAI1) and high expression of the long non-coding RNA (lncRNA) LOC113230 [6]. When SNAI1 is present, the expression of LOC113230 is repressed by the binding of SNAI1 to E-box elements located in LOC113230 promoter; otherwise, LOC113230 is expressed and then can recruit LRPPRC‐TRAF2 complex to ubiquitinate ASS1 at its residue K234. Interestingly, it seems that this LOC113230-driven ASS1 ubiquitination and consequent degradation is a tumor suppressor mechanism in which arginine deprivation strongly suppresses growth, migration and metastasis of cancer cells [6].
-
+CPS1 is also controlled by acyl groups on its lysines. Succinyl, glutaryl and acetyl groups accumulate on CPS1 and lower its activity; the NAD+-dependent mitochondrial sirtuin SIRT5 removes them and activates the enzyme, and mice lacking SIRT5 have lower CPS1 activity and higher blood ammonia [5-7].
 
 ## References
 
-1.	Cox, Michael (2013-01-01). Lehninger Principles of Biochemistry. Freeman. ISBN 9781429234146. OCLC 901647690.
-
-2.	Fiermonte G, Dolce V, David L, Santorelli FM, Dionisi-Vici C, Palmieri F, Walker JE. The mitochondrial ornithine transporter. Bacterial expression, reconstitution, functional characterization, and tissue distribution of two human isoforms. J Biol Chem. 2003 Aug 29;278(35):32778-83
-3.	Zhang L, Zou Y, Lu Y, Li Z, Gao F. Unraveling the therapeutic potential of carbamoyl phosphate synthetase 1 (CPS1) in human diseases. Bioorg Chem. 2023 Jan;130:106253.
-4.	Keshet R, Szlosarek P, Carracedo A, Erez A. Rewiring urea cycle metabolism in cancer to support anabolism. Nat Rev Cancer. 2018 Oct;18(10):634-645
-5.	Lin R, Mo Y, Zha H, Qu Z, Xie P, Zhu ZJ, Xu Y, Xiong Y, Guan KL. CLOCK Acetylates ASS1 to Drive Circadian Rhythm of Ureagenesis. Mol Cell. 2017 Oct 5;68(1):198-209.e6
-6.	Jia H, Yang Y, Li M, Chu Y, Song H, Zhang J, Zhang D, Zhang Q, Xu Y, Wang J, Xu H, Zou X, Peng H, Hou Z. Snail enhances arginine synthesis by inhibiting ubiquitination-mediated degradation of ASS1. EMBO Rep. 2021 Aug 4;22(8):e51780	 
-
-
-
+1. de Cima S, Polo LM, Díez-Fernández C, Martínez AI, Cervera J, Fita I, Rubio V. Structure of human carbamoyl phosphate synthetase: deciphering the on/off switch of human ureagenesis. Sci Rep. 2015 Nov 23;5:16950. doi: 10.1038/srep16950. PMID: 26592762.
+1. Caldovic L, Ah Mew N, Shi D, Morizono H, Yudkoff M, Tuchman M. N-acetylglutamate synthase: structure, function and defects. Mol Genet Metab. 2010;100 Suppl 1:S13-9. doi: 10.1016/j.ymgme.2010.02.018. PMID: 20303810.
+1. Fiermonte G, Dolce V, David L, Santorelli FM, Dionisi-Vici C, Palmieri F, Walker JE. The mitochondrial ornithine transporter. Bacterial expression, reconstitution, functional characterization, and tissue distribution of two human isoforms. J Biol Chem. 2003 Aug 29;278(35):32778-83. doi: 10.1074/jbc.M302317200. PMID: 12807890.
+1. Häberle J, Boddaert N, Burlina A, Chakrapani A, Dixon M, Huemer M, Karall D, Martinelli D, Crespo PS, Santer R, Servais A, Valayannopoulos V, Lindner M, Rubio V, Dionisi-Vici C. Suggested guidelines for the diagnosis and management of urea cycle disorders. Orphanet J Rare Dis. 2012 May 29;7:32. doi: 10.1186/1750-1172-7-32. PMID: 22642880.
+1. Nakagawa T, Lomb DJ, Haigis MC, Guarente L. SIRT5 deacetylates carbamoyl phosphate synthetase 1 and regulates the urea cycle. Cell. 2009 May 1;137(3):560-70. doi: 10.1016/j.cell.2009.02.026. PMID: 19410549.
+1. Du J, Zhou Y, Su X, Yu JJ, Khan S, Jiang H, Kim J, Woo J, Kim JH, Choi BH, He B, Chen W, Zhang S, Cerione RA, Auwerx J, Hao Q, Lin H. Sirt5 is a NAD-dependent protein lysine demalonylase and desuccinylase. Science. 2011 Nov 11;334(6057):806-9. doi: 10.1126/science.1207861. PMID: 22076378.
+1. Tan M, Peng C, Anderson KA, Chhoy P, Xie Z, Dai L, Park J, Chen Y, Huang H, Zhang Y, Ro J, Wagner GR, Green MF, Madsen AS, Schmiesing J, Peterson BS, Xu G, Ilkayeva OR, Muehlbauer MJ, Braulke T, Mühlhausen C, Backos DS, Olsen CA, McGuire PJ, Pletcher SD, Lombard DB, Hirschey MD, Zhao Y. Lysine glutarylation is a protein posttranslational modification regulated by SIRT5. Cell Metab. 2014 Apr 1;19(4):605-17. doi: 10.1016/j.cmet.2014.03.014. PMID: 24703693.

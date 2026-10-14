@@ -35,6 +35,10 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same) and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py). Working files stay in `maps-workbench`.
 
+A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
+SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
+when the map is finished.
+
 ## Two websites: official and Atlas
 
 There are two websites in this repository (user, 2026-10-13):
