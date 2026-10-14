@@ -47,11 +47,10 @@ sitemap: false
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
-  /* search results on the maps: a heading, then each molecule with the maps
-     it is on; the name it was found by, when not the label, in grey */
-  .m2-head { font-size: 12px; color: #666; padding: 2px 4px 0; margin-top: 12px; }
-  .m2-head:first-child { margin-top: 0; }
-  .m2-mol { font-size: 14px; padding: 2px 4px 0; margin-top: 4px; overflow-wrap: anywhere; }
+  /* molecules found on the maps, after the maps found: each with the maps it
+     is on; the name it was found by, when not the label, in grey */
+  .m2-mol { font-size: 14px; padding: 2px 4px 0; margin-top: 6px; overflow-wrap: anywhere; }
+  .m2-mol:first-child { margin-top: 0; }
   .m2-mol .m2-why { color: #888; }
   .m2-n { float: right; color: #888; font-size: 12px; margin-left: 6px; }
   .m2-on .m2-n { color: #fff; }
@@ -605,7 +604,6 @@ sitemap: false
     // a search matches the list name, the full title or the group name
     var shown = maps.filter(function (m) { return !q || matchMap(q, m); });
     var mols = q ? findMols(q) : [];
-    if (q && shown.length && mols.length) box.appendChild(el('div', 'm2-head', 'Maps'));
     var group = null;
     shown.forEach(function (m) {
       // while searching every group with a match is shown open
@@ -628,7 +626,6 @@ sitemap: false
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
     });
-    if (mols.length) box.appendChild(el('div', 'm2-head', 'On the maps'));
     mols.forEach(function (g) {
       var t = el('div', 'm2-mol', g.label);
       if (g.name !== g.label) t.appendChild(el('span', 'm2-why', ' ' + g.name));
