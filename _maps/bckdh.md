@@ -8,8 +8,8 @@ order: 15
 kind: "map"
 draft: true
 image: "/atlas-downloads/F022-bckdh.svg"
-width: 860
-height: 491
+width: 962
+height: 507
 scale: 1
 annotation: "/atlas-data/F022-bckdh.json"
 downloads:
