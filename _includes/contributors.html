@@ -1,6 +1,6 @@
 {%- comment -%}
   Contributors of a map page, journal style: names with affiliation numbers
-  (and an ORCID link when known), then "Affiliations", closed, with the
+  (ORCID link: off for now), then "Affiliations", closed, with the
   numbered list. People and affiliations are in _data/contributors.yml; the
   page lists keys in its front matter (contributors: [key, key]). The
   affiliations are numbered in the order the people are listed.
@@ -23,7 +23,10 @@
         {%- for b in affs -%}{%- if b == a -%}{{ forloop.index }}{%- endif -%}{%- endfor -%}
         {%- unless forloop.last -%},{%- endunless -%}
       {%- endfor -%}</sup>{%- endif -%}
-    {%- if p.orcid -%}<a class="contrib-orcid" href="https://orcid.org/{{ p.orcid }}" title="ORCID {{ p.orcid }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-label="ORCID"><circle cx="8" cy="8" r="8" fill="#a6ce39"/><text x="8" y="11.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#fff">iD</text></svg></a>{%- endif -%}
+    {%- comment -%} ORCID link: off for now (user, 2026-10-15); the iDs stay in _data/contributors.yml.
+      Set show_orcid to true to show it again. {%- endcomment -%}
+    {%- assign show_orcid = false -%}
+    {%- if show_orcid and p.orcid -%}<a class="contrib-orcid" href="https://orcid.org/{{ p.orcid }}" title="ORCID {{ p.orcid }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-label="ORCID"><circle cx="8" cy="8" r="8" fill="#a6ce39"/><text x="8" y="11.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#fff">iD</text></svg></a>{%- endif -%}
   {%- else -%}
     <span class="contrib-missing">{{ key }}</span>
   {%- endif -%}
