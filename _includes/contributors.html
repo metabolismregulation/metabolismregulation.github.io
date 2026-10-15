@@ -17,7 +17,7 @@
 {%- for key in page.contributors -%}
   {%- assign p = people[key] -%}
   {%- if p -%}
-    {{ p.name }}
+    <span class="contrib-person">{{ p.name }}
     {%- if p.affiliations.size > 0 -%}<sup>
       {%- for a in p.affiliations -%}
         {%- for b in affs -%}{%- if b == a -%}{{ forloop.index }}{%- endif -%}{%- endfor -%}
@@ -26,7 +26,7 @@
     {%- comment -%} ORCID link: off for now (user, 2026-10-15); the iDs stay in _data/contributors.yml.
       Set show_orcid to true to show it again. {%- endcomment -%}
     {%- assign show_orcid = false -%}
-    {%- if show_orcid and p.orcid -%}<a class="contrib-orcid" href="https://orcid.org/{{ p.orcid }}" title="ORCID {{ p.orcid }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-label="ORCID"><circle cx="8" cy="8" r="8" fill="#a6ce39"/><text x="8" y="11.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#fff">iD</text></svg></a>{%- endif -%}
+    {%- if show_orcid and p.orcid -%}<a class="contrib-orcid" href="https://orcid.org/{{ p.orcid }}" title="ORCID {{ p.orcid }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-label="ORCID"><circle cx="8" cy="8" r="8" fill="#a6ce39"/><text x="8" y="11.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#fff">iD</text></svg></a>{%- endif -%}</span>
   {%- else -%}
     <span class="contrib-missing">{{ key }}</span>
   {%- endif -%}
@@ -38,7 +38,7 @@
 <summary>Affiliations</summary>
 <ol>
 {%- for a in affs %}
-<li>{{ affnames[a] | default: a }}</li>
+<li><sup>{{ forloop.index }}</sup>{{ affnames[a] | default: a }}</li>
 {%- endfor %}
 </ol>
 </details>

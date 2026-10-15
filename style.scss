@@ -353,6 +353,8 @@ div.img img{
   margin-left: 3px;
   svg { vertical-align: -2px; }
 }
+// a name and its numbers stay on one line
+.contrib-person { white-space: nowrap; }
 .contrib-missing { color: #c00; }
 .contrib-affs {
   margin: 0 0 15px;
@@ -376,12 +378,16 @@ div.img img{
   &[open] summary::after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
+  // numbers as superscripts before each affiliation, as in the names
   ol {
     margin: 6px 0 0;
+    padding-left: 0;
+    list-style: none;
     font-size: 12px;
     line-height: 1.5;
     color: #555;
   }
+  sup { font-size: 75%; line-height: 0; vertical-align: super; margin-right: 2px; }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
