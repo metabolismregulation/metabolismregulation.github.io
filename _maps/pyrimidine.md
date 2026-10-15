@@ -16,6 +16,7 @@ contributors:
   - hanna-borlinghaus
   - falk-schreiber
   - john-albanese
+  - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F020-pyrimidine.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F020-pyrimidine.png"}
