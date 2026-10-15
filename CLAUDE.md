@@ -45,6 +45,13 @@ A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SB
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
 when the map is finished.
 
+## Page text
+
+Map pages (drafts too) are official pages of the website, not working notes (user,
+2026-10-15). Write only what a reader of the map needs: no curation details such as list
+versions ("not in the old version"), where a Reactome event sits in a pathway hierarchy,
+candidates, map versions or what was left out. Those stay in the workbench README.
+
 ## Contributors
 
 People, their affiliations and ORCID iDs are in `_data/contributors.yml`
