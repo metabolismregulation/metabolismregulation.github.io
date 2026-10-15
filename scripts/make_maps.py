@@ -188,7 +188,8 @@ def main():
         s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
-        contrib = re.search(r'^contributors:\s*(\[.*\])\s*$', front, re.M)
+        # the contributors entry as written (one line, or a list with indented lines)
+        contrib = re.search(r'^contributors:.*\n(?:[ \t]+\S.*\n)*', front, re.M)
         topic_slug, tab = JOIN.get(slug, (slug, None))
         topic = TOPIC.get(topic_slug, SHORT.get(topic_slug, title))
         # each map block: download links, then the image
@@ -244,7 +245,7 @@ def main():
                   'annotation: ' + yaml_str(ann_url)]
             # the page's contributor keys, for {% include contributors.html %} in the text
             if contrib:
-                fm.append('contributors: ' + contrib.group(1).strip())
+                fm.append(contrib.group(0).rstrip('\n'))
             fm.append('downloads:')
             for label, e in (('PNG', '.png'), ('SVG', '.svg'), ('SBGN-ML', '.sbgn'), ('SBML', '-SBML.xml'), ('CellDesigner', '.xml'), ('Newt', '.sbgn')):
                 if os.path.exists(os.path.join(ROOT, DL, base + e)) and not any(d['label'] == label for d in downloads):

@@ -1,8 +1,17 @@
 # Contributors and their affiliations, shown on the map pages.
 #
-# A map page names its contributors by key in the front matter:
+# Each person's affiliations are kept here as in the manuscript author list
+# (keys from the list below), so they can be checked against it in one place.
+#
+# A map page names its contributors by key in the front matter and shows them
+# under "## Contributors" with {% include contributors.html %}:
 #   contributors: [alexander-mazein, vasundra-toure]
-# and shows them under "## Contributors" with {% include contributors.html %}.
+# Each person gets the affiliations listed here. Where a map should show
+# others (for example where the work was done), give that person's keys on the
+# page; they replace the ones here for that page only:
+#   contributors:
+#     - alexander-mazein: [lcsb]
+#     - vasundra-toure
 # The affiliations are numbered per page in the order the people are listed.
 #
 # Key: first and family name, lowercase, hyphens, no accents or middle
@@ -55,32 +64,32 @@ people:
     affiliations: [konstanz]
   irina-balaur:
     name: Irina Balaur
-    orcid: 0000-0002-3671-895X
     affiliations: [lcsb, eisbm, lnds]
+    orcid: 0000-0002-3671-895X
   lea-gutebier:
     name: Lea Gütebier
-    orcid: 0000-0001-5504-5108
     affiliations: [greifswald]
+    orcid: 0000-0001-5504-5108
   adrien-rougny:
     name: Adrien Rougny
-    orcid: 0000-0002-2118-035X
     affiliations: [lcsb, aist-brd, aist-cbbd]
+    orcid: 0000-0002-2118-035X
   michael-blinov:
     name: Michael L. Blinov
-    orcid: 0000-0002-9363-9705
     affiliations: [uconn-health]
+    orcid: 0000-0002-9363-9705
   marek-ostaszewski:
     name: Marek Ostaszewski
-    orcid: 0000-0003-1473-370X
     affiliations: [lcsb, elixir-lu]
+    orcid: 0000-0003-1473-370X
   nikolaus-berndt:
     name: Nikolaus Berndt
-    orcid: 0000-0001-5594-9940
     affiliations: [charite]
+    orcid: 0000-0001-5594-9940
   antonio-fabregat:
     name: Antonio Fabregat
-    orcid: 0000-0002-3288-8599
     affiliations: [embl-ebi, open-targets, astrazeneca]
+    orcid: 0000-0002-3288-8599
   tatiana-serebriyskaya:
     name: Tatiana Serebriyskaya
     affiliations: [epam]
@@ -89,92 +98,92 @@ people:
     affiliations: [epam]
   vasundra-toure:
     name: Vasundra Touré
-    orcid: 0000-0003-4639-4431
     affiliations: [ntnu, sib]
+    orcid: 0000-0003-4639-4431
   olga-ivanova:
     name: Olga Ivanova
-    orcid: 0000-0002-9111-4593
     affiliations: [vu-amsterdam, heidelberg-icb, amc]
+    orcid: 0000-0002-9111-4593
   ilya-mazein:
     name: Ilya Mazein
-    orcid: 0009-0000-1130-8332
     affiliations: [greifswald]
+    orcid: 0009-0000-1130-8332
   oxana-lopata:
     name: Oxana Lopata
-    orcid: 0000-0003-2852-0115
     affiliations: [lcsb]
+    orcid: 0000-0003-2852-0115
   marcio-luis-acencio:
     name: Marcio Luis Acencio
-    orcid: 0000-0002-8278-240X
     affiliations: [lcsb]
+    orcid: 0000-0002-8278-240X
   luiz-ladeira:
     name: Luiz Ladeira
-    orcid: 0000-0002-7152-2688
     affiliations: [giga]
+    orcid: 0000-0002-7152-2688
   james-greene:
     name: James Greene
     affiliations: [uconn-health]
   john-albanese:
     name: John Albanese
-    orcid: 0000-0002-6131-2230
     affiliations: [uconn-health]
+    orcid: 0000-0002-6131-2230
   maria-del-carmen-heredia:
     name: Maria del Carmen Heredia
     affiliations: [uconn-health]
   frank-bergmann:
     name: Frank T. Bergmann
-    orcid: 0000-0001-5553-4702
     affiliations: [bioquant]
+    orcid: 0000-0001-5553-4702
   piotr-gawron:
     name: Piotr Gawron
-    orcid: 0000-0002-9328-8052
     affiliations: [lcsb]
+    orcid: 0000-0002-9328-8052
   ahmed-abdelmonem-hemedan:
     name: Ahmed Abdelmonem Hemedan
-    orcid: 0000-0001-7403-181X
     affiliations: [lcsb]
+    orcid: 0000-0001-7403-181X
   anatoly-sorokin:
     name: Anatoly Sorokin
-    orcid: 0000-0002-0047-0606
     affiliations: [oist]
+    orcid: 0000-0002-0047-0606
   hongwu-ma:
     name: Hongwu Ma
-    orcid: 0000-0001-5325-2314
     affiliations: [tianjin-sbe, tianjin-tib, tianjin-synbio]
+    orcid: 0000-0001-5325-2314
   igor-goryanin:
     name: Igor Goryanin
-    orcid: 0000-0002-8293-774X
     affiliations: [oist, tianjin-tib, edinburgh]
+    orcid: 0000-0002-8293-774X
   venkata-satagopam:
     name: Venkata Satagopam
-    orcid: 0000-0002-6532-5880
     affiliations: [lcsb]
+    orcid: 0000-0002-6532-5880
   ines-thiele:
     name: Ines Thiele
-    orcid: 0000-0002-8071-7110
     affiliations: [galway-medicine, galway-ryan, galway-microbiology, apc-cork]
+    orcid: 0000-0002-8071-7110
   falk-schreiber:
     name: Falk Schreiber
-    orcid: 0000-0002-9307-3254
     affiliations: [konstanz, monash]
+    orcid: 0000-0002-9307-3254
   charles-auffray:
     name: Charles Auffray
-    orcid: 0000-0003-2226-7411
     affiliations: [eisbm]
+    orcid: 0000-0003-2226-7411
   reinhard-schneider:
     name: Reinhard Schneider
-    orcid: 0000-0002-8278-1618
     affiliations: [lcsb]
+    orcid: 0000-0002-8278-1618
   petr-nazarov:
     name: Petr V. Nazarov
-    orcid: 0000-0003-3443-0298
     affiliations: [lih-cancer, lih-medinf]
+    orcid: 0000-0003-3443-0298
   alexander-mazein:
     name: Alexander Mazein
-    orcid: 0000-0001-7137-4171
     affiliations: [lcsb, eisbm, lih-cancer]
+    orcid: 0000-0001-7137-4171
   # in the 2023 and 2024 manuscript drafts, not in the current one
   alexander-kuritsyn:
     name: Alexander Kuritsyn
-    orcid: 0009-0007-6786-2819
     affiliations: [tbilisi]
+    orcid: 0009-0007-6786-2819

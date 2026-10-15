@@ -1,25 +1,42 @@
 {%- comment -%}
   Contributors of a map page, journal style: names with affiliation numbers
-  (ORCID link: off for now), then "Affiliations", closed, with the
-  numbered list. People and affiliations are in _data/contributors.yml; the
-  page lists keys in its front matter (contributors: [key, key]). The
-  affiliations are numbered in the order the people are listed.
+  (ORCID link: off for now), then "Affiliations", closed, with the list.
+  People and affiliations are in _data/contributors.yml. The page lists
+  people in its front matter, each either as a key (the affiliations from
+  _data/contributors.yml) or as a key with its own affiliation keys, which
+  replace those for this page:
+    contributors:
+      - alexander-mazein: [lcsb]
+      - vasundra-toure
+  The affiliations are numbered in the order the people are listed.
 {%- endcomment -%}
 {%- assign people = site.data.contributors.people -%}
 {%- assign affnames = site.data.contributors.affiliations -%}
 {%- assign affs = "" | split: "" -%}
-{%- for key in page.contributors -%}
-  {%- for a in people[key].affiliations -%}
+{%- for item in page.contributors -%}
+  {%- assign t = item | jsonify -%}
+  {%- if t contains "{" -%}
+    {%- for pair in item -%}{%- assign key = pair[0] -%}{%- assign plist = pair[1] -%}{%- endfor -%}
+  {%- else -%}
+    {%- assign key = item -%}{%- assign plist = people[key].affiliations -%}
+  {%- endif -%}
+  {%- for a in plist -%}
     {%- unless affs contains a -%}{%- assign affs = affs | push: a -%}{%- endunless -%}
   {%- endfor -%}
 {%- endfor -%}
 <p class="contrib-names">
-{%- for key in page.contributors -%}
+{%- for item in page.contributors -%}
+  {%- assign t = item | jsonify -%}
+  {%- if t contains "{" -%}
+    {%- for pair in item -%}{%- assign key = pair[0] -%}{%- assign plist = pair[1] -%}{%- endfor -%}
+  {%- else -%}
+    {%- assign key = item -%}{%- assign plist = people[key].affiliations -%}
+  {%- endif -%}
   {%- assign p = people[key] -%}
   {%- if p -%}
     <span class="contrib-person">{{ p.name }}
-    {%- if p.affiliations.size > 0 -%}<sup>
-      {%- for a in p.affiliations -%}
+    {%- if plist.size > 0 -%}<sup>
+      {%- for a in plist -%}
         {%- for b in affs -%}{%- if b == a -%}{{ forloop.index }}{%- endif -%}{%- endfor -%}
         {%- unless forloop.last -%},{%- endunless -%}
       {%- endfor -%}</sup>{%- endif -%}
@@ -38,7 +55,7 @@
 <summary>Affiliations</summary>
 <ol>
 {%- for a in affs %}
-<li><sup>{{ forloop.index }}</sup>{{ affnames[a] | default: a }}</li>
+<li><sup>{{ forloop.index }}</sup>{% if affnames[a] %}{{ affnames[a] }}{% else %}<span class="contrib-missing">{{ a }}</span>{% endif %}</li>
 {%- endfor %}
 </ol>
 </details>

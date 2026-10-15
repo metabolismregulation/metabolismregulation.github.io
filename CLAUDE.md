@@ -48,10 +48,13 @@ when the map is finished.
 ## Contributors
 
 People, their affiliations and ORCID iDs are in `_data/contributors.yml`
-(names and affiliations as in the manuscript author list). A map page lists
-keys in its front matter (`contributors: [alexander-mazein, ...]`) and shows
-them under `## Contributors` with `{% include contributors.html %}`: names with
-affiliation numbers, then a closed "Affiliations" list (user, 2026-10-15). Key:
+(names and each person's affiliations as in the manuscript author list, so
+they can be checked against it in one place). A map page lists keys in its
+front matter (`contributors: [alexander-mazein, ...]`) and shows them under
+`## Contributors` with `{% include contributors.html %}`: names with
+affiliation numbers, then a closed "Affiliations" list (user, 2026-10-15). A
+page can give a person other affiliations for that map only
+(`- alexander-mazein: [lcsb]` in a list form of `contributors:`). Key:
 first and family name, lowercase, hyphens, no accents; a key never changes
 once used. Contributions are not recorded separately: the map pages are the
 record. Add an ORCID only after checking it on orcid.org.
