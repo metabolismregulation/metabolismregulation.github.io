@@ -4,7 +4,7 @@ topic: "Urea cycle"
 tab: ""
 page: "/ureacycle/"
 group: "Amino acid metabolism"
-order: 17
+order: 18
 kind: "map"
 draft: true
 image: "/atlas-downloads/F021-ureacycle.svg"

@@ -4,7 +4,7 @@ topic: "BCAA catabolism"
 tab: ""
 page: "/bcaa/"
 group: "Amino acid metabolism"
-order: 16
+order: 17
 kind: "map"
 draft: true
 image: "/atlas-downloads/F022-bcaa.svg"
