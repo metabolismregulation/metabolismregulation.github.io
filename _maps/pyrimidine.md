@@ -33,7 +33,7 @@ downloads:
 
 ## Description
 
-The activation of de novo pyrimidine biosynthesis is a requirement for cell proliferation in tumor tissues. Carbamoyl phosphate synthetase (CPSase) catalyses the rate-limiting step of the synthetic pathway. CPSase refers to one catalytic activity of the multifunctional protein CAD that catalyses the first three steps of the pathway. Growth factors such as EGF activate CAD through the RAS–RAF–MEK–ERK cascade: ERK phosphorylates CAD, which removes its feedback inhibition by UTP and makes it more sensitive to activation by PRPP.
+The activation of de novo pyrimidine biosynthesis is a requirement for cell proliferation in tumor tissues. Carbamoyl phosphate synthetase (CPSase) catalyses the rate-limiting step of the synthetic pathway. CPSase refers to one catalytic activity of the multifunctional protein CAD that catalyses the first three steps of the pathway. Growth factors such as EGF activate CAD through the RAS-RAF-MEK-ERK cascade: ERK phosphorylates CAD, which removes its feedback inhibition by UTP and makes it more sensitive to activation by PRPP.
 
 ## References
 
