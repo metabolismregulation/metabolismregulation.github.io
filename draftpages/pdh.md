@@ -2,6 +2,8 @@
 layout: post
 title: Regulation of pyruvate dehydrogenase via PDK and PDP
 permalink: /pdh/
+contributors:
+  - alexander-mazein: [lih-cancer]
 project: true
 ---
 
@@ -9,6 +11,10 @@ Downloads: &nbsp;
 <a href="/atlas-downloads/F023-pdh.graphml" download>GraphML</a> &nbsp;
 <a href="/atlas-downloads/F023-pdh.svg" download>SVG</a> &nbsp;
 <p align="middle"><a href="/pdh/"><img id="image" src="/atlas-downloads/F023-pdh.svg" width="315"/></a></p>
+
+## Contributors
+
+{% include contributors.html %}
 
 ## Reactome-Recon connection
 

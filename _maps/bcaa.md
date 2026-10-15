@@ -12,10 +12,16 @@ width: 1317
 height: 737
 scale: 1
 annotation: "/atlas-data/F022-bcaa.json"
+contributors:
+  - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
   - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
 ---
+## Contributors
+
+{% include contributors.html %}
+
 ## Reactome-Recon connection
 
 This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The BCKDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-5693148">BCKDK phosphorylates BCKDH</a> (R-HSA-5693148) and <a href="https://reactome.org/content/detail/R-HSA-5693153">PPM1K dephosphorylates p-BCKDH</a> (R-HSA-5693153).

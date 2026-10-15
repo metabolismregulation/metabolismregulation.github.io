@@ -54,7 +54,8 @@ front matter, one per line (`contributors:` then `  - alexander-mazein`), and
 shows them under `## Contributors` with `{% include contributors.html %}`:
 names with affiliation numbers, then a closed "Affiliations" list (user,
 2026-10-15). A page can give a person other affiliations for that map only:
-`  - alexander-mazein: [lcsb]`. Key:
+`  - alexander-mazein: [lcsb]`. A new map with no other contributors
+gets `  - alexander-mazein: [lih-cancer]` (user, 2026-10-15). Key:
 first and family name, lowercase, hyphens, no accents; a key never changes
 once used. Contributions are not recorded separately: the map pages are the
 record. Add an ORCID only after checking it on orcid.org.
