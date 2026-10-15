@@ -191,7 +191,7 @@ def main():
         topic_slug, tab = JOIN.get(slug, (slug, None))
         topic = TOPIC.get(topic_slug, SHORT.get(topic_slug, title))
         # each map block: download links, then the image
-        blocks = re.findall(r'((?:<a [^\n]*\n|Downloads:[^\n]*\n|<!--[^\n]*-->\n)+)<p align="middle"><a [^>]*><img [^>]*src="/downloads/([^"]+)\.(?:png|svg)"', body)
+        blocks = re.findall(r'((?:<a [^\n]*\n|Downloads:[^\n]*\n|<!--[^\n]*-->\n)+)<p align="middle"><a [^>]*><img [^>]*src="/(?:atlas-)?downloads/([^"]+)\.(?:png|svg)"', body)
         # the text: everything that is not a download line, an image line or a second-map heading
         text = []
         for line in body.split('\n'):

@@ -6,9 +6,9 @@ project: true
 ---
 
 Downloads: &nbsp; 
-<a href="/downloads/F021-ureacycle.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F021-ureacycle.svg" download>SVG</a> &nbsp;
-<p align="middle"><a href="/ureacycle/"><img id="image" src="/downloads/F021-ureacycle.svg"/></a></p>
+<a href="/atlas-downloads/F021-ureacycle.graphml" download>GraphML</a> &nbsp;
+<a href="/atlas-downloads/F021-ureacycle.svg" download>SVG</a> &nbsp;
+<p align="middle"><a href="/ureacycle/"><img id="image" src="/atlas-downloads/F021-ureacycle.svg"/></a></p>
 
 ## Contributors 
 

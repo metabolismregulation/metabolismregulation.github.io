@@ -26,13 +26,15 @@ for the website; that stays off `master` (and its working files belong in
 ## Draft maps
 
 A draft map's page goes in `draftpages/` with its final permalink (e.g.
-`/ureacycle/`) and its files in `downloads/`. It is public by link (for
+`/ureacycle/`) and its files in `atlas-downloads/` only (user, 2026-10-15): the draft
+page and its Atlas entry show the same files, and one upload updates both. It is public by link (for
 testing and for sharing with collaborators) but not linked from the site
 navigation (Maps, Gallery), and kept out of the sitemap and search
 engines (`_config.yml` defaults, noindex in `_includes/meta.html`). A draft is
 listed in the Atlas with a draft mark once its PNG or SVG is in
 `atlas-downloads/` (user, 2026-10-14; `scripts/make_maps.py` reads draftpages/). To publish
-it, move the page to `_projects/` (the URL stays the same) and add it to the
+it, move the page to `_projects/` (the URL stays the same), copy its files to
+`downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py). Working files stay in `maps-workbench`.
 
 A map chosen from the Reactome-Recon lists says so visibly on its page (user,
@@ -56,4 +58,6 @@ There are two websites in this repository (user, 2026-10-13):
   SBML, SBGN-ML. It is checked on the Atlas.
 
 Files move from `atlas-downloads/` to `downloads/` only when the user says so.
-Run `scripts/make_maps.py` after changing either folder or a map page.
+Run `scripts/make_maps.py` after changing either folder or a map page. The GitHub
+Action `.github/workflows/atlas-data.yml` also runs it on every push to master that
+touches them (so a file uploaded by hand needs no further step).

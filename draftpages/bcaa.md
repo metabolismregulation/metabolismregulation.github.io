@@ -6,9 +6,9 @@ project: true
 ---
 
 Downloads: &nbsp; 
-<a href="/downloads/F022-bcaa.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F022-bcaa.svg" download>SVG</a> &nbsp;
-<p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="315"/></a></p>
+<a href="/atlas-downloads/F022-bcaa.graphml" download>GraphML</a> &nbsp;
+<a href="/atlas-downloads/F022-bcaa.svg" download>SVG</a> &nbsp;
+<p align="middle"><a href="/bcaa/"><img id="image" src="/atlas-downloads/F022-bcaa.svg" width="315"/></a></p>
 
 ## Reactome-Recon connection
 
