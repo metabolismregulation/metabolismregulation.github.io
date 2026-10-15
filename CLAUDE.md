@@ -73,7 +73,10 @@ Every map page shows its map at the same zoom, so a protein node (80 x 40 yEd un
 the same size on every page (user; first set in commit 64daf5d, 2026-10-11). yEd exports
 SVG at 1:1 (one pixel per yEd unit), so the image `width` on the page is the SVG's own
 width times the common zoom: 0.67 (a protein about 54 px wide), the level of most pages
-(e.g. 892 -> 600, 1541 -> 1030). Never copy a width from another page. Exceptions to look
+(e.g. 892 -> 600, 1541 -> 1030). This holds only for SVGs exported from yEd the same way
+(1:1, default margin), as all current ones are. For any other image (PNG, another program,
+another export setting) measure a protein node in the image and set the width so it comes
+out at about 54 px. Never copy a width from another page. Exceptions to look
 at with the user: iNOS (0.75), eNOS (0.60), glycogen (two maps, 0.43).
 
 ## Two websites: official and Atlas
