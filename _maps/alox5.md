@@ -8,14 +8,15 @@ order: 9
 kind: "map"
 draft: true
 image: "/atlas-downloads/F024-alox5.svg"
-width: 729
-height: 593
+width: 751
+height: 526
 scale: 1
 annotation: "/atlas-data/F024-alox5.json"
 contributors:
   - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F024-alox5.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F024-alox5.png"}
   - {label: "SVG", url: "/atlas-downloads/F024-alox5.svg"}
 ---
 ## Contributors

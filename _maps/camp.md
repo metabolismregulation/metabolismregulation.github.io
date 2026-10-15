@@ -8,8 +8,8 @@ order: 20
 kind: "map"
 draft: false
 image: "/atlas-downloads/F012-camp.svg"
-width: 902
-height: 810
+width: 762
+height: 767
 scale: 1
 annotation: "/atlas-data/F012-camp.json"
 contributors:
