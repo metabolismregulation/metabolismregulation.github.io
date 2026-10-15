@@ -67,6 +67,15 @@ first and family name, lowercase, hyphens, no accents; a key never changes
 once used. Contributions are not recorded separately: the map pages are the
 record. Add an ORCID only after checking it on orcid.org.
 
+## Map image size on the pages
+
+Every map page shows its map at the same zoom, so a protein node (80 x 40 yEd units) looks
+the same size on every page (user; first set in commit 64daf5d, 2026-10-11). yEd exports
+SVG at 1:1 (one pixel per yEd unit), so the image `width` on the page is the SVG's own
+width times the common zoom: 0.67 (a protein about 54 px wide), the level of most pages
+(e.g. 892 -> 600, 1541 -> 1030). Never copy a width from another page. Exceptions to look
+at with the user: iNOS (0.75), eNOS (0.60), glycogen (two maps, 0.43).
+
 ## Two websites: official and Atlas
 
 There are two websites in this repository (user, 2026-10-13):
