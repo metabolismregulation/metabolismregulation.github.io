@@ -340,6 +340,14 @@ div.img img{
     vertical-align:middle;
 }
 
+// References of a map page (and of its text in the Atlas): no numbers, a
+// space between references (user, 2026-10-15)
+#references + ol {
+  list-style: none;
+  padding-left: 0;
+  > li { margin-bottom: 10px; }
+}
+
 // Contributors of a map page (_includes/contributors.html): names with
 // affiliation numbers and ORCID links, then "Affiliations" that opens the
 // numbered list. The open / closed sign is the chevron of the Atlas groups.
