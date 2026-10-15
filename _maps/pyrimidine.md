@@ -8,8 +8,8 @@ order: 19
 kind: "map"
 draft: false
 image: "/atlas-downloads/F020-pyrimidine.svg"
-width: 877
-height: 880
+width: 900
+height: 913
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
 contributors:
