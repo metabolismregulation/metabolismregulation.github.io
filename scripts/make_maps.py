@@ -5,7 +5,7 @@
 # Atlas's own copy of downloads/, where maps are worked on before they replace
 # the official files), and writes
 # one file per map image to _maps/<id>.md:
-#   - front matter: title, topic, tab, image and its size, scale, downloads
+#   - front matter: title, topic, tab, image and its size, scale, contributors, downloads
 #   - body: the page text (contributors, description, references)
 # A page with several map images (glycogen) gives one file per image; the
 # text goes to the first, the others show it through their shared topic.
@@ -188,6 +188,7 @@ def main():
         s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
+        contrib = re.search(r'^contributors:\s*(\[.*\])\s*$', front, re.M)
         topic_slug, tab = JOIN.get(slug, (slug, None))
         topic = TOPIC.get(topic_slug, SHORT.get(topic_slug, title))
         # each map block: download links, then the image
@@ -240,8 +241,11 @@ def main():
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
-                  'annotation: ' + yaml_str(ann_url),
-                  'downloads:']
+                  'annotation: ' + yaml_str(ann_url)]
+            # the page's contributor keys, for {% include contributors.html %} in the text
+            if contrib:
+                fm.append('contributors: ' + contrib.group(1).strip())
+            fm.append('downloads:')
             for label, e in (('PNG', '.png'), ('SVG', '.svg'), ('SBGN-ML', '.sbgn'), ('SBML', '-SBML.xml'), ('CellDesigner', '.xml'), ('Newt', '.sbgn')):
                 if os.path.exists(os.path.join(ROOT, DL, base + e)) and not any(d['label'] == label for d in downloads):
                     url = '/%s/' % DL + base + e

@@ -1,0 +1,42 @@
+{%- comment -%}
+  Contributors of a map page, journal style: names with affiliation numbers
+  (and an ORCID link when known), then "Affiliations", closed, with the
+  numbered list. People and affiliations are in _data/contributors.yml; the
+  page lists keys in its front matter (contributors: [key, key]). The
+  affiliations are numbered in the order the people are listed.
+{%- endcomment -%}
+{%- assign people = site.data.contributors.people -%}
+{%- assign affnames = site.data.contributors.affiliations -%}
+{%- assign affs = "" | split: "" -%}
+{%- for key in page.contributors -%}
+  {%- for a in people[key].affiliations -%}
+    {%- unless affs contains a -%}{%- assign affs = affs | push: a -%}{%- endunless -%}
+  {%- endfor -%}
+{%- endfor -%}
+<p class="contrib-names">
+{%- for key in page.contributors -%}
+  {%- assign p = people[key] -%}
+  {%- if p -%}
+    {{ p.name }}
+    {%- if p.affiliations.size > 0 -%}<sup>
+      {%- for a in p.affiliations -%}
+        {%- for b in affs -%}{%- if b == a -%}{{ forloop.index }}{%- endif -%}{%- endfor -%}
+        {%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}</sup>{%- endif -%}
+    {%- if p.orcid -%}<a class="contrib-orcid" href="https://orcid.org/{{ p.orcid }}" title="ORCID {{ p.orcid }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-label="ORCID"><circle cx="8" cy="8" r="8" fill="#a6ce39"/><text x="8" y="11.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#fff">iD</text></svg></a>{%- endif -%}
+  {%- else -%}
+    <span class="contrib-missing">{{ key }}</span>
+  {%- endif -%}
+  {%- unless forloop.last -%}, {% endunless -%}
+{%- endfor -%}
+</p>
+{%- if affs.size > 0 %}
+<details class="contrib-affs">
+<summary>Affiliations</summary>
+<ol>
+{%- for a in affs %}
+<li>{{ affnames[a] | default: a }}</li>
+{%- endfor %}
+</ol>
+</details>
+{%- endif %}

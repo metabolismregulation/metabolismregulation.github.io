@@ -45,6 +45,17 @@ A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SB
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
 when the map is finished.
 
+## Contributors
+
+People, their affiliations and ORCID iDs are in `_data/contributors.yml`
+(names and affiliations as in the manuscript author list). A map page lists
+keys in its front matter (`contributors: [alexander-mazein, ...]`) and shows
+them under `## Contributors` with `{% include contributors.html %}`: names with
+affiliation numbers, then a closed "Affiliations" list (user, 2026-10-15). Key:
+first and family name, lowercase, hyphens, no accents; a key never changes
+once used. Contributions are not recorded separately: the map pages are the
+record. Add an ORCID only after checking it on orcid.org.
+
 ## Two websites: official and Atlas
 
 There are two websites in this repository (user, 2026-10-13):
