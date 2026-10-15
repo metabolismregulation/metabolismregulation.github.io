@@ -2,7 +2,10 @@
 layout: post
 title: Regulation of mevalonate synthesis
 permalink: /mevalonate/
-contributors: [james-greene, michael-blinov, alexander-mazein]
+contributors:
+  - james-greene
+  - michael-blinov
+  - alexander-mazein
 project: true
 ---
 

@@ -12,7 +12,9 @@ width: 892
 height: 698
 scale: 1
 annotation: "/atlas-data/F006-acly.json"
-contributors: [adrien-rougny, john-albanese]
+contributors:
+  - adrien-rougny
+  - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F006-acly.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F006-acly.png"}

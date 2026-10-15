@@ -2,7 +2,9 @@
 layout: post
 title: Regulation of phosphoinositide metabolism
 permalink: /phosphoinositides/
-contributors: [james-greene, michael-blinov]
+contributors:
+  - james-greene
+  - michael-blinov
 project: true
 ---
 

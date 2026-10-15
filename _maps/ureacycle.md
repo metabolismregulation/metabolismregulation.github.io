@@ -12,7 +12,8 @@ width: 1080
 height: 1061
 scale: 1
 annotation: "/atlas-data/F021-ureacycle.json"
-contributors: [marcio-luis-acencio]
+contributors:
+  - marcio-luis-acencio
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F021-ureacycle.graphml"}
   - {label: "SVG", url: "/atlas-downloads/F021-ureacycle.svg"}

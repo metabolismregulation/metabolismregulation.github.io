@@ -12,7 +12,9 @@ width: 943
 height: 290
 scale: 1
 annotation: "/atlas-data/F100-aspirin.json"
-contributors: [alexander-mazein, maria-del-carmen-heredia]
+contributors:
+  - alexander-mazein
+  - maria-del-carmen-heredia
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F100-aspirin.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F100-aspirin.png"}

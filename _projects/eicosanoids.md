@@ -2,7 +2,9 @@
 layout: post
 title: Regulation of eicosanoid production
 permalink: /eicosanoids/
-contributors: [alexander-mazein, maria-del-carmen-heredia]
+contributors:
+  - alexander-mazein
+  - maria-del-carmen-heredia
 project: true
 ---
 

@@ -2,7 +2,10 @@
 layout: post
 title: Regulation of glycolysis, cardiac muscle
 permalink: /glycolysis-cardiac/
-contributors: [alexander-mazein, vasundra-toure, maria-del-carmen-heredia]
+contributors:
+  - alexander-mazein
+  - vasundra-toure
+  - maria-del-carmen-heredia
 project: true
 ---
 

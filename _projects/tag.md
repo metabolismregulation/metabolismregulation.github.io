@@ -2,7 +2,10 @@
 layout: post
 title: Regulation of triacylglycerol hydrolysis
 permalink: /tag/
-contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, john-albanese]
+contributors:
+  - tatiana-serebriyskaya
+  - valeriya-berzhitskaya
+  - john-albanese
 project: true
 ---
 

@@ -2,7 +2,9 @@
 layout: post
 title: Regulation of nitric oxide production - eNOS pathway
 permalink: /enos/
-contributors: [olga-ivanova, john-albanese]
+contributors:
+  - olga-ivanova
+  - john-albanese
 project: true
 ---
 

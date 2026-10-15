@@ -12,7 +12,10 @@ width: 1566
 height: 731
 scale: 1
 annotation: "/atlas-data/F003-mevalonate.json"
-contributors: [james-greene, michael-blinov, alexander-mazein]
+contributors:
+  - james-greene
+  - michael-blinov
+  - alexander-mazein
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F003-mevalonate.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F003-mevalonate.png"}

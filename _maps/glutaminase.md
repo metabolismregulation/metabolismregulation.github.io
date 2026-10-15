@@ -12,7 +12,10 @@ width: 690
 height: 581
 scale: 1
 annotation: "/atlas-data/F019-glutaminase.json"
-contributors: [hanna-borlinghaus, falk-schreiber, maria-del-carmen-heredia]
+contributors:
+  - hanna-borlinghaus
+  - falk-schreiber
+  - maria-del-carmen-heredia
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F019-glutaminase.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F019-glutaminase.png"}

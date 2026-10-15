@@ -12,7 +12,9 @@ width: 1297
 height: 1805
 scale: 1
 annotation: "/atlas-data/F008-enos.json"
-contributors: [olga-ivanova, john-albanese]
+contributors:
+  - olga-ivanova
+  - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F008-enos.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F008-enos.png"}

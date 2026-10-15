@@ -2,7 +2,10 @@
 layout: post
 title: Regulation of pyrimidine biosynthesis via MAPK signalling
 permalink: /pyrimidine/
-contributors: [hanna-borlinghaus, falk-schreiber, john-albanese]
+contributors:
+  - hanna-borlinghaus
+  - falk-schreiber
+  - john-albanese
 project: true
 ---
 

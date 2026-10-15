@@ -12,7 +12,10 @@ width: 831
 height: 739
 scale: 1
 annotation: "/atlas-data/F015-tag.json"
-contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, john-albanese]
+contributors:
+  - tatiana-serebriyskaya
+  - valeriya-berzhitskaya
+  - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F015-tag.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F015-tag.png"}

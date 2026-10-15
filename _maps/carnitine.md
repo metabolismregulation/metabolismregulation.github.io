@@ -12,7 +12,10 @@ width: 1056
 height: 1236
 scale: 1
 annotation: "/atlas-data/F014-carnitine.json"
-contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, maria-del-carmen-heredia]
+contributors:
+  - tatiana-serebriyskaya
+  - valeriya-berzhitskaya
+  - maria-del-carmen-heredia
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F014-carnitine.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F014-carnitine.png"}

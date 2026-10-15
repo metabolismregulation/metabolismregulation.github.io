@@ -2,7 +2,10 @@
 layout: post
 title: Regulation of acyl-carnitine synthesis
 permalink: /carnitine/
-contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, maria-del-carmen-heredia]
+contributors:
+  - tatiana-serebriyskaya
+  - valeriya-berzhitskaya
+  - maria-del-carmen-heredia
 project: true
 ---
 

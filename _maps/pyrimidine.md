@@ -12,7 +12,10 @@ width: 877
 height: 880
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
-contributors: [hanna-borlinghaus, falk-schreiber, john-albanese]
+contributors:
+  - hanna-borlinghaus
+  - falk-schreiber
+  - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F020-pyrimidine.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F020-pyrimidine.png"}

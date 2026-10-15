@@ -12,7 +12,10 @@ width: 746
 height: 1166
 scale: 1
 annotation: "/atlas-data/F005-srebp.json"
-contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, maria-del-carmen-heredia]
+contributors:
+  - tatiana-serebriyskaya
+  - valeriya-berzhitskaya
+  - maria-del-carmen-heredia
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F005-srebp.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F005-srebp.png"}

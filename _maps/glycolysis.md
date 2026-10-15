@@ -12,7 +12,10 @@ width: 978
 height: 685
 scale: 1
 annotation: "/atlas-data/F001-glycolysis.json"
-contributors: [alexander-mazein, vasundra-toure, maria-del-carmen-heredia]
+contributors:
+  - alexander-mazein
+  - vasundra-toure
+  - maria-del-carmen-heredia
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F001-glycolysis.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F001-glycolysis.png"}

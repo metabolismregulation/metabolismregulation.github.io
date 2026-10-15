@@ -2,7 +2,10 @@
 layout: post
 title: Regulation of estradiol biosynthesis via prostaglandin–cAMP signalling
 permalink: /estrogen/
-contributors: [hanna-borlinghaus, falk-schreiber, john-albanese]
+contributors:
+  - hanna-borlinghaus
+  - falk-schreiber
+  - john-albanese
 project: true
 ---
 
