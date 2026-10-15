@@ -16,6 +16,7 @@ contributors:
   - hanna-borlinghaus
   - falk-schreiber
   - maria-del-carmen-heredia
+  - alexander-mazein
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F019-glutaminase.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F019-glutaminase.png"}
