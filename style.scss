@@ -341,8 +341,7 @@ div.img img{
 }
 
 // References of a map page (and of its text in the Atlas): numbered list,
-// smaller than the main text and left-aligned, in the same size and line
-// height as the affiliations list (user, 2026-10-15)
+// left-aligned, at the main text size (user, 2026-10-15)
 #references + ol {
   font-size: 16px;
   line-height: 1.4;
@@ -350,8 +349,8 @@ div.img img{
 }
 
 // Contributors of a map page (_includes/contributors.html): names with
-// affiliation numbers and ORCID links, then "Affiliations" that opens the
-// numbered list. The open / closed sign is the chevron of the Atlas groups.
+// affiliation numbers (ORCID links off for now), then "Affiliations" that
+// opens the list. The open / closed sign is the chevron of the Atlas groups.
 .entry > p.contrib-names,
 #m2-text > p.contrib-names {
   margin-bottom: 4px;
@@ -392,7 +391,7 @@ div.img img{
     margin: 6px 0 0;
     padding-left: 0;
     list-style: none;
-    font-size: 14px; // as the references
+    font-size: 14px;
     line-height: 1.4;
     color: #666; // as the labels in the Atlas annotation panel
   }
