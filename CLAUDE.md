@@ -39,7 +39,7 @@ Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py)
 
 A map chosen from the Reactome-Recon lists says so visibly on its page (user,
 2026-10-14): a section "Reactome-Recon connection" above the Description, naming the
-Reactome processes (linked) and the Recon proteins that carry them in each list version.
+Reactome processes (linked).
 
 A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
