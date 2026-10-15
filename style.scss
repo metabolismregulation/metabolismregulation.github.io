@@ -340,21 +340,13 @@ div.img img{
     vertical-align:middle;
 }
 
-// References of a map page (and of its text in the Atlas): no numbers;
-// smaller than the main text, left-aligned, with a hanging indent and a small
-// space between references. Same size and spacing as the affiliations list
-// (user, 2026-10-15)
+// References of a map page (and of its text in the Atlas): numbered list,
+// smaller than the main text and left-aligned, in the same size and line
+// height as the affiliations list (user, 2026-10-15)
 #references + ol {
-  list-style: none;
-  padding-left: 0;
   font-size: 14px;
   line-height: 1.4;
-  > li {
-    text-align: left;
-    padding-left: 1.5em;
-    text-indent: -1.5em;
-    margin-bottom: 6px;
-  }
+  > li { text-align: left; }
 }
 
 // Contributors of a map page (_includes/contributors.html): names with
