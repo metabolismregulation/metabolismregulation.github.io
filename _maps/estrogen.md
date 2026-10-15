@@ -12,6 +12,7 @@ width: 1233
 height: 1305
 scale: 1
 annotation: "/atlas-data/F018-estrogen.json"
+contributors: [hanna-borlinghaus, falk-schreiber, john-albanese]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F018-estrogen.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F018-estrogen.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-Hanna Borlinghaus, Falk Schreiber, John Albanese
+{% include contributors.html %}
 
 ## Description
 

@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of glycolysis
 permalink: /glycolysis/
+contributors: [alexander-mazein, vasundra-toure, maria-del-carmen-heredia]
 project: true
 ---
 
@@ -17,7 +18,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Alexander Mazein, Vasundra Touré, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## References
 

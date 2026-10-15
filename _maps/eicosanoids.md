@@ -12,6 +12,7 @@ width: 664
 height: 552
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids.json"
+contributors: [alexander-mazein, maria-del-carmen-heredia]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F002-eicosanoids.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F002-eicosanoids.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-Alexander Mazein, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## References
 

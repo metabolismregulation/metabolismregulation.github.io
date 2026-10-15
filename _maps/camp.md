@@ -12,6 +12,7 @@ width: 902
 height: 810
 scale: 1
 annotation: "/atlas-data/F012-camp.json"
+contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, john-albanese]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F012-camp.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F012-camp.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-Tatiana Serebriyskaya, Valeriya Berzhitskaya, John Albanese
+{% include contributors.html %}
 
 ## Description
 

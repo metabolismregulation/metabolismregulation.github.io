@@ -12,6 +12,7 @@ width: 1590
 height: 1186
 scale: 1
 annotation: "/atlas-data/F007-inos.json"
+contributors: [alexander-mazein, maria-del-carmen-heredia]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F007-inos.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F007-inos.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-Alexander Mazein, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## References
 

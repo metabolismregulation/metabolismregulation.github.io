@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of acetyl-CoA synthesis
 permalink: /acly/
+contributors: [adrien-rougny, john-albanese]
 project: true
 ---
 
@@ -17,7 +18,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Adrien Rougny, John Albanese
+{% include contributors.html %}
 
 ## Description
 

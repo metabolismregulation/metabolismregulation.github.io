@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of cAMP hydrolysis
 permalink: /camp/
+contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, john-albanese]
 project: true
 ---
 
@@ -17,7 +18,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Tatiana Serebriyskaya, Valeriya Berzhitskaya, John Albanese
+{% include contributors.html %}
 
 ## Description
 

@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of nitric oxide production - iNOS pathway
 permalink: /inos/
+contributors: [alexander-mazein, maria-del-carmen-heredia]
 project: true
 ---
 
@@ -17,7 +18,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Alexander Mazein, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## References
 

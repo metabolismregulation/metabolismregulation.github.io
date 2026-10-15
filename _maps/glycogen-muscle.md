@@ -12,6 +12,7 @@ width: 2106
 height: 1751
 scale: 1
 annotation: "/atlas-data/F004-glycogen-muscle.json"
+contributors: [vasundra-toure, luiz-ladeira, tatiana-serebriyskaya, valeriya-berzhitskaya, alexander-mazein, john-albanese]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F004-glycogen-muscle.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F004-glycogen-muscle.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-Vasundra Touré, Luiz Ladeira, Tatiana Serebriyskaya, Valeriya Berzhitskaya, Alexander Mazein, John Albanese
+{% include contributors.html %}
 
 ## Description
 

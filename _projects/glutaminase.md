@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of glutaminolysis via the NF-kB-PKCe axis in lung cancer cells
 permalink: /glutaminase/
+contributors: [hanna-borlinghaus, falk-schreiber, maria-del-carmen-heredia]
 project: true
 ---
 
@@ -17,7 +18,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Hanna Borlinghaus, Falk Schreiber, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## Description
 

@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of glycogen metabolism, muscle
 permalink: /glycogen/
+contributors: [vasundra-toure, luiz-ladeira, tatiana-serebriyskaya, valeriya-berzhitskaya, alexander-mazein, john-albanese]
 project: true
 ---
 
@@ -29,7 +30,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Vasundra Touré, Luiz Ladeira, Tatiana Serebriyskaya, Valeriya Berzhitskaya, Alexander Mazein, John Albanese
+{% include contributors.html %}
 
 ## Description
 

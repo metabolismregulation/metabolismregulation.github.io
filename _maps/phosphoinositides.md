@@ -12,6 +12,7 @@ width: 739
 height: 989
 scale: 1
 annotation: "/atlas-data/F009-phosphoinositides.json"
+contributors: [james-greene, michael-blinov]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F009-phosphoinositides.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F009-phosphoinositides.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-James Greene, Michael Blinov
+{% include contributors.html %}
 
 ## References
 

@@ -12,6 +12,7 @@ width: 981
 height: 695
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-cardiac.json"
+contributors: [alexander-mazein, vasundra-toure, maria-del-carmen-heredia]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F001-glycolysis-cardiac.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F001-glycolysis-cardiac.png"}
@@ -25,7 +26,7 @@ downloads:
 ---
 ## Contributors
 
-Alexander Mazein, Vasundra Touré, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## Description
 

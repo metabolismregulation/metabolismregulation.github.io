@@ -12,6 +12,7 @@ width: 2106
 height: 1751
 scale: 1
 annotation: "/atlas-data/F004-glycogen-liver.json"
+contributors: [vasundra-toure, luiz-ladeira, tatiana-serebriyskaya, valeriya-berzhitskaya, alexander-mazein, john-albanese]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F004-glycogen-liver.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F004-glycogen-liver.png"}

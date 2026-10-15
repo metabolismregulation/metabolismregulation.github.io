@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of cholesterol metabolism via SREBP
 permalink: /srebp/
+contributors: [tatiana-serebriyskaya, valeriya-berzhitskaya, maria-del-carmen-heredia]
 project: true
 ---
 
@@ -17,7 +18,7 @@ Downloads: &nbsp;
 
 ## Contributors
 
-Tatiana Serebriyskaya, Valeriya Berzhitskaya, Maria Heredia Chavez
+{% include contributors.html %}
 
 ## Description
 
