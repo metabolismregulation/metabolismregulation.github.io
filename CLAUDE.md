@@ -53,8 +53,8 @@ Reactome processes (linked). `make_maps.py` marks such a map (`lists` in the Atl
 
 Atlas list tags (user, 2026-10-16): draft or new after the map name. Every tag, used or not
 (draft, new, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
-the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Letters are centred by the rule in the comment above `.m2-draft` in
-`pages/atlas.html`: trim to the letters vertically, equal padding left and right, never
+the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Letters
+are centred by the rule in the comment above `.m2-draft` there: trim to the letters vertically, equal padding left and right, never
 padding tuned to one font's side bearings. Check any tag change with
 `tools/tag_check.js` in maps-workbench (gaps around the letters, in two fonts).
 
