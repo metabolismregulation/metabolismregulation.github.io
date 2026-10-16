@@ -11,7 +11,7 @@ Downloads: &nbsp;
 <a href="/downloads/F022-bcaa.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F022-bcaa.svg" download>SVG</a> &nbsp;
 <a href="/atlas-downloads/F022-bcaa.xml" download>CellDesigner</a> &nbsp;
-<p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="880"/></a></p>
+<p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="882"/></a></p>
 
 ## Contributors
 

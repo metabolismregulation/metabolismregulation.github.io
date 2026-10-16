@@ -8,7 +8,7 @@ order: 17
 kind: "map"
 draft: false
 image: "/atlas-downloads/F022-bcaa.svg"
-width: 1318
+width: 1317
 height: 737
 scale: 1
 annotation: "/atlas-data/F022-bcaa.json"
