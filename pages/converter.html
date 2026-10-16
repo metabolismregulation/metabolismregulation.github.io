@@ -26,6 +26,7 @@ noindex: true
   .cv-btn svg { width: 14px; height: 14px; }
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
+  .cv-hint { font-size: 13px; color: #777; }
 </style>
 
 <div class="cv-top">
@@ -38,6 +39,8 @@ noindex: true
     CellDesigner files to get GraphML.</p>
     <p>The conversion runs in your browser, and the files stay on your computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
+    <p><label><input type="checkbox" id="cv-standard"> Standard sizes</label> <span class="cv-hint">(CellDesigner
+    to GraphML: proteins 80 x 40, metabolites 36 x 36, the map rescaled if its objects are much larger or smaller)</span></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml" multiple hidden>
@@ -48,16 +51,16 @@ noindex: true
 <script>
 (() => {
   const BASE = '{{ "/converter/mapconv/" | relative_url }}';
-  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten'];
+  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style'];
   // the converter's own code (mapconv): a GraphML map gives two CellDesigner files (annotation
   // from the GraphML), a CellDesigner file gives GraphML; a message the converter prints (a
   // warning, the summary) is kept for the page
   const DRIVER = `
 import contextlib, io, os, sys
 sys.path.insert(0, '/home/pyodide')
-from mapconv import annotation, celldesigner, graphml
+from mapconv import annotation, celldesigner, graphml, style
 
-def convert(name, data):
+def convert(name, data, standard=False):
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
@@ -69,7 +72,8 @@ def convert(name, data):
         try:
             with contextlib.redirect_stdout(log):
                 if back:
-                    xml = graphml.write(celldesigner.read(p, layout))
+                    m = celldesigner.read(p, layout)
+                    xml = graphml.write(style.standardise(m) if standard else m)
                 else:
                     m = graphml.read(p)
                     xml = celldesigner.write(m, annotation.from_graphml(m), layout)
@@ -114,7 +118,7 @@ def convert(name, data):
       if (!/\.(graphml|xml)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML or CellDesigner file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml)$/i, '');
-      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()))
+      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked)
                   .toJs({ dict_converter: Object.fromEntries });
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
