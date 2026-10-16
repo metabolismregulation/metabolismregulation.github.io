@@ -19,7 +19,7 @@ class Node:
     units: list = field(default_factory=list)   # units of information: ct:gene, N:4, ...
     count: int = 1     # multimer: number of units (2 when drawn as a multimer without N:x)
     label_at: tuple = None  # compartment: top left of its name, relative to the box
-    url: str = None    # link to the entity's database entry (ChEBI, UniProt)
+    data: dict = field(default_factory=dict)  # yEd node data by name: url, annotation (HGNC symbol, UniProt, ...)
 
 
 @dataclass

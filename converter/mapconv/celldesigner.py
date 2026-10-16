@@ -21,8 +21,8 @@
 #   others the user adds by hand. Lines end at node centres. Main lines a few px off the vertical or
 #   horizontal are straightened (cd_straighten.py); modifiers up to 15 px off
 #   their square are moved onto it, if nothing overlaps after the move.
-# - MIRIAM annotation from the label table (ids.csv and the cached HGNC
-#   records): bqbiol:is for one entity, bqbiol:hasVersion for a family.
+# - MIRIAM annotation from the map's node properties (annotation.py):
+#   bqbiol:is for one entity, bqbiol:hasVersion for a family.
 # - Metabolites become circles of CHEMICAL diameter on the yEd centre.
 # - Complexes: complexSpeciesAlias; members are included species (aliases
 #   with complexSpeciesAlias, RDF in their notes). An unlabelled complex is

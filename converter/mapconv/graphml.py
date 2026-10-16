@@ -61,7 +61,7 @@ def count(gn, us):
 def read(path):
     root = etree.parse(path).getroot()
     res = {r.get('id'): r for r in root.iter(Y + 'Resource')}
-    url = [k.get('id') for k in root.findall('g:key', NS) if (k.get('for'), k.get('attr.name')) == ('node', 'url')]
+    names = {k.get('id'): k.get('attr.name') for k in root.findall('g:key', NS) if k.get('for') == 'node' and k.get('attr.name')}
     nodes = {}
     for n in root.iter('{%s}node' % NS['g']):
         gn = realizer(n)
@@ -76,7 +76,6 @@ def read(path):
         us = units(gn, res)
         # a compartment's name: the first label with text
         l = next((l for l in labs if (l.text or '').strip()), None)
-        u = n.find('g:data[@key="%s"]' % url[0], NS) if url else None
         nodes[n.get('id')] = Node(
             id=n.get('id'), kind=kind, box=tuple(float(geo.get(a)) for a in ('x', 'y', 'width', 'height')),
             labels=[(l.text or '').strip() for l in labs if not l.get('iconData')],
@@ -84,7 +83,8 @@ def read(path):
             fill=fill.get('color') if fill is not None else None,
             states=states(gn, res), units=us, count=count(gn, us),
             label_at=(float(l.get('x')), float(l.get('y'))) if kind == 'Compartment' and l is not None else None,
-            url=(u.text or '').strip() or None if u is not None else None)
+            data={names[x.get('key')]: x.text.strip() for x in n.findall('g:data', NS)
+                  if x.get('key') in names and (x.text or '').strip()})
     arcs = []
     for e in root.iter('{%s}edge' % NS['g']):
         pl = e.find('g:data/y:PolyLineEdge', NS)

@@ -27,8 +27,9 @@ CellDesigner files:</p>
   <li><b>direct</b>: a basic, reliable conversion with straight lines, to be finished by hand in CellDesigner.</li>
   <li><b>advanced</b>: process squares and modifier arcs placed as in yEd, so the layout already looks good in CellDesigner.</li>
 </ul>
-<p>The conversion runs in your browser. The files do not leave your computer. Annotation comes
-from the ChEBI and UniProt links of the map's nodes.</p>
+<p>The conversion runs in your browser. The files do not leave your computer. The annotation
+(HGNC, UniProt, ChEBI) comes from the map's node properties. A map without them gets the
+ChEBI and UniProt links of its nodes.</p>
 
 <div id="cv-drop" class="cv-wait" tabindex="0">Loading the converter…</div>
 <input id="cv-file" type="file" accept=".graphml" multiple hidden>
@@ -41,7 +42,7 @@ from the ChEBI and UniProt links of the map's nodes.</p>
 (() => {
   const BASE = '{{ "/converter/mapconv/" | relative_url }}';
   const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten'];
-  // the converter's own code (mapconv), run with the annotation from the GraphML's links;
+  // the converter's own code (mapconv), run with the annotation from the GraphML;
   // a message the converter prints (a warning, the summary) is kept for the page
   const DRIVER = `
 import contextlib, io, os, sys
@@ -59,7 +60,7 @@ def convert(name, data):
         try:
             with contextlib.redirect_stdout(log):
                 m = graphml.read(p)
-                xml = celldesigner.write(m, annotation.from_links(m), layout)
+                xml = celldesigner.write(m, annotation.from_graphml(m), layout)
         except BaseException as e:
             log.write('Not converted: %s\\n' % e)
         out[layout] = {'xml': xml, 'log': log.getvalue()}
