@@ -7,7 +7,13 @@ NS = {'g': 'http://graphml.graphdrawing.org/xmlns', 'y': 'http://www.yworks.com/
 Y = '{%s}' % NS['y']
 # yEd target arrow -> glyph at the arc's target (no arrow: None; any other arrow: production)
 HEAD = {'white_circle': 'catalysis', 't_shape': 'inhibition', 'white_diamond': 'modulation',
-        'white_delta': 'stimulation', 'white_delta_bar': 'trigger'}
+        'white_delta': 'stimulation', 'white_delta_bar': 'trigger',
+        'crows_foot_one': 'inhibition'}  # a bar like t_shape, from yEd's other arrows (AsthMap)
+# plain yEd shapes (not the SBGN palette) read by their outline (user, 2026-10-16; AsthMap):
+# a plain ellipse holding other nodes is an oval compartment (a cell), one labelled AND, OR or
+# NOT a logic gate
+OUTLINE = {'ShapeNode roundrectangle': 'Macromolecule', 'GenericNode com.yworks.flowchart.terminator': 'SimpleChemical',
+           'ShapeNode ellipse': 'UnspecifiedEntity', 'ShapeNode rectangle': 'Phenotype', 'ShapeNode hexagon': 'Phenotype'}
 
 
 def realizer(n):
@@ -71,6 +77,24 @@ def count(gn, us):
     return n[0] if n else int(p.get('value'))
 
 
+def ovals(nodes):
+    # a plain ellipse with other nodes' centres inside it is an oval compartment; a node with no
+    # parent belongs to the smallest one around it
+    cen = lambda d: (d.box[0] + d.box[2] / 2, d.box[1] + d.box[3] / 2)
+    def holds(o, d):
+        (cx, cy), (x, y) = cen(o), cen(d)
+        return ((x - cx) / (o.box[2] / 2)) ** 2 + ((y - cy) / (o.box[3] / 2)) ** 2 <= 1
+    flat = [d for d in nodes.values() if d.parent is None]
+    for o in [d for d in flat if d.outline == 'ShapeNode ellipse' and d.kind == 'UnspecifiedEntity']:
+        if any(d is not o and d.box[2] * d.box[3] < o.box[2] * o.box[3] and holds(o, d) for d in flat):
+            o.kind = 'Compartment'
+    cells = [d for d in flat if d.kind == 'Compartment' and d.outline]
+    for d in flat:
+        around = [o for o in cells if o is not d and o.box[2] * o.box[3] > d.box[2] * d.box[3] and holds(o, d)]
+        if around:
+            d.parent = min(around, key=lambda o: o.box[2] * o.box[3]).id
+
+
 def read(path):
     root = etree.parse(path).getroot()
     res = {r.get('id'): r for r in root.iter(Y + 'Resource')}
@@ -87,16 +111,23 @@ def read(path):
         # a compartment's name: the first label with text
         l = next((l for l in labs if (l.text or '').strip()), None)
         border = gn.find('y:BorderStyle', NS)
+        outline = kind if kind in OUTLINE else None
+        if outline:
+            kind = 'Operator' if (l is not None and l.text.strip() in ('AND', 'OR', 'NOT') and 'ellipse' in outline) else OUTLINE[outline]
         nodes[n.get('id')] = Node(
-            id=n.get('id'), kind=kind, box=tuple(float(geo.get(a)) for a in ('x', 'y', 'width', 'height')),
+            id=n.get('id'), kind=kind, outline=outline, box=tuple(float(geo.get(a)) for a in ('x', 'y', 'width', 'height')),
             labels=[(l.text or '').strip() for l in labs if not l.get('iconData')],
             parent=p.get('id') if p.tag.endswith('node') else None,
             fill=fill.get('color') if fill is not None else None,
             states=states(gn, res), units=us, count=count(gn, us),
-            label_at=(float(l.get('x')), float(l.get('y'))) if kind == 'Compartment' and l is not None else None,
+            label_at=(float(l.get('x')), float(l.get('y'))) if (kind == 'Compartment' or outline) and l is not None else None,
             data={names[x.get('key')]: x.text.strip() for x in n.findall('g:data', NS)
                   if x.get('key') in names and (x.text or '').strip()},
             dashed=border is not None and border.get('type') != 'line')
+    ovals(nodes)
+    for d in nodes.values():
+        if d.kind != 'Compartment':
+            d.label_at = None
     arcs = []
     for e in root.iter('{%s}edge' % NS['g']):
         pl = e.find('g:data/*[y:Path]', NS)  # PolyLineEdge in the SBGN palette; curves too
@@ -159,10 +190,14 @@ def write(diagram):
     for i, d in N.items():
         kids.setdefault(d.parent if d.parent in N else None, []).append(i)
 
+    missing = {}
     def node(parent, i):
         d = N[i]
         group = bool(kids.get(i)) or d.kind == 'Compartment'
-        n = copy.deepcopy(tpl['ComplexGroup' if group and d.kind == 'Complex' else d.kind])
+        name = 'ComplexGroup' if group and d.kind == 'Complex' else d.kind
+        if name not in tpl:  # a glyph none of our yEd files has: no template to copy
+            missing.setdefault(d.kind, []).append(i); return
+        n = copy.deepcopy(tpl[name])
         n.set('id', i)
         parent.append(n)
         for k, name in enumerate(names):
@@ -199,7 +234,12 @@ def write(diagram):
     g = etree.SubElement(root, G + 'graph', edgedefault='directed', id='G')
     for i in kids.get(None, []):
         node(g, i)
+    for k, ids in missing.items():
+        print('no yEd template for %s: %d nodes left out (%s)' % (k, len(ids), ', '.join(N[i].labels[0] or i for i in ids)))
+    gone = {i for ids in missing.values() for i in ids}
     for a in diagram.arcs:
+        if a.source in gone or a.target in gone:
+            continue
         e = copy.deepcopy(arc)
         e.set('id', a.id); e.set('source', a.source); e.set('target', a.target)
         pl = e.find('.//y:PolyLineEdge', NS)

@@ -441,7 +441,8 @@ def write(diagram, ann, layout='direct'):
     for i in sorted(comps, key=lambda i: (depth(i), box[i][1], box[i][0])):  # outer ones first
         d = comps[i]; x, y, w, h = box[i]
         a = sub(lco, 'compartmentAlias', id='ca_' + sid(i), compartment='c_' + sid(i))
-        sub(a, 'class', 'SQUARE'); sub(a, 'bounds', x=x, y=y, w=w, h=h)
+        # an oval: a plain yEd ellipse read as a compartment (a cell, AsthMap)
+        sub(a, 'class', 'OVAL' if d.outline == 'ShapeNode ellipse' else 'SQUARE'); sub(a, 'bounds', x=x, y=y, w=w, h=h)
         # the name where yEd has its label (top left of the label box)
         # CellDesigner's name point is the text baseline: 12.5 below the label top (its save of estrogen v01)
         lx, ly = d.label_at or (6, 0)
@@ -508,7 +509,7 @@ def write(diagram, ann, layout='direct'):
     lcm = etree.SubElement(model, 'listOfCompartments')
     etree.SubElement(lcm, 'compartment', metaid='default', id='default', size='1', units='volume')
     for i in sorted(comps, key=lambda i: (depth(i), box[i][1], box[i][0])):
-        nm = cd_name(' '.join(' | '.join(comps[i].labels).split()))
+        nm = cd_name(' '.join(' | '.join(x for x in comps[i].labels if x.strip()).split()))
         cp = etree.SubElement(lcm, 'compartment', metaid='c_' + sid(i), id='c_' + sid(i), name=nm,
                               size='1', units='volume', outside='c_' + sid(comp_of(i)) if comp_of(i) else 'default')
         sub(sub(etree.SubElement(cp, 'annotation'), 'extension'), 'name', nm)  # CellDesigner adds it when it saves
@@ -697,6 +698,9 @@ def write(diagram, ann, layout='direct'):
             ref(etree.SubElement(rx, 'listOfProducts'), 'speciesReference', e.target)
         elif e.source in ents and e.target in ents:
             print('arc %s (%s -> %s, %s): no process, not converted' % (e.id, label[e.source] or e.source, label[e.target] or e.target, e.head))
+        elif e.source in ops and e.target in ents:
+            print('arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted' % (
+                e.id, ' | '.join(N[e.source].labels), label[e.target] or e.target, e.head))
     # written as CellDesigner writes it (no indentation, double-quoted declaration),
     # so a file opened and saved in CellDesigner can be compared line by line
     print('%s: %d species, %d proteins, %d reactions' % (diagram.name, len(ents), len(prot), len(lr)))

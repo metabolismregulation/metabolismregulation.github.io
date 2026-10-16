@@ -21,6 +21,7 @@ class Node:
     label_at: tuple = None  # compartment: top left of its name, relative to the box
     data: dict = field(default_factory=dict)  # yEd node data by name: url, annotation (HGNC symbol, UniProt, ...)
     dashed: bool = False  # dashed border: a hypothetical entity (CellDesigner)
+    outline: str = None  # the plain yEd shape it was read from by its outline (not the SBGN palette)
 
 
 @dataclass
