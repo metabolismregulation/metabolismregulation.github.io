@@ -11,9 +11,22 @@ HEAD = {'white_circle': 'catalysis', 't_shape': 'inhibition', 'white_diamond': '
 
 
 def realizer(n):
-    # the node's GenericNode, or the shown realizer of a group (complex, compartment)
-    gn = n.find('g:data/y:GenericNode', NS)
+    # the node's shape (GenericNode for the SBGN palette, ShapeNode and others from other
+    # palettes), or the shown realizer of a group (complex, compartment)
+    gn = n.find('g:data/*[y:Geometry]', NS)
     return gn if gn is not None else n.find('g:data/y:ProxyAutoBoundsNode/y:Realizers/*', NS)
+
+
+def kind_of(n, gn):
+    # the SBGN glyph; a plain group is a compartment; anything else is named by its yEd shape
+    # ("ShapeNode ellipse"), for the rules to report
+    conf = gn.get('configuration') or ''
+    if conf.startswith('com.yworks.sbgn.'):
+        return conf[len('com.yworks.sbgn.'):]
+    if n.find('g:graph', NS) is not None and etree.QName(gn).localname == 'GroupNode':
+        return 'Compartment'
+    shape = gn.find('y:Shape', NS)
+    return ' '.join(x for x in (etree.QName(gn).localname, conf, shape.get('type') if shape is not None else '') if x)
 
 
 def text(r):
@@ -65,10 +78,7 @@ def read(path):
     nodes = {}
     for n in root.iter('{%s}node' % NS['g']):
         gn = realizer(n)
-        group = n.find('g:data/y:GenericNode', NS) is None
-        kind = (gn.get('configuration') or '').replace('com.yworks.sbgn.', '')
-        if group and not kind:
-            kind = 'Compartment'
+        kind = kind_of(n, gn)
         geo = gn.find('y:Geometry', NS)
         labs = gn.findall('y:NodeLabel', NS)
         fill = gn.find('y:Fill', NS)
@@ -89,12 +99,13 @@ def read(path):
             dashed=border is not None and border.get('type') != 'line')
     arcs = []
     for e in root.iter('{%s}edge' % NS['g']):
-        pl = e.find('g:data/y:PolyLineEdge', NS)
+        pl = e.find('g:data/*[y:Path]', NS)  # PolyLineEdge in the SBGN palette; curves too
         a = pl.find('y:Arrows', NS)
         head = a.get('target')
         yp = pl.find('y:Path', NS)
         arcs.append(Arc(id=e.get('id'), source=e.get('source'), target=e.get('target'),
-                        head=None if head in ('none', None) else HEAD.get(head, 'production'),
+                        # another arrow is kept by its yEd name, for the rules to report
+                        head=None if head in ('none', None) else HEAD.get(head, 'production' if head == 'delta' else 'arrow ' + head),
                         tail=a.get('source') not in ('none', None),
                         points=[(float(q.get('x')), float(q.get('y'))) for q in yp.findall('y:Point', NS)],
                         source_at=(float(yp.get('sx')), float(yp.get('sy'))),
