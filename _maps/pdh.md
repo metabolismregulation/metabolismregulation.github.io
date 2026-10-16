@@ -29,9 +29,7 @@ This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon 
 
 ## Description
 
-The pyruvate dehydrogenase complex (PDH) in the mitochondrial matrix converts pyruvate, CoA and NAD+ into acetyl-CoA, CO2 and NADH. This irreversible step decides whether carbon from glucose is oxidised in mitochondria or kept as lactate and biosynthetic precursors. PDH is inactivated when pyruvate dehydrogenase kinases (PDK1-4) phosphorylate its PDHA1 subunit and reactivated when the phosphatases PDP1 and PDP2 remove the phosphate.
-
-The switch reads the state of the mitochondrion. Its products acetyl-CoA and NADH stimulate PDK, so fatty acid oxidation turns PDH off, while its substrate pyruvate inhibits PDK and keeps the complex active. Ca2+ stimulates PDP1, linking PDH activation to muscle contraction. The drug dichloroacetate binds the pyruvate site of PDK and activates PDH; it lowers blood lactate in children with congenital lactic acidosis, and its use is limited by peripheral neuropathy.
+The pyruvate dehydrogenase complex (PDH) converts pyruvate, CoA and NAD+ into acetyl-CoA, CO2 and NADH, the irreversible step that decides whether carbon from glucose is oxidised in mitochondria. Pyruvate dehydrogenase kinases (PDK1-4) inactivate PDH by phosphorylating its PDHA1 subunit, and the phosphatases PDP1 and PDP2 reactivate it. The products acetyl-CoA and NADH stimulate PDK, while pyruvate inhibits it; Ca2+ stimulates PDP1, linking PDH activation to muscle contraction. The drug dichloroacetate inhibits PDK and lowers blood lactate in congenital lactic acidosis.
 
 ## References
 

@@ -29,9 +29,7 @@ This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon 
 
 ## Description
 
-The branched-chain amino acids leucine, isoleucine and valine share the first two steps of their breakdown in mitochondria. BCAT2 transfers their amino group to α-ketoglutarate in a reversible reaction, giving glutamate and the branched-chain α-keto acids. The branched-chain α-keto acid dehydrogenase complex (BCKDH) then converts the keto acids to their acyl-CoA esters, the first committed and rate-limiting step of the pathway.
-
-BCKDH is inactivated when the kinase BCKDK phosphorylates its BCKDHA subunit and reactivated when the phosphatase PPM1K removes the phosphate. The branched-chain keto acids, above all α-ketoisocaproate from leucine, inhibit BCKDK, so an excess of branched-chain amino acids keeps the complex active and speeds up their own breakdown.
+The branched-chain amino acids leucine, isoleucine and valine share the first two steps of their breakdown in mitochondria: BCAT2 transfers their amino group to α-ketoglutarate, and the branched-chain α-keto acid dehydrogenase complex (BCKDH) converts the resulting keto acids to their acyl-CoA esters, the rate-limiting step. The kinase BCKDK inactivates BCKDH by phosphorylation and the phosphatase PPM1K reactivates it. The keto acids, above all α-ketoisocaproate from leucine, inhibit BCKDK, so an excess of branched-chain amino acids speeds up their own breakdown.
 
 ## References
 
