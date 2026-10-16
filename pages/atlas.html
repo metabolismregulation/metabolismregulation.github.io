@@ -85,25 +85,23 @@ sitemap: false
   #m2-mode { box-sizing: border-box; width: 44px; height: 21px; padding: 0; }
   #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
 
-  #m2-downloads { margin: 10px 0 0; }
-  /* the buttons of the site (user, 2026-10-16, scheme 8 of /atlas/buttons/): white, grey edge,
-     black text, blue edge and text on hover. Order by use: GraphML, CellDesigner, SBGN-ML, SBML
-     (quieter), Images (PNG, SVG in a menu), Data (the annotation table), then Newt and MINERVA
-     (blue, the map's main view) */
+  #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: flex-start; }
+  /* the buttons of the site (user, 2026-10-16): one colour for all, white, grey edge, black
+     text; on hover filled in the blue of the chosen map in the list, white text. Order by use:
+     GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG, SVG in a menu), Data (the annotation
+     table), then Newt and MINERVA on the right */
   #m2-downloads > a, #m2-downloads summary { display: inline-block; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #222; background: #fff; border: 1px solid #ccc; border-radius: 5px; text-decoration: none; cursor: pointer; }
-  #m2-downloads > a:hover, #m2-downloads summary:hover { border-color: #4183c4; color: #4183c4; }
-  #m2-downloads > a.m2-quiet { color: #777; border-color: #ddd; }
-  #m2-downloads > a.m2-quiet:hover { border-color: #4183c4; color: #4183c4; }
-  #m2-downloads > a.m2-main { background: #4183c4; border-color: #4183c4; color: #fff; }
-  #m2-downloads > a.m2-main:hover { background: #3572ad; border-color: #3572ad; color: #fff; }
-  #m2-downloads .m2-gap { display: inline-block; width: 12px; }
+  #m2-downloads > a:hover, #m2-downloads summary:hover, #m2-downloads details[open] summary { background: #4183c4; border-color: #4183c4; color: #fff; }
+  /* Newt and MINERVA pushed to the right end of the row */
+  #m2-downloads .m2-gap { margin-left: auto; }
   #m2-downloads details { display: inline-block; position: relative; }
   #m2-downloads summary { list-style: none; }
   #m2-downloads summary::-webkit-details-marker { display: none; }
-  #m2-downloads .m2-caret { margin-left: 4px; color: #888; font-size: 11px; }
+  #m2-downloads .m2-caret { margin-left: 4px; font-size: 11px; }
   #m2-downloads .m2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
-  #m2-downloads .m2-list a { display: block; padding: 4px 12px; color: #222; text-decoration: none; }
-  #m2-downloads .m2-list a:hover { background: #f0f6fc; color: #4183c4; }
+  /* the menu items in the font of the button (Images) */
+  #m2-downloads .m2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #222; text-decoration: none; }
+  #m2-downloads .m2-list a:hover { background: #4183c4; color: #fff; }
   /* the online viewers open another site: the usual external-link icon */
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
   /* a file: the download icon (tray and arrow) before its name, as on the Converter page */
@@ -749,7 +747,7 @@ sitemap: false
       return a;
     };
     ['GraphML', 'CellDesigner', 'SBGN-ML', 'SBML'].forEach(function (l) {
-      if (url[l]) dl.appendChild(file(l, url[l], l === 'SBML' ? 'm2-quiet' : null));
+      if (url[l]) dl.appendChild(file(l, url[l]));
     });
     var images = ['PNG', 'SVG'].filter(function (l) { return url[l]; });
     if (images.length) {  // PNG and SVG in one menu
@@ -762,7 +760,7 @@ sitemap: false
     if (url.Newt || url.MINERVA) dl.appendChild(el('span', 'm2-gap'));
     ['Newt', 'MINERVA'].forEach(function (l) {
       if (!url[l]) return;
-      var a = el('a', 'm2-ext' + (l === 'MINERVA' ? ' m2-main' : ''), l);
+      var a = el('a', 'm2-ext', l);
       a.href = url[l]; a.target = '_blank'; a.rel = 'noopener'; a.title = 'Opens in a new tab';
       a.insertAdjacentHTML('beforeend', EXT_ICON);
       dl.appendChild(a);
