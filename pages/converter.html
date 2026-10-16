@@ -123,7 +123,7 @@ def convert(name, data):
       for (const layout of Object.keys(r)) {
         const { xml, log } = r[layout];
         if (xml) box.append(layout === 'graphml' ? button(xml, base + '.graphml', 'GraphML')
-                                                  : button(xml, base + '-' + layout + '.xml', 'CellDesigner (' + layout + ')'));
+                                                  : button(xml, base + '-' + layout + '.xml', layout === 'direct' ? 'CellDesigner' : 'CellDesigner (' + layout + ')'));
         for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
       }
       for (const [set, cls] of [[errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
