@@ -192,6 +192,11 @@ def main():
     for slug in sorted(slugs, key=rank):
         s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
+        # two separate environments (user, 2026-10-16): official pages use downloads/ only,
+        # drafts atlas-downloads/ only
+        wrong = '/%s/' % DL if folder[slug] == '_projects' else '/downloads/'
+        if re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
+            print('WARNING %s/%s.md links %s files' % (folder[slug], slug, wrong))
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
         permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
         # the contributors entry as written (one line, or a list with indented lines)
@@ -234,7 +239,12 @@ def main():
             downloads = []
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', links):
                 if m.group(2) in LABELS:
-                    downloads.append({'label': m.group(2), 'url': m.group(1).replace('/downloads/', '/%s/' % DL)})
+                    url = m.group(1).replace('/downloads/', '/%s/' % DL)
+                    # the Atlas offers only its own copies: a file missing in atlas-downloads/ is left out
+                    if url.startswith('/') and not os.path.exists(os.path.join(ROOT, url.lstrip('/'))):
+                        print('%s: no %s in %s/, not offered in the Atlas' % (slug, url.rsplit('/', 1)[1], DL))
+                        continue
+                    downloads.append({'label': m.group(2), 'url': url})
             mid = base.split('-', 1)[1]
             fm = ['---',
                   'title: ' + yaml_str(title if k == 0 or len(blocks) == 1 else title.replace('muscle', 'liver')),

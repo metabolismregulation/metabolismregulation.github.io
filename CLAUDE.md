@@ -109,9 +109,16 @@ There are two websites in this repository (user, 2026-10-13):
   SBML, SBGN-ML. It is checked on the Atlas.
 
 Files move from `atlas-downloads/` to `downloads/` only when the user says so.
-A CellDesigner file made for the user's check is linked on the map page as
-`/atlas-downloads/<file>.xml` (user, 2026-10-16), so it can be downloaded there; the
-user's checked version replaces it when they send it.
+Clean separation, no shared files (user, 2026-10-16): the Atlas is the sandbox and changes
+all the time; the official site is stable for its viewers. So each keeps its own copy of
+every file, even when the two copies are identical (no saving by keeping one file in one
+place). An official page (`_projects/`, Maps, Gallery) links and shows only `/downloads/`;
+a draft page and the Atlas only `/atlas-downloads/`. A file for an official map (e.g. a
+CellDesigner file for the user's check) goes into `downloads/` and is linked from there;
+the Atlas gets its own copy only if it matches the Atlas version of the map. Removing or
+replacing a file in one folder never touches the other. `scripts/make_maps.py` warns when
+a page links the other folder and leaves out of the Atlas any file missing in
+`atlas-downloads/`.
 Run `scripts/make_maps.py` after changing either folder or a map page. The GitHub
 Action `.github/workflows/atlas-data.yml` also runs it on every push to master that
 touches them (so a file uploaded by hand needs no further step).
