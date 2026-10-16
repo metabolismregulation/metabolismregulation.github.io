@@ -219,6 +219,46 @@ permalink: /gallery/
   </div>
 
   <div class="gallery-item">
+    <a class="gallery-title" href="/ureacycle/">Urea cycle</a>
+    <div class="gallery-downloads">
+      <a href="/downloads/F021-ureacycle.graphml">GraphML</a>
+    </div>
+    <a href="/ureacycle/">
+      <img class="gallery-image" src="/images/gallery/F021-ureacycle-cut.svg" alt="Urea cycle map">
+    </a>
+  </div>
+
+  <div class="gallery-item">
+    <a class="gallery-title" href="/bcaa/">BCAA catabolism</a>
+    <div class="gallery-downloads">
+      <a href="/downloads/F022-bcaa.graphml">GraphML</a>
+    </div>
+    <a href="/bcaa/">
+      <img class="gallery-image" src="/images/gallery/F022-bcaa-cut.svg" alt="BCAA catabolism map">
+    </a>
+  </div>
+
+  <div class="gallery-item">
+    <a class="gallery-title" href="/pdh/">Pyruvate dehydrogenase</a>
+    <div class="gallery-downloads">
+      <a href="/downloads/F023-pdh.graphml">GraphML</a>
+    </div>
+    <a href="/pdh/">
+      <img class="gallery-image" src="/images/gallery/F023-pdh-cut.svg" alt="Pyruvate dehydrogenase map">
+    </a>
+  </div>
+
+  <div class="gallery-item">
+    <a class="gallery-title" href="/nnos/">nNOS pathway</a>
+    <div class="gallery-downloads">
+      <a href="/downloads/F025-nnos.graphml">GraphML</a>
+    </div>
+    <a href="/nnos/">
+      <img class="gallery-image" src="/images/gallery/F025-nnos-cut.svg" alt="nNOS pathway map">
+    </a>
+  </div>
+
+  <div class="gallery-item">
     <a class="gallery-title" href="/aspirin/">Aspirin</a>
     <div class="gallery-downloads">
       <a href="/downloads/F100-aspirin.graphml">GraphML</a>

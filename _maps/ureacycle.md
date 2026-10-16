@@ -6,7 +6,7 @@ page: "/ureacycle/"
 group: "Amino acid metabolism"
 order: 18
 kind: "map"
-draft: true
+draft: false
 image: "/atlas-downloads/F021-ureacycle.svg"
 width: 1080
 height: 1061

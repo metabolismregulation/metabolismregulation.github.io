@@ -6,7 +6,7 @@ page: "/pdh/"
 group: "Carbohydrate metabolism"
 order: 3
 kind: "map"
-draft: true
+draft: false
 image: "/atlas-downloads/F023-pdh.svg"
 width: 892
 height: 493
