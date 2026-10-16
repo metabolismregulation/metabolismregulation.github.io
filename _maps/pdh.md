@@ -2,22 +2,23 @@
 title: "Regulation of pyruvate dehydrogenase via PDK and PDP"
 topic: "PDH"
 tab: ""
-page: "/pdh/draft/"
+page: "/pdh/"
 group: "Carbohydrate metabolism"
 order: 3
 kind: "map"
-draft: true
-new: false
+draft: false
+new: true
 lists: true
 image: "/atlas-downloads/F023-pdh.svg"
-width: 988
-height: 511
+width: 840
+height: 585
 scale: 1
 annotation: "/atlas-data/F023-pdh.json"
 contributors:
   - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F023-pdh.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F023-pdh.png"}
   - {label: "SVG", url: "/atlas-downloads/F023-pdh.svg"}
 ---
 ## Contributors
