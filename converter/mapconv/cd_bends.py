@@ -37,6 +37,11 @@ def turn(route):
     return 'h' if abs(cy - sy) < abs(cx - sx) else 'v'
 
 
+def bends(route):
+    # the bends that shape a route (advanced layout), its ends left out
+    return _simplify(route, EPS)[1:-1]
+
+
 def corner(a, b, way):
     return (b[0], a[1]) if way == 'h' else (a[0], b[1])
 

@@ -215,7 +215,7 @@ def write(diagram, ann, layout='direct'):
         # consumption arcs: no arrowhead, drawn either way in yEd (entity -> process or
         # process -> entity); turned to entity -> process
         ins = [e for e in E if e.target == p and e.source in ents and e.head is None]
-        ins += [replace(e, source=e.target, target=p, points=e.points[::-1]) for e in E
+        ins += [replace(e, source=e.target, target=p, points=e.points[::-1], source_at=e.target_at, target_at=e.source_at) for e in E
                 if e.source == p and e.target in ents and e.head is None and not e.tail]
         outs = [e for e in E if e.source == p and e.target in ents and e.head is not None]
         mods = [e for e in E if e.target == p and e.source in ents and e.head in MOD]
@@ -228,7 +228,7 @@ def write(diagram, ann, layout='direct'):
             at = lambda e: (e.points[0][0] - x0, e.points[0][1] - y0) if e.points else cen(e.target)
             # the axis the arcs spread along most, all together (a straight side arc must not decide it)
             ax = 1 if sum(abs(at(e)[1] - c[1]) for e in outs) >= sum(abs(at(e)[0] - c[0]) for e in outs) else 0
-            ins = [replace(e, source=e.target, target=p, points=e.points[::-1]) for e in outs if at(e)[ax] < c[ax]]
+            ins = [replace(e, source=e.target, target=p, points=e.points[::-1], source_at=e.target_at, target_at=e.source_at) for e in outs if at(e)[ax] < c[ax]]
             outs = [e for e in outs if at(e)[ax] >= c[ax]]
         if not ins or not outs:
             if not quiet: print('process %s: no reactant or product, skipped' % p)
@@ -270,15 +270,29 @@ def write(diagram, ann, layout='direct'):
         c = cen(p)
         return [(q[0] - x0, q[1] - y0) for q in pts if math.hypot(q[0] - x0 - c[0], q[1] - y0 - c[1]) > max(box[p][2], box[p][3]) + 3]
 
+    def nearest(i, at):
+        # the anchor nearest to where an arc meets entity i (scaled to its box here), if nearer than
+        # its centre; on a metabolite circle not E or W, where the name is: ESE, WSW
+        u, v = at[0] * box[i][2] / N[i].box[2], at[1] * box[i][3] / N[i].box[3]
+        pt = lambda a: anchor_point(box[i], a, N[i].kind == 'SimpleChemical')
+        a = min(ANCHOR, key=lambda a: math.dist(pt(a), (cen(i)[0] + u, cen(i)[1] + v)))
+        if math.dist(pt(a), (cen(i)[0] + u, cen(i)[1] + v)) >= math.hypot(u, v):
+            return None
+        return {'E': 'ESE', 'W': 'WSW'}.get(a, a) if N[i].kind == 'SimpleChemical' else a
+
     def geometry(p, fl):
         # the main line of process p: its ends, anchors, bend, the square and the flow direction
         ins, outs, mods, gates, reversible, c = fl
         r_, q_ = ins[0].source, outs[0].target
         ra = qa = None  # line ends at the centres
-        if any(q != p and joins[q] == joins[p] for q in procs):
-            # two processes on the same two species (user's edit of mevalonate, HMGCR): each a
-            # straight line between quarter points on the facing sides, on the side of the line
-            # between the centres where yEd has the process (upper/lower, or left/right)
+        # advanced: the significant bends of the yEd route (a Z, a detour round other nodes; PD02
+        # eicosanoids, 2026-10-16)
+        rb = cd_bends.bends([cen(r_)] + route(p, ins[0].points) + [c]) if advanced else []
+        qb = cd_bends.bends([c] + route(p, outs[0].points) + [cen(q_)]) if advanced else []
+        if not rb + qb and any(q != p and joins[q] == joins[p] for q in procs):
+            # two processes on the same two species, drawn straight (user's edit of mevalonate,
+            # HMGCR): each a straight line between quarter points on the facing sides, on the side
+            # of the line between the centres where yEd has the process (upper/lower, left/right)
             (rx_, ry_), (qx_, qy_) = cen(r_), cen(q_)
             side = (qx_ - rx_) * (c[1] - ry_) - (qy_ - ry_) * (c[0] - rx_)  # >0: process right of r->q
             if abs(qx_ - rx_) >= abs(qy_ - ry_):  # side by side: E/W faces, upper or lower quarter
@@ -294,36 +308,39 @@ def write(diagram, ann, layout='direct'):
         wr = cd_bends.turn([cen(r_)] + route(p, ins[0].points) + [c])
         wq = cd_bends.turn([cen(q_)] + route(p, outs[0].points)[::-1] + [c])
         if advanced and not twin:
-            # a line meets a metabolite circle where its name is not: N, S, ESE or WSW, by the way
+            # a line meets an entity where the yEd arc meets its border (a CellDesigner anchor read
+            # back); else a metabolite circle where its name is not: N, S, ESE or WSW, by the way
             # it leaves (the L's first leg, else towards the process; user's PD02 eicosanoids)
             other = {'h': 'v', 'v': 'h'}
-            if N[r_].kind == 'SimpleChemical':
-                ra = meet(cen(r_), c, wr or (other[wq] if wq else None))
-            if N[q_].kind == 'SimpleChemical':
-                qa = meet(cen(q_), c, wq or (other[wr] if wr else None))
+            ra = nearest(r_, ins[0].source_at) or (meet(cen(r_), c, wr or (other[wq] if wq else None)) if N[r_].kind == 'SimpleChemical' else None)
+            qa = nearest(q_, outs[0].target_at) or (meet(cen(q_), c, wq or (other[wr] if wr else None)) if N[q_].kind == 'SimpleChemical' else None)
         A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical')
         B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical')
-        bend = None
-        if bool(wr) != bool(wq) and not twin:
-            bend = cd_bends.corner(A, B, wr) if wr else cd_bends.corner(B, A, wq)
-            if min(math.hypot(bend[0] - P[0], bend[1] - P[1]) for P in (A, B)) < cd_bends.EPS:
-                bend = None  # the ends are already in line
-        # the square (CellDesigner: midway on its segment; after the corner when yEd has the
+        # edit points: one long L (both layouts); in the advanced layout else the route's bends
+        pts, k, corner = rb + qb, len(rb), False
+        bend = (cd_bends.corner(A, B, wr) if wr else cd_bends.corner(B, A, wq)) if bool(wr) != bool(wq) and not twin else None
+        if bend and (not pts or len(pts) == 1 and math.dist(bend, pts[0]) < cd_bends.EPS):  # else a slanting leg (PD02)
+            corner = min(math.hypot(bend[0] - P[0], bend[1] - P[1]) for P in (A, B)) >= cd_bends.EPS
+            pts, k = ([bend], 1 if wr else 0) if corner else ([], 0)  # else the ends are already in line
+        # the square (CellDesigner: midway on segment k; after the corner when yEd has the
         # process on the arc that bends from the reactant) and the flow direction through it
-        P, Q = ((bend, B) if wr else (A, bend)) if bend else (A, B)
+        run = [A] + pts + [B]
+        P, Q = run[k], run[k + 1]
         sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
         L = math.hypot(Q[0] - P[0], Q[1] - P[1])
         f = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
-        split = None
-        if advanced and not bend:
-            # the square where yEd has the process, if that is on the main line: two edit
-            # points 8 px either side of it, the square on the segment between them
-            u = ((c[0] - A[0]) * f[0] + (c[1] - A[1]) * f[1]) / L
-            across = abs((c[0] - A[0]) * f[1] - (c[1] - A[1]) * f[0])
+        ep = [cd_bends.to_frame(A, B, q) for q in pts]
+        if advanced and not corner:
+            # the square where yEd has the process, if that is on its segment: two edit points
+            # 8 px either side of it, the square on the segment between them
+            u = ((c[0] - P[0]) * f[0] + (c[1] - P[1]) * f[1]) / L
+            across = abs((c[0] - P[0]) * f[1] - (c[1] - P[1]) * f[0])
             if across < 3 and abs(u - 0.5) * L > 3 and 0.1 < u < 0.9:
-                split = (u - 8 / L, u + 8 / L)
-                sq = (A[0] + u * L * f[0], A[1] + u * L * f[1])
-        return dict(r=r_, q=q_, ra=ra, qa=qa, A=A, B=B, wr=wr, bend=bend, sq=sq, f=f, split=split)
+                sq = (P[0] + u * L * f[0], P[1] + u * L * f[1])
+                split = [(u - 8 / L, 0.0), (u + 8 / L, 0.0)] if not pts else \
+                    [cd_bends.to_frame(A, B, (sq[0] + d * f[0], sq[1] + d * f[1])) for d in (-8, 8)]
+                ep, k = ep[:k] + split + ep[k:], k + 1
+        return dict(r=r_, q=q_, ra=ra, qa=qa, A=A, B=B, ep=ep, k=k, sq=sq, f=f)
 
     def side(g, pt):  # the side of the square facing a point: 2 left of the flow, 3 right
         f, sq = g['f'], g['sq']
@@ -634,7 +651,7 @@ def write(diagram, ann, layout='direct'):
         if fl is None: continue
         ins, outs, mods, gates, reversible, c = fl
         g = geometry(p, fl)
-        r_, q_, ra, qa, A, B, wr, bend, sq, f = (g[k] for k in ('r', 'q', 'ra', 'qa', 'A', 'B', 'wr', 'bend', 'sq', 'f'))
+        r_, q_, ra, qa, A, B, sq, f = (g[k] for k in ('r', 'q', 'ra', 'qa', 'A', 'B', 'sq', 'f'))
         side_of = lambda pt: side(g, pt)
         rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(p), id='re_' + sid(p))
         if not reversible: rx.set('reversible', 'false')  # true is the SBML default; CellDesigner then leaves it out
@@ -650,22 +667,22 @@ def write(diagram, ann, layout='direct'):
                 for e in es:
                     k = sub(l, tag, **{attr: 's_' + sid(getattr(e, end))}, alias='sa_' + sid(getattr(e, end)), targetLineIndex=idx)
                     line(k); sub(k, 'line', width='1.0', color='ff000000', type='Straight')
-        if bend:
-            line(x, 2, rectangleIndex=1 if wr else 0)
-            sub(x, 'editPoints', '%s,%s' % cd_bends.to_frame(A, B, bend))
-        elif g['split']:
-            line(x, 3, rectangleIndex=1)
-            sub(x, 'editPoints', '%s,0.0 %s,0.0' % g['split'])
-        else:
-            line(x, rectangleIndex=0)
+        line(x, len(g['ep']) + 1, rectangleIndex=g['k'])
+        if g['ep']:
+            sub(x, 'editPoints', ' '.join('%s,%s' % q for q in g['ep']))
         sub(x, 'line', width='1.0', color='ff000000')
         if mods or gates:
             lm = sub(x, 'listOfModification')
             for e in mods:
                 m = e.source; M = cen(m)
                 T = attach(g, M)  # the arc's end on the square's side (the user's glycolysis v01 bends)
-                pts = advanced and lane(m, M, T, e)
-                at = None
+                # a slanting straight arc from the border of another entity: that anchor (as read
+                # back); one that runs across at the process's height takes a lane (below)
+                at = advanced and not e.points and N[m].kind != 'SimpleChemical' and \
+                    abs(M[1] + e.source_at[1] - cen(p)[1]) > 5 and nearest(m, e.source_at)
+                if at:
+                    M = anchor_point(front[m], at)
+                pts = advanced and not at and lane(m, M, T, e)
                 if advanced and N[m].kind == 'SimpleChemical':
                     # it leaves the circle where the name is not (meet), its first bend in line with that point
                     at = meet(M, pts[0] if pts else T)
