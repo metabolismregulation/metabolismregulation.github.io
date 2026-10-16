@@ -21,7 +21,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F025-nnos.png"}
   - {label: "SVG", url: "/atlas-downloads/F025-nnos.svg"}
   - {label: "CellDesigner", url: "/atlas-downloads/F025-nnos.xml"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F025-nnos.sbgn"}
 ---
 ## Reactome-Recon connection
 

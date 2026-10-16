@@ -241,8 +241,10 @@ def main():
                 if m.group(2) in LABELS:
                     url = m.group(1).replace('/downloads/', '/%s/' % DL)
                     # the Atlas offers only its own copies: a file missing in atlas-downloads/ is left out
-                    if url.startswith('/') and not os.path.exists(os.path.join(ROOT, url.lstrip('/'))):
-                        print('%s: no %s in %s/, not offered in the Atlas' % (slug, url.rsplit('/', 1)[1], DL))
+                    # (Newt names its SBGN-ML file by full address: that file is checked too)
+                    local = url[len(NEWT):] if url.startswith(NEWT) else url
+                    if local.startswith('/') and not os.path.exists(os.path.join(ROOT, local.lstrip('/'))):
+                        print('%s: no %s in %s/, not offered in the Atlas' % (slug, local.rsplit('/', 1)[1], DL))
                         continue
                     downloads.append({'label': m.group(2), 'url': url})
             mid = base.split('-', 1)[1]
