@@ -37,6 +37,12 @@ it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py). Working files stay in `maps-workbench`.
 
+A new version of a published map is a draft page with the same file name and the permalink
+`/<name>/draft/` (e.g. `draftpages/glutaminase.md`, /glutaminase/draft/): it replaces the
+published map in the Atlas (draft mark, link to the draft) and leaves the official page and
+`downloads/` as they are (2026-10-16). To publish it, its content replaces the page in
+`_projects/` (permalink back to `/<name>/`) and the draft page is deleted.
+
 A map chosen from the Reactome-Recon lists says so visibly on its page (user,
 2026-10-14): a section "Reactome-Recon connection" above the Description, naming the
 Reactome processes (linked).

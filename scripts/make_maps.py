@@ -1,7 +1,9 @@
 # Build the map files for the experimental /atlas/ page.
 # Usage: python3 scripts/make_maps.py
 # Reads the map pages in _projects/ and draftpages/ (draft maps, listed with a
-# draft mark once their PNG or SVG is in atlas-downloads/) and the files in atlas-downloads/ (the
+# draft mark once their PNG or SVG is in atlas-downloads/; a draft with the name
+# of a published page is its new version and takes its place in the Atlas)
+# and the files in atlas-downloads/ (the
 # Atlas's own copy of downloads/, where maps are worked on before they replace
 # the official files), and writes
 # one file per map image to _maps/<id>.md:
@@ -179,8 +181,9 @@ def main():
     for f in glob.glob(os.path.join(OUT, '*.md')):
         os.remove(f)
     pages = sorted(glob.glob(os.path.join(ROOT, '_projects', '*.md')) + glob.glob(os.path.join(ROOT, 'draftpages', '*.md')))
-    slugs = [os.path.basename(p)[:-3] for p in pages]
+    # draftpages/ comes last, so a draft replaces the published page of the same name
     folder = {os.path.basename(p)[:-3]: os.path.basename(os.path.dirname(p)) for p in pages}
+    slugs = list(folder)
     rank = lambda s: ORDER.index(JOIN.get(s, (s,))[0]) + (0.5 if s in JOIN else 0) if JOIN.get(s, (s,))[0] in ORDER else 999
     written = []
     search = []
@@ -188,6 +191,7 @@ def main():
         s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
+        permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
         # the contributors entry as written (one line, or a list with indented lines)
         contrib = re.search(r'^contributors:.*\n(?:[ \t]+\S.*\n)*', front, re.M)
         topic_slug, tab = JOIN.get(slug, (slug, None))
@@ -234,7 +238,7 @@ def main():
                   'title: ' + yaml_str(title if k == 0 or len(blocks) == 1 else title.replace('muscle', 'liver')),
                   'topic: ' + yaml_str(topic),
                   'tab: ' + yaml_str(tab or (TABS.get(base) if len(blocks) > 1 or base in TABS else None) or ''),
-                  'page: ' + yaml_str('/' + slug + '/'),
+                  'page: ' + yaml_str(permalink),
                   'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
