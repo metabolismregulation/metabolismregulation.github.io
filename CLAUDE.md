@@ -93,6 +93,14 @@ SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then
 MINERVA, all in one row at the same spacing. Converter buttons: "CellDesigner (direct)",
 "CellDesigner (advanced)": the format first, the mode in brackets.
 
+## Atlas map window
+
+The map window spans the middle column (no sideways resizing). Its height starts at the shape
+738 x 504, at most 70% of the window, so the buttons and text show below it, and its lower edge
+can be dragged down to the whole window without the header, no further: over the map the wheel
+zooms, so a taller window would trap the page (user, 2026-10-16). A full-screen button after
+Fit shows the map alone, with the annotation over its right side.
+
 ## Converter page
 
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop yEd GraphML maps, get two

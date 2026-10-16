@@ -68,10 +68,16 @@ sitemap: false
   .m2-on .m2-n { color: #fff; }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
-  /* the view keeps the shape 738 x 504 and grows with the middle column, up
-     to the window height; it can also be resized with its lower right corner */
-  #m2-view { position: relative; width: 100%; aspect-ratio: 738 / 504; max-height: calc(100vh / var(--zoom, 1) - 140px); min-width: 300px; min-height: min(504px, 100vh / var(--zoom, 1) - 140px); max-width: 100%; resize: both; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
+  /* the view spans the middle column. Its height starts at the shape 738 x 504, at most 70% of
+     the window (set in the script, so the buttons and text show below it), and its lower edge
+     can be dragged down to the whole window without the header (user, 2026-10-16) */
+  #m2-view { position: relative; width: 100%; height: 504px; min-height: 300px; max-height: calc(100vh / var(--zoom, 1) - 70px); resize: vertical; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
   #m2-view.m2-drag { cursor: grabbing; }
+  /* full screen: the map alone, the annotation over its right side */
+  #m2-view:fullscreen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
+  #m2-view:-webkit-full-screen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
+  #m2-full { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  #m2-full svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   /* no focus ring on the map and its zoom buttons: they keep focus after a
      click, and the browser draws the ring as soon as a key (such as an arrow
      key, which changes the map) is pressed */
@@ -158,6 +164,7 @@ sitemap: false
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
 <button type="button" id="m2-in" title="Zoom in">+</button>
 <button type="button" id="m2-mode"></button>
+<button type="button" id="m2-full" title="Full screen" aria-label="Full screen"></button>
 </div>
 </div>
 <div id="m2-downloads"></div>
@@ -380,7 +387,44 @@ sitemap: false
     e.preventDefault();
   });
   window.addEventListener('resize', draw);
+  // the view's height: the shape 738 x 504 at the column's width, at most 70% of the window,
+  // until the reader drags its lower edge (the browser then sets its own height)
+  var autoH = null;
+  function viewHeight() {
+    if (autoH !== null && view.style.height !== autoH) return; // resized by the reader
+    autoH = Math.round(Math.max(300, Math.min(view.clientWidth * 504 / 738, window.innerHeight / pz() * 0.7))) + 'px';
+    view.style.height = autoH;
+  }
+  viewHeight();
+  window.addEventListener('resize', viewHeight);
   if (window.ResizeObserver) new ResizeObserver(draw).observe(view);
+
+  // full screen: the map alone; Esc or the button returns to the page
+  var full = document.getElementById('m2-full');
+  var FULL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>';
+  var EXIT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>';
+  function isFull() { return (document.fullscreenElement || document.webkitFullscreenElement) === view; }
+  function showFull() {
+    var on = isFull();
+    full.innerHTML = on ? EXIT_ICON : FULL_ICON;
+    full.title = on ? 'Exit full screen (Esc)' : 'Full screen';
+    full.setAttribute('aria-label', full.title);
+  }
+  if (view.requestFullscreen || view.webkitRequestFullscreen) {
+    showFull();
+    full.addEventListener('click', function () {
+      if (isFull()) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      else (view.requestFullscreen || view.webkitRequestFullscreen).call(view);
+    });
+    var onFull = function () {
+      showFull();
+      placeInfo();
+      // after the view has its new size: back to the mode's view unless zoomed or panned
+      requestAnimationFrame(function () { if (!current) return; if (!moved) { if (mode === 'fit') fit(); else standard(); } else draw(); });
+    };
+    document.addEventListener('fullscreenchange', onFull);
+    document.addEventListener('webkitfullscreenchange', onFull);
+  } else full.style.display = 'none'; // iPhone: no full screen for page elements
 
 
   // ---------- annotation ----------
@@ -405,7 +449,7 @@ sitemap: false
   // wide windows: the right column; narrower: over the right side of the map
   var wide = window.matchMedia('(min-width: 1030px)');
   function placeInfo() {
-    var over = !wide.matches;
+    var over = !wide.matches || isFull();
     info.classList.toggle('m2-over', over);
     var home = over ? view : document.querySelector('.m2');
     if (info.parentNode !== home) home.appendChild(info);
