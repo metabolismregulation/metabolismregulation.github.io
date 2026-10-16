@@ -7,31 +7,39 @@ noindex: true
 ---
 
 <style>
-  #cv-drop { border: 2px dashed #bbb; border-radius: 6px; padding: 36px 16px; text-align: center; color: #666; cursor: pointer; margin: 20px 0; }
+  .cv-top { display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: center; margin: 24px 0 16px; }
+  @media (max-width: 600px) { .cv-top { grid-template-columns: 1fr; } }
+  .cv-top h1 { margin: 0 0 8px; }
+  .cv-top p { margin: 0 0 6px; font-size: 15px; }
+  #cv-drop { height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+             border: 2px dashed #bbb; border-radius: 6px; padding: 0 12px; text-align: center; font-size: 14px; color: #666; cursor: pointer; }
+  #cv-drop svg { width: 26px; height: 26px; }
   #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
   #cv-drop.cv-wait { cursor: progress; }
-  #cv-status { font-size: 14px; color: #666; }
-  .cv-map { border-top: 1px solid #eee; padding: 10px 0; }
-  .cv-name { font-weight: 600; overflow-wrap: anywhere; }
-  .cv-links a { margin-right: 18px; }
-  .cv-log { font-size: 12px; color: #666; white-space: pre-wrap; margin: 6px 0 0; }
+  #cv-status { font-size: 14px; color: #666; min-height: 20px; }
+  .cv-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; border-top: 1px solid #eee; padding: 8px 0; }
+  .cv-name { flex: 1 1 200px; font-weight: 600; overflow-wrap: anywhere; }
+  .cv-btn { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border: 1px solid #4183c4; border-radius: 4px;
+            font-size: 14px; color: #4183c4; text-decoration: none; }
+  .cv-btn:hover { background: #4183c4; color: #fff; text-decoration: none; }
+  .cv-btn svg { width: 15px; height: 15px; }
+  .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
   #cv-version { font-size: 12px; color: #999; margin-top: 24px; }
 </style>
 
-<h1>Map converter</h1>
-
-<p>Drop one or more yEd GraphML maps drawn with the SBGN palette. Each map comes back as two
-CellDesigner files:</p>
-<ul>
-  <li><b>direct</b>: a basic, reliable conversion with straight lines, to be finished by hand in CellDesigner.</li>
-  <li><b>advanced</b>: process squares and modifier arcs placed as in yEd, so the layout already looks good in CellDesigner.</li>
-</ul>
-<p>The conversion runs in your browser. The files do not leave your computer. The annotation
-(HGNC, UniProt, ChEBI) comes from the map's node properties. A map without them gets the
-ChEBI and UniProt links of its nodes.</p>
-
-<div id="cv-drop" class="cv-wait" tabindex="0">Loading the converter…</div>
+<div class="cv-top">
+  <div id="cv-drop" class="cv-wait" tabindex="0">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/></svg>
+    <span id="cv-drop-text">Loading the converter…</span>
+  </div>
+  <div>
+    <h1>Map converter</h1>
+    <p>Drop yEd GraphML maps drawn with the SBGN palette to get CellDesigner files.</p>
+    <p>The conversion runs in your browser, and the files stay on your computer. The annotation
+    (HGNC, UniProt, ChEBI) comes from the map's node properties.</p>
+  </div>
+</div>
 <input id="cv-file" type="file" accept=".graphml" multiple hidden>
 <div id="cv-status"></div>
 <div id="cv-out"></div>
@@ -67,6 +75,7 @@ def convert(name, data):
     return out
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
+  const dropText = document.getElementById('cv-drop-text');
   const status = document.getElementById('cv-status'), out = document.getElementById('cv-out');
   let py = null;
 
@@ -84,10 +93,14 @@ def convert(name, data):
     return p;
   }
 
-  function link(text, name) {
+  const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+               'stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
+
+  function button(text, name, label) {
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
-    a.download = name; a.textContent = name;
+    a.className = 'cv-btn'; a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
+    a.download = name; a.title = name; a.innerHTML = ICON;
+    a.append(label);
     return a;
   }
 
@@ -101,17 +114,19 @@ def convert(name, data):
       const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()))
                   .toJs({ dict_converter: Object.fromEntries });
       const box = document.createElement('div'); box.className = 'cv-map';
-      box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div><div class="cv-links"></div>');
-      box.querySelector('.cv-name').textContent = f.name;
+      box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
+      box.querySelector('.cv-name').textContent = base;
+      // the converter's messages, each once and without its summary line ("46 species, ...")
+      const notes = new Set(), errors = new Set();
       for (const layout of ['direct', 'advanced']) {
         const { xml, log } = r[layout];
-        if (xml) box.querySelector('.cv-links').append(link(xml, base + '-' + layout + '.xml'));
-        if (log.trim()) {
-          const pre = document.createElement('div');
-          pre.className = 'cv-log' + (xml ? '' : ' cv-error');
-          pre.textContent = layout + ': ' + log.trim();
-          box.append(pre);
-        }
+        if (xml) box.append(button(xml, base + '-' + layout + '.xml', layout === 'direct' ? 'Direct' : 'Advanced'));
+        for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
+      }
+      for (const [set, cls] of [[errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
+        if (!set.size) continue;
+        const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
+        box.append(d);
       }
       out.insertBefore(box, top);
     }
@@ -127,7 +142,7 @@ def convert(name, data):
 
   load().then(p => {
     py = p; drop.classList.remove('cv-wait');
-    drop.textContent = 'Drop GraphML files here, or click to choose them';
-  }).catch(e => { drop.textContent = 'The converter could not be loaded: ' + e.message; });
+    dropText.textContent = 'Drop GraphML files here, or click to choose';
+  }).catch(e => { dropText.textContent = 'The converter could not be loaded: ' + e.message; });
 })();
 </script>
