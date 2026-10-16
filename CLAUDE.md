@@ -36,7 +36,7 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
-A newly published map gets a blue "new" tag in the Atlas list: its name in NEW in
+A newly published map gets a "new" tag (outlined: grey edge and text, white fill, user 2026-10-16; the earlier blue one is kept in the palette) in the Atlas list: its name in NEW in
 `scripts/make_maps.py` (user, 2026-10-16). Working files stay in `maps-workbench`.
 
 A new version of a published map is a draft page with the same file name and the permalink
@@ -52,7 +52,7 @@ Reactome processes (linked). `make_maps.py` marks such a map (`lists` in the Atl
 2026-10-16) and is kept in the tag palette.
 
 Atlas list tags (user, 2026-10-16): draft or new after the map name. Every tag, used or not
-(draft, new, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+(draft, new, new blue, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.

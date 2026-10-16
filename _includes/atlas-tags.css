@@ -7,9 +7,12 @@
   /* drug: lighter grey (not shown: drug maps carry the capsule icon) */
   .m2-draft.m2-drugtag { background: #aaa; }
   .m2-on .m2-draft.m2-drugtag { color: #4183c4; background: #fff; }
-  /* new: blue */
-  .m2-draft.m2-new { background: #4183c4; }
-  .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
+  /* new: outlined like lists (grey edge and text, white fill); the 1px edge takes 2px of the line */
+  .m2-draft.m2-new { line-height: 14px; color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }
+  .m2-on .m2-draft.m2-new { color: #fff; background: none; border-color: #fff; }
+  /* new, blue (used until 2026-10-16, kept in the palette /atlas/tags/) */
+  .m2-draft.m2-newblue { background: #4183c4; }
+  .m2-on .m2-draft.m2-newblue { color: #4183c4; background: #fff; }
   /* lists: outlined (grey edge and text, white fill); the 1px edge takes 2px of the line
      (not shown since 2026-10-16, kept in the palette /atlas/tags/) */
   .m2-draft.m2-lists { line-height: 14px; color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }

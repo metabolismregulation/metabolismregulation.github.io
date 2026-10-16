@@ -58,7 +58,7 @@ GROUPS = [
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
-# maps published recently, marked with a blue "new" tag in the Atlas list (user, 2026-10-16)
+# maps published recently, marked with an outlined "new" tag in the Atlas list (user, 2026-10-16)
 NEW = {'ureacycle', 'bcaa', 'pdh', 'nnos'}
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
