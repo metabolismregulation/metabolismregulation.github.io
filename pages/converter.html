@@ -1,0 +1,132 @@
+---
+layout: default
+title: Converter
+permalink: /converter/
+sitemap: false
+noindex: true
+---
+
+<style>
+  #cv-drop { border: 2px dashed #bbb; border-radius: 6px; padding: 36px 16px; text-align: center; color: #666; cursor: pointer; margin: 20px 0; }
+  #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
+  #cv-drop.cv-wait { cursor: progress; }
+  #cv-status { font-size: 14px; color: #666; }
+  .cv-map { border-top: 1px solid #eee; padding: 10px 0; }
+  .cv-name { font-weight: 600; overflow-wrap: anywhere; }
+  .cv-links a { margin-right: 18px; }
+  .cv-log { font-size: 12px; color: #666; white-space: pre-wrap; margin: 6px 0 0; }
+  .cv-error { color: #b00; }
+  #cv-version { font-size: 12px; color: #999; margin-top: 24px; }
+</style>
+
+<h1>Map converter</h1>
+
+<p>Drop one or more yEd GraphML maps drawn with the SBGN palette. Each map comes back as two
+CellDesigner files:</p>
+<ul>
+  <li><b>direct</b>: a basic, reliable conversion with straight lines, to be finished by hand in CellDesigner.</li>
+  <li><b>advanced</b>: process squares and modifier arcs placed as in yEd, so the layout already looks good in CellDesigner.</li>
+</ul>
+<p>The conversion runs in your browser. The files do not leave your computer. Annotation comes
+from the ChEBI and UniProt links of the map's nodes.</p>
+
+<div id="cv-drop" class="cv-wait" tabindex="0">Loading the converter…</div>
+<input id="cv-file" type="file" accept=".graphml" multiple hidden>
+<div id="cv-status"></div>
+<div id="cv-out"></div>
+<div id="cv-version"></div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script>
+(() => {
+  const BASE = '{{ "/converter/mapconv/" | relative_url }}';
+  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten'];
+  // the converter's own code (mapconv), run with the annotation from the GraphML's links;
+  // a message the converter prints (a warning, the summary) is kept for the page
+  const DRIVER = `
+import contextlib, io, os, sys
+sys.path.insert(0, '/home/pyodide')
+from mapconv import annotation, celldesigner, graphml
+
+def convert(name, data):
+    os.makedirs('/tmp/in', exist_ok=True)
+    p = '/tmp/in/' + name
+    with open(p, 'wb') as f:
+        f.write(data.to_bytes())
+    out = {}
+    for layout in ('direct', 'advanced'):
+        log, xml = io.StringIO(), None
+        try:
+            with contextlib.redirect_stdout(log):
+                m = graphml.read(p)
+                xml = celldesigner.write(m, annotation.from_links(m), layout)
+        except BaseException as e:
+            log.write('Not converted: %s\\n' % e)
+        out[layout] = {'xml': xml, 'log': log.getvalue()}
+    return out
+`;
+  const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
+  const status = document.getElementById('cv-status'), out = document.getElementById('cv-out');
+  let py = null;
+
+  async function load() {
+    const p = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/' });
+    await p.loadPackage('lxml');
+    p.FS.mkdirTree('/home/pyodide/mapconv');
+    for (const m of MODULES) {
+      const r = await fetch(BASE + m + '.py');
+      p.FS.writeFile('/home/pyodide/mapconv/' + m + '.py', await r.text());
+    }
+    p.runPython(DRIVER);
+    const v = await fetch(BASE + 'VERSION');
+    if (v.ok) document.getElementById('cv-version').textContent = 'Converter version ' + (await v.text()).trim();
+    return p;
+  }
+
+  function link(text, name) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
+    a.download = name; a.textContent = name;
+    return a;
+  }
+
+  async function convert(files) {
+    if (!py) return;
+    const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
+    for (const f of files) {
+      if (!/\.graphml$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML file'; continue; }
+      status.textContent = 'Converting ' + f.name + '…';
+      const base = f.name.replace(/\.graphml$/i, '');
+      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()))
+                  .toJs({ dict_converter: Object.fromEntries });
+      const box = document.createElement('div'); box.className = 'cv-map';
+      box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div><div class="cv-links"></div>');
+      box.querySelector('.cv-name').textContent = f.name;
+      for (const layout of ['direct', 'advanced']) {
+        const { xml, log } = r[layout];
+        if (xml) box.querySelector('.cv-links').append(link(xml, base + '-' + layout + '.xml'));
+        if (log.trim()) {
+          const pre = document.createElement('div');
+          pre.className = 'cv-log' + (xml ? '' : ' cv-error');
+          pre.textContent = layout + ': ' + log.trim();
+          box.append(pre);
+        }
+      }
+      out.insertBefore(box, top);
+    }
+    status.textContent = '';
+  }
+
+  drop.addEventListener('click', () => py && input.click());
+  drop.addEventListener('keydown', e => { if (py && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); input.click(); } });
+  input.addEventListener('change', () => { convert([...input.files]); input.value = ''; });
+  drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('cv-over'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('cv-over'));
+  drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('cv-over'); convert([...e.dataTransfer.files]); });
+
+  load().then(p => {
+    py = p; drop.classList.remove('cv-wait');
+    drop.textContent = 'Drop GraphML files here, or click to choose them';
+  }).catch(e => { drop.textContent = 'The converter could not be loaded: ' + e.message; });
+})();
+</script>
