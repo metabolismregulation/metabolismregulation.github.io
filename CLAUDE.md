@@ -78,6 +78,14 @@ sentence instead.
 References are one alphabetical list: database entries (Reactome, KEGG, MetaCore) sit in
 it by their first word like the papers, not at the end (user, 2026-10-16).
 
+## Style choices
+
+When a style is to be chosen (buttons and the like; user, 2026-10-16), show the options on the
+website: up to ten variants, one under another, on a hidden page (like the tag palette
+/atlas/tags/), each with its name, so the user picks one there. Download buttons carry the
+download icon (tray and arrow, before the label: Atlas, Converter); links to another site
+carry the external-link icon after the label.
+
 ## Converter page
 
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop yEd GraphML maps, get two

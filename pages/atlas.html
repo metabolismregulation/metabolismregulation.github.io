@@ -90,6 +90,8 @@ sitemap: false
   #m2-downloads a:hover { background: #ededed; border-color: #999; } /* as before: fill 9 steps darker */
   /* the online viewers open another site: the usual external-link icon */
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
+  /* a file: the download icon (tray and arrow) before its name, as on the Converter page */
+  #m2-downloads a.m2-dl svg { width: 14px; height: 14px; margin-right: 5px; vertical-align: -2px; }
   #m2-text h2 { font-size: 18px; }
   /* links on this page (text and annotation) in MINERVA's link blue, darker
      than the site's #4183c4 */
@@ -172,6 +174,7 @@ sitemap: false
   // the word lists on an outlined tag (not used since 2026-10-16: kept in the palette /atlas/tags/)
   var LISTS_TAG = '<span class="m2-draft m2-lists"><span>lists</span></span>';
   var DRUG_TAG = '<span class="m2-draft m2-drugtag"><span>drug</span></span>';
+  var DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
@@ -718,7 +721,8 @@ sitemap: false
     (m.downloads || []).forEach(function (d) {
       var a = el('a', null, d.label);
       a.href = d.url;
-      if (/^https?:/.test(d.url)) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'm2-ext'; a.title = 'Opens in a new tab'; a.insertAdjacentHTML('beforeend', EXT_ICON); } else a.setAttribute('download', '');
+      if (/^https?:/.test(d.url)) { a.target = '_blank'; a.rel = 'noopener'; a.className = 'm2-ext'; a.title = 'Opens in a new tab'; a.insertAdjacentHTML('beforeend', EXT_ICON); }
+      else { a.setAttribute('download', ''); a.className = 'm2-dl'; a.insertAdjacentHTML('afterbegin', DL_ICON); }
       dl.appendChild(a);
     });
     // the text: this map's own, or the first map of its topic that has one
