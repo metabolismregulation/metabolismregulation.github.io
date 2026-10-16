@@ -29,10 +29,6 @@ downloads:
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F001-glycolysis-cardiac.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac"}
 ---
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 This diagram represents cardiac muscle. PFKFB2, PFKM and FBP2 reflect the cardiac/muscle context. FBP2 is used instead of the liver-associated FBP1. ADCY5 and ADCY6 represent major cardiac adenylyl cyclases. Other isoforms are relevant in other tissues, including ADCY9 in skeletal muscle. PKA has alternative catalytic (PRKACA/PRKACB) and regulatory (PRKAR1A/B, PRKAR2A/B) subunits. PRKACA and PRKAR2A are used here as a specific cardiac example.
@@ -45,3 +41,7 @@ This diagram represents cardiac muscle. PFKFB2, PFKM and FBP2 reflect the cardia
 1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359).
 1. Rider MH, Bertrand L, Vertommen D, Michels PA, Rousseau GG, Hue L. 6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase: head-to-head with a bifunctional enzyme that controls glycolysis. Biochem J. 2004 Aug 1;381(Pt 3):561-79. doi: 10.1042/BJ20040752. PMID: 15170386.
 1. Rider MH, van Damme J, Vertommen D, Michel A, Vandekerckhove J, Hue L. Evidence for new phosphorylation sites for protein kinase C and cyclic AMP-dependent protein kinase in bovine heart 6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase. FEBS Lett. 1992 Sep 28;310(2):139-42. doi: 10.1016/0014-5793(92)81315-D. PMID: 1327869.
+
+## Contributors
+
+{% include contributors.html %}

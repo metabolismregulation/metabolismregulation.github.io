@@ -19,10 +19,6 @@ Downloads: &nbsp;
 <a href="/downloads/F005-srebp.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-srebp.svg" width="500"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 Cholesterol biosynthesis and uptake are tightly regulated at the transcriptional level through negative feedback. The transcription factor family known as sterol regulatory element-binding proteins (SREBPs) is in charge of this feedback control. In particular, SREBP2 is activated in a cholesterol-dependent manner, and hence is deeply involved in regulation of the expression of genes closely related to cholesterol metabolism.
@@ -35,4 +31,6 @@ Cholesterol biosynthesis and uptake are tightly regulated at the transcriptional
 1. Sato R. Sterol metabolism and SREBP activation. Arch Biochem Biophys. 2010 Sep 15;501(2):177-81. doi: 10.1016/j.abb.2010.06.004. PMID: 20541520.
 1. Shimano H, Sato R. SREBP-regulated lipid metabolism: convergent physiology - divergent pathophysiology. Nat Rev Endocrinol. 2017 Dec;13(12):710-730. doi: 10.1038/nrendo.2017.91. PMID: 28849786.
 
+## Contributors
 
+{% include contributors.html %}

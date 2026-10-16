@@ -13,10 +13,6 @@ Downloads: &nbsp;
 <a href="/downloads/F025-nnos.xml" download>CellDesigner</a> &nbsp;
 <p align="middle"><a href="/nnos/"><img id="image" src="/downloads/F025-nnos.svg" width="590"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Reactome-Recon connection
 
 The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. nNOS (NOS1) is in the lists through the Reactome process <a href="https://reactome.org/content/detail/R-HSA-5617178">ATP2B4 binds to NOS1, inhibiting it</a> (R-HSA-5617178).
@@ -40,3 +36,7 @@ Neuronal nitric oxide synthase (nNOS, NOS1) makes nitric oxide and citrulline fr
 1. Reactome: Ion homeostasis. [Reactome:R-HSA-5578775](https://reactome.org/content/detail/R-HSA-5578775).
 1. Schuh K, Uldrijan S, Telkamp M, Rothlein N, Neyses L. The plasmamembrane calmodulin-dependent calcium pump: a major regulator of nitric oxide synthase I. J Cell Biol. 2001 Oct 15;155(2):201-5. doi: 10.1083/jcb.200104131. PMID: 11591728.
 1. PathBank: Nitric Oxide Signaling Pathway. [PathBank:SMP0063777](https://pathbank.org/view/SMP0063777).
+
+## Contributors
+
+{% include contributors.html %}

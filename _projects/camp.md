@@ -19,10 +19,6 @@ Downloads: &nbsp;
 <a href="/downloads/F012-camp.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/camp/"><img id="image" src="/downloads/F012-camp.svg" width="505"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 Cyclic AMP (cAMP) is one of the key second messengers in the cell, and regulation of cAMP hydrolysis is an important mechanism of modulation of intracellular signals.
@@ -38,3 +34,7 @@ Cyclic AMP (cAMP) is one of the key second messengers in the cell, and regulatio
 1. Omar B, Zmuda-Trzebiatowska E, Manganiello V, Göransson O, Degerman E. Regulation of AMP-activated protein kinase by cAMP in adipocytes: roles for phosphodiesterases, protein kinase B, protein kinase A, Epac and lipolysis. Cell Signal. 2009 May;21(5):760-6. doi: 10.1016/j.cellsig.2009.01.015. PMID: 19167487.
 1. Tsubai T, Noda Y, Ito K, Nakao M, Seino Y, Oiso Y, Hamada Y. Insulin elevates leptin secretion and mRNA levels via cyclic AMP in 3T3-L1 adipocytes deprived of glucose. Heliyon. 2016 Nov;2(11):e00194. doi: 10.1016/j.heliyon.2016.e00194. PMID: 27896318.
 1. Vanhaesebroeck B, Alessi DR. The PI3K-PDK1 connection: more than just a road to PKB. Biochem J. 2000 Mar 15;346(Pt 3):561-76. doi: 10.1042/bj3460561. PMID: 10698680.
+
+## Contributors
+
+{% include contributors.html %}

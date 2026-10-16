@@ -12,10 +12,6 @@ Downloads: &nbsp;
 <a href="/atlas-downloads/F024-alox5.svg" download>SVG</a> &nbsp;
 <p align="middle"><a href="/alox5/"><img id="image" src="/atlas-downloads/F024-alox5.svg" width="777"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Reactome-Recon connection
 
 The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. ALOX5 is in the lists through the Reactome process <a href="https://reactome.org/content/detail/R-HSA-429016">ALOX5 is phosphorylated by MAPKAP2</a> (R-HSA-429016).
@@ -44,3 +40,7 @@ Arachidonate 5-lipoxygenase (ALOX5) converts arachidonate, through 5-hydroperoxy
 1. Werz O, Szellas D, Steinhilber D, Rådmark O. Arachidonic acid promotes phosphorylation of 5-lipoxygenase at Ser-271 by MAPK-activated protein kinase 2 (MK2). J Biol Chem. 2002 Apr 26;277(17):14793-800. doi: 10.1074/jbc.M111945200. PMID: 11844797.
 1. Woods JW, Evans JF, Ethier D, Scott S, Vickers PJ, Hearn L, Heibein JA, Charleson S, Singer II. 5-lipoxygenase and 5-lipoxygenase-activating protein are localized in the nuclear envelope of activated human leukocytes. J Exp Med. 1993 Dec 1;178(6):1935-46. doi: 10.1084/jem.178.6.1935. PMID: 8245774.
 1. Zu YL, Ai Y, Gilchrist A, Labadia ME, Sha'afi RI, Huang CK. Activation of MAP kinase-activated protein kinase 2 in human neutrophils after phorbol ester or fMLP peptide stimulation. Blood. 1996 Jun 15;87(12):5287-96. doi: 10.1182/blood.v87.12.5287.bloodjournal87125287. PMID: 8652844.
+
+## Contributors
+
+{% include contributors.html %}

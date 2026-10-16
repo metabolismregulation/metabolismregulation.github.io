@@ -21,10 +21,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F023-pdh.png"}
   - {label: "SVG", url: "/atlas-downloads/F023-pdh.svg"}
 ---
-## Contributors
-
-{% include contributors.html %}
-
 ## Reactome-Recon connection
 
 The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The PDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-203946">PDK isozymes phosphorylate PDHC subunit E1</a> (R-HSA-203946) and <a href="https://reactome.org/content/detail/R-HSA-204169">PDP1,2 dephosphorylate p-lipo-PDH</a> (R-HSA-204169).
@@ -48,3 +44,7 @@ The pyruvate dehydrogenase complex (PDH) converts pyruvate, CoA and NAD+ into ac
 1. Reactome: Regulation of pyruvate dehydrogenase (PDH) complex. [Reactome:R-HSA-204174](https://reactome.org/content/detail/R-HSA-204174).
 1. Stacpoole PW, Kerr DS, Barnes C, Bunch ST, Carney PR, Fennell EM, Felitsyn NM, Gilmore RL, Greer M, Henderson GN, Hutson AD, Neiberger RE, O'Brien RG, Perkins LA, Quisling RG, Shroads AL, Shuster JJ, Silverstein JH, Theriaque DW, Valenstein E. Controlled clinical trial of dichloroacetate for treatment of congenital lactic acidosis in children. Pediatrics. 2006 May;117(5):1519-31. doi: 10.1542/peds.2005-1226. PMID: 16651305.
 1. Whitehouse S, Cooper RH, Randle PJ. Mechanism of activation of pyruvate dehydrogenase by dichloroacetate and other halogenated carboxylic acids. Biochem J. 1974 Sep;141(3):761-74. doi: 10.1042/bj1410761. PMID: 4478069.
+
+## Contributors
+
+{% include contributors.html %}

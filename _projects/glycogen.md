@@ -34,10 +34,6 @@ Downloads: &nbsp;
 <a href="/downloads/F004-glycogen.csv" download>Annotation</a> &nbsp; 
 <p align="middle"><a href="/glycogen/"><img id="image" src="/downloads/F004-glycogen-liver.svg" width="915"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 Intracellular glycogen stores contribute to blood-glucose homeostasis during fasting, provide energy for muscle contraction and support a broad range of cellular activities in many tissues. Glycogen synthase and glycogen phosphorylase control glycogen synthesis and breakdown, respectively. Glycogen phosphorylases, including the liver, muscle and brain forms PYGL, PYGM and PYGB, catalyse glycogen breakdown to glucose-1-phosphate.
@@ -60,3 +56,7 @@ The liver map represents complementary regulation by insulin and glucagon. Gluca
 1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359).
 1. Reactome: Glycogen metabolism. [Reactome:R-HSA-8982491](https://reactome.org/content/detail/R-HSA-8982491).
 1. Zois CE, Harris AL. Glycogen metabolism has a key role in the cancer microenvironment and provides new targets for cancer therapy. J Mol Med (Berl). 2016 Feb;94(2):137-54. doi: 10.1007/s00109-015-1377-9. PMID: 26882899.
+
+## Contributors
+
+{% include contributors.html %}

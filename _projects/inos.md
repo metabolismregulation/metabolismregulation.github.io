@@ -18,10 +18,6 @@ Downloads: &nbsp;
 <a href="/downloads/F007-inos.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.svg" width="1190"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## References
 
 1. Bogdan C. Nitric oxide synthase in innate and adaptive immunity: an update. Trends Immunol. 2015 Mar;36(3):161-78. doi: 10.1016/j.it.2015.01.003. PMID: 25687683.
@@ -30,3 +26,7 @@ Downloads: &nbsp;
 1. Kamijo R, Harada H, Matsuyama T, Bosland M, Gerecitano J, Shapiro D, Le J, Koh SI, Kimura T, Green SJ, et al. Requirement for transcription factor IRF-1 in NO synthase induction in macrophages. Science. 1994 Mar 18;263(5153):1612-5. doi: 10.1126/science.7510419. PMID: 7510419.
 1. Qualls JE, Subramanian C, Rafi W, Smith AM, Balouzian L, DeFreitas AA, Shirey KA, Reutterer B, Kernbauer E, Stockinger S, Decker T, Miyairi I, Vogel SN, Salgame P, Rock CO, Murray PJ. Sustained generation of nitric oxide and control of mycobacterial infection requires argininosuccinate synthase 1. Cell Host Microbe. 2012 Sep 13;12(3):313-23. doi: 10.1016/j.chom.2012.07.012. PMID: 22980328.
 1. SBGN Bricks: SBGN Bricks library. [sbgnbricks.sourceforge.net](http://sbgnbricks.sourceforge.net/).
+
+## Contributors
+
+{% include contributors.html %}

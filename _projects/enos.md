@@ -18,10 +18,6 @@ Downloads: &nbsp;
 <a href="/downloads/F008-enos.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.svg" width="775"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## References
 
 1. Dimmeler S, Fleming I, Fisslthaler B, Hermann C, Busse R, Zeiher AM. Activation of nitric oxide synthase in endothelial cells by Akt-dependent phosphorylation. Nature. 1999 Jun 10;399(6736):601-5. doi: 10.1038/21224. PMID: 10376603.
@@ -32,3 +28,7 @@ Downloads: &nbsp;
 1. Liu X, El-Mahdy MA, Boslett J, Varadharaj S, Hemann C, Abdelghany TM, Ismail RS, Little SC, Zhou D, Thuy LT, Kawada N, Zweier JL. Cytoglobin regulates blood pressure and vascular tone through nitric oxide metabolism in the vascular wall. Nat Commun. 2017 Apr 10;8:14807. doi: 10.1038/ncomms14807. PMID: 28393874.
 1. Michel JB, Feron O, Sacks D, Michel T. Reciprocal regulation of endothelial nitric-oxide synthase by Ca2+-calmodulin and caveolin. J Biol Chem. 1997 Jun 20;272(25):15583-6. doi: 10.1074/jbc.272.25.15583. PMID: 9188442.
 1. Reactome: Metabolism of nitric oxide: NOS3 activation and regulation. [Reactome:R-HSA-202131](https://reactome.org/content/detail/R-HSA-202131).
+
+## Contributors
+
+{% include contributors.html %}

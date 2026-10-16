@@ -15,10 +15,6 @@ Downloads: &nbsp;
 <a href="/atlas-downloads/F019-glutaminase.svg" download>SVG</a> &nbsp;
 <p align="middle"><a href="/glutaminase/draft/"><img id="image" src="/atlas-downloads/F019-glutaminase.svg" width="784"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 Glutaminase C (GAC), the GLS splice isoform in mitochondria, hydrolyses glutamine to glutamate and ammonia, the first step of glutaminolysis. In cancer cells GAC is activated by phosphorylation at Ser314 by protein kinase C epsilon (PRKCE), which is primed by PDPK1 at Thr566. Expression of PRKCE depends on NF-κB: oncogenic Dbl (MCF2) activates the Rho GTPases RhoA and Cdc42, which induce phosphorylation of the inhibitor NFKBIA. SCF-βTrCP ubiquitinates it, the proteasome degrades it, and the released NFKB1:RELA dimer enters the nucleus, where RELA binds the PRKCE promoter. In mitochondria FAIM binds GAC and promotes its phosphorylation by PRKCE.
@@ -37,3 +33,7 @@ Glutaminase C (GAC), the GLS splice isoform in mitochondria, hydrolyses glutamin
 1. Wang JB, Erickson JW, Fuji R, Ramachandran S, Gao P, Dinavahi R, Wilson KF, Ambrosio AL, Dias SM, Dang CV, Cerione RA. Targeting mitochondrial glutaminase activity inhibits oncogenic transformation. Cancer Cell. 2010 Sep 14;18(3):207-19. doi: 10.1016/j.ccr.2010.08.009. PMID: 20832749.
 1. Winston JT, Strack P, Beer-Romero P, Chu CY, Elledge SJ, Harper JW. The SCFbeta-TRCP-ubiquitin ligase complex associates specifically with phosphorylated destruction motifs in IkappaBalpha and beta-catenin and stimulates IkappaBalpha ubiquitination in vitro. Genes Dev. 1999 Feb 1;13(3):270-83. doi: 10.1101/gad.13.3.270. PMID: 9990852.
 1. Yaron A, Hatzubai A, Davis M, Lavon I, Amit S, Manning AM, Andersen JS, Mann M, Mercurio F, Ben-Neriah Y. Identification of the receptor component of the IkappaBalpha-ubiquitin ligase. Nature. 1998 Dec 10;396(6711):590-4. doi: 10.1038/25159. PMID: 9859996.
+
+## Contributors
+
+{% include contributors.html %}

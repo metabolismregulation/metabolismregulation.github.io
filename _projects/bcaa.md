@@ -13,10 +13,6 @@ Downloads: &nbsp;
 <a href="/downloads/F022-bcaa.xml" download>CellDesigner</a> &nbsp;
 <p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="909"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Reactome-Recon connection
 
 The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. The BCKDH complex is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-5693148">BCKDK phosphorylates BCKDH</a> (R-HSA-5693148) and <a href="https://reactome.org/content/detail/R-HSA-5693153">PPM1K dephosphorylates p-BCKDH</a> (R-HSA-5693153).
@@ -41,3 +37,7 @@ The branched-chain amino acids leucine, isoleucine and valine share the first tw
 1. Wynn RM, Kato M, Machius M, Chuang JL, Li J, Tomchick DR, Chuang DT. Molecular mechanism for regulation of the human mitochondrial branched-chain alpha-ketoacid dehydrogenase complex by phosphorylation. Structure. 2004 Dec;12(12):2185-96. doi: 10.1016/j.str.2004.09.013. PMID: 15576032.
 1. Yoneshiro T, Wang Q, Tajima K, Matsushita M, Maki H, Igarashi K, Dai Z, White PJ, McGarrah RW, Ilkayeva OR, Deleye Y, Oguri Y, Kuroda M, Ikeda K, Li H, Ueno A, Ohishi M, Ishikawa T, Kim K, Chen Y, Sponton CH, Pradhan RN, Majd H, Greiner VJ, Yoneshiro M, Brown Z, Chondronikola M, Takahashi H, Goto T, Kawada T, Sidossis L, Szoka FC, McManus MT, Saito M, Soga T, Kajimura S. BCAA catabolism in brown fat controls energy homeostasis through SLC25A44. Nature. 2019 Aug;572(7771):614-619. doi: 10.1038/s41586-019-1503-x. PMID: 31435015.
 1. Zhou M, Lu G, Gao C, Wang Y, Sun H. Tissue-specific and nutrient regulation of the branched-chain α-keto acid dehydrogenase phosphatase, protein phosphatase 2Cm (PP2Cm). J Biol Chem. 2012 Jul 6;287(28):23397-406. doi: 10.1074/jbc.M112.351031. PMID: 22589535.
+
+## Contributors
+
+{% include contributors.html %}

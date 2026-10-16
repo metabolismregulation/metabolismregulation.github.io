@@ -19,10 +19,6 @@ Downloads: &nbsp;
 <a href="/downloads/F014-carnitine.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.svg" width="600"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 The carnitine palmitoyltransferase system is responsible for delivering long-chain fatty acids from the cytoplasm into mitochondria for oxidation. Carnitine palmitoyltransferase 1 (CPT1) catalyses the rate-limiting step of fatty acid oxidation, which plays an important role in lipid metabolism.
@@ -38,3 +34,7 @@ The carnitine palmitoyltransferase system is responsible for delivering long-cha
 1. KEGG: Glucagon signaling pathway. [KEGG:hsa04922](https://www.kegg.jp/pathway/hsa04922).
 1. Qu Q, Zeng F, Liu X, Wang QJ, Deng F. Fatty acid oxidation and carnitine palmitoyltransferase I: emerging therapeutic targets in cancer. Cell Death Dis. 2016 May 19;7(5):e2226. doi: 10.1038/cddis.2016.132. PMID: 27195673.
 1. Schreurs M, Kuipers F, van der Leij FR. Regulatory enzymes of mitochondrial beta-oxidation as targets for treatment of the metabolic syndrome. Obes Rev. 2010 May;11(5):380-8. doi: 10.1111/j.1467-789X.2009.00642.x. PMID: 19694967.
+
+## Contributors
+
+{% include contributors.html %}

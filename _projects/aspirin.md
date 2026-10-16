@@ -18,10 +18,6 @@ Downloads: &nbsp;
 <a href="/downloads/F100-aspirin.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/aspirin/"><img id="image" src="/downloads/F100-aspirin.svg" width="630"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## References
 
 1. Awtry EH, Loscalzo J. Aspirin. Circulation. 2000 Mar 14;101(10):1206-18. doi: 10.1161/01.cir.101.10.1206. PMID: 10715270.
@@ -29,3 +25,7 @@ Downloads: &nbsp;
 1. Lucido MJ, Orlando BJ, Vecchio AJ, Malkowski MG. Crystal Structure of Aspirin-Acetylated Human Cyclooxygenase-2: Insight into the Formation of Products with Reversed Stereochemistry. Biochemistry. 2016 Mar 1;55(8):1226-38. doi: 10.1021/acs.biochem.5b01378. PMID: 26859324.
 1. Ornelas A, Zacharias-Millward N, Menter DG, Davis JS, Lichtenberger L, Hawke D, Hawk E, Vilar E, Bhattacharya P, Millward S. Beyond COX-1: the effects of aspirin on platelet biology and potential mechanisms of chemoprevention. Cancer Metastasis Rev. 2017 Jun;36(2):289-303. doi: 10.1007/s10555-017-9675-z. PMID: 28762014.
 1. Rowlinson SW, Crews BC, Goodwin DC, Schneider C, Gierse JK, Marnett LJ. Spatial requirements for 15-(R)-hydroxy-5Z,8Z,11Z, 13E-eicosatetraenoic acid synthesis within the cyclooxygenase active site of murine COX-2. Why acetylated COX-1 does not synthesize 15-(R)-hete. J Biol Chem. 2000 Mar 3;275(9):6586-91. doi: 10.1074/jbc.275.9.6586. PMID: 10692466.
+
+## Contributors
+
+{% include contributors.html %}

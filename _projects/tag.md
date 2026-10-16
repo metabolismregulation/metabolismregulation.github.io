@@ -19,10 +19,6 @@ Downloads: &nbsp;
 <a href="/downloads/F015-tag.csv" download>Annotation</a> &nbsp;
 <p align="middle"><a href="/tag/"><img id="image" src="/downloads/F015-tag.svg" width="540"/></a></p>
 
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 Hormone-sensitive lipase (HSL) is a major enzyme involved in triacylglycerol lipolysis, and its activity is controlled by phosphorylation in response to adrenergic and intracellular effectors in skeletal muscle and adipose tissue. Lipolysis is the hydrolysis of triacylglycerol to release fatty acids and glycerol as energy substrates. Fatty acids derived from adipose tissue are an important energy source for use by other organs, such as liver, skeletal muscle, kidney and myocardium.
@@ -38,3 +34,6 @@ Hormone-sensitive lipase (HSL) is a major enzyme involved in triacylglycerol lip
 1. Shen WJ, Patel S, Miyoshi H, Greenberg AS, Kraemer FB. Functional interaction of hormone-sensitive lipase and perilipin in lipolysis. J Lipid Res. 2009 Nov;50(11):2306-13. doi: 10.1194/jlr.M900176-JLR200. PMID: 19515989.
 1. Watt MJ, Holmes AG, Pinnamaneni SK, Garnham AP, Steinberg GR, Kemp BE, Febbraio MA. Regulation of HSL serine phosphorylation in skeletal muscle and adipose tissue. Am J Physiol Endocrinol Metab. 2006 Mar;290(3):E500-8. doi: 10.1152/ajpendo.00361.2005. PMID: 16188906.
 
+## Contributors
+
+{% include contributors.html %}

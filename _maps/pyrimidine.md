@@ -23,10 +23,6 @@ downloads:
   - {label: "SVG", url: "/atlas-downloads/F020-pyrimidine.svg"}
   - {label: "CellDesigner", url: "/atlas-downloads/F020-pyrimidine.xml"}
 ---
-## Contributors
-
-{% include contributors.html %}
-
 ## Description
 
 The activation of de novo pyrimidine biosynthesis is a requirement for cell proliferation in tumor tissues. Carbamoyl phosphate synthetase (CPSase) catalyses the rate-limiting step of the synthetic pathway. CPSase refers to one catalytic activity of the multifunctional protein CAD that catalyses the first three steps of the pathway. Growth factors such as EGF activate CAD through the RAS-RAF-MEK-ERK cascade: ERK phosphorylates CAD, which removes its feedback inhibition by UTP and makes it more sensitive to activation by PRPP.
@@ -41,3 +37,7 @@ The activation of de novo pyrimidine biosynthesis is a requirement for cell prol
 1. Sigoillot FD, Evans DR, Guy HI. Growth-dependent regulation of mammalian pyrimidine biosynthesis by the protein kinase A and MAPK signaling cascades. J Biol Chem. 2002 May 3;277(18):15745-51. doi: 10.1074/jbc.M201112200. PMID: 11872754.
 1. Sigoillot FD, Kotsis DH, Serre V, Sigoillot SM, Evans DR, Guy HI. Nuclear localization and mitogen-activated protein kinase phosphorylation of the multifunctional protein CAD. J Biol Chem. 2005 Jul 8;280(27):25611-20. doi: 10.1074/jbc.M504581200. PMID: 15890648.
 1. Sigoillot FD, Sigoillot SM, Guy HI. Breakdown of the regulatory control of pyrimidine biosynthesis in human breast cancer cells. Int J Cancer. 2004 Apr 20;109(4):491-8. doi: 10.1002/ijc.11717. PMID: 14991569.
+
+## Contributors
+
+{% include contributors.html %}

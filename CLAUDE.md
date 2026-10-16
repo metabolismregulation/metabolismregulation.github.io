@@ -85,7 +85,8 @@ People, their affiliations and ORCID iDs are in `_data/contributors.yml`
 they can be checked against it in one place; institutions end with town and
 country, without street addresses or postcodes). A map page lists people in its
 front matter, one per line (`contributors:` then `  - alexander-mazein`), and
-shows them under `## Contributors` with `{% include contributors.html %}`:
+shows them under `## Contributors`, the last section of the page after the References (user,
+2026-10-16), with `{% include contributors.html %}`:
 names with affiliation numbers, then a closed "Affiliations" list (user,
 2026-10-15). A page can give a person other affiliations for that map only:
 `  - alexander-mazein: [lcsb]`. A new map with no other contributors
