@@ -25,7 +25,7 @@ downloads:
 
 ## Reactome-Recon connection
 
-This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. ALOX5 is in the lists through the Reactome process <a href="https://reactome.org/content/detail/R-HSA-429016">ALOX5 is phosphorylated by MAPKAP2</a> (R-HSA-429016).
+The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. ALOX5 is in the lists through the Reactome process <a href="https://reactome.org/content/detail/R-HSA-429016">ALOX5 is phosphorylated by MAPKAP2</a> (R-HSA-429016).
 
 ## Description
 

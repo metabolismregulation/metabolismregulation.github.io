@@ -19,7 +19,7 @@ Downloads: &nbsp;
 
 ## Reactome-Recon connection
 
-This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. nNOS (NOS1) is in the lists through the Reactome process <a href="https://reactome.org/content/detail/R-HSA-5617178">ATP2B4 binds to NOS1, inhibiting it</a> (R-HSA-5617178).
+The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. nNOS (NOS1) is in the lists through the Reactome process <a href="https://reactome.org/content/detail/R-HSA-5617178">ATP2B4 binds to NOS1, inhibiting it</a> (R-HSA-5617178).
 
 ## Description
 

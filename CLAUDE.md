@@ -43,7 +43,7 @@ published map in the Atlas (draft mark, link to the draft) and leaves the offici
 `downloads/` as they are (2026-10-16). To publish it, its content replaces the page in
 `_projects/` (permalink back to `/<name>/`) and the draft page is deleted.
 
-A map chosen from the Reactome-Recon lists says so visibly on its page (user,
+A map whose connection was chosen from the Reactome-Recon lists says so visibly on its page (user,
 2026-10-14): a section "Reactome-Recon connection" above the Description, naming the
 Reactome processes (linked).
 
