@@ -53,10 +53,9 @@ Reactome processes (linked). `make_maps.py` marks such a map (`lists` in the Atl
 
 Atlas list tags (user, 2026-10-16): draft or new after the map name. Every tag, used or not
 (draft, new, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
-the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Letters
-are centred by the rule in the comment above `.m2-draft` there: trim to the letters vertically, equal padding left and right, never
-padding tuned to one font's side bearings. Check any tag change with
-`tools/tag_check.js` in maps-workbench (gaps around the letters, in two fonts).
+the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
+only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
+no text-box trimming or per-word, per-font tuning.
 
 A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
