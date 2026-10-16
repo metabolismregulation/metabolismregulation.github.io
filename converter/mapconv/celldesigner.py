@@ -149,6 +149,15 @@ def anchor_point(box, side, circle=False):
     return (x + fx * w, y + fy * h)
 
 
+def meet(M, T, way=None):
+    # the anchor where a line from a metabolite circle at M towards T leaves it, its name across
+    # the middle: the top or bottom, or the lower quarter of a side (way 'h' or 'v': its first leg)
+    dx, dy = (T[0] - M[0]) * (way != 'v'), (T[1] - M[1]) * (way != 'h')
+    if abs(dy) >= abs(dx):
+        return 'N' if dy < 0 else 'S'
+    return 'ESE' if dx > 0 else 'WSW'
+
+
 def write(diagram, ann, layout='direct'):
     # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
     # layout 'direct': the necessary minimum, simple and reliable, improved by hand in CellDesigner
@@ -280,13 +289,22 @@ def write(diagram, ann, layout='direct'):
                 v = 'W' if (side > 0) == (qy_ > ry_) else 'E'
                 fr, fq = ('S', 'N') if qy_ > ry_ else ('N', 'S')
                 ra, qa = fr + fr + v, fq + fq + v
-        A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical')
-        B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical')
+        twin = bool(ra)
         # a significant bend on the main line: one long L on the reactant arc or on the product arc
         wr = cd_bends.turn([cen(r_)] + route(p, ins[0].points) + [c])
         wq = cd_bends.turn([cen(q_)] + route(p, outs[0].points)[::-1] + [c])
+        if advanced and not twin:
+            # a line meets a metabolite circle where its name is not: N, S, ESE or WSW, by the way
+            # it leaves (the L's first leg, else towards the process; user's PD02 eicosanoids)
+            other = {'h': 'v', 'v': 'h'}
+            if N[r_].kind == 'SimpleChemical':
+                ra = meet(cen(r_), c, wr or (other[wq] if wq else None))
+            if N[q_].kind == 'SimpleChemical':
+                qa = meet(cen(q_), c, wq or (other[wr] if wr else None))
+        A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical')
+        B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical')
         bend = None
-        if bool(wr) != bool(wq) and not ra:
+        if bool(wr) != bool(wq) and not twin:
             bend = cd_bends.corner(A, B, wr) if wr else cd_bends.corner(B, A, wq)
             if min(math.hypot(bend[0] - P[0], bend[1] - P[1]) for P in (A, B)) < cd_bends.EPS:
                 bend = None  # the ends are already in line
@@ -332,10 +350,6 @@ def write(diagram, ann, layout='direct'):
             a, b = chain[-2], chain[-1]
             if abs(a[0] - chain[-3][0]) < 0.5 and abs(a[1] - b[1]) < abs(a[0] - b[0]):
                 chain[-2] = (a[0], b[1])
-        # a metabolite's name is drawn across its circle: a lane leaving it sideways starts 12 px lower
-        if N[m].kind == 'SimpleChemical' and abs(chain[1][1] - M[1]) < 0.5:
-            sx = 1 if chain[1][0] > M[0] else -1
-            chain[1:2] = [(M[0] + sx * 14, M[1] + 12), (chain[1][0], M[1] + 12)]
         return chain[1:]
 
     def crosses(a, b, r):  # the segment a-b runs through the box r (Liang-Barsky)
@@ -651,6 +665,14 @@ def write(diagram, ann, layout='direct'):
                 m = e.source; M = cen(m)
                 T = attach(g, M)  # the arc's end on the square's side (the user's glycolysis v01 bends)
                 pts = advanced and lane(m, M, T, e)
+                at = None
+                if advanced and N[m].kind == 'SimpleChemical':
+                    # it leaves the circle where the name is not (meet), its first bend in line with that point
+                    at = meet(M, pts[0] if pts else T)
+                    M = anchor_point(box[m], at, True)
+                    if pts:
+                        q = pts[0]
+                        pts[0] = (q[0], M[1]) if at in ('ESE', 'WSW') else (M[0], q[1])
                 if pts:
                     run = [M] + pts + [T]
                     for j in ents:
@@ -667,9 +689,12 @@ def write(diagram, ann, layout='direct'):
                 # a line to the centre has no linkTarget (the user's CellDesigner edit of estrogen v01)
                 k = sub(lm, 'modification', type=typed(e, MOD[e.head]), modifiers='s_' + sid(m), aliases='sa_' + sid(m),
                         targetLineIndex='-1,%d' % side_of(M))
-                if pts:  # frame: origin the modifier's centre, x axis to the arc's end
+                if pts:  # frame: origin the modifier's centre (or its anchor), x axis to the arc's end
                     k.set('editPoints', ' '.join('%s,%s' % cd_bends.to_frame(M, T, q) for q in pts))
-                line(k, len(pts) + 1); sub(k, 'line', width='1.0', color='ff000000')
+                line(k, len(pts) + 1)
+                if at:  # as the PD map writes an anchored modifier
+                    sub(sub(k, 'linkTarget', species='s_' + sid(m), alias='sa_' + sid(m)), 'linkAnchor', position=at)
+                sub(k, 'line', width='1.0', color='ff000000')
             # a gate (the user's CellDesigner file, mevalonate): one modification of type
             # BOOLEAN_LOGIC_GATE_* listing all inputs, the gate at editPoints (absolute; checked
             # through MINERVA), then one modification per input to the gate, centre (INACTIVE)
