@@ -55,8 +55,10 @@ sitemap: false
   /* the word is trimmed to its letters (cap height to baseline), so centring
      it centres the letters in any font; a line box keeps empty descender room
      and puts the word high or low depending on the font. The tag sits 1px
-     below the top of the item's 18px line, so it is centred in the item */
-  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
+     below the top of the item's 18px line, so it is centred in the item. The letters' side
+     bearings put the word 0.5px right of centre (measured on draft and new): the padding is
+     0.5px less on the left */
+  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5.5px 0 4.5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
   .m2-draft span { display: block; text-box: trim-both cap alphabetic; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
   /* the word drug on the same tag in a lighter grey (white text), after the name of a drug map */
