@@ -11,7 +11,7 @@ Downloads: &nbsp;
 <a href="/downloads/F022-bcaa.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F022-bcaa.svg" download>SVG</a> &nbsp;
 <a href="/downloads/F022-bcaa.xml" download>CellDesigner</a> &nbsp;
-<p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="882"/></a></p>
+<p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="909"/></a></p>
 
 ## Contributors
 
@@ -23,7 +23,7 @@ The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-
 
 ## Description
 
-The branched-chain amino acids leucine, isoleucine and valine share the first two steps of their breakdown in mitochondria: BCAT2 transfers their amino group to α-ketoglutarate, and the branched-chain α-keto acid dehydrogenase complex (BCKDH) converts the resulting keto acids to their acyl-CoA esters, the rate-limiting step. The kinase BCKDK inactivates BCKDH by phosphorylation and the phosphatase PPM1K reactivates it. The keto acids, above all α-ketoisocaproate from leucine, inhibit BCKDK, so an excess of branched-chain amino acids speeds up their own breakdown.
+The branched-chain amino acids leucine, isoleucine and valine share the first two steps of their breakdown in mitochondria, which they enter through the carrier SLC25A44: BCAT2 transfers their amino group to α-ketoglutarate, and the branched-chain α-keto acid dehydrogenase complex (BCKDH) converts the resulting keto acids to their acyl-CoA esters, the rate-limiting step. The kinase BCKDK inactivates BCKDH by phosphorylation and the phosphatase PPM1K reactivates it. The keto acids, above all α-ketoisocaproate from leucine, inhibit BCKDK, so an excess of branched-chain amino acids speeds up their own breakdown.
 
 ## References
 
@@ -39,4 +39,5 @@ The branched-chain amino acids leucine, isoleucine and valine share the first tw
 1. Reactome: Branched-chain amino acid catabolism. [Reactome:R-HSA-70895](https://reactome.org/content/detail/R-HSA-70895).
 1. She P, Reid TM, Bronson SK, Vary TC, Hajnal A, Lynch CJ, Hutson SM. Disruption of BCATm in mice leads to increased energy expenditure associated with the activation of a futile protein turnover cycle. Cell Metab. 2007 Sep;6(3):181-94. doi: 10.1016/j.cmet.2007.08.003. PMID: 17767905.
 1. Wynn RM, Kato M, Machius M, Chuang JL, Li J, Tomchick DR, Chuang DT. Molecular mechanism for regulation of the human mitochondrial branched-chain alpha-ketoacid dehydrogenase complex by phosphorylation. Structure. 2004 Dec;12(12):2185-96. doi: 10.1016/j.str.2004.09.013. PMID: 15576032.
+1. Yoneshiro T, Wang Q, Tajima K, Matsushita M, Maki H, Igarashi K, Dai Z, White PJ, McGarrah RW, Ilkayeva OR, Deleye Y, Oguri Y, Kuroda M, Ikeda K, Li H, Ueno A, Ohishi M, Ishikawa T, Kim K, Chen Y, Sponton CH, Pradhan RN, Majd H, Greiner VJ, Yoneshiro M, Brown Z, Chondronikola M, Takahashi H, Goto T, Kawada T, Sidossis L, Szoka FC, McManus MT, Saito M, Soga T, Kajimura S. BCAA catabolism in brown fat controls energy homeostasis through SLC25A44. Nature. 2019 Aug;572(7771):614-619. doi: 10.1038/s41586-019-1503-x. PMID: 31435015.
 1. Zhou M, Lu G, Gao C, Wang Y, Sun H. Tissue-specific and nutrient regulation of the branched-chain α-keto acid dehydrogenase phosphatase, protein phosphatase 2Cm (PP2Cm). J Biol Chem. 2012 Jul 6;287(28):23397-406. doi: 10.1074/jbc.M112.351031. PMID: 22589535.

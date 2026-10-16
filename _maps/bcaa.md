@@ -2,12 +2,12 @@
 title: "Regulation of branched-chain amino acid catabolism via BCKDK and PPM1K"
 topic: "BCAA catabolism"
 tab: ""
-page: "/bcaa/draft/"
+page: "/bcaa/"
 group: "Amino acid metabolism"
 order: 17
 kind: "map"
-draft: true
-new: false
+draft: false
+new: true
 image: "/atlas-downloads/F022-bcaa.svg"
 width: 1357
 height: 971
@@ -17,6 +17,7 @@ contributors:
   - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F022-bcaa.png"}
   - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
 ---
 ## Contributors
