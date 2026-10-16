@@ -90,7 +90,7 @@ quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, 
 MINERVA), on hover filled in the blue of the chosen map in the map list (#4183c4, white text),
 the Images menu items in the font of the button. Ordered by use: GraphML, CellDesigner,
 SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and
-MINERVA, all in one row at the same spacing. Converter buttons: "CellDesigner (direct)",
+MINERVA, all in one row at the same spacing. The Converter buttons look and behave the same. Converter buttons: "CellDesigner (direct)",
 "CellDesigner (advanced)": the format first, the mode in brackets.
 
 ## Atlas map window
