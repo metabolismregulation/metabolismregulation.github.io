@@ -2,12 +2,12 @@
 title: "Regulation of the urea cycle via CPS1"
 topic: "Urea cycle"
 tab: ""
-page: "/ureacycle/"
+page: "/ureacycle/draft/"
 group: "Amino acid metabolism"
 order: 18
 kind: "map"
-draft: false
-new: true
+draft: true
+new: false
 image: "/atlas-downloads/F021-ureacycle.svg"
 width: 1080
 height: 1061
@@ -18,7 +18,6 @@ contributors:
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F021-ureacycle.graphml"}
   - {label: "SVG", url: "/atlas-downloads/F021-ureacycle.svg"}
-  - {label: "CellDesigner", url: "/atlas-downloads/F021-ureacycle.xml"}
 ---
 ## Contributors
 
