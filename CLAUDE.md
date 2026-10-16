@@ -85,6 +85,12 @@ website: up to ten variants, one under another, on a hidden page (like the tag p
 /atlas/tags/), each with its name, so the user picks one there. Download buttons carry the
 download icon (tray and arrow, before the label: Atlas, Converter); links to another site
 carry the external-link icon after the label.
+Buttons (user, 2026-10-16, scheme 8 of /atlas/buttons/): white, grey edge (#ccc), black text,
+blue edge and text (#4183c4) on hover; quiet at rest. The one main button of a row is filled
+blue (MINERVA on the Atlas). Atlas download row, ordered by use: GraphML, CellDesigner,
+SBGN-ML, SBML (quieter: light edge, grey text), Images (PNG and SVG in a menu), Data (the
+annotation table), then Newt and MINERVA. Converter buttons: "CellDesigner (direct)",
+"CellDesigner (advanced)": the format first, the mode in brackets.
 
 ## Converter page
 
