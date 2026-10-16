@@ -219,6 +219,17 @@ permalink: /gallery/
   </div>
 
   <div class="gallery-item">
+    <a class="gallery-title" href="/aspirin/">Aspirin</a>
+    <div class="gallery-downloads">
+      <a href="/downloads/F100-aspirin.graphml">GraphML</a>
+      <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin" target="_blank" rel="noopener">MINERVA</a>
+    </div>
+    <a href="/aspirin/">
+      <img class="gallery-image" src="/images/gallery/F100-aspirin-cut.svg" alt="Aspirin map">
+    </a>
+  </div>
+
+  <div class="gallery-item">
     <a class="gallery-title" href="/ureacycle/">Urea cycle</a>
     <div class="gallery-downloads">
       <a href="/downloads/F021-ureacycle.graphml">GraphML</a>
@@ -255,17 +266,6 @@ permalink: /gallery/
     </div>
     <a href="/nnos/">
       <img class="gallery-image" src="/images/gallery/F025-nnos-cut.svg" alt="nNOS pathway map">
-    </a>
-  </div>
-
-  <div class="gallery-item">
-    <a class="gallery-title" href="/aspirin/">Aspirin</a>
-    <div class="gallery-downloads">
-      <a href="/downloads/F100-aspirin.graphml">GraphML</a>
-      <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin" target="_blank" rel="noopener">MINERVA</a>
-    </div>
-    <a href="/aspirin/">
-      <img class="gallery-image" src="/images/gallery/F100-aspirin-cut.svg" alt="Aspirin map">
     </a>
   </div>
 
