@@ -10,7 +10,10 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F023-pdh.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F023-pdh.svg" download>SVG</a> &nbsp;
+<a href="/downloads/F023-pdh.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F023-pdh-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F023-pdh.xml" download>CellDesigner</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F023-pdh.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <p align="middle"><a href="/pdh/"><img id="image" src="/downloads/F023-pdh.svg" width="563"/></a></p>
 
 ## Reactome-Recon connection

@@ -10,7 +10,10 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F025-nnos.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F025-nnos.svg" download>SVG</a> &nbsp;
+<a href="/downloads/F025-nnos.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F025-nnos-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F025-nnos.xml" download>CellDesigner</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F025-nnos.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <p align="middle"><a href="/nnos/"><img id="image" src="/downloads/F025-nnos.svg" width="590"/></a></p>
 
 ## Reactome-Recon connection

@@ -10,7 +10,10 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F021-ureacycle.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F021-ureacycle.svg" download>SVG</a> &nbsp;
+<a href="/downloads/F021-ureacycle.sbgn" download>SBGN-ML</a> &nbsp;
+<a href="/downloads/F021-ureacycle-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F021-ureacycle.xml" download>CellDesigner</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F021-ureacycle.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <p align="middle"><a href="/ureacycle/"><img id="image" src="/downloads/F021-ureacycle.svg" width="724"/></a></p>
 
 ## Reactome-Recon connection

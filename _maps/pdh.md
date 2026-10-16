@@ -20,6 +20,7 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F023-pdh.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F023-pdh.png"}
   - {label: "SVG", url: "/atlas-downloads/F023-pdh.svg"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F023-pdh.sbgn"}
 ---
 ## Reactome-Recon connection
 
