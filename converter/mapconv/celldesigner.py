@@ -127,21 +127,25 @@ def border_angle(rx, ry):
     return a % (2 * math.pi)
 
 
-# CellDesigner's quarter anchor points on a node box (Startup Guide, Appendix 2.3),
-# used for two processes on the same two species
+# CellDesigner's anchor points on a node box (Startup Guide, Appendix 2.3; cd2sbgnml): the
+# quarter points (written for two processes on the same two species), the sides' middles and
+# the corners
 QUARTER = {'NNE': (.75, 0), 'ENE': (1, .25), 'ESE': (1, .75), 'SSE': (.75, 1),
            'SSW': (.25, 1), 'WSW': (0, .75), 'WNW': (0, .25), 'NNW': (.25, 0)}
+ANCHOR = dict(QUARTER, N=(.5, 0), NE=(1, 0), E=(1, .5), SE=(1, 1), S=(.5, 1), SW=(0, 1), W=(0, .5), NW=(0, 0))
+# on an ellipse the points sit at 22.5 degree steps (checked through MINERVA; cd2sbgnml)
+ANGLE = {k: 22.5 * i for i, k in enumerate(['E', 'ENE', 'NE', 'NNE', 'N', 'NNW', 'NW', 'WNW',
+                                            'W', 'WSW', 'SW', 'SSW', 'S', 'SSE', 'SE', 'ESE'])}
 
 
 def anchor_point(box, side, circle=False):
     x, y, w, h = box
     if not side:  # no anchor: the centre
         return (x + w / 2, y + h / 2)
-    if circle:  # on a circle the points sit on it at 22.5 degree steps (checked through MINERVA)
-        a = math.radians({'ENE': 22.5, 'NNE': 67.5, 'NNW': 112.5, 'WNW': 157.5, 'WSW': 202.5,
-                          'SSW': 247.5, 'SSE': 292.5, 'ESE': 337.5}[side])
+    if circle:
+        a = math.radians(ANGLE[side])
         return (x + w / 2 * (1 + math.cos(a)), y + h / 2 * (1 - math.sin(a)))
-    fx, fy = QUARTER[side]
+    fx, fy = ANCHOR[side]
     return (x + fx * w, y + fy * h)
 
 
@@ -792,8 +796,12 @@ def points(s):
     return [tuple(float(v) for v in q.split(',')) for q in (s or '').split()]
 
 
-def read(path):
-    # a CellDesigner file as a map (model.Map); what does not convert is printed
+def read(path, layout='direct'):
+    # a CellDesigner file as a map (model.Map); what does not convert is printed. layout
+    # 'direct': our yEd conventions (arcs at node centres, metabolites at the yEd size);
+    # 'advanced': CellDesigner's own geometry kept (node sizes, arcs at its anchor points as
+    # yEd ports, modifier arcs ending beside the square; user, 2026-10-16, PD02 eicosanoids)
+    advanced = layout == 'advanced'
     r = etree.parse(path).getroot()
     ns = {'cd': CD, 's': SBML, 'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'bq': 'http://biomodels.net/biology-qualifiers/'}
     f = lambda x, q: x.find(q, ns)
@@ -836,7 +844,7 @@ def read(path):
         n = int(f(si, 'cd:state/cd:homodimer').text) if f(si, 'cd:state/cd:homodimer') is not None else 1
         if n > 2:  # the box grew 6 per unit beyond 2 (forward rule), top left kept
             box = box[:2] + (box[2] - 6 * (n - 2), box[3] - 6 * (n - 2))
-        if kind == 'SimpleChemical':  # back to the yEd size, centre kept
+        if kind == 'SimpleChemical' and not advanced:  # back to the yEd size, centre kept
             box = (box[0] + box[2] / 2 - YED_CHEMICAL[0] / 2, box[1] + box[3] / 2 - YED_CHEMICAL[1] / 2) + YED_CHEMICAL
         states = []
         pref = f(si, 'cd:proteinReference')
@@ -875,9 +883,11 @@ def read(path):
     def end(e):  # where the main line meets an alias: its centre, or a quarter point
         b = f(e, 'cd:linkAnchor')
         d = nodes[alias_of(e)]
-        if b is None or b.get('position') not in QUARTER:
+        if b is None or b.get('position') not in ANCHOR:
             return cen(d.id)
-        return anchor_point(d.box, b.get('position'), d.kind == 'SimpleChemical')
+        return anchor_point(d.box, b.get('position'), d.kind in ('SimpleChemical', 'UnspecifiedEntity'))
+    # an arc's port: where it meets its node, from the node's centre (advanced), else the centre
+    port = lambda i, P: (P[0] - cen(i)[0], P[1] - cen(i)[1]) if advanced else (0.0, 0.0)
     for rx in xs(r, 's:model/s:listOfReactions/s:reaction'):
         x = f(rx, 's:annotation/cd:extension')
         typ = f(x, 'cd:reactionType').text
@@ -919,7 +929,7 @@ def read(path):
             arm = [pts[sum(n[:k]):sum(n[:k + 1])] for k in range(3)]
             ends = [end(e) for e in br + bp]
             bent = [[from_frame(sq, ends[k], q) for q in arm[k]] for k in range(3)]
-            lines = [(three[k], k < len(br), bent[k][::-1] if k < len(br) else bent[k]) for k in range(3)]
+            lines = [(three[k], k < len(br), bent[k][::-1] if k < len(br) else bent[k], port(three[k], ends[k])) for k in range(3)]
             Q = ends[2] if len(br) == 2 else ends[0]
             L = math.hypot(Q[0] - sq[0], Q[1] - sq[1]) or 1
             fl = ((Q[0] - sq[0]) / L, (Q[1] - sq[1]) / L) if len(br) == 2 else ((sq[0] - Q[0]) / L, (sq[1] - Q[1]) / L)
@@ -933,19 +943,20 @@ def read(path):
             sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
             L = math.hypot(Q[0] - P[0], Q[1] - P[1]) or 1
             fl = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
-            lines = [(alias_of(br[0]), True, line[1:k + 1]), (alias_of(bp[0]), False, line[k + 1:-1])]
+            lines = [(alias_of(br[0]), True, line[1:k + 1], port(alias_of(br[0]), A)),
+                     (alias_of(bp[0]), False, line[k + 1:-1], port(alias_of(bp[0]), B))]
         else:
             print('reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
         S = 18.0  # the process size in our yEd maps
         nodes[rid] = Node(id=rid, kind=PROCESS.get(typ, 'Process'), box=(sq[0] - S / 2, sq[1] - S / 2, S, S), labels=[''])
         reversible = rx.get('reversible') != 'false'
-        def flow(alias, into, pts=()):  # a consumption arc into the process, or a production arc out of it
+        def flow(alias, into, pts=(), at=(0.0, 0.0)):  # a consumption arc into the process, or a production arc out of it
             if into and not reversible:
-                arcs.append(Arc(id='%s_%s' % (rid, alias), source=alias, target=rid, points=list(pts)))
+                arcs.append(Arc(id='%s_%s' % (rid, alias), source=alias, target=rid, points=list(pts), source_at=at))
             else:
-                arcs.append(Arc(id='%s_%s' % (rid, alias), source=rid, target=alias, head='production', points=list(pts)))
-        for alias, into, bends in lines:
-            flow(alias, into, bends)
+                arcs.append(Arc(id='%s_%s' % (rid, alias), source=rid, target=alias, head='production', points=list(pts), target_at=at))
+        for alias, into, bends, at in lines:
+            flow(alias, into, bends, at)
         for tag, into in (('cd:listOfReactantLinks/cd:reactantLink', True), ('cd:listOfProductLinks/cd:productLink', False)):
             for l in xs(x, tag):
                 if alias_of(l) in nodes:
@@ -975,9 +986,11 @@ def read(path):
                 continue  # an input of a gate (listed once more by CellDesigner), or not converted
             if t not in HEAD:
                 print('reaction %s: modifier type %s, not converted' % (rid, t)); continue
-            M = cen(a_)
+            lt = f(m, 'cd:linkTarget')
+            M = end(lt) if lt is not None else cen(a_)  # its anchor on the modifier, else the centre
             arcs.append(Arc(id='%s_%s_%s' % (rid, a_, t.lower()), source=a_, target=rid, head=HEAD[t],
                             points=[from_frame(M, T, q) for q in points(m.get('editPoints'))],
+                            source_at=port(a_, M), target_at=(T[0] - sq[0], T[1] - sq[1]) if advanced else (0.0, 0.0),
                             dashed=t.startswith('UNKNOWN_')))
     for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
         k = sum(1 for _ in xs(ext, tag))
