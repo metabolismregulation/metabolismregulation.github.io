@@ -42,7 +42,7 @@ import math, os, re, sys
 from dataclasses import replace
 from struct import pack, unpack
 from lxml import etree
-from . import cd_straighten, cd_bends
+from . import cd_straighten, cd_bends, style
 from .annotation import to_properties
 from .model import Map, Node, Arc
 
@@ -769,7 +769,6 @@ HEAD.update({'UNKNOWN_CATALYSIS': 'catalysis', 'UNKNOWN_INHIBITION': 'inhibition
              'REDUCED_TRIGGER': 'trigger'})
 HEAD.update({'UNKNOWN_' + k: v for k, v in list(HEAD.items()) if k.startswith(('POSITIVE', 'NEGATIVE', 'REDUCED'))})
 REDUCED_TYPES = {k for k in HEAD if 'INFLUENCE' in k or 'REDUCED' in k} | set(REDUCED.values())
-YED_CHEMICAL = (60.0, 32.0)  # the usual metabolite size in our yEd maps
 
 
 def border_point(a):
@@ -844,8 +843,9 @@ def read(path, layout='direct'):
         n = int(f(si, 'cd:state/cd:homodimer').text) if f(si, 'cd:state/cd:homodimer') is not None else 1
         if n > 2:  # the box grew 6 per unit beyond 2 (forward rule), top left kept
             box = box[:2] + (box[2] - 6 * (n - 2), box[3] - 6 * (n - 2))
-        if kind == 'SimpleChemical' and not advanced:  # back to the yEd size, centre kept
-            box = (box[0] + box[2] / 2 - YED_CHEMICAL[0] / 2, box[1] + box[3] / 2 - YED_CHEMICAL[1] / 2) + YED_CHEMICAL
+        if kind == 'SimpleChemical' and not advanced:  # our yEd size (a circle, or a stadium for its name), centre kept
+            W, H = style.chemical(Node(id='', kind=kind, box=box, labels=[name(s.get('name'))]))
+            box = (box[0] + box[2] / 2 - W / 2, box[1] + box[3] / 2 - H / 2, W, H)
         states = []
         pref = f(si, 'cd:proteinReference')
         for m in xs(si, 'cd:state/cd:listOfModifications/cd:modification'):

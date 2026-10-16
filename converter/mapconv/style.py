@@ -1,15 +1,27 @@
 # Standard sizes (user, 2026-10-16), for a map from another drawing (CellDesigner -> GraphML):
-# proteins, genes and RNAs 80 x 40; metabolites 36 x 36 circles where the map draws them as
-# circles, else 60 x 32 (after a direct read they are 60 x 32 already); centres kept. A map whose objects are clearly larger or smaller than
+# proteins, genes and RNAs 80 x 40; metabolites (chemical()) 36 x 36 circles where the map
+# draws them as circles, else stadiums 32 high, as wide as the name needs in steps of 10; centres
+# kept. A map whose objects are clearly larger or smaller than
 # ours (median protein height off 40 by more than 20%, e.g. a large font) is first scaled as a
 # whole, distances included. Collisions that follow are the user's to look at.
-import statistics
+import math, statistics
 from dataclasses import replace
 
 PROTEIN = (80.0, 40.0)
 SIZE = {'Macromolecule': PROTEIN, 'NucleicAcidFeature': PROTEIN}
-CIRCLE, OVAL = (36.0, 36.0), (60.0, 32.0)
+CIRCLE = (36.0, 36.0)  # the yEd metabolite glyph is a circle when square, else a stadium
 NOTICED = 1.2  # a scale this far from 1 (either way) is rescaled
+
+
+def chemical(d):
+    # a metabolite's size: a circle stays a circle; a stadium is 32 high and 60, 70, 80, ... wide,
+    # about 7 px per character of its longest name line plus 14 (the user's maps: 60 for Pi,
+    # 80 glutamate, 90 citrulline, 100 oxaloacetate, 180 alpha-keto-beta-methylvalerate)
+    w, h = d.box[2:]
+    if abs(w - h) <= 0.1 * max(w, h):
+        return CIRCLE
+    name = max((d.labels[0] if d.labels else '').split('\n'), key=len)
+    return (max(60.0, 10.0 * math.ceil((7 * len(name) + 14) / 10)), 32.0)
 
 
 def scale_of(m):
@@ -20,13 +32,10 @@ def scale_of(m):
 
 def standardise(m):
     s = scale_of(m)
-    chem = [d.box for d in m.nodes.values() if d.kind == 'SimpleChemical']
-    round_ = sum(abs(w - h) <= 0.1 * max(w, h) for _, _, w, h in chem) * 2 >= len(chem)
-    size = dict(SIZE, SimpleChemical=CIRCLE if round_ else OVAL)
     nodes, ratio = {}, {}
     for i, d in m.nodes.items():
         x, y, w, h = (v / s for v in d.box)
-        W, H = size.get(d.kind, (w, h))
+        W, H = chemical(d) if d.kind == 'SimpleChemical' else SIZE.get(d.kind, (w, h))
         if d.kind.endswith('Process') or d.kind == 'Operator':
             W, H = d.box[2], d.box[3]  # glyphs of their own fixed size
         ratio[i] = (W / w if w else 1, H / h if h else 1)
