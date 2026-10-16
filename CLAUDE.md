@@ -59,7 +59,8 @@ versions ("not in the old version"), where a Reactome event sits in a pathway hi
 candidates, map versions or what was left out. Those stay in the workbench README.
 The Description is one short paragraph on the biology only (user, 2026-10-16, repeated): no
 remarks on how the map draws it (steps drawn as one process, complexes as catalysts, "as
-Reactome does", state variables, site numbering schemes). Write as for a reader of a review,
+Reactome does", state variables, site numbering schemes, mentions of or comparisons with
+UniProt). Write as for a reader of a review,
 not as a note in the chat.
 
 ## Contributors
