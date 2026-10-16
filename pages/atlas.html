@@ -89,11 +89,9 @@ sitemap: false
   /* the buttons of the site (user, 2026-10-16): one colour for all, white, grey edge, black
      text; on hover filled in the blue of the chosen map in the list, white text. Order by use:
      GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG, SVG in a menu), Data (the annotation
-     table), then Newt and MINERVA on the right */
+     table), then Newt and MINERVA, all at the same spacing */
   #m2-downloads > a, #m2-downloads summary { display: inline-block; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #222; background: #fff; border: 1px solid #ccc; border-radius: 5px; text-decoration: none; cursor: pointer; }
   #m2-downloads > a:hover, #m2-downloads summary:hover, #m2-downloads details[open] summary { background: #4183c4; border-color: #4183c4; color: #fff; }
-  /* Newt and MINERVA pushed to the right end of the row */
-  #m2-downloads .m2-gap { margin-left: auto; }
   #m2-downloads details { display: inline-block; position: relative; }
   #m2-downloads summary { list-style: none; }
   #m2-downloads summary::-webkit-details-marker { display: none; }
@@ -757,7 +755,6 @@ sitemap: false
       menu.appendChild(sum); menu.appendChild(list); dl.appendChild(menu);
     }
     if (url.Annotation) dl.appendChild(file('Data', url.Annotation, null, 'Annotation table (CSV)'));
-    if (url.Newt || url.MINERVA) dl.appendChild(el('span', 'm2-gap'));
     ['Newt', 'MINERVA'].forEach(function (l) {
       if (!url[l]) return;
       var a = el('a', 'm2-ext', l);
