@@ -1,0 +1,23 @@
+  /* Tags (draft, new, lists, drug). Vertical: the word is trimmed to its letters (cap height,
+     or x-height for x-height-only words such as new, to baseline), so centring it centres the
+     letters in any font; a line box keeps empty descender room and puts the word high or low.
+     The tag sits 1px below the top of the item's 18px line, so it is centred in the item.
+     Horizontal: equal padding on both sides. Do not tune the padding for side bearings: they
+     differ between fonts (the list uses the system font of each computer), and a tuning for
+     one font shifts the word in another (2026-10-16, after four rounds). Check a change with
+     tools/tag_check.js in maps-workbench, which measures the gaps around the letters. */
+  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
+  .m2-draft span { display: block; text-box: trim-both cap alphabetic; }
+  .m2-on .m2-draft { color: #4183c4; background: #fff; }
+  /* the word drug on the same tag in a lighter grey (white text), after the name of a drug map */
+  .m2-draft.m2-drugtag { background: #aaa; }
+  .m2-on .m2-draft.m2-drugtag { color: #4183c4; background: #fff; }
+  .m2-draft.m2-new { background: #4183c4; }
+  /* new has only x-height letters: trimmed to the x-height, so they are centred too */
+  .m2-draft.m2-new span { text-box: trim-both ex alphabetic; }
+  .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
+  /* the word lists on an outlined tag (grey edge and text, white fill) for a map whose
+     connection came from the Reactome-Recon lists (user, 2026-10-16; off the list since
+     2026-10-16, kept in the palette /atlas/tags/) */
+  .m2-draft.m2-lists { color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }
+  .m2-on .m2-draft.m2-lists { color: #fff; background: none; border-color: #fff; }

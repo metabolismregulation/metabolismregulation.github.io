@@ -52,28 +52,7 @@ sitemap: false
   .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
-  /* Tags (draft, new, lists, drug). Vertical: the word is trimmed to its letters (cap height,
-     or x-height for x-height-only words such as new, to baseline), so centring it centres the
-     letters in any font; a line box keeps empty descender room and puts the word high or low.
-     The tag sits 1px below the top of the item's 18px line, so it is centred in the item.
-     Horizontal: equal padding on both sides. Do not tune the padding for side bearings: they
-     differ between fonts (the list uses the system font of each computer), and a tuning for
-     one font shifts the word in another (2026-10-16, after four rounds). Check a change with
-     tools/tag_check.js in maps-workbench, which measures the gaps around the letters. */
-  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
-  .m2-draft span { display: block; text-box: trim-both cap alphabetic; }
-  .m2-on .m2-draft { color: #4183c4; background: #fff; }
-  /* the word drug on the same tag in a lighter grey (white text), after the name of a drug map */
-  .m2-draft.m2-drugtag { background: #aaa; }
-  .m2-on .m2-draft.m2-drugtag { color: #4183c4; background: #fff; }
-  .m2-draft.m2-new { background: #4183c4; }
-  /* new has only x-height letters: trimmed to the x-height, so they are centred too */
-  .m2-draft.m2-new span { text-box: trim-both ex alphabetic; }
-  .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
-  /* the word lists on an outlined tag (grey edge and text, white fill) after the name of a map
-     whose connection came from the Reactome-Recon lists (user, 2026-10-16) */
-  .m2-draft.m2-lists { color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }
-  .m2-on .m2-draft.m2-lists { color: #fff; background: none; border-color: #fff; }
+{% include atlas-tags.css %}
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* a map item stays on one line: a name too long to fit beside its tags ends in the
      browser's ellipsis (the full name is in the tooltip); the tags keep their size */
@@ -190,7 +169,7 @@ sitemap: false
   // the word drug on a lighter grey tag (not used: the capsule, DRUG_ICON, marks drug maps)
   // the word new on a small blue tag after the name of a recently published map (NEW in make_maps.py)
   var NEW_ICON = '<span class="m2-draft m2-new"><span>new</span></span>';
-  // the word lists on an outlined tag after the name of a map chosen from the Reactome-Recon lists
+  // the word lists on an outlined tag (not used since 2026-10-16: kept in the palette /atlas/tags/)
   var LISTS_TAG = '<span class="m2-draft m2-lists"><span>lists</span></span>';
   var DRUG_TAG = '<span class="m2-draft m2-drugtag"><span>drug</span></span>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
@@ -666,8 +645,6 @@ sitemap: false
       b.setAttribute('data-id', m.id);
       var tips = [label(m)];
       if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); tips.push('Drug action mechanism map'); }
-      // lists first: a fixed fact about the map; draft and new change over time
-      if (m.lists) { b.insertAdjacentHTML('beforeend', LISTS_TAG); tips.push('Chosen from the Reactome-Recon lists'); }
       if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); tips.push('Draft map'); }
       if (m.new) { b.insertAdjacentHTML('beforeend', NEW_ICON); tips.push('New map'); }
       b.title = tips.join(', ');

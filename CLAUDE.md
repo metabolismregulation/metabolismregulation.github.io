@@ -47,11 +47,13 @@ published map in the Atlas (draft mark, link to the draft) and leaves the offici
 
 A map whose connection was chosen from the Reactome-Recon lists says so visibly on its page (user,
 2026-10-14): a section "Reactome-Recon connection" above the Description, naming the
-Reactome processes (linked). Such a map gets a "lists" tag in the Atlas list (grey edge and
-text, white fill; user, 2026-10-16), set by `make_maps.py` from that section.
+Reactome processes (linked). `make_maps.py` marks such a map (`lists` in the Atlas index). Its
+"lists" tag (grey edge and text, white fill) is no longer shown in the Atlas list (user,
+2026-10-16) and is kept in the tag palette.
 
-Atlas list tags (lists, draft, new; user, 2026-10-16): lists comes first (a fixed fact),
-then draft or new. Letters are centred by the rule in the comment above `.m2-draft` in
+Atlas list tags (user, 2026-10-16): draft or new after the map name. Every tag, used or not
+(draft, new, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Letters are centred by the rule in the comment above `.m2-draft` in
 `pages/atlas.html`: trim to the letters vertically, equal padding left and right, never
 padding tuned to one font's side bearings. Check any tag change with
 `tools/tag_check.js` in maps-workbench (gaps around the letters, in two fonts).
