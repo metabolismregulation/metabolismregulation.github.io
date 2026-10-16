@@ -23,6 +23,10 @@ downloads:
 
 {% include contributors.html %}
 
+## Reactome-Recon connection
+
+The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon lists</a>: proteins of the Recon2 metabolic reconstruction that take part in Reactome signalling processes. CPS1 is in the lists through the Reactome processes <a href="https://reactome.org/content/detail/R-HSA-9955518">SIRT5 desuccinylates CPS1</a> (R-HSA-9955518) and <a href="https://reactome.org/content/detail/R-HSA-9955504">SIRT5 deglutarylates CPS1</a> (R-HSA-9955504).
+
 ## Description 
 
 The urea cycle converts ammonia into urea in the liver. Its rate-limiting step, the synthesis of carbamoyl phosphate by carbamoyl phosphate synthetase 1 (CPS1) in mitochondria, needs N-acetylglutamate, made from acetyl-CoA and glutamate by N-acetylglutamate synthase (NAGS); carbamoyl phosphate then enters the cycle through ornithine transcarbamylase. Succinyl, glutaryl and acetyl groups on CPS1 lysines lower its activity; the mitochondrial sirtuin SIRT5 removes them and activates the enzyme, and mice lacking SIRT5 have higher blood ammonia.
