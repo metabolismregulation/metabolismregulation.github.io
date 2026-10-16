@@ -24,9 +24,7 @@ downloads:
 
 ## Description 
 
-The urea cycle converts ammonia into urea in the liver. Its first and rate-limiting step, the synthesis of carbamoyl phosphate from ammonia and bicarbonate by carbamoyl phosphate synthetase 1 (CPS1) in the mitochondrial matrix, is the point of control. CPS1 is practically inactive on its own: it needs N-acetylglutamate, made from acetyl-CoA and glutamate by N-acetylglutamate synthase (NAGS), which binds CPS1 and switches it into its active form. Carbamoyl phosphate then enters the cycle through ornithine transcarbamylase; the mitochondrial carrier SLC25A15 exchanges the citrulline formed for cytosolic ornithine, and argininosuccinate synthetase, argininosuccinate lyase and arginase 1 complete the cycle in the cytosol.
-
-CPS1 is also controlled by acyl groups on its lysines. Succinyl, glutaryl and acetyl groups accumulate on CPS1 and lower its activity; the NAD+-dependent mitochondrial sirtuin SIRT5 removes them and activates the enzyme, and mice lacking SIRT5 have lower CPS1 activity and higher blood ammonia. In the map, the state variables Su and Glut mark lysine succinylation and glutarylation; these labels are not in the SBGN list of modifications and are used here as author-defined labels.
+The urea cycle converts ammonia into urea in the liver. Its rate-limiting step, the synthesis of carbamoyl phosphate by carbamoyl phosphate synthetase 1 (CPS1) in mitochondria, needs N-acetylglutamate, made from acetyl-CoA and glutamate by N-acetylglutamate synthase (NAGS); carbamoyl phosphate then enters the cycle through ornithine transcarbamylase. Succinyl, glutaryl and acetyl groups on CPS1 lysines lower its activity; the mitochondrial sirtuin SIRT5 removes them and activates the enzyme, and mice lacking SIRT5 have higher blood ammonia.
 
 ## References
 
