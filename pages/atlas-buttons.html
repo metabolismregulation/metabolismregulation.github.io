@@ -6,117 +6,90 @@ sitemap: false
 noindex: true
 ---
 
-<!-- variants of the Atlas download row (the files of a map and the online viewers), for the
-     user's choice (2026-10-16). Not linked from anywhere. -->
+<!-- variants of the Atlas download row for the user's choice (2026-10-16, round 2): GraphML,
+     CellDesigner, SBGN-ML, SBML, Images (PNG, SVG in a menu), Data (the annotation table),
+     then the viewers, MINERVA last. Round 1 (ten general styles) is in git history. -->
 <style>
-  /* each variant: its name, then the row at full width */
-  .bv { display: block; font-size: 14px; line-height: 20px; }
-  .bv tbody, .bv tr, .bv td { display: block; }
-  .bv tr { border-top: 1px solid #eee; padding: 12px 0 14px; }
-  .bv td:first-child { color: #666; font-size: 13px; margin-bottom: 4px; }
-  .bv a { color: #222; text-decoration: none; }
+  .bv { font-size: 14px; line-height: 20px; }
+  .bv .v { border-top: 1px solid #eee; padding: 12px 0 16px; }
+  .bv .name { color: #666; font-size: 13px; margin-bottom: 4px; }
+  .bv a, .bv summary { color: #222; text-decoration: none; }
   .bv svg { width: 14px; height: 14px; vertical-align: -2px; }
-  .lab { color: #888; font-size: 13px; margin-right: 6px; }
+  .bv svg.dl { margin-right: 5px; }
+  .bv svg.ext { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
+  .bv .caret { margin-left: 4px; color: #888; font-size: 11px; }
 
-  /* 1, 2, 3: the grey buttons of the Atlas */
-  .grey a { display: inline-block; padding: 4px 10px; margin: 4px 4px 0 0; background: #f6f6f6; border: 1px solid #bbb; border-radius: 5px; }
-  .grey a:hover { background: #ededed; border-color: #999; }
-  .grey a .dl { margin-right: 5px; }
-  .grey a .ext { margin-left: 5px; width: 13px; height: 13px; vertical-align: -1px; }
-  .gap { display: inline-block; width: 14px; }
-  .lead { color: #666; margin-right: 6px; }
+  /* the Atlas's grey button */
+  .b { display: inline-block; padding: 4px 10px; margin: 4px 4px 0 0; background: #f6f6f6; border: 1px solid #bbb; border-radius: 5px; cursor: pointer; }
+  .b:hover { background: #ededed; border-color: #999; }
+  .gap { display: inline-block; width: 12px; }
 
-  /* 4: text links with dots */
-  .dots a { color: #4183c4; }
-  .dots a:hover { text-decoration: underline; }
-  .dots .sep { color: #bbb; margin: 0 6px; }
-  .dots .ext { width: 12px; height: 12px; margin-left: 3px; }
+  /* the Images menu */
+  details.m { display: inline-block; position: relative; vertical-align: top; }
+  details.m summary { list-style: none; }
+  details.m summary::-webkit-details-marker { display: none; }
+  details.m .list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #bbb; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,.12); padding: 4px 0; }
+  details.m .list a { display: block; padding: 4px 12px; }
+  details.m .list a:hover { background: #f2f2f2; }
 
-  /* 5: small white buttons, light edge */
-  .small a { display: inline-block; font-size: 13px; line-height: 18px; padding: 2px 8px; margin: 3px 3px 0 0; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #333; }
-  .small a:hover { border-color: #999; }
-  .small .ext { width: 12px; height: 12px; margin-left: 4px; vertical-align: -1px; }
+  /* MINERVA marked */
+  .blue { background: #4183c4; border-color: #4183c4; color: #fff !important; }
+  .blue:hover { background: #3572ad; border-color: #3572ad; }
+  .outline { background: #fff; border-color: #4183c4; color: #4183c4 !important; }
+  .outline:hover { background: #f0f6fc; }
 
-  /* 6: one segmented bar */
-  .seg { display: inline-flex; border: 1px solid #bbb; border-radius: 5px; overflow: hidden; margin: 4px 10px 0 0; vertical-align: top; }
-  .seg > * { padding: 4px 10px; background: #f6f6f6; border-left: 1px solid #ddd; }
-  .seg > :first-child { border-left: 0; }
-  .seg a:hover { background: #ededed; }
-  .seg .ico { color: #666; background: #fff; }
-  .seg .ext { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
+  /* quieter SBML */
+  .quiet { background: #fff; border-color: #ddd; color: #777 !important; }
 
-  /* 7: pills without edge */
-  .pill a { display: inline-block; padding: 3px 10px; margin: 4px 4px 0 0; background: #f2f2f2; border-radius: 12px; }
-  .pill a:hover { background: #e4e4e4; }
-  .pill .ext { width: 12px; height: 12px; margin-left: 4px; vertical-align: -1px; }
-
-  /* 8: grouped text links */
-  .groups span.g { margin-right: 18px; white-space: nowrap; }
-  .groups a { color: #4183c4; margin-left: 6px; }
-  .groups a:hover { text-decoration: underline; }
-  .groups .ext { width: 12px; height: 12px; margin-left: 3px; }
-
-  /* 9: one download menu */
-  .menu { display: inline-block; position: relative; margin: 4px 6px 0 0; vertical-align: top; }
-  .menu summary, .menu-v a { display: inline-block; padding: 4px 10px; background: #f6f6f6; border: 1px solid #bbb; border-radius: 5px; cursor: pointer; list-style: none; }
-  .menu summary::-webkit-details-marker { display: none; }
-  .menu summary:hover, .menu-v a:hover { background: #ededed; border-color: #999; }
-  .menu .list { position: absolute; z-index: 5; left: 0; top: 32px; min-width: 150px; background: #fff; border: 1px solid #bbb; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,.12); padding: 4px 0; }
-  .menu .list a { display: block; padding: 4px 12px; }
-  .menu .list a:hover { background: #f2f2f2; }
-  .menu-v a { margin: 4px 4px 0 0; }
-  .menu-v .ext { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
-  .caret { margin-left: 4px; color: #888; }
-
-  /* 10: grey text links, the icon only on hover */
-  .hover a { color: #555; margin-right: 14px; }
-  .hover a .dl { display: inline-block; width: 0; overflow: hidden; transition: width .1s; vertical-align: -2px; }
-  .hover a:hover { color: #4183c4; }
-  .hover a:hover .dl { width: 18px; }
-  .hover .ext { width: 12px; height: 12px; margin-left: 3px; }
+  /* one bar for the model files */
+  .seg { display: inline-flex; border: 1px solid #bbb; border-radius: 5px; margin: 4px 6px 0 0; vertical-align: top; }
+  .seg > a { padding: 4px 10px; background: #f6f6f6; border-left: 1px solid #ddd; }
+  .seg > a:first-child { border-left: 0; border-radius: 5px 0 0 5px; }
+  .seg > a:last-child { border-radius: 0 5px 5px 0; }
+  .seg > a:hover { background: #ededed; }
 </style>
 
 <h1>Atlas download buttons</h1>
-<p>Ten ways to show the files of a map and the online viewers. The links do nothing.</p>
+<p>The files of a map and the online viewers, ordered by use: GraphML, CellDesigner, SBGN-ML,
+SBML, Images (PNG, SVG), Data (the annotation table), Newt, MINERVA. Click Images to open it.
+The links do nothing.</p>
 
-<table class="bv">
-  <tr><td>1. Now: grey buttons, icon on each</td><td class="grey" data-v="each"></td></tr>
-  <tr><td>2. Grey buttons, no icons (before)</td><td class="grey" data-v="none"></td></tr>
-  <tr><td>3. Grey buttons, one icon for the row, viewers apart</td><td class="grey" data-v="one"></td></tr>
-  <tr><td>4. Text links with dots</td><td class="dots" data-v="dots"></td></tr>
-  <tr><td>5. Small white buttons, light edge</td><td class="small" data-v="small"></td></tr>
-  <tr><td>6. One bar, one icon</td><td data-v="seg"></td></tr>
-  <tr><td>7. Grey pills, no edge</td><td class="pill" data-v="pill"></td></tr>
-  <tr><td>8. Grouped text links</td><td class="groups" data-v="groups"></td></tr>
-  <tr><td>9. One download menu (click it)</td><td class="menu-v" data-v="menu"></td></tr>
-  <tr><td>10. Grey text links, icon on hover</td><td class="hover" data-v="hover"></td></tr>
-</table>
+<div class="bv">
+  <div class="v"><div class="name">A. Grey buttons, icon on each</div><div data-v="a"></div></div>
+  <div class="v"><div class="name">B. As A, MINERVA blue</div><div data-v="b"></div></div>
+  <div class="v"><div class="name">C. As A, MINERVA outlined blue</div><div data-v="c"></div></div>
+  <div class="v"><div class="name">D. As B, SBML quieter (white, light edge)</div><div data-v="d"></div></div>
+  <div class="v"><div class="name">E. As B, SBML in a menu with the images ("More")</div><div data-v="e"></div></div>
+  <div class="v"><div class="name">F. Model files in one bar, one icon, then Images, Data, viewers</div><div data-v="f"></div></div>
+  <div class="v"><div class="name">G. As F, MINERVA blue</div><div data-v="g"></div></div>
+</div>
 
 <script>
 (function () {
-  var FILES = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation'];
-  var VIEWERS = ['Newt', 'MINERVA'];
   var DL = '<svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
   var EXT = '<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
-  var a = function (inner) { return '<a href="#" onclick="return false">' + inner + '</a>'; };
-  var files = function (icon) { return FILES.map(function (f) { return a((icon ? DL : '') + f); }).join(''); };
-  var viewers = function () { return VIEWERS.map(function (v) { return a(v + EXT); }).join(''); };
-  var GROUPS = [['Map', ['GraphML', 'SBGN-ML', 'SBML', 'CellDesigner']], ['Image', ['PNG', 'SVG']], ['Data', ['Annotation']]];
-  var html = {
-    each: files(true) + viewers(),
-    none: files(false) + viewers(),
-    one: '<span class="lead">' + DL + '</span>' + files(false) + '<span class="gap"></span>' + viewers(),
-    dots: '<span class="lab">' + DL + ' Download</span>' + FILES.map(function (f) { return a(f); }).join('<span class="sep">·</span>') +
-          '<br><span class="lab">Open in</span>' + VIEWERS.map(function (v) { return a(v + EXT); }).join('<span class="sep">·</span>'),
-    small: '<span class="lab">Download</span>' + files(false) + '<br><span class="lab">Open in</span>' + viewers(),
-    seg: '<span class="seg"><span class="ico">' + DL + '</span>' + files(false) + '</span><span class="seg">' + viewers() + '</span>',
-    pill: files(false) + '<span class="gap"></span>' + viewers(),
-    groups: GROUPS.map(function (g) { return '<span class="g"><span class="lab">' + g[0] + '</span>' + g[1].map(function (f) { return a(f); }).join('') + '</span>'; }).join('') +
-            '<span class="g"><span class="lab">Open in</span>' + viewers() + '</span>',
-    menu: '<details class="menu"><summary>' + DL + ' Download<span class="caret">▾</span></summary><div class="list">' +
-          FILES.map(function (f) { return a(f); }).join('') + '</div></details>' + viewers(),
-    hover: FILES.map(function (f) { return a(DL + f); }).join('') + viewers()
+  var b = function (inner, cls, title) {
+    return '<a href="#" onclick="return false" class="b' + (cls ? ' ' + cls : '') + '"' + (title ? ' title="' + title + '"' : '') + '>' + inner + '</a>';
   };
-  document.querySelectorAll('.bv td[data-v]').forEach(function (td) { td.innerHTML = html[td.dataset.v]; });
+  var menu = function (label, items) {
+    return '<details class="m"><summary class="b">' + DL + label + '<span class="caret">▾</span></summary><div class="list">' +
+           items.map(function (i) { return '<a href="#" onclick="return false">' + i + '</a>'; }).join('') + '</div></details>';
+  };
+  var files = function (names, cls) { return names.map(function (n) { return b(DL + n, cls && cls[n]); }).join(''); };
+  var data = b(DL + 'Data', '', 'Annotation table (CSV)');
+  var viewers = function (minerva) { return b('Newt' + EXT) + b('MINERVA' + EXT, minerva); };
+  var MODEL = ['GraphML', 'CellDesigner', 'SBGN-ML', 'SBML'];
+  var images = menu('Images', ['PNG', 'SVG']);
+  var bar = '<span class="seg">' + MODEL.map(function (n, i) { return '<a href="#" onclick="return false">' + (i ? '' : DL) + n + '</a>'; }).join('') + '</span>';
+  var html = {
+    a: files(MODEL) + images + data + '<span class="gap"></span>' + viewers(''),
+    b: files(MODEL) + images + data + '<span class="gap"></span>' + viewers('blue'),
+    c: files(MODEL) + images + data + '<span class="gap"></span>' + viewers('outline'),
+    d: files(MODEL, { SBML: 'quiet' }) + images + data + '<span class="gap"></span>' + viewers('blue'),
+    e: files(MODEL.slice(0, 3)) + menu('More', ['PNG', 'SVG', 'SBML']) + data + '<span class="gap"></span>' + viewers('blue'),
+    f: bar + images + data + '<span class="gap"></span>' + viewers(''),
+    g: bar + images + data + '<span class="gap"></span>' + viewers('blue')
+  };
+  document.querySelectorAll('.bv [data-v]').forEach(function (d) { d.innerHTML = html[d.dataset.v]; });
 })();
 </script>
