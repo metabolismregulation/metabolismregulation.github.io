@@ -78,6 +78,16 @@ sentence instead.
 References are one alphabetical list: database entries (Reactome, KEGG, MetaCore) sit in
 it by their first word like the papers, not at the end (user, 2026-10-16).
 
+## Converter page
+
+`/converter/` (`pages/converter.html`, user 2026-10-16): drop yEd GraphML maps, get two
+CellDesigner files per map, direct and advanced. Hidden like the Atlas: not in the navigation,
+out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
+repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
+public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
+`VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
+map-converter and push here. Annotation comes from the GraphML's ChEBI and UniProt links.
+
 ## Contributors
 
 People, their affiliations and ORCID iDs are in `_data/contributors.yml`
