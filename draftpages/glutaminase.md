@@ -13,7 +13,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/atlas-downloads/F019-glutaminase.graphml" download>GraphML</a> &nbsp;
 <a href="/atlas-downloads/F019-glutaminase.svg" download>SVG</a> &nbsp;
-<p align="middle"><a href="/glutaminase/draft/"><img id="image" src="/atlas-downloads/F019-glutaminase.svg" width="1230"/></a></p>
+<p align="middle"><a href="/glutaminase/draft/"><img id="image" src="/atlas-downloads/F019-glutaminase.svg" width="1227"/></a></p>
 
 ## Contributors
 

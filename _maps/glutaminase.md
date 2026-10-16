@@ -8,8 +8,8 @@ order: 16
 kind: "map"
 draft: true
 image: "/atlas-downloads/F019-glutaminase.svg"
-width: 560
-height: 848
+width: 1831
+height: 962
 scale: 1
 annotation: "/atlas-data/F019-glutaminase.json"
 contributors:
