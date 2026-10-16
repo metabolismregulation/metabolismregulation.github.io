@@ -58,7 +58,10 @@ CLASS = {'Macromolecule': 'PROTEIN', 'SimpleChemical': 'SIMPLE_MOLECULE', 'Nucle
          'Submap': 'PHENOTYPE'}
 # arc between two entities (no process) -> CellDesigner reduced-notation reaction
 # (user's SREBP file: submap -> submap and SREBP2 -> submap stimulation)
-REDUCED = {'stimulation': 'PHYSICAL_STIMULATION'}
+REDUCED = {'stimulation': 'PHYSICAL_STIMULATION',
+           'inhibition': 'NEGATIVE_INFLUENCE'}  # as the PD map (CellDesigner 4.4, autumn 2025)
+# a logic gate on arcs between entities: a BOOLEAN_LOGIC_GATE reaction, its arc typed as in the PD map
+GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE'}
 GATE = {'AND': 'BOOLEAN_LOGIC_GATE_AND', 'OR': 'BOOLEAN_LOGIC_GATE_OR', 'NOT': 'BOOLEAN_LOGIC_GATE_NOT'}
 # glyph at the end of an arc into a process -> CellDesigner modification type
 MOD = {'catalysis': 'CATALYSIS', 'inhibition': 'INHIBITION', 'modulation': 'MODULATION',
@@ -699,8 +702,37 @@ def write(diagram, ann, layout='direct'):
         elif e.source in ents and e.target in ents:
             print('arc %s (%s -> %s, %s): no process, not converted' % (e.id, label[e.source] or e.source, label[e.target] or e.target, e.head))
         elif e.source in ops and e.target in ents:
-            print('arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted' % (
-                e.id, ' | '.join(N[e.source].labels), label[e.target] or e.target, e.head))
+            # a logic gate on arcs between entities (the PD map's coding): one reaction, the inputs
+            # as base reactants, the gate at its edit point (absolute), then a gate member for the
+            # gate and one per input
+            o, inp = e.source, gate_in[e.source]
+            kind = ' | '.join(N[o].labels).strip().upper()
+            if e.head not in GATE_ARC or kind not in GATE or not inp or len(inp) < sum(1 for a in E if o in (a.source, a.target) and a.head is None):
+                print('arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted%s' % (
+                    e.id, kind, label[e.target] or e.target, e.head, ' (a gate into a gate)' if inp else ''))
+                continue
+            gx, gy = cen(o)
+            rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(e.id), id='re_' + sid(e.id), reversible='false')
+            x = sub(etree.SubElement(rx, 'annotation'), 'extension')
+            sub(x, 'reactionType', 'BOOLEAN_LOGIC_GATE')
+            brs = sub(x, 'baseReactants')
+            for m in inp:
+                sub(brs, 'baseReactant', species='s_' + sid(m), alias='sa_' + sid(m))
+            sub(sub(x, 'baseProducts'), 'baseProduct', species='s_' + sid(e.target), alias='sa_' + sid(e.target))
+            sub(x, 'connectScheme', connectPolicy='direct')
+            sub(x, 'editPoints', '%s,%s' % (gx, gy))
+            sub(x, 'line', width='1.0', color='ff000000')
+            gm = sub(x, 'listOfGateMember')
+            g = sub(gm, 'GateMember', type=GATE[kind], aliases=','.join('sa_' + sid(m) for m in inp),
+                    modificationType=GATE_ARC[e.head], editPoints='%s,%s' % (gx, gy))
+            line(g); sub(g, 'line', width='1.0', color='ff000000')
+            for m in inp:
+                g = sub(gm, 'GateMember', type=GATE_ARC[e.head], aliases='sa_' + sid(m), targetLineIndex='-1,0')
+                line(g); sub(g, 'line', width='1.0', color='ff000000')
+            lr_ = etree.SubElement(rx, 'listOfReactants')
+            for m in inp:
+                ref(lr_, 'speciesReference', m)
+            ref(etree.SubElement(rx, 'listOfProducts'), 'speciesReference', e.target)
     # written as CellDesigner writes it (no indentation, double-quoted declaration),
     # so a file opened and saved in CellDesigner can be compared line by line
     print('%s: %d species, %d proteins, %d reactions' % (diagram.name, len(ents), len(prot), len(lr)))
@@ -850,17 +882,52 @@ def read(path):
                             points=[from_frame(cen(alias_of(br[0])), cen(alias_of(bp[0])), q) for q in points(x.findtext('cd:editPoints', namespaces=ns))],
                             dashed=typ.startswith('UNKNOWN_')))
             continue
-        if len(br) != 1 or len(bp) != 1:
+        ep = f(x, 'cd:editPoints')
+        pts = points(ep.text if ep is not None else '')
+        if typ == 'BOOLEAN_LOGIC_GATE':
+            # a logic gate on reduced arcs: the inputs (base reactants) into the gate at the edit
+            # point (absolute), the gate's arc to the base product (PD map, Histamine signalling)
+            g = f(x, 'cd:listOfGateMember/cd:GateMember')
+            mt = g.get('modificationType')
+            if mt not in HEAD or not pts:
+                print('reaction %s: logic gate with %s, not converted' % (rid, mt)); continue
+            (gx, gy), op = pts[-1], rid + '_gate'
+            nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[g.get('type').rsplit('_', 1)[1]])
+            for e in br:
+                arcs.append(Arc(id='%s_%s' % (op, alias_of(e)), source=alias_of(e), target=op))
+            arcs.append(Arc(id=op + '_out', source=op, target=alias_of(bp[0]), head=HEAD[mt], dashed=mt.startswith('UNKNOWN_')))
+            continue
+        if len(br) + len(bp) == 3:
+            # a branched reaction (association: two reactants, dissociation, truncation: two
+            # products) as one process at the branch point (user, Q5). The point: last edit
+            # point, in the frame of the three species (origin the first, axes to the other two);
+            # each branch's own edit points (num0, num1, num2) in the frame point -> its species
+            # (cd2sbgnml, AssociationReactionModel)
+            three = [alias_of(e) for e in br + bp]
+            O, X, Y = (cen(i) for i in three)
+            u, v = pts[-1]
+            sq = (O[0] + u * (X[0] - O[0]) + v * (Y[0] - O[0]), O[1] + u * (X[1] - O[1]) + v * (Y[1] - O[1]))
+            n = [int(ep.get('num%d' % k, 0)) for k in range(3)]
+            arm = [pts[sum(n[:k]):sum(n[:k + 1])] for k in range(3)]
+            ends = [end(e) for e in br + bp]
+            bent = [[from_frame(sq, ends[k], q) for q in arm[k]] for k in range(3)]
+            lines = [(three[k], k < len(br), bent[k][::-1] if k < len(br) else bent[k]) for k in range(3)]
+            Q = ends[2] if len(br) == 2 else ends[0]
+            L = math.hypot(Q[0] - sq[0], Q[1] - sq[1]) or 1
+            fl = ((Q[0] - sq[0]) / L, (Q[1] - sq[1]) / L) if len(br) == 2 else ((sq[0] - Q[0]) / L, (sq[1] - Q[1]) / L)
+        elif len(br) == 1 and len(bp) == 1:
+            # the main line: its ends, edit points, the square midway on segment rectangleIndex
+            A, B = end(br[0]), end(bp[0])
+            line = [A] + [from_frame(A, B, q) for q in pts] + [B]
+            cs = f(x, 'cd:connectScheme')
+            k = int(cs.get('rectangleIndex', 0)) if cs is not None else 0
+            P, Q = line[k], line[k + 1]
+            sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
+            L = math.hypot(Q[0] - P[0], Q[1] - P[1]) or 1
+            fl = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
+            lines = [(alias_of(br[0]), True, line[1:k + 1]), (alias_of(bp[0]), False, line[k + 1:-1])]
+        else:
             print('reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
-        # the main line: its ends, edit points, the square midway on segment rectangleIndex
-        A, B = end(br[0]), end(bp[0])
-        line = [A] + [from_frame(A, B, q) for q in points(x.findtext('cd:editPoints', namespaces=ns))] + [B]
-        cs = f(x, 'cd:connectScheme')
-        k = int(cs.get('rectangleIndex', 0)) if cs is not None else 0
-        P, Q = line[k], line[k + 1]
-        sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
-        L = math.hypot(Q[0] - P[0], Q[1] - P[1]) or 1
-        fl = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
         S = 18.0  # the process size in our yEd maps
         nodes[rid] = Node(id=rid, kind=PROCESS.get(typ, 'Process'), box=(sq[0] - S / 2, sq[1] - S / 2, S, S), labels=[''])
         reversible = rx.get('reversible') != 'false'
@@ -869,8 +936,8 @@ def read(path):
                 arcs.append(Arc(id='%s_%s' % (rid, alias), source=alias, target=rid, points=list(pts)))
             else:
                 arcs.append(Arc(id='%s_%s' % (rid, alias), source=rid, target=alias, head='production', points=list(pts)))
-        flow(alias_of(br[0]), True, line[1:k + 1])
-        flow(alias_of(bp[0]), False, line[k + 1:-1])
+        for alias, into, bends in lines:
+            flow(alias, into, bends)
         for tag, into in (('cd:listOfReactantLinks/cd:reactantLink', True), ('cd:listOfProductLinks/cd:productLink', False)):
             for l in xs(x, tag):
                 if alias_of(l) in nodes:
