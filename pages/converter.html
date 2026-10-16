@@ -25,7 +25,6 @@ noindex: true
   .cv-btn svg { width: 15px; height: 15px; }
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
-  #cv-version { font-size: 12px; color: #999; margin-top: 24px; }
 </style>
 
 <div class="cv-top">
@@ -42,7 +41,6 @@ noindex: true
 <input id="cv-file" type="file" accept=".graphml" multiple hidden>
 <div id="cv-status"></div>
 <div id="cv-out"></div>
-<div id="cv-version"></div>
 
 <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 <script>
@@ -87,8 +85,6 @@ def convert(name, data):
       p.FS.writeFile('/home/pyodide/mapconv/' + m + '.py', await r.text());
     }
     p.runPython(DRIVER);
-    const v = await fetch(BASE + 'VERSION');
-    if (v.ok) document.getElementById('cv-version').textContent = 'Converter version ' + (await v.text()).trim();
     return p;
   }
 

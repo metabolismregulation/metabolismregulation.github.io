@@ -109,7 +109,7 @@ out of the sitemap and search engines (`noindex: true`). It runs the converter o
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
 `VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
-map-converter and push here. Annotation comes from the GraphML's node properties (HGNC,
+map-converter and push here (`VERSION`: date and commit, not shown on the page). Annotation comes from the GraphML's node properties (HGNC,
 UniProt, ChEBI), or its node links when a map has none.
 
 ## Contributors
