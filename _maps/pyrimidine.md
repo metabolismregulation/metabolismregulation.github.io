@@ -2,14 +2,14 @@
 title: "Regulation of pyrimidine biosynthesis via MAPK signalling"
 topic: "Pyrimidine biosynthesis"
 tab: ""
-page: "/pyrimidine/"
+page: "/pyrimidine/draft/"
 group: "Nucleotide metabolism"
 order: 19
 kind: "map"
-draft: false
+draft: true
 image: "/atlas-downloads/F020-pyrimidine.svg"
-width: 900
-height: 913
+width: 861
+height: 906
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
 contributors:
@@ -18,14 +18,8 @@ contributors:
   - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F020-pyrimidine.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/F020-pyrimidine.png"}
   - {label: "SVG", url: "/atlas-downloads/F020-pyrimidine.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/F020-pyrimidine.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F020-pyrimidine-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F020-pyrimidine.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/F020-pyrimidine.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F020-pyrimidine.sbgn"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine"}
 ---
 ## Contributors
 
