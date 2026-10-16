@@ -8,6 +8,7 @@ order: 17
 kind: "map"
 draft: false
 new: true
+lists: true
 image: "/atlas-downloads/F022-bcaa.svg"
 width: 1357
 height: 971

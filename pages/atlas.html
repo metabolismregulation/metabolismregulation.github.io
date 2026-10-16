@@ -68,6 +68,10 @@ sitemap: false
   /* new has only x-height letters: trimmed to the x-height, so they are centred too */
   .m2-draft.m2-new span { text-box: trim-both ex alphabetic; }
   .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
+  /* the word lists on an outlined tag (grey edge and text, white fill) after the name of a map
+     whose connection came from the Reactome-Recon lists (user, 2026-10-16) */
+  .m2-draft.m2-lists { color: #888; background: #fff; border: 1px solid #888; padding: 0 4.5px 0 3.5px; }
+  .m2-on .m2-draft.m2-lists { color: #fff; background: none; border-color: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* molecules found on the maps, after the maps found: each with the maps it
      is on; the name it was found by, when not the label, in grey */
@@ -179,6 +183,8 @@ sitemap: false
   // the word drug on a lighter grey tag (not used: the capsule, DRUG_ICON, marks drug maps)
   // the word new on a small blue tag after the name of a recently published map (NEW in make_maps.py)
   var NEW_ICON = '<span class="m2-draft m2-new"><span>new</span></span>';
+  // the word lists on an outlined tag after the name of a map chosen from the Reactome-Recon lists
+  var LISTS_TAG = '<span class="m2-draft m2-lists"><span>lists</span></span>';
   var DRUG_TAG = '<span class="m2-draft m2-drugtag"><span>drug</span></span>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
@@ -653,6 +659,7 @@ sitemap: false
       if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); b.title = 'Drug action mechanism map'; }
       if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); b.title = 'Draft map'; }
       if (m.new) { b.insertAdjacentHTML('beforeend', NEW_ICON); b.title = 'New map'; }
+      if (m.lists) { b.insertAdjacentHTML('beforeend', LISTS_TAG); b.title = (b.title ? b.title + '; ' : '') + 'Chosen from the Reactome-Recon lists'; }
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
     });

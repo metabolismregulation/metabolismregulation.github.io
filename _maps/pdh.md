@@ -8,6 +8,7 @@ order: 3
 kind: "map"
 draft: true
 new: false
+lists: true
 image: "/atlas-downloads/F023-pdh.svg"
 width: 988
 height: 511

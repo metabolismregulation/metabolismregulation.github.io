@@ -47,7 +47,8 @@ published map in the Atlas (draft mark, link to the draft) and leaves the offici
 
 A map whose connection was chosen from the Reactome-Recon lists says so visibly on its page (user,
 2026-10-14): a section "Reactome-Recon connection" above the Description, naming the
-Reactome processes (linked).
+Reactome processes (linked). Such a map gets a "lists" tag in the Atlas list (grey edge and
+text, white fill; user, 2026-10-16), set by `make_maps.py` from that section.
 
 A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made

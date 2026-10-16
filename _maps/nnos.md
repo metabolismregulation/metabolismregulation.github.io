@@ -8,6 +8,7 @@ order: 23
 kind: "map"
 draft: false
 new: true
+lists: true
 image: "/atlas-downloads/F025-nnos.svg"
 width: 881
 height: 756

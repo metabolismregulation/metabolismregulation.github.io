@@ -8,6 +8,7 @@ order: 19
 kind: "map"
 draft: true
 new: false
+lists: false
 image: "/atlas-downloads/F020-pyrimidine.svg"
 width: 861
 height: 906

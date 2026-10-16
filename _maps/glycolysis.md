@@ -8,6 +8,7 @@ order: 1
 kind: "map"
 draft: false
 new: false
+lists: false
 image: "/atlas-downloads/F001-glycolysis.svg"
 width: 978
 height: 685

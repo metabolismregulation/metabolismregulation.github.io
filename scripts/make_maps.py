@@ -256,6 +256,7 @@ def main():
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
                   'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
                   'new: %s' % ('true' if mid in NEW and folder[slug] != 'draftpages' else 'false'),
+                  'lists: %s' % ('true' if '## Reactome-Recon connection' in body else 'false'),
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),

@@ -8,6 +8,7 @@ order: 5
 kind: "map"
 draft: false
 new: false
+lists: false
 image: "/atlas-downloads/F004-glycogen-liver.svg"
 width: 2106
 height: 1751
