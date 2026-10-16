@@ -1,6 +1,6 @@
 ---
 title: "Regulation of pyruvate dehydrogenase via PDK and PDP"
-topic: "PDH"
+topic: "Pyruvate dehydrogenase"
 tab: ""
 page: "/pdh/"
 group: "Carbohydrate metabolism"
