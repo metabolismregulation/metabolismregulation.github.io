@@ -10,7 +10,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/atlas-downloads/F025-nnos.graphml" download>GraphML</a> &nbsp;
 <a href="/atlas-downloads/F025-nnos.svg" download>SVG</a> &nbsp;
-<p align="middle"><a href="/nnos/"><img id="image" src="/atlas-downloads/F025-nnos.svg"/></a></p>
+<p align="middle"><a href="/nnos/"><img id="image" src="/atlas-downloads/F025-nnos.svg" width="590"/></a></p>
 
 ## Contributors
 
