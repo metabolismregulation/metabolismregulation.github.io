@@ -56,7 +56,8 @@ candidates, map versions or what was left out. Those stay in the workbench READM
 
 People, their affiliations and ORCID iDs are in `_data/contributors.yml`
 (names and each person's affiliations as in the manuscript author list, so
-they can be checked against it in one place). A map page lists people in its
+they can be checked against it in one place; institutions end with town and
+country, without street addresses or postcodes). A map page lists people in its
 front matter, one per line (`contributors:` then `  - alexander-mazein`), and
 shows them under `## Contributors` with `{% include contributors.html %}`:
 names with affiliation numbers, then a closed "Affiliations" list (user,
