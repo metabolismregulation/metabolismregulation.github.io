@@ -35,7 +35,9 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 `atlas-downloads/` (user, 2026-10-14; `scripts/make_maps.py` reads draftpages/). To publish
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
-Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py). Working files stay in `maps-workbench`.
+Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
+A newly published map gets a blue "new" tag in the Atlas list: its name in NEW in
+`scripts/make_maps.py` (user, 2026-10-16). Working files stay in `maps-workbench`.
 
 A new version of a published map is a draft page with the same file name and the permalink
 `/<name>/draft/` (e.g. `draftpages/glutaminase.md`, /glutaminase/draft/): it replaces the

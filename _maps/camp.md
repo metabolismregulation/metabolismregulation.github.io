@@ -7,6 +7,7 @@ group: "Nucleotide metabolism"
 order: 20
 kind: "map"
 draft: false
+new: false
 image: "/atlas-downloads/F012-camp.svg"
 width: 762
 height: 767

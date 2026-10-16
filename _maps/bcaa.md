@@ -7,6 +7,7 @@ group: "Amino acid metabolism"
 order: 17
 kind: "map"
 draft: false
+new: true
 image: "/atlas-downloads/F022-bcaa.svg"
 width: 1317
 height: 737

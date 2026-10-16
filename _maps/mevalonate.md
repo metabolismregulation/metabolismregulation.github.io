@@ -7,6 +7,7 @@ group: "Lipid metabolism"
 order: 10
 kind: "map"
 draft: false
+new: false
 image: "/atlas-downloads/F003-mevalonate.svg"
 width: 1566
 height: 779

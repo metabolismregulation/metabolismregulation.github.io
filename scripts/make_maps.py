@@ -58,6 +58,8 @@ GROUPS = [
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
+# maps published recently, marked with a blue "new" tag in the Atlas list (user, 2026-10-16)
+NEW = {'ureacycle', 'bcaa', 'pdh', 'nnos'}
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
@@ -243,6 +245,7 @@ def main():
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
                   'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
+                  'new: %s' % ('true' if mid in NEW and folder[slug] != 'draftpages' else 'false'),
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
