@@ -37,5 +37,6 @@ Neuronal nitric oxide synthase (nNOS, NOS1) makes nitric oxide and citrulline fr
 1. Oceandy D, Cartwright EJ, Emerson M, Prehar S, Baudoin FM, Zi M, Alatwi N, Venetucci L, Schuh K, Williams JC, Armesilla AL, Neyses L. Neuronal nitric oxide synthase signaling in the heart is regulated by the sarcolemmal calcium pump 4b. Circulation. 2007 Jan 30;115(4):483-92. doi: 10.1161/CIRCULATIONAHA.106.643791. PMID: 17242280.
 1. Rameau GA, Chiu LY, Ziff EB. Bidirectional regulation of neuronal nitric-oxide synthase phosphorylation at serine 847 by the N-methyl-D-aspartate receptor. J Biol Chem. 2004 Apr 2;279(14):14307-14. doi: 10.1074/jbc.M311103200. PMID: 14722119.
 1. Reactome: Cardiac conduction. [Reactome:R-HSA-5576891](https://reactome.org/content/detail/R-HSA-5576891).
+1. Reactome: Ion homeostasis. [Reactome:R-HSA-5578775](https://reactome.org/content/detail/R-HSA-5578775).
 1. Schuh K, Uldrijan S, Telkamp M, Rothlein N, Neyses L. The plasmamembrane calmodulin-dependent calcium pump: a major regulator of nitric oxide synthase I. J Cell Biol. 2001 Oct 15;155(2):201-5. doi: 10.1083/jcb.200104131. PMID: 11591728.
 1. PathBank: Nitric Oxide Signaling Pathway. [PathBank:SMP0063777](https://pathbank.org/view/SMP0063777).
