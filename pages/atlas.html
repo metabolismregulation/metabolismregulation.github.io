@@ -75,10 +75,11 @@ sitemap: false
   .m2-draft.m2-lists { color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }
   .m2-on .m2-draft.m2-lists { color: #fff; background: none; border-color: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
-  /* a map item stays on one line: a name too long to fit beside its tags ends in an
-     ellipsis (the full name is in the tooltip); the tags keep their size */
+  /* a map item stays on one line: a name too long to fit beside its tags fades out over its
+     last 28px (m2-cut, set by fitNames; the full name is in the tooltip); the tags keep their size */
   .m2-item.m2-map { display: flex; align-items: flex-start; }
-  .m2-map .m2-name { flex: 0 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .m2-map .m2-name { flex: 0 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; }
+  .m2-map .m2-name.m2-cut { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
   .m2-map .m2-draft { flex: none; }
   /* molecules found on the maps, after the maps found: each with the maps it
      is on; the name it was found by, when not the label, in grey */
@@ -636,6 +637,13 @@ sitemap: false
     if (current && current.id === e.m) { focusNode(); buildList(document.getElementById('m2-search').value); }
     else go(e.m);
   }
+  // the names that do not fit beside their tags get the fade-out (m2-cut)
+  function fitNames() {
+    document.querySelectorAll('#m2-list .m2-name').forEach(function (n) {
+      n.classList.toggle('m2-cut', n.scrollWidth > n.clientWidth);
+    });
+  }
+  window.addEventListener('resize', fitNames);
   function buildList(filter) {
     var box = document.getElementById('m2-list');
     var keep = box.scrollTop;
@@ -691,6 +699,7 @@ sitemap: false
       });
     });
     if (!shown.length && !mols.length) box.appendChild(el('div', 'm2-none', index && index.length || !q ? 'No match' : 'Searching…'));
+    fitNames();
     // keep the chosen map visible when the list scrolls (narrow screens)
     box.scrollTop = keep;
     var on = box.querySelector('.m2-on');
