@@ -20,6 +20,7 @@ class Node:
     count: int = 1     # multimer: number of units (2 when drawn as a multimer without N:x)
     label_at: tuple = None  # compartment: top left of its name, relative to the box
     data: dict = field(default_factory=dict)  # yEd node data by name: url, annotation (HGNC symbol, UniProt, ...)
+    dashed: bool = False  # dashed border: a hypothetical entity (CellDesigner)
 
 
 @dataclass
@@ -32,6 +33,7 @@ class Arc:
     points: list = field(default_factory=list)  # bends
     source_at: tuple = (0.0, 0.0)  # where the arc leaves its source, from the source's centre
     target_at: tuple = (0.0, 0.0)  # where it meets its target, from the target's centre
+    dashed: bool = False  # a dashed line: unknown catalysis, inhibition, influence (CellDesigner)
 
 
 @dataclass

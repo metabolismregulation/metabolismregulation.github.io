@@ -37,3 +37,22 @@ def from_graphml(diagram):
                 if hit:
                     out[lab] = (False, urns(hit.group(1))); break
     return out
+
+
+def to_properties(family, uris):
+    # inverse of miriam(): node properties from an entity's URNs; a family's URNs are its
+    # members' one after another, each starting with an HGNC symbol or a ChEBI id
+    members = []
+    for u in uris:
+        db, _, x = u.rpartition(':')
+        if db in ('urn:miriam:hgnc.symbol', 'urn:miriam:obo.chebi') or not members:
+            members.append({})
+        k = {'urn:miriam:hgnc.symbol': 'HGNC symbol', 'urn:miriam:hgnc': 'HGNC', 'urn:miriam:uniprot': 'UniProt',
+             'urn:miriam:obo.chebi': 'ChEBI'}.get(db)
+        if k: members[-1][k] = 'HGNC:' + x if k == 'HGNC' else x.replace('%3A', ':')
+    if not family:
+        return members[0] if members else {}
+    order = ['HGNC', 'HGNC symbol', 'UniProt', 'ChEBI']  # as annotate.py lists them
+    return {'Members': '; '.join(m.get('HGNC symbol', m.get('ChEBI', '')) for m in members),
+            'Member annotation': json.dumps([{'symbol': m.get('HGNC symbol', ''), 'props': [[k, m[k]] for k in order if k in m]}
+                                             for m in members], ensure_ascii=False)}

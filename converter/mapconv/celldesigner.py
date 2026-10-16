@@ -1,5 +1,5 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
-# from a map (model.py) read from a yEd SBGN map.
+# from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -43,6 +43,8 @@ from dataclasses import replace
 from struct import pack, unpack
 from lxml import etree
 from . import cd_straighten, cd_bends
+from .annotation import to_properties
+from .model import Map, Node, Arc
 
 MARGIN = 40
 STRAIGHTEN = os.environ.get('STRAIGHTEN', '1') == '1'  # STRAIGHTEN=0: positions as in yEd
@@ -79,6 +81,12 @@ NAME = [(' ', '_space_'), ('-', '_minus_'), ('/', '_slash_'), ('+', '_plus_'),
 def cd_name(s):
     for a, b in NAME:
         s = s.replace(a, b)
+    return s
+
+
+def plain_name(s):  # inverse of cd_name: _space_, _alpha_ back to text
+    for a, b in NAME:
+        s = s.replace(b, a)
     return s
 
 
@@ -693,3 +701,205 @@ def write(diagram, ann, layout='direct'):
     print('%s: %d species, %d proteins, %d reactions' % (diagram.name, len(ents), len(prot), len(lr)))
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n' + etree.tostring(sbml, encoding='UTF-8', pretty_print=True).decode('utf-8')
     return '\n'.join(l.lstrip() for l in xml.split('\n'))
+
+
+# --- reading a CellDesigner file into the map model (rules: docs/CD-TO-SBGN.md)
+SBML = 'http://www.sbml.org/sbml/level2/version4'
+KIND = {'PROTEIN': 'Macromolecule', 'GENE': 'NucleicAcidFeature', 'RNA': 'NucleicAcidFeature',
+        'ANTISENSE_RNA': 'NucleicAcidFeature', 'SIMPLE_MOLECULE': 'SimpleChemical', 'ION': 'SimpleChemical',
+        'DRUG': 'SimpleChemical', 'UNKNOWN': 'UnspecifiedEntity', 'COMPLEX': 'Complex', 'PHENOTYPE': 'Phenotype',
+        'DEGRADED': 'EmptySet'}
+UNIT = {'GENE': 'ct:gene', 'RNA': 'ct:mRNA', 'ANTISENSE_RNA': 'ct:asRNA'}  # when the file has no ct: unit
+PROCESS = {'KNOWN_TRANSITION_OMITTED': 'OmittedProcess', 'UNKNOWN_TRANSITION': 'UncertainProcess'}  # others: Process
+HEAD = {v: k for k, v in MOD.items()}
+HEAD.update({'UNKNOWN_CATALYSIS': 'catalysis', 'UNKNOWN_INHIBITION': 'inhibition',
+             'TRANSCRIPTIONAL_ACTIVATION': 'stimulation', 'TRANSLATIONAL_ACTIVATION': 'stimulation',
+             'TRANSCRIPTIONAL_INHIBITION': 'inhibition', 'TRANSLATIONAL_INHIBITION': 'inhibition',
+             'POSITIVE_INFLUENCE': 'stimulation', 'NEGATIVE_INFLUENCE': 'inhibition',
+             'REDUCED_PHYSICAL_STIMULATION': 'stimulation', 'REDUCED_MODULATION': 'modulation',
+             'REDUCED_TRIGGER': 'trigger'})
+HEAD.update({'UNKNOWN_' + k: v for k, v in list(HEAD.items()) if k.startswith(('POSITIVE', 'NEGATIVE', 'REDUCED'))})
+REDUCED_TYPES = {k for k in HEAD if 'INFLUENCE' in k or 'REDUCED' in k} | set(REDUCED.values())
+YED_CHEMICAL = (60.0, 32.0)  # the usual metabolite size in our yEd maps
+
+
+def border_point(a):
+    # inverse of border_angle: the point on the border at residue angle a, as offsets from
+    # the centre in node widths and heights (y down)
+    q = math.pi / 4
+    a = (a + q) % (2 * math.pi) - q  # in [-pi/4, 7pi/4)
+    if a < q:
+        return 0.5, -0.5 * a / q
+    if a < 3 * q:
+        return 0.5 * (math.pi / 2 - a) / q, -0.5
+    if a < 5 * q:
+        return -0.5, -0.5 * (math.pi - a) / q
+    return 0.5 * (a - 3 * math.pi / 2) / q, 0.5
+
+
+def from_frame(a, b, p):
+    # inverse of cd_bends.to_frame: a point given in the edit point frame a -> b
+    ex = (b[0] - a[0], b[1] - a[1]); ey = (-ex[1], ex[0])
+    return (a[0] + p[0] * ex[0] + p[1] * ey[0], a[1] + p[0] * ex[1] + p[1] * ey[1])
+
+
+def points(s):
+    return [tuple(float(v) for v in q.split(',')) for q in (s or '').split()]
+
+
+def read(path):
+    # a CellDesigner file as a map (model.Map); what does not convert is printed
+    r = etree.parse(path).getroot()
+    ns = {'cd': CD, 's': SBML, 'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'bq': 'http://biomodels.net/biology-qualifiers/'}
+    f = lambda x, q: x.find(q, ns)
+    xs = lambda x, q: x.iterfind(q, ns)
+    ext = f(r, 's:model/s:annotation/cd:extension')
+    name = lambda s: ' '.join(plain_name(s or '').split())
+    nodes, arcs = {}, []
+    # compartments: a box with its name where CellDesigner has it
+    comps = {c.get('id'): c for c in xs(r, './/s:listOfCompartments/s:compartment')}
+    cname = {i: c.get('name') or i for i, c in comps.items()}
+    calias = {a.get('compartment'): a.get('id') for a in xs(ext, 'cd:listOfCompartmentAliases/cd:compartmentAlias')}
+    for a in xs(ext, 'cd:listOfCompartmentAliases/cd:compartmentAlias'):
+        b = f(a, 'cd:bounds')
+        if b is None:  # closeup compartments: a line, no box
+            print('compartment %s: %s, not converted' % (cname.get(a.get('compartment')), f(a, 'cd:class').text)); continue
+        box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
+        np_ = f(a, 'cd:namePoint')
+        nodes[a.get('id')] = Node(id=a.get('id'), kind='Compartment', box=box, labels=[name(cname.get(a.get('compartment')))],
+                                  parent=calias.get(comps[a.get('compartment')].get('outside')), fill='#' + f(a, 'cd:paint').get('color')[2:].upper(),
+                                  label_at=(float(np_.get('x')) - box[0], float(np_.get('y')) - box[1] - 12.5) if np_ is not None else None)
+    # species: one node per alias; included species (complex members) as top-level ones
+    species = {s.get('id'): (s, f(s, 's:annotation/cd:extension/cd:speciesIdentity'), f(s, 's:annotation'))
+               for s in xs(r, 's:model/s:listOfSpecies/s:species')}
+    species.update({s.get('id'): (s, f(s, 'cd:annotation/cd:speciesIdentity'), f(s, 'cd:notes'))
+                    for s in xs(ext, 'cd:listOfIncludedSpecies/cd:species')})
+    residues = {}
+    for p in xs(ext, 'cd:listOfProteins/cd:protein'):
+        for m in xs(p, 'cd:listOfModificationResidues/cd:modificationResidue'):
+            residues[p.get('id'), m.get('id')] = (float(m.get('angle', 0)), m.get('name'))
+    INV = {v: k for k, v in STATE.items()}
+    aliases = list(xs(ext, 'cd:listOfComplexSpeciesAliases/cd:complexSpeciesAlias')) + \
+        list(xs(ext, 'cd:listOfSpeciesAliases/cd:speciesAlias'))
+    for a in aliases:
+        s, si, an = species[a.get('species')]
+        cls = f(si, 'cd:class').text
+        if cls not in KIND:
+            print('species %s: class %s, not converted' % (s.get('name'), cls)); continue
+        kind = KIND[cls]
+        b = f(a, 'cd:bounds'); box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
+        n = int(f(si, 'cd:state/cd:homodimer').text) if f(si, 'cd:state/cd:homodimer') is not None else 1
+        if n > 2:  # the box grew 6 per unit beyond 2 (forward rule), top left kept
+            box = box[:2] + (box[2] - 6 * (n - 2), box[3] - 6 * (n - 2))
+        if kind == 'SimpleChemical':  # back to the yEd size, centre kept
+            box = (box[0] + box[2] / 2 - YED_CHEMICAL[0] / 2, box[1] + box[3] / 2 - YED_CHEMICAL[1] / 2) + YED_CHEMICAL
+        states = []
+        pref = f(si, 'cd:proteinReference')
+        for m in xs(si, 'cd:state/cd:listOfModifications/cd:modification'):
+            ang, site = residues.get((pref.text if pref is not None else None, m.get('residue')), (0.0, None))
+            sym = '' if m.get('state') == 'empty' else INV.get(m.get('state'), m.get('state'))
+            states.append((sym + ('@' + site if site else ''),) + border_point(ang))
+        for st in xs(si, 'cd:state/cd:listOfStructuralStates/cd:structuralState'):
+            sa = f(a, 'cd:structuralState')
+            states.append((st.get('structuralState'),) + border_point(float(sa.get('angle')) if sa is not None else math.pi / 2))
+        if (f(a, 'cd:activity').text if f(a, 'cd:activity') is not None else '') == 'active':
+            states.append(('active', 0.5, -0.5))  # user, Q10
+        info = f(a, 'cd:info')
+        units = ['%s:%s' % (info.get('prefix'), info.get('label'))] if info is not None and info.get('state') != 'empty' else []
+        if cls in UNIT and not any(u.startswith('ct:') for u in units):
+            units.append(UNIT[cls])
+        paint = f(a, 'cd:usualView/cd:paint')
+        uris = [li.get('{%s}resource' % ns['rdf']) for li in xs(an, './/rdf:Description/*/rdf:Bag/rdf:li')] if an is not None else []
+        fam = an is not None and f(an, './/rdf:Description/bq:hasVersion') is not None
+        hyp = f(si, 'cd:hypothetical')
+        nodes[a.get('id')] = Node(
+            id=a.get('id'), kind=kind, box=box, labels=[name(s.get('name')) if cls != 'DEGRADED' else ''],
+            parent=a.get('complexSpeciesAlias') or a.get('compartmentAlias'),
+            fill=None if cls == 'DRUG' or paint is None else '#' + paint.get('color')[2:].upper(),
+            states=states, units=units, count=n, data=to_properties(fam, uris) if uris else {},
+            dashed=hyp is not None and hyp.text == 'true')
+    # an unlabelled complex in yEd is named after its members in CellDesigner: the name goes
+    def member_names(c):
+        return [m.labels[0] or ':'.join(member_names(m.id)) for m in nodes.values() if m.parent == c]
+    for d in nodes.values():
+        if d.kind == 'Complex' and set(d.labels[0].split(':')) == set(':'.join(member_names(d.id)).split(':')):
+            d.labels = ['']
+    alias_of = lambda x: x.get('alias') or x.get('aliases')
+    cen = lambda i: (nodes[i].box[0] + nodes[i].box[2] / 2, nodes[i].box[1] + nodes[i].box[3] / 2)
+
+    def end(e):  # where the main line meets an alias: its centre, or a quarter point
+        b = f(e, 'cd:linkAnchor')
+        d = nodes[alias_of(e)]
+        if b is None or b.get('position') not in QUARTER:
+            return cen(d.id)
+        return anchor_point(d.box, b.get('position'), d.kind == 'SimpleChemical')
+    for rx in xs(r, 's:model/s:listOfReactions/s:reaction'):
+        x = f(rx, 's:annotation/cd:extension')
+        typ = f(x, 'cd:reactionType').text
+        rid = rx.get('id')
+        br, bp = list(xs(x, 'cd:baseReactants/cd:baseReactant')), list(xs(x, 'cd:baseProducts/cd:baseProduct'))
+        if any(alias_of(e) not in nodes for e in br + bp):
+            print('reaction %s: an end is not converted, left out' % rid); continue
+        if typ in REDUCED_TYPES:  # reduced notation: an arc between the entities (user, Q8)
+            arcs.append(Arc(id=rid, source=alias_of(br[0]), target=alias_of(bp[0]), head=HEAD[typ],
+                            points=[from_frame(cen(alias_of(br[0])), cen(alias_of(bp[0])), q) for q in points(x.findtext('cd:editPoints', namespaces=ns))],
+                            dashed=typ.startswith('UNKNOWN_')))
+            continue
+        if len(br) != 1 or len(bp) != 1:
+            print('reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
+        # the main line: its ends, edit points, the square midway on segment rectangleIndex
+        A, B = end(br[0]), end(bp[0])
+        line = [A] + [from_frame(A, B, q) for q in points(x.findtext('cd:editPoints', namespaces=ns))] + [B]
+        cs = f(x, 'cd:connectScheme')
+        k = int(cs.get('rectangleIndex', 0)) if cs is not None else 0
+        P, Q = line[k], line[k + 1]
+        sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
+        L = math.hypot(Q[0] - P[0], Q[1] - P[1]) or 1
+        fl = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
+        S = 18.0  # the process size in our yEd maps
+        nodes[rid] = Node(id=rid, kind=PROCESS.get(typ, 'Process'), box=(sq[0] - S / 2, sq[1] - S / 2, S, S), labels=[''])
+        reversible = rx.get('reversible') != 'false'
+        def flow(alias, into, pts=()):  # a consumption arc into the process, or a production arc out of it
+            if into and not reversible:
+                arcs.append(Arc(id='%s_%s' % (rid, alias), source=alias, target=rid, points=list(pts)))
+            else:
+                arcs.append(Arc(id='%s_%s' % (rid, alias), source=rid, target=alias, head='production', points=list(pts)))
+        flow(alias_of(br[0]), True, line[1:k + 1])
+        flow(alias_of(bp[0]), False, line[k + 1:-1])
+        for tag, into in (('cd:listOfReactantLinks/cd:reactantLink', True), ('cd:listOfProductLinks/cd:productLink', False)):
+            for l in xs(x, tag):
+                if alias_of(l) in nodes:
+                    if l.get('editPoints') or f(l, 'cd:editPoints') is not None:
+                        print('reaction %s: edit points of an added link left out' % rid)
+                    flow(alias_of(l), into)
+        # modifiers: the arc ends 5 px beside the square, on the side targetLineIndex names
+        gate_inputs, gates = set(), 0
+        for m in xs(x, 'cd:listOfModification/cd:modification'):
+            t = m.get('type')
+            side = int(m.get('targetLineIndex', '-1,2').split(',')[1])
+            sgn = 1 if side == 2 else -1
+            T = (sq[0] + sgn * 5 * fl[1], sq[1] - sgn * 5 * fl[0])
+            if t.startswith('BOOLEAN_LOGIC_GATE'):
+                op = '%s_gate%d' % (rid, gates); gates += 1
+                gx, gy = points(m.get('editPoints'))[0]
+                nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[t.rsplit('_', 1)[1]])
+                if t.endswith('UNKNOWN'):
+                    print('reaction %s: logic gate of unknown type kept as an operator "UNKNOWN"' % rid)
+                for a_ in m.get('aliases').split(','):
+                    if a_ in nodes:
+                        arcs.append(Arc(id='%s_%s' % (op, a_), source=a_, target=op)); gate_inputs.add((a_, m.get('modificationType')))
+                arcs.append(Arc(id=op + '_out', source=op, target=rid, head=HEAD.get(m.get('modificationType'), 'stimulation')))
+                continue
+            a_ = m.get('aliases')
+            if (a_, t) in gate_inputs or a_ not in nodes:
+                continue  # an input of a gate (listed once more by CellDesigner), or not converted
+            if t not in HEAD:
+                print('reaction %s: modifier type %s, not converted' % (rid, t)); continue
+            M = cen(a_)
+            arcs.append(Arc(id='%s_%s_%s' % (rid, a_, t.lower()), source=a_, target=rid, head=HEAD[t],
+                            points=[from_frame(M, T, q) for q in points(m.get('editPoints'))],
+                            dashed=t.startswith('UNKNOWN_')))
+    for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
+        k = sum(1 for _ in xs(ext, tag))
+        if k: print('%d %s left out' % (k, tag.split(':')[-1] + 's'))
+    return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
