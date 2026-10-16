@@ -62,6 +62,9 @@ REDUCED = {'stimulation': 'PHYSICAL_STIMULATION',
            'inhibition': 'NEGATIVE_INFLUENCE'}  # as the PD map (CellDesigner 4.4, autumn 2025)
 # a logic gate on arcs between entities: a BOOLEAN_LOGIC_GATE reaction, its arc typed as in the PD map
 GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE'}
+# a dashed arc (unknown) in CellDesigner's unknown types, where it has one (as the PD map)
+UNKNOWN = {'CATALYSIS': 'UNKNOWN_CATALYSIS', 'INHIBITION': 'UNKNOWN_INHIBITION', 'NEGATIVE_INFLUENCE': 'UNKNOWN_NEGATIVE_INFLUENCE'}
+REACTION = {'Process': 'STATE_TRANSITION', 'OmittedProcess': 'KNOWN_TRANSITION_OMITTED', 'UncertainProcess': 'UNKNOWN_TRANSITION'}
 GATE = {'AND': 'BOOLEAN_LOGIC_GATE_AND', 'OR': 'BOOLEAN_LOGIC_GATE_OR', 'NOT': 'BOOLEAN_LOGIC_GATE_NOT'}
 # glyph at the end of an arc into a process -> CellDesigner modification type
 MOD = {'catalysis': 'CATALYSIS', 'inhibition': 'INHIBITION', 'modulation': 'MODULATION',
@@ -552,6 +555,7 @@ def write(diagram, ann, layout='direct'):
     def identity(x, i):
         d = ents[i]
         si = sub(x, 'speciesIdentity'); sub(si, 'class', cls[i])
+        if d.dashed: sub(si, 'hypothetical', 'true')  # a dashed border (PD map: after the class)
         if d.kind == 'Macromolecule':
             sub(si, 'proteinReference', prot[label[i]])
         elif cls[i] in nucl:
@@ -594,6 +598,10 @@ def write(diagram, ann, layout='direct'):
             for r in catalysed[i]: sub(lc, 'catalyzed', reaction=r)
         miriam(an, 's_' + sid(i), label[i])
 
+    def typed(e, t):  # a dashed arc: CellDesigner's unknown type, or the type itself with a note
+        if not e.dashed: return t
+        if t not in UNKNOWN: print('arc %s: dashed %s written solid (CellDesigner has no unknown form)' % (e.id, t))
+        return UNKNOWN.get(t, t)
     lr = etree.SubElement(model, 'listOfReactions')
     n_ref = [0]
     def ref(parent, tag, i):
@@ -613,7 +621,7 @@ def write(diagram, ann, layout='direct'):
         rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(p), id='re_' + sid(p))
         if not reversible: rx.set('reversible', 'false')  # true is the SBML default; CellDesigner then leaves it out
         x = sub(etree.SubElement(rx, 'annotation'), 'extension')
-        sub(x, 'reactionType', 'STATE_TRANSITION')
+        sub(x, 'reactionType', REACTION.get(N[p].kind, 'STATE_TRANSITION'))
         br = sub(sub(x, 'baseReactants'), 'baseReactant', species='s_' + sid(r_), alias='sa_' + sid(r_)); ra and sub(br, 'linkAnchor', position=ra)
         bp = sub(sub(x, 'baseProducts'), 'baseProduct', species='s_' + sid(q_), alias='sa_' + sid(q_)); qa and sub(bp, 'linkAnchor', position=qa)
         # added reactants and products: to the centre, no linkAnchor (as CellDesigner saves them)
@@ -653,7 +661,7 @@ def write(diagram, ann, layout='direct'):
                         bend = None
                     pts = [bend] if bend else []
                 # a line to the centre has no linkTarget (the user's CellDesigner edit of estrogen v01)
-                k = sub(lm, 'modification', type=MOD[e.head], modifiers='s_' + sid(m), aliases='sa_' + sid(m),
+                k = sub(lm, 'modification', type=typed(e, MOD[e.head]), modifiers='s_' + sid(m), aliases='sa_' + sid(m),
                         targetLineIndex='-1,%d' % side_of(M))
                 if pts:  # frame: origin the modifier's centre, x axis to the arc's end
                     k.set('editPoints', ' '.join('%s,%s' % cd_bends.to_frame(M, T, q) for q in pts))
@@ -691,7 +699,7 @@ def write(diagram, ann, layout='direct'):
             # straight from source to target, no process
             rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(e.id), id='re_' + sid(e.id), reversible='false')
             x = sub(etree.SubElement(rx, 'annotation'), 'extension')
-            sub(x, 'reactionType', REDUCED[e.head])
+            sub(x, 'reactionType', typed(e, REDUCED[e.head]))
             # both ends at the centre: no linkAnchor (CellDesigner's save of the SREBP and ACLY files)
             sub(sub(x, 'baseReactants'), 'baseReactant', species='s_' + sid(e.source), alias='sa_' + sid(e.source))
             sub(sub(x, 'baseProducts'), 'baseProduct', species='s_' + sid(e.target), alias='sa_' + sid(e.target))

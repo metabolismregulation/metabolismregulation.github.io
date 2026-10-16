@@ -12,6 +12,8 @@ HEAD = {'white_circle': 'catalysis', 't_shape': 'inhibition', 'white_diamond': '
 # plain yEd shapes (not the SBGN palette) read by their outline (user, 2026-10-16; AsthMap):
 # a plain ellipse holding other nodes is an oval compartment (a cell), one labelled AND, OR or
 # NOT a logic gate
+# yEd's SBGN palette has no omitted or uncertain process: a Process labelled \\ or ? (user's example)
+PROCESS_LABEL = {'\\\\': 'OmittedProcess', '?': 'UncertainProcess'}
 OUTLINE = {'ShapeNode roundrectangle': 'Macromolecule', 'GenericNode com.yworks.flowchart.terminator': 'SimpleChemical',
            'ShapeNode ellipse': 'UnspecifiedEntity', 'ShapeNode rectangle': 'Phenotype', 'ShapeNode hexagon': 'Phenotype'}
 
@@ -111,6 +113,8 @@ def read(path):
         # a compartment's name: the first label with text
         l = next((l for l in labs if (l.text or '').strip()), None)
         border = gn.find('y:BorderStyle', NS)
+        if kind == 'Process' and l is not None:
+            kind = PROCESS_LABEL.get(l.text.strip(), kind)
         outline = kind if kind in OUTLINE else None
         if outline:
             kind = 'Operator' if (l is not None and l.text.strip() in ('AND', 'OR', 'NOT') and 'ellipse' in outline) else OUTLINE[outline]
@@ -194,7 +198,7 @@ def write(diagram):
     def node(parent, i):
         d = N[i]
         group = bool(kids.get(i)) or d.kind == 'Compartment'
-        name = 'ComplexGroup' if group and d.kind == 'Complex' else d.kind
+        name = 'ComplexGroup' if group and d.kind == 'Complex' else 'Process' if d.kind in PROCESS_LABEL.values() else d.kind
         if name not in tpl:  # a glyph none of our yEd files has: no template to copy
             missing.setdefault(d.kind, []).append(i); return
         n = copy.deepcopy(tpl[name])
@@ -212,7 +216,8 @@ def write(diagram):
         else: del fill.attrib['color']; fill.set('hasColor', 'false')  # no fill (aspirin's drugs)
         if d.dashed: gn.find('y:BorderStyle', NS).set('type', 'dashed')
         l = gn.find('y:NodeLabel', NS)
-        _label(l, next((x for x in d.labels if x), ''), w, h)  # the name; a second label is a unit (N:4)
+        sign = {v: k for k, v in PROCESS_LABEL.items()}.get(d.kind)
+        _label(l, sign or next((x for x in d.labels if x), ''), w, h)  # the name; a second label is a unit (N:4)
         if d.kind == 'Compartment' and d.label_at:
             l.set('x', repr(float(d.label_at[0]))); l.set('y', repr(float(d.label_at[1])))
         if d.count > 1:  # yEd draws a multimer as two shapes; N:x says how many
