@@ -17,6 +17,7 @@ contributors:
   - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F025-nnos.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F025-nnos.png"}
   - {label: "SVG", url: "/atlas-downloads/F025-nnos.svg"}
   - {label: "CellDesigner", url: "/atlas-downloads/F025-nnos.xml"}
 ---
