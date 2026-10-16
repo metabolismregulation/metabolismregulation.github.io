@@ -57,6 +57,10 @@ Map pages (drafts too) are official pages of the website, not working notes (use
 2026-10-15). Write only what a reader of the map needs: no curation details such as list
 versions ("not in the old version"), where a Reactome event sits in a pathway hierarchy,
 candidates, map versions or what was left out. Those stay in the workbench README.
+The Description is one short paragraph on the biology only (user, 2026-10-16, repeated): no
+remarks on how the map draws it (steps drawn as one process, complexes as catalysts, "as
+Reactome does", state variables, site numbering schemes). Write as for a reader of a review,
+not as a note in the chat.
 
 ## Contributors
 

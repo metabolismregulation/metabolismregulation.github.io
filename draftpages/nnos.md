@@ -22,7 +22,7 @@ This map was chosen from the <a href="/reactome-recon-proteins/">Reactome-Recon 
 
 ## Description
 
-Neuronal nitric oxide synthase (nNOS, NOS1) makes nitric oxide and citrulline from arginine, NADPH and O2; the map draws the two steps of the reaction, through N-hydroxyarginine, as one process. nNOS is active only with Ca2+-bound calmodulin, so its nitric oxide output follows the Ca2+ signal of the cell. CaMKII phosphorylates nNOS and lowers both its activity and its calmodulin binding, a feedback that limits nitric oxide production in neurons; protein phosphatases 1 and 2A remove the phosphate.
+Neuronal nitric oxide synthase (nNOS, NOS1) makes nitric oxide and citrulline from arginine, NADPH and O2, in two steps through N-hydroxyarginine. nNOS is active only with Ca2+-bound calmodulin, so its nitric oxide output follows the Ca2+ signal of the cell. CaMKII phosphorylates nNOS and lowers both its activity and its calmodulin binding, a feedback that limits nitric oxide production in neurons; protein phosphatases 1 and 2A remove the phosphate.
 
 The plasma membrane Ca2+ pump PMCA4b (ATP2B4) binds the PDZ domain of nNOS and inhibits it. The inhibition needs both the binding and the pumping: a pump that cannot bind nNOS and a bound pump that cannot transport Ca2+ both fail to inhibit it. The map therefore shows the ATP2B4:nNOS complex exporting Ca2+; the proposed mechanism is a low Ca2+ concentration next to nNOS, a local pool that SBGN cannot draw apart from the cytosol. In the heart the complex also holds nNOS at the cell membrane and tunes the contractile response to β-adrenergic stimulation.
 
