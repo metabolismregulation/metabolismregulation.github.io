@@ -76,7 +76,7 @@ sitemap: false
   .m2-on .m2-draft.m2-lists { color: #fff; background: none; border-color: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* a map item stays on one line: a name too long to fit beside its tags is shortened to end
-     in two dots (fitNames; the full name is in the tooltip); the tags follow at their usual gap */
+     in three dots (fitNames; the full name is in the tooltip); the tags follow at their usual gap */
   .m2-item.m2-map { display: flex; align-items: flex-start; }
   .m2-map .m2-name { flex: 0 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; }
   .m2-map .m2-draft { flex: none; }
@@ -636,7 +636,7 @@ sitemap: false
     if (current && current.id === e.m) { focusNode(); buildList(document.getElementById('m2-search').value); }
     else go(e.m);
   }
-  // a name that does not fit beside its tags: the longest start of it that fits with two dots
+  // a name that does not fit beside its tags: the longest start of it that fits with an ellipsis
   function fitNames() {
     document.querySelectorAll('#m2-list .m2-name').forEach(function (n) {
       var full = n.getAttribute('data-full') || n.textContent;
@@ -646,10 +646,10 @@ sitemap: false
       var lo = 0, hi = full.length;
       while (lo < hi) {
         var k = Math.ceil((lo + hi) / 2);
-        n.textContent = full.slice(0, k).trimEnd() + '..';
+        n.textContent = full.slice(0, k).trimEnd() + '…';
         if (n.scrollWidth <= n.clientWidth) lo = k; else hi = k - 1;
       }
-      n.textContent = full.slice(0, lo).trimEnd() + '..';
+      n.textContent = full.slice(0, lo).trimEnd() + '…';
     });
   }
   window.addEventListener('resize', fitNames);
