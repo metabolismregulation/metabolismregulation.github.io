@@ -30,7 +30,7 @@ The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-
 
 ## Description 
 
-The urea cycle converts ammonia into urea in the liver. Its rate-limiting step, the synthesis of carbamoyl phosphate by carbamoyl phosphate synthetase 1 (CPS1) in mitochondria, needs N-acetylglutamate, made from acetyl-CoA and glutamate by N-acetylglutamate synthase (NAGS); carbamoyl phosphate then enters the cycle through ornithine transcarbamylase. Succinyl, glutaryl and acetyl groups on CPS1 lysines lower its activity; the mitochondrial sirtuin SIRT5 removes them and activates the enzyme, and mice lacking SIRT5 have higher blood ammonia.
+The urea cycle converts ammonia into urea in the liver. Its rate-limiting step, the synthesis of carbamoyl phosphate by carbamoyl phosphate synthetase 1 (CPS1) in mitochondria, needs N-acetylglutamate, made from acetyl-CoA and glutamate by N-acetylglutamate synthase (NAGS). Carbamoyl phosphate then enters the cycle through ornithine transcarbamylase. Succinyl, glutaryl and acetyl groups on CPS1 lysines lower its activity. The mitochondrial sirtuin SIRT5 removes them and activates the enzyme, and mice lacking SIRT5 have higher blood ammonia.
 
 ## References
 

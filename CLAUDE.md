@@ -66,6 +66,8 @@ Reactome does", state variables, site numbering schemes, mentions of or comparis
 UniProt). Phosphorylation sites are named only where the map distinguishes states by
 them (e.g. ALOX5 Ser272 and Ser524). Write as for a reader of a review,
 not as a note in the chat.
+No semicolons in page text (user, 2026-10-16): they read as AI writing. Start a new
+sentence instead.
 References are one alphabetical list: database entries (Reactome, KEGG, MetaCore) sit in
 it by their first word like the papers, not at the end (user, 2026-10-16).
 

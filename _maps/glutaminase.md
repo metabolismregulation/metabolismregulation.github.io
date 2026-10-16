@@ -29,7 +29,7 @@ downloads:
 
 ## Description
 
-Glutaminase C (GAC), the GLS splice isoform in mitochondria, hydrolyses glutamine to glutamate and ammonia, the first step of glutaminolysis. In cancer cells GAC is activated by phosphorylation at Ser314 by protein kinase C epsilon (PRKCE), which is primed by PDPK1 at Thr566. Expression of PRKCE depends on NF-κB: oncogenic Dbl (MCF2) activates the Rho GTPases RhoA and Cdc42, which induce phosphorylation of the inhibitor NFKBIA; SCF-βTrCP ubiquitinates it, the proteasome degrades it, and the released NFKB1:RELA dimer enters the nucleus, where RELA binds the PRKCE promoter. In mitochondria FAIM binds GAC and promotes its phosphorylation by PRKCE.
+Glutaminase C (GAC), the GLS splice isoform in mitochondria, hydrolyses glutamine to glutamate and ammonia, the first step of glutaminolysis. In cancer cells GAC is activated by phosphorylation at Ser314 by protein kinase C epsilon (PRKCE), which is primed by PDPK1 at Thr566. Expression of PRKCE depends on NF-κB: oncogenic Dbl (MCF2) activates the Rho GTPases RhoA and Cdc42, which induce phosphorylation of the inhibitor NFKBIA. SCF-βTrCP ubiquitinates it, the proteasome degrades it, and the released NFKB1:RELA dimer enters the nucleus, where RELA binds the PRKCE promoter. In mitochondria FAIM binds GAC and promotes its phosphorylation by PRKCE.
 
 ## References
 

@@ -32,7 +32,7 @@ The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-
 
 ## Description
 
-Neuronal nitric oxide synthase (nNOS, NOS1) makes nitric oxide and citrulline from arginine, NADPH and O2 and is active only with Ca2+-bound calmodulin, so its output follows the Ca2+ signal of the cell. CaMKII phosphorylates nNOS and lowers its activity, a feedback that limits nitric oxide production in neurons; protein phosphatases 1 and 2A remove the phosphate. The plasma membrane Ca2+ pump PMCA4b (ATP2B4) binds nNOS and inhibits it; the inhibition needs both the binding and the Ca2+ export, which lowers Ca2+ next to nNOS.
+Neuronal nitric oxide synthase (nNOS, NOS1) makes nitric oxide and citrulline from arginine, NADPH and O2 and is active only with Ca2+-bound calmodulin, so its output follows the Ca2+ signal of the cell. CaMKII phosphorylates nNOS and lowers its activity, a feedback that limits nitric oxide production in neurons. Protein phosphatases 1 and 2A remove the phosphate. The plasma membrane Ca2+ pump PMCA4b (ATP2B4) binds nNOS and inhibits it. The inhibition needs both the binding and the Ca2+ export, which lowers Ca2+ next to nNOS.
 
 ## References
 
