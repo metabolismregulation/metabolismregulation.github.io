@@ -60,7 +60,8 @@ candidates, map versions or what was left out. Those stay in the workbench READM
 The Description is one short paragraph on the biology only (user, 2026-10-16, repeated): no
 remarks on how the map draws it (steps drawn as one process, complexes as catalysts, "as
 Reactome does", state variables, site numbering schemes, mentions of or comparisons with
-UniProt). Write as for a reader of a review,
+UniProt). Phosphorylation sites are named only where the map distinguishes states by
+them (e.g. ALOX5 Ser272 and Ser524). Write as for a reader of a review,
 not as a note in the chat.
 
 ## Contributors
