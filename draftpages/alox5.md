@@ -10,7 +10,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/atlas-downloads/F024-alox5.graphml" download>GraphML</a> &nbsp;
 <a href="/atlas-downloads/F024-alox5.svg" download>SVG</a> &nbsp;
-<p align="middle"><a href="/alox5/"><img id="image" src="/atlas-downloads/F024-alox5.svg"/></a></p>
+<p align="middle"><a href="/alox5/"><img id="image" src="/atlas-downloads/F024-alox5.svg" width="777"/></a></p>
 
 ## Contributors
 

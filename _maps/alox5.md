@@ -8,8 +8,8 @@ order: 9
 kind: "map"
 draft: true
 image: "/atlas-downloads/F024-alox5.svg"
-width: 1662
-height: 626
+width: 1159
+height: 764
 scale: 1
 annotation: "/atlas-data/F024-alox5.json"
 contributors:
