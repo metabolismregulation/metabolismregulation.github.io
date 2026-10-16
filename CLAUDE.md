@@ -50,6 +50,12 @@ A map whose connection was chosen from the Reactome-Recon lists says so visibly 
 Reactome processes (linked). Such a map gets a "lists" tag in the Atlas list (grey edge and
 text, white fill; user, 2026-10-16), set by `make_maps.py` from that section.
 
+Atlas list tags (lists, draft, new; user, 2026-10-16): lists comes first (a fixed fact),
+then draft or new. Letters are centred by the rule in the comment above `.m2-draft` in
+`pages/atlas.html`: trim to the letters vertically, equal padding left and right, never
+padding tuned to one font's side bearings. Check any tag change with
+`tools/tag_check.js` in maps-workbench (gaps around the letters, in two fonts).
+
 A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
 when the map is finished.

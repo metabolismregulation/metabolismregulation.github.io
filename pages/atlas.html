@@ -52,13 +52,15 @@ sitemap: false
   .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
   .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
-  /* the word is trimmed to its letters (cap height to baseline), so centring
-     it centres the letters in any font; a line box keeps empty descender room
-     and puts the word high or low depending on the font. The tag sits 1px
-     below the top of the item's 18px line, so it is centred in the item. The letters' side
-     bearings put the word 0.5px right of centre (measured on draft and new): the padding is
-     0.5px less on the left */
-  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5.5px 0 4.5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
+  /* Tags (draft, new, lists, drug). Vertical: the word is trimmed to its letters (cap height,
+     or x-height for x-height-only words such as new, to baseline), so centring it centres the
+     letters in any font; a line box keeps empty descender room and puts the word high or low.
+     The tag sits 1px below the top of the item's 18px line, so it is centred in the item.
+     Horizontal: equal padding on both sides. Do not tune the padding for side bearings: they
+     differ between fonts (the list uses the system font of each computer), and a tuning for
+     one font shifts the word in another (2026-10-16, after four rounds). Check a change with
+     tools/tag_check.js in maps-workbench, which measures the gaps around the letters. */
+  .m2-draft { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 16px; padding: 0 5px; margin: 1px 0 0 6px; vertical-align: top; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
   .m2-draft span { display: block; text-box: trim-both cap alphabetic; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
   /* the word drug on the same tag in a lighter grey (white text), after the name of a drug map */
@@ -70,7 +72,7 @@ sitemap: false
   .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
   /* the word lists on an outlined tag (grey edge and text, white fill) after the name of a map
      whose connection came from the Reactome-Recon lists (user, 2026-10-16) */
-  .m2-draft.m2-lists { color: #888; background: #fff; border: 1px solid #888; padding: 0 4.5px 0 3.5px; }
+  .m2-draft.m2-lists { color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }
   .m2-on .m2-draft.m2-lists { color: #fff; background: none; border-color: #fff; }
   .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
   /* molecules found on the maps, after the maps found: each with the maps it
@@ -656,10 +658,13 @@ sitemap: false
       var b = el('button', 'm2-item m2-map' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''), label(m));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
-      if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); b.title = 'Drug action mechanism map'; }
-      if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); b.title = 'Draft map'; }
-      if (m.new) { b.insertAdjacentHTML('beforeend', NEW_ICON); b.title = 'New map'; }
-      if (m.lists) { b.insertAdjacentHTML('beforeend', LISTS_TAG); b.title = (b.title ? b.title + '; ' : '') + 'Chosen from the Reactome-Recon lists'; }
+      var tips = [];
+      if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); tips.push('Drug action mechanism map'); }
+      // lists first: a fixed fact about the map; draft and new change over time
+      if (m.lists) { b.insertAdjacentHTML('beforeend', LISTS_TAG); tips.push('Chosen from the Reactome-Recon lists'); }
+      if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); tips.push('Draft map'); }
+      if (m.new) { b.insertAdjacentHTML('beforeend', NEW_ICON); tips.push('New map'); }
+      if (tips.length) b.title = tips.join(', ');
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
     });
