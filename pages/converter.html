@@ -33,12 +33,13 @@ noindex: true
     <span id="cv-drop-text">Loading the converter…</span>
   </div>
   <div>
-    <p>Drop yEd GraphML maps drawn with the SBGN palette to get CellDesigner files.</p>
+    <p>Drop yEd GraphML maps drawn with the SBGN palette to get CellDesigner files, or
+    CellDesigner files to get GraphML.</p>
     <p>The conversion runs in your browser, and the files stay on your computer. The annotation
-    (HGNC, UniProt, ChEBI) comes from the map's node properties.</p>
+    (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
   </div>
 </div>
-<input id="cv-file" type="file" accept=".graphml" multiple hidden>
+<input id="cv-file" type="file" accept=".graphml,.xml" multiple hidden>
 <div id="cv-status"></div>
 <div id="cv-out"></div>
 
@@ -47,8 +48,9 @@ noindex: true
 (() => {
   const BASE = '{{ "/converter/mapconv/" | relative_url }}';
   const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten'];
-  // the converter's own code (mapconv), run with the annotation from the GraphML;
-  // a message the converter prints (a warning, the summary) is kept for the page
+  // the converter's own code (mapconv): a GraphML map gives two CellDesigner files (annotation
+  // from the GraphML), a CellDesigner file gives GraphML; a message the converter prints (a
+  // warning, the summary) is kept for the page
   const DRIVER = `
 import contextlib, io, os, sys
 sys.path.insert(0, '/home/pyodide')
@@ -60,12 +62,15 @@ def convert(name, data):
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
     out = {}
-    for layout in ('direct', 'advanced'):
+    for layout in (('direct', 'advanced') if name.lower().endswith('.graphml') else ('graphml',)):
         log, xml = io.StringIO(), None
         try:
             with contextlib.redirect_stdout(log):
-                m = graphml.read(p)
-                xml = celldesigner.write(m, annotation.from_graphml(m), layout)
+                if layout == 'graphml':
+                    xml = graphml.write(celldesigner.read(p))
+                else:
+                    m = graphml.read(p)
+                    xml = celldesigner.write(m, annotation.from_graphml(m), layout)
         except BaseException as e:
             log.write('Not converted: %s\\n' % e)
         out[layout] = {'xml': xml, 'log': log.getvalue()}
@@ -84,6 +89,7 @@ def convert(name, data):
       const r = await fetch(BASE + m + '.py');
       p.FS.writeFile('/home/pyodide/mapconv/' + m + '.py', await r.text());
     }
+    p.FS.writeFile('/home/pyodide/mapconv/yed.graphml', await (await fetch(BASE + 'yed.graphml')).text());
     p.runPython(DRIVER);
     return p;
   }
@@ -103,9 +109,9 @@ def convert(name, data):
     if (!py) return;
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
-      if (!/\.graphml$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML file'; continue; }
+      if (!/\.(graphml|xml)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML or CellDesigner file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
-      const base = f.name.replace(/\.graphml$/i, '');
+      const base = f.name.replace(/\.(graphml|xml)$/i, '');
       const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()))
                   .toJs({ dict_converter: Object.fromEntries });
       const box = document.createElement('div'); box.className = 'cv-map';
@@ -113,9 +119,10 @@ def convert(name, data):
       box.querySelector('.cv-name').textContent = base;
       // the converter's messages, each once and without its summary line ("46 species, ...")
       const notes = new Set(), errors = new Set();
-      for (const layout of ['direct', 'advanced']) {
+      for (const layout of Object.keys(r)) {
         const { xml, log } = r[layout];
-        if (xml) box.append(button(xml, base + '-' + layout + '.xml', 'CellDesigner (' + layout + ')'));
+        if (xml) box.append(layout === 'graphml' ? button(xml, base + '.graphml', 'GraphML')
+                                                  : button(xml, base + '-' + layout + '.xml', 'CellDesigner (' + layout + ')'));
         for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
       }
       for (const [set, cls] of [[errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
@@ -137,7 +144,7 @@ def convert(name, data):
 
   load().then(p => {
     py = p; drop.classList.remove('cv-wait');
-    dropText.textContent = 'Drop GraphML files here, or click to choose';
+    dropText.textContent = 'Drop map files here, or click to choose';
   }).catch(e => { dropText.textContent = 'The converter could not be loaded: ' + e.message; });
 })();
 </script>

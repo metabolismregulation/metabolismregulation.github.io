@@ -103,8 +103,9 @@ Fit shows the map alone, with the annotation over its right side.
 
 ## Converter page
 
-`/converter/` (`pages/converter.html`, user 2026-10-16): drop yEd GraphML maps, get two
-CellDesigner files per map, direct and advanced. Hidden like the Atlas: not in the navigation,
+`/converter/` (`pages/converter.html`, user 2026-10-16): drop map files ("Drop map files here,
+or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, direct and
+advanced; a CellDesigner file (.xml) gives GraphML (the page loads `yed.graphml`, the templates). Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
