@@ -18,6 +18,7 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F022-bcaa.png"}
   - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F022-bcaa.xml"}
 ---
 ## Contributors
 

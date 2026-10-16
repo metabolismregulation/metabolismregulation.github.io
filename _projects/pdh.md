@@ -10,6 +10,7 @@ project: true
 Downloads: &nbsp; 
 <a href="/downloads/F023-pdh.graphml" download>GraphML</a> &nbsp;
 <a href="/downloads/F023-pdh.svg" download>SVG</a> &nbsp;
+<a href="/atlas-downloads/F023-pdh.xml" download>CellDesigner</a> &nbsp;
 <p align="middle"><a href="/pdh/"><img id="image" src="/downloads/F023-pdh.svg" width="600"/></a></p>
 
 ## Contributors

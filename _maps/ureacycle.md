@@ -17,6 +17,7 @@ contributors:
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F021-ureacycle.graphml"}
   - {label: "SVG", url: "/atlas-downloads/F021-ureacycle.svg"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F021-ureacycle.xml"}
 ---
 ## Contributors
 

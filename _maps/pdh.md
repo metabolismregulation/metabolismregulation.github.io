@@ -18,6 +18,7 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F023-pdh.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F023-pdh.png"}
   - {label: "SVG", url: "/atlas-downloads/F023-pdh.svg"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F023-pdh.xml"}
 ---
 ## Contributors
 

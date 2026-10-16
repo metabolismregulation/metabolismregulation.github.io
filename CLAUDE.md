@@ -63,6 +63,8 @@ Reactome does", state variables, site numbering schemes, mentions of or comparis
 UniProt). Phosphorylation sites are named only where the map distinguishes states by
 them (e.g. ALOX5 Ser272 and Ser524). Write as for a reader of a review,
 not as a note in the chat.
+References are one alphabetical list: database entries (Reactome, KEGG, MetaCore) sit in
+it by their first word like the papers, not at the end (user, 2026-10-16).
 
 ## Contributors
 
@@ -105,6 +107,9 @@ There are two websites in this repository (user, 2026-10-13):
   SBML, SBGN-ML. It is checked on the Atlas.
 
 Files move from `atlas-downloads/` to `downloads/` only when the user says so.
+A CellDesigner file made for the user's check is linked on the map page as
+`/atlas-downloads/<file>.xml` (user, 2026-10-16), so it can be downloaded there; the
+user's checked version replaces it when they send it.
 Run `scripts/make_maps.py` after changing either folder or a map page. The GitHub
 Action `.github/workflows/atlas-data.yml` also runs it on every push to master that
 touches them (so a file uploaded by hand needs no further step).
