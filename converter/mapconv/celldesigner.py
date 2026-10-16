@@ -207,7 +207,8 @@ def write(diagram, ann, layout='direct'):
         c = cen(p)
         if reversible:
             at = lambda e: (e.points[0][0] - x0, e.points[0][1] - y0) if e.points else cen(e.target)
-            ax = 1 if max(abs(at(e)[1] - c[1]) for e in outs) >= max(abs(at(e)[0] - c[0]) for e in outs) else 0
+            # the axis the arcs spread along most, all together (a straight side arc must not decide it)
+            ax = 1 if sum(abs(at(e)[1] - c[1]) for e in outs) >= sum(abs(at(e)[0] - c[0]) for e in outs) else 0
             ins = [replace(e, source=e.target, target=p, points=e.points[::-1]) for e in outs if at(e)[ax] < c[ax]]
             outs = [e for e in outs if at(e)[ax] >= c[ax]]
         if not ins or not outs:
@@ -902,4 +903,18 @@ def read(path):
     for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
         k = sum(1 for _ in xs(ext, tag))
         if k: print('%d %s left out' % (k, tag.split(':')[-1] + 's'))
+    # an edit point on the straight line between its neighbours is no bend in yEd (the advanced
+    # layout's two points beside the square): left out
+    for e in arcs:
+        run = [cen(e.source)] + e.points + [cen(e.target)]
+        k = 1
+        while k < len(run) - 1:
+            (ax_, ay), (bx, by), (qx, qy) = run[k - 1], run[k], run[k + 1]
+            L = math.hypot(qx - ax_, qy - ay) or 1
+            if abs((qx - ax_) * (by - ay) - (qy - ay) * (bx - ax_)) / L < 1 and \
+                    min(ax_, qx) - 1 <= bx <= max(ax_, qx) + 1 and min(ay, qy) - 1 <= by <= max(ay, qy) + 1:
+                del run[k]
+            else:
+                k += 1
+        e.points = run[1:-1]
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
