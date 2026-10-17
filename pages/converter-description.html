@@ -48,8 +48,14 @@ button "GraphML (marked)" gives the map with them drawn red, the reason shown on
 
 <h2 id="sbgnml">From SBGN-ML</h2>
 <ul>
-  <li><b>GraphML</b> and the two <b>CellDesigner</b> files, each made directly from the SBGN-ML.
-  Glyphs the converter does not know are left out and listed under the map.</li>
+  <li><b>GraphML</b> (<code>&lt;map&gt;.graphml</code>).</li>
+  <li><b>CellDesigner</b> (<code>&lt;map&gt;-straight.xml</code>): each reaction a straight line between the
+  centres of its main reactant and product, the process square midway.</li>
+  <li><b>CellDesigner (advanced)</b> (<code>&lt;map&gt;-advanced.xml</code>): process squares, bends and
+  modifier arcs where the SBGN-ML has them.</li>
+  <li>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</li>
+  <li>Glyph and arc classes the converter does not read are left out of all three files and listed
+  under the map with their class and ids.</li>
   <li>Files in SBGN-ML 0.3 and SBGN-ML 0.2 are accepted for conversion.</li>
   <li>A file saved from <a href="https://newteditor.org/" target="_blank" rel="noopener">Newt</a> in the default .nwt format is SBGN-ML with Newt's own settings
   added, and it is converted the same way as SBGN-ML files.</li>
