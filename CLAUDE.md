@@ -153,7 +153,9 @@ directly, not CellDesigner through the GraphML), as plain text so it can be copi
 any format converts into any other, a list of the formats replaces the lines. The page keeps only minimal
 text (the routes, the browser note with a link "More about the converter", the tick box). Links on both pages in the
 Atlas's link blue #1c47a9, the same on hover (user, 2026-10-17); the details
-are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, with
+are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, in one pattern
+(user, 2026-10-17): a section per input format with Input (format, version, extensions), Check, Output (one line
+per button: label, file name: format and version. Content. When given) and Not converted, exact terms only, with
 a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
 is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)
 with a head at each end, one way green (#3a9a4a), the GraphML correction a green loop (user, 2026-10-17). Newt files (.nwt) are accepted: not mentioned on the Converter

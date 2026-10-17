@@ -29,42 +29,72 @@ goes with the map. In GraphML it is read from the node properties, or from the n
 
 <svg id="cv-chart" viewBox="0 0 440 340" role="img" aria-label="What converts to what"></svg>
 
+<p>Each section below has the same parts. <b>Input</b>: the format, its version and the file
+extensions accepted. <b>Check</b>: what is checked before conversion, if anything. <b>Output</b>: one
+line per download button, as "button label, file name: format and version. Content. When given, if
+not always." <b>Not converted</b>: what is left out and where it is listed. <code>&lt;map&gt;</code> is
+the input file name without its extension.</p>
+
 <h2 id="graphml">From GraphML</h2>
-<p>The map is first checked against the rules of the SBGN Process Description language. Elements that break them are left out of the
-converted files and listed under the map, one per line with the element's id, label and reason. The red
-button "GraphML (marked)" gives the map with them drawn red, the reason shown on hover in yEd.</p>
+<p><b>Input</b>: yEd GraphML (<code>.graphml</code>), an SBGN Process Description map.</p>
+<p><b>Check</b>: the SBGN Process Description rules. Elements that break them are left out of the
+converted files.</p>
+<p><b>Output</b>:</p>
 <ul>
-  <li><b>CellDesigner</b>: two files, with straight-line edge routing (yEd's name) and with advanced routing.</li>
-  <li><b>GraphML (corrected)</b>: a map drawn like SBGN but with other shapes comes back in the SBGN palette.
-  The shapes are recognised by their outline. The file is given only when the map needs it.</li>
-  <li><b>SBGN-ML</b>, version 0.3.</li>
+  <li><b>CellDesigner</b>, <code>&lt;map&gt;-straight.xml</code>: CellDesigner 4.0 (SBML Level 2 Version 4
+  with the CellDesigner extension). Each reaction a straight line between the centres of its main
+  reactant and product, the process square midway.</li>
+  <li><b>CellDesigner (advanced)</b>, <code>&lt;map&gt;-advanced.xml</code>: CellDesigner 4.0. Process
+  squares, bends and modifier arcs where the GraphML has them.</li>
+  <li><b>GraphML (corrected)</b>, <code>&lt;map&gt;-corrected.graphml</code>: yEd GraphML. The map redrawn
+  with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with
+  other shapes.</li>
+  <li><b>SBGN-ML</b>, <code>&lt;map&gt;.sbgn</code>: SBGN-ML 0.3, Process Description. Colours in the SBML
+  render extension, annotation as RDF in each glyph.</li>
+  <li><b>GraphML (marked)</b>, red button, <code>&lt;map&gt;-marked.graphml</code>: yEd GraphML. The input
+  map with the elements that break the rules drawn red, the reason shown on hover in yEd. Given only
+  when the check finds problems.</li>
 </ul>
+<p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
+with the element's id, label (an arc by its ends) and reason.</p>
 
 <h2 id="celldesigner">From CellDesigner</h2>
+<p><b>Input</b>: CellDesigner 4.x (<code>.xml</code>), SBML Level 2 Version 4 with the CellDesigner
+extension.</p>
+<p><b>Check</b>: none.</p>
+<p><b>Output</b>:</p>
 <ul>
-  <li><b>GraphML</b>: the map drawn in our yEd conventions.</li>
-  <li><b>GraphML (advanced)</b>: the CellDesigner drawing kept.</li>
+  <li><b>GraphML</b>, <code>&lt;map&gt;-straight.graphml</code>: yEd GraphML in our conventions. Arcs at
+  node centres, metabolites at the yEd size.</li>
+  <li><b>GraphML (advanced)</b>, <code>&lt;map&gt;-advanced.graphml</code>: yEd GraphML with the CellDesigner
+  geometry. CellDesigner's node sizes, arcs at its anchor points, modifier arcs ending beside the
+  process square.</li>
 </ul>
+<p><b>Not converted</b>: elements with no GraphML equivalent, listed under the map.</p>
 
 <h2 id="sbgnml">From SBGN-ML</h2>
+<p><b>Input</b>: SBGN-ML 0.3 or SBGN-ML 0.2 (<code>.sbgn</code>), Process Description. Also a
+<a href="https://newteditor.org/" target="_blank" rel="noopener">Newt</a> file (<code>.nwt</code>):
+SBGN-ML with Newt's own settings added, converted the same way.</p>
+<p><b>Check</b>: none.</p>
+<p><b>Output</b>:</p>
 <ul>
-  <li><b>GraphML</b> (<code>&lt;map&gt;.graphml</code>).</li>
-  <li><b>CellDesigner</b> (<code>&lt;map&gt;-straight.xml</code>): each reaction a straight line between the
-  centres of its main reactant and product, the process square midway.</li>
-  <li><b>CellDesigner (advanced)</b> (<code>&lt;map&gt;-advanced.xml</code>): process squares, bends and
-  modifier arcs where the SBGN-ML has them.</li>
-  <li>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</li>
-  <li>Glyph and arc classes the converter does not read are left out of all three files and listed
-  under the map with their class and ids.</li>
-  <li>Files in SBGN-ML 0.3 and SBGN-ML 0.2 are accepted for conversion.</li>
-  <li>A file saved from <a href="https://newteditor.org/" target="_blank" rel="noopener">Newt</a> in the default .nwt format is SBGN-ML with Newt's own settings
-  added, and it is converted the same way as SBGN-ML files.</li>
+  <li><b>GraphML</b>, <code>&lt;map&gt;.graphml</code>: yEd GraphML.</li>
+  <li><b>CellDesigner</b>, <code>&lt;map&gt;-straight.xml</code>: CellDesigner 4.0. Each reaction a straight
+  line between the centres of its main reactant and product, the process square midway.</li>
+  <li><b>CellDesigner (advanced)</b>, <code>&lt;map&gt;-advanced.xml</code>: CellDesigner 4.0. Process
+  squares, bends and modifier arcs where the SBGN-ML has them.</li>
 </ul>
+<p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</p>
+<p><b>Not converted</b>: glyph and arc classes the converter does not read, and clone markers, left out
+of all three files and listed under the map with their class and ids. Perturbing agents are left out of
+the GraphML (no yEd template yet) and become phenotypes in CellDesigner, which has no perturbing agent.</p>
 
 <h2 id="sizes">Standard node sizes</h2>
-<p>With this box ticked, the GraphML made from CellDesigner or SBGN-ML gets the standard sizes: proteins
-80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums sized to the name. A metabolite
-keeps its shape. The map is rescaled if its objects are much larger or smaller.</p>
+<p><b>Applies to</b>: the GraphML made from CellDesigner or SBGN-ML, when the box is ticked.</p>
+<p><b>Sizes</b>: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums
+sized to the name. A metabolite keeps its shape. The map is rescaled if its objects are much larger or
+smaller.</p>
 
 <script>
 (() => {
