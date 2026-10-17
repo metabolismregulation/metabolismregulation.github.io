@@ -97,14 +97,16 @@ ANN_FIELDS = ['PTM', 'Full name', 'Alternative names', 'Synonyms', 'Definition',
 MEMBERS_FIELD = 'Member annotation'
 # PTM: the node's post-translational modifications, one per line as on a state variable
 # (P@S505); the map shows only the symbol (user, 2026-10-17). Other states (active, bound
-# ions) are not described. The panel lists one line per site: "Phosphorylated at Ser505".
+# ions) are not described. The panel lists one line per site, by position: "Phosphorylated at Ser505".
 MODIFIED = {'P': 'Phosphorylated', 'Ac': 'Acetylated', 'Me': 'Methylated', 'Ub': 'Ubiquitinated',
             'Su': 'Succinylated', 'Glut': 'Glutarylated', 'Pa': 'Palmitoylated', 'My': 'Myristoylated'}
 RESIDUE = {'S': 'Ser', 'T': 'Thr', 'Y': 'Tyr', 'K': 'Lys', 'C': 'Cys', 'G': 'Gly', 'R': 'Arg', 'H': 'His'}
 
 
 def ptm_text(ptm):
-    sites = (s.strip().partition('@') for s in ptm.split('\n'))
+    # by position in the protein (Gly2, Cys15, Cys26), not in the stored order around the node
+    sites = sorted((s.strip().partition('@') for s in ptm.split('\n')),
+                   key=lambda x: int(re.sub(r'\D', '', x[2]) or 1e9))
     return '\n'.join(MODIFIED.get(sym, sym) + (' at ' + RESIDUE.get(site[:1], site[:1]) + site[1:] if site else '')
                      for sym, _, site in sites)
 
@@ -135,7 +137,7 @@ def annotation(base):
             continue
         members = json.loads(data[MEMBERS_FIELD]) if mkey and data.get(MEMBERS_FIELD) else None
         for m in members or []:
-            m['props'] = [kv for kv in m['props'] if kv[0] in ANN_FIELDS]
+            m['props'] = [[k, ptm_text(v) if k == 'PTM' else v] for k, v in m['props'] if k in ANN_FIELDS]
         gn = n.find(GN + 'data/' + YN + 'GenericNode')
         if gn is None:  # a group node: its open realizer
             gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')

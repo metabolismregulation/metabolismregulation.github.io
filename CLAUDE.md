@@ -116,7 +116,7 @@ The panel a click on the map opens (user, 2026-10-17). Title in plain weight, no
 "Protein: cPLA2", "Protein family: ERK1/2". Under it one line: the HGNC symbol in bold and the
 UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2" (the symbol left out where the title
 is the symbol). Then the post-translational modifications, one line per site, no heading:
-"Phosphorylated at Ser505" (node property PTM, see Map drawing). Then Alternative names (or
+"Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing). Then Alternative names (or
 Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
 in the grey of the other labels, closed at first, opened by a square + (− when open) right after
 the word: variant 3 of the former test page /atlas/folds/ (in git history) with the square of
@@ -179,6 +179,8 @@ and unmodified sites are not listed. P@site on the diagram stays allowed where t
 it. In a protein family the sites belong to the members (ERK1 Thr202/Tyr204, ERK2
 Thr185/Tyr187), the family node keeps only the P circles. The workbench checks the sites against
 UniProt (`tools/ptm_check.py`), which is a check, not the authority.
+All Atlas maps with sites moved to PTM on 2026-10-17 (GraphML and SVG in `atlas-downloads/`;
+the official files in `downloads/` keep their sites on the circles).
 
 ## Map image size on the pages
 
