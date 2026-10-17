@@ -82,6 +82,13 @@ def convert(name, data, standard=False):
         except BaseException as e:
             log.write('Not converted: %s\\n' % e)
         out[layout] = {'xml': xml, 'log': log.getvalue(), 'back': back}
+    if not back:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
+        try:
+            fixed = graphml.corrected(graphml.read(p))
+        except BaseException:
+            fixed = None
+        if fixed:
+            out['corrected'] = {'xml': fixed, 'log': '', 'back': True}
     return out
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');

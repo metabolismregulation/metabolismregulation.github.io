@@ -166,6 +166,12 @@ def _label(l, text, w, h):
         l.set(k, repr(float(v)))
 
 
+def corrected(m):
+    # a map that looks like SBGN but is drawn with other shapes (read by their outline), redrawn
+    # with the SBGN palette (user, 2026-10-17: <map>-corrected.graphml); None for a map already in it
+    return write(m) if any(d.outline for d in m.nodes.values()) else None
+
+
 def write(diagram):
     t = etree.parse(os.path.join(os.path.dirname(__file__), 'yed.graphml')).getroot()
     tpl = {n.get('id'): n for n in t.iter(G + 'node')}
