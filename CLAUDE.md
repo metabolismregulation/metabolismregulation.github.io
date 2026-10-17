@@ -144,8 +144,8 @@ converted files, a red "GraphML (marked)" button (the red of the Atlas's image e
 map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
 line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
 page /converter/routes/): "GraphML → CellDesigner, straight-line and advanced routing", "GraphML → GraphML corrected to the SBGN
-palette", "GraphML → SBGN-ML", and back ("SBGN-ML, Newt → GraphML, CellDesigner"), as plain text, all of it in the light grey of the
-Standard node sizes note, the arrows drawn (an inline SVG, the font's → is too small) (user, 2026-10-17)
+palette", "GraphML → SBGN-ML", and back ("SBGN-ML, Newt → GraphML, CellDesigner"), as plain text with the font's → so it can be copied (user, 2026-10-17). All the text next to the drop area
+(routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private

@@ -29,12 +29,10 @@ noindex: true
   /* a map that breaks the rules: its marked copy red, as the Atlas's Images button for an image error */
   .cv-btn.cv-bad { color: #c62828; border-color: #c62828; }
   .cv-btn.cv-bad:hover { background: #c62828; border-color: #c62828; color: #fff; }
-  .cv-hint { font-size: 13px; color: #777; }
-  /* the routes, one line each, as plain text (user, 2026-10-17) */
+  .cv-top p.cv-hint, .cv-hint { font-size: 13px; line-height: 19px; color: #777; }
+  /* the routes, one line each, as plain text with the font's arrow, so it can be copied (user, 2026-10-17) */
   label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; } /* the box level with the small label */
-  /* the arrow drawn, not the font's → (too small in this font; user, 2026-10-17) */
-  .cv-arrow { width: 1.1em; height: 1.1em; vertical-align: -0.2em; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-  .cv-top p.cv-routes { margin-bottom: 12px; font-size: 13px; line-height: 19px; }
+  .cv-top p.cv-routes { margin-bottom: 12px; }
 </style>
 
 <div class="cv-top">
@@ -43,12 +41,12 @@ noindex: true
     <span id="cv-drop-text">Loading the converter…</span>
   </div>
   <div>
-    <p class="cv-routes cv-hint">GraphML <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> CellDesigner, straight-line and advanced routing<br>
-    GraphML <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML corrected to the SBGN palette<br>
-    GraphML <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> SBGN-ML<br>
-    CellDesigner <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML, straight-line and advanced routing<br>
-    SBGN-ML, Newt <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML, CellDesigner</p>
-    <p>The conversion runs in the browser, and the files never leave the computer. The annotation
+    <p class="cv-routes cv-hint">GraphML → CellDesigner, straight-line and advanced routing<br>
+    GraphML → GraphML corrected to the SBGN palette<br>
+    GraphML → SBGN-ML<br>
+    CellDesigner → GraphML, straight-line and advanced routing<br>
+    SBGN-ML, Newt → GraphML, CellDesigner</p>
+    <p class="cv-hint">The conversion runs in the browser, and the files never leave the computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner
     and SBGN-ML to GraphML: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums sized to the name, the map rescaled if its objects are much larger or smaller</label></p>
