@@ -28,7 +28,7 @@ noindex: true
   .cv-error { color: #b00; }
   .cv-hint { font-size: 13px; color: #777; }
   /* the routes, one line each, as plain text (user, 2026-10-17) */
-  .cv-top p.cv-routes { margin-bottom: 12px; }
+  .cv-top p.cv-routes { margin-bottom: 12px; font-size: 13px; line-height: 19px; }
 </style>
 
 <div class="cv-top">
@@ -37,9 +37,9 @@ noindex: true
     <span id="cv-drop-text">Loading the converter…</span>
   </div>
   <div>
-    <p class="cv-routes">GraphML → CellDesigner, <span class="cv-hint">straight-line and advanced routing</span><br>
-    GraphML → GraphML <span class="cv-hint">corrected to the SBGN palette</span><br>
-    CellDesigner → GraphML, <span class="cv-hint">straight-line and advanced routing</span></p>
+    <p class="cv-routes cv-hint">GraphML → CellDesigner, straight-line and advanced routing<br>
+    GraphML → GraphML corrected to the SBGN palette<br>
+    CellDesigner → GraphML, straight-line and advanced routing</p>
     <p>The conversion runs in your browser, and the files stay on your computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
     <p><label><input type="checkbox" id="cv-standard"> Standard node sizes</label><br><span class="cv-hint">CellDesigner

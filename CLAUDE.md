@@ -114,7 +114,7 @@ files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized t
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
 page /converter/routes/): "GraphML → CellDesigner, straight-line and advanced routing", "GraphML → GraphML corrected to the SBGN
-palette", and back, as plain text, the part after the formats in the light grey of the
+palette", and back, as plain text, all of it in the light grey of the
 Standard node sizes note (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,
