@@ -13,6 +13,7 @@ width: 892
 height: 698
 scale: 1
 annotation: "/atlas-data/F006-acly.json"
+image_error: ""
 contributors:
   - adrien-rougny
   - john-albanese

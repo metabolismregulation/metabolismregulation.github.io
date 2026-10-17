@@ -13,6 +13,7 @@ width: 831
 height: 737
 scale: 1
 annotation: "/atlas-data/F015-tag.json"
+image_error: ""
 contributors:
   - tatiana-serebriyskaya
   - valeriya-berzhitskaya

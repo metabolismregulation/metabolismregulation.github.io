@@ -13,6 +13,7 @@ width: 1450
 height: 1265
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids.json"
+image_error: ""
 contributors:
   - alexander-mazein
   - maria-del-carmen-heredia

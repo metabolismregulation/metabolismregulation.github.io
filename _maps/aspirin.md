@@ -13,6 +13,7 @@ width: 943
 height: 290
 scale: 1
 annotation: "/atlas-data/F100-aspirin.json"
+image_error: ""
 contributors:
   - alexander-mazein
   - maria-del-carmen-heredia

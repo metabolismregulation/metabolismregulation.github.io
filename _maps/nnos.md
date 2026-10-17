@@ -13,6 +13,7 @@ width: 881
 height: 756
 scale: 1
 annotation: "/atlas-data/F025-nnos.json"
+image_error: ""
 contributors:
   - alexander-mazein: [lih-cancer]
 downloads:

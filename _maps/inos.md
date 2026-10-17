@@ -13,6 +13,7 @@ width: 1590
 height: 1186
 scale: 1
 annotation: "/atlas-data/F007-inos.json"
+image_error: ""
 contributors:
   - alexander-mazein
   - maria-del-carmen-heredia

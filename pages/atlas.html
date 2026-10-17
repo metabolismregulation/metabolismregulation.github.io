@@ -110,6 +110,11 @@ sitemap: false
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
   /* a file: the download icon (tray and arrow) before its name, as on the Converter page */
   #m2-downloads .m2-dl svg { width: 14px; height: 14px; margin-right: 5px; vertical-align: -2px; }
+  /* images the current GraphML could not be drawn into (scripts/make_images.py): the Images
+     button in red, no download; a click shows the reason under the row, as hovering does */
+  #m2-downloads > a.m2-bad { color: #c62828; border-color: #c62828; }
+  #m2-downloads > a.m2-bad:hover { background: #c62828; border-color: #c62828; color: #fff; }
+  #m2-imgnote { flex-basis: 100%; margin: 6px 0 0; font-size: 13px; color: #c62828; }
   #m2-text h2 { font-size: 18px; }
   /* links on this page (text and annotation) in MINERVA's link blue, darker
      than the site's #4183c4 */
@@ -200,6 +205,8 @@ sitemap: false
   var DRAFT_ICON = '<span class="m2-draft"><span>draft</span></span>';
   // the word new on a small outlined tag after the name of a map published in the last 30 days ("released:" on its page, make_maps.py)
   var NEW_ICON = '<span class="m2-draft m2-new"><span>new</span></span>';
+  // a red tag when the map's images could not be drawn from its current GraphML (make_images.py)
+  var ERROR_ICON = '<span class="m2-draft m2-error"><span>image error</span></span>';
   var DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
   var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
   var BUILD = '?v={{ site.time | date: "%s" }}';
@@ -749,6 +756,7 @@ sitemap: false
       if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); tips.push('Drug action mechanism map'); }
       if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); tips.push('Draft map'); }
       if (m.new) { b.insertAdjacentHTML('beforeend', NEW_ICON); tips.push('New map'); }
+      if (m.imageError) { b.insertAdjacentHTML('beforeend', ERROR_ICON); tips.push('Images not made from the current GraphML'); }
       b.title = tips.join(', ');
       b.addEventListener('click', function () { go(m.id); });
       box.appendChild(b);
@@ -829,7 +837,19 @@ sitemap: false
       if (url[l]) dl.appendChild(file(l, url[l]));
     });
     var images = ['PNG', 'SVG'].filter(function (l) { return url[l]; });
-    if (images.length) {  // PNG and SVG in one menu
+    if (m.imageError) {  // the old images do not show the current GraphML: no download
+      var why = 'Images not made from the current GraphML. The drawing tool stopped at: ' + m.imageError;
+      var bad = el('a', 'm2-dl m2-bad', 'Images');
+      bad.href = '#'; bad.title = why;
+      bad.insertAdjacentHTML('afterbegin', DL_ICON);
+      bad.addEventListener('click', function (e) {
+        e.preventDefault();
+        var note = document.getElementById('m2-imgnote');
+        if (note) return note.remove();
+        dl.appendChild(el('div', null, why)).id = 'm2-imgnote';
+      });
+      dl.appendChild(bad);
+    } else if (images.length) {  // PNG and SVG in one menu
       var menu = el('details'), sum = el('summary', 'm2-dl', 'Images'), list = el('div', 'm2-list');
       sum.insertAdjacentHTML('afterbegin', DL_ICON); sum.insertAdjacentHTML('beforeend', '<span class="m2-caret">▾</span>');
       images.forEach(function (l) { var a = el('a', null, l); a.href = url[l]; a.setAttribute('download', ''); list.appendChild(a); });

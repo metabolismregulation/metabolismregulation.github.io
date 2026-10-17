@@ -13,6 +13,7 @@ width: 1297
 height: 1805
 scale: 1
 annotation: "/atlas-data/F008-enos.json"
+image_error: ""
 contributors:
   - olga-ivanova
   - john-albanese

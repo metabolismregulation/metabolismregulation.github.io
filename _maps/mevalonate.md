@@ -13,6 +13,7 @@ width: 1566
 height: 779
 scale: 1
 annotation: "/atlas-data/F003-mevalonate.json"
+image_error: ""
 contributors:
   - james-greene
   - michael-blinov

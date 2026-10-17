@@ -13,6 +13,7 @@ width: 840
 height: 585
 scale: 1
 annotation: "/atlas-data/F023-pdh.json"
+image_error: ""
 contributors:
   - alexander-mazein: [lih-cancer]
 downloads:

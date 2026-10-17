@@ -13,6 +13,7 @@ width: 762
 height: 767
 scale: 1
 annotation: "/atlas-data/F012-camp.json"
+image_error: ""
 contributors:
   - tatiana-serebriyskaya
   - valeriya-berzhitskaya

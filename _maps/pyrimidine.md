@@ -13,6 +13,7 @@ width: 861
 height: 906
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
+image_error: ""
 contributors:
   - hanna-borlinghaus
   - falk-schreiber

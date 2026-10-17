@@ -13,6 +13,7 @@ width: 1056
 height: 1236
 scale: 1
 annotation: "/atlas-data/F014-carnitine.json"
+image_error: ""
 contributors:
   - tatiana-serebriyskaya
   - valeriya-berzhitskaya

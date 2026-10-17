@@ -13,6 +13,7 @@ width: 981
 height: 695
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-cardiac.json"
+image_error: ""
 contributors:
   - alexander-mazein
   - vasundra-toure

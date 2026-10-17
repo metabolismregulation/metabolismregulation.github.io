@@ -13,6 +13,7 @@ width: 746
 height: 1166
 scale: 1
 annotation: "/atlas-data/F005-srebp.json"
+image_error: ""
 contributors:
   - tatiana-serebriyskaya
   - valeriya-berzhitskaya

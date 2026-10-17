@@ -13,6 +13,7 @@ width: 1233
 height: 1305
 scale: 1
 annotation: "/atlas-data/F018-estrogen.json"
+image_error: ""
 contributors:
   - hanna-borlinghaus
   - falk-schreiber

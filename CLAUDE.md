@@ -50,8 +50,8 @@ A map whose connection was chosen from the Reactome-Recon lists says so visibly 
 Reactome processes (linked). The Atlas list has no tag for it (the "lists" tag was removed, user
 2026-10-17).
 
-Atlas list tags (user, 2026-10-16): draft and new after the map name, independent of each other (both show when a map published less than 30 days ago has a draft, user 2026-10-17). Only these two are automatic (draft: a page in `draftpages/`, new: as above, user 2026-10-17). Every other tag is set by hand, on request. Every tag, used or not
-(draft, new, new blue), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+Atlas list tags (user, 2026-10-16): draft and new after the map name, independent of each other (both show when a map published less than 30 days ago has a draft, user 2026-10-17). Only these and image error (see Atlas images) are automatic (draft: a page in `draftpages/`, new: as above, user 2026-10-17). Every other tag is set by hand, on request. Every tag, used or not
+(draft, new, new blue, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.
@@ -193,6 +193,22 @@ width times the common zoom: 0.67 (a protein about 54 px wide), the level of mos
 another export setting) measure a protein node in the image and set the width so it comes
 out at about 54 px. Never copy a width from another page. Exceptions to look
 at with the user: iNOS (0.75), eNOS (0.60), glycogen (two maps, 0.43).
+
+## Atlas images
+
+The Atlas map images are made from the GraphML (user, 2026-10-17); the official pages keep the
+user's yEd exports in `downloads/`. The Atlas data workflow runs `scripts/make_images.py`
+before `make_maps.py`: an Atlas GraphML changed without a new SVG is drawn by
+`scripts/yrender/` (a copy of the workbench's `tools/yrender.py`, its commit in `VERSION`) into
+the SVG, and for a published map the PNG too (a draft carries no PNG, its old PNG is removed).
+A yEd SVG uploaded with or after the GraphML is kept, and how the drawn version compares with
+it goes into `atlas-data/images.json` ("check"), the record of every map's GraphML and SVG.
+The drawing tool knows a closed set of node styles, shapes, arrows and options; a map with
+anything else is not drawn and gets "error" there: the Atlas list marks it with a red "image
+error" tag, its Images button is red and downloads nothing (the old images do not show the
+current GraphML), and hovering or clicking it gives the reason (user, 2026-10-17). A yEd SVG
+upload or a new tool version clears it. Maps that were there before 2026-10-17 are drawn at
+their next GraphML change.
 
 ## Two websites: official and Atlas
 

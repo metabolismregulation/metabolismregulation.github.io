@@ -13,6 +13,7 @@ width: 1170
 height: 939
 scale: 1
 annotation: "/atlas-data/F019-glutaminase.json"
+image_error: ""
 contributors:
   - hanna-borlinghaus
   - falk-schreiber

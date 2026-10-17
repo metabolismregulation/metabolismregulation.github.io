@@ -13,6 +13,7 @@ width: 2106
 height: 1751
 scale: 1
 annotation: "/atlas-data/F004-glycogen-muscle.json"
+image_error: ""
 contributors:
   - vasundra-toure
   - luiz-ladeira

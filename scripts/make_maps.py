@@ -71,6 +71,7 @@ TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catab
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then
 # the two online viewers
+IMAGES = json.load(open(os.path.join(ROOT, 'atlas-data', 'images.json'))) if os.path.exists(os.path.join(ROOT, 'atlas-data', 'images.json')) else {}
 LABELS = ['GraphML', 'PNG', 'SVG', 'SBGN-ML', 'SBML', 'CellDesigner', 'Annotation', 'Newt', 'MINERVA']
 
 
@@ -125,8 +126,9 @@ def annotation(base):
     mkey = [k for k, n in keys.items() if n == MEMBERS_FIELD]
     if not custom:
         return None
-    # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty): svg = yEd + (tx, ty)
-    c = collections.Counter(re.findall(r'matrix\(1,0,0,1,(-?[\d.]+),(-?[\d.]+)\)', open(svg, encoding='utf-8').read()))
+    # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty), the drawn one
+    # (scripts/make_images.py) under translate(tx,ty): svg = yEd + (tx, ty)
+    c = collections.Counter(re.findall(r'(?:matrix\(1,0,0,1,|translate\()(-?[\d.]+),(-?[\d.]+)\)', open(svg, encoding='utf-8').read()))
     tx, ty = (float(v) for v in c.most_common(1)[0][0])
     nodes = []
     for n in root.iter(GN + 'node'):
@@ -285,7 +287,10 @@ def main():
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
-                  'annotation: ' + yaml_str(ann_url)]
+                  'annotation: ' + yaml_str(ann_url),
+                  # images the GraphML could not be drawn into (scripts/make_images.py): the
+                  # Atlas blocks their download and marks the map red
+                  'image_error: ' + yaml_str(IMAGES.get(base, {}).get('error', ''))]
             # the page's contributor keys, for {% include contributors.html %} in the text
             if contrib:
                 fm.append(contrib.group(0).rstrip('\n'))

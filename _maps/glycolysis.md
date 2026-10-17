@@ -13,6 +13,7 @@ width: 978
 height: 685
 scale: 1
 annotation: "/atlas-data/F001-glycolysis.json"
+image_error: ""
 contributors:
   - alexander-mazein
   - vasundra-toure

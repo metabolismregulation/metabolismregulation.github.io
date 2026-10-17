@@ -13,6 +13,7 @@ width: 1357
 height: 971
 scale: 1
 annotation: "/atlas-data/F022-bcaa.json"
+image_error: ""
 contributors:
   - alexander-mazein: [lih-cancer]
 downloads:

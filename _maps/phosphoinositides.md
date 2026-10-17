@@ -13,6 +13,7 @@ width: 739
 height: 989
 scale: 1
 annotation: "/atlas-data/F009-phosphoinositides.json"
+image_error: ""
 contributors:
   - james-greene
   - michael-blinov

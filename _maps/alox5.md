@@ -13,6 +13,7 @@ width: 1159
 height: 764
 scale: 1
 annotation: "/atlas-data/F024-alox5.json"
+image_error: ""
 contributors:
   - alexander-mazein: [lih-cancer]
 downloads:
