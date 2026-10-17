@@ -149,7 +149,8 @@ directly, not CellDesigner through the GraphML), as plain text with the font's â
 (routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. The page keeps only minimal
-text (the routes, the browser note with a link "More about the converter", the tick box); the details
+text (the routes, the browser note with a link "More about the converter", the tick box). Links on both pages in the
+Atlas's link blue #1c47a9, the same on hover (user, 2026-10-17); the details
 are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, with
 a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
 is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)

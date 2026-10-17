@@ -10,6 +10,8 @@ noindex: true
      2026-10-17). The chart is drawn from FORMATS and ROUTES in the script below: a new
      converter is one more line there (a new format one more name). -->
 <style>
+  /* links in the Atlas's link blue (MINERVA's), darker than the site's #4183c4, the same on hover */
+  .cv-text a, .cv-text a:hover, .cv-text a:active { color: #1c47a9; }
   #cv-chart { display: block; width: 100%; max-width: 440px; margin: 8px auto 24px; }
   #cv-chart text { font-size: 14px; fill: #222; }
   #cv-chart .cv-node circle { fill: #fff; stroke: #ccc; stroke-width: 1.2; }
@@ -20,7 +22,7 @@ noindex: true
   #cv-chart text.cv-note { font-size: 12px; fill: #777; }
 </style>
 
-<p>The <a href="{{ '/converter/' | relative_url }}">Converter</a> turns a map from one format into another.
+<p class="cv-text">The <a href="{{ '/converter/' | relative_url }}">Converter</a> turns a map from one format into another.
 It runs in the browser, and the files never leave the computer. The annotation (HGNC, UniProt, ChEBI)
 goes with the map. In GraphML it is read from the node properties, or from the node links when a map has none.</p>
 
