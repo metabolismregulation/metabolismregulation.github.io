@@ -7,8 +7,8 @@ contributors:
 project: true
 ---
 
-<a href="/atlas-downloads/F024-alox5.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/atlas-downloads/F024-alox5.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
+<a href="/atlas-downloads/F024-alox5.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/atlas-downloads/F024-alox5.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
 <p align="middle"><a href="/alox5/"><img id="image" src="/atlas-downloads/F024-alox5.svg" width="777"/></a></p>
 
 ## Reactome-Recon connection

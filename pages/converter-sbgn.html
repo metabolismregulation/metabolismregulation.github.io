@@ -53,8 +53,8 @@ noindex: true
   <tr>
     <td>{{ f.basename | replace: '_', ' ' }}</td>
     <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io{{ f.path }}?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
-    <td><a href="{{ f.path | replace: '.sbgn', '.graphml' }}" download>{% include icon-download.html %}GraphML</a> &nbsp;
-        <a href="{{ f.path | replace: '.sbgn', '.xml' }}" download>{% include icon-download.html %}CellDesigner</a></td>
+    <td><a href="{{ f.path | replace: '.sbgn', '.graphml' }}" download>GraphML{% include icon-download.html %}</a> &nbsp;
+        <a href="{{ f.path | replace: '.sbgn', '.xml' }}" download>CellDesigner{% include icon-download.html %}</a></td>
   </tr>
   {% endfor %}
 </table>

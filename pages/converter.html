@@ -151,8 +151,8 @@ def convert(name, data, standard=False):
   function button(text, name, label, red) {
     const a = document.createElement('a');
     a.className = red ? 'cv-btn cv-bad' : 'cv-btn'; a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
-    a.download = name; a.title = name; a.innerHTML = ICON;
-    a.append(label);
+    a.download = name; a.title = name; a.append(label);
+    a.insertAdjacentHTML('beforeend', ICON);
     return a;
   }
 

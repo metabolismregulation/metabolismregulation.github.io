@@ -9,13 +9,13 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F005-srebp.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F005-srebp.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F005-srebp.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F005-srebp.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F005-srebp-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F005-srebp.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
-<a href="/downloads/F005-srebp.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="/downloads/F005-srebp.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F005-srebp.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F005-srebp.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F005-srebp.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F005-srebp-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F005-srebp.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F005-srebp.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F005-srebp.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/srebp/"><img id="image" src="/downloads/F005-srebp.svg" width="500"/></a></p>

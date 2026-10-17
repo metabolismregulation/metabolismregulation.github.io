@@ -12,26 +12,26 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F004-glycogen-muscle.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F004-glycogen-muscle.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F004-glycogen-muscle.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F004-glycogen-muscle.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F004-glycogen-muscle-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F004-glycogen-muscle.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
-<a href="/downloads/F004-glycogen.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-muscle.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
 <a href="https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-muscle.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/glycogen/"><img id="image" src="/downloads/F004-glycogen-muscle.svg" width="915"/></a></p>
 
 # Regulation of glycogen metabolism, liver
 
-<a href="/downloads/F004-glycogen-liver.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F004-glycogen-liver.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F004-glycogen-liver.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F004-glycogen-liver.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F004-glycogen-liver-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F004-glycogen-liver.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
-<a href="/downloads/F004-glycogen.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen-liver.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F004-glycogen.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
 <a href="https://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F004-glycogen-liver.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-liver" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/glycogen/"><img id="image" src="/downloads/F004-glycogen-liver.svg" width="915"/></a></p>

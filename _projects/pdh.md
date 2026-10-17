@@ -8,12 +8,12 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F023-pdh.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F023-pdh.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F023-pdh.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F023-pdh.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F023-pdh-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F023-pdh.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
+<a href="/downloads/F023-pdh.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F023-pdh.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F023-pdh.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F023-pdh.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F023-pdh-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F023-pdh.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F023-pdh.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F023-pdh" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/pdh/"><img id="image" src="/downloads/F023-pdh.svg" width="563"/></a></p>

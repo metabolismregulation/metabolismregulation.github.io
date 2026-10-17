@@ -9,13 +9,13 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F003-mevalonate.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F003-mevalonate.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F003-mevalonate.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F003-mevalonate.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F003-mevalonate-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F003-mevalonate.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
-<a href="/downloads/F003-mevalonate.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="/downloads/F003-mevalonate.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F003-mevalonate.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F003-mevalonate.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F003-mevalonate.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F003-mevalonate-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F003-mevalonate.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F003-mevalonate.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <!--<a href="/mevalonate/"><img id="logo" src="/images/figure03v04.png" style="width:100%;"/></a>-->

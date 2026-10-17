@@ -9,11 +9,11 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F001-glycolysis-cardiac.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/glycolysis-cardiac/"><img id="image" src="/downloads/F001-glycolysis-cardiac.svg" width="580"/></a></p>
 

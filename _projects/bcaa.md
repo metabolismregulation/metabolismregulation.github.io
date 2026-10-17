@@ -8,12 +8,12 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F022-bcaa.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F022-bcaa.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F022-bcaa.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F022-bcaa.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F022-bcaa-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F022-bcaa.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
+<a href="/downloads/F022-bcaa.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F022-bcaa.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F022-bcaa.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F022-bcaa.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F022-bcaa-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F022-bcaa.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F022-bcaa.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F022-bcaa" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="909"/></a></p>

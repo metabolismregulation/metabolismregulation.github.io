@@ -9,13 +9,13 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F015-tag.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/downloads/F015-tag.png" download>{% include icon-download.html %}PNG</a> &nbsp;
-<a href="/downloads/F015-tag.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
-<a href="/downloads/F015-tag.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
-<a href="/downloads/F015-tag-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
-<a href="/downloads/F015-tag.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
-<a href="/downloads/F015-tag.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="/downloads/F015-tag.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F015-tag.png" download>PNG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F015-tag.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F015-tag.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F015-tag-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F015-tag.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F015-tag.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F015-tag.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F015-tag" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/tag/"><img id="image" src="/downloads/F015-tag.svg" width="540"/></a></p>

@@ -8,8 +8,8 @@ contributors:
 project: true
 ---
 
-<a href="/atlas-downloads/F002-eicosanoids.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
-<a href="/atlas-downloads/F002-eicosanoids.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
+<a href="/atlas-downloads/F002-eicosanoids.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
+<a href="/atlas-downloads/F002-eicosanoids.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
 <p align="middle"><a href="/eicosanoids/draft/"><img id="image" src="/atlas-downloads/F002-eicosanoids.svg" width="787"/></a></p>
 
 ## Reactome-Recon connection

@@ -108,8 +108,8 @@ sitemap: false
   #m2-downloads .m2-list a:hover { background: #4183c4; color: #fff; }
   /* the online viewers open another site: the usual external-link icon */
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
-  /* a file: the download icon (tray and arrow) before its name, as on the Converter page */
-  #m2-downloads .m2-dl svg { width: 14px; height: 14px; margin-right: 5px; vertical-align: -2px; }
+  /* a file: the download icon (tray and arrow) after its name, as on the Converter page */
+  #m2-downloads .m2-dl svg { width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; }
   /* images the current GraphML could not be drawn into (scripts/make_images.py): the Images
      button in red, no download; a click shows the reason under the row, as hovering does */
   #m2-downloads > a.m2-bad { color: #c62828; border-color: #c62828; }
@@ -830,7 +830,7 @@ sitemap: false
     var file = function (label, href, cls, title) {
       var a = el('a', 'm2-dl' + (cls ? ' ' + cls : ''), label);
       a.href = href; a.setAttribute('download', ''); if (title) a.title = title;
-      a.insertAdjacentHTML('afterbegin', DL_ICON);
+      a.insertAdjacentHTML('beforeend', DL_ICON);
       return a;
     };
     ['GraphML', 'CellDesigner', 'SBGN-ML', 'SBML'].forEach(function (l) {
@@ -841,7 +841,7 @@ sitemap: false
       var why = 'Images not made from the current GraphML. The drawing tool stopped at: ' + m.imageError;
       var bad = el('a', 'm2-dl m2-bad', 'Images');
       bad.href = '#'; bad.title = why;
-      bad.insertAdjacentHTML('afterbegin', DL_ICON);
+      bad.insertAdjacentHTML('beforeend', DL_ICON);
       bad.addEventListener('click', function (e) {
         e.preventDefault();
         var note = document.getElementById('m2-imgnote');
@@ -851,7 +851,7 @@ sitemap: false
       dl.appendChild(bad);
     } else if (images.length) {  // PNG and SVG in one menu
       var menu = el('details'), sum = el('summary', 'm2-dl', 'Images'), list = el('div', 'm2-list');
-      sum.insertAdjacentHTML('afterbegin', DL_ICON); sum.insertAdjacentHTML('beforeend', '<span class="m2-caret">▾</span>');
+      sum.insertAdjacentHTML('beforeend', DL_ICON); sum.insertAdjacentHTML('beforeend', '<span class="m2-caret">▾</span>');
       images.forEach(function (l) { var a = el('a', null, l); a.href = url[l]; a.setAttribute('download', ''); list.appendChild(a); });
       menu.appendChild(sum); menu.appendChild(list); dl.appendChild(menu);
     }
