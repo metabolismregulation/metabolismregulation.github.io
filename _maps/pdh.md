@@ -19,6 +19,7 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F023-pdh.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F023-pdh.png"}
   - {label: "SVG", url: "/atlas-downloads/F023-pdh.svg"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F023-pdh"}
 ---
 ## Reactome-Recon connection
 

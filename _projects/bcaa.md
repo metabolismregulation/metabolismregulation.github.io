@@ -14,6 +14,7 @@ Downloads: &nbsp;
 <a href="/downloads/F022-bcaa.sbgn" download>SBGN-ML</a> &nbsp;
 <a href="/downloads/F022-bcaa-SBML.xml" download>SBML</a> &nbsp;
 <a href="/downloads/F022-bcaa.xml" download>CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F022-bcaa" target="_blank" rel="noopener">MINERVA</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F022-bcaa.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
 <p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="909"/></a></p>
 

@@ -20,6 +20,7 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F025-nnos.png"}
   - {label: "SVG", url: "/atlas-downloads/F025-nnos.svg"}
   - {label: "CellDesigner", url: "/atlas-downloads/F025-nnos.xml"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F025-nnos"}
 ---
 ## Reactome-Recon connection
 

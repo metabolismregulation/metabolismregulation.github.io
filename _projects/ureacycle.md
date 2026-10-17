@@ -14,6 +14,7 @@ Downloads: &nbsp;
 <a href="/downloads/F021-ureacycle.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
 <a href="/downloads/F021-ureacycle-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
 <a href="/downloads/F021-ureacycle.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F021-ureacycle" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F021-ureacycle.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/ureacycle/"><img id="image" src="/downloads/F021-ureacycle.svg" width="724"/></a></p>
 

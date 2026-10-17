@@ -19,6 +19,7 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F022-bcaa.png"}
   - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F022-bcaa"}
 ---
 ## Reactome-Recon connection
 
