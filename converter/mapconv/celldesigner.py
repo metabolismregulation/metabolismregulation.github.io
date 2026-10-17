@@ -48,6 +48,7 @@ from .model import Map, Node, Arc
 
 MARGIN = 40
 STRAIGHTEN = os.environ.get('STRAIGHTEN', '1') == '1'  # STRAIGHTEN=0: positions as in yEd
+NAME_ROOM = 25.0  # below the members of a complex, for its name
 ALIGN = 15.0  # largest move of a modifier onto its square (px)
 CHEMICAL = 36.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
 CD = 'http://www.sbml.org/2001/ns/celldesigner'
@@ -207,6 +208,18 @@ def write(diagram, ann, layout='direct'):
         return label[c]
     for c in members:
         name_complex(c)
+    # CellDesigner writes a complex's name at the bottom inside it: its members move up to leave
+    # NAME_ROOM below them, as far as the space above allows, and the complex grows down for the
+    # rest (user's edits of pyrimidine v05 and v06, 2026-10-16); inner complexes first
+    for c in sorted(members, key=lambda c: len(cd_straighten.descendants(c, members))):
+        inner = cd_straighten.descendants(c, members)
+        x, y, w, h = box[c]
+        need = max(box[j][1] + box[j][3] for j in inner) + NAME_ROOM - (y + h)
+        if need > 0:
+            up = min(need, max(0.0, min(box[j][1] for j in inner) - y - 8))
+            for j in inner:
+                box[j] = (box[j][0], box[j][1] - up) + box[j][2:]
+            box[c] = (x, y, w, h + need - up)
 
     ops = {i for i, d in N.items() if d.kind == 'Operator'}
     cen = lambda i: (box[i][0] + box[i][2] / 2, box[i][1] + box[i][3] / 2)
@@ -270,6 +283,20 @@ def write(diagram, ann, layout='direct'):
         c = cen(p)
         return [(q[0] - x0, q[1] - y0) for q in pts if math.hypot(q[0] - x0 - c[0], q[1] - y0 - c[1]) > max(box[p][2], box[p][3]) + 3]
 
+    def off_line(i, a, T):  # anchor a of entity i moves its line to T by more than 2 px
+        A, C = anchor_point(box[i], a, N[i].kind == 'SimpleChemical'), cen(i)
+        return abs((T[0] - C[0]) * (A[1] - C[1]) - (T[1] - C[1]) * (A[0] - C[0])) / (math.dist(C, T) or 1) > 2
+
+    def straight(a, pts, b):  # the edit points without those on a straight line between their neighbours
+        run = [a] + list(pts) + [b]
+        k = 1
+        while k < len(run) - 1:
+            if cd_bends._off(run[k], run[k - 1], run[k + 1]) < 1:
+                del run[k]
+            else:
+                k += 1
+        return run[1:-1]
+
     def nearest(i, at):
         # the anchor nearest to where an arc meets entity i (scaled to its box here), if nearer than
         # its centre; on a metabolite circle not E or W, where the name is: ESE, WSW
@@ -314,6 +341,10 @@ def write(diagram, ann, layout='direct'):
             other = {'h': 'v', 'v': 'h'}
             ra = nearest(r_, ins[0].source_at) or (meet(cen(r_), c, wr or (other[wq] if wq else None)) if N[r_].kind == 'SimpleChemical' else None)
             qa = nearest(q_, outs[0].target_at) or (meet(cen(q_), c, wq or (other[wr] if wr else None)) if N[q_].kind == 'SimpleChemical' else None)
+            # only where they change the line (user's edit of pyrimidine v06: side middles on the
+            # line's own axis removed)
+            ra = ra if ra and off_line(r_, ra, (rb + [c])[0]) else None
+            qa = qa if qa and off_line(q_, qa, (qb[::-1] + [c])[0]) else None
         A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical')
         B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical')
         # edit points: one long L (both layouts); in the advanced layout else the route's bends
@@ -351,11 +382,12 @@ def write(diagram, ann, layout='direct'):
         # None for a straight arc from the centre
         pts = [(q[0] - x0, q[1] - y0) for q in e.points]
         if not pts:
-            if e.source_at == (0.0, 0.0):
-                return None
-            # an off-centre start: straight across at the square's height, from just outside the node
+            if cd_bends._off((M[0] + e.source_at[0], M[1] + e.source_at[1]), M, T) <= 2:
+                return None  # the yEd arc runs as from the centre
+            # an off-centre start at the square's height: straight across, from just outside the node
             x, y, w, h = box[m]
-            return [(x + w + 1 if T[0] > M[0] else x - 1, T[1])]
+            return straight(M, [(x + w + 1 if T[0] > M[0] else x - 1, T[1])], T) \
+                if abs(M[1] + e.source_at[1] - T[1]) <= 5 else None
         # the yEd bends, each segment made horizontal or vertical, the last one ending on the square
         chain = [M] + pts
         for i in range(1, len(chain)):
@@ -678,10 +710,11 @@ def write(diagram, ann, layout='direct'):
                 T = attach(g, M)  # the arc's end on the square's side (the user's glycolysis v01 bends)
                 # a slanting straight arc from the border of another entity: that anchor (as read
                 # back); one that runs across at the process's height takes a lane (below)
-                at = advanced and not e.points and N[m].kind != 'SimpleChemical' and \
-                    abs(M[1] + e.source_at[1] - cen(p)[1]) > 5 and nearest(m, e.source_at)
-                if at:
+                at = advanced and not e.points and N[m].kind != 'SimpleChemical' and nearest(m, e.source_at)
+                if at and off_line(m, at, T) and abs(M[1] + e.source_at[1] - cen(p)[1]) > 5:
                     M = anchor_point(front[m], at)
+                else:
+                    at = None
                 pts = advanced and not at and lane(m, M, T, e)
                 if advanced and N[m].kind == 'SimpleChemical':
                     # it leaves the circle where the name is not (meet), its first bend in line with that point
