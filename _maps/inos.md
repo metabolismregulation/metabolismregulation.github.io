@@ -8,7 +8,6 @@ order: 21
 kind: "map"
 draft: false
 new: false
-lists: false
 image: "/atlas-downloads/F007-inos.svg"
 width: 1590
 height: 1186

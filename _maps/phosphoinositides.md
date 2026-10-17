@@ -8,7 +8,6 @@ order: 15
 kind: "map"
 draft: false
 new: false
-lists: false
 image: "/atlas-downloads/F009-phosphoinositides.svg"
 width: 739
 height: 989

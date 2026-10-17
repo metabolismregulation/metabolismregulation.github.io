@@ -8,7 +8,6 @@ order: 11
 kind: "map"
 draft: false
 new: false
-lists: false
 image: "/atlas-downloads/F014-carnitine.svg"
 width: 1056
 height: 1236

@@ -8,7 +8,6 @@ order: 22
 kind: "map"
 draft: false
 new: false
-lists: false
 image: "/atlas-downloads/F008-enos.svg"
 width: 1297
 height: 1805

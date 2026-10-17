@@ -8,7 +8,6 @@ order: 7
 kind: "map"
 draft: true
 new: false
-lists: true
 image: "/atlas-downloads/F002-eicosanoids.svg"
 width: 1450
 height: 1265

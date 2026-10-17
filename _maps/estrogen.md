@@ -8,7 +8,6 @@ order: 14
 kind: "map"
 draft: false
 new: false
-lists: false
 image: "/atlas-downloads/F018-estrogen.svg"
 width: 1233
 height: 1305

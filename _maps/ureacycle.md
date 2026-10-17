@@ -8,7 +8,6 @@ order: 18
 kind: "map"
 draft: true
 new: false
-lists: true
 image: "/atlas-downloads/F021-ureacycle.svg"
 width: 1080
 height: 1061
