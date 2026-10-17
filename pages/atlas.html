@@ -581,12 +581,12 @@ sitemap: false
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
-  // the gene symbols as text, from HGNC, after the note (the subtitle) (user, 2026-10-17);
-  // the symbol is also a link among the Annotations
+  // the gene symbol (HGNC) and the full name (UniProt) as text, after the note (the subtitle);
+  // the names from one source, UniProt: HGNC's previous and alias symbols only in the search
+  // (user, 2026-10-17); the symbol is also a link among the Annotations
   function symbols(p) {
     line(p, 'HGNC symbol');
-    line(p, 'Previous symbols');
-    line(p, 'Alias symbols');
+    line(p, 'Full name');
   }
   function line(p, name) {
     if (!p[name]) return;
@@ -613,7 +613,7 @@ sitemap: false
   }
   // one protein's or metabolite's record: its texts, each under a + , then the database links
   function record(p) {
-    ['Full name', 'Alternative names', 'Synonyms', 'Location', 'Formula', 'Function', 'Definition'].forEach(function (n) { fold(p, n); });
+    ['Alternative names', 'Synonyms', 'Location', 'Formula', 'Function', 'Definition'].forEach(function (n) { fold(p, n); });
     // the HGNC symbol, and not the HGNC ID, which opens the same page (user, 2026-10-17)
     var ids = IDS.filter(function (n) { return p[n] && !(n === 'HGNC' && p['HGNC symbol']); });
     if (!ids.length) return;
