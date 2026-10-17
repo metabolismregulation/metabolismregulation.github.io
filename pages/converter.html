@@ -26,6 +26,9 @@ noindex: true
   .cv-btn svg { width: 14px; height: 14px; }
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
+  /* a map that breaks the rules: its marked copy red, as the Atlas's Images button for an image error */
+  .cv-btn.cv-bad { color: #c62828; border-color: #c62828; }
+  .cv-btn.cv-bad:hover { background: #c62828; border-color: #c62828; color: #fff; }
   .cv-hint { font-size: 13px; color: #777; }
   /* the routes, one line each, as plain text (user, 2026-10-17) */
   label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; } /* the box level with the small label */
@@ -59,16 +62,19 @@ noindex: true
 <script>
 (() => {
   const BASE = '{{ "/converter/mapconv/" | relative_url }}';
-  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style', 'sbgnml'];
+  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style', 'sbgnml', 'rules'];
   // the converter's own code (mapconv): a GraphML map gives two CellDesigner files (annotation
   // from the GraphML), the map in the SBGN palette if it is drawn with other shapes, and SBGN-ML;
-  // a CellDesigner file gives GraphML, an SBGN-ML or Newt file GraphML and CellDesigner. Each
-  // file: [name ending, button label, text, log]; a message the converter prints (a warning,
-  // the summary) is kept for the page
+  // a CellDesigner file gives GraphML, an SBGN-ML or Newt file GraphML and CellDesigner. A
+  // GraphML map is first checked (mapconv.rules, as on the command line): the problem elements
+  // are left out of the converted files, and the map comes back with them marked red, "GraphML
+  // (marked)", its problems listed under the map in red as text to copy (user, 2026-10-17).
+  // Each file: [name ending, button label, text, log, red]; a message the converter prints (a
+  // warning, the summary) is kept for the page
   const DRIVER = `
 import contextlib, io, os, sys
 sys.path.insert(0, '/home/pyodide')
-from mapconv import annotation, celldesigner, graphml, sbgnml, style
+from mapconv import annotation, celldesigner, graphml, rules, sbgnml, style
 
 def run(f):
     log, text = io.StringIO(), None
@@ -77,7 +83,7 @@ def run(f):
             text = f()
     except BaseException as e:
         log.write('Not converted: %s\\n' % e)
-    return text, log.getvalue()
+    return text, log.getvalue(), False
 
 def convert(name, data, standard=False):
     os.makedirs('/tmp/in', exist_ok=True)
@@ -88,14 +94,25 @@ def convert(name, data, standard=False):
     to_graphml = lambda m: graphml.write(style.standardise(m) if standard else m)
     files = []
     if ext == 'graphml':
-        for layout in ('straight', 'advanced'):
+        try:
             m = graphml.read(p)
-            files.append(['-%s.xml' % layout, 'CellDesigner' + ('' if layout == 'straight' else ' (advanced)'),
-                          *run(lambda: celldesigner.write(m, annotation.from_graphml(m), layout))])
-        fixed, _ = run(lambda: graphml.corrected(graphml.read(p)))
+            found = rules.problems(m)
+        except BaseException as e:
+            return [['', '', None, 'Not converted: %s\\n' % e, False]]
+        read = lambda: rules.clean(graphml.read(p), found)  # a fresh copy for each file
+        for layout in ('straight', 'advanced'):
+            def cd():
+                m = read()
+                return celldesigner.write(m, annotation.from_graphml(m), layout)
+            files.append(['-%s.xml' % layout, 'CellDesigner' + ('' if layout == 'straight' else ' (advanced)'), *run(cd)])
+        fixed = run(lambda: graphml.corrected(read()))[0]
         if fixed:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
-            files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, ''])
-        files.append(['.sbgn', 'SBGN-ML', *run(lambda: sbgnml.write(graphml.read(p)))])
+            files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, '', False])
+        files.append(['.sbgn', 'SBGN-ML', *run(lambda: sbgnml.write(read()))])
+        if found:
+            files.append(['-marked.graphml', 'GraphML (marked)', rules.mark(p, found),
+                          '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's')
+                          + '\\n'.join(rules.lines(m, found)), True])
     elif ext == 'xml':
         for layout in ('straight', 'advanced'):
             files.append(['-%s.graphml' % layout, 'GraphML' + ('' if layout == 'straight' else ' (advanced)'),
@@ -131,9 +148,9 @@ def convert(name, data, standard=False):
   const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" ' +
                'stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
 
-  function button(text, name, label) {
+  function button(text, name, label, red) {
     const a = document.createElement('a');
-    a.className = 'cv-btn'; a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
+    a.className = red ? 'cv-btn cv-bad' : 'cv-btn'; a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
     a.download = name; a.title = name; a.innerHTML = ICON;
     a.append(label);
     return a;
@@ -153,11 +170,13 @@ def convert(name, data, standard=False):
       box.querySelector('.cv-name').textContent = base;
       // the converter's messages, each once and without its summary line ("46 species, ...")
       const notes = new Set(), errors = new Set();
-      for (const [end, label, xml, log] of r) {
-        if (xml) box.append(button(xml, base + end, label));
+      const problems = [];
+      for (const [end, label, xml, log, red] of r) {
+        if (xml) box.append(button(xml, base + end, label, red));
+        if (red) { problems.push(log); continue; }
         for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
       }
-      for (const [set, cls] of [[errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
+      for (const [set, cls] of [[new Set(problems), 'cv-log cv-error'], [errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
         if (!set.size) continue;
         const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
         box.append(d);

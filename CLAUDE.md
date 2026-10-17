@@ -138,7 +138,11 @@ files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized t
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. A GraphML map also gives SBGN-ML, `<map>.sbgn`, and an
 SBGN-ML or Newt file (.sbgn, .nwt) gives "GraphML" (`<map>.graphml`) and the two CellDesigner files (user, 2026-10-17:
-SBGN-ML converts better than CellDesigner, so it is on the page while it is improved). Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
+SBGN-ML converts better than CellDesigner, so it is on the page while it is improved). A GraphML map is first
+checked by map-converter's `rules.py`, as on the command line (user, 2026-10-17): the problem elements are left out of the
+converted files, a red "GraphML (marked)" button (the red of the Atlas's image error) gives `<map>-marked.graphml`, the
+map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
+line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
 page /converter/routes/): "GraphML → CellDesigner, straight-line and advanced routing", "GraphML → GraphML corrected to the SBGN
 palette", "GraphML → SBGN-ML", and back ("SBGN-ML, Newt → GraphML, CellDesigner"), as plain text, all of it in the light grey of the
 Standard node sizes note, the arrows drawn (an inline SVG, the font's → is too small) (user, 2026-10-17)
