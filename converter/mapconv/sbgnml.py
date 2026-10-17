@@ -18,9 +18,9 @@ CLASS = {'Macromolecule': 'macromolecule', 'SimpleChemical': 'simple chemical', 
          'UnspecifiedEntity': 'unspecified entity', 'Complex': 'complex', 'Perturbation': 'perturbing agent',
          'Phenotype': 'phenotype', 'SourceAndSink': 'source and sink', 'EmptySet': 'source and sink',
          'Submap': 'submap', 'Compartment': 'compartment', 'Process': 'process', 'OmittedProcess': 'omitted process',
-         'UncertainProcess': 'uncertain process', 'Association': 'association', 'Dissociation': 'dissociation'}
+         'UncertainProcess': 'uncertain process'}
 MULTIMER = ('Macromolecule', 'SimpleChemical', 'NucleicAcidFeature', 'Complex')
-PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess', 'Association', 'Dissociation')
+PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
 ARC = {'production': 'production', 'catalysis': 'catalysis', 'inhibition': 'inhibition', 'modulation': 'modulation',
        'stimulation': 'stimulation', 'trigger': 'necessary stimulation'}
 # urn:miriam:<db> -> Newt's identifiers.org prefix (annotations-handler.js, dbList)
@@ -264,6 +264,7 @@ def write(diagram):
 
 # --- reading SBGN-ML (and Newt's .nwt) into the map model (docs/SBGNML.md, "The way back")
 KIND = {v: k for k, v in CLASS.items() if k != 'SourceAndSink'}  # source and sink: yEd's EmptySet
+KIND.update(association='Process', dissociation='Process')  # read as the generic process (MINERVA, Newt)
 HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'catalysis': 'catalysis',
         'inhibition': 'inhibition', 'modulation': 'modulation', 'stimulation': 'stimulation',
         'necessary stimulation': 'trigger'}

@@ -176,7 +176,7 @@ def write(diagram, ann, layout='straight'):
     advanced = layout == 'advanced'
     N, E = diagram.nodes, diagram.arcs
     ents = {i: d for i, d in N.items() if d.kind in CLASS}
-    procs = {i: d for i, d in N.items() if d.kind in ('Process', 'OmittedProcess', 'UncertainProcess', 'Association', 'Dissociation')}
+    procs = {i: d for i, d in N.items() if d.kind in ('Process', 'OmittedProcess', 'UncertainProcess')}
     comps = {i: d for i, d in N.items() if d.kind == 'Compartment'}
     def comp_of(i):
         q = N[i].parent

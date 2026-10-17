@@ -11,7 +11,7 @@ from lxml import etree
 from . import graphml
 from .celldesigner import CLASS
 
-PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess', 'Association', 'Dissociation')
+PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
 MODIFIERS = ('catalysis', 'inhibition', 'modulation', 'stimulation', 'trigger')
 REDUCED = ('stimulation', 'inhibition')  # allowed between two entities
 RED = '#FF0000'
