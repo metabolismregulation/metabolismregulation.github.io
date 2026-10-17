@@ -17,7 +17,7 @@ project: true
 <a href="/downloads/F008-enos.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F008-enos.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
-<p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.svg" width="775"/></a></p>
+<p align="middle"><a href="/enos/"><img id="image" src="/downloads/F008-enos.svg" width="768"/></a></p>
 
 ## References
 
