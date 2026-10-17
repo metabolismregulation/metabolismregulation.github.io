@@ -154,8 +154,9 @@ def anchor_point(box, side, circle=False):
     return (x + fx * w, y + fy * h)
 
 
-def square_point(sq, f, a, c):  # a point of the process square at sq, flow f: a along the flow, c to its right
-    return (sq[0] + 5 * (a * f[0] - c * f[1]), sq[1] + 5 * (a * f[1] + c * f[0]))
+def square_point(sq, f, a, c, r=5):
+    # a point of the process square at sq (half size r), flow f: a along the flow, c to its right
+    return (sq[0] + r * (a * f[0] - c * f[1]), sq[1] + r * (a * f[1] + c * f[0]))
 
 
 def meet(M, T, way=None):
@@ -1112,11 +1113,13 @@ def read(path, layout='straight'):
                     if l.get('editPoints') or f(l, 'cd:editPoints') is not None:
                         print('reaction %s: edit points of an added link left out' % rid)
                     flow(alias_of(l), into)
-        # modifiers: the arc ends at the point of the square targetLineIndex names (a side middle or a corner)
+        # modifiers: the arc ends at the point of the square targetLineIndex names (a side middle or a
+        # corner); in yEd at that point of the 18 px process (corners at 9, 9)
         gate_inputs, gates = set(), 0
         for m in xs(x, 'cd:listOfModification/cd:modification'):
             t = m.get('type')
-            T = square_point(sq, fl, *SQUARE.get(int(m.get('targetLineIndex', '-1,2').split(',')[1]), SQUARE[3]))
+            spot = SQUARE.get(int(m.get('targetLineIndex', '-1,2').split(',')[1]), SQUARE[3])
+            T = square_point(sq, fl, *spot)
             if t.startswith('BOOLEAN_LOGIC_GATE'):
                 op = '%s_gate%d' % (rid, gates); gates += 1
                 gx, gy = points(m.get('editPoints'))[0]
@@ -1137,7 +1140,7 @@ def read(path, layout='straight'):
             M = end(lt) if lt is not None else cen(a_)  # its anchor on the modifier, else the centre
             arcs.append(Arc(id='%s_%s_%s' % (rid, a_, t.lower()), source=a_, target=rid, head=HEAD[t],
                             points=[from_frame(M, T, q) for q in points(m.get('editPoints'))],
-                            source_at=port(a_, M), target_at=(T[0] - sq[0], T[1] - sq[1]) if advanced else (0.0, 0.0),
+                            source_at=port(a_, M), target_at=square_point((0, 0), fl, *spot, S / 2) if advanced else (0.0, 0.0),
                             dashed=t.startswith('UNKNOWN_')))
     for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
         k = sum(1 for _ in xs(ext, tag))
