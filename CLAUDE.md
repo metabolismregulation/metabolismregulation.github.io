@@ -88,7 +88,7 @@ download icon (tray and arrow) after the label (user, 2026-10-17, on trial: Atla
 carry the external-link icon after the label.
 Map pages, drafts too (user, 2026-10-17): no "Downloads:" word, the links in the order GraphML, PNG, SVG,
 CellDesigner, SBML, SBGN-ML, Annotation, Newt, MINERVA (a file missing in `downloads/` is left out), each
-file with `{% include icon-download.html %}` after its name, Newt and MINERVA with
+file with the download icon after its name (an inline SVG, copied from an existing map page; the include file was removed, user 2026-10-17), Newt and MINERVA with
 `{% include icon-external.html %}` after it. The Gallery links carry the same icons.
 Buttons (user, 2026-10-16, from scheme 8 of the former test page /atlas/buttons/, in git history): white, grey edge (#ccc), black text,
 quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, no filled

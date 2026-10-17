@@ -56,7 +56,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/glycolysis/">Glycolysis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F001-glycolysis.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F001-glycolysis.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/glycolysis/">
@@ -67,7 +67,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/eicosanoids/">Eicosanoid production</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F002-eicosanoids.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F002-eicosanoids.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F002-eicosanoids" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/eicosanoids/">
@@ -78,7 +78,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/mevalonate/">Mevalonate biosynthesis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F003-mevalonate.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F003-mevalonate.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/mevalonate/">
@@ -89,7 +89,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/glycogen/">Glycogen metabolism</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F004-glycogen-muscle.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F004-glycogen-muscle.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/glycogen/">
@@ -100,7 +100,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/acly/">Acetyl-CoA synthesis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F006-acly.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F006-acly.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/acly/">
@@ -111,7 +111,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/camp/">cAMP hydrolysis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F012-camp.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F012-camp.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F012-camp" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/camp/">
@@ -122,7 +122,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/inos/">iNOS pathway</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F007-inos.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F007-inos.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/inos/">
@@ -133,7 +133,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/enos/">eNOS pathway</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F008-enos.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F008-enos.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F008-enos" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/enos/">
@@ -144,7 +144,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/carnitine/">Acyl-carnitine synthesis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F014-carnitine.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F014-carnitine.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/carnitine/">
@@ -155,7 +155,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/srebp/">SREBP signalling</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F005-srebp.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F005-srebp.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F005-srebp" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/srebp/">
@@ -166,7 +166,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/tag/">Triacylglycerol hydrolysis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F015-tag.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F015-tag.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F015-tag" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/tag/">
@@ -177,7 +177,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/estrogen/">Estradiol biosynthesis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F018-estrogen.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F018-estrogen.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/estrogen/">
@@ -188,7 +188,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/phosphoinositides/">Phosphoinositide</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F009-phosphoinositides.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F009-phosphoinositides.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F009-phosphoinositides" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/phosphoinositides/">
@@ -199,7 +199,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/glutaminase/">Glutaminolysis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F019-glutaminase.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F019-glutaminase.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/glutaminase/">
@@ -210,7 +210,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/pyrimidine/">Pyrimidine biosynthesis</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F020-pyrimidine.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F020-pyrimidine.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/pyrimidine/">
@@ -221,7 +221,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/aspirin/">Aspirin</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F100-aspirin.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F100-aspirin.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
       <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/aspirin/">
@@ -232,7 +232,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/ureacycle/">Urea cycle</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F021-ureacycle.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F021-ureacycle.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
     </div>
     <a href="/ureacycle/">
       <img class="gallery-image" src="/images/gallery/F021-ureacycle-cut.svg" alt="Urea cycle map">
@@ -242,7 +242,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/bcaa/">BCAA catabolism</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F022-bcaa.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F022-bcaa.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
     </div>
     <a href="/bcaa/">
       <img class="gallery-image" src="/images/gallery/F022-bcaa-cut.svg" alt="BCAA catabolism map">
@@ -252,7 +252,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/pdh/">Pyruvate dehydrogenase</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F023-pdh.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F023-pdh.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
     </div>
     <a href="/pdh/">
       <img class="gallery-image" src="/images/gallery/F023-pdh-cut.svg" alt="Pyruvate dehydrogenase map">
@@ -262,7 +262,7 @@ permalink: /gallery/
   <div class="gallery-item">
     <a class="gallery-title" href="/nnos/">nNOS pathway</a>
     <div class="gallery-downloads">
-      <a href="/downloads/F025-nnos.graphml">GraphML{% include icon-download.html %}</a>
+      <a href="/downloads/F025-nnos.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
     </div>
     <a href="/nnos/">
       <img class="gallery-image" src="/images/gallery/F025-nnos-cut.svg" alt="nNOS pathway map">

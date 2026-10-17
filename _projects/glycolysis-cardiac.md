@@ -9,11 +9,11 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F001-glycolysis-cardiac.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.png" download>PNG{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F001-glycolysis-cardiac.csv" download>Annotation{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.png" download>PNG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.xml" download>CellDesigner<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F001-glycolysis-cardiac.csv" download>Annotation<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/glycolysis-cardiac/"><img id="image" src="/downloads/F001-glycolysis-cardiac.svg" width="580"/></a></p>
 

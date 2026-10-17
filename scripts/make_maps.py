@@ -262,8 +262,8 @@ def main():
                 ann_url = '/atlas-data/' + base + '.json'
                 search += search_entries(base.split('-', 1)[1], ann)
             downloads = []
-            # the link names without their icons ({% include icon-... %})
-            for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', re.sub(r'\{%[^%]*%\}', '', links)):
+            # the link names without their icons (an inline <svg>, or {% include icon-... %})
+            for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', re.sub(r'<svg\b.*?</svg>|\{%[^%]*%\}', '', links, flags=re.S)):
                 if m.group(2) in LABELS:
                     url = m.group(1).replace('/downloads/', '/%s/' % DL)
                     # the Atlas offers only its own copies: a file missing in atlas-downloads/ is left out

@@ -8,12 +8,12 @@ contributors:
 project: true
 ---
 
-<a href="/downloads/F022-bcaa.graphml" download>GraphML{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F022-bcaa.png" download>PNG{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F022-bcaa.svg" download>SVG{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F022-bcaa.xml" download>CellDesigner{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F022-bcaa-SBML.xml" download>SBML{% include icon-download.html %}</a> &nbsp;
-<a href="/downloads/F022-bcaa.sbgn" download>SBGN-ML{% include icon-download.html %}</a> &nbsp;
+<a href="/downloads/F022-bcaa.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F022-bcaa.png" download>PNG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F022-bcaa.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F022-bcaa.xml" download>CellDesigner<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F022-bcaa-SBML.xml" download>SBML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F022-bcaa.sbgn" download>SBGN-ML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F022-bcaa.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F022-bcaa" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/bcaa/"><img id="image" src="/downloads/F022-bcaa.svg" width="909"/></a></p>
