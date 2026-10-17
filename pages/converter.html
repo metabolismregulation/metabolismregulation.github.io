@@ -47,10 +47,10 @@ noindex: true
     CellDesigner → GraphML<br>
     SBGN-ML → GraphML<br>
     SBGN-ML → CellDesigner</p>
-    <p class="cv-hint">The conversion runs in the browser, and the files never leave the computer. The annotation
-    (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
+    <p class="cv-hint">The conversion runs in the browser, and the files never leave the computer.
+    <a href="{{ '/converter/description/' | relative_url }}">More about the converter</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner
-    and SBGN-ML to GraphML: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums sized to the name, the map rescaled if its objects are much larger or smaller</label></p>
+    and SBGN-ML to GraphML</label></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>
@@ -159,7 +159,7 @@ def convert(name, data, standard=False):
     if (!py) return;
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
-      if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner, SBGN-ML or Newt file'; continue; }
+      if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner or SBGN-ML file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
       const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked)

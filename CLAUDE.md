@@ -132,8 +132,8 @@ link "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page).
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
 advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept); the page loads `yed.graphml`, the templates.
-A tick box "Standard node sizes" (box 2026-10-16; its label and note one small light grey text,
-"Standard node sizes for CellDesigner to GraphML: proteins 80 x 40, ...", user 2026-10-17) applies map-converter's `style.py` to both GraphML
+A tick box "Standard node sizes" (box 2026-10-16; label "Standard node sizes for CellDesigner and SBGN-ML
+to GraphML", the sizes themselves on the description page, user 2026-10-17) applies map-converter's `style.py` to both GraphML
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. A GraphML map also gives SBGN-ML, `<map>.sbgn`, and an
@@ -148,7 +148,12 @@ page /converter/routes/): "GraphML → GraphML corrected to the SBGN palette", "
 directly, not CellDesigner through the GraphML), as plain text with the font's → so it can be copied (user, 2026-10-17). All the text next to the drop area
 (routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
-any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,
+any format converts into any other, a list of the formats replaces the lines. The page keeps only minimal
+text (the routes, the browser note with a link "More about the converter", the tick box); the details
+are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, with
+a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
+is one more line there (user, 2026-10-17). Newt files (.nwt) are accepted but not mentioned on either
+page yet, as Newt is not widely used (user, 2026-10-17). Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
