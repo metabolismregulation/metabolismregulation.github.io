@@ -524,7 +524,9 @@ sitemap: false
     x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
     if (!family) {
-      identity(p, sel.label);
+      // the symbol only where the title is not the symbol (AKT1)
+      var sym = p['HGNC symbol'];
+      identity(sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase() ? sym : '', p['Full name']);
       // the curated note: the molecule's role on this map
       if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', null, p['Note']));
       ptm(p);
@@ -569,25 +571,25 @@ sitemap: false
       chips.appendChild(b);
     });
     info.appendChild(chips);
-    var m = sel.members[member], mp = props(m.props), t = el('p');
-    t.appendChild(el('b', null, m.symbol));
-    if (mp['Note']) { t.appendChild(document.createTextNode(' ')); t.appendChild(el('span', 'm2-k', mp['Note'])); }
-    info.appendChild(t);
-    identity(mp, m.symbol);
+    var m = sel.members[member], mp = props(m.props);
+    identity(mp['HGNC symbol'] || m.symbol, mp['Full name']);
+    if (mp['Note']) info.appendChild(el('p', null, mp['Note']));
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
-  // under the title, one line: gene symbol (HGNC) and full name (UniProt), "PLA2G4A, cytosolic
-  // phospholipase A2"; the symbol only where the title is not the symbol; the names from one
+  // under the title, one line: gene symbol (HGNC, bold) and full name (UniProt), "PLA2G4A, cytosolic
+  // phospholipase A2"; in a family member the same line, then its note; the names from one
   // source, UniProt: HGNC's previous and alias symbols only in the search (user, 2026-10-17)
-  function identity(p, title) {
-    var sym = p['HGNC symbol'], name = p['Full name'];
-    if (sym && sym.toUpperCase() === String(title).replace(/[\s-]/g, '').toUpperCase()) sym = '';
+  function identity(sym, name) {
+    if (!sym && !name) return;
     // the name's capital goes after a symbol (Cytosolic -> cytosolic), not in ATP or cAMP
     if (sym && name && /^[A-Z][a-z]/.test(name)) name = name[0].toLowerCase() + name.slice(1);
-    var t = [sym, name].filter(Boolean).join(', ');
-    if (t) info.appendChild(el('p', null, t));
+    var q = el('p');
+    if (sym) q.appendChild(el('b', null, sym));
+    q.appendChild(document.createTextNode((sym && name ? ', ' : '') + (name || '')));
+    info.appendChild(q);
   }
+
   // the node's post-translational modifications, which the map shows only as symbols (P)
   function ptm(p) {
     if (!p['PTM']) return;
