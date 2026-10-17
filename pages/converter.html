@@ -27,6 +27,11 @@ noindex: true
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
   .cv-hint { font-size: 13px; color: #777; }
+  /* the routes, one line each: the file dropped, the file given (user, 2026-10-17, variant 2
+     of /converter/routes/) */
+  .cv-route { margin: 0 0 6px; line-height: 28px; font-size: 14px; }
+  .cv-chip { display: inline-block; padding: 2px 8px; line-height: 20px; border: 1px solid #ccc; border-radius: 5px; background: #fff; color: #222; white-space: nowrap; }
+  .cv-arrow { color: #999; margin: 0 6px; font-size: 18px; line-height: 20px; }
 </style>
 
 <div class="cv-top">
@@ -35,8 +40,9 @@ noindex: true
     <span id="cv-drop-text">Loading the converter…</span>
   </div>
   <div>
-    <p>Drop yEd GraphML maps drawn with the SBGN palette to get CellDesigner files, or
-    CellDesigner files to get GraphML.</p>
+    <div class="cv-route"><span class="cv-chip">GraphML</span><span class="cv-arrow">→</span><span class="cv-chip">CellDesigner</span> <span class="cv-hint">direct and advanced</span></div>
+    <div class="cv-route"><span class="cv-chip">CellDesigner</span><span class="cv-arrow">→</span><span class="cv-chip">GraphML</span> <span class="cv-hint">direct and advanced</span></div>
+    <div class="cv-hint" style="margin-bottom:12px">GraphML: yEd maps drawn with the SBGN palette</div>
     <p>The conversion runs in your browser, and the files stay on your computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
     <p><label><input type="checkbox" id="cv-standard"> Standard node sizes</label><br><span class="cv-hint">CellDesigner

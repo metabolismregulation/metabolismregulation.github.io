@@ -108,7 +108,9 @@ or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files,
 advanced; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept); the page loads `yed.graphml`, the templates.
 A tick box "Standard node sizes" (user, 2026-10-16) applies map-converter's `style.py` to both GraphML
-files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. Hidden like the Atlas: not in the navigation,
+files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
+page /converter/routes/): "[GraphML] → [CellDesigner] direct and advanced", and back. If one day
+any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
