@@ -523,16 +523,14 @@ sitemap: false
     x.innerHTML = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>';
     x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
-    // the node's post-translational modifications, which the map shows only as symbols (P)
-    if (p['PTM']) {
-      info.appendChild(el('h4', null, 'Post-translational modification'));
-      var pl = el('ul');
-      p['PTM'].split('\n').forEach(function (t) { pl.appendChild(el('li', null, t)); });
-      info.appendChild(pl);
-    }
     if (!family) {
-      if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', 'm2-k', p['Note']));
-      symbols(p);
+      identity(p, sel.label);
+      // the curated note: the molecule's role on this map
+      if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) {
+        info.appendChild(el('h4', null, 'Note'));
+        info.appendChild(el('p', null, p['Note']));
+      }
+      ptm(p);
       record(p);
       return;
     }
@@ -540,6 +538,7 @@ sitemap: false
     if (p['Family']) fam.appendChild(el('span', 'm2-k', p['Family'] + ', '));
     fam.appendChild(document.createTextNode(sel.members.length + ' members'));
     info.appendChild(fam);
+    ptm(p);
     if (member < 0) {
       sel.members.forEach(function (m, i) {
         // a div, not a button, so that it can hold the UniProt link
@@ -577,16 +576,28 @@ sitemap: false
     t.appendChild(el('b', null, m.symbol));
     if (mp['Note']) { t.appendChild(document.createTextNode(' ')); t.appendChild(el('span', 'm2-k', mp['Note'])); }
     info.appendChild(t);
-    symbols(mp);
+    identity(mp, m.symbol);
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
-  // the gene symbol (HGNC) and the full name (UniProt) as text, after the note (the subtitle);
-  // the names from one source, UniProt: HGNC's previous and alias symbols only in the search
-  // (user, 2026-10-17); the symbol is also a link among the Annotations
-  function symbols(p) {
-    line(p, 'HGNC symbol');
-    line(p, 'Full name');
+  // under the title, one line: gene symbol (HGNC) and full name (UniProt), "PLA2G4A, cytosolic
+  // phospholipase A2"; the symbol only where the title is not the symbol; the names from one
+  // source, UniProt: HGNC's previous and alias symbols only in the search (user, 2026-10-17)
+  function identity(p, title) {
+    var sym = p['HGNC symbol'], name = p['Full name'];
+    if (sym && sym.toUpperCase() === String(title).replace(/[\s-]/g, '').toUpperCase()) sym = '';
+    // the name's capital goes after a symbol (Cytosolic -> cytosolic), not in ATP or cAMP
+    if (sym && name && /^[A-Z][a-z]/.test(name)) name = name[0].toLowerCase() + name.slice(1);
+    var t = [sym, name].filter(Boolean).join(', ');
+    if (t) info.appendChild(el('p', null, t));
+  }
+  // the node's post-translational modifications, which the map shows only as symbols (P)
+  function ptm(p) {
+    if (!p['PTM']) return;
+    info.appendChild(el('h4', null, 'Post-translational modification'));
+    var ul = el('ul');
+    p['PTM'].split('\n').forEach(function (t) { ul.appendChild(el('li', null, t)); });
+    info.appendChild(ul);
   }
   function line(p, name) {
     if (!p[name]) return;
