@@ -109,7 +109,8 @@ Fit shows the map alone, with the annotation over its right side.
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
 advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept); the page loads `yed.graphml`, the templates.
-A tick box "Standard node sizes" (small light grey label, user 2026-10-17; box 2026-10-16) applies map-converter's `style.py` to both GraphML
+A tick box "Standard node sizes" (box 2026-10-16; its label and note one small light grey text,
+"Standard node sizes for CellDesigner to GraphML: proteins 80 x 40, ...", user 2026-10-17) applies map-converter's `style.py` to both GraphML
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
