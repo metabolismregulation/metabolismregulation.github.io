@@ -448,7 +448,7 @@ sitemap: false
     'KEGG': 'https://www.kegg.jp/entry/',
     'HMDB': 'https://hmdb.ca/metabolites/'
   };
-  var IDS = ['ChEBI', 'HGNC', 'HGNC symbol', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt', 'KEGG', 'HMDB', 'InChI', 'InChIKey'];
+  var IDS = ['ChEBI', 'HGNC', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt', 'KEGG', 'HMDB', 'InChI', 'InChIKey'];
   // wide windows: the right column; narrower: over the right side of the map
   var wide = window.matchMedia('(min-width: 1030px)');
   function placeInfo() {
@@ -526,9 +526,10 @@ sitemap: false
       info.appendChild(pl);
     }
     if (!family) {
-      // a label that is not the gene symbol (COX-2): the HGNC symbol first
+      // a label that is not the gene symbol (COX-2): the HGNC symbol first, linked to
+      // its HGNC page (the Annotations list has the HGNC ID only, the same page)
       var sym = p['HGNC symbol'];
-      if (sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase()) line(p, 'HGNC symbol');
+      if (sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase()) line(p, 'HGNC symbol', LINK['HGNC symbol'] + sym);
       if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', 'm2-k', p['Note']));
       record(p);
       return;
@@ -577,11 +578,12 @@ sitemap: false
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
-  function line(p, name) {
+  function line(p, name, href) {
     if (!p[name]) return;
-    var q = el('p');
+    var q = el('p'), v = el(href ? 'a' : 'span', null, p[name]);
+    if (href) { v.href = href; v.target = '_blank'; v.rel = 'noopener'; }
     q.appendChild(el('span', 'm2-k', name + ': '));
-    q.appendChild(el('span', null, p[name]));
+    q.appendChild(v);
     info.appendChild(q);
   }
   // a long text under a heading that opens or closes it; the reader's choice
