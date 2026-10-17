@@ -90,7 +90,9 @@ the influences as arcs between them.</p>
 <p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</p>
 <p><b>Not converted</b>: glyph and arc classes the converter does not read, and clone markers, left out
 of all three files and listed under the map with their class and ids. Perturbing agents are left out of
-the GraphML (no yEd template yet) and become phenotypes in CellDesigner, which has no perturbing agent.</p>
+the GraphML (no yEd template yet) and become phenotypes in CellDesigner, which has no perturbing agent. An
+Activity Flow delay is dropped, its input joined to its target. Equivalence operators are left out of the
+CellDesigner files, which have no such element, and kept in the GraphML.</p>
 
 <h2 id="sizes">Standard node sizes</h2>
 <p><b>Applies to</b>: the GraphML made from CellDesigner or SBGN-ML, when the box is ticked.</p>
