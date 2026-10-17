@@ -307,8 +307,14 @@ def write(diagram, ann, layout='direct'):
             return None
         return {'E': 'ESE', 'W': 'WSW'}.get(a, a) if N[i].kind == 'SimpleChemical' else a
 
-    def geometry(p, fl):
-        # the main line of process p: its ends, anchors, bend, the square and the flow direction
+    def level(e, c):  # a modifier arc that reaches the process at c straight across in yEd (5 px)
+        q = (e.points[-1][0] - x0, e.points[-1][1] - y0) if e.points else \
+            (cen(e.source)[0] + e.source_at[0], cen(e.source)[1] + e.source_at[1])
+        return min(abs(q[0] - c[0] - e.target_at[0]), abs(q[1] - c[1] - e.target_at[1])) <= 5
+
+    def geometry(p, fl, place=True):
+        # the main line of process p: its ends, anchors, bend, the square and the flow direction;
+        # place: the square where yEd has it, where a modifier needs it (else midway)
         ins, outs, mods, gates, reversible, c = fl
         r_, q_ = ins[0].source, outs[0].target
         ra = qa = None  # line ends at the centres
@@ -361,15 +367,19 @@ def write(diagram, ann, layout='direct'):
         L = math.hypot(Q[0] - P[0], Q[1] - P[1])
         f = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
         ep = [cd_bends.to_frame(A, B, q) for q in pts]
-        if advanced and not corner:
-            # the square where yEd has the process, if that is on its segment: two edit points
-            # 8 px either side of it, the square on the segment between them
+        off = lambda m: min(abs(cen(m)[0] - sq[0]), abs(cen(m)[1] - sq[1]))  # a modifier off its square
+        if advanced and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods):
+            # a modifier straight across in yEd that could not be moved onto the midway square
+            # (more than ALIGN px, or other squares it reaches): the square where yEd has the
+            # process, if that is on its segment. Two edit points half way to the nearer end on
+            # either side, so the arcs keep their antennas (user's pyrimidine v07 edit, CAD)
             u = ((c[0] - P[0]) * f[0] + (c[1] - P[1]) * f[1]) / L
             across = abs((c[0] - P[0]) * f[1] - (c[1] - P[1]) * f[0])
             if across < 3 and abs(u - 0.5) * L > 3 and 0.1 < u < 0.9:
                 sq = (P[0] + u * L * f[0], P[1] + u * L * f[1])
-                split = [(u - 8 / L, 0.0), (u + 8 / L, 0.0)] if not pts else \
-                    [cd_bends.to_frame(A, B, (sq[0] + d * f[0], sq[1] + d * f[1])) for d in (-8, 8)]
+                h = min(u, 1 - u) / 2
+                split = [(u - h, 0.0), (u + h, 0.0)] if not pts else \
+                    [cd_bends.to_frame(A, B, (sq[0] + d * f[0], sq[1] + d * f[1])) for d in (-h * L, h * L)]
                 ep, k = ep[:k] + split + ep[k:], k + 1
         return dict(r=r_, q=q_, ra=ra, qa=qa, A=A, B=B, ep=ep, k=k, sq=sq, f=f)
 
@@ -415,13 +425,15 @@ def write(diagram, ann, layout='direct'):
         sgn = 1 if side(g, pt) == 2 else -1
         return (g['sq'][0] + sgn * 5 * g['f'][1], g['sq'][1] - sgn * 5 * g['f'][0])
 
-    # modifiers onto their square: a small move so the arc meets the square straight (the
-    # user's edits of the full set: 23 such moves). Only a move of at most ALIGN px along one
-    # axis, the same for every reaction the modifier acts on, that keeps the main lines it
-    # ends straight, keeps it in its compartment and makes it overlap nothing
+    # modifiers onto their (midway) square: a small move so the arc meets the square straight
+    # (the user's edits of the full set: 23 such moves). Only a move of at most ALIGN px along
+    # one axis, the same for every reaction the modifier acts on, that keeps it in its
+    # compartment and makes it overlap nothing. The main lines straight on that axis that it
+    # ends move with it, their other ends too (user's pyrimidine v08 edit: ERK1/2 and its
+    # phosphorylation moved rather than a bend point)
     def overlap(a, b):
         return a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3]
-    geo = {p: geometry(p, fl) for p, fl in ((p, flows(p, quiet=True)) for p in procs) if fl}
+    geo = {p: geometry(p, fl, False) for p, fl in ((p, flows(p, quiet=True)) for p in procs) if fl}
     want = {}
     for p, g in geo.items():
         for e in flows(p, quiet=True)[2]:
@@ -436,16 +448,18 @@ def write(diagram, ann, layout='direct'):
         d = ds[0]
         if not 0.5 < abs(d) <= ALIGN or max(ds) - min(ds) > 1:
             continue
-        if any(m in (a, b) and abs(cen(a)[ax] - cen(b)[ax]) < 1 for a, b in ends):
-            continue  # it ends a main line that is straight on this axis
-        moved = [m] + cd_straighten.descendants(m, members)
+        group = [m]  # m and the entities joined to it by main lines straight on this axis
+        for j in group:
+            group += [b if a == j else a for a, b in ends if j in (a, b) and abs(cen(a)[ax] - cen(b)[ax]) < 1
+                      and (b if a == j else a) not in group]
+        moved = group + [i for j in group for i in cd_straighten.descendants(j, members)]
         new = {j: tuple(v + (d if k == ax else 0) for k, v in enumerate(box[j])) for j in moved}
-        cm = comp_of(m)
-        if cm and not (box[cm][0] <= new[m][0] and new[m][0] + new[m][2] <= box[cm][0] + box[cm][2]
-                       and box[cm][1] <= new[m][1] and new[m][1] + new[m][3] <= box[cm][1] + box[cm][3]):
+        inside = lambda j, cm: box[cm][0] <= new[j][0] and new[j][0] + new[j][2] <= box[cm][0] + box[cm][2] \
+            and box[cm][1] <= new[j][1] and new[j][1] + new[j][3] <= box[cm][1] + box[cm][3]
+        if any(comp_of(j) and not inside(j, comp_of(j)) for j in group):
             continue
-        if any(overlap(new[m], box[j]) for j in ents if j not in moved and N[j].parent not in moved
-               and m not in cd_straighten.descendants(j, members)):
+        if any(overlap(new[g_], box[j]) for g_ in group for j in ents if j not in moved and N[j].parent not in moved
+               and g_ not in cd_straighten.descendants(j, members)):
             continue
         box.update(new)
         for j in moved:
