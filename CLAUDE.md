@@ -110,6 +110,15 @@ can be dragged down to the whole window without the header, no further: over the
 zooms, so a taller window would trap the page (user, 2026-10-16). A full-screen button after
 Fit shows the map alone, with the annotation over its right side.
 
+## Atlas panel
+
+The panel a click on the map opens (user, 2026-10-17): the HGNC symbol under the title on
+every protein that has one, linked to its HGNC page, so the Annotations list leaves out the
+HGNC ID (same page). The long text (UniProt function, ChEBI definition) under "Function" or
+"Definition" in the grey of the other labels, no source named, closed at first, opened by a
+square + (− when open) at the right: variant 7 of the former test page /atlas/folds/, in git
+history.
+
 ## Converter page
 
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop map files ("Drop map files here,
