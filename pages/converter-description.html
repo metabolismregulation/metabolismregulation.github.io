@@ -92,7 +92,9 @@ the influences as arcs between them.</p>
 <p><b>Not converted</b>: glyph and arc classes the converter does not read, and clone markers, left out
 of all three files and listed under the map with their class and ids. Perturbing agents are left out of
 the GraphML (no yEd template yet) and become phenotypes in CellDesigner, which has no perturbing agent. An
-Activity Flow delay is dropped, its input joined to its target. Equivalence operators are left out of the
+Activity Flow delay is kept in the GraphML as a logic operator labelled τ. The CellDesigner files have no
+delay, so there its input is joined to its target. An Activity Flow submap becomes a phenotype with its name,
+without its terminals and tags. Equivalence operators are left out of the
 CellDesigner files, which have no such element, and kept in the GraphML.</p>
 
 <h2 id="sizes">Standard node sizes</h2>

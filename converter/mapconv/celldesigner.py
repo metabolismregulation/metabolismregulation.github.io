@@ -44,7 +44,7 @@ from struct import pack, unpack
 from lxml import etree
 from . import cd_straighten, cd_bends, style
 from .annotation import to_properties
-from .graphml import EQUIV
+from .graphml import EQUIV, without_delays
 from .model import Map, Node, Arc
 
 MARGIN = 40
@@ -176,6 +176,7 @@ def write(diagram, ann, layout='straight'):
     # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
     # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16)
     advanced = layout == 'advanced'
+    diagram = without_delays(diagram, 'CellDesigner')
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
     if eq:  # CellDesigner has no equivalence operator
         print('equivalence operator: no CellDesigner form, left out (%s), its entities kept' % ', '.join(eq))

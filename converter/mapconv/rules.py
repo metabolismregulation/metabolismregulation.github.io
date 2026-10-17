@@ -10,7 +10,7 @@
 import sys
 from lxml import etree
 from . import graphml
-from .graphml import EQUIV
+from .graphml import DELAY, EQUIV
 from .celldesigner import CLASS
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
@@ -87,8 +87,8 @@ def problems(m):
         elif s in epn and t in epn:  # reduced notation
             if h not in REDUCED:
                 why = 'a %s arc must end on a process' % h
-        elif s in ops and t in epn:  # reduced notation from a logic gate
-            if h not in GATE_OUT:
+        elif s in ops and t in epn:  # reduced notation from a logic gate (a delay is joined through: as between entities)
+            if h not in (REDUCED if N[s].labels[:1] == [DELAY] else GATE_OUT):
                 why = 'a %s arc from a logic gate must end on a process (to an entity only stimulation and inhibition)' % h
         elif not (s in epn | ops and t in procs):
             why = 'a %s arc must run from an entity (or a logic gate) to a process' % h
@@ -112,6 +112,8 @@ def problems(m):
         # its output: a modifier arc (to a process, or reduced to an entity) or a plain line into another gate
         elif not any(e.source == o and (e.head in MODIFIERS or e.head is None and e.target in ops) for e in ok):
             out.append((o, 'a logic gate needs an arc out of it'))
+        elif N[o].labels[:1] == [DELAY] and sum(1 for e in ok if o in (e.source, e.target)) != 2:
+            out.append((o, 'a delay (Activity Flow) has one input and one arc out of it'))
     return out
 
 

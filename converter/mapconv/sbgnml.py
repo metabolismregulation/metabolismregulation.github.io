@@ -4,10 +4,9 @@
 # as RDF in each glyph's extension with identifiers.org links in Newt's form (db:id).
 # read() at the end goes the other way, also for Newt's .nwt (SBGN-ML with its settings).
 import copy, math, os, re
-from dataclasses import replace
 from lxml import etree
 from .annotation import from_graphml, to_properties
-from .graphml import EQUIV, LINE, CHAR
+from .graphml import DELAY, EQUIV, LINE, CHAR, without_delays
 from .model import Map, Node, Arc
 
 NS = 'http://sbgn.org/libsbgn/0.3'
@@ -22,7 +21,7 @@ CLASS = {'Macromolecule': 'macromolecule', 'SimpleChemical': 'simple chemical', 
          'UncertainProcess': 'uncertain process'}
 MULTIMER = ('Macromolecule', 'SimpleChemical', 'NucleicAcidFeature', 'Complex')
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
-OPERATORS = {'and': 'AND', 'or': 'OR', 'not': 'NOT', 'equivalence': EQUIV}  # SBGN class -> yEd label
+OPERATORS = {'and': 'AND', 'or': 'OR', 'not': 'NOT', 'equivalence': EQUIV, 'delay': DELAY}  # SBGN class -> yEd label (delay: Activity Flow)
 ARC = {'production': 'production', 'catalysis': 'catalysis', 'inhibition': 'inhibition', 'modulation': 'modulation',
        'stimulation': 'stimulation', 'trigger': 'necessary stimulation'}
 # urn:miriam:<db> -> Newt's identifiers.org prefix (annotations-handler.js, dbList)
@@ -78,7 +77,7 @@ def shifted(diagram, margin=20):
 
 
 def write(diagram):
-    diagram = shifted(diagram)
+    diagram = without_delays(shifted(diagram), 'SBGN Process Description')
     N = diagram.nodes
     ids = {i: xml_id(i) for i in N}
     ann = from_graphml(diagram)
@@ -274,7 +273,8 @@ HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'cat
 # Activity Flow (L1V1.2, read only; user, 2026-10-17): an activity is drawn as the entity it comes
 # from, CellDesigner's way. Its unit of information's shape gives the glyph (none: a protein;
 # perturbation: phenotype, as in CellDesigner), its label (the molecule's name) stays a unit; the
-# influences are arcs between entities; a delay is dropped, its input joined to its target
+# influences are arcs between entities; a delay is an Operator labelled tau; a submap is a phenotype
+# with its name (its terminals, tags and equivalence arcs left out)
 ACTIVITY = {'macromolecule': 'Macromolecule', 'nucleic acid feature': 'NucleicAcidFeature', 'simple chemical': 'SimpleChemical',
             'unspecified entity': 'UnspecifiedEntity', 'complex': 'Complex', 'perturbation': 'Phenotype'}
 HEAD.update({'positive influence': 'stimulation', 'negative influence': 'inhibition', 'unknown influence': 'modulation'})
@@ -309,6 +309,7 @@ def read(path):
         if e.tag.startswith('{http://sbgn.org/libsbgn/'):
             e.tag = S + etree.QName(e).localname
     m = root.find(S + 'map')
+    af = m.get('language') == 'activity flow'
     defs = {c.get('id'): c.get('value') for c in m.iter(R + 'colorDefinition')}
     fill = {i: st.find(R + 'g').get('fill') for st in m.iter(R + 'style') if st.find(R + 'g') is not None
             for i in (st.get('idList') or '').split()}
@@ -323,10 +324,15 @@ def read(path):
         cls, i = g.get('class'), g.get('id')
         x, y, w, h = (float(g.find(S + 'bbox').get(k)) for k in 'xywh')
         base = cls[:-len(' multimer')] if cls.endswith(' multimer') else cls
-        kind = 'Operator' if cls in OPERATORS else 'Delay' if cls == 'delay' else KIND.get(base)
+        kind = 'Operator' if cls in OPERATORS else KIND.get(base)
         if cls == 'biological activity':
             u = next((c.find(S + 'entity') for c in g.findall(S + 'glyph') if c.get('class') == 'unit of information'), None)
             kind = ACTIVITY.get((u.get('name') if u is not None else '').replace(' multimer', ''), 'Macromolecule')
+        if af and cls == 'submap':  # a phenotype with the submap's name, no terminals or tags (user, 2026-10-17)
+            kind = 'Phenotype'
+            for c in g.findall(S + 'glyph'):
+                if c.get('class') == 'terminal':
+                    port[c.get('id')] = i
         if kind is None:  # tag, annotation and the other glyphs our maps do not draw
             skipped.setdefault(cls, []).append(i); return
         for p in g.findall(S + 'port'):
@@ -373,12 +379,6 @@ def read(path):
             skipped.setdefault(cls + ' arc' if cls not in HEAD else 'arc to a glyph left out', []).append(a.get('id')); continue
         arcs.append(Arc(id=a.get('id'), source=s, target=t, head=HEAD[cls],
                         points=[(float(p.get('x')), float(p.get('y'))) for p in a.findall(S + 'next')]))
-    for d in [i for i, n in nodes.items() if n.kind == 'Delay']:  # Activity Flow's delay: no glyph in our maps
-        ins, outs = [a for a in arcs if a.target == d], [a for a in arcs if a.source == d]
-        arcs = [a for a in arcs if d not in (a.source, a.target)] + \
-            [replace(o, source=a.source, points=a.points + o.points) for a in ins for o in outs]
-        del nodes[d]
-        skipped.setdefault('delay (its input joined to its target)', []).append(d)
     for what, ids in skipped.items():
         print('%s: %d left out (%s)' % (what, len(ids), ', '.join(ids[:5]) + (' ...' if len(ids) > 5 else '')))
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
