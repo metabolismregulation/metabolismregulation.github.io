@@ -147,6 +147,11 @@ first and family name, lowercase, hyphens, no accents; a key never changes
 once used. Contributions are not recorded separately: the map pages are the
 record. Add an ORCID only after checking it on orcid.org.
 
+## Map drawing
+
+A change to how an entity is drawn applies to every instance of it on the map, including
+empty state variables (user, 2026-10-17).
+
 ## Map image size on the pages
 
 Every map page shows its map at the same zoom, so a protein node (80 x 40 yEd units) looks
