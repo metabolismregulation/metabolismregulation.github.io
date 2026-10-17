@@ -112,14 +112,19 @@ Fit shows the map alone, with the annotation over its right side.
 
 ## Atlas panel
 
-The panel a click on the map opens (user, 2026-10-17): the HGNC symbol in the Annotations
-links, "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page). Every database
-link reads NAME: ID in capitals, as in MINERVA, without brackets ("UNIPROT: P47712"). Under the title the note (a subtitle, e.g. "cPLA2α, main eicosanoid-producing
-isoform"), then the symbols as text, from HGNC: "HGNC symbol:", "Previous symbols:", "Alias
-symbols:" (GraphML properties written by map-converter's annotation). Every text of the record (Full name, Alternative names or Synonyms, Location,
-Formula, Function or Definition) under its name, no colon, in the grey of the other labels, no source named, closed at first, opened by a
-square + (− when open) right after the word: variant 3 of the former test page /atlas/folds/
-(in git history) with the square of variant 7.
+The panel a click on the map opens (user, 2026-10-17). Title in plain weight, nothing bold:
+"Protein: cPLA2", "Protein family: ERK1/2". Under it one line: the HGNC symbol in bold and the
+UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2" (the symbol left out where the title
+is the symbol). Then the post-translational modifications, one line per site, no heading:
+"Phosphorylated at Ser505" (node property PTM, see Map drawing). Then Alternative names (or
+Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
+in the grey of the other labels, closed at first, opened by a square + (− when open) right after
+the word: variant 3 of the former test page /atlas/folds/ (in git history) with the square of
+variant 7. Names from one source, UniProt: HGNC's previous and alias symbols are not shown, only
+searched. The curated notes (ids.csv `note`, GraphML Note) are not shown, as most nodes have none.
+A family member's record shows the same identity line and its sites. Annotations: the database
+links, NAME: ID in capitals, as in MINERVA, without brackets ("UNIPROT: P47712"); the HGNC symbol
+link "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page).
 
 ## Converter page
 
@@ -165,6 +170,15 @@ record. Add an ORCID only after checking it on orcid.org.
 
 A change to how an entity is drawn applies to every instance of it on the map, including
 empty state variables (user, 2026-10-17).
+
+Modification sites (user, 2026-10-17, tested on the eicosanoids draft): a state variable shows
+only its symbol (P, or empty for an unmodified site); the site goes into the node property PTM,
+one line per modified site as on a state variable (P@S505), clockwise from the top left.
+Only post-translational modifications are recorded, other states (active, bound ions) are not,
+and unmodified sites are not listed. P@site on the diagram stays allowed where the user wants
+it. In a protein family the sites belong to the members (ERK1 Thr202/Tyr204, ERK2
+Thr185/Tyr187), the family node keeps only the P circles. The workbench checks the sites against
+UniProt (`tools/ptm_check.py`), which is a check, not the authority.
 
 ## Map image size on the pages
 

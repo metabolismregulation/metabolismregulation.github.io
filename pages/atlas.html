@@ -525,8 +525,6 @@ sitemap: false
       // the symbol only where the title is not the symbol (AKT1)
       var sym = p['HGNC symbol'];
       identity(sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase() ? sym : '', p['Full name']);
-      // the curated note: the molecule's role on this map
-      if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', null, p['Note']));
       ptm(p);
       record(p);
       return;
@@ -542,8 +540,6 @@ sitemap: false
         var mp = props(m.props), c = el('div', 'm2-card');
         c.setAttribute('role', 'button'); c.tabIndex = 0;
         c.appendChild(el('b', null, m.symbol));
-        // the note only; without one the card shows just the symbol and its link
-        if (mp['Note']) { c.appendChild(document.createTextNode(' ')); c.appendChild(el('span', 'm2-k', mp['Note'])); }
         if (mp['UniProt']) {
           var u = el('a', null, 'UNIPROT: ' + mp['UniProt']);
           u.href = LINK['UniProt'] + mp['UniProt']; u.target = '_blank'; u.rel = 'noopener';
@@ -571,7 +567,7 @@ sitemap: false
     info.appendChild(chips);
     var m = sel.members[member], mp = props(m.props);
     identity(mp['HGNC symbol'] || m.symbol, mp['Full name']);
-    if (mp['Note']) info.appendChild(el('p', null, mp['Note']));
+    ptm(mp);
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
@@ -588,13 +584,11 @@ sitemap: false
     info.appendChild(q);
   }
 
-  // the node's post-translational modifications, which the map shows only as symbols (P)
+  // the node's post-translational modifications, which the map shows only as symbols (P): one
+  // line per site, right after the identity line, no heading; the notes are not shown, as most
+  // nodes have none (user, 2026-10-17)
   function ptm(p) {
-    if (!p['PTM']) return;
-    info.appendChild(el('h4', null, 'Post-translational modification'));
-    var ul = el('ul');
-    p['PTM'].split('\n').forEach(function (t) { ul.appendChild(el('li', null, t)); });
-    info.appendChild(ul);
+    if (p['PTM']) p['PTM'].split('\n').forEach(function (t) { info.appendChild(el('p', null, t)); });
   }
   function line(p, name) {
     if (!p[name]) return;
