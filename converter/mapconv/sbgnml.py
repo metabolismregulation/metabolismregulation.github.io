@@ -294,7 +294,11 @@ def colour(c, defs):
 
 
 def read(path):
-    m = etree.parse(path).getroot().find(S + 'map')
+    root = etree.parse(path).getroot()
+    for e in root.iter(etree.Element):  # libsbgn 0.1 and 0.2 files: the same elements in an older namespace
+        if e.tag.startswith('{http://sbgn.org/libsbgn/'):
+            e.tag = S + etree.QName(e).localname
+    m = root.find(S + 'map')
     defs = {c.get('id'): c.get('value') for c in m.iter(R + 'colorDefinition')}
     fill = {i: st.find(R + 'g').get('fill') for st in m.iter(R + 'style') if st.find(R + 'g') is not None
             for i in (st.get('idList') or '').split()}
