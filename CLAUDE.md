@@ -133,7 +133,7 @@ link "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page).
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop map files ("Drop map files here,
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
 advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
-"GraphML (advanced)" (the CellDesigner drawing kept); the page loads `yed.graphml`, the templates.
+"GraphML (advanced)" (the CellDesigner drawing kept), and SBGN-ML, `<map>.sbgn`, straight from the CellDesigner file (user, 2026-10-17); the page loads `yed.graphml`, the templates.
 A tick box "Standard node sizes" (box 2026-10-16; label "Standard node sizes for CellDesigner and SBGN-ML
 to GraphML", the sizes themselves on the description page, user 2026-10-17) applies map-converter's `style.py` to both GraphML
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
@@ -146,7 +146,7 @@ converted files, a red "GraphML (marked)" button (the red of the Atlas's image e
 map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
 line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
 page /converter/routes/): "GraphML ⭢ GraphML corrected to the SBGN palette", "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
-"SBGN-ML ⭢ CellDesigner" (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
+"CellDesigner ⭤ SBGN-ML" (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
 directly, not CellDesigner through the GraphML), as plain text so it can be copied (user, 2026-10-17). All the text next to the drop area
 (routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day

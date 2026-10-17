@@ -46,7 +46,7 @@ noindex: true
     <p class="cv-routes cv-hint">GraphML ⭢ GraphML corrected to the SBGN palette<br>
     GraphML ⭤ CellDesigner<br>
     GraphML ⭤ SBGN-ML<br>
-    SBGN-ML ⭢ CellDesigner</p>
+    CellDesigner ⭤ SBGN-ML</p>
     <p class="cv-hint">The conversion runs in the browser, and the files never leave the computer.
     <a href="{{ '/converter/description/' | relative_url }}">More about the converter</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner
@@ -64,7 +64,7 @@ noindex: true
   const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style', 'sbgnml', 'rules'];
   // the converter's own code (mapconv): a GraphML map gives two CellDesigner files (annotation
   // from the GraphML), the map in the SBGN palette if it is drawn with other shapes, and SBGN-ML;
-  // a CellDesigner file gives GraphML, an SBGN-ML or Newt file GraphML and CellDesigner. A
+  // a CellDesigner file GraphML and SBGN-ML, an SBGN-ML or Newt file GraphML and CellDesigner. A
   // GraphML map is first checked (mapconv.rules, as on the command line): the problem elements
   // are left out of the converted files, and the map comes back with them marked red, "GraphML
   // (marked)", its problems listed under the map in red as text to copy (user, 2026-10-17).
@@ -116,6 +116,11 @@ def convert(name, data, standard=False):
         for layout in ('straight', 'advanced'):
             files.append(['-%s.graphml' % layout, 'GraphML' + ('' if layout == 'straight' else ' (advanced)'),
                           *run(lambda: to_graphml(celldesigner.read(p, layout)))])
+        def sbgn():
+            with contextlib.redirect_stdout(io.StringIO()):  # what CellDesigner gives that does not convert: said once, above
+                m = celldesigner.read(p)
+            return sbgnml.write(m)
+        files.append(['.sbgn', 'SBGN-ML', *run(sbgn)])
     else:  # SBGN-ML, or Newt's own file
         files.append(['.graphml', 'GraphML', *run(lambda: to_graphml(sbgnml.read(p)))])
         for layout in ('straight', 'advanced'):

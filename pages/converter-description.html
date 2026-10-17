@@ -79,6 +79,9 @@ extension.</p>
   <li><b>GraphML (advanced)</b>, <code>&lt;map&gt;-advanced.graphml</code>: yEd GraphML with the CellDesigner
   geometry. CellDesigner's node sizes, arcs at its anchor points, modifier arcs ending beside the
   process square.</li>
+  <li><b>SBGN-ML</b>, <code>&lt;map&gt;.sbgn</code>: SBGN-ML 0.3, Process Description, from the CellDesigner
+  file directly, its arcs at node centres. Colours in the SBML render extension, annotation as RDF in each
+  glyph. A phenotype with an arc leaving it is left out with its arcs, as from GraphML.</li>
 </ul>
 <p><b>Not converted</b>: text and shapes drawn on layers, groups, compartments drawn as an edge line,
 and state variables on a complex, listed under the map.</p>
@@ -136,6 +139,7 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
     ['GraphML', 'CellDesigner'],
     ['GraphML', 'SBGN-ML'],
     ['CellDesigner', 'GraphML'],
+    ['CellDesigner', 'SBGN-ML'],
     ['SBGN-ML', 'GraphML'],
     ['SBGN-ML', 'CellDesigner'],
   ];
