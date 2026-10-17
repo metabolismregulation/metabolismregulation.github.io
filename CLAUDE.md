@@ -158,7 +158,7 @@ are on `/converter/description/` (`pages/converter-description.html`, hidden the
 per button: label, file name: format and version. Content. When given) and Not converted, exact terms only, with
 a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
 is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)
-with a head at each end, one way green (#3a9a4a), the GraphML correction a green loop (user, 2026-10-17). The description page ends with "Loading" (size, time), dated "As of" with the
+with a head at each end, one way green (#3a9a4a), the GraphML correction a green loop (user, 2026-10-17). The description page ends with "Loading" (size, time), dated "Measured" with the
 Pyodide version (user, 2026-10-17): update the figures and the date when Pyodide, lxml or the converter changes much. Newt files (.nwt) are accepted: not mentioned on the Converter
 page, as Newt is not widely used, but described under "From SBGN-ML" on the description page (user, 2026-10-17). Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
