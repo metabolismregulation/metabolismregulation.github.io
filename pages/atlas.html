@@ -135,6 +135,13 @@ sitemap: false
   .m2-info .m2-k { color: #666; }
   .m2-info h4 { font-size: 14px; font-weight: 400; margin: 12px 0 4px; }
   .m2-info ul { list-style: none; margin: 0; padding: 0; }
+  /* the long text of a record (UniProt function, ChEBI definition): a heading that opens or
+     closes it, with the chevrons of the map list; closed at first (user, 2026-10-17) */
+  .m2-fold { display: block; width: 100%; text-align: left; font: inherit; color: #222; background: none; border: 0; padding: 0; margin: 0 0 4px; cursor: pointer; }
+  .m2-fold:focus { outline: none; }
+  .m2-fold::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 4px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
+  .m2-fold.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+  .m2-fold.m2-shut + p { display: none; }
   .m2-info li { margin: 0 0 3px; }
   /* a protein family: one card per member, or one member's record under a
      row of member buttons (the undo button returns to the cards) */
@@ -577,14 +584,29 @@ sitemap: false
     q.appendChild(el('span', null, p[name]));
     info.appendChild(q);
   }
-  // one protein's or metabolite's record: names, text, then the database links
+  // a long text under a heading that opens or closes it; the reader's choice
+  // holds for the next molecules while the page is open
+  var foldOpen = false;
+  function fold(p, name, source) {
+    if (!p[name]) return;
+    var b = el('button', 'm2-fold' + (foldOpen ? '' : ' m2-shut'), name + ' (' + source + ')');
+    b.type = 'button'; b.setAttribute('aria-expanded', foldOpen);
+    b.addEventListener('click', function () {
+      foldOpen = b.classList.toggle('m2-shut') === false;
+      b.setAttribute('aria-expanded', foldOpen);
+    });
+    info.appendChild(b);
+    info.appendChild(el('p', null, p[name]));
+  }
+  // one protein's or metabolite's record: names, location, formula, the long text, then the database links
   function record(p) {
     line(p, 'Full name');
     line(p, 'Alternative names');
     line(p, 'Synonyms');
-    if (p['Function'] || p['Definition']) info.appendChild(el('p', null, p['Function'] || p['Definition']));
     line(p, 'Location');
     line(p, 'Formula');
+    fold(p, 'Function', 'UniProt');
+    fold(p, 'Definition', 'ChEBI');
     var ids = IDS.filter(function (n) { return p[n]; });
     if (!ids.length) return;
     info.appendChild(el('h4', null, 'Annotations'));
