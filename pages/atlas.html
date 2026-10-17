@@ -511,8 +511,13 @@ sitemap: false
     x.innerHTML = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>';
     x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
-    // the node's modified sites, which the map shows only as symbols (P)
-    line(p, 'State');
+    // the node's post-translational modifications, which the map shows only as symbols (P)
+    if (p['PTM']) {
+      info.appendChild(el('h4', null, 'Post-translational modification'));
+      var pl = el('ul');
+      p['PTM'].split('\n').forEach(function (t) { pl.appendChild(el('li', null, t)); });
+      info.appendChild(pl);
+    }
     if (!family) {
       // a label that is not the gene symbol (COX-2): the HGNC symbol first
       var sym = p['HGNC symbol'];
