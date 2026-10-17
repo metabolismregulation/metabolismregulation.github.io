@@ -622,9 +622,11 @@ sitemap: false
     info.appendChild(b);
     info.appendChild(el('p', null, p[name]));
   }
-  // one protein's or metabolite's record: its texts, each under a + , then the database links
+  // one protein's or metabolite's record: names and location, the longer texts under a +, then the database links
   function record(p) {
-    ['Alternative names', 'Synonyms', 'Location', 'Formula', 'Function', 'Definition'].forEach(function (n) { fold(p, n); });
+    // the names and the location as text, the longer texts under a + (user, 2026-10-17)
+    ['Alternative names', 'Synonyms', 'Location'].forEach(function (n) { line(p, n); });
+    ['Formula', 'Function', 'Definition'].forEach(function (n) { fold(p, n); });
     // the HGNC symbol, and not the HGNC ID, which opens the same page (user, 2026-10-17)
     var ids = IDS.filter(function (n) { return p[n] && !(n === 'HGNC' && p['HGNC symbol']); });
     if (!ids.length) return;
