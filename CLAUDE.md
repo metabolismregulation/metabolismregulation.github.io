@@ -82,10 +82,10 @@ it by their first word like the papers, not at the end (user, 2026-10-16).
 
 When a style is to be chosen (buttons and the like; user, 2026-10-16), show the options on the
 website: up to ten variants, one under another, on a hidden page (like the tag palette
-/atlas/tags/), each with its name, so the user picks one there. Download buttons carry the
+/atlas/tags/), each with its name, so the user picks one there. Once chosen, the test page is removed (user, 2026-10-17). Download buttons carry the
 download icon (tray and arrow, before the label: Atlas, Converter); links to another site
 carry the external-link icon after the label.
-Buttons (user, 2026-10-16, from scheme 8 of /atlas/buttons/): white, grey edge (#ccc), black text,
+Buttons (user, 2026-10-16, from scheme 8 of the former test page /atlas/buttons/, in git history): white, grey edge (#ccc), black text,
 quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, no filled
 MINERVA), on hover filled in the blue of the chosen map in the map list (#4183c4, white text),
 the Images menu items in the font of the button. Ordered by use: GraphML, CellDesigner,
@@ -95,8 +95,10 @@ edge routing, yEd's name; "direct" dropped, user 2026-10-17) and "CellDesigner (
 2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
-Footer (every page, user 2026-10-17, variant 2 of the hidden page /atlas/footers/): white, a thin
-line above (#eee), the round email and GitHub icons; no grey band.
+Footer (every page, user 2026-10-17, variant 2 of the former test page /atlas/footers/, in git history): white, a thin
+line above (#eee); no grey band. Icons (`_includes/svg-icons.html`, user 2026-10-17): GitHub's own
+mark (Invertocat, from brand.github.com) in the grey of its brand page, #77827a, and an envelope
+in a circle of the same grey; GitHub's rules allow black, white or grey, not other recolouring.
 
 ## Atlas map window
 
