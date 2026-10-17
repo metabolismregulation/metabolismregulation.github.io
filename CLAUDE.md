@@ -136,9 +136,11 @@ A tick box "Standard node sizes" (box 2026-10-16; its label and note one small l
 "Standard node sizes for CellDesigner to GraphML: proteins 80 x 40, ...", user 2026-10-17) applies map-converter's `style.py` to both GraphML
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
-2026-10-17); other styles are added case by case. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
+2026-10-17); other styles are added case by case. A GraphML map also gives SBGN-ML, `<map>.sbgn`, and an
+SBGN-ML or Newt file (.sbgn, .nwt) gives "GraphML" (`<map>.graphml`) and the two CellDesigner files (user, 2026-10-17:
+SBGN-ML converts better than CellDesigner, so it is on the page while it is improved). Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
 page /converter/routes/): "GraphML → CellDesigner, straight-line and advanced routing", "GraphML → GraphML corrected to the SBGN
-palette", and back, as plain text, all of it in the light grey of the
+palette", "GraphML → SBGN-ML", and back ("SBGN-ML, Newt → GraphML, CellDesigner"), as plain text, all of it in the light grey of the
 Standard node sizes note, the arrows drawn (an inline SVG, the font's → is too small) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,

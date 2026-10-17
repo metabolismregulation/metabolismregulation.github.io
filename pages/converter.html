@@ -42,14 +42,16 @@ noindex: true
   <div>
     <p class="cv-routes cv-hint">GraphML <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> CellDesigner, straight-line and advanced routing<br>
     GraphML <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML corrected to the SBGN palette<br>
-    CellDesigner <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML, straight-line and advanced routing</p>
+    GraphML <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> SBGN-ML<br>
+    CellDesigner <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML, straight-line and advanced routing<br>
+    SBGN-ML, Newt <svg class="cv-arrow" viewBox="0 0 16 16" aria-label="to"><path d="M2 8h11.5M8.5 3l5 5-5 5"/></svg> GraphML, CellDesigner</p>
     <p>The conversion runs in the browser, and the files never leave the computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner
-    to GraphML: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums sized to the name, the map rescaled if its objects are much larger or smaller</label></p>
+    and SBGN-ML to GraphML: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums sized to the name, the map rescaled if its objects are much larger or smaller</label></p>
   </div>
 </div>
-<input id="cv-file" type="file" accept=".graphml,.xml" multiple hidden>
+<input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>
 <div id="cv-status"></div>
 <div id="cv-out"></div>
 
@@ -57,43 +59,56 @@ noindex: true
 <script>
 (() => {
   const BASE = '{{ "/converter/mapconv/" | relative_url }}';
-  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style'];
+  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style', 'sbgnml'];
   // the converter's own code (mapconv): a GraphML map gives two CellDesigner files (annotation
-  // from the GraphML), a CellDesigner file gives GraphML; a message the converter prints (a
-  // warning, the summary) is kept for the page
+  // from the GraphML), the map in the SBGN palette if it is drawn with other shapes, and SBGN-ML;
+  // a CellDesigner file gives GraphML, an SBGN-ML or Newt file GraphML and CellDesigner. Each
+  // file: [name ending, button label, text, log]; a message the converter prints (a warning,
+  // the summary) is kept for the page
   const DRIVER = `
 import contextlib, io, os, sys
 sys.path.insert(0, '/home/pyodide')
-from mapconv import annotation, celldesigner, graphml, style
+from mapconv import annotation, celldesigner, graphml, sbgnml, style
+
+def run(f):
+    log, text = io.StringIO(), None
+    try:
+        with contextlib.redirect_stdout(log):
+            text = f()
+    except BaseException as e:
+        log.write('Not converted: %s\\n' % e)
+    return text, log.getvalue()
 
 def convert(name, data, standard=False):
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
-    out = {}
-    back = not name.lower().endswith('.graphml')
-    for layout in ('straight', 'advanced'):
-        log, xml = io.StringIO(), None
-        try:
-            with contextlib.redirect_stdout(log):
-                if back:
-                    m = celldesigner.read(p, layout)
-                    xml = graphml.write(style.standardise(m) if standard else m)
-                else:
-                    m = graphml.read(p)
-                    xml = celldesigner.write(m, annotation.from_graphml(m), layout)
-        except BaseException as e:
-            log.write('Not converted: %s\\n' % e)
-        out[layout] = {'xml': xml, 'log': log.getvalue(), 'back': back}
-    if not back:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
-        try:
-            fixed = graphml.corrected(graphml.read(p))
-        except BaseException:
-            fixed = None
-        if fixed:
-            out['corrected'] = {'xml': fixed, 'log': '', 'back': True}
-    return out
+    ext = name.lower().rsplit('.', 1)[-1]
+    to_graphml = lambda m: graphml.write(style.standardise(m) if standard else m)
+    files = []
+    if ext == 'graphml':
+        for layout in ('straight', 'advanced'):
+            m = graphml.read(p)
+            files.append(['-%s.xml' % layout, 'CellDesigner' + ('' if layout == 'straight' else ' (advanced)'),
+                          *run(lambda: celldesigner.write(m, annotation.from_graphml(m), layout))])
+        fixed, _ = run(lambda: graphml.corrected(graphml.read(p)))
+        if fixed:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
+            files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, ''])
+        files.append(['.sbgn', 'SBGN-ML', *run(lambda: sbgnml.write(graphml.read(p)))])
+    elif ext == 'xml':
+        for layout in ('straight', 'advanced'):
+            files.append(['-%s.graphml' % layout, 'GraphML' + ('' if layout == 'straight' else ' (advanced)'),
+                          *run(lambda: to_graphml(celldesigner.read(p, layout)))])
+    else:  # SBGN-ML, or Newt's own file
+        files.append(['.graphml', 'GraphML', *run(lambda: to_graphml(sbgnml.read(p)))])
+        for layout in ('straight', 'advanced'):
+            def cd():
+                with contextlib.redirect_stdout(io.StringIO()):  # the glyphs left out: said once, above
+                    m = sbgnml.read(p)
+                return celldesigner.write(m, annotation.from_graphml(m), layout)
+            files.append(['-%s.xml' % layout, 'CellDesigner' + ('' if layout == 'straight' else ' (advanced)'), *run(cd)])
+    return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
   const dropText = document.getElementById('cv-drop-text');
@@ -128,21 +143,18 @@ def convert(name, data, standard=False):
     if (!py) return;
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
-      if (!/\.(graphml|xml)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML or CellDesigner file'; continue; }
+      if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner, SBGN-ML or Newt file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
-      const base = f.name.replace(/\.(graphml|xml)$/i, '');
+      const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
       const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked)
-                  .toJs({ dict_converter: Object.fromEntries });
+                  .toJs();
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
       // the converter's messages, each once and without its summary line ("46 species, ...")
       const notes = new Set(), errors = new Set();
-      for (const layout of Object.keys(r)) {
-        const { xml, log, back } = r[layout];
-        const mode = layout === 'straight' ? '' : ' (' + layout + ')';
-        if (xml) box.append(back ? button(xml, base + '-' + layout + '.graphml', 'GraphML' + mode)
-                                 : button(xml, base + '-' + layout + '.xml', 'CellDesigner' + mode));
+      for (const [end, label, xml, log] of r) {
+        if (xml) box.append(button(xml, base + end, label));
         for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
       }
       for (const [set, cls] of [[errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
