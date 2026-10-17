@@ -112,9 +112,9 @@ Fit shows the map alone, with the annotation over its right side.
 
 ## Atlas panel
 
-The panel a click on the map opens (user, 2026-10-17): the HGNC symbol under the title on
-every protein that has one, linked to its HGNC page, so the Annotations list leaves out the
-HGNC ID (same page). The long text (UniProt function, ChEBI definition) under "Function" or
+The panel a click on the map opens (user, 2026-10-17): the HGNC symbol in the Annotations
+links under its identifiers.org prefix, "HGNC.SYMBOL (PLA2G4A)", and no HGNC ID link then (same
+page). No separate symbol line under the title. The long text (UniProt function, ChEBI definition) under "Function" or
 "Definition" in the grey of the other labels, no source named, closed at first, opened by a
 square + (− when open) right after the word: variant 3 of the former test page /atlas/folds/
 (in git history) with the square of variant 7.
