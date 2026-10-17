@@ -530,6 +530,7 @@ sitemap: false
       info.appendChild(pl);
     }
     if (!family) {
+      symbols(p);
       if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', 'm2-k', p['Note']));
       record(p);
       return;
@@ -575,9 +576,17 @@ sitemap: false
     t.appendChild(el('b', null, m.symbol));
     if (mp['Note']) { t.appendChild(document.createTextNode(' ')); t.appendChild(el('span', 'm2-k', mp['Note'])); }
     info.appendChild(t);
+    symbols(mp);
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
+  // the gene symbols as text at the top, from HGNC (user, 2026-10-17); the symbol is also
+  // a link among the Annotations
+  function symbols(p) {
+    line(p, 'HGNC symbol');
+    line(p, 'Previous symbols');
+    line(p, 'Alias symbols');
+  }
   function line(p, name) {
     if (!p[name]) return;
     var q = el('p');
