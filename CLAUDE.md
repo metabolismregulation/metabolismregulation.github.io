@@ -143,8 +143,8 @@ checked by map-converter's `rules.py`, as on the command line (user, 2026-10-17)
 converted files, a red "GraphML (marked)" button (the red of the Atlas's image error) gives `<map>-marked.graphml`, the
 map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
 line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
-page /converter/routes/): "GraphML → GraphML corrected to the SBGN palette", "GraphML → CellDesigner", "GraphML → SBGN-ML",
-"CellDesigner → GraphML", "SBGN-ML → GraphML", "SBGN-ML → CellDesigner" (user, 2026-10-17: SBGN-ML gives each
+page /converter/routes/): "GraphML → GraphML corrected to the SBGN palette", "GraphML ↔ CellDesigner" (both ways in one line, the
+font's ↔), "GraphML → SBGN-ML", "SBGN-ML → GraphML", "SBGN-ML → CellDesigner" (user, 2026-10-17: SBGN-ML gives each
 directly, not CellDesigner through the GraphML), as plain text with the font's → so it can be copied (user, 2026-10-17). All the text next to the drop area
 (routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
