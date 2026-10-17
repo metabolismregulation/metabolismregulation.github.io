@@ -116,8 +116,8 @@ The panel a click on the map opens (user, 2026-10-17): the HGNC symbol under the
 every protein that has one, linked to its HGNC page, so the Annotations list leaves out the
 HGNC ID (same page). The long text (UniProt function, ChEBI definition) under "Function" or
 "Definition" in the grey of the other labels, no source named, closed at first, opened by a
-square + (− when open) at the right: variant 7 of the former test page /atlas/folds/, in git
-history. Second choice: variant 3, a pale chevron (#b4b4b4) right after the word.
+square + (− when open) right after the word: variant 3 of the former test page /atlas/folds/
+(in git history) with the square of variant 7.
 
 ## Converter page
 
