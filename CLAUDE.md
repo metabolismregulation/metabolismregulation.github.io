@@ -52,7 +52,7 @@ Reactome processes (linked). `make_maps.py` marks such a map (`lists` in the Atl
 2026-10-16) and is kept in the tag palette.
 
 Atlas list tags (user, 2026-10-16): draft or new after the map name. Only these two are automatic (draft: a page in `draftpages/`, new: as above, user 2026-10-17). Every other tag is set by hand, on request. Every tag, used or not
-(draft, new, new blue, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+(draft, new, new blue, lists), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.
