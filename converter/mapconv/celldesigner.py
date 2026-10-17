@@ -368,8 +368,8 @@ def write(diagram, ann, layout='direct'):
         f = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
         ep = [cd_bends.to_frame(A, B, q) for q in pts]
         off = lambda m: min(abs(cen(m)[0] - sq[0]), abs(cen(m)[1] - sq[1]))  # a modifier off its square
-        if advanced and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods):
-            # a modifier straight across in yEd that could not be moved onto the midway square
+        if advanced and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods + gates):
+            # a modifier (or logic gate) straight across in yEd that could not be moved onto the midway square
             # (more than ALIGN px, or other squares it reaches): the square where yEd has the
             # process, if that is on its segment. Two edit points half way to the nearer end on
             # either side, so the arcs keep their antennas (user's pyrimidine v07 edit, CAD)
