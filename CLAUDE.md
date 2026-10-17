@@ -76,8 +76,8 @@ No semicolons in page text (user, 2026-10-16): they read as AI writing. Start a 
 sentence instead.
 References are one alphabetical list: database entries (Reactome, KEGG, MetaCore) sit in
 it by their first word like the papers, not at the end (user, 2026-10-16).
-Links in the References open in a new tab (user, 2026-10-17): `_includes/references-new-tab.html`,
-used by the post layout (map pages, drafts too) and by the Atlas for its map text.
+A link in the References opens in a new tab: `{:target="_blank" rel="noopener"}` right after it in the
+Markdown (user, 2026-10-17), no script for it.
 
 ## Style choices
 

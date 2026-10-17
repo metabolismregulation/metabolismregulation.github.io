@@ -33,7 +33,7 @@ Cytosolic phospholipase A2 (cPLA2α, PLA2G4A) releases arachidonate from membran
 1. Lin LL, Wartmann M, Lin AY, Knopf JL, Seth A, Davis RJ. cPLA2 is phosphorylated and activated by MAP kinase. Cell. 1993 Jan 29;72(2):269-78. doi: 10.1016/0092-8674(93)90666-e. PMID: 8381049.
 1. Offermanns S, Toombs CF, Hu YH, Simon MI. Defective platelet activation in G alpha(q)-deficient mice. Nature. 1997 Sep 11;389(6647):183-6. doi: 10.1038/38284. PMID: 9296496.
 1. Ono T, Yamada K, Chikazawa Y, Ueno M, Nakamoto S, Okuno T, Seno K. Characterization of a novel inhibitor of cytosolic phospholipase A2alpha, pyrrophenone. Biochem J. 2002 May 1;363(Pt 3):727-35. doi: 10.1042/bj3630727. PMID: 11964173.
-1. Reactome: phospho-PLA2 pathway. [Reactome:R-HSA-111995](https://reactome.org/content/detail/R-HSA-111995).
+1. Reactome: phospho-PLA2 pathway. [Reactome:R-HSA-111995](https://reactome.org/content/detail/R-HSA-111995){:target="_blank" rel="noopener"}.
 1. Smith WL, Urade Y, Jakobsson PJ. Enzymes of the cyclooxygenase pathways of prostanoid biosynthesis. Chem Rev. 2011 Oct 12;111(10):5821-65. doi: 10.1021/cr2002992. PMID: 21942677.
 1. Smrcka AV, Hepler JR, Brown KO, Sternweis PC. Regulation of polyphosphoinositide-specific phospholipase C activity by purified Gq. Science. 1991 Feb 15;251(4995):804-7. doi: 10.1126/science.1846707. PMID: 1846707.
 1. Taylor SJ, Chae HZ, Rhee SG, Exton JH. Activation of the beta 1 isozyme of phospholipase C by alpha subunits of the Gq class of G proteins. Nature. 1991 Apr 11;350(6318):516-8. doi: 10.1038/350516a0. PMID: 1707501.

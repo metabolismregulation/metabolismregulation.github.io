@@ -39,7 +39,7 @@ downloads:
 1. Liu J, García-Cardeña G, Sessa WC. Biosynthesis and palmitoylation of endothelial nitric oxide synthase: mutagenesis of palmitoylation sites, cysteines-15 and/or -26, argues against depalmitoylation-induced translocation of the enzyme. Biochemistry. 1995 Sep 26;34(38):12333-40. doi: 10.1021/bi00038a029. PMID: 7547976.
 1. Liu X, El-Mahdy MA, Boslett J, Varadharaj S, Hemann C, Abdelghany TM, Ismail RS, Little SC, Zhou D, Thuy LT, Kawada N, Zweier JL. Cytoglobin regulates blood pressure and vascular tone through nitric oxide metabolism in the vascular wall. Nat Commun. 2017 Apr 10;8:14807. doi: 10.1038/ncomms14807. PMID: 28393874.
 1. Michel JB, Feron O, Sacks D, Michel T. Reciprocal regulation of endothelial nitric-oxide synthase by Ca2+-calmodulin and caveolin. J Biol Chem. 1997 Jun 20;272(25):15583-6. doi: 10.1074/jbc.272.25.15583. PMID: 9188442.
-1. Reactome: Metabolism of nitric oxide: NOS3 activation and regulation. [Reactome:R-HSA-202131](https://reactome.org/content/detail/R-HSA-202131).
+1. Reactome: Metabolism of nitric oxide: NOS3 activation and regulation. [Reactome:R-HSA-202131](https://reactome.org/content/detail/R-HSA-202131){:target="_blank" rel="noopener"}.
 
 ## Contributors
 
