@@ -95,6 +95,9 @@ edge routing, yEd's name; "direct" dropped, user 2026-10-17) and "CellDesigner (
 2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
+Footer (every page, user 2026-10-17, variant 2 of the hidden page /atlas/footers/): white, a thin
+line above (#eee), the round email and GitHub icons; no grey band.
+
 ## Atlas map window
 
 The map window spans the middle column (no sideways resizing). Its height starts at the shape
