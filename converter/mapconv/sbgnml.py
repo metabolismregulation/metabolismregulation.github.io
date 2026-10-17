@@ -4,9 +4,10 @@
 # as RDF in each glyph's extension with identifiers.org links in Newt's form (db:id).
 # read() at the end goes the other way, also for Newt's .nwt (SBGN-ML with its settings).
 import copy, math, os, re
+from dataclasses import replace
 from lxml import etree
 from .annotation import from_graphml, to_properties
-from .graphml import LINE, CHAR
+from .graphml import EQUIV, LINE, CHAR
 from .model import Map, Node, Arc
 
 NS = 'http://sbgn.org/libsbgn/0.3'
@@ -21,6 +22,7 @@ CLASS = {'Macromolecule': 'macromolecule', 'SimpleChemical': 'simple chemical', 
          'UncertainProcess': 'uncertain process'}
 MULTIMER = ('Macromolecule', 'SimpleChemical', 'NucleicAcidFeature', 'Complex')
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
+OPERATORS = {'and': 'AND', 'or': 'OR', 'not': 'NOT', 'equivalence': EQUIV}  # SBGN class -> yEd label
 ARC = {'production': 'production', 'catalysis': 'catalysis', 'inhibition': 'inhibition', 'modulation': 'modulation',
        'stimulation': 'stimulation', 'trigger': 'necessary stimulation'}
 # urn:miriam:<db> -> Newt's identifiers.org prefix (annotations-handler.js, dbList)
@@ -83,6 +85,7 @@ def write(diagram):
     comps = {i for i, d in N.items() if d.kind == 'Compartment'}
     ops = {i for i, d in N.items() if d.kind == 'Operator'}
     hubs = {i for i, d in N.items() if d.kind in PROCESSES} | ops
+    eq = {i for i in ops if N[i].labels[:1] == [EQUIV]}  # its output, a plain line to the generic entity, keeps its direction
 
     # arcs in SBGN's direction: a consumption runs from the entity to the process (yEd maps
     # also draw it the other way), a logic arc from the entity into its gate
@@ -90,9 +93,9 @@ def write(diagram):
     for a in diagram.arcs:
         s, t, pts, s_at, t_at = a.source, a.target, list(a.points), a.source_at, a.target_at
         if a.head is None:
-            if s in hubs and t not in hubs:
+            if s in hubs - eq and t not in hubs:
                 s, t, pts, s_at, t_at = t, s, pts[::-1], t_at, s_at
-            cls = 'logic arc' if t in ops else 'consumption'
+            cls = 'logic arc' if t in ops or s in eq else 'consumption'
         else:
             cls = ARC.get(a.head)
             if cls is None:
@@ -172,9 +175,9 @@ def write(diagram):
         d = N[i]
         x, y, w, h = d.box
         if d.kind == 'Operator':
-            cls = (d.labels[0] if d.labels else '').strip().lower()
-            if cls not in ('and', 'or', 'not'):
-                print('gate %s: label %r is not AND, OR or NOT, left out' % (i, cls)); return
+            cls = {v: k for k, v in OPERATORS.items()}.get((d.labels[0] if d.labels else '').strip().upper())
+            if cls is None:
+                print('gate %s: label %r is not AND, OR, NOT or %s, left out' % (i, d.labels[:1], EQUIV)); return
         elif d.kind in CLASS:
             cls = CLASS[d.kind] + (' multimer' if d.count > 1 and d.kind in MULTIMER else '')
         else:
@@ -192,7 +195,7 @@ def write(diagram):
             if d.kind == 'Compartment' and d.label_at:
                 lines = name.split('\n')
                 bbox(lab, x + d.label_at[0], y + d.label_at[1], max(len(t) for t in lines) * CHAR, len(lines) * LINE)
-        elif d.kind == 'Operator':
+        elif d.kind == 'Operator' and cls != 'equivalence':  # the equivalence glyph has no label (the spec, 2.9.4)
             etree.SubElement(g, S + 'label', text=cls.upper())
         bbox(g, x, y, w, h)
         cx, cy = centre(d)
@@ -268,6 +271,13 @@ KIND.update(association='Process', dissociation='Process')  # read as the generi
 HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'catalysis': 'catalysis',
         'inhibition': 'inhibition', 'modulation': 'modulation', 'stimulation': 'stimulation',
         'necessary stimulation': 'trigger'}
+# Activity Flow (L1V1.2, read only; user, 2026-10-17): an activity is drawn as the entity it comes
+# from, CellDesigner's way. Its unit of information's shape gives the glyph (none: a protein;
+# perturbation: phenotype, as in CellDesigner), its label (the molecule's name) stays a unit; the
+# influences are arcs between entities; a delay is dropped, its input joined to its target
+ACTIVITY = {'macromolecule': 'Macromolecule', 'nucleic acid feature': 'NucleicAcidFeature', 'simple chemical': 'SimpleChemical',
+            'unspecified entity': 'UnspecifiedEntity', 'complex': 'Complex', 'perturbation': 'Phenotype'}
+HEAD.update({'positive influence': 'stimulation', 'negative influence': 'inhibition', 'unknown influence': 'modulation'})
 URN = {v: k for k, v in DB.items()}
 
 
@@ -313,7 +323,10 @@ def read(path):
         cls, i = g.get('class'), g.get('id')
         x, y, w, h = (float(g.find(S + 'bbox').get(k)) for k in 'xywh')
         base = cls[:-len(' multimer')] if cls.endswith(' multimer') else cls
-        kind = 'Operator' if cls in ('and', 'or', 'not') else KIND.get(base)
+        kind = 'Operator' if cls in OPERATORS else 'Delay' if cls == 'delay' else KIND.get(base)
+        if cls == 'biological activity':
+            u = next((c.find(S + 'entity') for c in g.findall(S + 'glyph') if c.get('class') == 'unit of information'), None)
+            kind = ACTIVITY.get((u.get('name') if u is not None else '').replace(' multimer', ''), 'Macromolecule')
         if kind is None:  # tag, annotation and the other glyphs our maps do not draw
             skipped.setdefault(cls, []).append(i); return
         for p in g.findall(S + 'port'):
@@ -326,7 +339,7 @@ def read(path):
                 v, var = (st.get('value') or '', st.get('variable') or '') if st is not None else ('', '')
                 cx, cy = float(cb.get('x')) + float(cb.get('w')) / 2, float(cb.get('y')) + float(cb.get('h')) / 2
                 states.append((v + ('@' + var if var else ''), (cx - x - w / 2) / w, (cy - y - h / 2) / h))
-            elif c.get('class') == 'unit of information':
+            elif c.get('class') == 'unit of information' and (text(c) or cls != 'biological activity'):
                 units.append(text(c))
         n = [int(u[2:]) for u in units if re.fullmatch(r'N:\d+', u)]
         lab = g.find(S + 'label')
@@ -339,7 +352,7 @@ def read(path):
                     data.update(to_properties(etree.QName(q).localname == 'hasVersion', urns))
             break  # the glyph's own description
         nodes[i] = Node(id=i, kind=kind, box=(x, y, w, h), parent=parent,
-                        labels=[cls.upper()] if kind == 'Operator' else [text(g)],
+                        labels=[OPERATORS[cls]] if kind == 'Operator' else [text(g)],
                         fill=colour(fill.get(i), defs), states=states, units=units,
                         count=(n[0] if n else 2) if cls.endswith(' multimer') else 1,
                         label_at=(float(lb.get('x')) - x, float(lb.get('y')) - y) if kind == 'Compartment' and lb is not None else None,
@@ -360,6 +373,12 @@ def read(path):
             skipped.setdefault(cls + ' arc' if cls not in HEAD else 'arc to a glyph left out', []).append(a.get('id')); continue
         arcs.append(Arc(id=a.get('id'), source=s, target=t, head=HEAD[cls],
                         points=[(float(p.get('x')), float(p.get('y'))) for p in a.findall(S + 'next')]))
+    for d in [i for i, n in nodes.items() if n.kind == 'Delay']:  # Activity Flow's delay: no glyph in our maps
+        ins, outs = [a for a in arcs if a.target == d], [a for a in arcs if a.source == d]
+        arcs = [a for a in arcs if d not in (a.source, a.target)] + \
+            [replace(o, source=a.source, points=a.points + o.points) for a in ins for o in outs]
+        del nodes[d]
+        skipped.setdefault('delay (its input joined to its target)', []).append(d)
     for what, ids in skipped.items():
         print('%s: %d left out (%s)' % (what, len(ids), ', '.join(ids[:5]) + (' ...' if len(ids) > 5 else '')))
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)

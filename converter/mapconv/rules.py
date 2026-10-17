@@ -10,6 +10,7 @@
 import sys
 from lxml import etree
 from . import graphml
+from .graphml import EQUIV
 from .celldesigner import CLASS
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
@@ -101,8 +102,15 @@ def problems(m):
         if not (cons and prod or prod >= 2):
             out.append((p, 'a process needs a reactant and a product (a source or sink when there is none)'))
     for o in ops - bad:
+        if N[o].labels[:1] == [EQUIV]:
+            # the equivalence operator (the spec, 2.9.4): entities in, one plain line out to the generic entity
+            ends = [e.target if e.source == o else e.source for e in ok if o in (e.source, e.target)]
+            if any(x not in epn for x in ends):
+                out.append((o, 'an equivalence operator joins entities only'))
+            elif sum(1 for e in ok if e.source == o) != 1 or len(ends) < 3:
+                out.append((o, 'an equivalence operator needs two or more entities in and one line out (drawn from it)'))
         # its output: a modifier arc (to a process, or reduced to an entity) or a plain line into another gate
-        if not any(e.source == o and (e.head in MODIFIERS or e.head is None and e.target in ops) for e in ok):
+        elif not any(e.source == o and (e.head in MODIFIERS or e.head is None and e.target in ops) for e in ok):
             out.append((o, 'a logic gate needs an arc out of it'))
     return out
 

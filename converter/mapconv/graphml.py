@@ -154,6 +154,7 @@ def read(path):
 G = '{%s}' % NS['g']
 ARROW = {v: k for k, v in HEAD.items() if k != 'crows_foot_one'}  # AsthMap's bar is read, never written
 ARROW['production'] = 'delta'
+EQUIV = '≡'  # the equivalence operator's label in yEd's SBGN palette (user's file, 2026-10-17)
 LINE, CHAR = 16.5, 9.5  # a label line's height and a character's width at font size 14 (our maps)
 
 
@@ -230,6 +231,8 @@ def write(diagram):
         if not sign and font != 14:
             l.set('fontSize', str(font))
         _label(l, sign or next((x for x in d.labels if x), ''), w, h, font / 14)  # the name; a second label is a unit (N:4)
+        if d.kind == 'Operator' and l.text == EQUIV:  # as yEd's palette draws it
+            l.set('fontFamily', 'Monospaced'); l.set('fontSize', '18')
         if d.kind == 'Compartment':  # its name where the source has it, else centred at the top (the template's place)
             lx, ly = d.label_at or (float(l.get('x')), 0.0)
             l.set('x', repr(float(lx))); l.set('y', repr(float(ly)))
