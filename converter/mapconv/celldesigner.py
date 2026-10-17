@@ -50,6 +50,10 @@ MARGIN = 40
 STRAIGHTEN = os.environ.get('STRAIGHTEN', '1') == '1'  # STRAIGHTEN=0: positions as in yEd
 NAME_ROOM = 25.0  # below the members of a complex, for its name
 ALIGN = 15.0  # largest move of a modifier onto its square (px)
+# the points of the process square a modifier can end at (targetLineIndex -1,i): (along the flow,
+# to its right) in half square sizes (MINERVA's getAnchorPointOnReactionRect; the user's PDH edit
+# has 6 and 7)
+SQUARE = {2: (0, -1), 3: (0, 1), 4: (-1, -1), 5: (1, -1), 6: (-1, 1), 7: (1, 1)}
 CHEMICAL = 36.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
 CD = 'http://www.sbml.org/2001/ns/celldesigner'
 CLASS = {'Macromolecule': 'PROTEIN', 'SimpleChemical': 'SIMPLE_MOLECULE', 'NucleicAcidFeature': 'GENE',
@@ -148,6 +152,10 @@ def anchor_point(box, side, circle=False):
         return (x + w / 2 * (1 + math.cos(a)), y + h / 2 * (1 - math.sin(a)))
     fx, fy = ANCHOR[side]
     return (x + fx * w, y + fy * h)
+
+
+def square_point(sq, f, a, c):  # a point of the process square at sq, flow f: a along the flow, c to its right
+    return (sq[0] + 5 * (a * f[0] - c * f[1]), sq[1] + 5 * (a * f[1] + c * f[0]))
 
 
 def meet(M, T, way=None):
@@ -325,10 +333,12 @@ def write(diagram, ann, layout='straight'):
             return None
         return {'E': 'ESE', 'W': 'WSW'}.get(a, a) if N[i].kind == 'SimpleChemical' else a
 
-    def level(e, c):  # a modifier arc that reaches the process at c straight across in yEd (5 px)
+    def level(e, c):
+        # a modifier arc that reaches the process at c straight across in yEd (5 px), in line with
+        # its port or its centre (PD02 eicosanoids: an arc from above the process to a corner)
         q = yed(e.points)[-1] if e.points else \
             (cen(e.source)[0] + e.source_at[0], cen(e.source)[1] + e.source_at[1])
-        return min(abs(q[0] - c[0] - e.target_at[0]), abs(q[1] - c[1] - e.target_at[1])) <= 5
+        return any(min(abs(q[0] - c[0] - t[0]), abs(q[1] - c[1] - t[1])) <= 5 for t in (e.target_at, (0, 0)))
 
     def geometry(p, fl, place=True):
         # the main line of process p: its ends, anchors, bend, the square and the flow direction;
@@ -441,9 +451,19 @@ def write(diagram, ann, layout='straight'):
             else: t1 = min(t1, q_ / p_)
         return t0 < t1
 
-    def attach(g, pt):  # where an arc from pt meets the square: its side, 5 from the centre
-        sgn = 1 if side(g, pt) == 2 else -1
-        return (g['sq'][0] + sgn * 5 * g['f'][1], g['sq'][1] - sgn * 5 * g['f'][0])
+    def target(g, e, pt, many):
+        # the point of the square an arc from pt ends at: the side facing pt; in the advanced layout,
+        # where several arcs regulate the process and yEd ends this one off its centre, the point
+        # nearest that yEd port, so the arcs stay apart (user, PDH 2026-10-17)
+        o, h, f = e.target_at, N[e.target].box[2] / 2, g['f']
+        if advanced and many and math.hypot(*o) > 2:
+            a, c = (o[0] * f[0] + o[1] * f[1]) / h, (o[1] * f[0] - o[0] * f[1]) / h
+            if abs(c) > 0.5:
+                return min(SQUARE, key=lambda i: math.dist(SQUARE[i], (a, c)))
+        return side(g, pt)
+
+    def attach(g, i):  # the square's point i (targetLineIndex -1,i)
+        return square_point(g['sq'], g['f'], *SQUARE[i])
 
     def overlap(a, b):
         return a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3]
@@ -496,7 +516,8 @@ def write(diagram, ann, layout='straight'):
             m = e.source
             if N[m].parent in ents or cd_bends.turn([cen(m)] + route(p, e.points) + [cen(p)]):
                 continue  # complex members move with their complex; an L arc is straight already
-            M, T = cen(m), attach(g, cen(m))
+            M = cen(m)
+            T = attach(g, target(g, e, M, len(fls[p][2]) + len(fls[p][3]) > 1))
             ax = 0 if abs(M[0] - T[0]) < abs(M[1] - T[1]) else 1  # the axis with the small offset
             want.setdefault((m, ax), []).append(T[ax] - M[ax])
     for (m, ax), ds in sorted(want.items()):
@@ -759,7 +780,8 @@ def write(diagram, ann, layout='straight'):
             lm = sub(x, 'listOfModification')
             for e in mods:
                 m = e.source; M = cen(m)
-                T = attach(g, M)  # the arc's end on the square's side (the user's glycolysis v01 bends)
+                i = target(g, e, M, len(mods) + len(gates) > 1)
+                T = attach(g, i)  # the arc's end on the square (the user's glycolysis v01 bends)
                 # a slanting straight arc from the border of another entity: that anchor (as read
                 # back); one that runs across at the process's height takes a lane (below)
                 at = advanced and not e.points and N[m].kind != 'SimpleChemical' and nearest(m, e.source_at)
@@ -790,7 +812,7 @@ def write(diagram, ann, layout='straight'):
                     pts = [bend] if bend else []
                 # a line to the centre has no linkTarget (the user's CellDesigner edit of estrogen v01)
                 k = sub(lm, 'modification', type=typed(e, MOD[e.head]), modifiers='s_' + sid(m), aliases='sa_' + sid(m),
-                        targetLineIndex='-1,%d' % side_of(M))
+                        targetLineIndex='-1,%d' % i)
                 if pts:  # frame: origin the modifier's centre (or its anchor), x axis to the arc's end
                     k.set('editPoints', ' '.join('%s,%s' % cd_bends.to_frame(M, T, q) for q in pts))
                 line(k, len(pts) + 1)
@@ -1090,13 +1112,11 @@ def read(path, layout='straight'):
                     if l.get('editPoints') or f(l, 'cd:editPoints') is not None:
                         print('reaction %s: edit points of an added link left out' % rid)
                     flow(alias_of(l), into)
-        # modifiers: the arc ends 5 px beside the square, on the side targetLineIndex names
+        # modifiers: the arc ends at the point of the square targetLineIndex names (a side middle or a corner)
         gate_inputs, gates = set(), 0
         for m in xs(x, 'cd:listOfModification/cd:modification'):
             t = m.get('type')
-            side = int(m.get('targetLineIndex', '-1,2').split(',')[1])
-            sgn = 1 if side == 2 else -1
-            T = (sq[0] + sgn * 5 * fl[1], sq[1] - sgn * 5 * fl[0])
+            T = square_point(sq, fl, *SQUARE.get(int(m.get('targetLineIndex', '-1,2').split(',')[1]), SQUARE[3]))
             if t.startswith('BOOLEAN_LOGIC_GATE'):
                 op = '%s_gate%d' % (rid, gates); gates += 1
                 gx, gy = points(m.get('editPoints'))[0]
