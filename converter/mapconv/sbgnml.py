@@ -15,7 +15,7 @@ RDF = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
 BQBIOL = 'http://biomodels.net/biology-qualifiers/'
 S, R = '{%s}' % NS, '{%s}' % RENDER
 CLASS = {'Macromolecule': 'macromolecule', 'SimpleChemical': 'simple chemical', 'NucleicAcidFeature': 'nucleic acid feature',
-         'UnspecifiedEntity': 'unspecified entity', 'Complex': 'complex', 'Perturbation': 'perturbing agent',
+         'UnspecifiedEntity': 'unspecified entity', 'Complex': 'complex',
          'Phenotype': 'phenotype', 'SourceAndSink': 'source and sink', 'EmptySet': 'source and sink',
          'Submap': 'submap', 'Compartment': 'compartment', 'Process': 'process', 'OmittedProcess': 'omitted process',
          'UncertainProcess': 'uncertain process'}
@@ -102,6 +102,7 @@ def write(diagram):
         if a.tail:
             print('arc %s: its arrow at the source has no place in SBGN-ML, dropped' % a.id)
         arcs.append((a, cls, s, t, pts, s_at, t_at))
+    sources = {a[2] for a in arcs}
 
     # a process or gate has two ports, on the line from its inputs to its outputs (the spec,
     # 2.10): port 1 where the consumptions (gate inputs) come in, port 2 where the products leave.
@@ -177,6 +178,8 @@ def write(diagram):
             cls = {v: k for k, v in OPERATORS.items()}.get((d.labels[0] if d.labels else '').strip().upper())
             if cls is None:
                 print('gate %s: label %r is not AND, OR, NOT or %s, left out' % (i, d.labels[:1], EQUIV)); return
+        elif d.kind == 'Phenotype' and i in sources:  # our phenotype stands for both; SBGN's has no arc out
+            cls = 'perturbing agent'
         elif d.kind in CLASS:
             cls = CLASS[d.kind] + (' multimer' if d.count > 1 and d.kind in MULTIMER else '')
         else:
@@ -267,6 +270,7 @@ def write(diagram):
 # --- reading SBGN-ML (and Newt's .nwt) into the map model (docs/SBGNML.md, "The way back")
 KIND = {v: k for k, v in CLASS.items() if k != 'SourceAndSink'}  # source and sink: yEd's EmptySet
 KIND.update(association='Process', dissociation='Process')  # read as the generic process (MINERVA, Newt)
+KIND['perturbing agent'] = 'Phenotype'  # as in CellDesigner; written back as a perturbing agent when an arc leaves it
 HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'catalysis': 'catalysis',
         'inhibition': 'inhibition', 'modulation': 'modulation', 'stimulation': 'stimulation',
         'necessary stimulation': 'trigger'}

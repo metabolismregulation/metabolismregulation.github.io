@@ -58,7 +58,7 @@ SQUARE = {2: (0, -1), 3: (0, 1), 4: (-1, -1), 5: (1, -1), 6: (-1, 1), 7: (1, 1)}
 CHEMICAL = 36.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
 CD = 'http://www.sbml.org/2001/ns/celldesigner'
 CLASS = {'Macromolecule': 'PROTEIN', 'SimpleChemical': 'SIMPLE_MOLECULE', 'NucleicAcidFeature': 'GENE',
-         'UnspecifiedEntity': 'UNKNOWN', 'Complex': 'COMPLEX', 'Perturbation': 'PHENOTYPE', 'Phenotype': 'PHENOTYPE',
+         'UnspecifiedEntity': 'UNKNOWN', 'Complex': 'COMPLEX', 'Phenotype': 'PHENOTYPE',
          'SourceAndSink': 'DEGRADED', 'EmptySet': 'DEGRADED',
          # CellDesigner has no submap: a phenotype (user's SREBP file, 2026-10-13)
          'Submap': 'PHENOTYPE'}

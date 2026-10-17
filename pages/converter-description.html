@@ -50,7 +50,8 @@ converted files.</p>
   with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with
   other shapes.</li>
   <li><b>SBGN-ML</b>, <code>&lt;map&gt;.sbgn</code>: SBGN-ML 0.3, Process Description. Colours in the SBML
-  render extension, annotation as RDF in each glyph.</li>
+  render extension, annotation as RDF in each glyph. A phenotype with an arc leaving it is written as a
+  perturbing agent, since an SBGN phenotype takes no outgoing arc.</li>
   <li><b>GraphML (marked)</b>, red button, <code>&lt;map&gt;-marked.graphml</code>: yEd GraphML. The input
   map with the elements that break the rules drawn red, the reason shown on hover in yEd. Given only
   when the check finds problems.</li>
@@ -90,8 +91,8 @@ the influences as arcs between them.</p>
 </ul>
 <p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</p>
 <p><b>Not converted</b>: glyph and arc classes the converter does not read, and clone markers, left out
-of all three files and listed under the map with their class and ids. Perturbing agents are left out of
-the GraphML (no yEd template yet) and become phenotypes in CellDesigner, which has no perturbing agent. An
+of all three files and listed under the map with their class and ids. A perturbing agent becomes a
+phenotype in all three files: our maps, like CellDesigner, have one glyph for both. An
 Activity Flow delay is kept in the GraphML as a logic operator labelled τ. The CellDesigner files have no
 delay, so there its input is joined to its target. An Activity Flow submap becomes a phenotype with its name,
 without its terminals and tags. Its equivalence arcs become plain lines to that phenotype in the GraphML. Equivalence operators are left out of the
