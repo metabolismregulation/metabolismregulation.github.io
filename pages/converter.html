@@ -28,6 +28,7 @@ noindex: true
   .cv-error { color: #b00; }
   .cv-hint { font-size: 13px; color: #777; }
   /* the routes, one line each, as plain text (user, 2026-10-17) */
+  label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; } /* the box level with the small label */
   .cv-top p.cv-routes { margin-bottom: 12px; font-size: 13px; line-height: 19px; }
 </style>
 
@@ -42,7 +43,7 @@ noindex: true
     CellDesigner → GraphML, straight-line and advanced routing</p>
     <p>The conversion runs in your browser, and the files stay on your computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
-    <p><label><input type="checkbox" id="cv-standard"> Standard node sizes</label><br><span class="cv-hint">CellDesigner
+    <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label><br><span class="cv-hint">CellDesigner
     to GraphML: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name, the map rescaled if its objects are much larger or smaller</span></p>
   </div>
 </div>
