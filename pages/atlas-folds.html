@@ -1,0 +1,86 @@
+---
+layout: default
+title: Atlas folds
+permalink: /atlas/folds/
+sitemap: false
+noindex: true
+---
+
+<!-- test page (hidden): ways to open and close the long text of the Atlas panel
+     (UniProt function, ChEBI definition). Removed once one is chosen -->
+<style>
+  .fv { display: flex; flex-wrap: wrap; gap: 28px 40px; }
+  .fv section { width: 260px; }
+  .fv h2 { font-size: 15px; margin: 0 0 8px; }
+  .fp { font-size: 14px; line-height: 1.45; color: #222; border: 1px solid #ccc; border-radius: 4px; padding: 10px 12px; }
+  .fp p { margin: 0 0 8px; }
+  .fp .k { color: #666; }
+  .fp h4 { font-size: 14px; font-weight: 400; margin: 12px 0 4px; }
+  .fp a { color: #4183c4; }
+  .f { display: flex; align-items: center; gap: 6px; width: 100%; text-align: left; font: inherit; color: #222; background: none; border: 0; padding: 0; margin: 0 0 4px; cursor: pointer; }
+  .f:focus { outline: none; }
+  .f.shut + p { display: none; }
+  .f i { flex: none; display: inline-block; width: 12px; height: 12px; background: no-repeat center / 12px; }
+
+  /* 1 now: pale chevron at the right edge */
+  .v1 .f { justify-content: space-between; }
+  /* 2 chevron at the right edge, grey of the labels */
+  .v2 .f { justify-content: space-between; }
+  /* 6, 7, 8: square + / − */
+  .sq { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 3px; background: #fff; }
+  .sq svg { width: 10px; height: 10px; stroke: #222; stroke-width: 1.5; stroke-linecap: round; }
+  .f.shut .sq .bar { display: inline; }
+  .sq .bar { display: none; }
+  .v7 .f { justify-content: space-between; }
+  .v8 .f:hover .sq { background: #4183c4; border-color: #4183c4; }
+  .v8 .f:hover .sq svg { stroke: #fff; }
+  /* 9 the label in the link blue */
+  .v9 .f { color: #4183c4; }
+  /* 10 Show / Hide after the label */
+  .v10 .f em { font-style: normal; color: #4183c4; font-size: 13px; }
+</style>
+
+<p>Ways to open and close the UniProt function in the Atlas panel. Click a heading to try it.</p>
+
+<div class="fv" id="fv"></div>
+
+<script>
+(function () {
+  function chev(c, up) {
+    var col = c.replace('#', '%23');
+    return '<i style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 12 12\'%3E%3Cpath d=\'' +
+      (up ? 'M2 4l4 4 4-4' : 'M4 2l4 4-4 4') + '\' fill=\'none\' stroke=\'' + col + '\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E&quot;)"></i>';
+  }
+  var SQ = '<span class="sq"><svg viewBox="0 0 10 10"><path d="M1 5h8"/><path class="bar" d="M5 1v8"/></svg></span>';
+  var L = 'Function (UniProt)';
+  // name, then the heading's inner HTML when shut and when open
+  var V = [
+    ['1. Now: pale chevron at the right', function (o) { return '<span>' + L + '</span>' + chev('#b4b4b4', o); }],
+    ['2. Chevron at the right, darker', function (o) { return '<span>' + L + '</span>' + chev('#666', o); }],
+    ['3. Pale chevron after the label', function (o) { return '<span>' + L + '</span>' + chev('#b4b4b4', o); }],
+    ['4. Chevron after the label, darker', function (o) { return '<span>' + L + '</span>' + chev('#666', o); }],
+    ['5. Chevron before the label', function (o) { return chev('#666', o) + '<span>' + L + '</span>'; }],
+    ['6. Square + before the label', function () { return SQ + '<span>' + L + '</span>'; }],
+    ['7. Square + at the right', function () { return '<span>' + L + '</span>' + SQ; }],
+    ['8. Square + before, blue on hover', function () { return SQ + '<span>' + L + '</span>'; }],
+    ['9. Label in blue, chevron before', function (o) { return chev('#4183c4', o) + '<span>' + L + '</span>'; }],
+    ['10. Show / Hide after the label', function (o) { return '<span>' + L + '</span><em>' + (o ? 'Hide' : 'Show') + '</em>'; }]
+  ];
+  var TEXT = 'Has primarily calcium-dependent phospholipase and lysophospholipase activities, with a major role in membrane lipid remodeling and biosynthesis of lipid mediators of the inflammatory response. Plays an important role in embryo implantation and parturition through its ability to trigger prostanoid production.';
+  var box = document.getElementById('fv');
+  V.forEach(function (v, n) {
+    var s = document.createElement('section');
+    s.className = 'v' + (n + 1);
+    s.innerHTML = '<h2>' + v[0] + '</h2><div class="fp">' +
+      '<p><span class="k">Full name: </span>Cytosolic phospholipase A2</p>' +
+      '<p><span class="k">Location: </span>Cytoplasm, Golgi apparatus membrane, Nucleus envelope</p>' +
+      '<button type="button" class="f shut"></button><p>' + TEXT + '</p>' +
+      '<h4>Annotations</h4><a href="#">UNIPROT (P47712)</a></div>';
+    var b = s.querySelector('.f');
+    function draw() { var o = !b.classList.contains('shut'); b.innerHTML = v[1](o); b.setAttribute('aria-expanded', o); }
+    b.addEventListener('click', function () { b.classList.toggle('shut'); draw(); });
+    draw();
+    box.appendChild(s);
+  });
+})();
+</script>
