@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 new: false
 image: "/atlas-downloads/F002-eicosanoids.svg"
-width: 1450
-height: 1265
+width: 1175
+height: 1050
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids.json"
 image_error: ""
