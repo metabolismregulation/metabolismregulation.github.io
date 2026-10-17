@@ -8,14 +8,15 @@ contributors:
 project: true
 ---
 
-Downloads: &nbsp; 
-<a href="/downloads/F006-acly.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F006-acly.sbgn" download>SBGN-ML</a> &nbsp;
-<a href="/downloads/F006-acly-SBML.xml" download>SBML</a> &nbsp;
-<a href="/downloads/F006-acly.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly" target="_blank" rel="noopener">MINERVA</a> &nbsp;
-<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-acly.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
-<a href="/downloads/F006-acly.csv" download>Annotation</a> &nbsp;
+<a href="/downloads/F006-acly.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
+<a href="/downloads/F006-acly.png" download>{% include icon-download.html %}PNG</a> &nbsp;
+<a href="/downloads/F006-acly.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
+<a href="/downloads/F006-acly.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
+<a href="/downloads/F006-acly-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
+<a href="/downloads/F006-acly.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
+<a href="/downloads/F006-acly.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F006-acly.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/acly/"><img id="image" src="/downloads/F006-acly.svg" width="600"/></a></p>
 
 ## Description

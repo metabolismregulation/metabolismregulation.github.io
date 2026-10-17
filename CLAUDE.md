@@ -84,6 +84,10 @@ website: up to ten variants, one under another, on a hidden page (like the tag p
 /atlas/tags/), each with its name, so the user picks one there. Once chosen, the test page is removed (user, 2026-10-17). Download buttons carry the
 download icon (tray and arrow, before the label: Atlas, Converter); links to another site
 carry the external-link icon after the label.
+Official map pages (user, 2026-10-17): no "Downloads:" word, the links in the order GraphML, PNG, SVG,
+CellDesigner, SBML, SBGN-ML, Annotation, Newt, MINERVA (a file missing in `downloads/` is left out), each
+file with `{% include icon-download.html %}` before its name, Newt and MINERVA with
+`{% include icon-external.html %}` after it. The Gallery links carry the same icons.
 Buttons (user, 2026-10-16, from scheme 8 of the former test page /atlas/buttons/, in git history): white, grey edge (#ccc), black text,
 quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, no filled
 MINERVA), on hover filled in the blue of the chosen map in the map list (#4183c4, white text),

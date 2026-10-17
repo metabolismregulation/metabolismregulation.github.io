@@ -9,14 +9,15 @@ contributors:
 project: true
 ---
 
-Downloads: &nbsp; 
-<a href="/downloads/F018-estrogen.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F018-estrogen.sbgn" download>SBGN-ML</a> &nbsp;
-<a href="/downloads/F018-estrogen-SBML.xml" download>SBML</a> &nbsp;
-<a href="/downloads/F018-estrogen.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen" target="_blank" rel="noopener">MINERVA</a> &nbsp;
-<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
-<a href="/downloads/F018-estrogen.csv" download>Annotation</a> &nbsp;
+<a href="/downloads/F018-estrogen.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
+<a href="/downloads/F018-estrogen.png" download>{% include icon-download.html %}PNG</a> &nbsp;
+<a href="/downloads/F018-estrogen.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
+<a href="/downloads/F018-estrogen.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
+<a href="/downloads/F018-estrogen-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
+<a href="/downloads/F018-estrogen.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
+<a href="/downloads/F018-estrogen.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F018-estrogen.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F018-estrogen" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/estrogen/"><img id="image" src="/downloads/F018-estrogen.svg" width="830"/></a></p>
 
 ## Description

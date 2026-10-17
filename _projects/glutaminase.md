@@ -9,14 +9,15 @@ contributors:
 project: true
 ---
 
-Downloads: &nbsp; 
-<a href="/downloads/F019-glutaminase.graphml" download>GraphML</a> &nbsp;
-<a href="/downloads/F019-glutaminase.sbgn" download>SBGN-ML</a> &nbsp;
-<a href="/downloads/F019-glutaminase-SBML.xml" download>SBML</a> &nbsp;
-<a href="/downloads/F019-glutaminase.xml" download>CellDesigner</a> &nbsp;
-<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase" target="_blank" rel="noopener">MINERVA</a> &nbsp;
-<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F019-glutaminase.sbgn" target="_blank" rel="noopener">Newt</a> &nbsp;
-<a href="/downloads/F019-glutaminase.csv" download>Annotation</a> &nbsp;
+<a href="/downloads/F019-glutaminase.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
+<a href="/downloads/F019-glutaminase.png" download>{% include icon-download.html %}PNG</a> &nbsp;
+<a href="/downloads/F019-glutaminase.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
+<a href="/downloads/F019-glutaminase.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
+<a href="/downloads/F019-glutaminase-SBML.xml" download>{% include icon-download.html %}SBML</a> &nbsp;
+<a href="/downloads/F019-glutaminase.sbgn" download>{% include icon-download.html %}SBGN-ML</a> &nbsp;
+<a href="/downloads/F019-glutaminase.csv" download>{% include icon-download.html %}Annotation</a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F019-glutaminase.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
 <p align="middle"><a href="/glutaminase/"><img id="image" src="/downloads/F019-glutaminase.svg" width="470"/></a></p>
 
 ## Description
