@@ -117,7 +117,7 @@ every protein that has one, linked to its HGNC page, so the Annotations list lea
 HGNC ID (same page). The long text (UniProt function, ChEBI definition) under "Function" or
 "Definition" in the grey of the other labels, no source named, closed at first, opened by a
 square + (− when open) at the right: variant 7 of the former test page /atlas/folds/, in git
-history.
+history. Second choice: variant 3, a pale chevron (#b4b4b4) right after the word.
 
 ## Converter page
 
