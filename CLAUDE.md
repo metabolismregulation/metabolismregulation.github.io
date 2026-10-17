@@ -96,9 +96,8 @@ edge routing, yEd's name; "direct" dropped, user 2026-10-17) and "CellDesigner (
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
 Footer (every page, user 2026-10-17, variant 2 of the former test page /atlas/footers/, in git history): white, a thin
-line above (#eee); no grey band. Icons (`_includes/svg-icons.html`, user 2026-10-17): GitHub's own
-mark (Invertocat, from brand.github.com) in the grey of its brand page, #77827a, and an envelope
-in a circle of the same grey; GitHub's rules allow black, white or grey, not other recolouring.
+line above (#eee); no grey band. Icons: the theme's round dark email and GitHub icons
+(`_includes/svg-icons.html`); GitHub's grey mark (#77827a) was tried and dropped, too greenish (user, 2026-10-17).
 
 ## Atlas map window
 
