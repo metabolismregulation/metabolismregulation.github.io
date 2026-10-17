@@ -365,8 +365,11 @@ def write(diagram, ann, layout='direct'):
                 ra, qa = fr + fr + v, fq + fq + v
         twin = bool(ra)
         # a significant bend on the main line: one long L on the reactant arc or on the product arc
-        wr = cd_bends.turn([cen(r_)] + route(p, ins[0].points) + [c])
-        wq = cd_bends.turn([cen(q_)] + route(p, outs[0].points)[::-1] + [c])
+        # (with the bend at the process's port: it says from which side the line comes in;
+        # user's iNOS v08 edit, ASL and ASS1 as L shapes)
+        at = lambda pts: [(q[0] - x0, q[1] - y0) for q in pts]
+        wr = cd_bends.turn([cen(r_)] + at(ins[0].points) + [c])
+        wq = cd_bends.turn([cen(q_)] + at(outs[0].points)[::-1] + [c])
         if advanced and not twin:
             # a line meets an entity where the yEd arc meets its border (a CellDesigner anchor read
             # back); else a metabolite circle where its name is not: N, S, ESE or WSW, by the way
@@ -452,30 +455,14 @@ def write(diagram, ann, layout='direct'):
         sgn = 1 if side(g, pt) == 2 else -1
         return (g['sq'][0] + sgn * 5 * g['f'][1], g['sq'][1] - sgn * 5 * g['f'][0])
 
-    # modifiers onto their (midway) square: a small move so the arc meets the square straight
-    # (the user's edits of the full set: 23 such moves). Only a move of at most ALIGN px along
-    # one axis, the same for every reaction the modifier acts on, that keeps it in its
-    # compartment and makes it overlap nothing. The main lines straight on that axis that it
-    # ends move with it, their other ends too (user's pyrimidine v08 edit: ERK1/2 and its
-    # phosphorylation moved rather than a bend point)
     def overlap(a, b):
         return a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3]
-    geo = {p: geometry(p, fl, False) for p, fl in ((p, flows(p, quiet=True)) for p in procs) if fl}
-    want = {}
-    for p, g in geo.items():
-        for e in flows(p, quiet=True)[2]:
-            m = e.source
-            if N[m].parent in ents or cd_bends.turn([cen(m)] + route(p, e.points) + [cen(p)]):
-                continue  # complex members move with their complex; an L arc is straight already
-            M, T = cen(m), attach(g, cen(m))
-            ax = 0 if abs(M[0] - T[0]) < abs(M[1] - T[1]) else 1  # the axis with the small offset
-            want.setdefault((m, ax), []).append(T[ax] - M[ax])
-    ends = [(g['r'], g['q']) for g in geo.values()]
-    for (m, ax), ds in sorted(want.items()):
-        d = ds[0]
-        if not 0.5 < abs(d) <= ALIGN or max(ds) - min(ds) > 1:
-            continue
-        group = [m]  # m and the entities joined to it by main lines straight on this axis
+
+    def shift(m, ax, d, ends):
+        # move entity m by d along axis ax, with the entities joined to it by main lines straight
+        # on that axis (and their complex members), if all stay in their compartments and overlap
+        # nothing (user's pyrimidine v08 edit: ERK1/2 and its phosphorylation moved together)
+        group = [m]
         for j in group:
             group += [b if a == j else a for a, b in ends if j in (a, b) and abs(cen(a)[ax] - cen(b)[ax]) < 1
                       and (b if a == j else a) not in group]
@@ -484,13 +471,47 @@ def write(diagram, ann, layout='direct'):
         inside = lambda j, cm: box[cm][0] <= new[j][0] and new[j][0] + new[j][2] <= box[cm][0] + box[cm][2] \
             and box[cm][1] <= new[j][1] and new[j][1] + new[j][3] <= box[cm][1] + box[cm][3]
         if any(comp_of(j) and not inside(j, comp_of(j)) for j in group):
-            continue
+            return
         if any(overlap(new[g_], box[j]) for g_ in group for j in ents if j not in moved and N[j].parent not in moved
                and g_ not in cd_straighten.descendants(j, members)):
-            continue
+            return
         box.update(new)
         for j in moved:
             front[j] = (box[j][0], box[j][1]) + front[j][2:]
+
+    # a main line yEd draws level into a larger node off its centre (an end point beside the
+    # centre): CellDesigner aims at the centre, so the other end moves onto its centre line
+    # (user's iNOS v07 and v08 edits: CaM moved 25 px for CaM -> CaM:iNOS)
+    fls = {p: fl for p, fl in ((p, flows(p, quiet=True)) for p in procs) if fl}
+    ends = [(fl[0][0].source, fl[1][0].target) for fl in fls.values()]
+    for p, (ins, outs, mods, gates, reversible, c) in fls.items():
+        r_, q_ = ins[0].source, outs[0].target
+        pts = [(cen(r_)[0] + ins[0].source_at[0], cen(r_)[1] + ins[0].source_at[1])] + \
+            [(q[0] - x0, q[1] - y0) for q in ins[0].points + outs[0].points] + [c] + \
+            [(cen(q_)[0] + outs[0].target_at[0], cen(q_)[1] + outs[0].target_at[1])]
+        for ax in (0, 1):
+            if max(q[ax] for q in pts) - min(q[ax] for q in pts) < 1 and abs(cen(r_)[ax] - cen(q_)[ax]) > 0.5:
+                if abs(ins[0].source_at[ax]) < 0.5 <= abs(outs[0].target_at[ax]):
+                    shift(r_, ax, cen(q_)[ax] - cen(r_)[ax], ends)
+                elif abs(outs[0].target_at[ax]) < 0.5 <= abs(ins[0].source_at[ax]):
+                    shift(q_, ax, cen(r_)[ax] - cen(q_)[ax], ends)
+
+    # modifiers onto their (midway) square: a small move so the arc meets the square straight
+    # (the user's edits of the full set: 23 such moves). Only a move of at most ALIGN px along
+    # one axis, the same for every reaction the modifier acts on (shift above)
+    geo = {p: geometry(p, fl, False) for p, fl in fls.items()}
+    want = {}
+    for p, g in geo.items():
+        for e in fls[p][2]:
+            m = e.source
+            if N[m].parent in ents or cd_bends.turn([cen(m)] + route(p, e.points) + [cen(p)]):
+                continue  # complex members move with their complex; an L arc is straight already
+            M, T = cen(m), attach(g, cen(m))
+            ax = 0 if abs(M[0] - T[0]) < abs(M[1] - T[1]) else 1  # the axis with the small offset
+            want.setdefault((m, ax), []).append(T[ax] - M[ax])
+    for (m, ax), ds in sorted(want.items()):
+        if 0.5 < abs(ds[0]) <= ALIGN and max(ds) - min(ds) <= 1:
+            shift(m, ax, ds[0], ends)
 
     # proteins: one per label, residues from the state variables of all its nodes
     sv = {i: [(txt, border_angle(rx, ry)) for txt, rx, ry in d.states] for i, d in ents.items() if d.kind in ('Macromolecule', 'Complex')}
