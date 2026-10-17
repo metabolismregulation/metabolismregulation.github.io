@@ -22,7 +22,8 @@
   <key attr.name="Formula" attr.type="string" for="node" id="d18"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d19"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d20"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d21"/>
+  <key attr.name="Previous symbols" attr.type="string" for="node" id="d101"/>
+  <key attr.name="Alias symbols" attr.type="string" for="node" id="d100"/>
   <key attr.name="Entrez" attr.type="string" for="node" id="d22"/>
   <key attr.name="Ensembl" attr.type="string" for="node" id="d23"/>
   <key attr.name="RefSeq" attr.type="string" for="node" id="d24"/>
@@ -65,7 +66,6 @@
       <data key="d18" xml:space="preserve"/>
       <data key="d19" xml:space="preserve"/>
       <data key="d20" xml:space="preserve"/>
-      <data key="d21" xml:space="preserve"/>
       <data key="d22" xml:space="preserve"/>
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
@@ -124,7 +124,6 @@
           <data key="d18" xml:space="preserve"><![CDATA[C27H46O]]></data>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -166,7 +165,6 @@
           <data key="d18" xml:space="preserve"><![CDATA[C10H12N5O13P3]]></data>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -208,7 +206,6 @@
           <data key="d18" xml:space="preserve"><![CDATA[HO7P2]]></data>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -250,7 +247,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -313,7 +309,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -326,7 +321,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -366,7 +361,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -379,7 +373,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[PRKAR1A; PRKAR1B; PRKAR2A; PRKAR2B]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["HGNC aliases", "CNC1, PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["Previous symbols", "PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Alias symbols", "CNC1"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["Previous symbols", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["Previous symbols", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -421,7 +415,6 @@
           <data key="d18" xml:space="preserve"><![CDATA[C10H11N5O6P]]></data>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -463,7 +456,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -526,7 +518,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -539,7 +530,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -579,7 +570,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -642,7 +632,6 @@
                   <data key="d18" xml:space="preserve"/>
                   <data key="d19" xml:space="preserve"/>
                   <data key="d20" xml:space="preserve"/>
-                  <data key="d21" xml:space="preserve"/>
                   <data key="d22" xml:space="preserve"/>
                   <data key="d23" xml:space="preserve"/>
                   <data key="d24" xml:space="preserve"/>
@@ -655,7 +644,7 @@
                   <data key="d31" xml:space="preserve"/>
                   <data key="d32" xml:space="preserve"/>
                   <data key="d33" xml:space="preserve"><![CDATA[PRKAR1A; PRKAR1B; PRKAR2A; PRKAR2B]]></data>
-                  <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["HGNC aliases", "CNC1, PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]]]></data>
+                  <data key="d34" xml:space="preserve">[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["Previous symbols", "PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Alias symbols", "CNC1"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["Previous symbols", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["Previous symbols", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]</data>
                   <data key="d35" xml:space="preserve"/>
                   <data key="d37">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -695,7 +684,6 @@
                   <data key="d18" xml:space="preserve"><![CDATA[C10H11N5O6P]]></data>
                   <data key="d19" xml:space="preserve"/>
                   <data key="d20" xml:space="preserve"/>
-                  <data key="d21" xml:space="preserve"/>
                   <data key="d22" xml:space="preserve"/>
                   <data key="d23" xml:space="preserve"/>
                   <data key="d24" xml:space="preserve"/>
@@ -741,7 +729,7 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:11359]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[STAR]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[STARD1]]></data>
+          <data key="d100">STARD1</data>
           <data key="d22" xml:space="preserve"><![CDATA[6770]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000147465]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_000349]]></data>
@@ -786,7 +774,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -834,7 +821,7 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:11359]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[STAR]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[STARD1]]></data>
+          <data key="d100">STARD1</data>
           <data key="d22" xml:space="preserve"><![CDATA[6770]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000147465]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_000349]]></data>
@@ -884,7 +871,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -897,7 +883,7 @@
           <data key="d31" xml:space="preserve"/>
           <data key="d32" xml:space="preserve"/>
           <data key="d33" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-          <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+          <data key="d34" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
           <data key="d35" xml:space="preserve"/>
           <data key="d37">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -929,7 +915,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -992,7 +977,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1005,7 +989,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[PRKAR1A; PRKAR1B; PRKAR2A; PRKAR2B]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["HGNC aliases", "CNC1, PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["Previous symbols", "PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Alias symbols", "CNC1"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["Previous symbols", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["Previous symbols", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1045,7 +1029,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C10H11N5O6P]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1089,7 +1072,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1130,7 +1112,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1172,7 +1153,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1214,7 +1194,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1256,7 +1235,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1298,7 +1276,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1340,7 +1317,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1399,7 +1375,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C21H32O2]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1441,7 +1416,8 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:2590]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[CYP11A1]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[P450SCC, CYP11A]]></data>
+              <data key="d101">CYP11A</data>
+              <data key="d100">P450SCC</data>
               <data key="d22" xml:space="preserve"><![CDATA[1583]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000140459]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000781]]></data>
@@ -1486,7 +1462,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C27H46O]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1528,7 +1503,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1572,7 +1546,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -1631,7 +1604,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:2345]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[CREB1]]></data>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"><![CDATA[1385]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000118260]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_134442]]></data>
@@ -1684,7 +1656,7 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:11359]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[STAR]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[STARD1]]></data>
+              <data key="d100">STARD1</data>
               <data key="d22" xml:space="preserve"><![CDATA[6770]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000147465]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000349]]></data>
@@ -1734,7 +1706,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1782,7 +1753,7 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:11359]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[STAR]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[STARD1]]></data>
+              <data key="d100">STARD1</data>
               <data key="d22" xml:space="preserve"><![CDATA[6770]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000147465]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000349]]></data>
@@ -1832,7 +1803,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1845,7 +1815,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1877,7 +1847,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C10H12N5O13P3]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1919,7 +1888,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C10H12N5O10P2]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -1961,7 +1929,7 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:27301]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[CRTC2]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[TORC2]]></data>
+              <data key="d100">TORC2</data>
               <data key="d22" xml:space="preserve"><![CDATA[200186]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000160741]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_181715]]></data>
@@ -2006,7 +1974,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:2345]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[CREB1]]></data>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"><![CDATA[1385]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000118260]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_134442]]></data>
@@ -2059,7 +2026,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2122,7 +2088,7 @@
                   <data key="d18" xml:space="preserve"/>
                   <data key="d19" xml:space="preserve"><![CDATA[HGNC:27301]]></data>
                   <data key="d20" xml:space="preserve"><![CDATA[CRTC2]]></data>
-                  <data key="d21" xml:space="preserve"><![CDATA[TORC2]]></data>
+                  <data key="d100">TORC2</data>
                   <data key="d22" xml:space="preserve"><![CDATA[200186]]></data>
                   <data key="d23" xml:space="preserve"><![CDATA[ENSG00000160741]]></data>
                   <data key="d24" xml:space="preserve"><![CDATA[NM_181715]]></data>
@@ -2167,7 +2133,6 @@
                   <data key="d18" xml:space="preserve"/>
                   <data key="d19" xml:space="preserve"><![CDATA[HGNC:2345]]></data>
                   <data key="d20" xml:space="preserve"><![CDATA[CREB1]]></data>
-                  <data key="d21" xml:space="preserve"/>
                   <data key="d22" xml:space="preserve"><![CDATA[1385]]></data>
                   <data key="d23" xml:space="preserve"><![CDATA[ENSG00000118260]]></data>
                   <data key="d24" xml:space="preserve"><![CDATA[NM_134442]]></data>
@@ -2222,7 +2187,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2264,7 +2228,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2306,7 +2269,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2348,7 +2310,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2394,7 +2355,6 @@
       <data key="d18" xml:space="preserve"/>
       <data key="d19" xml:space="preserve"/>
       <data key="d20" xml:space="preserve"/>
-      <data key="d21" xml:space="preserve"/>
       <data key="d22" xml:space="preserve"/>
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
@@ -2453,7 +2413,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -2516,7 +2475,8 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:4392]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[GNAS]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[NESP55, NESP, GNASXL, GPSA, SCG6, SgVI, GNAS1]]></data>
+              <data key="d101">GNAS1</data>
+              <data key="d100">NESP55, NESP, GNASXL, GPSA, SCG6, SgVI</data>
               <data key="d22" xml:space="preserve"><![CDATA[2778]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000087460]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000516]]></data>
@@ -2561,7 +2521,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2606,7 +2565,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2619,7 +2577,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[GNG2; GNG3; GNG4; GNG5; GNG7; GNG8; GNG10; GNG11; GNG12; GNG13]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "GNG2", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"], ["Alternative names", "G gamma-I"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4404"], ["HGNC symbol", "GNG2"], ["Entrez", "54331"], ["Ensembl", "ENSG00000186469"], ["RefSeq", "NM_001243773"], ["UniProt", "P59768"], ["Note", "Gγ2, brain and broad expression"]]}, {"symbol": "GNG3", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-3"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4405"], ["HGNC symbol", "GNG3"], ["Entrez", "2785"], ["Ensembl", "ENSG00000162188"], ["RefSeq", "NM_012202"], ["UniProt", "P63215"], ["Note", "Gγ3, neurons"]]}, {"symbol": "GNG4", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-4"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4407"], ["HGNC symbol", "GNG4"], ["Entrez", "2786"], ["Ensembl", "ENSG00000168243"], ["RefSeq", "NM_004485"], ["UniProt", "P50150"], ["Note", "Gγ4, brain"]]}, {"symbol": "GNG5", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-5"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4408"], ["HGNC symbol", "GNG5"], ["Entrez", "2787"], ["Ensembl", "ENSG00000174021"], ["RefSeq", "NM_005274"], ["UniProt", "P63218"], ["Note", "Gγ5, ubiquitous"]]}, {"symbol": "GNG7", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-7"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4410"], ["HGNC symbol", "GNG7"], ["HGNC aliases", "FLJ00058"], ["Entrez", "2788"], ["Ensembl", "ENSG00000176533"], ["RefSeq", "NM_052847"], ["UniProt", "O60262"], ["Note", "Gγ7, striatum"]]}, {"symbol": "GNG8", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-8"], ["Alternative names", "Gamma-9"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19664"], ["HGNC symbol", "GNG8"], ["Entrez", "94235"], ["Ensembl", "ENSG00000167414"], ["RefSeq", "NM_033258"], ["UniProt", "Q9UK08"], ["Note", "Gγ8, olfactory neurons"]]}, {"symbol": "GNG10", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-10"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4402"], ["HGNC symbol", "GNG10"], ["Entrez", "2790"], ["Ensembl", "ENSG00000242616"], ["RefSeq", "NM_001017998"], ["UniProt", "P50151"], ["Note", "Gγ10, broad expression"]]}, {"symbol": "GNG11", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-11"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4403"], ["HGNC symbol", "GNG11"], ["HGNC aliases", "GNGT11"], ["Entrez", "2791"], ["Ensembl", "ENSG00000127920"], ["RefSeq", "NM_004126"], ["UniProt", "P61952"], ["Note", "Gγ11, broad expression"]]}, {"symbol": "GNG12", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19663"], ["HGNC symbol", "GNG12"], ["Entrez", "55970"], ["Ensembl", "ENSG00000172380"], ["RefSeq", "NM_018841"], ["UniProt", "Q9UBI6"], ["Note", "Gγ12, broad expression"]]}, {"symbol": "GNG13", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-13"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:14131"], ["HGNC symbol", "GNG13"], ["HGNC aliases", "h2-35, G(gamma)13"], ["Entrez", "51764"], ["Ensembl", "ENSG00000127588"], ["RefSeq", "NM_016541"], ["UniProt", "Q9P2W3"], ["Note", "Gγ13, taste and retinal cells"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "GNG2", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"], ["Alternative names", "G gamma-I"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4404"], ["HGNC symbol", "GNG2"], ["Entrez", "54331"], ["Ensembl", "ENSG00000186469"], ["RefSeq", "NM_001243773"], ["UniProt", "P59768"], ["Note", "Gγ2, brain and broad expression"]]}, {"symbol": "GNG3", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-3"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4405"], ["HGNC symbol", "GNG3"], ["Entrez", "2785"], ["Ensembl", "ENSG00000162188"], ["RefSeq", "NM_012202"], ["UniProt", "P63215"], ["Note", "Gγ3, neurons"]]}, {"symbol": "GNG4", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-4"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4407"], ["HGNC symbol", "GNG4"], ["Entrez", "2786"], ["Ensembl", "ENSG00000168243"], ["RefSeq", "NM_004485"], ["UniProt", "P50150"], ["Note", "Gγ4, brain"]]}, {"symbol": "GNG5", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-5"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4408"], ["HGNC symbol", "GNG5"], ["Entrez", "2787"], ["Ensembl", "ENSG00000174021"], ["RefSeq", "NM_005274"], ["UniProt", "P63218"], ["Note", "Gγ5, ubiquitous"]]}, {"symbol": "GNG7", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-7"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4410"], ["HGNC symbol", "GNG7"], ["Alias symbols", "FLJ00058"], ["Entrez", "2788"], ["Ensembl", "ENSG00000176533"], ["RefSeq", "NM_052847"], ["UniProt", "O60262"], ["Note", "Gγ7, striatum"]]}, {"symbol": "GNG8", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-8"], ["Alternative names", "Gamma-9"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19664"], ["HGNC symbol", "GNG8"], ["Entrez", "94235"], ["Ensembl", "ENSG00000167414"], ["RefSeq", "NM_033258"], ["UniProt", "Q9UK08"], ["Note", "Gγ8, olfactory neurons"]]}, {"symbol": "GNG10", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-10"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4402"], ["HGNC symbol", "GNG10"], ["Entrez", "2790"], ["Ensembl", "ENSG00000242616"], ["RefSeq", "NM_001017998"], ["UniProt", "P50151"], ["Note", "Gγ10, broad expression"]]}, {"symbol": "GNG11", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-11"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4403"], ["HGNC symbol", "GNG11"], ["Alias symbols", "GNGT11"], ["Entrez", "2791"], ["Ensembl", "ENSG00000127920"], ["RefSeq", "NM_004126"], ["UniProt", "P61952"], ["Note", "Gγ11, broad expression"]]}, {"symbol": "GNG12", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19663"], ["HGNC symbol", "GNG12"], ["Entrez", "55970"], ["Ensembl", "ENSG00000172380"], ["RefSeq", "NM_018841"], ["UniProt", "Q9UBI6"], ["Note", "Gγ12, broad expression"]]}, {"symbol": "GNG13", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-13"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:14131"], ["HGNC symbol", "GNG13"], ["Alias symbols", "h2-35, G(gamma)13"], ["Entrez", "51764"], ["Ensembl", "ENSG00000127588"], ["RefSeq", "NM_016541"], ["UniProt", "Q9P2W3"], ["Note", "Gγ13, taste and retinal cells"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2653,7 +2611,7 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:9594]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[PTGER2]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[EP2, COX-2]]></data>
+          <data key="d100">EP2, COX-2</data>
           <data key="d22" xml:space="preserve"><![CDATA[5732]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000125384]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_000956]]></data>
@@ -2698,7 +2656,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -2711,7 +2668,7 @@
           <data key="d31" xml:space="preserve"/>
           <data key="d32" xml:space="preserve"/>
           <data key="d33" xml:space="preserve"><![CDATA[ADCY1; ADCY2; ADCY3; ADCY4; ADCY5; ADCY6; ADCY7; ADCY8; ADCY9]]></data>
-          <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "ADCY1", "props": [["Full name", "Adenylate cyclase type 1"], ["Alternative names", "ATP pyrophosphate-lyase 1; Adenylate cyclase type I; Adenylyl cyclase 1; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates responses to increased cellular Ca(2+)/calmodulin levels."], ["Location", "Membrane, Cell membrane, Cytoplasm, Membrane raft"], ["HGNC", "HGNC:232"], ["HGNC symbol", "ADCY1"], ["HGNC aliases", "AC1, DFNB44"], ["Entrez", "107"], ["Ensembl", "ENSG00000164742"], ["RefSeq", "NM_021116"], ["UniProt", "Q08828"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY2", "props": [["Full name", "Adenylate cyclase type 2"], ["Alternative names", "ATP pyrophosphate-lyase 2; Adenylate cyclase type II; Adenylyl cyclase 2"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Down-stream signaling cascades mediate changes in gene expression patterns and lead to increased IL6 production."], ["Location", "Membrane, Cell membrane, Cytoplasm"], ["HGNC", "HGNC:233"], ["HGNC symbol", "ADCY2"], ["HGNC aliases", "HBAC2, KIAA1060, AC2"], ["Entrez", "108"], ["Ensembl", "ENSG00000078295"], ["RefSeq", "NM_020546"], ["UniProt", "Q08462"], ["Note", "Brain and lung, Gβγ-stimulated"]]}, {"symbol": "ADCY3", "props": [["Full name", "Adenylate cyclase type 3"], ["Alternative names", "ATP pyrophosphate-lyase 3; Adenylate cyclase type III; Adenylate cyclase, olfactive type; Adenylyl cyclase 3"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Participates in signaling cascades triggered by odorant receptors via its function in cAMP biosynthesis: specifically activated by G alpha protein GNAL/G(olf) in olfactory epithelium."], ["Location", "Cell membrane, Cell projection, cilium membrane, Cell projection, cilium, Cytoplasm, Golgi apparatus"], ["HGNC", "HGNC:234"], ["HGNC symbol", "ADCY3"], ["HGNC aliases", "AC3"], ["Entrez", "109"], ["Ensembl", "ENSG00000138031"], ["RefSeq", "NM_001320613"], ["UniProt", "O60266"], ["Note", "Olfactory neurons and adipocytes"]]}, {"symbol": "ADCY4", "props": [["Full name", "Adenylate cyclase type 4"], ["Alternative names", "ATP pyrophosphate-lyase 4; Adenylate cyclase type IV; Adenylyl cyclase 4"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling"], ["Location", "Cell membrane, Cytoplasm"], ["HGNC", "HGNC:235"], ["HGNC symbol", "ADCY4"], ["HGNC aliases", "AC4"], ["Entrez", "196883"], ["Ensembl", "ENSG00000129467"], ["RefSeq", "NM_001198568"], ["UniProt", "Q8NFM4"], ["Note", "Broad expression, Gβγ-stimulated"]]}, {"symbol": "ADCY5", "props": [["Full name", "Adenylate cyclase type 5"], ["Alternative names", "ATP pyrophosphate-lyase 5; Adenylate cyclase type V; Adenylyl cyclase 5"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates signaling downstream of ADRB1."], ["Location", "Cell membrane, Cell projection, cilium"], ["HGNC", "HGNC:236"], ["HGNC symbol", "ADCY5"], ["HGNC aliases", "AC5"], ["Entrez", "111"], ["Ensembl", "ENSG00000173175"], ["RefSeq", "NM_183357"], ["UniProt", "O95622"], ["Note", "Heart and striatum, Ca2+-inhibited"]]}, {"symbol": "ADCY6", "props": [["Full name", "Adenylate cyclase type 6"], ["Alternative names", "ATP pyrophosphate-lyase 6; Adenylate cyclase type VI; Adenylyl cyclase 6; Ca(2+)-inhibitable adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP downstream of G protein-coupled receptors. Functions in signaling cascades downstream of beta-adrenergic receptors in the heart and in vascular smooth muscle cells."], ["Location", "Cell membrane, Cell projection, cilium, Cell projection, stereocilium"], ["HGNC", "HGNC:237"], ["HGNC symbol", "ADCY6"], ["HGNC aliases", "AC6"], ["Entrez", "112"], ["Ensembl", "ENSG00000174233"], ["RefSeq", "NM_020983"], ["UniProt", "O43306"], ["Note", "Broad expression, Ca2+-inhibited"]]}, {"symbol": "ADCY7", "props": [["Full name", "Adenylate cyclase type 7"], ["Alternative names", "ATP pyrophosphate-lyase 7; Adenylate cyclase type VII; Adenylyl cyclase 7; Cyclic di-AMP synthase ADCY7"], ["Function", "Adenylate cyclase that mediates formation of both cyclic AMP (cAMP) and cyclic di-AMP (c-di-AMP). Acts as a key mediator of G protein-coupled receptor signaling by catalyzing the formation of cAMP downstream of G protein-coupled receptors."], ["Location", "Membrane"], ["HGNC", "HGNC:238"], ["HGNC symbol", "ADCY7"], ["HGNC aliases", "KIAA0037, AC7"], ["Entrez", "113"], ["Ensembl", "ENSG00000121281"], ["RefSeq", "NM_001114"], ["UniProt", "P51828"], ["Note", "Immune cells"]]}, {"symbol": "ADCY8", "props": [["Full name", "Adenylate cyclase type 8"], ["Alternative names", "ATP pyrophosphate-lyase 8; Adenylate cyclase type VIII; Adenylyl cyclase 8; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of cAMP in response to calcium entry leadings to cAMP signaling activation that affect processes suche as synaptic plasticity and insulin secretion. Plays a role in many brain functions, such as learning, memory, drug addiction, and anxiety modulation through regulation of synaptic plasticity by modulating long-term memory and long-term potentiation (LTP) through CREB transcription factor activity modulation."], ["Location", "Cell membrane, Basolateral cell membrane, Apical cell membrane, Synapse, Cell projection, dendrite, Cell projection, axon, Presynaptic cell membrane, Postsynaptic density, Membrane raft, Membrane, coated pit, Cytoplasmic vesicle, clathrin-coated vesicle membrane, Membrane, caveola"], ["HGNC", "HGNC:239"], ["HGNC symbol", "ADCY8"], ["HGNC aliases", "HBAC1, AC8, ADCY3"], ["Entrez", "114"], ["Ensembl", "ENSG00000155897"], ["RefSeq", "NM_001115"], ["UniProt", "P40145"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY9", "props": [["Full name", "Adenylate cyclase type 9"], ["Alternative names", "ATP pyrophosphate-lyase 9; Adenylate cyclase type IX; Adenylyl cyclase 9"], ["Function", "Adenylyl cyclase that catalyzes the formation of the signaling molecule cAMP in response to activation of G protein-coupled receptors. Contributes to signaling cascades activated by CRH (corticotropin-releasing factor), corticosteroids and beta-adrenergic receptors"], ["Location", "Cell membrane"], ["HGNC", "HGNC:240"], ["HGNC symbol", "ADCY9"], ["HGNC aliases", "AC9"], ["Entrez", "115"], ["Ensembl", "ENSG00000162104"], ["RefSeq", "NM_001116"], ["UniProt", "O60503"], ["Note", "Broad expression, low forskolin response"]]}]]]></data>
+          <data key="d34" xml:space="preserve">[{"symbol": "ADCY1", "props": [["Full name", "Adenylate cyclase type 1"], ["Alternative names", "ATP pyrophosphate-lyase 1; Adenylate cyclase type I; Adenylyl cyclase 1; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates responses to increased cellular Ca(2+)/calmodulin levels."], ["Location", "Membrane, Cell membrane, Cytoplasm, Membrane raft"], ["HGNC", "HGNC:232"], ["HGNC symbol", "ADCY1"], ["Previous symbols", "DFNB44"], ["Alias symbols", "AC1"], ["Entrez", "107"], ["Ensembl", "ENSG00000164742"], ["RefSeq", "NM_021116"], ["UniProt", "Q08828"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY2", "props": [["Full name", "Adenylate cyclase type 2"], ["Alternative names", "ATP pyrophosphate-lyase 2; Adenylate cyclase type II; Adenylyl cyclase 2"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Down-stream signaling cascades mediate changes in gene expression patterns and lead to increased IL6 production."], ["Location", "Membrane, Cell membrane, Cytoplasm"], ["HGNC", "HGNC:233"], ["HGNC symbol", "ADCY2"], ["Alias symbols", "HBAC2, KIAA1060, AC2"], ["Entrez", "108"], ["Ensembl", "ENSG00000078295"], ["RefSeq", "NM_020546"], ["UniProt", "Q08462"], ["Note", "Brain and lung, Gβγ-stimulated"]]}, {"symbol": "ADCY3", "props": [["Full name", "Adenylate cyclase type 3"], ["Alternative names", "ATP pyrophosphate-lyase 3; Adenylate cyclase type III; Adenylate cyclase, olfactive type; Adenylyl cyclase 3"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Participates in signaling cascades triggered by odorant receptors via its function in cAMP biosynthesis: specifically activated by G alpha protein GNAL/G(olf) in olfactory epithelium."], ["Location", "Cell membrane, Cell projection, cilium membrane, Cell projection, cilium, Cytoplasm, Golgi apparatus"], ["HGNC", "HGNC:234"], ["HGNC symbol", "ADCY3"], ["Alias symbols", "AC3"], ["Entrez", "109"], ["Ensembl", "ENSG00000138031"], ["RefSeq", "NM_001320613"], ["UniProt", "O60266"], ["Note", "Olfactory neurons and adipocytes"]]}, {"symbol": "ADCY4", "props": [["Full name", "Adenylate cyclase type 4"], ["Alternative names", "ATP pyrophosphate-lyase 4; Adenylate cyclase type IV; Adenylyl cyclase 4"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling"], ["Location", "Cell membrane, Cytoplasm"], ["HGNC", "HGNC:235"], ["HGNC symbol", "ADCY4"], ["Alias symbols", "AC4"], ["Entrez", "196883"], ["Ensembl", "ENSG00000129467"], ["RefSeq", "NM_001198568"], ["UniProt", "Q8NFM4"], ["Note", "Broad expression, Gβγ-stimulated"]]}, {"symbol": "ADCY5", "props": [["Full name", "Adenylate cyclase type 5"], ["Alternative names", "ATP pyrophosphate-lyase 5; Adenylate cyclase type V; Adenylyl cyclase 5"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates signaling downstream of ADRB1."], ["Location", "Cell membrane, Cell projection, cilium"], ["HGNC", "HGNC:236"], ["HGNC symbol", "ADCY5"], ["Alias symbols", "AC5"], ["Entrez", "111"], ["Ensembl", "ENSG00000173175"], ["RefSeq", "NM_183357"], ["UniProt", "O95622"], ["Note", "Heart and striatum, Ca2+-inhibited"]]}, {"symbol": "ADCY6", "props": [["Full name", "Adenylate cyclase type 6"], ["Alternative names", "ATP pyrophosphate-lyase 6; Adenylate cyclase type VI; Adenylyl cyclase 6; Ca(2+)-inhibitable adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP downstream of G protein-coupled receptors. Functions in signaling cascades downstream of beta-adrenergic receptors in the heart and in vascular smooth muscle cells."], ["Location", "Cell membrane, Cell projection, cilium, Cell projection, stereocilium"], ["HGNC", "HGNC:237"], ["HGNC symbol", "ADCY6"], ["Alias symbols", "AC6"], ["Entrez", "112"], ["Ensembl", "ENSG00000174233"], ["RefSeq", "NM_020983"], ["UniProt", "O43306"], ["Note", "Broad expression, Ca2+-inhibited"]]}, {"symbol": "ADCY7", "props": [["Full name", "Adenylate cyclase type 7"], ["Alternative names", "ATP pyrophosphate-lyase 7; Adenylate cyclase type VII; Adenylyl cyclase 7; Cyclic di-AMP synthase ADCY7"], ["Function", "Adenylate cyclase that mediates formation of both cyclic AMP (cAMP) and cyclic di-AMP (c-di-AMP). Acts as a key mediator of G protein-coupled receptor signaling by catalyzing the formation of cAMP downstream of G protein-coupled receptors."], ["Location", "Membrane"], ["HGNC", "HGNC:238"], ["HGNC symbol", "ADCY7"], ["Alias symbols", "KIAA0037, AC7"], ["Entrez", "113"], ["Ensembl", "ENSG00000121281"], ["RefSeq", "NM_001114"], ["UniProt", "P51828"], ["Note", "Immune cells"]]}, {"symbol": "ADCY8", "props": [["Full name", "Adenylate cyclase type 8"], ["Alternative names", "ATP pyrophosphate-lyase 8; Adenylate cyclase type VIII; Adenylyl cyclase 8; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of cAMP in response to calcium entry leadings to cAMP signaling activation that affect processes suche as synaptic plasticity and insulin secretion. Plays a role in many brain functions, such as learning, memory, drug addiction, and anxiety modulation through regulation of synaptic plasticity by modulating long-term memory and long-term potentiation (LTP) through CREB transcription factor activity modulation."], ["Location", "Cell membrane, Basolateral cell membrane, Apical cell membrane, Synapse, Cell projection, dendrite, Cell projection, axon, Presynaptic cell membrane, Postsynaptic density, Membrane raft, Membrane, coated pit, Cytoplasmic vesicle, clathrin-coated vesicle membrane, Membrane, caveola"], ["HGNC", "HGNC:239"], ["HGNC symbol", "ADCY8"], ["Previous symbols", "ADCY3"], ["Alias symbols", "HBAC1, AC8"], ["Entrez", "114"], ["Ensembl", "ENSG00000155897"], ["RefSeq", "NM_001115"], ["UniProt", "P40145"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY9", "props": [["Full name", "Adenylate cyclase type 9"], ["Alternative names", "ATP pyrophosphate-lyase 9; Adenylate cyclase type IX; Adenylyl cyclase 9"], ["Function", "Adenylyl cyclase that catalyzes the formation of the signaling molecule cAMP in response to activation of G protein-coupled receptors. Contributes to signaling cascades activated by CRH (corticotropin-releasing factor), corticosteroids and beta-adrenergic receptors"], ["Location", "Cell membrane"], ["HGNC", "HGNC:240"], ["HGNC symbol", "ADCY9"], ["Alias symbols", "AC9"], ["Entrez", "115"], ["Ensembl", "ENSG00000162104"], ["RefSeq", "NM_001116"], ["UniProt", "O60503"], ["Note", "Broad expression, low forskolin response"]]}]</data>
           <data key="d35" xml:space="preserve"/>
           <data key="d37">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2751,7 +2708,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -2764,7 +2720,7 @@
           <data key="d31" xml:space="preserve"/>
           <data key="d32" xml:space="preserve"/>
           <data key="d33" xml:space="preserve"><![CDATA[ADCY1; ADCY2; ADCY3; ADCY4; ADCY5; ADCY6; ADCY7; ADCY8; ADCY9]]></data>
-          <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "ADCY1", "props": [["Full name", "Adenylate cyclase type 1"], ["Alternative names", "ATP pyrophosphate-lyase 1; Adenylate cyclase type I; Adenylyl cyclase 1; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates responses to increased cellular Ca(2+)/calmodulin levels."], ["Location", "Membrane, Cell membrane, Cytoplasm, Membrane raft"], ["HGNC", "HGNC:232"], ["HGNC symbol", "ADCY1"], ["HGNC aliases", "AC1, DFNB44"], ["Entrez", "107"], ["Ensembl", "ENSG00000164742"], ["RefSeq", "NM_021116"], ["UniProt", "Q08828"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY2", "props": [["Full name", "Adenylate cyclase type 2"], ["Alternative names", "ATP pyrophosphate-lyase 2; Adenylate cyclase type II; Adenylyl cyclase 2"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Down-stream signaling cascades mediate changes in gene expression patterns and lead to increased IL6 production."], ["Location", "Membrane, Cell membrane, Cytoplasm"], ["HGNC", "HGNC:233"], ["HGNC symbol", "ADCY2"], ["HGNC aliases", "HBAC2, KIAA1060, AC2"], ["Entrez", "108"], ["Ensembl", "ENSG00000078295"], ["RefSeq", "NM_020546"], ["UniProt", "Q08462"], ["Note", "Brain and lung, Gβγ-stimulated"]]}, {"symbol": "ADCY3", "props": [["Full name", "Adenylate cyclase type 3"], ["Alternative names", "ATP pyrophosphate-lyase 3; Adenylate cyclase type III; Adenylate cyclase, olfactive type; Adenylyl cyclase 3"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Participates in signaling cascades triggered by odorant receptors via its function in cAMP biosynthesis: specifically activated by G alpha protein GNAL/G(olf) in olfactory epithelium."], ["Location", "Cell membrane, Cell projection, cilium membrane, Cell projection, cilium, Cytoplasm, Golgi apparatus"], ["HGNC", "HGNC:234"], ["HGNC symbol", "ADCY3"], ["HGNC aliases", "AC3"], ["Entrez", "109"], ["Ensembl", "ENSG00000138031"], ["RefSeq", "NM_001320613"], ["UniProt", "O60266"], ["Note", "Olfactory neurons and adipocytes"]]}, {"symbol": "ADCY4", "props": [["Full name", "Adenylate cyclase type 4"], ["Alternative names", "ATP pyrophosphate-lyase 4; Adenylate cyclase type IV; Adenylyl cyclase 4"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling"], ["Location", "Cell membrane, Cytoplasm"], ["HGNC", "HGNC:235"], ["HGNC symbol", "ADCY4"], ["HGNC aliases", "AC4"], ["Entrez", "196883"], ["Ensembl", "ENSG00000129467"], ["RefSeq", "NM_001198568"], ["UniProt", "Q8NFM4"], ["Note", "Broad expression, Gβγ-stimulated"]]}, {"symbol": "ADCY5", "props": [["Full name", "Adenylate cyclase type 5"], ["Alternative names", "ATP pyrophosphate-lyase 5; Adenylate cyclase type V; Adenylyl cyclase 5"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates signaling downstream of ADRB1."], ["Location", "Cell membrane, Cell projection, cilium"], ["HGNC", "HGNC:236"], ["HGNC symbol", "ADCY5"], ["HGNC aliases", "AC5"], ["Entrez", "111"], ["Ensembl", "ENSG00000173175"], ["RefSeq", "NM_183357"], ["UniProt", "O95622"], ["Note", "Heart and striatum, Ca2+-inhibited"]]}, {"symbol": "ADCY6", "props": [["Full name", "Adenylate cyclase type 6"], ["Alternative names", "ATP pyrophosphate-lyase 6; Adenylate cyclase type VI; Adenylyl cyclase 6; Ca(2+)-inhibitable adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP downstream of G protein-coupled receptors. Functions in signaling cascades downstream of beta-adrenergic receptors in the heart and in vascular smooth muscle cells."], ["Location", "Cell membrane, Cell projection, cilium, Cell projection, stereocilium"], ["HGNC", "HGNC:237"], ["HGNC symbol", "ADCY6"], ["HGNC aliases", "AC6"], ["Entrez", "112"], ["Ensembl", "ENSG00000174233"], ["RefSeq", "NM_020983"], ["UniProt", "O43306"], ["Note", "Broad expression, Ca2+-inhibited"]]}, {"symbol": "ADCY7", "props": [["Full name", "Adenylate cyclase type 7"], ["Alternative names", "ATP pyrophosphate-lyase 7; Adenylate cyclase type VII; Adenylyl cyclase 7; Cyclic di-AMP synthase ADCY7"], ["Function", "Adenylate cyclase that mediates formation of both cyclic AMP (cAMP) and cyclic di-AMP (c-di-AMP). Acts as a key mediator of G protein-coupled receptor signaling by catalyzing the formation of cAMP downstream of G protein-coupled receptors."], ["Location", "Membrane"], ["HGNC", "HGNC:238"], ["HGNC symbol", "ADCY7"], ["HGNC aliases", "KIAA0037, AC7"], ["Entrez", "113"], ["Ensembl", "ENSG00000121281"], ["RefSeq", "NM_001114"], ["UniProt", "P51828"], ["Note", "Immune cells"]]}, {"symbol": "ADCY8", "props": [["Full name", "Adenylate cyclase type 8"], ["Alternative names", "ATP pyrophosphate-lyase 8; Adenylate cyclase type VIII; Adenylyl cyclase 8; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of cAMP in response to calcium entry leadings to cAMP signaling activation that affect processes suche as synaptic plasticity and insulin secretion. Plays a role in many brain functions, such as learning, memory, drug addiction, and anxiety modulation through regulation of synaptic plasticity by modulating long-term memory and long-term potentiation (LTP) through CREB transcription factor activity modulation."], ["Location", "Cell membrane, Basolateral cell membrane, Apical cell membrane, Synapse, Cell projection, dendrite, Cell projection, axon, Presynaptic cell membrane, Postsynaptic density, Membrane raft, Membrane, coated pit, Cytoplasmic vesicle, clathrin-coated vesicle membrane, Membrane, caveola"], ["HGNC", "HGNC:239"], ["HGNC symbol", "ADCY8"], ["HGNC aliases", "HBAC1, AC8, ADCY3"], ["Entrez", "114"], ["Ensembl", "ENSG00000155897"], ["RefSeq", "NM_001115"], ["UniProt", "P40145"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY9", "props": [["Full name", "Adenylate cyclase type 9"], ["Alternative names", "ATP pyrophosphate-lyase 9; Adenylate cyclase type IX; Adenylyl cyclase 9"], ["Function", "Adenylyl cyclase that catalyzes the formation of the signaling molecule cAMP in response to activation of G protein-coupled receptors. Contributes to signaling cascades activated by CRH (corticotropin-releasing factor), corticosteroids and beta-adrenergic receptors"], ["Location", "Cell membrane"], ["HGNC", "HGNC:240"], ["HGNC symbol", "ADCY9"], ["HGNC aliases", "AC9"], ["Entrez", "115"], ["Ensembl", "ENSG00000162104"], ["RefSeq", "NM_001116"], ["UniProt", "O60503"], ["Note", "Broad expression, low forskolin response"]]}]]]></data>
+          <data key="d34" xml:space="preserve">[{"symbol": "ADCY1", "props": [["Full name", "Adenylate cyclase type 1"], ["Alternative names", "ATP pyrophosphate-lyase 1; Adenylate cyclase type I; Adenylyl cyclase 1; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates responses to increased cellular Ca(2+)/calmodulin levels."], ["Location", "Membrane, Cell membrane, Cytoplasm, Membrane raft"], ["HGNC", "HGNC:232"], ["HGNC symbol", "ADCY1"], ["Previous symbols", "DFNB44"], ["Alias symbols", "AC1"], ["Entrez", "107"], ["Ensembl", "ENSG00000164742"], ["RefSeq", "NM_021116"], ["UniProt", "Q08828"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY2", "props": [["Full name", "Adenylate cyclase type 2"], ["Alternative names", "ATP pyrophosphate-lyase 2; Adenylate cyclase type II; Adenylyl cyclase 2"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Down-stream signaling cascades mediate changes in gene expression patterns and lead to increased IL6 production."], ["Location", "Membrane, Cell membrane, Cytoplasm"], ["HGNC", "HGNC:233"], ["HGNC symbol", "ADCY2"], ["Alias symbols", "HBAC2, KIAA1060, AC2"], ["Entrez", "108"], ["Ensembl", "ENSG00000078295"], ["RefSeq", "NM_020546"], ["UniProt", "Q08462"], ["Note", "Brain and lung, Gβγ-stimulated"]]}, {"symbol": "ADCY3", "props": [["Full name", "Adenylate cyclase type 3"], ["Alternative names", "ATP pyrophosphate-lyase 3; Adenylate cyclase type III; Adenylate cyclase, olfactive type; Adenylyl cyclase 3"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Participates in signaling cascades triggered by odorant receptors via its function in cAMP biosynthesis: specifically activated by G alpha protein GNAL/G(olf) in olfactory epithelium."], ["Location", "Cell membrane, Cell projection, cilium membrane, Cell projection, cilium, Cytoplasm, Golgi apparatus"], ["HGNC", "HGNC:234"], ["HGNC symbol", "ADCY3"], ["Alias symbols", "AC3"], ["Entrez", "109"], ["Ensembl", "ENSG00000138031"], ["RefSeq", "NM_001320613"], ["UniProt", "O60266"], ["Note", "Olfactory neurons and adipocytes"]]}, {"symbol": "ADCY4", "props": [["Full name", "Adenylate cyclase type 4"], ["Alternative names", "ATP pyrophosphate-lyase 4; Adenylate cyclase type IV; Adenylyl cyclase 4"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling"], ["Location", "Cell membrane, Cytoplasm"], ["HGNC", "HGNC:235"], ["HGNC symbol", "ADCY4"], ["Alias symbols", "AC4"], ["Entrez", "196883"], ["Ensembl", "ENSG00000129467"], ["RefSeq", "NM_001198568"], ["UniProt", "Q8NFM4"], ["Note", "Broad expression, Gβγ-stimulated"]]}, {"symbol": "ADCY5", "props": [["Full name", "Adenylate cyclase type 5"], ["Alternative names", "ATP pyrophosphate-lyase 5; Adenylate cyclase type V; Adenylyl cyclase 5"], ["Function", "Catalyzes the formation of the signaling molecule cAMP in response to G protein signaling. Mediates signaling downstream of ADRB1."], ["Location", "Cell membrane, Cell projection, cilium"], ["HGNC", "HGNC:236"], ["HGNC symbol", "ADCY5"], ["Alias symbols", "AC5"], ["Entrez", "111"], ["Ensembl", "ENSG00000173175"], ["RefSeq", "NM_183357"], ["UniProt", "O95622"], ["Note", "Heart and striatum, Ca2+-inhibited"]]}, {"symbol": "ADCY6", "props": [["Full name", "Adenylate cyclase type 6"], ["Alternative names", "ATP pyrophosphate-lyase 6; Adenylate cyclase type VI; Adenylyl cyclase 6; Ca(2+)-inhibitable adenylyl cyclase"], ["Function", "Catalyzes the formation of the signaling molecule cAMP downstream of G protein-coupled receptors. Functions in signaling cascades downstream of beta-adrenergic receptors in the heart and in vascular smooth muscle cells."], ["Location", "Cell membrane, Cell projection, cilium, Cell projection, stereocilium"], ["HGNC", "HGNC:237"], ["HGNC symbol", "ADCY6"], ["Alias symbols", "AC6"], ["Entrez", "112"], ["Ensembl", "ENSG00000174233"], ["RefSeq", "NM_020983"], ["UniProt", "O43306"], ["Note", "Broad expression, Ca2+-inhibited"]]}, {"symbol": "ADCY7", "props": [["Full name", "Adenylate cyclase type 7"], ["Alternative names", "ATP pyrophosphate-lyase 7; Adenylate cyclase type VII; Adenylyl cyclase 7; Cyclic di-AMP synthase ADCY7"], ["Function", "Adenylate cyclase that mediates formation of both cyclic AMP (cAMP) and cyclic di-AMP (c-di-AMP). Acts as a key mediator of G protein-coupled receptor signaling by catalyzing the formation of cAMP downstream of G protein-coupled receptors."], ["Location", "Membrane"], ["HGNC", "HGNC:238"], ["HGNC symbol", "ADCY7"], ["Alias symbols", "KIAA0037, AC7"], ["Entrez", "113"], ["Ensembl", "ENSG00000121281"], ["RefSeq", "NM_001114"], ["UniProt", "P51828"], ["Note", "Immune cells"]]}, {"symbol": "ADCY8", "props": [["Full name", "Adenylate cyclase type 8"], ["Alternative names", "ATP pyrophosphate-lyase 8; Adenylate cyclase type VIII; Adenylyl cyclase 8; Ca(2+)/calmodulin-activated adenylyl cyclase"], ["Function", "Catalyzes the formation of cAMP in response to calcium entry leadings to cAMP signaling activation that affect processes suche as synaptic plasticity and insulin secretion. Plays a role in many brain functions, such as learning, memory, drug addiction, and anxiety modulation through regulation of synaptic plasticity by modulating long-term memory and long-term potentiation (LTP) through CREB transcription factor activity modulation."], ["Location", "Cell membrane, Basolateral cell membrane, Apical cell membrane, Synapse, Cell projection, dendrite, Cell projection, axon, Presynaptic cell membrane, Postsynaptic density, Membrane raft, Membrane, coated pit, Cytoplasmic vesicle, clathrin-coated vesicle membrane, Membrane, caveola"], ["HGNC", "HGNC:239"], ["HGNC symbol", "ADCY8"], ["Previous symbols", "ADCY3"], ["Alias symbols", "HBAC1, AC8"], ["Entrez", "114"], ["Ensembl", "ENSG00000155897"], ["RefSeq", "NM_001115"], ["UniProt", "P40145"], ["Note", "Brain, Ca2+/calmodulin-stimulated"]]}, {"symbol": "ADCY9", "props": [["Full name", "Adenylate cyclase type 9"], ["Alternative names", "ATP pyrophosphate-lyase 9; Adenylate cyclase type IX; Adenylyl cyclase 9"], ["Function", "Adenylyl cyclase that catalyzes the formation of the signaling molecule cAMP in response to activation of G protein-coupled receptors. Contributes to signaling cascades activated by CRH (corticotropin-releasing factor), corticosteroids and beta-adrenergic receptors"], ["Location", "Cell membrane"], ["HGNC", "HGNC:240"], ["HGNC symbol", "ADCY9"], ["Alias symbols", "AC9"], ["Entrez", "115"], ["Ensembl", "ENSG00000162104"], ["RefSeq", "NM_001116"], ["UniProt", "O60503"], ["Note", "Broad expression, low forskolin response"]]}]</data>
           <data key="d35" xml:space="preserve"/>
           <data key="d37">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2804,7 +2760,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -2867,7 +2822,7 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:9594]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[PTGER2]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[EP2, COX-2]]></data>
+              <data key="d100">EP2, COX-2</data>
               <data key="d22" xml:space="preserve"><![CDATA[5732]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000125384]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000956]]></data>
@@ -2912,7 +2867,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C20H31O5]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -2956,7 +2910,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -3019,7 +2972,7 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:9594]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[PTGER2]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[EP2, COX-2]]></data>
+              <data key="d100">EP2, COX-2</data>
               <data key="d22" xml:space="preserve"><![CDATA[5732]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000125384]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000956]]></data>
@@ -3064,7 +3017,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C20H31O5]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -3106,7 +3058,8 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:4392]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[GNAS]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[NESP55, NESP, GNASXL, GPSA, SCG6, SgVI, GNAS1]]></data>
+              <data key="d101">GNAS1</data>
+              <data key="d100">NESP55, NESP, GNASXL, GPSA, SCG6, SgVI</data>
               <data key="d22" xml:space="preserve"><![CDATA[2778]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000087460]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000516]]></data>
@@ -3151,7 +3104,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -3196,7 +3148,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -3209,7 +3160,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[GNG2; GNG3; GNG4; GNG5; GNG7; GNG8; GNG10; GNG11; GNG12; GNG13]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "GNG2", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"], ["Alternative names", "G gamma-I"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4404"], ["HGNC symbol", "GNG2"], ["Entrez", "54331"], ["Ensembl", "ENSG00000186469"], ["RefSeq", "NM_001243773"], ["UniProt", "P59768"], ["Note", "Gγ2, brain and broad expression"]]}, {"symbol": "GNG3", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-3"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4405"], ["HGNC symbol", "GNG3"], ["Entrez", "2785"], ["Ensembl", "ENSG00000162188"], ["RefSeq", "NM_012202"], ["UniProt", "P63215"], ["Note", "Gγ3, neurons"]]}, {"symbol": "GNG4", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-4"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4407"], ["HGNC symbol", "GNG4"], ["Entrez", "2786"], ["Ensembl", "ENSG00000168243"], ["RefSeq", "NM_004485"], ["UniProt", "P50150"], ["Note", "Gγ4, brain"]]}, {"symbol": "GNG5", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-5"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4408"], ["HGNC symbol", "GNG5"], ["Entrez", "2787"], ["Ensembl", "ENSG00000174021"], ["RefSeq", "NM_005274"], ["UniProt", "P63218"], ["Note", "Gγ5, ubiquitous"]]}, {"symbol": "GNG7", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-7"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4410"], ["HGNC symbol", "GNG7"], ["HGNC aliases", "FLJ00058"], ["Entrez", "2788"], ["Ensembl", "ENSG00000176533"], ["RefSeq", "NM_052847"], ["UniProt", "O60262"], ["Note", "Gγ7, striatum"]]}, {"symbol": "GNG8", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-8"], ["Alternative names", "Gamma-9"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19664"], ["HGNC symbol", "GNG8"], ["Entrez", "94235"], ["Ensembl", "ENSG00000167414"], ["RefSeq", "NM_033258"], ["UniProt", "Q9UK08"], ["Note", "Gγ8, olfactory neurons"]]}, {"symbol": "GNG10", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-10"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4402"], ["HGNC symbol", "GNG10"], ["Entrez", "2790"], ["Ensembl", "ENSG00000242616"], ["RefSeq", "NM_001017998"], ["UniProt", "P50151"], ["Note", "Gγ10, broad expression"]]}, {"symbol": "GNG11", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-11"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4403"], ["HGNC symbol", "GNG11"], ["HGNC aliases", "GNGT11"], ["Entrez", "2791"], ["Ensembl", "ENSG00000127920"], ["RefSeq", "NM_004126"], ["UniProt", "P61952"], ["Note", "Gγ11, broad expression"]]}, {"symbol": "GNG12", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19663"], ["HGNC symbol", "GNG12"], ["Entrez", "55970"], ["Ensembl", "ENSG00000172380"], ["RefSeq", "NM_018841"], ["UniProt", "Q9UBI6"], ["Note", "Gγ12, broad expression"]]}, {"symbol": "GNG13", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-13"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:14131"], ["HGNC symbol", "GNG13"], ["HGNC aliases", "h2-35, G(gamma)13"], ["Entrez", "51764"], ["Ensembl", "ENSG00000127588"], ["RefSeq", "NM_016541"], ["UniProt", "Q9P2W3"], ["Note", "Gγ13, taste and retinal cells"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "GNG2", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"], ["Alternative names", "G gamma-I"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4404"], ["HGNC symbol", "GNG2"], ["Entrez", "54331"], ["Ensembl", "ENSG00000186469"], ["RefSeq", "NM_001243773"], ["UniProt", "P59768"], ["Note", "Gγ2, brain and broad expression"]]}, {"symbol": "GNG3", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-3"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4405"], ["HGNC symbol", "GNG3"], ["Entrez", "2785"], ["Ensembl", "ENSG00000162188"], ["RefSeq", "NM_012202"], ["UniProt", "P63215"], ["Note", "Gγ3, neurons"]]}, {"symbol": "GNG4", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-4"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4407"], ["HGNC symbol", "GNG4"], ["Entrez", "2786"], ["Ensembl", "ENSG00000168243"], ["RefSeq", "NM_004485"], ["UniProt", "P50150"], ["Note", "Gγ4, brain"]]}, {"symbol": "GNG5", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-5"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4408"], ["HGNC symbol", "GNG5"], ["Entrez", "2787"], ["Ensembl", "ENSG00000174021"], ["RefSeq", "NM_005274"], ["UniProt", "P63218"], ["Note", "Gγ5, ubiquitous"]]}, {"symbol": "GNG7", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-7"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4410"], ["HGNC symbol", "GNG7"], ["Alias symbols", "FLJ00058"], ["Entrez", "2788"], ["Ensembl", "ENSG00000176533"], ["RefSeq", "NM_052847"], ["UniProt", "O60262"], ["Note", "Gγ7, striatum"]]}, {"symbol": "GNG8", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-8"], ["Alternative names", "Gamma-9"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19664"], ["HGNC symbol", "GNG8"], ["Entrez", "94235"], ["Ensembl", "ENSG00000167414"], ["RefSeq", "NM_033258"], ["UniProt", "Q9UK08"], ["Note", "Gγ8, olfactory neurons"]]}, {"symbol": "GNG10", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-10"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4402"], ["HGNC symbol", "GNG10"], ["Entrez", "2790"], ["Ensembl", "ENSG00000242616"], ["RefSeq", "NM_001017998"], ["UniProt", "P50151"], ["Note", "Gγ10, broad expression"]]}, {"symbol": "GNG11", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-11"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4403"], ["HGNC symbol", "GNG11"], ["Alias symbols", "GNGT11"], ["Entrez", "2791"], ["Ensembl", "ENSG00000127920"], ["RefSeq", "NM_004126"], ["UniProt", "P61952"], ["Note", "Gγ11, broad expression"]]}, {"symbol": "GNG12", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19663"], ["HGNC symbol", "GNG12"], ["Entrez", "55970"], ["Ensembl", "ENSG00000172380"], ["RefSeq", "NM_018841"], ["UniProt", "Q9UBI6"], ["Note", "Gγ12, broad expression"]]}, {"symbol": "GNG13", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-13"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:14131"], ["HGNC symbol", "GNG13"], ["Alias symbols", "h2-35, G(gamma)13"], ["Entrez", "51764"], ["Ensembl", "ENSG00000127588"], ["RefSeq", "NM_016541"], ["UniProt", "Q9P2W3"], ["Note", "Gγ13, taste and retinal cells"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -3243,7 +3194,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -3306,7 +3256,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -3319,7 +3268,7 @@
               <data key="d31" xml:space="preserve"/>
               <data key="d32" xml:space="preserve"/>
               <data key="d33" xml:space="preserve"><![CDATA[GNG2; GNG3; GNG4; GNG5; GNG7; GNG8; GNG10; GNG11; GNG12; GNG13]]></data>
-              <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "GNG2", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"], ["Alternative names", "G gamma-I"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4404"], ["HGNC symbol", "GNG2"], ["Entrez", "54331"], ["Ensembl", "ENSG00000186469"], ["RefSeq", "NM_001243773"], ["UniProt", "P59768"], ["Note", "Gγ2, brain and broad expression"]]}, {"symbol": "GNG3", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-3"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4405"], ["HGNC symbol", "GNG3"], ["Entrez", "2785"], ["Ensembl", "ENSG00000162188"], ["RefSeq", "NM_012202"], ["UniProt", "P63215"], ["Note", "Gγ3, neurons"]]}, {"symbol": "GNG4", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-4"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4407"], ["HGNC symbol", "GNG4"], ["Entrez", "2786"], ["Ensembl", "ENSG00000168243"], ["RefSeq", "NM_004485"], ["UniProt", "P50150"], ["Note", "Gγ4, brain"]]}, {"symbol": "GNG5", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-5"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4408"], ["HGNC symbol", "GNG5"], ["Entrez", "2787"], ["Ensembl", "ENSG00000174021"], ["RefSeq", "NM_005274"], ["UniProt", "P63218"], ["Note", "Gγ5, ubiquitous"]]}, {"symbol": "GNG7", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-7"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4410"], ["HGNC symbol", "GNG7"], ["HGNC aliases", "FLJ00058"], ["Entrez", "2788"], ["Ensembl", "ENSG00000176533"], ["RefSeq", "NM_052847"], ["UniProt", "O60262"], ["Note", "Gγ7, striatum"]]}, {"symbol": "GNG8", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-8"], ["Alternative names", "Gamma-9"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19664"], ["HGNC symbol", "GNG8"], ["Entrez", "94235"], ["Ensembl", "ENSG00000167414"], ["RefSeq", "NM_033258"], ["UniProt", "Q9UK08"], ["Note", "Gγ8, olfactory neurons"]]}, {"symbol": "GNG10", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-10"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4402"], ["HGNC symbol", "GNG10"], ["Entrez", "2790"], ["Ensembl", "ENSG00000242616"], ["RefSeq", "NM_001017998"], ["UniProt", "P50151"], ["Note", "Gγ10, broad expression"]]}, {"symbol": "GNG11", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-11"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4403"], ["HGNC symbol", "GNG11"], ["HGNC aliases", "GNGT11"], ["Entrez", "2791"], ["Ensembl", "ENSG00000127920"], ["RefSeq", "NM_004126"], ["UniProt", "P61952"], ["Note", "Gγ11, broad expression"]]}, {"symbol": "GNG12", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19663"], ["HGNC symbol", "GNG12"], ["Entrez", "55970"], ["Ensembl", "ENSG00000172380"], ["RefSeq", "NM_018841"], ["UniProt", "Q9UBI6"], ["Note", "Gγ12, broad expression"]]}, {"symbol": "GNG13", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-13"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:14131"], ["HGNC symbol", "GNG13"], ["HGNC aliases", "h2-35, G(gamma)13"], ["Entrez", "51764"], ["Ensembl", "ENSG00000127588"], ["RefSeq", "NM_016541"], ["UniProt", "Q9P2W3"], ["Note", "Gγ13, taste and retinal cells"]]}]]]></data>
+              <data key="d34" xml:space="preserve">[{"symbol": "GNG2", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"], ["Alternative names", "G gamma-I"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4404"], ["HGNC symbol", "GNG2"], ["Entrez", "54331"], ["Ensembl", "ENSG00000186469"], ["RefSeq", "NM_001243773"], ["UniProt", "P59768"], ["Note", "Gγ2, brain and broad expression"]]}, {"symbol": "GNG3", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-3"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4405"], ["HGNC symbol", "GNG3"], ["Entrez", "2785"], ["Ensembl", "ENSG00000162188"], ["RefSeq", "NM_012202"], ["UniProt", "P63215"], ["Note", "Gγ3, neurons"]]}, {"symbol": "GNG4", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-4"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4407"], ["HGNC symbol", "GNG4"], ["Entrez", "2786"], ["Ensembl", "ENSG00000168243"], ["RefSeq", "NM_004485"], ["UniProt", "P50150"], ["Note", "Gγ4, brain"]]}, {"symbol": "GNG5", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-5"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4408"], ["HGNC symbol", "GNG5"], ["Entrez", "2787"], ["Ensembl", "ENSG00000174021"], ["RefSeq", "NM_005274"], ["UniProt", "P63218"], ["Note", "Gγ5, ubiquitous"]]}, {"symbol": "GNG7", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-7"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4410"], ["HGNC symbol", "GNG7"], ["Alias symbols", "FLJ00058"], ["Entrez", "2788"], ["Ensembl", "ENSG00000176533"], ["RefSeq", "NM_052847"], ["UniProt", "O60262"], ["Note", "Gγ7, striatum"]]}, {"symbol": "GNG8", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-8"], ["Alternative names", "Gamma-9"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19664"], ["HGNC symbol", "GNG8"], ["Entrez", "94235"], ["Ensembl", "ENSG00000167414"], ["RefSeq", "NM_033258"], ["UniProt", "Q9UK08"], ["Note", "Gγ8, olfactory neurons"]]}, {"symbol": "GNG10", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-10"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction."], ["Location", "Cell membrane"], ["HGNC", "HGNC:4402"], ["HGNC symbol", "GNG10"], ["Entrez", "2790"], ["Ensembl", "ENSG00000242616"], ["RefSeq", "NM_001017998"], ["UniProt", "P50151"], ["Note", "Gγ10, broad expression"]]}, {"symbol": "GNG11", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-11"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:4403"], ["HGNC symbol", "GNG11"], ["Alias symbols", "GNGT11"], ["Entrez", "2791"], ["Ensembl", "ENSG00000127920"], ["RefSeq", "NM_004126"], ["UniProt", "P61952"], ["Note", "Gγ11, broad expression"]]}, {"symbol": "GNG12", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:19663"], ["HGNC symbol", "GNG12"], ["Entrez", "55970"], ["Ensembl", "ENSG00000172380"], ["RefSeq", "NM_018841"], ["UniProt", "Q9UBI6"], ["Note", "Gγ12, broad expression"]]}, {"symbol": "GNG13", "props": [["Full name", "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-13"], ["Function", "Guanine nucleotide-binding proteins (G proteins) are involved as a modulator or transducer in various transmembrane signaling systems. The beta and gamma chains are required for the GTPase activity, for replacement of GDP by GTP, and for G protein-effector interaction"], ["Location", "Cell membrane"], ["HGNC", "HGNC:14131"], ["HGNC symbol", "GNG13"], ["Alias symbols", "h2-35, G(gamma)13"], ["Entrez", "51764"], ["Ensembl", "ENSG00000127588"], ["RefSeq", "NM_016541"], ["UniProt", "Q9P2W3"], ["Note", "Gγ13, taste and retinal cells"]]}]</data>
               <data key="d35" xml:space="preserve"/>
               <data key="d37">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -3351,7 +3300,6 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -3396,7 +3344,7 @@
               <data key="d18" xml:space="preserve"/>
               <data key="d19" xml:space="preserve"><![CDATA[HGNC:9594]]></data>
               <data key="d20" xml:space="preserve"><![CDATA[PTGER2]]></data>
-              <data key="d21" xml:space="preserve"><![CDATA[EP2, COX-2]]></data>
+              <data key="d100">EP2, COX-2</data>
               <data key="d22" xml:space="preserve"><![CDATA[5732]]></data>
               <data key="d23" xml:space="preserve"><![CDATA[ENSG00000125384]]></data>
               <data key="d24" xml:space="preserve"><![CDATA[NM_000956]]></data>
@@ -3441,7 +3389,6 @@
               <data key="d18" xml:space="preserve"><![CDATA[C20H31O5]]></data>
               <data key="d19" xml:space="preserve"/>
               <data key="d20" xml:space="preserve"/>
-              <data key="d21" xml:space="preserve"/>
               <data key="d22" xml:space="preserve"/>
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
@@ -3485,7 +3432,8 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:4392]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[GNAS]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[NESP55, NESP, GNASXL, GPSA, SCG6, SgVI, GNAS1]]></data>
+          <data key="d101">GNAS1</data>
+          <data key="d100">NESP55, NESP, GNASXL, GPSA, SCG6, SgVI</data>
           <data key="d22" xml:space="preserve"><![CDATA[2778]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000087460]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_000516]]></data>
@@ -3530,7 +3478,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -3572,7 +3519,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -3614,7 +3560,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -3656,7 +3601,6 @@
           <data key="d18" xml:space="preserve"/>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
@@ -3700,7 +3644,6 @@
       <data key="d18" xml:space="preserve"/>
       <data key="d19" xml:space="preserve"/>
       <data key="d20" xml:space="preserve"/>
-      <data key="d21" xml:space="preserve"/>
       <data key="d22" xml:space="preserve"/>
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
@@ -3759,7 +3702,6 @@
           <data key="d18" xml:space="preserve"><![CDATA[C20H31O5]]></data>
           <data key="d19" xml:space="preserve"/>
           <data key="d20" xml:space="preserve"/>
-          <data key="d21" xml:space="preserve"/>
           <data key="d22" xml:space="preserve"/>
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>

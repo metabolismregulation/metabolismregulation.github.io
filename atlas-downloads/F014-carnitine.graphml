@@ -14,7 +14,8 @@
   <key attr.name="Formula" attr.type="string" for="node" id="d10"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d11"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d12"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d13"/>
+  <key attr.name="Previous symbols" attr.type="string" for="node" id="d101"/>
+  <key attr.name="Alias symbols" attr.type="string" for="node" id="d100"/>
   <key attr.name="Entrez" attr.type="string" for="node" id="d14"/>
   <key attr.name="Ensembl" attr.type="string" for="node" id="d15"/>
   <key attr.name="RefSeq" attr.type="string" for="node" id="d16"/>
@@ -47,7 +48,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -98,7 +98,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -138,7 +137,7 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:11389]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[STK11]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[PJS, LKB1]]></data>
+          <data key="d100">PJS, LKB1</data>
           <data key="d14" xml:space="preserve"><![CDATA[6794]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000118046]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_000455]]></data>
@@ -183,7 +182,7 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:11389]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[STK11]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[PJS, LKB1]]></data>
+          <data key="d100">PJS, LKB1</data>
           <data key="d14" xml:space="preserve"><![CDATA[6794]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000118046]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_000455]]></data>
@@ -228,7 +227,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -241,7 +239,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -267,7 +265,7 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:85]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[ACACB]]></data>
-      <data key="d13" xml:space="preserve"><![CDATA[HACC275, ACC2, ACCB, ACC-beta, ACCbeta, ACACbeta]]></data>
+      <data key="d100">HACC275, ACC2, ACCB, ACC-beta, ACCbeta, ACACbeta</data>
       <data key="d14" xml:space="preserve"><![CDATA[32]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000076555]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_001093]]></data>
@@ -312,7 +310,7 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:85]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[ACACB]]></data>
-      <data key="d13" xml:space="preserve"><![CDATA[HACC275, ACC2, ACCB, ACC-beta, ACCbeta, ACACbeta]]></data>
+      <data key="d100">HACC275, ACC2, ACCB, ACC-beta, ACCbeta, ACACbeta</data>
       <data key="d14" xml:space="preserve"><![CDATA[32]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000076555]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_001093]]></data>
@@ -357,7 +355,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -397,7 +394,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C23H34N7O17P3S]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -431,7 +427,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C24H33N7O19P3S]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -465,7 +460,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -505,7 +499,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -545,7 +538,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -602,7 +594,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -615,7 +606,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[CPT1A; CPT1B]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CPT1A", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, liver isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, liver isoform; Carnitine palmitoyltransferase 1A; Succinyltransferase CPT1A"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion. Also possesses a lysine succinyltransferase activity that can regulate enzymatic activity of substrate proteins such as ENO1 and metabolism independent of its classical carnitine O-palmitoyltransferase activity."], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2328"], ["HGNC symbol", "CPT1A"], ["HGNC aliases", "CPT1-L, L-CPT1, CPT1"], ["Entrez", "1374"], ["Ensembl", "ENSG00000110090"], ["RefSeq", "NM_001876"], ["UniProt", "P50416"], ["Note", "Liver isoform"]]}, {"symbol": "CPT1B", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, muscle isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, muscle isoform; Carnitine palmitoyltransferase 1B; Carnitine palmitoyltransferase I-like protein"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion"], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2329"], ["HGNC symbol", "CPT1B"], ["HGNC aliases", "M-CPT1, CPT1-M"], ["Entrez", "1375"], ["Ensembl", "ENSG00000205560"], ["RefSeq", "NM_152246"], ["UniProt", "Q92523"], ["Note", "Muscle and heart isoform"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "CPT1A", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, liver isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, liver isoform; Carnitine palmitoyltransferase 1A; Succinyltransferase CPT1A"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion. Also possesses a lysine succinyltransferase activity that can regulate enzymatic activity of substrate proteins such as ENO1 and metabolism independent of its classical carnitine O-palmitoyltransferase activity."], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2328"], ["HGNC symbol", "CPT1A"], ["Previous symbols", "CPT1"], ["Alias symbols", "CPT1-L, L-CPT1"], ["Entrez", "1374"], ["Ensembl", "ENSG00000110090"], ["RefSeq", "NM_001876"], ["UniProt", "P50416"], ["Note", "Liver isoform"]]}, {"symbol": "CPT1B", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, muscle isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, muscle isoform; Carnitine palmitoyltransferase 1B; Carnitine palmitoyltransferase I-like protein"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion"], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2329"], ["HGNC symbol", "CPT1B"], ["Alias symbols", "M-CPT1, CPT1-M"], ["Entrez", "1375"], ["Ensembl", "ENSG00000205560"], ["RefSeq", "NM_152246"], ["UniProt", "Q92523"], ["Note", "Muscle and heart isoform"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -639,7 +630,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C24H33N7O19P3S]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -675,7 +665,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C10H12N5O7P]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -709,7 +698,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -749,7 +737,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -806,7 +793,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -843,7 +829,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -856,7 +841,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAA1; PRKAA2]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["HGNC aliases", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["HGNC aliases", "AMPK, AMPKa2, PRKAA"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["Alias symbols", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["Previous symbols", "PRKAA"], ["Alias symbols", "AMPK, AMPKa2"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -888,7 +873,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -901,7 +885,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAG1; PRKAG2; PRKAG3]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["HGNC aliases", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["Alias symbols", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -927,7 +911,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -984,7 +967,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1021,7 +1003,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1034,7 +1015,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAA1; PRKAA2]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["HGNC aliases", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["HGNC aliases", "AMPK, AMPKa2, PRKAA"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["Alias symbols", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["Previous symbols", "PRKAA"], ["Alias symbols", "AMPK, AMPKa2"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1066,7 +1047,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1079,7 +1059,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAG1; PRKAG2; PRKAG3]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["HGNC aliases", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["Alias symbols", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1105,7 +1085,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1162,7 +1141,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1175,7 +1153,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[CAB39; CAB39L]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["HGNC aliases", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "MO25α, ubiquitous"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["HGNC aliases", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "MO25β, broad expression"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["Alias symbols", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "MO25α, ubiquitous"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["Alias symbols", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "MO25β, broad expression"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1207,7 +1185,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1220,7 +1197,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[STRADA; STRADB]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["HGNC aliases", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "STRADα, main LKB1 partner"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["HGNC aliases", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP, ALS2CR2"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "STRADβ, broad expression"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["Alias symbols", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "STRADα, main LKB1 partner"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["Previous symbols", "ALS2CR2"], ["Alias symbols", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "STRADβ, broad expression"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1244,7 +1221,7 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:11389]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[STK11]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[PJS, LKB1]]></data>
+          <data key="d100">PJS, LKB1</data>
           <data key="d14" xml:space="preserve"><![CDATA[6794]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000118046]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_000455]]></data>
@@ -1291,7 +1268,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1304,7 +1280,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[STRADA; STRADB]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["HGNC aliases", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "STRADα, main LKB1 partner"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["HGNC aliases", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP, ALS2CR2"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "STRADβ, broad expression"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["Alias symbols", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "STRADα, main LKB1 partner"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["Previous symbols", "ALS2CR2"], ["Alias symbols", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "STRADβ, broad expression"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1328,7 +1304,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1341,7 +1316,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[CAB39; CAB39L]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["HGNC aliases", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "MO25α, ubiquitous"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["HGNC aliases", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "MO25β, broad expression"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["Alias symbols", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "MO25α, ubiquitous"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["Alias symbols", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "MO25β, broad expression"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1373,7 +1348,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1413,7 +1387,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1464,7 +1437,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1504,7 +1476,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C7H15NO3]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1538,7 +1509,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C8H14NO4R]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1572,7 +1542,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C22H31N7O17P3SR]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1606,7 +1575,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1619,7 +1587,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[CPT1A; CPT1B]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CPT1A", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, liver isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, liver isoform; Carnitine palmitoyltransferase 1A; Succinyltransferase CPT1A"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion. Also possesses a lysine succinyltransferase activity that can regulate enzymatic activity of substrate proteins such as ENO1 and metabolism independent of its classical carnitine O-palmitoyltransferase activity."], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2328"], ["HGNC symbol", "CPT1A"], ["HGNC aliases", "CPT1-L, L-CPT1, CPT1"], ["Entrez", "1374"], ["Ensembl", "ENSG00000110090"], ["RefSeq", "NM_001876"], ["UniProt", "P50416"], ["Note", "Liver isoform"]]}, {"symbol": "CPT1B", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, muscle isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, muscle isoform; Carnitine palmitoyltransferase 1B; Carnitine palmitoyltransferase I-like protein"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion"], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2329"], ["HGNC symbol", "CPT1B"], ["HGNC aliases", "M-CPT1, CPT1-M"], ["Entrez", "1375"], ["Ensembl", "ENSG00000205560"], ["RefSeq", "NM_152246"], ["UniProt", "Q92523"], ["Note", "Muscle and heart isoform"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "CPT1A", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, liver isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, liver isoform; Carnitine palmitoyltransferase 1A; Succinyltransferase CPT1A"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion. Also possesses a lysine succinyltransferase activity that can regulate enzymatic activity of substrate proteins such as ENO1 and metabolism independent of its classical carnitine O-palmitoyltransferase activity."], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2328"], ["HGNC symbol", "CPT1A"], ["Previous symbols", "CPT1"], ["Alias symbols", "CPT1-L, L-CPT1"], ["Entrez", "1374"], ["Ensembl", "ENSG00000110090"], ["RefSeq", "NM_001876"], ["UniProt", "P50416"], ["Note", "Liver isoform"]]}, {"symbol": "CPT1B", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, muscle isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, muscle isoform; Carnitine palmitoyltransferase 1B; Carnitine palmitoyltransferase I-like protein"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion"], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2329"], ["HGNC symbol", "CPT1B"], ["Alias symbols", "M-CPT1, CPT1-M"], ["Entrez", "1375"], ["Ensembl", "ENSG00000205560"], ["RefSeq", "NM_152246"], ["UniProt", "Q92523"], ["Note", "Muscle and heart isoform"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1645,7 +1613,7 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:11389]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[STK11]]></data>
-      <data key="d13" xml:space="preserve"><![CDATA[PJS, LKB1]]></data>
+      <data key="d100">PJS, LKB1</data>
       <data key="d14" xml:space="preserve"><![CDATA[6794]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000118046]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_000455]]></data>
@@ -1690,7 +1658,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1703,7 +1670,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[CPT1A; CPT1B]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CPT1A", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, liver isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, liver isoform; Carnitine palmitoyltransferase 1A; Succinyltransferase CPT1A"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion. Also possesses a lysine succinyltransferase activity that can regulate enzymatic activity of substrate proteins such as ENO1 and metabolism independent of its classical carnitine O-palmitoyltransferase activity."], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2328"], ["HGNC symbol", "CPT1A"], ["HGNC aliases", "CPT1-L, L-CPT1, CPT1"], ["Entrez", "1374"], ["Ensembl", "ENSG00000110090"], ["RefSeq", "NM_001876"], ["UniProt", "P50416"], ["Note", "Liver isoform"]]}, {"symbol": "CPT1B", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, muscle isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, muscle isoform; Carnitine palmitoyltransferase 1B; Carnitine palmitoyltransferase I-like protein"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion"], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2329"], ["HGNC symbol", "CPT1B"], ["HGNC aliases", "M-CPT1, CPT1-M"], ["Entrez", "1375"], ["Ensembl", "ENSG00000205560"], ["RefSeq", "NM_152246"], ["UniProt", "Q92523"], ["Note", "Muscle and heart isoform"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "CPT1A", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, liver isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, liver isoform; Carnitine palmitoyltransferase 1A; Succinyltransferase CPT1A"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion. Also possesses a lysine succinyltransferase activity that can regulate enzymatic activity of substrate proteins such as ENO1 and metabolism independent of its classical carnitine O-palmitoyltransferase activity."], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2328"], ["HGNC symbol", "CPT1A"], ["Previous symbols", "CPT1"], ["Alias symbols", "CPT1-L, L-CPT1"], ["Entrez", "1374"], ["Ensembl", "ENSG00000110090"], ["RefSeq", "NM_001876"], ["UniProt", "P50416"], ["Note", "Liver isoform"]]}, {"symbol": "CPT1B", "props": [["Full name", "Carnitine O-palmitoyltransferase 1, muscle isoform"], ["Alternative names", "Carnitine O-palmitoyltransferase I, muscle isoform; Carnitine palmitoyltransferase 1B; Carnitine palmitoyltransferase I-like protein"], ["Function", "Catalyzes the transfer of the acyl group of long-chain fatty acid-CoA conjugates onto carnitine, an essential step for the mitochondrial uptake of long-chain fatty acids and their subsequent beta-oxidation in the mitochondrion"], ["Location", "Mitochondrion outer membrane"], ["HGNC", "HGNC:2329"], ["HGNC symbol", "CPT1B"], ["Alias symbols", "M-CPT1, CPT1-M"], ["Entrez", "1375"], ["Ensembl", "ENSG00000205560"], ["RefSeq", "NM_152246"], ["UniProt", "Q92523"], ["Note", "Muscle and heart isoform"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1727,7 +1694,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1767,7 +1733,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1807,7 +1772,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C10H11N5O6P]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1841,7 +1805,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1881,7 +1844,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1894,7 +1856,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1918,7 +1880,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1958,7 +1919,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2015,7 +1975,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2028,7 +1987,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"><![CDATA[PKA regulatory subunits]]></data>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAR1A; PRKAR1B; PRKAR2A; PRKAR2B]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["HGNC aliases", "CNC1, PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["Previous symbols", "PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Alias symbols", "CNC1"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["Previous symbols", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["Previous symbols", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2061,7 +2020,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2074,7 +2032,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2109,7 +2067,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2149,7 +2106,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2206,7 +2162,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2263,7 +2218,6 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"/>
               <data key="d12" xml:space="preserve"/>
-              <data key="d13" xml:space="preserve"/>
               <data key="d14" xml:space="preserve"/>
               <data key="d15" xml:space="preserve"/>
               <data key="d16" xml:space="preserve"/>
@@ -2276,7 +2230,7 @@
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"><![CDATA[PKA regulatory subunits]]></data>
               <data key="d25" xml:space="preserve"><![CDATA[PRKAR1A; PRKAR1B; PRKAR2A; PRKAR2B]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["HGNC aliases", "CNC1, PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["Previous symbols", "PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Alias symbols", "CNC1"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["Previous symbols", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["Previous symbols", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2309,7 +2263,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[C10H11N5O6P]]></data>
               <data key="d11" xml:space="preserve"/>
               <data key="d12" xml:space="preserve"/>
-              <data key="d13" xml:space="preserve"/>
               <data key="d14" xml:space="preserve"/>
               <data key="d15" xml:space="preserve"/>
               <data key="d16" xml:space="preserve"/>
@@ -2345,7 +2298,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2358,7 +2310,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKACA; PRKACB; PRKACG]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["HGNC aliases", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["HGNC aliases", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["HGNC aliases", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKACA", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit alpha"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"], ["HGNC", "HGNC:9380"], ["HGNC symbol", "PRKACA"], ["Alias symbols", "PKACa"], ["Entrez", "5566"], ["Ensembl", "ENSG00000072062"], ["RefSeq", "NM_002730"], ["UniProt", "P17612"], ["Note", "Cα, ubiquitous"]]}, {"symbol": "PRKACB", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit beta"], ["Function", "Mediates cAMP-dependent signaling triggered by receptor binding to GPCRs. PKA activation regulates diverse cellular processes such as cell proliferation, the cell cycle, differentiation and regulation of microtubule dynamics, chromatin condensation and decondensation, nuclear envelope disassembly and reassembly, as well as regulation of intracellular transport mechanisms and ion flux."], ["Location", "Cytoplasm, Cell membrane, Membrane, Nucleus"], ["HGNC", "HGNC:9381"], ["HGNC symbol", "PRKACB"], ["Alias symbols", "PKACb"], ["Entrez", "5567"], ["Ensembl", "ENSG00000142875"], ["RefSeq", "NM_182948"], ["UniProt", "P22694"], ["Note", "Cβ, ubiquitous, high in brain"]]}, {"symbol": "PRKACG", "props": [["Full name", "cAMP-dependent protein kinase catalytic subunit gamma"], ["Function", "Phosphorylates a large number of substrates in the cytoplasm and the nucleus"], ["HGNC", "HGNC:9382"], ["HGNC symbol", "PRKACG"], ["Alias symbols", "PKACg"], ["Entrez", "5568"], ["Ensembl", "ENSG00000165059"], ["RefSeq", "NM_002732"], ["UniProt", "P22612"], ["Note", "Cγ, testis"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2393,7 +2345,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2450,7 +2401,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2463,7 +2413,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"><![CDATA[PKA regulatory subunits]]></data>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAR1A; PRKAR1B; PRKAR2A; PRKAR2B]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["HGNC aliases", "CNC1, PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["HGNC aliases", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAR1A", "props": [["Full name", "cAMP-dependent protein kinase type I-alpha regulatory subunit"], ["Alternative names", "Tissue-specific extinguisher 1"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9388"], ["HGNC symbol", "PRKAR1A"], ["Previous symbols", "PRKAR1, TSE1, PKR1, Prkar1alpha"], ["Alias symbols", "CNC1"], ["Entrez", "5573"], ["Ensembl", "ENSG00000108946"], ["RefSeq", "NM_001276289"], ["UniProt", "P10644"], ["Note", "RIα, ubiquitous"]]}, {"symbol": "PRKAR1B", "props": [["Full name", "cAMP-dependent protein kinase type I-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells"], ["Location", "Cell membrane"], ["HGNC", "HGNC:9390"], ["HGNC symbol", "PRKAR1B"], ["Entrez", "5575"], ["Ensembl", "ENSG00000188191"], ["RefSeq", "NM_001164758"], ["UniProt", "P31321"], ["Note", "RIβ, brain"]]}, {"symbol": "PRKAR2A", "props": [["Full name", "cAMP-dependent protein kinase type II-alpha regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9391"], ["HGNC symbol", "PRKAR2A"], ["Previous symbols", "PRKAR2"], ["Entrez", "5576"], ["Ensembl", "ENSG00000114302"], ["RefSeq", "NM_001321982"], ["UniProt", "P13861"], ["Note", "RIIα, ubiquitous"]]}, {"symbol": "PRKAR2B", "props": [["Full name", "cAMP-dependent protein kinase type II-beta regulatory subunit"], ["Function", "Regulatory subunit of the cAMP-dependent protein kinases involved in cAMP signaling in cells. Type II regulatory chains mediate membrane association by binding to anchoring proteins, including the MAP2 kinase"], ["Location", "Cytoplasm, Cell membrane"], ["HGNC", "HGNC:9392"], ["HGNC symbol", "PRKAR2B"], ["Previous symbols", "PRKAR2"], ["Entrez", "5577"], ["Ensembl", "ENSG00000005249"], ["RefSeq", "NM_002736"], ["UniProt", "P31323"], ["Note", "RIIβ, brain and adipose tissue"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2496,7 +2446,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C10H11N5O6P]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2532,7 +2481,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C10H12N5O7P]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>

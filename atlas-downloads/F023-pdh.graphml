@@ -14,7 +14,8 @@
   <key attr.name="Formula" attr.type="string" for="node" id="d10"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d11"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d12"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d13"/>
+  <key attr.name="Previous symbols" attr.type="string" for="node" id="d101"/>
+  <key attr.name="Alias symbols" attr.type="string" for="node" id="d100"/>
   <key attr.name="Entrez" attr.type="string" for="node" id="d14"/>
   <key attr.name="Ensembl" attr.type="string" for="node" id="d15"/>
   <key attr.name="RefSeq" attr.type="string" for="node" id="d16"/>
@@ -47,7 +48,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -98,7 +98,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C3H3O3]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -132,7 +131,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -172,7 +170,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -185,7 +182,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"><![CDATA[Pyruvate dehydrogenase kinases]]></data>
           <data key="d25" xml:space="preserve"><![CDATA[PDK1; PDK2; PDK3; PDK4]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PDK1", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 1, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 1"], ["Function", "Kinase that plays a key role in regulation of glucose and fatty acid metabolism and homeostasis via phosphorylation of the pyruvate dehydrogenase subunits PDHA1 and PDHA2. This inhibits pyruvate dehydrogenase activity, and thereby regulates metabolite flux through the tricarboxylic acid cycle, down-regulates aerobic respiration and inhibits the formation of acetyl-coenzyme A from pyruvate."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8809"], ["HGNC symbol", "PDK1"], ["Entrez", "5163"], ["Ensembl", "ENSG00000152256"], ["RefSeq", "NM_002610"], ["UniProt", "Q15118"], ["Note", "PDK1: heart; the only PDK for site 3; induced by HIF-1 in hypoxia"]]}, {"symbol": "PDK2", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 2, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 2"], ["Function", "Kinase that plays a key role in the regulation of glucose and fatty acid metabolism and homeostasis via phosphorylation of the pyruvate dehydrogenase subunits PDHA1 and PDHA2. This inhibits pyruvate dehydrogenase activity, and thereby regulates metabolite flux through the tricarboxylic acid cycle, down-regulates aerobic respiration and inhibits the formation of acetyl-coenzyme A from pyruvate."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8810"], ["HGNC symbol", "PDK2"], ["HGNC aliases", "PDHK2"], ["Entrez", "5164"], ["Ensembl", "ENSG00000005882"], ["RefSeq", "NM_002611"], ["UniProt", "Q15119"], ["Note", "PDK2: most tissues; most sensitive to pyruvate and dichloroacetate"]]}, {"symbol": "PDK3", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 3, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 3"], ["Function", "Inhibits pyruvate dehydrogenase activity by phosphorylation of the E1 subunit PDHA1, and thereby regulates glucose metabolism and aerobic respiration. Can also phosphorylate PDHA2."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8811"], ["HGNC symbol", "PDK3"], ["Entrez", "5165"], ["Ensembl", "ENSG00000067992"], ["RefSeq", "NM_005391"], ["UniProt", "Q15120"], ["Note", "PDK3: testis; little inhibited by pyruvate, not stimulated by NADH and acetyl-CoA"]]}, {"symbol": "PDK4", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 4, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 4"], ["Function", "Kinase that plays a key role in regulation of glucose and fatty acid metabolism and homeostasis via phosphorylation of the pyruvate dehydrogenase subunits PDHA1 and PDHA2. This inhibits pyruvate dehydrogenase activity, and thereby regulates metabolite flux through the tricarboxylic acid cycle, down-regulates aerobic respiration and inhibits the formation of acetyl-coenzyme A from pyruvate."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8812"], ["HGNC symbol", "PDK4"], ["Entrez", "5166"], ["Ensembl", "ENSG00000004799"], ["RefSeq", "NM_002612"], ["UniProt", "Q16654"], ["Note", "PDK4: skeletal muscle and heart; stimulated by NADH"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PDK1", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 1, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 1"], ["Function", "Kinase that plays a key role in regulation of glucose and fatty acid metabolism and homeostasis via phosphorylation of the pyruvate dehydrogenase subunits PDHA1 and PDHA2. This inhibits pyruvate dehydrogenase activity, and thereby regulates metabolite flux through the tricarboxylic acid cycle, down-regulates aerobic respiration and inhibits the formation of acetyl-coenzyme A from pyruvate."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8809"], ["HGNC symbol", "PDK1"], ["Entrez", "5163"], ["Ensembl", "ENSG00000152256"], ["RefSeq", "NM_002610"], ["UniProt", "Q15118"], ["Note", "PDK1: heart; the only PDK for site 3; induced by HIF-1 in hypoxia"]]}, {"symbol": "PDK2", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 2, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 2"], ["Function", "Kinase that plays a key role in the regulation of glucose and fatty acid metabolism and homeostasis via phosphorylation of the pyruvate dehydrogenase subunits PDHA1 and PDHA2. This inhibits pyruvate dehydrogenase activity, and thereby regulates metabolite flux through the tricarboxylic acid cycle, down-regulates aerobic respiration and inhibits the formation of acetyl-coenzyme A from pyruvate."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8810"], ["HGNC symbol", "PDK2"], ["Alias symbols", "PDHK2"], ["Entrez", "5164"], ["Ensembl", "ENSG00000005882"], ["RefSeq", "NM_002611"], ["UniProt", "Q15119"], ["Note", "PDK2: most tissues; most sensitive to pyruvate and dichloroacetate"]]}, {"symbol": "PDK3", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 3, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 3"], ["Function", "Inhibits pyruvate dehydrogenase activity by phosphorylation of the E1 subunit PDHA1, and thereby regulates glucose metabolism and aerobic respiration. Can also phosphorylate PDHA2."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8811"], ["HGNC symbol", "PDK3"], ["Entrez", "5165"], ["Ensembl", "ENSG00000067992"], ["RefSeq", "NM_005391"], ["UniProt", "Q15120"], ["Note", "PDK3: testis; little inhibited by pyruvate, not stimulated by NADH and acetyl-CoA"]]}, {"symbol": "PDK4", "props": [["Full name", "[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 4, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase kinase isoform 4"], ["Function", "Kinase that plays a key role in regulation of glucose and fatty acid metabolism and homeostasis via phosphorylation of the pyruvate dehydrogenase subunits PDHA1 and PDHA2. This inhibits pyruvate dehydrogenase activity, and thereby regulates metabolite flux through the tricarboxylic acid cycle, down-regulates aerobic respiration and inhibits the formation of acetyl-coenzyme A from pyruvate."], ["Location", "Mitochondrion matrix"], ["HGNC", "HGNC:8812"], ["HGNC symbol", "PDK4"], ["Entrez", "5166"], ["Ensembl", "ENSG00000004799"], ["RefSeq", "NM_002612"], ["UniProt", "Q16654"], ["Note", "PDK4: skeletal muscle and heart; stimulated by NADH"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -209,7 +206,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -222,7 +218,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"><![CDATA[Pyruvate dehydrogenase phosphatases]]></data>
           <data key="d25" xml:space="preserve"><![CDATA[PDP1; PDP2]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PDP1", "props": [["Full name", "[Pyruvate dehydrogenase [acetyl-transferring]]-phosphatase 1, mitochondrial"], ["Alternative names", "Protein phosphatase 2C; Pyruvate dehydrogenase phosphatase catalytic subunit 1"], ["Function", "Mitochondrial enzyme that catalyzes the dephosphorylation and concomitant reactivation of the alpha subunit of the E1 component of the pyruvate dehydrogenase complex (PDC), thereby stimulating the conversion of pyruvate into acetyl-CoA"], ["Location", "Mitochondrion"], ["HGNC", "HGNC:9279"], ["HGNC symbol", "PDP1"], ["HGNC aliases", "PDP, PDH, PPM2A, PPM2C"], ["Entrez", "54704"], ["Ensembl", "ENSG00000164951"], ["RefSeq", "NM_018444"], ["UniProt", "Q9P0J1"], ["Note", "PDP1: mainly skeletal muscle; stimulated by Ca2+"]]}, {"symbol": "PDP2", "props": [["Full name", "[Pyruvate dehydrogenase [acetyl-transferring]]-phosphatase 2, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase phosphatase catalytic subunit 2"], ["Function", "Mitochondrial enzyme that catalyzes the dephosphorylation and concomitant reactivation of the alpha subunit of the E1 component of the pyruvate dehydrogenase complex (PDC), thereby stimulating the conversion of pyruvate into acetyl-CoA. Acts as a crucial regulator of T cell metabolism and function, with a particular focus on T-helper Th17"], ["Location", "Mitochondrion"], ["HGNC", "HGNC:30263"], ["HGNC symbol", "PDP2"], ["HGNC aliases", "KIAA1348, PPM2C2, PPM2B"], ["Entrez", "57546"], ["Ensembl", "ENSG00000172840"], ["RefSeq", "NM_020786"], ["UniProt", "Q9P2J9"], ["Note", "PDP2: mainly liver and adipose tissue; not regulated by Ca2+"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PDP1", "props": [["Full name", "[Pyruvate dehydrogenase [acetyl-transferring]]-phosphatase 1, mitochondrial"], ["Alternative names", "Protein phosphatase 2C; Pyruvate dehydrogenase phosphatase catalytic subunit 1"], ["Function", "Mitochondrial enzyme that catalyzes the dephosphorylation and concomitant reactivation of the alpha subunit of the E1 component of the pyruvate dehydrogenase complex (PDC), thereby stimulating the conversion of pyruvate into acetyl-CoA"], ["Location", "Mitochondrion"], ["HGNC", "HGNC:9279"], ["HGNC symbol", "PDP1"], ["Previous symbols", "PPM2C"], ["Alias symbols", "PDP, PDH, PPM2A"], ["Entrez", "54704"], ["Ensembl", "ENSG00000164951"], ["RefSeq", "NM_018444"], ["UniProt", "Q9P0J1"], ["Note", "PDP1: mainly skeletal muscle; stimulated by Ca2+"]]}, {"symbol": "PDP2", "props": [["Full name", "[Pyruvate dehydrogenase [acetyl-transferring]]-phosphatase 2, mitochondrial"], ["Alternative names", "Pyruvate dehydrogenase phosphatase catalytic subunit 2"], ["Function", "Mitochondrial enzyme that catalyzes the dephosphorylation and concomitant reactivation of the alpha subunit of the E1 component of the pyruvate dehydrogenase complex (PDC), thereby stimulating the conversion of pyruvate into acetyl-CoA. Acts as a crucial regulator of T cell metabolism and function, with a particular focus on T-helper Th17"], ["Location", "Mitochondrion"], ["HGNC", "HGNC:30263"], ["HGNC symbol", "PDP2"], ["Alias symbols", "KIAA1348, PPM2C2, PPM2B"], ["Entrez", "57546"], ["Ensembl", "ENSG00000172840"], ["RefSeq", "NM_020786"], ["UniProt", "Q9P2J9"], ["Note", "PDP2: mainly liver and adipose tissue; not regulated by Ca2+"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -246,7 +242,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -286,7 +281,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -326,7 +320,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H32N7O16P3S]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -360,7 +353,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H26N7O14P2]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -394,7 +386,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[CO2]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -428,7 +419,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H27N7O14P2]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -462,7 +452,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C23H34N7O17P3S]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -496,7 +485,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -553,7 +541,8 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:8806]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[PDHA1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[E1alpha, PDHA]]></data>
+              <data key="d101">PDHA</data>
+              <data key="d100">E1alpha</data>
               <data key="d14" xml:space="preserve"><![CDATA[5160]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000131828]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000284]]></data>
@@ -598,7 +587,7 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:8808]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[PDHB]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[PDHE1B, E1beta]]></data>
+              <data key="d100">PDHE1B, E1beta</data>
               <data key="d14" xml:space="preserve"><![CDATA[5162]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000168291]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000925]]></data>
@@ -635,7 +624,8 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2896]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DLAT]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[PDC-E2, E2, DLTA]]></data>
+              <data key="d101">DLTA</data>
+              <data key="d100">PDC-E2, E2</data>
               <data key="d14" xml:space="preserve"><![CDATA[1737]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000150768]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001931]]></data>
@@ -672,7 +662,8 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2898]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DLD]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[DLDH, E3, OGDC-E3, LAD, GCSL]]></data>
+              <data key="d101">LAD, GCSL</data>
+              <data key="d100">DLDH, E3, OGDC-E3</data>
               <data key="d14" xml:space="preserve"><![CDATA[1738]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000091140]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000108]]></data>
@@ -711,7 +702,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -768,7 +758,8 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:8806]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[PDHA1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[E1alpha, PDHA]]></data>
+              <data key="d101">PDHA</data>
+              <data key="d100">E1alpha</data>
               <data key="d14" xml:space="preserve"><![CDATA[5160]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000131828]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000284]]></data>
@@ -813,7 +804,7 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:8808]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[PDHB]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[PDHE1B, E1beta]]></data>
+              <data key="d100">PDHE1B, E1beta</data>
               <data key="d14" xml:space="preserve"><![CDATA[5162]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000168291]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000925]]></data>
@@ -850,7 +841,8 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2896]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DLAT]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[PDC-E2, E2, DLTA]]></data>
+              <data key="d101">DLTA</data>
+              <data key="d100">PDC-E2, E2</data>
               <data key="d14" xml:space="preserve"><![CDATA[1737]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000150768]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001931]]></data>
@@ -887,7 +879,8 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2898]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DLD]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[DLDH, E3, OGDC-E3, LAD, GCSL]]></data>
+              <data key="d101">LAD, GCSL</data>
+              <data key="d100">DLDH, E3, OGDC-E3</data>
               <data key="d14" xml:space="preserve"><![CDATA[1738]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000091140]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000108]]></data>
@@ -926,7 +919,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -960,7 +952,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C23H34N7O17P3S]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -994,7 +985,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H27N7O14P2]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1028,7 +1018,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C2HCl2O2]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>

@@ -22,7 +22,8 @@
   <key attr.name="Formula" attr.type="string" for="node" id="d18"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d19"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d20"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d21"/>
+  <key attr.name="Previous symbols" attr.type="string" for="node" id="d101"/>
+  <key attr.name="Alias symbols" attr.type="string" for="node" id="d100"/>
   <key attr.name="Entrez" attr.type="string" for="node" id="d22"/>
   <key attr.name="Ensembl" attr.type="string" for="node" id="d23"/>
   <key attr.name="RefSeq" attr.type="string" for="node" id="d24"/>
@@ -65,7 +66,6 @@
       <data key="d18" xml:space="preserve"><![CDATA[C11H14O19P3R2]]></data>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -107,7 +107,6 @@
       <data key="d18" xml:space="preserve"><![CDATA[C11H13O22P4R2]]></data>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -149,7 +148,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -162,7 +160,7 @@
       <data key="d31"/>
       <data key="d32"/>
       <data key="d33" xml:space="preserve"><![CDATA[INPP5D; INPPL1]]></data>
-      <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "INPP5D", "props": [["Full name", "Phosphatidylinositol 3,4,5-trisphosphate 5-phosphatase 1"], ["Alternative names", "Inositol polyphosphate-5-phosphatase D; Inositol polyphosphate-5-phosphatase of 145 kDa; Phosphatidylinositol 4,5-bisphosphate 5-phosphatase; SH2 domain-containing inositol 5'-phosphatase 1; p150Ship"], ["Function", "Phosphatidylinositol (PtdIns) phosphatase that specifically hydrolyzes the 5-phosphate of phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3) to produce PtdIns(3,4)P2, thereby negatively regulating the PI3K (phosphoinositide 3-kinase) pathways. Also, is able to hydrolyze the 5-phosphate of phosphatidylinositol-4,5-bisphosphate (PtdIns(4,5)P3), 1D-myo-inositol 1,4,5-trisphosphate and inositol 1,3,4,5-tetrakisphosphate."], ["Location", "Cytoplasm, Cell membrane, Membrane raft, Cytoplasm, cytoskeleton, Membrane"], ["HGNC", "HGNC:6079"], ["HGNC symbol", "INPP5D"], ["HGNC aliases", "SHIP, hp51CN, SHIP1"], ["Entrez", "3635"], ["Ensembl", "ENSG00000168918"], ["RefSeq", "NM_001017915"], ["UniProt", "Q92835"], ["Note", "PI(3,4,5)P3 5-phosphatase, haematopoietic cells"]]}, {"symbol": "INPPL1", "props": [["Full name", "Phosphatidylinositol 3,4,5-trisphosphate 5-phosphatase 2"], ["Alternative names", "Inositol polyphosphate phosphatase-like protein 1; Protein 51C; SH2 domain-containing inositol 5'-phosphatase 2"], ["Function", "Phosphatidylinositol (PtdIns) phosphatase that specifically hydrolyzes the 5-phosphate of phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3) to produce PtdIns(3,4)P2, thereby negatively regulating the PI3K (phosphoinositide 3-kinase) pathways. Required for correct mitotic spindle orientation and therefore progression of mitosis."], ["Location", "Cytoplasm, cytosol, Cytoplasm, cytoskeleton, Membrane, Cell projection, filopodium, Cell projection, lamellipodium, Basal cell membrane, Nucleus, Nucleus speckle, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:6080"], ["HGNC symbol", "INPPL1"], ["HGNC aliases", "SHIP2"], ["Entrez", "3636"], ["Ensembl", "ENSG00000165458"], ["RefSeq", "NM_001567"], ["UniProt", "O15357"], ["Note", "PI(3,4,5)P3 5-phosphatase, ubiquitous"]]}]]]></data>
+      <data key="d34" xml:space="preserve">[{"symbol": "INPP5D", "props": [["Full name", "Phosphatidylinositol 3,4,5-trisphosphate 5-phosphatase 1"], ["Alternative names", "Inositol polyphosphate-5-phosphatase D; Inositol polyphosphate-5-phosphatase of 145 kDa; Phosphatidylinositol 4,5-bisphosphate 5-phosphatase; SH2 domain-containing inositol 5'-phosphatase 1; p150Ship"], ["Function", "Phosphatidylinositol (PtdIns) phosphatase that specifically hydrolyzes the 5-phosphate of phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3) to produce PtdIns(3,4)P2, thereby negatively regulating the PI3K (phosphoinositide 3-kinase) pathways. Also, is able to hydrolyze the 5-phosphate of phosphatidylinositol-4,5-bisphosphate (PtdIns(4,5)P3), 1D-myo-inositol 1,4,5-trisphosphate and inositol 1,3,4,5-tetrakisphosphate."], ["Location", "Cytoplasm, Cell membrane, Membrane raft, Cytoplasm, cytoskeleton, Membrane"], ["HGNC", "HGNC:6079"], ["HGNC symbol", "INPP5D"], ["Alias symbols", "SHIP, hp51CN, SHIP1"], ["Entrez", "3635"], ["Ensembl", "ENSG00000168918"], ["RefSeq", "NM_001017915"], ["UniProt", "Q92835"], ["Note", "PI(3,4,5)P3 5-phosphatase, haematopoietic cells"]]}, {"symbol": "INPPL1", "props": [["Full name", "Phosphatidylinositol 3,4,5-trisphosphate 5-phosphatase 2"], ["Alternative names", "Inositol polyphosphate phosphatase-like protein 1; Protein 51C; SH2 domain-containing inositol 5'-phosphatase 2"], ["Function", "Phosphatidylinositol (PtdIns) phosphatase that specifically hydrolyzes the 5-phosphate of phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3) to produce PtdIns(3,4)P2, thereby negatively regulating the PI3K (phosphoinositide 3-kinase) pathways. Required for correct mitotic spindle orientation and therefore progression of mitosis."], ["Location", "Cytoplasm, cytosol, Cytoplasm, cytoskeleton, Membrane, Cell projection, filopodium, Cell projection, lamellipodium, Basal cell membrane, Nucleus, Nucleus speckle, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:6080"], ["HGNC symbol", "INPPL1"], ["Alias symbols", "SHIP2"], ["Entrez", "3636"], ["Ensembl", "ENSG00000165458"], ["RefSeq", "NM_001567"], ["UniProt", "O15357"], ["Note", "PI(3,4,5)P3 5-phosphatase, ubiquitous"]]}]</data>
       <data key="d35" xml:space="preserve"/>
       <data key="d37">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -194,7 +192,6 @@
       <data key="d18" xml:space="preserve"><![CDATA[C11H15O16P2R2]]></data>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -236,7 +233,6 @@
       <data key="d18" xml:space="preserve"><![CDATA[C11H15O16P2R2]]></data>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -278,7 +274,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -320,7 +315,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -362,7 +356,6 @@
       <data key="d18" xml:space="preserve"><![CDATA[C11H14O19P3R2]]></data>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -404,7 +397,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -446,7 +438,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -488,7 +479,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -501,7 +491,7 @@
       <data key="d31"/>
       <data key="d32"/>
       <data key="d33" xml:space="preserve"><![CDATA[SYNJ1; SYNJ2]]></data>
-      <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "SYNJ1", "props": [["Full name", "Polyphosphatidylinositol phosphatase SYNJ1"], ["Alternative names", "Synaptojanin-1"], ["Function", "Phosphatase that hydrolyzes phosphate groups from the inositol ring of phosphoinositides and inositol phosphates, in a domain-specific manner. The 5-PPase domain catalyzes removal of the 5-phosphate from substrates such as phosphatidylinositol-4,5-bisphosphate (PtdIns(4,5)P2), phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3), inositol-1,4,5-trisphosphate (Ins(1,4,5)P3) and inositol-1,3,4,5-tetrakisphosphate (Ins(1,3,4,5)P4)."], ["Location", "Cytoplasm, perinuclear region, Presynapse, Membrane"], ["HGNC", "HGNC:11503"], ["HGNC symbol", "SYNJ1"], ["HGNC aliases", "INPP5G, PARK20"], ["Entrez", "8867"], ["Ensembl", "ENSG00000159082"], ["RefSeq", "NM_003895"], ["UniProt", "O43426"], ["Note", "Phosphoinositide phosphatase, neurons"]]}, {"symbol": "SYNJ2", "props": [["Full name", "Polyphosphatidylinositol phosphatase SYNJ2"], ["Alternative names", "Synaptojanin-2"], ["Function", "Phosphatase that hydrolyzes phosphate groups from the inositol ring of phosphoinositides and inositol phosphates, in a domain-specific manner. The 5-PPase domain catalyzes removal of the 5-phosphate from substrates such as phosphatidylinositol-4,5-bisphosphate (PtdIns(4,5)P2), phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3), inositol-1,4,5-trisphosphate (Ins(1,4,5)P3) and inositol-1,3,4,5-tetrakisphosphate (Ins(1,3,4,5)P4)."], ["Location", "Cytoplasm, Cell membrane, Cell projection, ruffle membrane, Presynapse, Cytoplasm, cytoskeleton"], ["HGNC", "HGNC:11504"], ["HGNC symbol", "SYNJ2"], ["HGNC aliases", "INPP5H"], ["Entrez", "8871"], ["Ensembl", "ENSG00000078269"], ["RefSeq", "NM_003898"], ["UniProt", "O15056"], ["Note", "Phosphoinositide phosphatase"]]}]]]></data>
+      <data key="d34" xml:space="preserve">[{"symbol": "SYNJ1", "props": [["Full name", "Polyphosphatidylinositol phosphatase SYNJ1"], ["Alternative names", "Synaptojanin-1"], ["Function", "Phosphatase that hydrolyzes phosphate groups from the inositol ring of phosphoinositides and inositol phosphates, in a domain-specific manner. The 5-PPase domain catalyzes removal of the 5-phosphate from substrates such as phosphatidylinositol-4,5-bisphosphate (PtdIns(4,5)P2), phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3), inositol-1,4,5-trisphosphate (Ins(1,4,5)P3) and inositol-1,3,4,5-tetrakisphosphate (Ins(1,3,4,5)P4)."], ["Location", "Cytoplasm, perinuclear region, Presynapse, Membrane"], ["HGNC", "HGNC:11503"], ["HGNC symbol", "SYNJ1"], ["Alias symbols", "INPP5G, PARK20"], ["Entrez", "8867"], ["Ensembl", "ENSG00000159082"], ["RefSeq", "NM_003895"], ["UniProt", "O43426"], ["Note", "Phosphoinositide phosphatase, neurons"]]}, {"symbol": "SYNJ2", "props": [["Full name", "Polyphosphatidylinositol phosphatase SYNJ2"], ["Alternative names", "Synaptojanin-2"], ["Function", "Phosphatase that hydrolyzes phosphate groups from the inositol ring of phosphoinositides and inositol phosphates, in a domain-specific manner. The 5-PPase domain catalyzes removal of the 5-phosphate from substrates such as phosphatidylinositol-4,5-bisphosphate (PtdIns(4,5)P2), phosphatidylinositol-3,4,5-trisphosphate (PtdIns(3,4,5)P3), inositol-1,4,5-trisphosphate (Ins(1,4,5)P3) and inositol-1,3,4,5-tetrakisphosphate (Ins(1,3,4,5)P4)."], ["Location", "Cytoplasm, Cell membrane, Cell projection, ruffle membrane, Presynapse, Cytoplasm, cytoskeleton"], ["HGNC", "HGNC:11504"], ["HGNC symbol", "SYNJ2"], ["Alias symbols", "INPP5H"], ["Entrez", "8871"], ["Ensembl", "ENSG00000078269"], ["RefSeq", "NM_003898"], ["UniProt", "O15056"], ["Note", "Phosphoinositide phosphatase"]]}]</data>
       <data key="d35" xml:space="preserve"/>
       <data key="d37">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -533,7 +523,6 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:6077]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[INPP5B]]></data>
-      <data key="d21"/>
       <data key="d22" xml:space="preserve"><![CDATA[3633]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000204084]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_005540]]></data>
@@ -578,7 +567,7 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:17054]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[INPP5F]]></data>
-      <data key="d21" xml:space="preserve"><![CDATA[SAC2, KIAA0966, hSac2]]></data>
+      <data key="d100">SAC2, KIAA0966, hSac2</data>
       <data key="d22" xml:space="preserve"><![CDATA[22876]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000198825]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_014937]]></data>
@@ -623,7 +612,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -664,7 +652,8 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:9588]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[PTEN]]></data>
-      <data key="d21" xml:space="preserve"><![CDATA[MMAC1, TEP1, PTEN1, BZS, MHAM]]></data>
+      <data key="d101">BZS, MHAM</data>
+      <data key="d100">MMAC1, TEP1, PTEN1</data>
       <data key="d22" xml:space="preserve"><![CDATA[5728]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000171862]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_000314]]></data>
@@ -709,7 +698,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -722,7 +710,7 @@
       <data key="d31"/>
       <data key="d32"/>
       <data key="d33" xml:space="preserve"><![CDATA[INPP4A; INPP4B]]></data>
-      <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "INPP4A", "props": [["Full name", "Inositol polyphosphate-4-phosphatase type I A"], ["Alternative names", "Inositol polyphosphate 4-phosphatase type I; Type I inositol 3,4-bisphosphate 4-phosphatase"], ["Function", "Catalyzes the hydrolysis of the 4-position phosphate of phosphatidylinositol 3,4-bisphosphate (PtdIns(3,4)P2). Also catalyzes inositol 1,3,4-trisphosphate and inositol 1,4-bisphosphate."], ["Location", "Early endosome membrane, Recycling endosome membrane, Cell membrane, Nucleus, Cytoplasm, Postsynaptic density"], ["HGNC", "HGNC:6074"], ["HGNC symbol", "INPP4A"], ["HGNC aliases", "INPP4"], ["Entrez", "3631"], ["Ensembl", "ENSG00000040933"], ["RefSeq", "NM_001566"], ["UniProt", "Q96PE3"], ["Note", "PI(3,4)P2 4-phosphatase"]]}, {"symbol": "INPP4B", "props": [["Full name", "Inositol polyphosphate 4-phosphatase type II"], ["Alternative names", "Type II inositol 3,4-bisphosphate 4-phosphatase"], ["Function", "Catalyzes the hydrolysis of the 4-position phosphate of phosphatidylinositol 3,4-bisphosphate, inositol 1,3,4-trisphosphate and inositol 3,4-trisphosphate. Plays a role in the late stages of macropinocytosis by dephosphorylating phosphatidylinositol 3,4-bisphosphate in membrane ruffles."], ["HGNC", "HGNC:6075"], ["HGNC symbol", "INPP4B"], ["Entrez", "8821"], ["Ensembl", "ENSG00000109452"], ["RefSeq", "NM_003866"], ["UniProt", "O15327"], ["Note", "PI(3,4)P2 4-phosphatase"]]}]]]></data>
+      <data key="d34" xml:space="preserve">[{"symbol": "INPP4A", "props": [["Full name", "Inositol polyphosphate-4-phosphatase type I A"], ["Alternative names", "Inositol polyphosphate 4-phosphatase type I; Type I inositol 3,4-bisphosphate 4-phosphatase"], ["Function", "Catalyzes the hydrolysis of the 4-position phosphate of phosphatidylinositol 3,4-bisphosphate (PtdIns(3,4)P2). Also catalyzes inositol 1,3,4-trisphosphate and inositol 1,4-bisphosphate."], ["Location", "Early endosome membrane, Recycling endosome membrane, Cell membrane, Nucleus, Cytoplasm, Postsynaptic density"], ["HGNC", "HGNC:6074"], ["HGNC symbol", "INPP4A"], ["Previous symbols", "INPP4"], ["Entrez", "3631"], ["Ensembl", "ENSG00000040933"], ["RefSeq", "NM_001566"], ["UniProt", "Q96PE3"], ["Note", "PI(3,4)P2 4-phosphatase"]]}, {"symbol": "INPP4B", "props": [["Full name", "Inositol polyphosphate 4-phosphatase type II"], ["Alternative names", "Type II inositol 3,4-bisphosphate 4-phosphatase"], ["Function", "Catalyzes the hydrolysis of the 4-position phosphate of phosphatidylinositol 3,4-bisphosphate, inositol 1,3,4-trisphosphate and inositol 3,4-trisphosphate. Plays a role in the late stages of macropinocytosis by dephosphorylating phosphatidylinositol 3,4-bisphosphate in membrane ruffles."], ["HGNC", "HGNC:6075"], ["HGNC symbol", "INPP4B"], ["Entrez", "8821"], ["Ensembl", "ENSG00000109452"], ["RefSeq", "NM_003866"], ["UniProt", "O15327"], ["Note", "PI(3,4)P2 4-phosphatase"]]}]</data>
       <data key="d35" xml:space="preserve"/>
       <data key="d37">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -754,7 +742,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -767,7 +754,7 @@
       <data key="d31"/>
       <data key="d32"/>
       <data key="d33" xml:space="preserve"><![CDATA[PIK3CA; PIK3R1; PIK3R2; PIK3R3]]></data>
-      <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PIK3CA", "props": [["Full name", "Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform"], ["Alternative names", "Phosphatidylinositol 4,5-bisphosphate 3-kinase 110 kDa catalytic subunit alpha; Phosphoinositide 3-kinase alpha; Phosphoinositide-3-kinase catalytic alpha polypeptide; Serine/threonine protein kinase PIK3CA"], ["Function", "Phosphoinositide-3-kinase (PI3K) phosphorylates phosphatidylinositol (PI) and its phosphorylated derivatives at position 3 of the inositol ring to produce 3-phosphoinositides. Uses ATP and PtdIns(4,5)P2 (phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3)."], ["HGNC", "HGNC:8975"], ["HGNC symbol", "PIK3CA"], ["HGNC aliases", "PI3K"], ["Entrez", "5290"], ["Ensembl", "ENSG00000121879"], ["RefSeq", "NM_006218"], ["UniProt", "P42336"], ["Note", "p110α catalytic subunit"]]}, {"symbol": "PIK3R1", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit alpha"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit alpha"], ["Function", "Binds to activated (phosphorylated) protein-Tyr kinases, through its SH2 domain, and acts as an adapter, mediating the association of the p110 catalytic unit to the plasma membrane. Necessary for the insulin-stimulated increase in glucose uptake and glycogen synthesis in insulin-sensitive tissues."], ["Location", "Cytoplasm"], ["HGNC", "HGNC:8979"], ["HGNC symbol", "PIK3R1"], ["HGNC aliases", "GRB1, p85-ALPHA, p85, p85alpha"], ["Entrez", "5295"], ["Ensembl", "ENSG00000145675"], ["RefSeq", "NM_181504"], ["UniProt", "P27986"], ["Note", "p85α regulatory, most abundant"]]}, {"symbol": "PIK3R2", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit beta"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit beta"], ["Function", "Regulatory subunit of phosphoinositide-3-kinase (PI3K), a kinase that phosphorylates PtdIns(4,5)P2 (Phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3). PIP3 plays a key role by recruiting PH domain-containing proteins to the membrane, including AKT1 and PDPK1, activating signaling cascades involved in cell growth, survival, proliferation, motility and morphology."], ["HGNC", "HGNC:8980"], ["HGNC symbol", "PIK3R2"], ["HGNC aliases", "P85B, p85, p85beta, p85-BETA"], ["Entrez", "5296"], ["Ensembl", "ENSG00000105647"], ["RefSeq", "NM_005027"], ["UniProt", "O00459"], ["Note", "p85β regulatory, broad expression"]]}, {"symbol": "PIK3R3", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit gamma"], ["Alternative names", "Phosphatidylinositol 3-kinase 55 kDa regulatory subunit gamma; p55PIK"], ["Function", "Binds to activated (phosphorylated) protein-tyrosine kinases through its SH2 domain and regulates their kinase activity. During insulin stimulation, it also binds to IRS-1"], ["HGNC", "HGNC:8981"], ["HGNC symbol", "PIK3R3"], ["HGNC aliases", "p55"], ["Entrez", "8503"], ["Ensembl", "ENSG00000117461"], ["RefSeq", "NM_003629"], ["UniProt", "Q92569"], ["Note", "p55γ regulatory, brain and testis"]]}]]]></data>
+      <data key="d34" xml:space="preserve">[{"symbol": "PIK3CA", "props": [["Full name", "Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform"], ["Alternative names", "Phosphatidylinositol 4,5-bisphosphate 3-kinase 110 kDa catalytic subunit alpha; Phosphoinositide 3-kinase alpha; Phosphoinositide-3-kinase catalytic alpha polypeptide; Serine/threonine protein kinase PIK3CA"], ["Function", "Phosphoinositide-3-kinase (PI3K) phosphorylates phosphatidylinositol (PI) and its phosphorylated derivatives at position 3 of the inositol ring to produce 3-phosphoinositides. Uses ATP and PtdIns(4,5)P2 (phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3)."], ["HGNC", "HGNC:8975"], ["HGNC symbol", "PIK3CA"], ["Alias symbols", "PI3K"], ["Entrez", "5290"], ["Ensembl", "ENSG00000121879"], ["RefSeq", "NM_006218"], ["UniProt", "P42336"], ["Note", "p110α catalytic subunit"]]}, {"symbol": "PIK3R1", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit alpha"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit alpha"], ["Function", "Binds to activated (phosphorylated) protein-Tyr kinases, through its SH2 domain, and acts as an adapter, mediating the association of the p110 catalytic unit to the plasma membrane. Necessary for the insulin-stimulated increase in glucose uptake and glycogen synthesis in insulin-sensitive tissues."], ["Location", "Cytoplasm"], ["HGNC", "HGNC:8979"], ["HGNC symbol", "PIK3R1"], ["Alias symbols", "GRB1, p85-ALPHA, p85, p85alpha"], ["Entrez", "5295"], ["Ensembl", "ENSG00000145675"], ["RefSeq", "NM_181504"], ["UniProt", "P27986"], ["Note", "p85α regulatory, most abundant"]]}, {"symbol": "PIK3R2", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit beta"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit beta"], ["Function", "Regulatory subunit of phosphoinositide-3-kinase (PI3K), a kinase that phosphorylates PtdIns(4,5)P2 (Phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3). PIP3 plays a key role by recruiting PH domain-containing proteins to the membrane, including AKT1 and PDPK1, activating signaling cascades involved in cell growth, survival, proliferation, motility and morphology."], ["HGNC", "HGNC:8980"], ["HGNC symbol", "PIK3R2"], ["Alias symbols", "P85B, p85, p85beta, p85-BETA"], ["Entrez", "5296"], ["Ensembl", "ENSG00000105647"], ["RefSeq", "NM_005027"], ["UniProt", "O00459"], ["Note", "p85β regulatory, broad expression"]]}, {"symbol": "PIK3R3", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit gamma"], ["Alternative names", "Phosphatidylinositol 3-kinase 55 kDa regulatory subunit gamma; p55PIK"], ["Function", "Binds to activated (phosphorylated) protein-tyrosine kinases through its SH2 domain and regulates their kinase activity. During insulin stimulation, it also binds to IRS-1"], ["HGNC", "HGNC:8981"], ["HGNC symbol", "PIK3R3"], ["Alias symbols", "p55"], ["Entrez", "8503"], ["Ensembl", "ENSG00000117461"], ["RefSeq", "NM_003629"], ["UniProt", "Q92569"], ["Note", "p55γ regulatory, brain and testis"]]}]</data>
       <data key="d35" xml:space="preserve"/>
       <data key="d37">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -807,7 +794,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -820,7 +806,7 @@
       <data key="d31"/>
       <data key="d32"/>
       <data key="d33" xml:space="preserve"><![CDATA[PIK3CA; PIK3R1; PIK3R2; PIK3R3]]></data>
-      <data key="d34" xml:space="preserve"><![CDATA[[{"symbol": "PIK3CA", "props": [["Full name", "Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform"], ["Alternative names", "Phosphatidylinositol 4,5-bisphosphate 3-kinase 110 kDa catalytic subunit alpha; Phosphoinositide 3-kinase alpha; Phosphoinositide-3-kinase catalytic alpha polypeptide; Serine/threonine protein kinase PIK3CA"], ["Function", "Phosphoinositide-3-kinase (PI3K) phosphorylates phosphatidylinositol (PI) and its phosphorylated derivatives at position 3 of the inositol ring to produce 3-phosphoinositides. Uses ATP and PtdIns(4,5)P2 (phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3)."], ["HGNC", "HGNC:8975"], ["HGNC symbol", "PIK3CA"], ["HGNC aliases", "PI3K"], ["Entrez", "5290"], ["Ensembl", "ENSG00000121879"], ["RefSeq", "NM_006218"], ["UniProt", "P42336"], ["Note", "p110α catalytic subunit"]]}, {"symbol": "PIK3R1", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit alpha"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit alpha"], ["Function", "Binds to activated (phosphorylated) protein-Tyr kinases, through its SH2 domain, and acts as an adapter, mediating the association of the p110 catalytic unit to the plasma membrane. Necessary for the insulin-stimulated increase in glucose uptake and glycogen synthesis in insulin-sensitive tissues."], ["Location", "Cytoplasm"], ["HGNC", "HGNC:8979"], ["HGNC symbol", "PIK3R1"], ["HGNC aliases", "GRB1, p85-ALPHA, p85, p85alpha"], ["Entrez", "5295"], ["Ensembl", "ENSG00000145675"], ["RefSeq", "NM_181504"], ["UniProt", "P27986"], ["Note", "p85α regulatory, most abundant"]]}, {"symbol": "PIK3R2", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit beta"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit beta"], ["Function", "Regulatory subunit of phosphoinositide-3-kinase (PI3K), a kinase that phosphorylates PtdIns(4,5)P2 (Phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3). PIP3 plays a key role by recruiting PH domain-containing proteins to the membrane, including AKT1 and PDPK1, activating signaling cascades involved in cell growth, survival, proliferation, motility and morphology."], ["HGNC", "HGNC:8980"], ["HGNC symbol", "PIK3R2"], ["HGNC aliases", "P85B, p85, p85beta, p85-BETA"], ["Entrez", "5296"], ["Ensembl", "ENSG00000105647"], ["RefSeq", "NM_005027"], ["UniProt", "O00459"], ["Note", "p85β regulatory, broad expression"]]}, {"symbol": "PIK3R3", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit gamma"], ["Alternative names", "Phosphatidylinositol 3-kinase 55 kDa regulatory subunit gamma; p55PIK"], ["Function", "Binds to activated (phosphorylated) protein-tyrosine kinases through its SH2 domain and regulates their kinase activity. During insulin stimulation, it also binds to IRS-1"], ["HGNC", "HGNC:8981"], ["HGNC symbol", "PIK3R3"], ["HGNC aliases", "p55"], ["Entrez", "8503"], ["Ensembl", "ENSG00000117461"], ["RefSeq", "NM_003629"], ["UniProt", "Q92569"], ["Note", "p55γ regulatory, brain and testis"]]}]]]></data>
+      <data key="d34" xml:space="preserve">[{"symbol": "PIK3CA", "props": [["Full name", "Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform"], ["Alternative names", "Phosphatidylinositol 4,5-bisphosphate 3-kinase 110 kDa catalytic subunit alpha; Phosphoinositide 3-kinase alpha; Phosphoinositide-3-kinase catalytic alpha polypeptide; Serine/threonine protein kinase PIK3CA"], ["Function", "Phosphoinositide-3-kinase (PI3K) phosphorylates phosphatidylinositol (PI) and its phosphorylated derivatives at position 3 of the inositol ring to produce 3-phosphoinositides. Uses ATP and PtdIns(4,5)P2 (phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3)."], ["HGNC", "HGNC:8975"], ["HGNC symbol", "PIK3CA"], ["Alias symbols", "PI3K"], ["Entrez", "5290"], ["Ensembl", "ENSG00000121879"], ["RefSeq", "NM_006218"], ["UniProt", "P42336"], ["Note", "p110α catalytic subunit"]]}, {"symbol": "PIK3R1", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit alpha"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit alpha"], ["Function", "Binds to activated (phosphorylated) protein-Tyr kinases, through its SH2 domain, and acts as an adapter, mediating the association of the p110 catalytic unit to the plasma membrane. Necessary for the insulin-stimulated increase in glucose uptake and glycogen synthesis in insulin-sensitive tissues."], ["Location", "Cytoplasm"], ["HGNC", "HGNC:8979"], ["HGNC symbol", "PIK3R1"], ["Alias symbols", "GRB1, p85-ALPHA, p85, p85alpha"], ["Entrez", "5295"], ["Ensembl", "ENSG00000145675"], ["RefSeq", "NM_181504"], ["UniProt", "P27986"], ["Note", "p85α regulatory, most abundant"]]}, {"symbol": "PIK3R2", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit beta"], ["Alternative names", "Phosphatidylinositol 3-kinase 85 kDa regulatory subunit beta"], ["Function", "Regulatory subunit of phosphoinositide-3-kinase (PI3K), a kinase that phosphorylates PtdIns(4,5)P2 (Phosphatidylinositol 4,5-bisphosphate) to generate phosphatidylinositol 3,4,5-trisphosphate (PIP3). PIP3 plays a key role by recruiting PH domain-containing proteins to the membrane, including AKT1 and PDPK1, activating signaling cascades involved in cell growth, survival, proliferation, motility and morphology."], ["HGNC", "HGNC:8980"], ["HGNC symbol", "PIK3R2"], ["Alias symbols", "P85B, p85, p85beta, p85-BETA"], ["Entrez", "5296"], ["Ensembl", "ENSG00000105647"], ["RefSeq", "NM_005027"], ["UniProt", "O00459"], ["Note", "p85β regulatory, broad expression"]]}, {"symbol": "PIK3R3", "props": [["Full name", "Phosphatidylinositol 3-kinase regulatory subunit gamma"], ["Alternative names", "Phosphatidylinositol 3-kinase 55 kDa regulatory subunit gamma; p55PIK"], ["Function", "Binds to activated (phosphorylated) protein-tyrosine kinases through its SH2 domain and regulates their kinase activity. During insulin stimulation, it also binds to IRS-1"], ["HGNC", "HGNC:8981"], ["HGNC symbol", "PIK3R3"], ["Alias symbols", "p55"], ["Entrez", "8503"], ["Ensembl", "ENSG00000117461"], ["RefSeq", "NM_003629"], ["UniProt", "Q92569"], ["Note", "p55γ regulatory, brain and testis"]]}]</data>
       <data key="d35" xml:space="preserve"/>
       <data key="d37">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -860,7 +846,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -902,7 +887,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -944,7 +928,6 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:3229]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[EGF]]></data>
-      <data key="d21"/>
       <data key="d22" xml:space="preserve"><![CDATA[1950]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000138798]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_001178130]]></data>
@@ -989,7 +972,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1037,7 +1019,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1085,7 +1066,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1133,7 +1113,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1198,7 +1177,6 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:3229]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[EGF]]></data>
-          <data key="d21"/>
           <data key="d22" xml:space="preserve"><![CDATA[1950]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000138798]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_001178130]]></data>
@@ -1243,7 +1221,8 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:3236]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[EGFR]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[ERBB1, ERRP, ERBB]]></data>
+          <data key="d101">ERBB</data>
+          <data key="d100">ERBB1, ERRP</data>
           <data key="d22" xml:space="preserve"><![CDATA[1956]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000146648]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_005228]]></data>
@@ -1298,7 +1277,7 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:4566]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[GRB2]]></data>
-      <data key="d21" xml:space="preserve"><![CDATA[NCKAP2]]></data>
+      <data key="d100">NCKAP2</data>
       <data key="d22" xml:space="preserve"><![CDATA[2885]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000177885]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_002086]]></data>
@@ -1343,7 +1322,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1391,7 +1369,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1456,7 +1433,7 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:4566]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[GRB2]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[NCKAP2]]></data>
+          <data key="d100">NCKAP2</data>
           <data key="d22" xml:space="preserve"><![CDATA[2885]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000177885]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_002086]]></data>
@@ -1501,7 +1478,7 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:4066]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[GAB1]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[DFNB26]]></data>
+          <data key="d101">DFNB26</data>
           <data key="d22" xml:space="preserve"><![CDATA[2549]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000109458]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_002039]]></data>
@@ -1556,7 +1533,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1625,7 +1601,6 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:3229]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[EGF]]></data>
-          <data key="d21"/>
           <data key="d22" xml:space="preserve"><![CDATA[1950]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000138798]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_001178130]]></data>
@@ -1670,7 +1645,8 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:3236]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[EGFR]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[ERBB1, ERRP, ERBB]]></data>
+          <data key="d101">ERBB</data>
+          <data key="d100">ERBB1, ERRP</data>
           <data key="d22" xml:space="preserve"><![CDATA[1956]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000146648]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_005228]]></data>
@@ -1725,7 +1701,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1794,7 +1769,6 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:3229]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[EGF]]></data>
-          <data key="d21"/>
           <data key="d22" xml:space="preserve"><![CDATA[1950]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000138798]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_001178130]]></data>
@@ -1839,7 +1813,8 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:3236]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[EGFR]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[ERBB1, ERRP, ERBB]]></data>
+          <data key="d101">ERBB</data>
+          <data key="d100">ERBB1, ERRP</data>
           <data key="d22" xml:space="preserve"><![CDATA[1956]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000146648]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_005228]]></data>
@@ -1894,7 +1869,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -1942,7 +1916,8 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:3236]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[EGFR]]></data>
-      <data key="d21" xml:space="preserve"><![CDATA[ERBB1, ERRP, ERBB]]></data>
+      <data key="d101">ERBB</data>
+      <data key="d100">ERBB1, ERRP</data>
       <data key="d22" xml:space="preserve"><![CDATA[1956]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000146648]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_005228]]></data>
@@ -1995,7 +1970,7 @@
       <data key="d18"/>
       <data key="d19" xml:space="preserve"><![CDATA[HGNC:4066]]></data>
       <data key="d20" xml:space="preserve"><![CDATA[GAB1]]></data>
-      <data key="d21" xml:space="preserve"><![CDATA[DFNB26]]></data>
+      <data key="d101">DFNB26</data>
       <data key="d22" xml:space="preserve"><![CDATA[2549]]></data>
       <data key="d23" xml:space="preserve"><![CDATA[ENSG00000109458]]></data>
       <data key="d24" xml:space="preserve"><![CDATA[NM_002039]]></data>
@@ -2048,7 +2023,6 @@
       <data key="d18"/>
       <data key="d19"/>
       <data key="d20"/>
-      <data key="d21"/>
       <data key="d22"/>
       <data key="d23"/>
       <data key="d24"/>
@@ -2113,7 +2087,7 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:4566]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[GRB2]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[NCKAP2]]></data>
+          <data key="d100">NCKAP2</data>
           <data key="d22" xml:space="preserve"><![CDATA[2885]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000177885]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_002086]]></data>
@@ -2158,7 +2132,7 @@
           <data key="d18"/>
           <data key="d19" xml:space="preserve"><![CDATA[HGNC:4066]]></data>
           <data key="d20" xml:space="preserve"><![CDATA[GAB1]]></data>
-          <data key="d21" xml:space="preserve"><![CDATA[DFNB26]]></data>
+          <data key="d101">DFNB26</data>
           <data key="d22" xml:space="preserve"><![CDATA[2549]]></data>
           <data key="d23" xml:space="preserve"><![CDATA[ENSG00000109458]]></data>
           <data key="d24" xml:space="preserve"><![CDATA[NM_002039]]></data>

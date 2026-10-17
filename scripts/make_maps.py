@@ -91,7 +91,7 @@ GN, YN = '{http://graphml.graphdrawing.org/xmlns}', '{http://www.yworks.com/xml/
 # the annotation properties shown in the Atlas panel, in this order (other
 # custom properties, e.g. from a CellDesigner import, are left out)
 ANN_FIELDS = ['PTM', 'Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
-              'HGNC', 'HGNC symbol', 'Previous symbols', 'Alias symbols', 'HGNC aliases', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
+              'HGNC', 'HGNC symbol', 'Previous symbols', 'Alias symbols', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
               'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey', 'Note', 'Family', 'Members']
 # a protein family node: its members' records, as JSON in this property
 MEMBERS_FIELD = 'Member annotation'
@@ -175,7 +175,7 @@ def search_entries(mid, nodes):
             for f in ('Full name', 'Family'):
                 if rec.get(f):
                     b.append(rec[f])
-            for f in ('Alternative names', 'Synonyms', 'Previous symbols', 'Alias symbols', 'HGNC aliases'):
+            for f in ('Alternative names', 'Synonyms', 'Previous symbols', 'Alias symbols'):
                 if rec.get(f):
                     # HGNC symbols are separated by commas, the names by semicolons
                     b += [x.strip() for x in rec[f].split(';' if f in ('Alternative names', 'Synonyms') else ',') if x.strip()]

@@ -14,7 +14,8 @@
   <key attr.name="Formula" attr.type="string" for="node" id="d10"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d11"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d12"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d13"/>
+  <key attr.name="Previous symbols" attr.type="string" for="node" id="d101"/>
+  <key attr.name="Alias symbols" attr.type="string" for="node" id="d100"/>
   <key attr.name="Entrez" attr.type="string" for="node" id="d14"/>
   <key attr.name="Ensembl" attr.type="string" for="node" id="d15"/>
   <key attr.name="RefSeq" attr.type="string" for="node" id="d16"/>
@@ -47,7 +48,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -104,7 +104,7 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:1470]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[CAMKK2]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[CAMKK, KIAA0787, CAMKKB, MGC15254]]></data>
+          <data key="d100">CAMKK, KIAA0787, CAMKKB, MGC15254</data>
           <data key="d14" xml:space="preserve"><![CDATA[10645]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000110931]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_172226]]></data>
@@ -141,7 +141,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -198,7 +197,6 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"/>
               <data key="d12" xml:space="preserve"/>
-              <data key="d13" xml:space="preserve"/>
               <data key="d14" xml:space="preserve"/>
               <data key="d15" xml:space="preserve"/>
               <data key="d16" xml:space="preserve"/>
@@ -211,7 +209,7 @@
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
               <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -235,7 +233,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
               <data key="d11" xml:space="preserve"/>
               <data key="d12" xml:space="preserve"/>
-              <data key="d13" xml:space="preserve"/>
               <data key="d14" xml:space="preserve"/>
               <data key="d15" xml:space="preserve"/>
               <data key="d16" xml:space="preserve"/>
@@ -273,7 +270,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:5006]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[HMGCR]]></data>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"><![CDATA[3156]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000113161]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_000859]]></data>
@@ -327,7 +323,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -384,7 +379,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -397,7 +391,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAA1; PRKAA2]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["HGNC aliases", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["HGNC aliases", "AMPK, AMPKa2, PRKAA"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["Alias symbols", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["Previous symbols", "PRKAA"], ["Alias symbols", "AMPK, AMPKa2"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -429,7 +423,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -466,7 +459,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -479,7 +471,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAG1; PRKAG2; PRKAG3]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["HGNC aliases", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["Alias symbols", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -505,7 +497,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -545,7 +536,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:94]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[ACAT2]]></data>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"><![CDATA[39]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000120437]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_005891]]></data>
@@ -591,7 +581,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:5006]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[HMGCR]]></data>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"><![CDATA[3156]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000113161]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_000859]]></data>
@@ -645,7 +634,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -685,7 +673,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -725,7 +712,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C23H34N7O17P3S]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -759,7 +745,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C25H36N7O18P3S]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -793,7 +778,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -833,7 +817,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C27H39N7O20P3S]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -867,7 +850,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C6H11O4]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -901,7 +883,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -941,7 +922,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -981,7 +961,7 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:5007]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[HMGCS1]]></data>
-      <data key="d13" xml:space="preserve"><![CDATA[HMGCS]]></data>
+      <data key="d101">HMGCS</data>
       <data key="d14" xml:space="preserve"><![CDATA[3157]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000112972]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_001098272]]></data>
@@ -1018,7 +998,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1058,7 +1037,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1115,7 +1093,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1128,7 +1105,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1152,7 +1129,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1188,7 +1164,7 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:1470]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[CAMKK2]]></data>
-      <data key="d13" xml:space="preserve"><![CDATA[CAMKK, KIAA0787, CAMKKB, MGC15254]]></data>
+      <data key="d100">CAMKK, KIAA0787, CAMKKB, MGC15254</data>
       <data key="d14" xml:space="preserve"><![CDATA[10645]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000110931]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_172226]]></data>
@@ -1225,7 +1201,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1282,7 +1257,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1295,7 +1269,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[STRADA; STRADB]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["HGNC aliases", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "LKB1 complex pseudokinase"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["HGNC aliases", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP, ALS2CR2"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "LKB1 complex pseudokinase"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["Alias symbols", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "LKB1 complex pseudokinase"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["Previous symbols", "ALS2CR2"], ["Alias symbols", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "LKB1 complex pseudokinase"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1319,7 +1293,7 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:11389]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[STK11]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[PJS, LKB1]]></data>
+          <data key="d100">PJS, LKB1</data>
           <data key="d14" xml:space="preserve"><![CDATA[6794]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000118046]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_000455]]></data>
@@ -1356,7 +1330,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1369,7 +1342,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[CAB39; CAB39L]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["HGNC aliases", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "LKB1 complex scaffold"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["HGNC aliases", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "LKB1 complex scaffold"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["Alias symbols", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "LKB1 complex scaffold"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["Alias symbols", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "LKB1 complex scaffold"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1395,7 +1368,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1428,7 +1400,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1485,7 +1456,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1498,7 +1468,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAA1; PRKAA2]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["HGNC aliases", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["HGNC aliases", "AMPK, AMPKa2, PRKAA"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["Alias symbols", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["Previous symbols", "PRKAA"], ["Alias symbols", "AMPK, AMPKa2"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1530,7 +1500,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1543,7 +1512,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PRKAG1; PRKAG2; PRKAG3]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["HGNC aliases", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["Alias symbols", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1567,7 +1536,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1606,7 +1574,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1646,7 +1613,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1679,7 +1645,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1692,7 +1657,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PPM1A; PPM1B]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPM1A", "props": [["Full name", "Protein phosphatase 1A"], ["Alternative names", "Protein phosphatase 2C isoform alpha; Protein phosphatase IA"], ["Function", "Enzyme with a broad specificity. Negatively regulates TGF-beta signaling through dephosphorylating SMAD2 and SMAD3, resulting in their dissociation from SMAD4, nuclear export of the SMADs and termination of the TGF-beta-mediated signaling."], ["Location", "Nucleus, Cytoplasm, cytosol, Membrane"], ["HGNC", "HGNC:9275"], ["HGNC symbol", "PPM1A"], ["HGNC aliases", "MGC9201, PP2Calpha, PP2CA"], ["Entrez", "5494"], ["Ensembl", "ENSG00000100614"], ["RefSeq", "NM_021003"], ["UniProt", "P35813"], ["Note", "PP2Cα, ubiquitous"]]}, {"symbol": "PPM1B", "props": [["Full name", "Protein phosphatase 1B"], ["Alternative names", "Protein phosphatase 2C isoform beta"], ["Function", "Enzyme with a broad specificity. Dephosphorylates CDK2 and CDK6 in vitro."], ["Location", "Cytoplasm, cytosol, Membrane"], ["HGNC", "HGNC:9276"], ["HGNC symbol", "PPM1B"], ["HGNC aliases", "PPC2BETAX, PP2CB, PP2CBETA"], ["Entrez", "5495"], ["Ensembl", "ENSG00000138032"], ["RefSeq", "NM_002706"], ["UniProt", "O75688"], ["Note", "PP2Cβ, ubiquitous"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PPM1A", "props": [["Full name", "Protein phosphatase 1A"], ["Alternative names", "Protein phosphatase 2C isoform alpha; Protein phosphatase IA"], ["Function", "Enzyme with a broad specificity. Negatively regulates TGF-beta signaling through dephosphorylating SMAD2 and SMAD3, resulting in their dissociation from SMAD4, nuclear export of the SMADs and termination of the TGF-beta-mediated signaling."], ["Location", "Nucleus, Cytoplasm, cytosol, Membrane"], ["HGNC", "HGNC:9275"], ["HGNC symbol", "PPM1A"], ["Alias symbols", "MGC9201, PP2Calpha, PP2CA"], ["Entrez", "5494"], ["Ensembl", "ENSG00000100614"], ["RefSeq", "NM_021003"], ["UniProt", "P35813"], ["Note", "PP2Cα, ubiquitous"]]}, {"symbol": "PPM1B", "props": [["Full name", "Protein phosphatase 1B"], ["Alternative names", "Protein phosphatase 2C isoform beta"], ["Function", "Enzyme with a broad specificity. Dephosphorylates CDK2 and CDK6 in vitro."], ["Location", "Cytoplasm, cytosol, Membrane"], ["HGNC", "HGNC:9276"], ["HGNC symbol", "PPM1B"], ["Alias symbols", "PPC2BETAX, PP2CB, PP2CBETA"], ["Entrez", "5495"], ["Ensembl", "ENSG00000138032"], ["RefSeq", "NM_002706"], ["UniProt", "O75688"], ["Note", "PP2Cβ, ubiquitous"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1716,7 +1681,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1773,7 +1737,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1830,7 +1793,6 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"/>
               <data key="d12" xml:space="preserve"/>
-              <data key="d13" xml:space="preserve"/>
               <data key="d14" xml:space="preserve"/>
               <data key="d15" xml:space="preserve"/>
               <data key="d16" xml:space="preserve"/>
@@ -1843,7 +1805,7 @@
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
               <data key="d25" xml:space="preserve"><![CDATA[PPP2CA; PPP2CB]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2CA", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform"], ["Alternative names", "Replication protein C"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events. PP2A is the major phosphatase for microtubule-associated proteins (MAPs)."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9299"], ["HGNC symbol", "PPP2CA"], ["HGNC aliases", "PP2Calpha, PP2AC"], ["Entrez", "5515"], ["Ensembl", "ENSG00000113575"], ["RefSeq", "NM_002715"], ["UniProt", "P67775"], ["Note", "Cα, main catalytic isoform"]]}, {"symbol": "PPP2CB", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events (Probable). PP2A can modulate the activity of phosphorylase B kinase, casein kinase 2, mitogen-stimulated S6 kinase, and MAP-2 kinase."], ["Location", "Cytoplasm, Nucleus, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9300"], ["HGNC symbol", "PPP2CB"], ["HGNC aliases", "PP2Abeta"], ["Entrez", "5516"], ["Ensembl", "ENSG00000104695"], ["RefSeq", "NM_001009552"], ["UniProt", "P62714"], ["Note", "Cβ, minor catalytic isoform"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "PPP2CA", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform"], ["Alternative names", "Replication protein C"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events. PP2A is the major phosphatase for microtubule-associated proteins (MAPs)."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9299"], ["HGNC symbol", "PPP2CA"], ["Alias symbols", "PP2Calpha, PP2AC"], ["Entrez", "5515"], ["Ensembl", "ENSG00000113575"], ["RefSeq", "NM_002715"], ["UniProt", "P67775"], ["Note", "Cα, main catalytic isoform"]]}, {"symbol": "PPP2CB", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events (Probable). PP2A can modulate the activity of phosphorylase B kinase, casein kinase 2, mitogen-stimulated S6 kinase, and MAP-2 kinase."], ["Location", "Cytoplasm, Nucleus, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9300"], ["HGNC symbol", "PPP2CB"], ["Alias symbols", "PP2Abeta"], ["Entrez", "5516"], ["Ensembl", "ENSG00000104695"], ["RefSeq", "NM_001009552"], ["UniProt", "P62714"], ["Note", "Cβ, minor catalytic isoform"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1867,7 +1829,6 @@
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve"/>
               <data key="d12" xml:space="preserve"/>
-              <data key="d13" xml:space="preserve"/>
               <data key="d14" xml:space="preserve"/>
               <data key="d15" xml:space="preserve"/>
               <data key="d16" xml:space="preserve"/>
@@ -1880,7 +1841,7 @@
               <data key="d23" xml:space="preserve"/>
               <data key="d24" xml:space="preserve"/>
               <data key="d25" xml:space="preserve"><![CDATA[PPP2R1A; PPP2R1B]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2R1A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform"], ["Alternative names", "Medium tumor antigen-associated 61 kDa protein; PP2A subunit A isoform PR65-alpha; PP2A subunit A isoform R1-alpha"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit. Upon interaction with GNA12 promotes dephosphorylation of microtubule associated protein TAU/MAPT."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Lateral cell membrane, Cell projection, dendrite"], ["HGNC", "HGNC:9302"], ["HGNC symbol", "PPP2R1A"], ["HGNC aliases", "PR65A, PP2A-Aalpha, PP2AA"], ["Entrez", "5518"], ["Ensembl", "ENSG00000105568"], ["RefSeq", "NM_014225"], ["UniProt", "P30153"], ["Note", "Aα, main scaffold isoform"]]}, {"symbol": "PPP2R1B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform"], ["Alternative names", "PP2A subunit A isoform PR65-beta; PP2A subunit A isoform R1-beta"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit"], ["HGNC", "HGNC:9303"], ["HGNC symbol", "PPP2R1B"], ["HGNC aliases", "PR65B, PP2A-Abeta"], ["Entrez", "5519"], ["Ensembl", "ENSG00000137713"], ["RefSeq", "NM_002716"], ["UniProt", "P30154"], ["Note", "Aβ, minor scaffold isoform"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "PPP2R1A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform"], ["Alternative names", "Medium tumor antigen-associated 61 kDa protein; PP2A subunit A isoform PR65-alpha; PP2A subunit A isoform R1-alpha"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit. Upon interaction with GNA12 promotes dephosphorylation of microtubule associated protein TAU/MAPT."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Lateral cell membrane, Cell projection, dendrite"], ["HGNC", "HGNC:9302"], ["HGNC symbol", "PPP2R1A"], ["Alias symbols", "PR65A, PP2A-Aalpha, PP2AA"], ["Entrez", "5518"], ["Ensembl", "ENSG00000105568"], ["RefSeq", "NM_014225"], ["UniProt", "P30153"], ["Note", "Aα, main scaffold isoform"]]}, {"symbol": "PPP2R1B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform"], ["Alternative names", "PP2A subunit A isoform PR65-beta; PP2A subunit A isoform R1-beta"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit"], ["HGNC", "HGNC:9303"], ["HGNC symbol", "PPP2R1B"], ["Alias symbols", "PR65B, PP2A-Abeta"], ["Entrez", "5519"], ["Ensembl", "ENSG00000137713"], ["RefSeq", "NM_002716"], ["UniProt", "P30154"], ["Note", "Aβ, minor scaffold isoform"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1906,7 +1867,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -1919,7 +1879,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PPP2R2A; PPP2R2B]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2R2A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform"], ["Alternative names", "PP2A subunit B isoform B55-alpha; PP2A subunit B isoform PR55-alpha; PP2A subunit B isoform R2-alpha; PP2A subunit B isoform alpha"], ["Function", "Substrate-recognition subunit of protein phosphatase 2A (PP2A) that plays a key role in cell cycle by controlling mitosis entry and exit. Involved in chromosome clustering during late mitosis by mediating dephosphorylation of MKI67."], ["HGNC", "HGNC:9304"], ["HGNC symbol", "PPP2R2A"], ["HGNC aliases", "PR52A, PR55A, B55A, PR55alpha, B55alpha"], ["Entrez", "5520"], ["Ensembl", "ENSG00000221914"], ["RefSeq", "NM_002717"], ["UniProt", "P63151"], ["Note", "B55α, ubiquitous"]]}, {"symbol": "PPP2R2B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B beta isoform"], ["Alternative names", "PP2A subunit B isoform B55-beta; PP2A subunit B isoform PR55-beta; PP2A subunit B isoform R2-beta; PP2A subunit B isoform beta"], ["Function", "The B regulatory subunit might modulate substrate selectivity and catalytic activity, and might also direct the localization of the catalytic enzyme to a particular subcellular compartment. Within the PP2A holoenzyme complex, isoform 2 is required to promote proapoptotic activity."], ["Location", "Cytoplasm, Cytoplasm, cytoskeleton, Membrane, Mitochondrion, Mitochondrion outer membrane"], ["HGNC", "HGNC:9305"], ["HGNC symbol", "PPP2R2B"], ["HGNC aliases", "PR55-BETA, PR52B, B55beta, SCA12"], ["Entrez", "5521"], ["Ensembl", "ENSG00000156475"], ["RefSeq", "NM_181678"], ["UniProt", "Q00005"], ["Note", "B55β, brain"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PPP2R2A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform"], ["Alternative names", "PP2A subunit B isoform B55-alpha; PP2A subunit B isoform PR55-alpha; PP2A subunit B isoform R2-alpha; PP2A subunit B isoform alpha"], ["Function", "Substrate-recognition subunit of protein phosphatase 2A (PP2A) that plays a key role in cell cycle by controlling mitosis entry and exit. Involved in chromosome clustering during late mitosis by mediating dephosphorylation of MKI67."], ["HGNC", "HGNC:9304"], ["HGNC symbol", "PPP2R2A"], ["Alias symbols", "PR52A, PR55A, B55A, PR55alpha, B55alpha"], ["Entrez", "5520"], ["Ensembl", "ENSG00000221914"], ["RefSeq", "NM_002717"], ["UniProt", "P63151"], ["Note", "B55α, ubiquitous"]]}, {"symbol": "PPP2R2B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B beta isoform"], ["Alternative names", "PP2A subunit B isoform B55-beta; PP2A subunit B isoform PR55-beta; PP2A subunit B isoform R2-beta; PP2A subunit B isoform beta"], ["Function", "The B regulatory subunit might modulate substrate selectivity and catalytic activity, and might also direct the localization of the catalytic enzyme to a particular subcellular compartment. Within the PP2A holoenzyme complex, isoform 2 is required to promote proapoptotic activity."], ["Location", "Cytoplasm, Cytoplasm, cytoskeleton, Membrane, Mitochondrion, Mitochondrion outer membrane"], ["HGNC", "HGNC:9305"], ["HGNC symbol", "PPP2R2B"], ["Previous symbols", "SCA12"], ["Alias symbols", "PR55-BETA, PR52B, B55beta"], ["Entrez", "5521"], ["Ensembl", "ENSG00000156475"], ["RefSeq", "NM_181678"], ["UniProt", "Q00005"], ["Note", "B55β, brain"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1945,7 +1905,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1982,7 +1941,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -1995,7 +1953,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PRKAG1; PRKAG2; PRKAG3]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["HGNC aliases", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PRKAG1", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-1"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9385"], ["HGNC symbol", "PRKAG1"], ["Entrez", "5571"], ["Ensembl", "ENSG00000181929"], ["RefSeq", "NM_002733"], ["UniProt", "P54619"], ["Note", "γ1, ubiquitous"]]}, {"symbol": "PRKAG2", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-2"], ["Alternative names", "H91620p"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9386"], ["HGNC symbol", "PRKAG2"], ["Alias symbols", "AAKG, AAKG2, H91620p, WPWS, CMH6"], ["Entrez", "51422"], ["Ensembl", "ENSG00000106617"], ["RefSeq", "NM_016203"], ["UniProt", "Q9UGJ0"], ["Note", "γ2, high in heart"]]}, {"symbol": "PRKAG3", "props": [["Full name", "5'-AMP-activated protein kinase subunit gamma-3"], ["Function", "AMP/ATP-binding subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["HGNC", "HGNC:9387"], ["HGNC symbol", "PRKAG3"], ["Entrez", "53632"], ["Ensembl", "ENSG00000115592"], ["RefSeq", "NM_017431"], ["UniProt", "Q9UGI9"], ["Note", "γ3, skeletal muscle"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2019,7 +1977,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2032,7 +1989,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PPP2CA; PPP2CB]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2CA", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform"], ["Alternative names", "Replication protein C"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events. PP2A is the major phosphatase for microtubule-associated proteins (MAPs)."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9299"], ["HGNC symbol", "PPP2CA"], ["HGNC aliases", "PP2Calpha, PP2AC"], ["Entrez", "5515"], ["Ensembl", "ENSG00000113575"], ["RefSeq", "NM_002715"], ["UniProt", "P67775"], ["Note", "Cα, main catalytic isoform"]]}, {"symbol": "PPP2CB", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events (Probable). PP2A can modulate the activity of phosphorylase B kinase, casein kinase 2, mitogen-stimulated S6 kinase, and MAP-2 kinase."], ["Location", "Cytoplasm, Nucleus, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9300"], ["HGNC symbol", "PPP2CB"], ["HGNC aliases", "PP2Abeta"], ["Entrez", "5516"], ["Ensembl", "ENSG00000104695"], ["RefSeq", "NM_001009552"], ["UniProt", "P62714"], ["Note", "Cβ, minor catalytic isoform"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PPP2CA", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform"], ["Alternative names", "Replication protein C"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events. PP2A is the major phosphatase for microtubule-associated proteins (MAPs)."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9299"], ["HGNC symbol", "PPP2CA"], ["Alias symbols", "PP2Calpha, PP2AC"], ["Entrez", "5515"], ["Ensembl", "ENSG00000113575"], ["RefSeq", "NM_002715"], ["UniProt", "P67775"], ["Note", "Cα, main catalytic isoform"]]}, {"symbol": "PPP2CB", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events (Probable). PP2A can modulate the activity of phosphorylase B kinase, casein kinase 2, mitogen-stimulated S6 kinase, and MAP-2 kinase."], ["Location", "Cytoplasm, Nucleus, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9300"], ["HGNC symbol", "PPP2CB"], ["Alias symbols", "PP2Abeta"], ["Entrez", "5516"], ["Ensembl", "ENSG00000104695"], ["RefSeq", "NM_001009552"], ["UniProt", "P62714"], ["Note", "Cβ, minor catalytic isoform"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2056,7 +2013,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2069,7 +2025,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PPP2R1A; PPP2R1B]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2R1A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform"], ["Alternative names", "Medium tumor antigen-associated 61 kDa protein; PP2A subunit A isoform PR65-alpha; PP2A subunit A isoform R1-alpha"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit. Upon interaction with GNA12 promotes dephosphorylation of microtubule associated protein TAU/MAPT."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Lateral cell membrane, Cell projection, dendrite"], ["HGNC", "HGNC:9302"], ["HGNC symbol", "PPP2R1A"], ["HGNC aliases", "PR65A, PP2A-Aalpha, PP2AA"], ["Entrez", "5518"], ["Ensembl", "ENSG00000105568"], ["RefSeq", "NM_014225"], ["UniProt", "P30153"], ["Note", "Aα, main scaffold isoform"]]}, {"symbol": "PPP2R1B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform"], ["Alternative names", "PP2A subunit A isoform PR65-beta; PP2A subunit A isoform R1-beta"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit"], ["HGNC", "HGNC:9303"], ["HGNC symbol", "PPP2R1B"], ["HGNC aliases", "PR65B, PP2A-Abeta"], ["Entrez", "5519"], ["Ensembl", "ENSG00000137713"], ["RefSeq", "NM_002716"], ["UniProt", "P30154"], ["Note", "Aβ, minor scaffold isoform"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PPP2R1A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform"], ["Alternative names", "Medium tumor antigen-associated 61 kDa protein; PP2A subunit A isoform PR65-alpha; PP2A subunit A isoform R1-alpha"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit. Upon interaction with GNA12 promotes dephosphorylation of microtubule associated protein TAU/MAPT."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Lateral cell membrane, Cell projection, dendrite"], ["HGNC", "HGNC:9302"], ["HGNC symbol", "PPP2R1A"], ["Alias symbols", "PR65A, PP2A-Aalpha, PP2AA"], ["Entrez", "5518"], ["Ensembl", "ENSG00000105568"], ["RefSeq", "NM_014225"], ["UniProt", "P30153"], ["Note", "Aα, main scaffold isoform"]]}, {"symbol": "PPP2R1B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform"], ["Alternative names", "PP2A subunit A isoform PR65-beta; PP2A subunit A isoform R1-beta"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit"], ["HGNC", "HGNC:9303"], ["HGNC symbol", "PPP2R1B"], ["Alias symbols", "PR65B, PP2A-Abeta"], ["Entrez", "5519"], ["Ensembl", "ENSG00000137713"], ["RefSeq", "NM_002716"], ["UniProt", "P30154"], ["Note", "Aβ, minor scaffold isoform"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2093,7 +2049,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2150,7 +2105,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2163,7 +2117,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PPP2CA; PPP2CB]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2CA", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform"], ["Alternative names", "Replication protein C"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events. PP2A is the major phosphatase for microtubule-associated proteins (MAPs)."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9299"], ["HGNC symbol", "PPP2CA"], ["HGNC aliases", "PP2Calpha, PP2AC"], ["Entrez", "5515"], ["Ensembl", "ENSG00000113575"], ["RefSeq", "NM_002715"], ["UniProt", "P67775"], ["Note", "Cα, main catalytic isoform"]]}, {"symbol": "PPP2CB", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events (Probable). PP2A can modulate the activity of phosphorylase B kinase, casein kinase 2, mitogen-stimulated S6 kinase, and MAP-2 kinase."], ["Location", "Cytoplasm, Nucleus, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9300"], ["HGNC symbol", "PPP2CB"], ["HGNC aliases", "PP2Abeta"], ["Entrez", "5516"], ["Ensembl", "ENSG00000104695"], ["RefSeq", "NM_001009552"], ["UniProt", "P62714"], ["Note", "Cβ, minor catalytic isoform"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PPP2CA", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform"], ["Alternative names", "Replication protein C"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events. PP2A is the major phosphatase for microtubule-associated proteins (MAPs)."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9299"], ["HGNC symbol", "PPP2CA"], ["Alias symbols", "PP2Calpha, PP2AC"], ["Entrez", "5515"], ["Ensembl", "ENSG00000113575"], ["RefSeq", "NM_002715"], ["UniProt", "P67775"], ["Note", "Cα, main catalytic isoform"]]}, {"symbol": "PPP2CB", "props": [["Full name", "Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform"], ["Function", "Catalytic subunit of protein phosphatase 2A (PP2A), a serine/threonine phosphatase involved in the regulation of a wide variety of enzymes, signal transduction pathways, and cellular events (Probable). PP2A can modulate the activity of phosphorylase B kinase, casein kinase 2, mitogen-stimulated S6 kinase, and MAP-2 kinase."], ["Location", "Cytoplasm, Nucleus, Chromosome, centromere, Cytoplasm, cytoskeleton, spindle pole"], ["HGNC", "HGNC:9300"], ["HGNC symbol", "PPP2CB"], ["Alias symbols", "PP2Abeta"], ["Entrez", "5516"], ["Ensembl", "ENSG00000104695"], ["RefSeq", "NM_001009552"], ["UniProt", "P62714"], ["Note", "Cβ, minor catalytic isoform"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2187,7 +2141,6 @@
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
           <data key="d12" xml:space="preserve"/>
-          <data key="d13" xml:space="preserve"/>
           <data key="d14" xml:space="preserve"/>
           <data key="d15" xml:space="preserve"/>
           <data key="d16" xml:space="preserve"/>
@@ -2200,7 +2153,7 @@
           <data key="d23" xml:space="preserve"/>
           <data key="d24" xml:space="preserve"/>
           <data key="d25" xml:space="preserve"><![CDATA[PPP2R1A; PPP2R1B]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2R1A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform"], ["Alternative names", "Medium tumor antigen-associated 61 kDa protein; PP2A subunit A isoform PR65-alpha; PP2A subunit A isoform R1-alpha"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit. Upon interaction with GNA12 promotes dephosphorylation of microtubule associated protein TAU/MAPT."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Lateral cell membrane, Cell projection, dendrite"], ["HGNC", "HGNC:9302"], ["HGNC symbol", "PPP2R1A"], ["HGNC aliases", "PR65A, PP2A-Aalpha, PP2AA"], ["Entrez", "5518"], ["Ensembl", "ENSG00000105568"], ["RefSeq", "NM_014225"], ["UniProt", "P30153"], ["Note", "Aα, main scaffold isoform"]]}, {"symbol": "PPP2R1B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform"], ["Alternative names", "PP2A subunit A isoform PR65-beta; PP2A subunit A isoform R1-beta"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit"], ["HGNC", "HGNC:9303"], ["HGNC symbol", "PPP2R1B"], ["HGNC aliases", "PR65B, PP2A-Abeta"], ["Entrez", "5519"], ["Ensembl", "ENSG00000137713"], ["RefSeq", "NM_002716"], ["UniProt", "P30154"], ["Note", "Aβ, minor scaffold isoform"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "PPP2R1A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform"], ["Alternative names", "Medium tumor antigen-associated 61 kDa protein; PP2A subunit A isoform PR65-alpha; PP2A subunit A isoform R1-alpha"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit. Upon interaction with GNA12 promotes dephosphorylation of microtubule associated protein TAU/MAPT."], ["Location", "Cytoplasm, Nucleus, Chromosome, Chromosome, centromere, Lateral cell membrane, Cell projection, dendrite"], ["HGNC", "HGNC:9302"], ["HGNC symbol", "PPP2R1A"], ["Alias symbols", "PR65A, PP2A-Aalpha, PP2AA"], ["Entrez", "5518"], ["Ensembl", "ENSG00000105568"], ["RefSeq", "NM_014225"], ["UniProt", "P30153"], ["Note", "Aα, main scaffold isoform"]]}, {"symbol": "PPP2R1B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform"], ["Alternative names", "PP2A subunit A isoform PR65-beta; PP2A subunit A isoform R1-beta"], ["Function", "The PR65 subunit of protein phosphatase 2A serves as a scaffolding molecule to coordinate the assembly of the catalytic subunit and a variable regulatory B subunit"], ["HGNC", "HGNC:9303"], ["HGNC symbol", "PPP2R1B"], ["Alias symbols", "PR65B, PP2A-Abeta"], ["Entrez", "5519"], ["Ensembl", "ENSG00000137713"], ["RefSeq", "NM_002716"], ["UniProt", "P30154"], ["Note", "Aβ, minor scaffold isoform"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2226,7 +2179,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2266,7 +2218,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2279,7 +2230,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PPP2R2A; PPP2R2B]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PPP2R2A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform"], ["Alternative names", "PP2A subunit B isoform B55-alpha; PP2A subunit B isoform PR55-alpha; PP2A subunit B isoform R2-alpha; PP2A subunit B isoform alpha"], ["Function", "Substrate-recognition subunit of protein phosphatase 2A (PP2A) that plays a key role in cell cycle by controlling mitosis entry and exit. Involved in chromosome clustering during late mitosis by mediating dephosphorylation of MKI67."], ["HGNC", "HGNC:9304"], ["HGNC symbol", "PPP2R2A"], ["HGNC aliases", "PR52A, PR55A, B55A, PR55alpha, B55alpha"], ["Entrez", "5520"], ["Ensembl", "ENSG00000221914"], ["RefSeq", "NM_002717"], ["UniProt", "P63151"], ["Note", "B55α, ubiquitous"]]}, {"symbol": "PPP2R2B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B beta isoform"], ["Alternative names", "PP2A subunit B isoform B55-beta; PP2A subunit B isoform PR55-beta; PP2A subunit B isoform R2-beta; PP2A subunit B isoform beta"], ["Function", "The B regulatory subunit might modulate substrate selectivity and catalytic activity, and might also direct the localization of the catalytic enzyme to a particular subcellular compartment. Within the PP2A holoenzyme complex, isoform 2 is required to promote proapoptotic activity."], ["Location", "Cytoplasm, Cytoplasm, cytoskeleton, Membrane, Mitochondrion, Mitochondrion outer membrane"], ["HGNC", "HGNC:9305"], ["HGNC symbol", "PPP2R2B"], ["HGNC aliases", "PR55-BETA, PR52B, B55beta, SCA12"], ["Entrez", "5521"], ["Ensembl", "ENSG00000156475"], ["RefSeq", "NM_181678"], ["UniProt", "Q00005"], ["Note", "B55β, brain"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PPP2R2A", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform"], ["Alternative names", "PP2A subunit B isoform B55-alpha; PP2A subunit B isoform PR55-alpha; PP2A subunit B isoform R2-alpha; PP2A subunit B isoform alpha"], ["Function", "Substrate-recognition subunit of protein phosphatase 2A (PP2A) that plays a key role in cell cycle by controlling mitosis entry and exit. Involved in chromosome clustering during late mitosis by mediating dephosphorylation of MKI67."], ["HGNC", "HGNC:9304"], ["HGNC symbol", "PPP2R2A"], ["Alias symbols", "PR52A, PR55A, B55A, PR55alpha, B55alpha"], ["Entrez", "5520"], ["Ensembl", "ENSG00000221914"], ["RefSeq", "NM_002717"], ["UniProt", "P63151"], ["Note", "B55α, ubiquitous"]]}, {"symbol": "PPP2R2B", "props": [["Full name", "Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B beta isoform"], ["Alternative names", "PP2A subunit B isoform B55-beta; PP2A subunit B isoform PR55-beta; PP2A subunit B isoform R2-beta; PP2A subunit B isoform beta"], ["Function", "The B regulatory subunit might modulate substrate selectivity and catalytic activity, and might also direct the localization of the catalytic enzyme to a particular subcellular compartment. Within the PP2A holoenzyme complex, isoform 2 is required to promote proapoptotic activity."], ["Location", "Cytoplasm, Cytoplasm, cytoskeleton, Membrane, Mitochondrion, Mitochondrion outer membrane"], ["HGNC", "HGNC:9305"], ["HGNC symbol", "PPP2R2B"], ["Previous symbols", "SCA12"], ["Alias symbols", "PR55-BETA, PR52B, B55beta"], ["Entrez", "5521"], ["Ensembl", "ENSG00000156475"], ["RefSeq", "NM_181678"], ["UniProt", "Q00005"], ["Note", "B55β, brain"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2303,7 +2254,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2343,7 +2293,7 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"><![CDATA[HGNC:11389]]></data>
       <data key="d12" xml:space="preserve"><![CDATA[STK11]]></data>
-      <data key="d13" xml:space="preserve"><![CDATA[PJS, LKB1]]></data>
+      <data key="d100">PJS, LKB1</data>
       <data key="d14" xml:space="preserve"><![CDATA[6794]]></data>
       <data key="d15" xml:space="preserve"><![CDATA[ENSG00000118046]]></data>
       <data key="d16" xml:space="preserve"><![CDATA[NM_000455]]></data>
@@ -2380,7 +2330,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2393,7 +2342,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[STRADA; STRADB]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["HGNC aliases", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "LKB1 complex pseudokinase"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["HGNC aliases", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP, ALS2CR2"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "LKB1 complex pseudokinase"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "STRADA", "props": [["Full name", "STE20-related kinase adapter protein alpha"], ["Alternative names", "STE20-related adapter protein; Serologically defined breast cancer antigen NY-BR-96"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:30172"], ["HGNC symbol", "STRADA"], ["Alias symbols", "STLK5, NY-BR-96, LYK5, Stlk, STRAD"], ["Entrez", "92335"], ["Ensembl", "ENSG00000266173"], ["RefSeq", "NM_001003786"], ["UniProt", "Q7RTN6"], ["Note", "LKB1 complex pseudokinase"]]}, {"symbol": "STRADB", "props": [["Full name", "STE20-related kinase adapter protein beta"], ["Alternative names", "Amyotrophic lateral sclerosis 2 chromosomal region candidate gene 2 protein; CALS-21; ILP-interacting protein; Pseudokinase ALS2CR2"], ["Function", "Pseudokinase which, in complex with CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta), binds to and activates STK11/LKB1. Adopts a closed conformation typical of active protein kinases and binds STK11/LKB1 as a pseudosubstrate, promoting conformational change of STK11/LKB1 in an active conformation"], ["Location", "Nucleus, Cytoplasm"], ["HGNC", "HGNC:13205"], ["HGNC symbol", "STRADB"], ["Previous symbols", "ALS2CR2"], ["Alias symbols", "STLK6, CALS-21, PAPK, ILPIPA, ILPIP"], ["Entrez", "55437"], ["Ensembl", "ENSG00000082146"], ["RefSeq", "NM_018571"], ["UniProt", "Q9C0K7"], ["Note", "LKB1 complex pseudokinase"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2417,7 +2366,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2430,7 +2378,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[CAB39; CAB39L]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["HGNC aliases", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "LKB1 complex scaffold"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["HGNC aliases", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "LKB1 complex scaffold"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "CAB39", "props": [["Full name", "Calcium-binding protein 39"], ["Alternative names", "MO25alpha; Protein Mo25"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["Location", "Cytoplasm"], ["HGNC", "HGNC:20292"], ["HGNC symbol", "CAB39"], ["Alias symbols", "CGI-66, MO25"], ["Entrez", "51719"], ["Ensembl", "ENSG00000135932"], ["RefSeq", "NM_016289"], ["UniProt", "Q9Y376"], ["Note", "LKB1 complex scaffold"]]}, {"symbol": "CAB39L", "props": [["Full name", "Calcium-binding protein 39-like"], ["Alternative names", "Antigen MLAA-34; MO25beta; Mo25-like protein"], ["Function", "Component of a complex that binds and activates STK11/LKB1. In the complex, required to stabilize the interaction between CAB39/MO25 (CAB39/MO25alpha or CAB39L/MO25beta) and STK11/LKB1"], ["HGNC", "HGNC:20290"], ["HGNC symbol", "CAB39L"], ["Alias symbols", "bA103J18.3, FLJ12577, MO2L, MLAA-34"], ["Entrez", "81617"], ["Ensembl", "ENSG00000102547"], ["RefSeq", "NM_030925"], ["UniProt", "Q9H9S4"], ["Note", "LKB1 complex scaffold"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2454,7 +2402,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2494,7 +2441,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2534,7 +2480,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2574,7 +2519,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2587,7 +2531,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2611,7 +2555,6 @@
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2624,7 +2567,7 @@
       <data key="d23" xml:space="preserve"/>
       <data key="d24" xml:space="preserve"/>
       <data key="d25" xml:space="preserve"><![CDATA[PRKAA1; PRKAA2]]></data>
-      <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["HGNC aliases", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["HGNC aliases", "AMPK, AMPKa2, PRKAA"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]]]></data>
+      <data key="d26" xml:space="preserve">[{"symbol": "PRKAA1", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-1"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9376"], ["HGNC symbol", "PRKAA1"], ["Alias symbols", "AMPKa1"], ["Entrez", "5562"], ["Ensembl", "ENSG00000132356"], ["RefSeq", "NM_006251"], ["UniProt", "Q13131"], ["Note", "α1, ubiquitous, dominant in liver"]]}, {"symbol": "PRKAA2", "props": [["Full name", "5'-AMP-activated protein kinase catalytic subunit alpha-2"], ["Alternative names", "Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase"], ["Function", "Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."], ["Location", "Cytoplasm, Nucleus, Late endosome"], ["HGNC", "HGNC:9377"], ["HGNC symbol", "PRKAA2"], ["Previous symbols", "PRKAA"], ["Alias symbols", "AMPK, AMPKa2"], ["Entrez", "5563"], ["Ensembl", "ENSG00000162409"], ["RefSeq", "NM_006252"], ["UniProt", "P54646"], ["Note", "α2, dominant in muscle and heart"]]}]</data>
       <data key="d27" xml:space="preserve"/>
       <data key="d29">
         <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2656,7 +2599,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>
@@ -2690,7 +2632,6 @@
       <data key="d10" xml:space="preserve"><![CDATA[C10H12N5O7P]]></data>
       <data key="d11" xml:space="preserve"/>
       <data key="d12" xml:space="preserve"/>
-      <data key="d13" xml:space="preserve"/>
       <data key="d14" xml:space="preserve"/>
       <data key="d15" xml:space="preserve"/>
       <data key="d16" xml:space="preserve"/>

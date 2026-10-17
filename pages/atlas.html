@@ -135,11 +135,12 @@ sitemap: false
   .m2-info .m2-k { color: #666; }
   .m2-info h4 { font-size: 14px; font-weight: 400; margin: 12px 0 4px; }
   .m2-info ul { list-style: none; margin: 0; padding: 0; }
-  /* the long text of a record (UniProt function, ChEBI definition): its name in the grey of
-     the other labels, and a square + / − right after it that opens or closes it; closed at
-     first (user, 2026-10-17: variant 3 of the former test page /atlas/folds/, in git history,
-     with the square of variant 7) */
-  .m2-fold { display: flex; align-items: center; gap: 6px; width: fit-content; text-align: left; font: inherit; color: #666; background: none; border: 0; padding: 0; margin: 0 0 4px; cursor: pointer; }
+  /* each text of a record (full name, other names, location, formula, function, definition):
+     its name in the grey of the other labels, no colon, and a square + / − right after it that
+     opens or closes it; closed at first (user, 2026-10-17: variant 3 of the former test page
+     /atlas/folds/, in git history, with the square of variant 7) */
+  .m2-fold { display: flex; align-items: center; gap: 6px; width: fit-content; text-align: left; font: inherit; color: #666; background: none; border: 0; padding: 0; margin: 0 0 8px; cursor: pointer; }
+  .m2-fold:not(.m2-shut) { margin-bottom: 2px; }
   .m2-fold:focus { outline: none; }
   .m2-sq { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 3px; background: #fff; }
   .m2-sq svg { width: 10px; height: 10px; stroke: #666; stroke-width: 1.5; stroke-linecap: round; }
@@ -530,8 +531,8 @@ sitemap: false
       info.appendChild(pl);
     }
     if (!family) {
-      symbols(p);
       if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', 'm2-k', p['Note']));
+      symbols(p);
       record(p);
       return;
     }
@@ -580,8 +581,8 @@ sitemap: false
     record(mp);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
-  // the gene symbols as text at the top, from HGNC (user, 2026-10-17); the symbol is also
-  // a link among the Annotations
+  // the gene symbols as text, from HGNC, after the note (the subtitle) (user, 2026-10-17);
+  // the symbol is also a link among the Annotations
   function symbols(p) {
     line(p, 'HGNC symbol');
     line(p, 'Previous symbols');
@@ -594,31 +595,25 @@ sitemap: false
     q.appendChild(el('span', null, p[name]));
     info.appendChild(q);
   }
-  // a long text under a heading that opens or closes it; the reader's choice
+  // a text under its name that opens or closes it; the reader's choice, per name,
   // holds for the next molecules while the page is open
-  var foldOpen = false;
+  var foldOpen = {};
   function fold(p, name) {
     if (!p[name]) return;
-    var b = el('button', 'm2-fold' + (foldOpen ? '' : ' m2-shut'), name);
-    b.type = 'button'; b.setAttribute('aria-expanded', foldOpen);
+    var b = el('button', 'm2-fold' + (foldOpen[name] ? '' : ' m2-shut'), name);
+    b.type = 'button'; b.setAttribute('aria-expanded', !!foldOpen[name]);
     // + when closed, − when open
     b.insertAdjacentHTML('beforeend', '<span class="m2-sq" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1 5h8"/><path class="m2-bar" d="M5 1v8"/></svg></span>');
     b.addEventListener('click', function () {
-      foldOpen = b.classList.toggle('m2-shut') === false;
-      b.setAttribute('aria-expanded', foldOpen);
+      foldOpen[name] = !b.classList.toggle('m2-shut');
+      b.setAttribute('aria-expanded', foldOpen[name]);
     });
     info.appendChild(b);
     info.appendChild(el('p', null, p[name]));
   }
-  // one protein's or metabolite's record: names, location, formula, the long text, then the database links
+  // one protein's or metabolite's record: its texts, each under a + , then the database links
   function record(p) {
-    line(p, 'Full name');
-    line(p, 'Alternative names');
-    line(p, 'Synonyms');
-    line(p, 'Location');
-    line(p, 'Formula');
-    fold(p, 'Function');
-    fold(p, 'Definition');
+    ['Full name', 'Alternative names', 'Synonyms', 'Location', 'Formula', 'Function', 'Definition'].forEach(function (n) { fold(p, n); });
     // the HGNC symbol, and not the HGNC ID, which opens the same page (user, 2026-10-17)
     var ids = IDS.filter(function (n) { return p[n] && !(n === 'HGNC' && p['HGNC symbol']); });
     if (!ids.length) return;

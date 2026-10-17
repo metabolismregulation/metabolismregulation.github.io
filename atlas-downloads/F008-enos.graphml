@@ -14,7 +14,8 @@
   <key attr.name="Formula" attr.type="string" for="node" id="d10"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d11"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d12"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d13"/>
+  <key attr.name="Previous symbols" attr.type="string" for="node" id="d101"/>
+  <key attr.name="Alias symbols" attr.type="string" for="node" id="d100"/>
   <key attr.name="Entrez" attr.type="string" for="node" id="d14"/>
   <key attr.name="Ensembl" attr.type="string" for="node" id="d15"/>
   <key attr.name="RefSeq" attr.type="string" for="node" id="d16"/>
@@ -47,7 +48,6 @@
       <data key="d10"/>
       <data key="d11"/>
       <data key="d12"/>
-      <data key="d13"/>
       <data key="d14"/>
       <data key="d15"/>
       <data key="d16"/>
@@ -98,7 +98,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -155,7 +154,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -212,7 +210,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -225,7 +222,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -249,7 +246,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -285,7 +281,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[C9H15N5O3]]></data>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -319,7 +314,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -332,7 +326,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -364,7 +358,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:391]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[AKT1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[RAC, PKB, PRKBA, AKT, RAC-alpha]]></data>
+              <data key="d100">RAC, PKB, PRKBA, AKT, RAC-alpha</data>
               <data key="d14" xml:space="preserve"><![CDATA[207]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000142208]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_005163]]></data>
@@ -417,7 +411,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -496,7 +490,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -553,7 +546,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -610,7 +602,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -623,7 +614,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -647,7 +638,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -683,7 +673,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -696,7 +685,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -728,7 +717,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:391]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[AKT1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[RAC, PKB, PRKBA, AKT, RAC-alpha]]></data>
+              <data key="d100">RAC, PKB, PRKBA, AKT, RAC-alpha</data>
               <data key="d14" xml:space="preserve"><![CDATA[207]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000142208]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_005163]]></data>
@@ -781,7 +770,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -860,7 +849,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -900,7 +888,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -957,7 +944,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -1014,7 +1000,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -1027,7 +1012,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1051,7 +1036,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -1087,7 +1071,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -1100,7 +1083,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1132,7 +1115,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:391]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[AKT1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[RAC, PKB, PRKBA, AKT, RAC-alpha]]></data>
+              <data key="d100">RAC, PKB, PRKBA, AKT, RAC-alpha</data>
               <data key="d14" xml:space="preserve"><![CDATA[207]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000142208]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_005163]]></data>
@@ -1185,7 +1168,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -1264,7 +1247,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C10H12N5O13P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -1298,7 +1280,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -1338,7 +1319,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C10H12N5O10P2]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -1372,7 +1352,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -1429,7 +1408,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -1486,7 +1464,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -1499,7 +1476,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1523,7 +1500,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -1559,7 +1535,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -1572,7 +1547,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1604,7 +1579,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -1683,7 +1658,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:391]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[AKT1]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[RAC, PKB, PRKBA, AKT, RAC-alpha]]></data>
+          <data key="d100">RAC, PKB, PRKBA, AKT, RAC-alpha</data>
           <data key="d14" xml:space="preserve"><![CDATA[207]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000142208]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_005163]]></data>
@@ -1736,7 +1711,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -1776,7 +1750,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -1833,7 +1806,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -1890,7 +1862,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -1903,7 +1874,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -1927,7 +1898,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -1963,7 +1933,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -1976,7 +1945,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2008,7 +1977,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:391]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[AKT1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[RAC, PKB, PRKBA, AKT, RAC-alpha]]></data>
+              <data key="d100">RAC, PKB, PRKBA, AKT, RAC-alpha</data>
               <data key="d14" xml:space="preserve"><![CDATA[207]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000142208]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_005163]]></data>
@@ -2061,7 +2030,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -2138,7 +2107,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[C9H13N5O3]]></data>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -2174,7 +2142,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -2214,7 +2181,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -2271,7 +2237,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -2328,7 +2293,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -2341,7 +2305,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2365,7 +2329,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -2401,7 +2364,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -2414,7 +2376,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2446,7 +2408,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+              <data key="d101">CAV</data>
               <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -2483,7 +2445,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -2562,7 +2524,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -2602,7 +2563,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+          <data key="d101">CAV</data>
           <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -2639,7 +2600,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -2696,7 +2656,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+              <data key="d101">CAV</data>
               <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -2733,7 +2693,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -2790,7 +2749,6 @@
                   <data key="d10"/>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -2803,7 +2761,7 @@
                   <data key="d23"/>
                   <data key="d24"/>
                   <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-                  <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+                  <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
                   <data key="d27" xml:space="preserve"/>
                   <data key="d29">
                     <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2824,7 +2782,6 @@
                   <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
                   <data key="d11"/>
                   <data key="d12"/>
-                  <data key="d13"/>
                   <data key="d14"/>
                   <data key="d15"/>
                   <data key="d16"/>
@@ -2860,7 +2817,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -2939,7 +2896,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -2952,7 +2908,7 @@
           <data key="d23"/>
           <data key="d24"/>
           <data key="d25" xml:space="preserve"><![CDATA[HSP90AA1; HSP90AB1]]></data>
-          <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["HGNC aliases", "Hsp89, Hsp90, FLJ31884, HSP90N, HSPC1, HSPCA, HSPCAL4"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["HGNC aliases", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]]]></data>
+          <data key="d26" xml:space="preserve">[{"symbol": "HSP90AA1", "props": [["Full name", "Heat shock protein HSP 90-alpha"], ["Alternative names", "Heat shock 86 kDa; Heat shock protein family C member 1; Lipopolysaccharide-associated protein 2; Renal carcinoma antigen NY-REN-38"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle that is linked to its ATPase activity which is essential for its chaperone activity."], ["Location", "Nucleus, Cytoplasm, Melanosome, Cell membrane, Mitochondrion"], ["HGNC", "HGNC:5253"], ["HGNC symbol", "HSP90AA1"], ["Previous symbols", "HSPC1, HSPCA, HSPCAL4"], ["Alias symbols", "Hsp89, Hsp90, FLJ31884, HSP90N"], ["Entrez", "3320"], ["Ensembl", "ENSG00000080824"], ["RefSeq", "NM_005348"], ["UniProt", "P07900"], ["Note", "HSP90α, stress-inducible"]]}, {"symbol": "HSP90AB1", "props": [["Full name", "Heat shock protein HSP 90-beta"], ["Alternative names", "Heat shock 84 kDa; Heat shock protein family C member 3"], ["Function", "Molecular chaperone that promotes the maturation, structural maintenance and proper regulation of specific target proteins involved for instance in cell cycle control and signal transduction. Undergoes a functional cycle linked to its ATPase activity."], ["Location", "Cytoplasm, Melanosome, Nucleus, Secreted, Cell membrane, Dynein axonemal particle, Cell surface"], ["HGNC", "HGNC:5258"], ["HGNC symbol", "HSP90AB1"], ["Previous symbols", "HSPC2, HSPCB"], ["Entrez", "3326"], ["Ensembl", "ENSG00000096384"], ["RefSeq", "NM_007355"], ["UniProt", "P08238"], ["Note", "HSP90β, constitutive"]]}]</data>
           <data key="d27" xml:space="preserve"/>
           <data key="d29">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -2984,7 +2940,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3024,7 +2979,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3081,7 +3035,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+              <data key="d101">CAV</data>
               <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -3118,7 +3072,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -3197,7 +3151,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3254,7 +3207,6 @@
               <data key="d10"/>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -3267,7 +3219,7 @@
               <data key="d23"/>
               <data key="d24"/>
               <data key="d25" xml:space="preserve"><![CDATA[CALM1; CALM2; CALM3]]></data>
-              <data key="d26" xml:space="preserve"><![CDATA[[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]]]></data>
+              <data key="d26" xml:space="preserve">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["Previous symbols", "CALML2"], ["Alias symbols", "CAMI, PHKD, DD132, PHKD1"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["Alias symbols", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["Alias symbols", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
               <data key="d27" xml:space="preserve"/>
               <data key="d29">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
@@ -3288,7 +3240,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[Ca]]></data>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -3324,7 +3275,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3364,7 +3314,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:20203]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[NOSTRIN]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[MGC20702]]></data>
+          <data key="d100">MGC20702</data>
           <data key="d14" xml:space="preserve"><![CDATA[115677]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000163072]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_052946]]></data>
@@ -3409,7 +3359,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3466,7 +3415,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+              <data key="d101">CAV</data>
               <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -3503,7 +3452,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -3580,7 +3529,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:20203]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOSTRIN]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[MGC20702]]></data>
+              <data key="d100">MGC20702</data>
               <data key="d14" xml:space="preserve"><![CDATA[115677]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000163072]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_052946]]></data>
@@ -3627,7 +3576,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3667,7 +3615,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:2974]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[DNM2]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[DYNII, DYN2, CMTDIB, CMTDI1, DI-CMTB, CMT2M]]></data>
+          <data key="d100">DYNII, DYN2, CMTDIB, CMTDI1, DI-CMTB, CMT2M</data>
           <data key="d14" xml:space="preserve"><![CDATA[1785]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000079805]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_004945]]></data>
@@ -3704,7 +3652,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3761,7 +3708,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+              <data key="d101">CAV</data>
               <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -3798,7 +3745,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -3875,7 +3822,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:20203]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOSTRIN]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[MGC20702]]></data>
+              <data key="d100">MGC20702</data>
               <data key="d14" xml:space="preserve"><![CDATA[115677]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000163072]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_052946]]></data>
@@ -3920,7 +3867,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2974]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DNM2]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[DYNII, DYN2, CMTDIB, CMTDI1, DI-CMTB, CMT2M]]></data>
+              <data key="d100">DYNII, DYN2, CMTDIB, CMTDI1, DI-CMTB, CMT2M</data>
               <data key="d14" xml:space="preserve"><![CDATA[1785]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000079805]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_004945]]></data>
@@ -3959,7 +3906,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -3999,7 +3945,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4056,7 +4001,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:1527]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CAV1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[CAV]]></data>
+              <data key="d101">CAV</data>
               <data key="d14" xml:space="preserve"><![CDATA[857]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000105974]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001753]]></data>
@@ -4093,7 +4038,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:7876]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOS3]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[ECNOS, eNOS]]></data>
+              <data key="d100">ECNOS, eNOS</data>
               <data key="d14" xml:space="preserve"><![CDATA[4846]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000164867]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_000603]]></data>
@@ -4170,7 +4115,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:20203]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[NOSTRIN]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[MGC20702]]></data>
+              <data key="d100">MGC20702</data>
               <data key="d14" xml:space="preserve"><![CDATA[115677]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000163072]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_052946]]></data>
@@ -4215,7 +4160,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2974]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DNM2]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[DYNII, DYN2, CMTDIB, CMTDI1, DI-CMTB, CMT2M]]></data>
+              <data key="d100">DYNII, DYN2, CMTDIB, CMTDI1, DI-CMTB, CMT2M</data>
               <data key="d14" xml:space="preserve"><![CDATA[1785]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000079805]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_004945]]></data>
@@ -4252,7 +4197,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:12735]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[WASL]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[N-WASP, NWASP, WASPB]]></data>
+              <data key="d100">N-WASP, NWASP, WASPB</data>
               <data key="d14" xml:space="preserve"><![CDATA[8976]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000106299]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_003941]]></data>
@@ -4291,7 +4236,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:12735]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[WASL]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[N-WASP, NWASP, WASPB]]></data>
+          <data key="d100">N-WASP, NWASP, WASPB</data>
           <data key="d14" xml:space="preserve"><![CDATA[8976]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000106299]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_003941]]></data>
@@ -4328,7 +4273,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4370,7 +4314,6 @@
       <data key="d10"/>
       <data key="d11"/>
       <data key="d12"/>
-      <data key="d13"/>
       <data key="d14"/>
       <data key="d15"/>
       <data key="d16"/>
@@ -4421,7 +4364,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C9H15N5O3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4455,7 +4397,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C9H13N5O3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4489,7 +4430,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:11257]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[SPR]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[SDR38C1]]></data>
+          <data key="d100">SDR38C1</data>
           <data key="d14" xml:space="preserve"><![CDATA[6697]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000116096]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_003124]]></data>
@@ -4534,7 +4475,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C9H11N5O3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4568,7 +4508,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H26N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4602,7 +4541,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4642,7 +4580,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H25N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4676,7 +4613,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[H]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4710,7 +4646,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[O2]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4747,7 +4682,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[O2]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4784,7 +4718,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H25N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4818,7 +4751,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H26N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4852,7 +4784,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4892,7 +4823,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[NO3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4926,7 +4856,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -4966,7 +4895,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H26N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5000,7 +4928,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[H]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5034,7 +4961,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[NO3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5068,7 +4994,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H25N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5102,7 +5027,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5159,7 +5083,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[O2]]></data>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -5196,7 +5119,6 @@
               <data key="d10" xml:space="preserve"><![CDATA[O2]]></data>
               <data key="d11"/>
               <data key="d12"/>
-              <data key="d13"/>
               <data key="d14"/>
               <data key="d15"/>
               <data key="d16"/>
@@ -5233,7 +5155,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:16505]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[CYGB]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[HGB, STAP]]></data>
+              <data key="d100">HGB, STAP</data>
               <data key="d14" xml:space="preserve"><![CDATA[114757]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000161544]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_134268]]></data>
@@ -5280,7 +5202,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5320,7 +5241,7 @@
           <data key="d10"/>
           <data key="d11" xml:space="preserve"><![CDATA[HGNC:16505]]></data>
           <data key="d12" xml:space="preserve"><![CDATA[CYGB]]></data>
-          <data key="d13" xml:space="preserve"><![CDATA[HGB, STAP]]></data>
+          <data key="d100">HGB, STAP</data>
           <data key="d14" xml:space="preserve"><![CDATA[114757]]></data>
           <data key="d15" xml:space="preserve"><![CDATA[ENSG00000161544]]></data>
           <data key="d16" xml:space="preserve"><![CDATA[NM_134268]]></data>
@@ -5365,7 +5286,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5422,7 +5342,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2716]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DDAH2]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[G6A, DDAHII]]></data>
+              <data key="d100">G6A, DDAHII</data>
               <data key="d14" xml:space="preserve"><![CDATA[23564]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000213722]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001303007]]></data>
@@ -5467,7 +5387,7 @@
               <data key="d10"/>
               <data key="d11" xml:space="preserve"><![CDATA[HGNC:2715]]></data>
               <data key="d12" xml:space="preserve"><![CDATA[DDAH1]]></data>
-              <data key="d13" xml:space="preserve"><![CDATA[DDAH]]></data>
+              <data key="d100">DDAH</data>
               <data key="d14" xml:space="preserve"><![CDATA[23576]]></data>
               <data key="d15" xml:space="preserve"><![CDATA[ENSG00000153904]]></data>
               <data key="d16" xml:space="preserve"><![CDATA[NM_001134445]]></data>
@@ -5514,7 +5434,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C2H8N]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5548,7 +5467,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5588,7 +5506,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[H2O]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5622,7 +5539,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C8H19N4O2]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5656,7 +5572,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5696,7 +5611,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H25N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5730,7 +5644,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[NO]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5764,7 +5677,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C6H13N3O3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5798,7 +5710,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C6H15N4O2]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5832,7 +5743,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[C21H26N7O17P3]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5866,7 +5776,6 @@
           <data key="d10" xml:space="preserve"><![CDATA[O2]]></data>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
@@ -5900,7 +5809,6 @@
           <data key="d10"/>
           <data key="d11"/>
           <data key="d12"/>
-          <data key="d13"/>
           <data key="d14"/>
           <data key="d15"/>
           <data key="d16"/>
