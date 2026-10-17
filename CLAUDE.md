@@ -152,7 +152,8 @@ any format converts into any other, a list of the formats replaces the lines. Th
 text (the routes, the browser note with a link "More about the converter", the tick box); the details
 are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, with
 a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
-is one more line there (user, 2026-10-17). Newt files (.nwt) are accepted but not mentioned on either
+is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)
+with a head at each end, one way green (#3a9a4a), the GraphML correction a green loop (user, 2026-10-17). Newt files (.nwt) are accepted but not mentioned on either
 page yet, as Newt is not widely used (user, 2026-10-17). Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is

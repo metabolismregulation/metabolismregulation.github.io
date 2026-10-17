@@ -15,8 +15,8 @@ noindex: true
   #cv-chart .cv-node circle { fill: #fff; stroke: #ccc; stroke-width: 1.2; }
   #cv-chart .cv-node:hover circle { fill: #4183c4; stroke: #4183c4; }
   #cv-chart .cv-node:hover text { fill: #fff; }
-  #cv-chart .cv-route { fill: none; stroke: #999; stroke-width: 1.4; }
-  #cv-chart .cv-route:hover { stroke: #4183c4; }
+  #cv-chart .cv-route { fill: none; stroke-width: 1.6; }
+  #cv-chart .cv-route:hover { stroke-width: 3; }
   #cv-chart text.cv-note { font-size: 12px; fill: #777; }
 </style>
 
@@ -67,7 +67,7 @@ keeps its shape. The map is rescaled if its objects are much larger or smaller.<
     ['SBGN-ML', 'CellDesigner'],
   ];
   const svg = document.getElementById('cv-chart'), NS = 'http://www.w3.org/2000/svg';
-  const CX = 220, CY = 205, R = 125, NODE = 46, BOW = 0.22;
+  const CX = 220, CY = 205, R = 125, NODE = 46;
   const el = (tag, attrs, parent = svg) => {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -78,36 +78,44 @@ keeps its shape. The map is rescaled if its objects are much larger or smaller.<
     const a = -Math.PI / 2 + i * 2 * Math.PI / FORMATS.length;
     pos[name] = { x: CX + R * Math.cos(a), y: CY + R * Math.sin(a), a };
   });
+  // one straight line per pair of formats: both ways blue with a head at each end, one way green
+  const BOTH = '#4183c4', ONE = '#3a9a4a';
   const defs = el('defs', {});
-  const marker = el('marker', { id: 'cv-head', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 10, markerHeight: 10,
-                                orient: 'auto-start-reverse', markerUnits: 'userSpaceOnUse' }, defs);
-  el('path', { d: 'M0 0L10 5L0 10z', fill: '#999' }, marker);
+  for (const [id, colour] of [['both', BOTH], ['one', ONE]]) {
+    const m = el('marker', { id: 'cv-' + id, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 10, markerHeight: 10,
+                             orient: 'auto-start-reverse', markerUnits: 'userSpaceOnUse' }, defs);
+    el('path', { d: 'M0 0L10 5L0 10z', fill: colour }, m);
+  }
   const f = n => n.toFixed(1);
+  const has = (a, b) => ROUTES.some(([x, y]) => x === a && y === b);
+  const done = new Set();
   for (const [from, to, note] of ROUTES) {
     const p = pos[from], q = pos[to];
-    let d, label;
     if (from === to) {  // a loop outside the circle
       const u = [Math.cos(p.a), Math.sin(p.a)], v = [-u[1], u[0]];
       const s = [p.x + NODE * (0.6 * u[0] - 0.8 * v[0]), p.y + NODE * (0.6 * u[1] - 0.8 * v[1])];
       const e = [p.x + NODE * (0.6 * u[0] + 0.8 * v[0]), p.y + NODE * (0.6 * u[1] + 0.8 * v[1])];
       const c1 = [s[0] + 55 * u[0] - 30 * v[0], s[1] + 55 * u[1] - 30 * v[1]];
       const c2 = [e[0] + 55 * u[0] + 30 * v[0], e[1] + 55 * u[1] + 30 * v[1]];
-      d = `M${f(s[0])} ${f(s[1])}C${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(e[0])} ${f(e[1])}`;
-      label = [p.x + (NODE + 8) * v[0] + 52 * u[0], p.y + (NODE + 8) * v[1] + 52 * u[1], 'start'];
-    } else {  // a chord bowed to its right, so the two ways between two formats are apart
-      const dx = q.x - p.x, dy = q.y - p.y, len = Math.hypot(dx, dy);
-      const c = [(p.x + q.x) / 2 - dy * BOW, (p.y + q.y) / 2 + dx * BOW];
-      const end = (o, t) => { const ex = t[0] - o.x, ey = t[1] - o.y, l = Math.hypot(ex, ey);
-                              return [o.x + NODE * ex / l, o.y + NODE * ey / l]; };
-      const s = end(p, c), e = end(q, c);
-      d = `M${f(s[0])} ${f(s[1])}Q${f(c[0])} ${f(c[1])} ${f(e[0])} ${f(e[1])}`;
+      const path = el('path', { d: `M${f(s[0])} ${f(s[1])}C${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(e[0])} ${f(e[1])}`,
+                                class: 'cv-route', stroke: ONE, 'marker-end': 'url(#cv-one)' });
+      el('title', {}, path).textContent = `${from} → ${to}` + (note ? `, ${note}` : '');
+      if (note) {
+        const t = el('text', { x: f(p.x + (NODE + 8) * v[0] + 52 * u[0]), y: f(p.y + (NODE + 8) * v[1] + 52 * u[1]),
+                               class: 'cv-note', 'text-anchor': 'start', 'dominant-baseline': 'middle' });
+        t.textContent = note;
+      }
+      continue;
     }
-    const path = el('path', { d, class: 'cv-route', 'marker-end': 'url(#cv-head)' });
-    el('title', {}, path).textContent = `${from} → ${to}` + (note ? `, ${note}` : '');
-    if (note && label) {
-      const t = el('text', { x: f(label[0]), y: f(label[1]), class: 'cv-note', 'text-anchor': label[2], 'dominant-baseline': 'middle' });
-      t.textContent = note;
-    }
+    const key = [from, to].sort().join('|');
+    if (done.has(key)) continue;
+    done.add(key);
+    const both = has(to, from);
+    const dx = q.x - p.x, dy = q.y - p.y, l = Math.hypot(dx, dy), gap = NODE + 3;
+    const line = el('line', { x1: f(p.x + gap * dx / l), y1: f(p.y + gap * dy / l), x2: f(q.x - gap * dx / l), y2: f(q.y - gap * dy / l),
+                              class: 'cv-route', stroke: both ? BOTH : ONE, 'marker-end': `url(#cv-${both ? 'both' : 'one'})` });
+    if (both) line.setAttribute('marker-start', 'url(#cv-both)');
+    el('title', {}, line).textContent = `${from} ${both ? '↔' : '→'} ${to}`;
   }
   for (const [name, id] of FORMATS) {
     const p = pos[name];
