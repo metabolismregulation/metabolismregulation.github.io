@@ -610,8 +610,7 @@ sitemap: false
     line(p, 'Formula');
     fold(p, 'Function');
     fold(p, 'Definition');
-    // the HGNC symbol, under its identifiers.org prefix (hgnc.symbol), and not the HGNC ID,
-    // which opens the same page (user, 2026-10-17)
+    // the HGNC symbol, and not the HGNC ID, which opens the same page (user, 2026-10-17)
     var ids = IDS.filter(function (n) { return p[n] && !(n === 'HGNC' && p['HGNC symbol']); });
     if (!ids.length) return;
     info.appendChild(el('h4', null, 'Annotations'));
@@ -622,7 +621,7 @@ sitemap: false
       (LINK[n] ? String(p[n]).split(/,\s*/) : [String(p[n])]).forEach(function (v, i) {
         if (i) li.appendChild(document.createTextNode(', '));
         if (LINK[n]) {
-          var a = el('a', null, (n === 'HGNC symbol' ? 'HGNC.SYMBOL' : n.toUpperCase()) + ' (' + v + ')');
+          var a = el('a', null, n.toUpperCase() + ' (' + v + ')');
           a.href = LINK[n] + encodeURIComponent(v).replace(/%3A/g, ':'); a.target = '_blank'; a.rel = 'noopener';
           li.appendChild(a);
         } else {
