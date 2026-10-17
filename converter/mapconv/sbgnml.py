@@ -274,7 +274,8 @@ HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'cat
 # from, CellDesigner's way. Its unit of information's shape gives the glyph (none: a protein;
 # perturbation: phenotype, as in CellDesigner), its label (the molecule's name) stays a unit; the
 # influences are arcs between entities; a delay is an Operator labelled tau; a submap is a phenotype
-# with its name (its terminals, tags and equivalence arcs left out)
+# with its name, its terminals and the tags left out; an equivalence arc is a plain line (to a terminal:
+# to the submap)
 ACTIVITY = {'macromolecule': 'Macromolecule', 'nucleic acid feature': 'NucleicAcidFeature', 'simple chemical': 'SimpleChemical',
             'unspecified entity': 'UnspecifiedEntity', 'complex': 'Complex', 'perturbation': 'Phenotype'}
 HEAD.update({'positive influence': 'stimulation', 'negative influence': 'inhibition', 'unknown influence': 'modulation'})
@@ -372,12 +373,13 @@ def read(path):
     for g in m.findall(S + 'glyph'):
         glyph(g, g.get('compartmentRef'))
     arcs = []
+    head = dict(HEAD, **{'equivalence arc': None}) if af else HEAD  # AF: a plain line (user, 2026-10-17)
     for a in m.findall(S + 'arc'):
         cls = a.get('class')
         s, t = (port.get(a.get(k), a.get(k)) for k in ('source', 'target'))
-        if cls not in HEAD or s not in nodes or t not in nodes:
-            skipped.setdefault(cls + ' arc' if cls not in HEAD else 'arc to a glyph left out', []).append(a.get('id')); continue
-        arcs.append(Arc(id=a.get('id'), source=s, target=t, head=HEAD[cls],
+        if cls not in head or s not in nodes or t not in nodes:
+            skipped.setdefault(cls + ' arc' if cls not in head else 'arc to a glyph left out', []).append(a.get('id')); continue
+        arcs.append(Arc(id=a.get('id'), source=s, target=t, head=head[cls],
                         points=[(float(p.get('x')), float(p.get('y'))) for p in a.findall(S + 'next')]))
     for what, ids in skipped.items():
         print('%s: %d left out (%s)' % (what, len(ids), ', '.join(ids[:5]) + (' ...' if len(ids) > 5 else '')))

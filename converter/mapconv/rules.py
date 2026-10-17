@@ -77,7 +77,9 @@ def problems(m):
             why = 'an arrow outside the SBGN palette (%s)' % h[6:]
         elif h is None:  # consumption, or a logic arc into an operator: drawn either way
             pair = {s, t}
-            if not (pair & procs and pair & epn) and not (pair & ops and pair & (epn | ops)):
+            if s in epn and t in epn:  # an Activity Flow equivalence arc (to a submap) read into yEd
+                why = 'a plain line between two entities (an equivalence arc) has no CellDesigner or SBGN PD form'
+            elif not (pair & procs and pair & epn) and not (pair & ops and pair & (epn | ops)):
                 why = 'a plain line must join an entity and a process (or a logic gate)'
         elif h == 'production':
             if s in epn and t in procs:
