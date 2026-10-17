@@ -58,9 +58,10 @@ GROUPS = [
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
-# a map published from a draft (a first map or a new version) is marked with an outlined
-# "new" tag in the Atlas list for NEW_DAYS after the date in its page's "released:" line
-# (user, 2026-10-17); the daily run of atlas-data.yml takes the tag off when the time is up
+# a map published for the first time is marked with an outlined "new" tag in the Atlas
+# list for NEW_DAYS after the date in its page's "released:" line, written once at the
+# first publication and never changed: a new version or a small fix does not make a map
+# new (user, 2026-10-17). The daily run of atlas-data.yml takes the tag off on time.
 NEW_DAYS = 30
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]

@@ -36,8 +36,8 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
-A map published from a draft (a first map or a new version) gets a "new" tag (outlined: grey edge and text, white fill, user 2026-10-16; the earlier blue one is kept in the palette) in the Atlas list for 30 days:
-publishing adds `released: <date>` under the permalink of its `_projects/` page, and `scripts/make_maps.py` shows the tag while that date is less than 30 days old (user, 2026-10-17). The Atlas data workflow runs daily, so the tag goes on time. Working files stay in `maps-workbench`.
+A map published for the first time gets a "new" tag (outlined: grey edge and text, white fill, user 2026-10-16; the earlier blue one is kept in the palette) in the Atlas list for 30 days:
+its first publication adds `released: <date>` under the permalink of its `_projects/` page, written once and never changed (a new version or a small fix to a published page does not make it new, user 2026-10-17), and `scripts/make_maps.py` shows the tag while that date is less than 30 days old (user, 2026-10-17). The Atlas data workflow runs daily, so the tag goes on time. Working files stay in `maps-workbench`.
 
 A new version of a published map is a draft page with the same file name and the permalink
 `/<name>/draft/` (e.g. `draftpages/glutaminase.md`, /glutaminase/draft/): it replaces the
