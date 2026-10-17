@@ -8,7 +8,8 @@ noindex: true
 
 <!-- the user's check of our GraphML -> SBGN-ML converter in Newt (user, 2026-10-17): every
      Atlas map, our file next to MINERVA's export of the same map. The files in
-     converter/sbgn/ are made from atlas-downloads/ by map-converter's tools/sbgn_test.sh
+     converter/sbgn/ are made from atlas-downloads/ (and back/ from the maps Newt saved,
+     map-converter tests/newt/) by map-converter's tools/sbgn_test.sh
      (converter commit in converter/sbgn/VERSION); this page changes when there is
      something new to check. -->
 <style>
@@ -16,6 +17,8 @@ noindex: true
   .sb th { text-align: left; font-weight: normal; color: #888; font-size: 13px; padding: 4px 16px 4px 0; }
   .sb td { padding: 5px 16px 5px 0; vertical-align: top; }
 </style>
+
+<h3>GraphML → SBGN-ML</h3>
 
 <p>Each map opens in Newt: first as written by our converter from the Atlas GraphML, then as exported by MINERVA from the CellDesigner file, where the Atlas has one.</p>
 
@@ -33,5 +36,22 @@ noindex: true
     <td>{% if s %}<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io{{ s.url }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a>{% endif %}</td>
   </tr>
   {% endif %}
+  {% endfor %}
+</table>
+
+<h3>SBGN-ML → GraphML, CellDesigner</h3>
+
+<p>Maps saved by Newt: the map in Newt, then the GraphML and CellDesigner files our converter makes from it.</p>
+
+<table class="sb">
+  <tr><th>Map</th><th>Saved by Newt</th><th>Our converter</th></tr>
+  {% assign back = site.static_files | where_exp: 'f', "f.path contains '/converter/sbgn/back/'" | where: 'extname', '.sbgn' %}
+  {% for f in back %}
+  <tr>
+    <td>{{ f.basename | replace: '_', ' ' }}</td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io{{ f.path }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="{{ f.path | replace: '.sbgn', '.graphml' }}" download>{% include icon-download.html %}GraphML</a> &nbsp;
+        <a href="{{ f.path | replace: '.sbgn', '.xml' }}" download>{% include icon-download.html %}CellDesigner</a></td>
+  </tr>
   {% endfor %}
 </table>

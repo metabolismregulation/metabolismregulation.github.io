@@ -1,0 +1,1889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner" level="2" version="4">
+<model metaid="neuronal_muscle_signaling" id="neuronal_muscle_signaling">
+<annotation>
+<celldesigner:extension>
+<celldesigner:modelVersion>4.0</celldesigner:modelVersion>
+<celldesigner:modelDisplay sizeX="1486" sizeY="489"/>
+<celldesigner:listOfIncludedSpecies>
+<celldesigner:species id="s__26a815b4_64c3_4797_9bfd_7dceafb3345d" name="myosin">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__1129b8c7_71da_4a6c_8681_3082e6f04a6c</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_a0a8dd07_644b_4646_a305_ef249fa67752</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+<celldesigner:species id="s__5fcbfc9c_92a0_45b2_834b_ad8866d4008b" name="ATP">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__1129b8c7_71da_4a6c_8681_3082e6f04a6c</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ATP</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+<celldesigner:species id="s__1ce3ffae_f9a7_09a1_c91f_bf176708c1d2" name="myosin">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__85682413_94f7_8b3c_e052_59a72cd48e12</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_a0a8dd07_644b_4646_a305_ef249fa67752</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+<celldesigner:species id="s__0fbd0d13_c59b_48ab_240d_c262dd1bc480" name="actin">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__85682413_94f7_8b3c_e052_59a72cd48e12</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr__0fbd0d13_c59b_48ab_240d_c262dd1bc480</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+<celldesigner:species id="s__343e0d0d_eeac_5cf5_acec_bc15975650a3" name="myosin">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__04ea25d8_dfaa_7912_303f_be00b342fc27</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_a0a8dd07_644b_4646_a305_ef249fa67752</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+<celldesigner:species id="s__96e17352_dd50_0332_a224_954cd97fc3c2" name="actin">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__04ea25d8_dfaa_7912_303f_be00b342fc27</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr__0fbd0d13_c59b_48ab_240d_c262dd1bc480</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+<celldesigner:species id="s_a3f830ac_34e3_466a_62ac_642bc3e51777" name="ATP">
+<celldesigner:notes>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title/>
+</head>
+<body/>
+</html>
+</celldesigner:notes>
+<celldesigner:annotation>
+<celldesigner:complexSpecies>s__04ea25d8_dfaa_7912_303f_be00b342fc27</celldesigner:complexSpecies>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ATP</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:annotation>
+</celldesigner:species>
+</celldesigner:listOfIncludedSpecies>
+<celldesigner:listOfCompartmentAliases>
+<celldesigner:compartmentAlias id="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:class>SQUARE</celldesigner:class>
+<celldesigner:bounds x="700.4773499851188" y="40.0" w="745.9020162661556" h="409.70484179076595"/>
+<celldesigner:namePoint x="706.4773499851188" y="52.5"/>
+<celldesigner:doubleLine thickness="12.0" outerWidth="2.0" innerWidth="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:compartmentAlias>
+<celldesigner:compartmentAlias id="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:class>SQUARE</celldesigner:class>
+<celldesigner:bounds x="40.0" y="103.42309871092468" w="316.0675734938809" h="315.9878645468844"/>
+<celldesigner:namePoint x="46.0" y="115.92309871092468"/>
+<celldesigner:doubleLine thickness="12.0" outerWidth="2.0" innerWidth="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:compartmentAlias>
+<celldesigner:compartmentAlias id="ca_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" compartment="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d">
+<celldesigner:class>SQUARE</celldesigner:class>
+<celldesigner:bounds x="413.4443161061847" y="162.3121145207086" w="218.00901463861186" h="202.01086590823894"/>
+<celldesigner:namePoint x="419.4443161061847" y="174.8121145207086"/>
+<celldesigner:doubleLine thickness="12.0" outerWidth="2.0" innerWidth="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:compartmentAlias>
+<celldesigner:compartmentAlias id="ca_nwtN_d1535aaf_5d91_4108_9331_852d6acb876e" compartment="c_nwtN_d1535aaf_5d91_4108_9331_852d6acb876e">
+<celldesigner:class>SQUARE</celldesigner:class>
+<celldesigner:bounds x="906.0097887416918" y="104.3567198982449" w="61.25" h="61.25"/>
+<celldesigner:namePoint x="912.0097887416918" y="116.8567198982449"/>
+<celldesigner:doubleLine thickness="12.0" outerWidth="2.0" innerWidth="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:compartmentAlias>
+<celldesigner:compartmentAlias id="ca__9007194d_c2e6_4939_a795_be71ae35a60d" compartment="c__9007194d_c2e6_4939_a795_be71ae35a60d">
+<celldesigner:class>SQUARE</celldesigner:class>
+<celldesigner:bounds x="273.83945354507176" y="133.38009469884307" w="61.25" h="61.25"/>
+<celldesigner:namePoint x="279.83945354507176" y="145.88009469884307"/>
+<celldesigner:doubleLine thickness="12.0" outerWidth="2.0" innerWidth="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:compartmentAlias>
+</celldesigner:listOfCompartmentAliases>
+<celldesigner:listOfComplexSpeciesAliases>
+<celldesigner:complexSpeciesAlias id="sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c" species="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1080.443602542835" y="78.62874609863712" w="83.25" h="109.25"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:backupSize w="0.0" h="0.0"/>
+<celldesigner:backupView state="none"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="379.9662525577161" y="38.62874609863712"/>
+<celldesigner:boxSize width="83.25" height="109.25"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff7f" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="83.25" height="109.25"/>
+<celldesigner:singleLine width="83.25"/>
+<celldesigner:paint color="ffffffff7f" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:complexSpeciesAlias>
+<celldesigner:complexSpeciesAlias id="sa__85682413_94f7_8b3c_e052_59a72cd48e12" species="s__85682413_94f7_8b3c_e052_59a72cd48e12" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1264.2127701655445" y="247.2008058929556" w="83.25" h="106.25"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:backupSize w="0.0" h="0.0"/>
+<celldesigner:backupView state="none"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="563.7354201804256" y="207.2008058929556"/>
+<celldesigner:boxSize width="83.25" height="106.25"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff7f" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="83.25" height="106.25"/>
+<celldesigner:singleLine width="83.25"/>
+<celldesigner:paint color="ffffffff7f" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:complexSpeciesAlias>
+<celldesigner:complexSpeciesAlias id="sa__04ea25d8_dfaa_7912_303f_be00b342fc27" species="s__04ea25d8_dfaa_7912_303f_be00b342fc27" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1058.818602542835" y="266.00666935963574" w="126.5" h="109.25"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:backupSize w="0.0" h="0.0"/>
+<celldesigner:backupView state="none"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="358.3412525577161" y="226.00666935963574"/>
+<celldesigner:boxSize width="126.5" height="109.25"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff7f" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="126.5" height="109.25"/>
+<celldesigner:singleLine width="126.5"/>
+<celldesigner:paint color="ffffffff7f" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:complexSpeciesAlias>
+</celldesigner:listOfComplexSpeciesAliases>
+<celldesigner:listOfSpeciesAliases>
+<celldesigner:speciesAlias id="sa__66737d5c_5193_43a2_baa6_094aa1c21654" species="s__66737d5c_5193_43a2_baa6_094aa1c21654" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="271.83527864240807" y="373.78596325780904" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="231.83527864240807" y="270.36286454688434"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" species="s_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="280.4425734938809" y="249.42140426198034" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="240.4425734938809" y="145.99830555105567"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_a083be43_422d_9067_c688_661cec17e472" species="s_a083be43_422d_9067_c688_661cec17e472" compartmentAlias="ca__9007194d_c2e6_4939_a795_be71ae35a60d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="286.46445354507176" y="146.00509469884307" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="12.625" y="12.625"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_d2531344_d005_4b92_afd2_14dcb7d40965" species="s_d2531344_d005_4b92_afd2_14dcb7d40965" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="176.0406132978684" y="206.5785694586383" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="136.0406132978684" y="103.15547074771362"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" species="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="198.77896979715987" y="297.822059582877" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="158.77896979715987" y="194.3989608719523"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_ed79ab12_7b79_4a8a_80b3_c65181c076e4" species="s_ed79ab12_7b79_4a8a_80b3_c65181c076e4" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="109.75228717262155" y="320.80483636260203" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="69.75228717262155" y="217.38173765167735"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_ce103257_dbf5_430f_9e6c_1745990341de" species="s_ce103257_dbf5_430f_9e6c_1745990341de" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="55.625" y="242.28751280305" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="15.625" y="138.86441409212532"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__9886817c_7043_4de9_9895_0cd247f47190" species="s__9886817c_7043_4de9_9895_0cd247f47190" compartmentAlias="ca__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="155.58669719095428" y="119.04809871092465" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="115.58669719095428" y="15.624999999999972"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_b88b6460_4172_427f_abbe_d7c0f0a174ce" species="s_b88b6460_4172_427f_abbe_d7c0f0a174ce" compartmentAlias="ca_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="555.8283307447966" y="266.020698215864" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="142.38401463861192" y="103.7085836951554"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_fb8eb6bc_a39a_4361_b938_026a3b63a9b9" species="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9" compartmentAlias="ca_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="426.0693161061848" y="259.292553620693" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="12.625000000000057" y="96.98043909998441"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__8ba53135_01b4_4a4b_b87d_a5971850cb39" species="s__8ba53135_01b4_4a4b_b87d_a5971850cb39" compartmentAlias="ca_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="495.107467063963" y="315.6979804289476" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="81.66315095777827" y="153.38586590823897"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__06e41c55_1352_407e_9c4b_604d3f5f616b" species="s__06e41c55_1352_407e_9c4b_604d3f5f616b" compartmentAlias="ca_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="522.1879370538969" y="194.91613734885584" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="108.7436209477122" y="32.60402282814724"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_f3ac8950_6d69_4c5b_92dd_3020906ea2c8" species="s_f3ac8950_6d69_4c5b_92dd_3020906ea2c8" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="716.1023499851187" y="250.29169906411238" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="15.624999999999886" y="210.29169906411238"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" species="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="837.3667199816333" y="193.92196651538805" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="136.88936999651446" y="153.92196651538805"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" species="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="996.5534072469059" y="191.25417577250641" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="296.076057261787" y="151.25417577250641"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__26a815b4_64c3_4797_9bfd_7dceafb3345d" species="s__26a815b4_64c3_4797_9bfd_7dceafb3345d" complexSpeciesAlias="sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1092.068602542835" y="86.62874609863712" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="11.625" y="8.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__5fcbfc9c_92a0_45b2_834b_ad8866d4008b" species="s__5fcbfc9c_92a0_45b2_834b_ad8866d4008b" complexSpeciesAlias="sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1089.068602542835" y="126.87874609863712" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="8.625" y="48.25"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__9b7f467a_30eb_4b8e_a966_43692648a46e" species="s__9b7f467a_30eb_4b8e_a966_43692648a46e" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1128.4364944916938" y="207.41489146404354" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="427.95914450657494" y="167.41489146404354"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_a0a8dd07_644b_4646_a305_ef249fa67752" species="s_a0a8dd07_644b_4646_a305_ef249fa67752" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1242.7690393346866" y="145.73816438785428" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="542.2916893495677" y="105.73816438785428"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__20e434c6_e738_4ae5_8a8a_e49f53fe85fb" species="s__20e434c6_e738_4ae5_8a8a_e49f53fe85fb" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1242.4723544314397" y="52.62500000000003" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="541.9950044463209" y="12.625000000000028"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__1ce3ffae_f9a7_09a1_c91f_bf176708c1d2" species="s__1ce3ffae_f9a7_09a1_c91f_bf176708c1d2" complexSpeciesAlias="sa__85682413_94f7_8b3c_e052_59a72cd48e12">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1275.8377701655445" y="255.2008058929556" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="11.625" y="8.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__0fbd0d13_c59b_48ab_240d_c262dd1bc480" species="s__0fbd0d13_c59b_48ab_240d_c262dd1bc480" complexSpeciesAlias="sa__85682413_94f7_8b3c_e052_59a72cd48e12">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1275.8377701655445" y="298.4508058929556" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="11.625" y="51.25"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" species="s_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1370.7543662512744" y="339.3181021144851" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="670.2770162661556" y="299.3181021144851"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__343e0d0d_eeac_5cf5_acec_bc15975650a3" species="s__343e0d0d_eeac_5cf5_acec_bc15975650a3" complexSpeciesAlias="sa__04ea25d8_dfaa_7912_303f_be00b342fc27">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1070.443602542835" y="277.00666935963574" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="11.625" y="11.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__96e17352_dd50_0332_a224_954cd97fc3c2" species="s__96e17352_dd50_0332_a224_954cd97fc3c2" complexSpeciesAlias="sa__04ea25d8_dfaa_7912_303f_be00b342fc27">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1070.443602542835" y="320.25666935963574" w="60.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="11.625" y="54.25"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="60.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_a3f830ac_34e3_466a_62ac_642bc3e51777" species="s_a3f830ac_34e3_466a_62ac_642bc3e51777" complexSpeciesAlias="sa__04ea25d8_dfaa_7912_303f_be00b342fc27">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1140.693602542835" y="274.00666935963574" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="81.875" y="8.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__6259ebd3_e879_4c70_b442_a602e5408989" species="s__6259ebd3_e879_4c70_b442_a602e5408989" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1191.698506829504" y="401.07984179076595" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="491.22115684438506" y="361.07984179076595"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa_fb04887c_b0a0_4a2d_8cdd_a70826c659ee" species="s_fb04887c_b0a0_4a2d_8cdd_a70826c659ee" compartmentAlias="ca__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="1264.1567714998846" y="380.21047564554834" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="563.6794215147657" y="340.21047564554834"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa__8c083cee_7025_4035_9201_1319da22340b" species="s__8c083cee_7025_4035_9201_1319da22340b" compartmentAlias="ca_nwtN_d1535aaf_5d91_4108_9331_852d6acb876e">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="918.6347887416918" y="116.9817198982449" w="36.0" h="36.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="12.625" y="12.625"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="36.0" height="36.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffffff" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+</celldesigner:listOfSpeciesAliases>
+<celldesigner:listOfGroups/>
+<celldesigner:listOfProteins>
+<celldesigner:protein id="pr__0fbd0d13_c59b_48ab_240d_c262dd1bc480" name="actin" type="GENERIC"/>
+<celldesigner:protein id="pr_a0a8dd07_644b_4646_a305_ef249fa67752" name="myosin" type="GENERIC"/>
+<celldesigner:protein id="pr_f3ac8950_6d69_4c5b_92dd_3020906ea2c8" name="nAChR" type="GENERIC"/>
+<celldesigner:protein id="pr_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" name="SNARE" type="GENERIC"/>
+<celldesigner:protein id="pr_b88b6460_4172_427f_abbe_d7c0f0a174ce" name="AChE" type="GENERIC"/>
+<celldesigner:protein id="pr__66737d5c_5193_43a2_baa6_094aa1c21654" name="CHT1" type="GENERIC"/>
+<celldesigner:protein id="pr_ce103257_dbf5_430f_9e6c_1745990341de" name="ChAT" type="GENERIC"/>
+<celldesigner:protein id="pr__9886817c_7043_4de9_9895_0cd247f47190" name="vAChT" type="GENERIC"/>
+</celldesigner:listOfProteins>
+<celldesigner:listOfGenes/>
+<celldesigner:listOfRNAs/>
+<celldesigner:listOfAntisenseRNAs/>
+<celldesigner:listOfLayers/>
+<celldesigner:listOfBlockDiagrams/>
+</celldesigner:extension>
+</annotation>
+<listOfUnitDefinitions>
+<unitDefinition metaid="substance" id="substance" name="substance">
+<listOfUnits>
+<unit metaid="CDMT00001" kind="mole"/>
+</listOfUnits>
+</unitDefinition>
+<unitDefinition metaid="volume" id="volume" name="volume">
+<listOfUnits>
+<unit metaid="CDMT00002" kind="litre"/>
+</listOfUnits>
+</unitDefinition>
+<unitDefinition metaid="area" id="area" name="area">
+<listOfUnits>
+<unit metaid="CDMT00003" kind="metre" exponent="2"/>
+</listOfUnits>
+</unitDefinition>
+<unitDefinition metaid="length" id="length" name="length">
+<listOfUnits>
+<unit metaid="CDMT00004" kind="metre"/>
+</listOfUnits>
+</unitDefinition>
+<unitDefinition metaid="time" id="time" name="time">
+<listOfUnits>
+<unit metaid="CDMT00005" kind="second"/>
+</listOfUnits>
+</unitDefinition>
+</listOfUnitDefinitions>
+<listOfCompartments>
+<compartment metaid="default" id="default" size="1" units="volume"/>
+<compartment metaid="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" id="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" name="muscle_space_cytosol" size="1" units="volume" outside="default">
+<annotation>
+<celldesigner:extension>
+<celldesigner:name>muscle_space_cytosol</celldesigner:name>
+</celldesigner:extension>
+</annotation>
+</compartment>
+<compartment metaid="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" id="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" name="synaptic_space_button" size="1" units="volume" outside="default">
+<annotation>
+<celldesigner:extension>
+<celldesigner:name>synaptic_space_button</celldesigner:name>
+</celldesigner:extension>
+</annotation>
+</compartment>
+<compartment metaid="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" id="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" name="synaptic_space_cleft" size="1" units="volume" outside="default">
+<annotation>
+<celldesigner:extension>
+<celldesigner:name>synaptic_space_cleft</celldesigner:name>
+</celldesigner:extension>
+</annotation>
+</compartment>
+<compartment metaid="c_nwtN_d1535aaf_5d91_4108_9331_852d6acb876e" id="c_nwtN_d1535aaf_5d91_4108_9331_852d6acb876e" name="ER" size="1" units="volume" outside="c__23d436e2_6633_42f2_98d0_00dbb962ac3d">
+<annotation>
+<celldesigner:extension>
+<celldesigner:name>ER</celldesigner:name>
+</celldesigner:extension>
+</annotation>
+</compartment>
+<compartment metaid="c__9007194d_c2e6_4939_a795_be71ae35a60d" id="c__9007194d_c2e6_4939_a795_be71ae35a60d" name="synaptic_space_vesicle" size="1" units="volume" outside="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085">
+<annotation>
+<celldesigner:extension>
+<celldesigner:name>synaptic_space_vesicle</celldesigner:name>
+</celldesigner:extension>
+</annotation>
+</compartment>
+</listOfCompartments>
+<listOfSpecies>
+<species metaid="s__66737d5c_5193_43a2_baa6_094aa1c21654" id="s__66737d5c_5193_43a2_baa6_094aa1c21654" name="CHT1" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr__66737d5c_5193_43a2_baa6_094aa1c21654</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re__96b935d7_083c_468d_8607_d3b70fff10a7"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" id="s_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" name="SNARE" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_be08c23c_dca4_43cd_b8a6_06f6ebdaf710</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re_d9e08f4b_94b8_4285_af36_f4159b56a2fc"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_a083be43_422d_9067_c688_661cec17e472" id="s_a083be43_422d_9067_c688_661cec17e472" name="ACh" compartment="c__9007194d_c2e6_4939_a795_be71ae35a60d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ACh</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_d2531344_d005_4b92_afd2_14dcb7d40965" id="s_d2531344_d005_4b92_afd2_14dcb7d40965" name="ACh" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ACh</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" id="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" name="choline" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>choline</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_ed79ab12_7b79_4a8a_80b3_c65181c076e4" id="s_ed79ab12_7b79_4a8a_80b3_c65181c076e4" name="acetyl_space_CoA" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>acetyl_space_CoA</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_ce103257_dbf5_430f_9e6c_1745990341de" id="s_ce103257_dbf5_430f_9e6c_1745990341de" name="ChAT" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_ce103257_dbf5_430f_9e6c_1745990341de</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re__2bdf0056_96f6_4184_a214_8c7cc7da6214"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__9886817c_7043_4de9_9895_0cd247f47190" id="s__9886817c_7043_4de9_9895_0cd247f47190" name="vAChT" compartment="c__82f19e9e_6aa2_42b3_8b5e_8cee17197085" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr__9886817c_7043_4de9_9895_0cd247f47190</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re__3797d8d2_4f00_4d1f_9d85_ecad1e61746d"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_b88b6460_4172_427f_abbe_d7c0f0a174ce" id="s_b88b6460_4172_427f_abbe_d7c0f0a174ce" name="AChE" compartment="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_b88b6460_4172_427f_abbe_d7c0f0a174ce</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re__6865aebe_2564_4ff6_a15a_6bd07a3a0ef8"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9" id="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9" name="choline" compartment="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>choline</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__8ba53135_01b4_4a4b_b87d_a5971850cb39" id="s__8ba53135_01b4_4a4b_b87d_a5971850cb39" name="acetate" compartment="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>acetate</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__06e41c55_1352_407e_9c4b_604d3f5f616b" id="s__06e41c55_1352_407e_9c4b_604d3f5f616b" name="ACh" compartment="c_e95a1256_8a47_4aaf_b3d8_7d8387d5a31d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ACh</celldesigner:name>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re__264a7088_e810_4679_9c92_f06886510f98"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_f3ac8950_6d69_4c5b_92dd_3020906ea2c8" id="s_f3ac8950_6d69_4c5b_92dd_3020906ea2c8" name="nAChR" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_f3ac8950_6d69_4c5b_92dd_3020906ea2c8</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" id="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" name="nAChR" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_f3ac8950_6d69_4c5b_92dd_3020906ea2c8</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re_d756f4ab_9813_4d55_aa86_c37dc7f3b286"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" id="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" name="Ca2_plus_" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>Ca2_plus_</celldesigner:name>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re__3a96c155_e828_4038_8384_4c25f4f1aaf6"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c" id="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c" name="myosin" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>COMPLEX</celldesigner:class>
+<celldesigner:name>myosin</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__9b7f467a_30eb_4b8e_a966_43692648a46e" id="s__9b7f467a_30eb_4b8e_a966_43692648a46e" name="actin" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr__0fbd0d13_c59b_48ab_240d_c262dd1bc480</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_a0a8dd07_644b_4646_a305_ef249fa67752" id="s_a0a8dd07_644b_4646_a305_ef249fa67752" name="myosin" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PROTEIN</celldesigner:class>
+<celldesigner:proteinReference>pr_a0a8dd07_644b_4646_a305_ef249fa67752</celldesigner:proteinReference>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__20e434c6_e738_4ae5_8a8a_e49f53fe85fb" id="s__20e434c6_e738_4ae5_8a8a_e49f53fe85fb" name="ATP" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ATP</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__85682413_94f7_8b3c_e052_59a72cd48e12" id="s__85682413_94f7_8b3c_e052_59a72cd48e12" name="tense" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>COMPLEX</celldesigner:class>
+<celldesigner:name>tense</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" id="s_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" name="muscle_space_contraction" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>PHENOTYPE</celldesigner:class>
+<celldesigner:name>muscle_space_contraction</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__04ea25d8_dfaa_7912_303f_be00b342fc27" id="s__04ea25d8_dfaa_7912_303f_be00b342fc27" name="relaxed" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>COMPLEX</celldesigner:class>
+<celldesigner:name>relaxed</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__6259ebd3_e879_4c70_b442_a602e5408989" id="s__6259ebd3_e879_4c70_b442_a602e5408989" name="Pi" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>Pi</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s_fb04887c_b0a0_4a2d_8cdd_a70826c659ee" id="s_fb04887c_b0a0_4a2d_8cdd_a70826c659ee" name="ADP" compartment="c__23d436e2_6633_42f2_98d0_00dbb962ac3d" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ADP</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s__8c083cee_7025_4035_9201_1319da22340b" id="s__8c083cee_7025_4035_9201_1319da22340b" name="Ca2_plus_" compartment="c_nwtN_d1535aaf_5d91_4108_9331_852d6acb876e" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>Ca2_plus_</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+</listOfSpecies>
+<listOfReactions>
+<reaction metaid="re__96b935d7_083c_468d_8607_d3b70fff10a7" id="re__96b935d7_083c_468d_8607_d3b70fff10a7" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9" alias="sa_fb8eb6bc_a39a_4361_b938_026a3b63a9b9"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" alias="sa__135e2807_2b5c_4886_bbdf_d3c8bf433ab9"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="TRIGGER" modifiers="s__66737d5c_5193_43a2_baa6_094aa1c21654" aliases="sa__66737d5c_5193_43a2_baa6_094aa1c21654" targetLineIndex="-1,2">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR1" species="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_fb8eb6bc_a39a_4361_b938_026a3b63a9b9</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR2" species="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__135e2807_2b5c_4886_bbdf_d3c8bf433ab9</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR3" species="s__66737d5c_5193_43a2_baa6_094aa1c21654">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__66737d5c_5193_43a2_baa6_094aa1c21654</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re__2bdf0056_96f6_4184_a214_8c7cc7da6214" id="re__2bdf0056_96f6_4184_a214_8c7cc7da6214" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_ed79ab12_7b79_4a8a_80b3_c65181c076e4" alias="sa_ed79ab12_7b79_4a8a_80b3_c65181c076e4"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s_d2531344_d005_4b92_afd2_14dcb7d40965" alias="sa_d2531344_d005_4b92_afd2_14dcb7d40965"/>
+</celldesigner:baseProducts>
+<celldesigner:listOfReactantLinks>
+<celldesigner:reactantLink reactant="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" alias="sa__135e2807_2b5c_4886_bbdf_d3c8bf433ab9" targetLineIndex="-1,0">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:reactantLink>
+</celldesigner:listOfReactantLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="CATALYSIS" modifiers="s_ce103257_dbf5_430f_9e6c_1745990341de" aliases="sa_ce103257_dbf5_430f_9e6c_1745990341de" targetLineIndex="-1,2">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR4" species="s_ed79ab12_7b79_4a8a_80b3_c65181c076e4">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_ed79ab12_7b79_4a8a_80b3_c65181c076e4</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR5" species="s__135e2807_2b5c_4886_bbdf_d3c8bf433ab9">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__135e2807_2b5c_4886_bbdf_d3c8bf433ab9</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR6" species="s_d2531344_d005_4b92_afd2_14dcb7d40965">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_d2531344_d005_4b92_afd2_14dcb7d40965</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR7" species="s_ce103257_dbf5_430f_9e6c_1745990341de">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_ce103257_dbf5_430f_9e6c_1745990341de</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re__3797d8d2_4f00_4d1f_9d85_ecad1e61746d" id="re__3797d8d2_4f00_4d1f_9d85_ecad1e61746d" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_d2531344_d005_4b92_afd2_14dcb7d40965" alias="sa_d2531344_d005_4b92_afd2_14dcb7d40965"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s_a083be43_422d_9067_c688_661cec17e472" alias="sa_a083be43_422d_9067_c688_661cec17e472"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="TRIGGER" modifiers="s__9886817c_7043_4de9_9895_0cd247f47190" aliases="sa__9886817c_7043_4de9_9895_0cd247f47190" targetLineIndex="-1,2">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR8" species="s_d2531344_d005_4b92_afd2_14dcb7d40965">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_d2531344_d005_4b92_afd2_14dcb7d40965</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR9" species="s_a083be43_422d_9067_c688_661cec17e472">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_a083be43_422d_9067_c688_661cec17e472</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR10" species="s__9886817c_7043_4de9_9895_0cd247f47190">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__9886817c_7043_4de9_9895_0cd247f47190</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re__6865aebe_2564_4ff6_a15a_6bd07a3a0ef8" id="re__6865aebe_2564_4ff6_a15a_6bd07a3a0ef8" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s__06e41c55_1352_407e_9c4b_604d3f5f616b" alias="sa__06e41c55_1352_407e_9c4b_604d3f5f616b"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9" alias="sa_fb8eb6bc_a39a_4361_b938_026a3b63a9b9"/>
+</celldesigner:baseProducts>
+<celldesigner:listOfProductLinks>
+<celldesigner:productLink product="s__8ba53135_01b4_4a4b_b87d_a5971850cb39" alias="sa__8ba53135_01b4_4a4b_b87d_a5971850cb39" targetLineIndex="-1,1">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:productLink>
+</celldesigner:listOfProductLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="CATALYSIS" modifiers="s_b88b6460_4172_427f_abbe_d7c0f0a174ce" aliases="sa_b88b6460_4172_427f_abbe_d7c0f0a174ce" targetLineIndex="-1,2">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR11" species="s__06e41c55_1352_407e_9c4b_604d3f5f616b">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__06e41c55_1352_407e_9c4b_604d3f5f616b</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR12" species="s_fb8eb6bc_a39a_4361_b938_026a3b63a9b9">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_fb8eb6bc_a39a_4361_b938_026a3b63a9b9</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR13" species="s__8ba53135_01b4_4a4b_b87d_a5971850cb39">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__8ba53135_01b4_4a4b_b87d_a5971850cb39</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR14" species="s_b88b6460_4172_427f_abbe_d7c0f0a174ce">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_b88b6460_4172_427f_abbe_d7c0f0a174ce</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re_d9e08f4b_94b8_4285_af36_f4159b56a2fc" id="re_d9e08f4b_94b8_4285_af36_f4159b56a2fc" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_a083be43_422d_9067_c688_661cec17e472" alias="sa_a083be43_422d_9067_c688_661cec17e472"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__06e41c55_1352_407e_9c4b_604d3f5f616b" alias="sa__06e41c55_1352_407e_9c4b_604d3f5f616b"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="TRIGGER" modifiers="s_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" aliases="sa_be08c23c_dca4_43cd_b8a6_06f6ebdaf710" targetLineIndex="-1,3">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR15" species="s_a083be43_422d_9067_c688_661cec17e472">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_a083be43_422d_9067_c688_661cec17e472</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR16" species="s__06e41c55_1352_407e_9c4b_604d3f5f616b">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__06e41c55_1352_407e_9c4b_604d3f5f616b</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR17" species="s_be08c23c_dca4_43cd_b8a6_06f6ebdaf710">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_be08c23c_dca4_43cd_b8a6_06f6ebdaf710</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re__264a7088_e810_4679_9c92_f06886510f98" id="re__264a7088_e810_4679_9c92_f06886510f98" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_f3ac8950_6d69_4c5b_92dd_3020906ea2c8" alias="sa_f3ac8950_6d69_4c5b_92dd_3020906ea2c8"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" alias="sa__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="TRIGGER" modifiers="s__06e41c55_1352_407e_9c4b_604d3f5f616b" aliases="sa__06e41c55_1352_407e_9c4b_604d3f5f616b" targetLineIndex="-1,2">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR18" species="s_f3ac8950_6d69_4c5b_92dd_3020906ea2c8">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_f3ac8950_6d69_4c5b_92dd_3020906ea2c8</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR19" species="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR20" species="s__06e41c55_1352_407e_9c4b_604d3f5f616b">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__06e41c55_1352_407e_9c4b_604d3f5f616b</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re_d756f4ab_9813_4d55_aa86_c37dc7f3b286" id="re_d756f4ab_9813_4d55_aa86_c37dc7f3b286" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s__8c083cee_7025_4035_9201_1319da22340b" alias="sa__8c083cee_7025_4035_9201_1319da22340b"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" alias="sa_ac2f1b2b_2e6e_4647_84bd_c141925f4d85"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="TRIGGER" modifiers="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" aliases="sa__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0" targetLineIndex="-1,3">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR21" species="s__8c083cee_7025_4035_9201_1319da22340b">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__8c083cee_7025_4035_9201_1319da22340b</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR22" species="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_ac2f1b2b_2e6e_4647_84bd_c141925f4d85</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR23" species="s__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__4b4a1add_6cf6_47cb_b952_5ea0ceade9a0</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re__3a96c155_e828_4038_8384_4c25f4f1aaf6" id="re__3a96c155_e828_4038_8384_4c25f4f1aaf6" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c" alias="sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__04ea25d8_dfaa_7912_303f_be00b342fc27" alias="sa__04ea25d8_dfaa_7912_303f_be00b342fc27"/>
+</celldesigner:baseProducts>
+<celldesigner:listOfReactantLinks>
+<celldesigner:reactantLink reactant="s__9b7f467a_30eb_4b8e_a966_43692648a46e" alias="sa__9b7f467a_30eb_4b8e_a966_43692648a46e" targetLineIndex="-1,0">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:reactantLink>
+</celldesigner:listOfReactantLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+<celldesigner:listOfModification>
+<celldesigner:modification type="PHYSICAL_STIMULATION" modifiers="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" aliases="sa_ac2f1b2b_2e6e_4647_84bd_c141925f4d85" targetLineIndex="-1,3">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:modification>
+</celldesigner:listOfModification>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR24" species="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR25" species="s__9b7f467a_30eb_4b8e_a966_43692648a46e">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__9b7f467a_30eb_4b8e_a966_43692648a46e</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR26" species="s__04ea25d8_dfaa_7912_303f_be00b342fc27">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__04ea25d8_dfaa_7912_303f_be00b342fc27</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="SR27" species="s_ac2f1b2b_2e6e_4647_84bd_c141925f4d85">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_ac2f1b2b_2e6e_4647_84bd_c141925f4d85</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</modifierSpeciesReference>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re__97c2c87b_c5d2_41fb_97f6_a1001075cf08" id="re__97c2c87b_c5d2_41fb_97f6_a1001075cf08" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s__85682413_94f7_8b3c_e052_59a72cd48e12" alias="sa__85682413_94f7_8b3c_e052_59a72cd48e12"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__9b7f467a_30eb_4b8e_a966_43692648a46e" alias="sa__9b7f467a_30eb_4b8e_a966_43692648a46e"/>
+</celldesigner:baseProducts>
+<celldesigner:listOfProductLinks>
+<celldesigner:productLink product="s_a0a8dd07_644b_4646_a305_ef249fa67752" alias="sa_a0a8dd07_644b_4646_a305_ef249fa67752" targetLineIndex="-1,1">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:productLink>
+</celldesigner:listOfProductLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR28" species="s__85682413_94f7_8b3c_e052_59a72cd48e12">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__85682413_94f7_8b3c_e052_59a72cd48e12</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR29" species="s__9b7f467a_30eb_4b8e_a966_43692648a46e">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__9b7f467a_30eb_4b8e_a966_43692648a46e</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR30" species="s_a0a8dd07_644b_4646_a305_ef249fa67752">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_a0a8dd07_644b_4646_a305_ef249fa67752</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+</reaction>
+<reaction metaid="re__1e9c2dbf_2a4d_48c9_9d47_de9c0314f5b8" id="re__1e9c2dbf_2a4d_48c9_9d47_de9c0314f5b8" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s__04ea25d8_dfaa_7912_303f_be00b342fc27" alias="sa__04ea25d8_dfaa_7912_303f_be00b342fc27"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__85682413_94f7_8b3c_e052_59a72cd48e12" alias="sa__85682413_94f7_8b3c_e052_59a72cd48e12"/>
+</celldesigner:baseProducts>
+<celldesigner:listOfProductLinks>
+<celldesigner:productLink product="s_fb04887c_b0a0_4a2d_8cdd_a70826c659ee" alias="sa_fb04887c_b0a0_4a2d_8cdd_a70826c659ee" targetLineIndex="-1,1">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:productLink>
+<celldesigner:productLink product="s__6259ebd3_e879_4c70_b442_a602e5408989" alias="sa__6259ebd3_e879_4c70_b442_a602e5408989" targetLineIndex="-1,1">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:productLink>
+</celldesigner:listOfProductLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR31" species="s__04ea25d8_dfaa_7912_303f_be00b342fc27">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__04ea25d8_dfaa_7912_303f_be00b342fc27</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR32" species="s__85682413_94f7_8b3c_e052_59a72cd48e12">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__85682413_94f7_8b3c_e052_59a72cd48e12</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR33" species="s_fb04887c_b0a0_4a2d_8cdd_a70826c659ee">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_fb04887c_b0a0_4a2d_8cdd_a70826c659ee</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR34" species="s__6259ebd3_e879_4c70_b442_a602e5408989">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__6259ebd3_e879_4c70_b442_a602e5408989</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+</reaction>
+<reaction metaid="re__00ac7e0a_288f_42e0_b252_9bcb59027572" id="re__00ac7e0a_288f_42e0_b252_9bcb59027572" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s_a0a8dd07_644b_4646_a305_ef249fa67752" alias="sa_a0a8dd07_644b_4646_a305_ef249fa67752"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c" alias="sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c"/>
+</celldesigner:baseProducts>
+<celldesigner:listOfReactantLinks>
+<celldesigner:reactantLink reactant="s__20e434c6_e738_4ae5_8a8a_e49f53fe85fb" alias="sa__20e434c6_e738_4ae5_8a8a_e49f53fe85fb" targetLineIndex="-1,0">
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000" type="Straight"/>
+</celldesigner:reactantLink>
+</celldesigner:listOfReactantLinks>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR35" species="s_a0a8dd07_644b_4646_a305_ef249fa67752">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_a0a8dd07_644b_4646_a305_ef249fa67752</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+<speciesReference metaid="SR36" species="s__20e434c6_e738_4ae5_8a8a_e49f53fe85fb">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__20e434c6_e738_4ae5_8a8a_e49f53fe85fb</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR37" species="s__1129b8c7_71da_4a6c_8681_3082e6f04a6c">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__1129b8c7_71da_4a6c_8681_3082e6f04a6c</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+</reaction>
+<reaction metaid="re__85682413_94f7_8b3c_e052_59a72cd48e12_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" id="re__85682413_94f7_8b3c_e052_59a72cd48e12_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" reversible="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>PHYSICAL_STIMULATION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s__85682413_94f7_8b3c_e052_59a72cd48e12" alias="sa__85682413_94f7_8b3c_e052_59a72cd48e12"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb" alias="sa_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="SR38" species="s__85682413_94f7_8b3c_e052_59a72cd48e12">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa__85682413_94f7_8b3c_e052_59a72cd48e12</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="SR39" species="s_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa_e889d01c_1eb1_4c83_8bd9_0160e9c2abcb</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+</reaction>
+</listOfReactions>
+</model>
+</sbml>
