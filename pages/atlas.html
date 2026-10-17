@@ -547,7 +547,7 @@ sitemap: false
         // the note only; without one the card shows just the symbol and its link
         if (mp['Note']) { c.appendChild(document.createTextNode(' ')); c.appendChild(el('span', 'm2-k', mp['Note'])); }
         if (mp['UniProt']) {
-          var u = el('a', null, 'UNIPROT (' + mp['UniProt'] + ')');
+          var u = el('a', null, 'UNIPROT: ' + mp['UniProt']);
           u.href = LINK['UniProt'] + mp['UniProt']; u.target = '_blank'; u.rel = 'noopener';
           u.addEventListener('click', function (e) { e.stopPropagation(); }); // the link, not the card
           var d = el('div'); d.appendChild(u); c.appendChild(d);
@@ -621,7 +621,7 @@ sitemap: false
       (LINK[n] ? String(p[n]).split(/,\s*/) : [String(p[n])]).forEach(function (v, i) {
         if (i) li.appendChild(document.createTextNode(', '));
         if (LINK[n]) {
-          var a = el('a', null, n.toUpperCase() + ' (' + v + ')');
+          var a = el('a', null, n.toUpperCase() + ': ' + v);
           a.href = LINK[n] + encodeURIComponent(v).replace(/%3A/g, ':'); a.target = '_blank'; a.rel = 'noopener';
           li.appendChild(a);
         } else {
