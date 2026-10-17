@@ -201,9 +201,11 @@ def main():
         if re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
             print('WARNING %s/%s.md links %s files' % (folder[slug], slug, wrong))
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
-        released = re.search(r'^released:\s*(\d{4}-\d\d-\d\d)', front, re.M)
-        new = (folder[slug] == '_projects' and released is not None and
-               (datetime.date.today() - datetime.date.fromisoformat(released.group(1))).days < NEW_DAYS)
+        # new and draft are independent: the date is read from the official page, also when a
+        # draft of the map replaces it in the Atlas (user, 2026-10-17)
+        official = os.path.join(ROOT, '_projects', slug + '.md')
+        released = os.path.exists(official) and re.search(r'^released:\s*(\d{4}-\d\d-\d\d)', open(official, encoding='utf-8').read(), re.M)
+        new = bool(released) and (datetime.date.today() - datetime.date.fromisoformat(released.group(1))).days < NEW_DAYS
         permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
         # the contributors entry as written (one line, or a list with indented lines)
         contrib = re.search(r'^contributors:.*\n(?:[ \t]+\S.*\n)*', front, re.M)
