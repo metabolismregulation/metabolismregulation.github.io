@@ -526,10 +526,7 @@ sitemap: false
     if (!family) {
       identity(p, sel.label);
       // the curated note: the molecule's role on this map
-      if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) {
-        info.appendChild(el('h4', null, 'Note'));
-        info.appendChild(el('p', null, p['Note']));
-      }
+      if (p['Note'] && p['Note'].toLowerCase() !== String(p['Full name'] || '').toLowerCase()) info.appendChild(el('p', null, p['Note']));
       ptm(p);
       record(p);
       return;
