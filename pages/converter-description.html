@@ -125,9 +125,6 @@ the XML library lxml 1.4 MB. The converter itself is 0.05 MB.</p>
 <p><b>Time</b>: estimated 3 to 5 seconds on the first visit over a fast connection, about 10 seconds
 over a slow one (10 Mbit/s). Later visits need only the start of Python, 1 to 4 seconds. Loading starts
 as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
-<p><b>Why it loads at once</b>: every conversion needs Python and lxml, since all the formats are XML.
-The parts that differ between conversions are a few tens of kilobytes, so loading them only when needed
-would save nothing noticeable.</p>
 
 <script>
 (() => {
