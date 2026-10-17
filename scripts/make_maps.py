@@ -97,19 +97,16 @@ ANN_FIELDS = ['PTM', 'Full name', 'Alternative names', 'Synonyms', 'Definition',
 MEMBERS_FIELD = 'Member annotation'
 # PTM: the node's post-translational modifications, one per line as on a state variable
 # (P@S505); the map shows only the symbol (user, 2026-10-17). Other states (active, bound
-# ions) are not described. The panel lists one line per type: "Phosphorylated at Ser505 and Ser727".
+# ions) are not described. The panel lists one line per site: "Phosphorylated at Ser505".
 MODIFIED = {'P': 'Phosphorylated', 'Ac': 'Acetylated', 'Me': 'Methylated', 'Ub': 'Ubiquitinated',
             'Su': 'Succinylated', 'Glut': 'Glutarylated', 'Pa': 'Palmitoylated', 'My': 'Myristoylated'}
 RESIDUE = {'S': 'Ser', 'T': 'Thr', 'Y': 'Tyr', 'K': 'Lys', 'C': 'Cys', 'G': 'Gly', 'R': 'Arg', 'H': 'His'}
 
 
 def ptm_text(ptm):
-    sites = collections.OrderedDict()
-    for s in ptm.split('\n'):
-        sym, _, site = s.strip().partition('@')
-        sites.setdefault(sym, []).extend([RESIDUE.get(site[:1], site[:1]) + site[1:]] if site else [])
-    return '\n'.join(MODIFIED.get(sym, sym) + (' at ' + ' and '.join(filter(None, [', '.join(v[:-1]), v[-1]])) if v else '')
-                     for sym, v in sites.items())
+    sites = (s.strip().partition('@') for s in ptm.split('\n'))
+    return '\n'.join(MODIFIED.get(sym, sym) + (' at ' + RESIDUE.get(site[:1], site[:1]) + site[1:] if site else '')
+                     for sym, _, site in sites)
 
 
 def annotation(base):
