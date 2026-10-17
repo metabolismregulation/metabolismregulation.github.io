@@ -9,10 +9,9 @@ contributors:
 project: true
 ---
 
-Downloads: &nbsp; 
-<a href="/atlas-downloads/F020-pyrimidine.graphml" download>GraphML</a> &nbsp;
-<a href="/atlas-downloads/F020-pyrimidine.svg" download>SVG</a> &nbsp;
-<a href="/atlas-downloads/F020-pyrimidine.xml" download>CellDesigner</a> &nbsp;
+<a href="/atlas-downloads/F020-pyrimidine.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
+<a href="/atlas-downloads/F020-pyrimidine.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
+<a href="/atlas-downloads/F020-pyrimidine.xml" download>{% include icon-download.html %}CellDesigner</a> &nbsp;
 <p align="middle"><a href="/pyrimidine/draft/"><img id="image" src="/atlas-downloads/F020-pyrimidine.svg" width="577"/></a></p>
 
 ## Description

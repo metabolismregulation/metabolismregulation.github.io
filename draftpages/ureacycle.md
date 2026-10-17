@@ -7,9 +7,8 @@ contributors:
 project: true
 ---
 
-Downloads: &nbsp; 
-<a href="/atlas-downloads/F021-ureacycle.graphml" download>GraphML</a> &nbsp;
-<a href="/atlas-downloads/F021-ureacycle.svg" download>SVG</a> &nbsp;
+<a href="/atlas-downloads/F021-ureacycle.graphml" download>{% include icon-download.html %}GraphML</a> &nbsp;
+<a href="/atlas-downloads/F021-ureacycle.svg" download>{% include icon-download.html %}SVG</a> &nbsp;
 <p align="middle"><a href="/ureacycle/draft/"><img id="image" src="/atlas-downloads/F021-ureacycle.svg" width="724"/></a></p>
 
 ## Reactome-Recon connection

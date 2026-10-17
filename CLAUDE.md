@@ -84,7 +84,7 @@ website: up to ten variants, one under another, on a hidden page (like the tag p
 /atlas/tags/), each with its name, so the user picks one there. Once chosen, the test page is removed (user, 2026-10-17). Download buttons carry the
 download icon (tray and arrow, before the label: Atlas, Converter); links to another site
 carry the external-link icon after the label.
-Official map pages (user, 2026-10-17): no "Downloads:" word, the links in the order GraphML, PNG, SVG,
+Map pages, drafts too (user, 2026-10-17): no "Downloads:" word, the links in the order GraphML, PNG, SVG,
 CellDesigner, SBML, SBGN-ML, Annotation, Newt, MINERVA (a file missing in `downloads/` is left out), each
 file with `{% include icon-download.html %}` before its name, Newt and MINERVA with
 `{% include icon-external.html %}` after it. The Gallery links carry the same icons.
