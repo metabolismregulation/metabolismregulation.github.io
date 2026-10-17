@@ -14,6 +14,7 @@ noindex: true
   #main a, #main a:hover, #main a:active { color: #1c47a9; }
   #cv-chart { display: block; width: 100%; max-width: 440px; margin: 8px auto 24px; }
   #cv-chart text { font-size: 14px; fill: #222; }
+  #cv-chart text.cv-ext { font-size: 12px; fill: #777; }
   #cv-chart .cv-node circle { fill: #fff; stroke: #ccc; stroke-width: 1.2; }
   #cv-chart .cv-node:hover circle { fill: #4183c4; stroke: #4183c4; }
   #cv-chart .cv-node:hover text { fill: #fff; }
@@ -61,7 +62,8 @@ keeps its shape. The map is rescaled if its objects are much larger or smaller.<
 <script>
 (() => {
   // the formats, clockwise from the top, and the routes: [from, to, note]
-  const FORMATS = [['GraphML', 'graphml'], ['SBGN-ML', 'sbgnml'], ['CellDesigner', 'celldesigner']];
+  // [name, section on this page, file extensions]
+  const FORMATS = [['GraphML', 'graphml', '.graphml'], ['SBGN-ML', 'sbgnml', '.sbgn, .nwt'], ['CellDesigner', 'celldesigner', '.xml']];
   const ROUTES = [
     ['GraphML', 'GraphML', 'corrected to the SBGN palette'],
     ['GraphML', 'CellDesigner'],
@@ -121,12 +123,14 @@ keeps its shape. The map is rescaled if its objects are much larger or smaller.<
     if (both) line.setAttribute('marker-start', 'url(#cv-both)');
     el('title', {}, line).textContent = `${from} ${both ? '↔' : '→'} ${to}`;
   }
-  for (const [name, id] of FORMATS) {
+  for (const [name, id, ext] of FORMATS) {
     const p = pos[name];
     const a = el('a', { href: '#' + id, class: 'cv-node' });
     el('circle', { cx: f(p.x), cy: f(p.y), r: NODE }, a);
-    const t = el('text', { x: f(p.x), y: f(p.y), 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
+    const t = el('text', { x: f(p.x), y: f(p.y - 8), 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
     t.textContent = name;
+    const e = el('text', { x: f(p.x), y: f(p.y + 10), class: 'cv-ext', 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
+    e.textContent = ext;
   }
 })();
 </script>
