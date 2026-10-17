@@ -1,0 +1,11 @@
+<script>
+  // the links of the References section open in a new tab (user, 2026-10-17): every link after
+  // the heading "References" up to the next heading of the same level
+  window.referencesNewTab = function (root) {
+    root.querySelectorAll('h2, h3').forEach(function (h) {
+      if (h.textContent.trim() !== 'References') return;
+      for (var n = h.nextElementSibling; n && n.tagName !== h.tagName; n = n.nextElementSibling)
+        n.querySelectorAll('a[href]').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+    });
+  };
+</script>

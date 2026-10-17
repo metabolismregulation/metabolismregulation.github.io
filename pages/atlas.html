@@ -187,6 +187,7 @@ sitemap: false
 <!-- the full title opens the text; the list already names the map -->
 <h2 id="m2-title"></h2>
 <div id="m2-text"></div>
+{% include references-new-tab.html %}
 </div>
 <aside class="m2-info" id="m2-info"></aside>
 </div>
@@ -868,7 +869,7 @@ sitemap: false
     var box = document.getElementById('m2-text');
     box.innerHTML = '';
     if (!source) return;
-    var put = function (html) { if (current === m) box.innerHTML = html; };
+    var put = function (html) { if (current === m) { box.innerHTML = html; referencesNewTab(box); } };
     if (textCache[source.id]) return put(textCache[source.id]);
     fetch(source.data + BUILD).then(function (r) { return r.json(); }).then(function (d) {
       textCache[source.id] = d.html;
