@@ -9,7 +9,7 @@ EPS = 20.0       # a yEd bend counts if leaving it out moves the line by more th
 MIN_LEN = 150.0  # only connectors at least this long
 
 
-def _off(p, a, b):
+def off(p, a, b):  # distance of p from the line through a and b
     L = math.hypot(b[0] - a[0], b[1] - a[1]) or 1
     return abs((b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0])) / L
 
@@ -18,7 +18,7 @@ def _simplify(pts, eps):
     # Ramer-Douglas-Peucker: keep only the points that shape the line
     if len(pts) < 3:
         return pts
-    d = [_off(p, pts[0], pts[-1]) for p in pts[1:-1]]
+    d = [off(p, pts[0], pts[-1]) for p in pts[1:-1]]
     i = max(range(len(d)), key=d.__getitem__)
     if d[i] < eps:
         return [pts[0], pts[-1]]
@@ -35,6 +35,21 @@ def turn(route):
         return None
     (sx, sy), (cx, cy) = keep[0], keep[1]
     return 'h' if abs(cy - sy) < abs(cx - sx) else 'v'
+
+
+def unbent(run):
+    # a polyline without the points that lie on the straight line between their neighbours
+    # (between them, within 1 px): no bend in either program
+    run = list(run)
+    k = 1
+    while k < len(run) - 1:
+        (ax, ay), (bx, by), (qx, qy) = run[k - 1], run[k], run[k + 1]
+        if off(run[k], run[k - 1], run[k + 1]) < 1 and \
+                min(ax, qx) - 1 <= bx <= max(ax, qx) + 1 and min(ay, qy) - 1 <= by <= max(ay, qy) + 1:
+            del run[k]
+        else:
+            k += 1
+    return run
 
 
 def bends(route):

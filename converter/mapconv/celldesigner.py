@@ -305,24 +305,15 @@ def write(diagram, ann, layout='straight'):
     # the species each process joins by consumption and production arcs (twins: two processes, same species)
     joins = {p: frozenset(e.target if e.source == p else e.source for e in E if p in (e.source, e.target) and e.head not in MOD
                           and (e.source in ents or e.target in ents)) for p in procs}
+    yed = lambda pts: [(q[0] - x0, q[1] - y0) for q in pts]  # yEd points in the map's frame here
+
     # yEd route points of an arc at process p, without the process ports (one process width from its centre)
     def route(p, pts):
-        c = cen(p)
-        return [(q[0] - x0, q[1] - y0) for q in pts if math.hypot(q[0] - x0 - c[0], q[1] - y0 - c[1]) > max(box[p][2], box[p][3]) + 3]
+        return [q for q in yed(pts) if math.dist(q, cen(p)) > max(box[p][2], box[p][3]) + 3]
 
     def off_line(i, a, T):  # anchor a of entity i moves its line to T by more than 2 px
         A, C = anchor_point(box[i], a, N[i].kind == 'SimpleChemical'), cen(i)
         return abs((T[0] - C[0]) * (A[1] - C[1]) - (T[1] - C[1]) * (A[0] - C[0])) / (math.dist(C, T) or 1) > 2
-
-    def straight(a, pts, b):  # the edit points without those on a straight line between their neighbours
-        run = [a] + list(pts) + [b]
-        k = 1
-        while k < len(run) - 1:
-            if cd_bends._off(run[k], run[k - 1], run[k + 1]) < 1:
-                del run[k]
-            else:
-                k += 1
-        return run[1:-1]
 
     def nearest(i, at):
         # the anchor nearest to where an arc meets entity i (scaled to its box here), if nearer than
@@ -335,7 +326,7 @@ def write(diagram, ann, layout='straight'):
         return {'E': 'ESE', 'W': 'WSW'}.get(a, a) if N[i].kind == 'SimpleChemical' else a
 
     def level(e, c):  # a modifier arc that reaches the process at c straight across in yEd (5 px)
-        q = (e.points[-1][0] - x0, e.points[-1][1] - y0) if e.points else \
+        q = yed(e.points)[-1] if e.points else \
             (cen(e.source)[0] + e.source_at[0], cen(e.source)[1] + e.source_at[1])
         return min(abs(q[0] - c[0] - e.target_at[0]), abs(q[1] - c[1] - e.target_at[1])) <= 5
 
@@ -367,9 +358,8 @@ def write(diagram, ann, layout='straight'):
         # a significant bend on the main line: one long L on the reactant arc or on the product arc
         # (with the bend at the process's port: it says from which side the line comes in;
         # user's iNOS v08 edit, ASL and ASS1 as L shapes)
-        at = lambda pts: [(q[0] - x0, q[1] - y0) for q in pts]
-        wr = cd_bends.turn([cen(r_)] + at(ins[0].points) + [c])
-        wq = cd_bends.turn([cen(q_)] + at(outs[0].points)[::-1] + [c])
+        wr = cd_bends.turn([cen(r_)] + yed(ins[0].points) + [c])
+        wq = cd_bends.turn([cen(q_)] + yed(outs[0].points)[::-1] + [c])
         if advanced and not twin:
             # a line meets an entity where the yEd arc meets its border (a CellDesigner anchor read
             # back); else a metabolite circle where its name is not: N, S, ESE or WSW, by the way
@@ -420,13 +410,13 @@ def write(diagram, ann, layout='straight'):
     def lane(m, M, T, e):
         # advanced layout: the edit points of a modifier arc from M to T as yEd draws it, or
         # None for a straight arc from the centre
-        pts = [(q[0] - x0, q[1] - y0) for q in e.points]
+        pts = yed(e.points)
         if not pts:
-            if cd_bends._off((M[0] + e.source_at[0], M[1] + e.source_at[1]), M, T) <= 2:
+            if cd_bends.off((M[0] + e.source_at[0], M[1] + e.source_at[1]), M, T) <= 2:
                 return None  # the yEd arc runs as from the centre
             # an off-centre start at the square's height: straight across, from just outside the node
             x, y, w, h = box[m]
-            return straight(M, [(x + w + 1 if T[0] > M[0] else x - 1, T[1])], T) \
+            return cd_bends.unbent([M, (x + w + 1 if T[0] > M[0] else x - 1, T[1]), T])[1:-1] \
                 if abs(M[1] + e.source_at[1] - T[1]) <= 5 else None
         # the yEd bends, each segment made horizontal or vertical, the last one ending on the square
         chain = [M] + pts
@@ -439,7 +429,7 @@ def write(diagram, ann, layout='straight'):
             a, b = chain[-2], chain[-1]
             if abs(a[0] - chain[-3][0]) < 0.5 and abs(a[1] - b[1]) < abs(a[0] - b[0]):
                 chain[-2] = (a[0], b[1])
-        return straight(M, chain[1:], T)
+        return cd_bends.unbent(chain + [T])[1:-1]
 
     def crosses(a, b, r):  # the segment a-b runs through the box r (Liang-Barsky)
         t0, t1 = 0.0, 1.0
@@ -487,7 +477,7 @@ def write(diagram, ann, layout='straight'):
     for p, (ins, outs, mods, gates, reversible, c) in fls.items():
         r_, q_ = ins[0].source, outs[0].target
         pts = [(cen(r_)[0] + ins[0].source_at[0], cen(r_)[1] + ins[0].source_at[1])] + \
-            [(q[0] - x0, q[1] - y0) for q in ins[0].points + outs[0].points] + [c] + \
+            yed(ins[0].points + outs[0].points) + [c] + \
             [(cen(q_)[0] + outs[0].target_at[0], cen(q_)[1] + outs[0].target_at[1])]
         for ax in (0, 1):
             if max(q[ax] for q in pts) - min(q[ax] for q in pts) < 1 and abs(cen(r_)[ax] - cen(q_)[ax]) > 0.5:
@@ -1135,15 +1125,5 @@ def read(path, layout='straight'):
     # an edit point on the straight line between its neighbours is no bend in yEd (the advanced
     # layout's two points beside the square): left out
     for e in arcs:
-        run = [cen(e.source)] + e.points + [cen(e.target)]
-        k = 1
-        while k < len(run) - 1:
-            (ax_, ay), (bx, by), (qx, qy) = run[k - 1], run[k], run[k + 1]
-            L = math.hypot(qx - ax_, qy - ay) or 1
-            if abs((qx - ax_) * (by - ay) - (qy - ay) * (bx - ax_)) / L < 1 and \
-                    min(ax_, qx) - 1 <= bx <= max(ax_, qx) + 1 and min(ay, qy) - 1 <= by <= max(ay, qy) + 1:
-                del run[k]
-            else:
-                k += 1
-        e.points = run[1:-1]
+        e.points = cd_bends.unbent([cen(e.source)] + e.points + [cen(e.target)])[1:-1]
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
