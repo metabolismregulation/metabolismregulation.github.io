@@ -63,7 +63,7 @@ keeps its shape. The map is rescaled if its objects are much larger or smaller.<
 (() => {
   // the formats, clockwise from the top, and the routes: [from, to, note]
   // [name, section on this page, file extensions]
-  const FORMATS = [['GraphML', 'graphml', '.graphml'], ['SBGN-ML', 'sbgnml', '.sbgn, .nwt'], ['CellDesigner', 'celldesigner', '.xml']];
+  const FORMATS = [['GraphML', 'graphml', ['.graphml']], ['SBGN-ML', 'sbgnml', ['.sbgn', '.nwt']], ['CellDesigner', 'celldesigner', ['.xml']]];
   const ROUTES = [
     ['GraphML', 'GraphML', 'corrected to the SBGN palette'],
     ['GraphML', 'CellDesigner'],
@@ -127,10 +127,14 @@ keeps its shape. The map is rescaled if its objects are much larger or smaller.<
     const p = pos[name];
     const a = el('a', { href: '#' + id, class: 'cv-node' });
     el('circle', { cx: f(p.x), cy: f(p.y), r: NODE }, a);
-    const t = el('text', { x: f(p.x), y: f(p.y - 8), 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
+    // the name, then one extension per line, the block centred in the circle
+    const top = p.y - 15 * ext.length / 2 - 1;
+    const t = el('text', { x: f(p.x), y: f(top), 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
     t.textContent = name;
-    const e = el('text', { x: f(p.x), y: f(p.y + 10), class: 'cv-ext', 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
-    e.textContent = ext;
+    ext.forEach((x, i) => {
+      const e = el('text', { x: f(p.x), y: f(top + 17 + 15 * i), class: 'cv-ext', 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
+      e.textContent = x;
+    });
   }
 })();
 </script>
