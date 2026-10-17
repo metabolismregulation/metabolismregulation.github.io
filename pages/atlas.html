@@ -127,7 +127,6 @@ sitemap: false
   .m2-info:empty { display: none; }
   .m2-info-head { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
   .m2-info-head h3 { font-size: 16px; font-weight: 400; margin: 0; flex: 1; }
-  .m2-info-head h3 b { font-weight: 600; }
   /* close: a thin cross in the soft grey of the group chevrons */
   .m2-info-close { align-self: center; display: flex; border: 0; background: none; padding: 0 2px; cursor: pointer; }
   .m2-info-close svg { width: 12px; height: 12px; stroke: #b4b4b4; stroke-width: 1.5; stroke-linecap: round; fill: none; }
@@ -516,8 +515,7 @@ sitemap: false
     if (!nodes || !sel) return;
     var p = props(sel.props);
     var family = !!sel.members;
-    var head = el('div', 'm2-info-head'), h = el('h3', null, (family ? 'Protein family' : (KIND[sel['class']] || sel['class'])) + ': ');
-    h.appendChild(el('b', null, sel.label));
+    var head = el('div', 'm2-info-head'), h = el('h3', null, (family ? 'Protein family' : (KIND[sel['class']] || sel['class'])) + ': ' + sel.label);
     var x = el('button', 'm2-info-close');
     x.type = 'button'; x.title = 'Close'; x.setAttribute('aria-label', 'Close');
     x.innerHTML = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>';
