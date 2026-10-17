@@ -50,14 +50,16 @@ converted files.</p>
   with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with
   other shapes.</li>
   <li><b>SBGN-ML</b>, <code>&lt;map&gt;.sbgn</code>: SBGN-ML 0.3, Process Description. Colours in the SBML
-  render extension, annotation as RDF in each glyph. A phenotype with an arc leaving it is written as a
-  perturbing agent, since an SBGN phenotype takes no outgoing arc.</li>
+  render extension, annotation as RDF in each glyph. A phenotype with an arc leaving it is left out with
+  its arcs: an SBGN phenotype takes no outgoing arc, and the converter does not decide whether it is a
+  perturbing agent or a submap.</li>
   <li><b>GraphML (marked)</b>, red button, <code>&lt;map&gt;-marked.graphml</code>: yEd GraphML. The input
   map with the elements that break the rules drawn red, the reason shown on hover in yEd. Given only
   when the check finds problems.</li>
 </ul>
 <p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
-with the element's id, label (an arc by its ends) and reason. Equivalence operators are left out of the
+with the element's id, label (an arc by its ends) and reason. Phenotypes left out of the SBGN-ML are
+listed under the map with their id and label. Equivalence operators are left out of the
 CellDesigner files, which have no such element, and kept in the SBGN-ML.</p>
 
 <h2 id="celldesigner">From CellDesigner</h2>

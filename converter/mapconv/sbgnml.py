@@ -178,8 +178,8 @@ def write(diagram):
             cls = {v: k for k, v in OPERATORS.items()}.get((d.labels[0] if d.labels else '').strip().upper())
             if cls is None:
                 print('gate %s: label %r is not AND, OR, NOT or %s, left out' % (i, d.labels[:1], EQUIV)); return
-        elif d.kind == 'Phenotype' and i in sources:  # our phenotype stands for both; SBGN's has no arc out
-            cls = 'perturbing agent'
+        elif d.kind == 'Phenotype' and i in sources:  # a perturbing agent, a submap or neither: not guessed (user, 2026-10-17)
+            print('phenotype %s (%s): an arc leaves it, no SBGN Process Description equivalent, left out' % (i, d.labels[0] if d.labels else '')); return
         elif d.kind in CLASS:
             cls = CLASS[d.kind] + (' multimer' if d.count > 1 and d.kind in MULTIMER else '')
         else:
