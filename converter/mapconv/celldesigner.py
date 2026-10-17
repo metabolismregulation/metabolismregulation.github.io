@@ -64,7 +64,8 @@ CLASS = {'Macromolecule': 'PROTEIN', 'SimpleChemical': 'SIMPLE_MOLECULE', 'Nucle
 # arc between two entities (no process) -> CellDesigner reduced-notation reaction
 # (user's SREBP file: submap -> submap and SREBP2 -> submap stimulation)
 REDUCED = {'stimulation': 'PHYSICAL_STIMULATION',
-           'inhibition': 'NEGATIVE_INFLUENCE'}  # as the PD map (CellDesigner 4.4, autumn 2025)
+           'inhibition': 'NEGATIVE_INFLUENCE',
+           'modulation': 'REDUCED_MODULATION', 'trigger': 'REDUCED_TRIGGER'}  # as the PD map (CellDesigner 4.4, autumn 2025)
 # a logic gate on arcs between entities: a BOOLEAN_LOGIC_GATE reaction, its arc typed as in the PD map
 GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE'}
 # a dashed arc (unknown) in CellDesigner's unknown types, where it has one (as the PD map)

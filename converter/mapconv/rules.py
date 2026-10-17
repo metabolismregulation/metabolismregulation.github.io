@@ -1,5 +1,6 @@
 # What a yEd map must keep to convert: the SBGN Process Description rules, with one exception
-# (user, 2026-10-16): stimulation and inhibition may join two entities (also from a logic gate),
+# (user, 2026-10-16): stimulation, inhibition, modulation and trigger may join two entities (from a
+# logic gate stimulation and inhibition),
 # CellDesigner's reduced notation in place of an Activity Flow map. yEd draws anything, so a map can look right and
 # be wrong inside: a shape laid on a protein in place of a state variable, a node drawn inside
 # a complex without being part of it, an arrow from another palette. Each problem is an
@@ -13,7 +14,8 @@ from .celldesigner import CLASS
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
 MODIFIERS = ('catalysis', 'inhibition', 'modulation', 'stimulation', 'trigger')
-REDUCED = ('stimulation', 'inhibition')  # allowed between two entities
+REDUCED = ('stimulation', 'inhibition', 'modulation', 'trigger')  # allowed between two entities
+GATE_OUT = ('stimulation', 'inhibition')  # from a logic gate to an entity (CellDesigner's gate types known to us)
 RED = '#FF0000'
 
 
@@ -81,9 +83,12 @@ def problems(m):
                 why = 'a production arrow points away from its process'
             elif not (s in procs and t in epn):
                 why = 'a production arrow must run from a process to an entity'
-        elif s in epn | ops and t in epn:  # reduced notation, also from a logic gate
+        elif s in epn and t in epn:  # reduced notation
             if h not in REDUCED:
-                why = 'a %s arc must end on a process (between entities only stimulation and inhibition)' % h
+                why = 'a %s arc must end on a process' % h
+        elif s in ops and t in epn:  # reduced notation from a logic gate
+            if h not in GATE_OUT:
+                why = 'a %s arc from a logic gate must end on a process (to an entity only stimulation and inhibition)' % h
         elif not (s in epn | ops and t in procs):
             why = 'a %s arc must run from an entity (or a logic gate) to a process' % h
         if why:

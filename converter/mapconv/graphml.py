@@ -2,6 +2,7 @@
 import copy, os, re
 from lxml import etree
 from .model import Map, Node, Arc
+from .style import scale_of
 
 NS = {'g': 'http://graphml.graphdrawing.org/xmlns', 'y': 'http://www.yworks.com/xml/graphml'}
 Y = '{%s}' % NS['y']
@@ -151,15 +152,16 @@ def read(path):
 
 # --- writing: every element is a copy of a template cut from our yEd files (yed.graphml)
 G = '{%s}' % NS['g']
-ARROW = {v: k for k, v in HEAD.items()}
+ARROW = {v: k for k, v in HEAD.items() if k != 'crows_foot_one'}  # AsthMap's bar is read, never written
 ARROW['production'] = 'delta'
 LINE, CHAR = 16.5, 9.5  # a label line's height and a character's width at font size 14 (our maps)
 
 
-def _label(l, text, w, h):
-    # the label's text, its box estimated and centred (yEd measures it again when the text is edited)
+def _label(l, text, w, h, k=1.0):
+    # the label's text, its box estimated and centred (yEd measures it again when the text is edited);
+    # k: the font size against our 14
     lines = text.split('\n') if text else []
-    lw, lh = max([len(x) for x in lines] or [0]) * CHAR, len(lines) * LINE + 4
+    lw, lh = max([len(x) for x in lines] or [0]) * CHAR * k, len(lines) * LINE * k + 4
     l.text = text or None
     l.set('hasText', 'true' if text else 'false')
     for k, v in (('width', lw), ('height', lh), ('x', (w - lw) / 2), ('y', (h - lh) / 2)):
@@ -173,6 +175,8 @@ def corrected(m):
 
 
 def write(diagram):
+    # the font follows the map's scale: 14 on our protein height (40), so Newt's 30 high gives 11
+    font = round(14 * scale_of(diagram) + 0.01)
     t = etree.parse(os.path.join(os.path.dirname(__file__), 'yed.graphml')).getroot()
     tpl = {n.get('id'): n for n in t.iter(G + 'node')}
     icon = tpl['IconLabel'].find('.//y:NodeLabel', NS)
@@ -223,9 +227,12 @@ def write(diagram):
         if d.dashed: gn.find('y:BorderStyle', NS).set('type', 'dashed')
         l = gn.find('y:NodeLabel', NS)
         sign = {v: k for k, v in PROCESS_LABEL.items()}.get(d.kind)
-        _label(l, sign or next((x for x in d.labels if x), ''), w, h)  # the name; a second label is a unit (N:4)
-        if d.kind == 'Compartment' and d.label_at:
-            l.set('x', repr(float(d.label_at[0]))); l.set('y', repr(float(d.label_at[1])))
+        if not sign and font != 14:
+            l.set('fontSize', str(font))
+        _label(l, sign or next((x for x in d.labels if x), ''), w, h, font / 14)  # the name; a second label is a unit (N:4)
+        if d.kind == 'Compartment':  # its name where the source has it, else centred at the top (the template's place)
+            lx, ly = d.label_at or (float(l.get('x')), 0.0)
+            l.set('x', repr(float(lx))); l.set('y', repr(float(ly)))
         if d.count > 1:  # yEd draws a multimer as two shapes; N:x says how many
             sp = gn.find('y:StyleProperties', NS)
             etree.SubElement(sp, Y + 'Property', {'class': 'java.lang.Integer', 'name': 'com.yworks.sbgn.style.mcount', 'value': '2'})
