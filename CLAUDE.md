@@ -1,6 +1,6 @@
 # Metabolism Regulation website
 
-This repository is public and builds metabolismregulation.org. It holds only
+This repository is public and builds metabolismregulation.github.io. It holds only
 finished maps and site files.
 
 Intermediate work (drafts, uploaded sources, curation tables, build scripts,
@@ -16,7 +16,7 @@ by reading `notes/handover.md` there.
 ## Where to push
 
 Changes to the website (look, layout, wording, maps, anything visible on
-metabolismregulation.org) go straight to `master`, so they show on the live
+metabolismregulation.github.io) go straight to `master`, so they show on the live
 site and can be checked there. A change pushed only to a session branch is
 not visible and does not count as done, even when the session was started
 on such a branch. The only exception is internal work that is not yet meant
