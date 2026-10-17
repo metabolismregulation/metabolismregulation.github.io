@@ -118,11 +118,13 @@ smaller.</p>
 
 <h2 id="loading">Loading</h2>
 <p><b>As of</b>: 17 October 2026, Pyodide 0.26.4.</p>
-<p><b>Size</b>: about 7 MB on the first visit, then taken from the browser cache. Almost all of it is
+<p><b>Size</b>: about 7 MB compressed (about 20 MB unpacked), downloaded on the first visit, then taken
+from the browser cache. Almost all of it is
 Python running in the browser (Pyodide): the Python engine 3.0 MB, its standard library 2.3 MB and
 the XML library lxml 1.4 MB. The converter itself is 0.05 MB.</p>
-<p><b>Time</b>: a few seconds before the drop area is ready, most of it spent starting Python, not
-downloading. Loading starts as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
+<p><b>Time</b>: estimated 3 to 5 seconds on the first visit over a fast connection, about 10 seconds
+over a slow one (10 Mbit/s). Later visits need only the start of Python, 1 to 4 seconds. Loading starts
+as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
 <p><b>Why it loads at once</b>: every conversion needs Python and lxml, since all the formats are XML.
 The parts that differ between conversions are a few tens of kilobytes, so loading them only when needed
 would save nothing noticeable.</p>
