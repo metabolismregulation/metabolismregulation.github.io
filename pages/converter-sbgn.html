@@ -12,7 +12,9 @@ noindex: true
      map-converter tests/newt/) by map-converter's tools/sbgn_test.sh
      (converter commit in converter/sbgn/VERSION, the order in _data/sbgn_check.yml: largest
      first). Newt keeps a copy of a file it has opened: the links carry the site's commit
-     (?v=), so a new file is fetched anew. This page changes when there is
+     (?v=), so a new file is fetched anew. CellDesigner -> SBGN-ML (user, 2026-10-17): converter/sbgn/cd/
+     made from the official CellDesigner files in downloads/ by the website's copy of the converter
+     (commit in converter/sbgn/cd/VERSION), next to MINERVA's export in downloads/. This page changes when there is
      something new to check. -->
 <style>
   .sb { border-collapse: collapse; font-size: 15px; margin: 16px 0; }
@@ -40,6 +42,28 @@ noindex: true
   </tr>
   {% endif %}
   {% endfor %}{% endfor %}
+</table>
+
+<h3>CellDesigner → SBGN-ML</h3>
+
+<p>The official CellDesigner files: each map opens in Newt, first as written by our converter, then as exported by MINERVA from the same file.</p>
+
+<table class="sb">
+  <tr><th>Map</th><th>Our converter</th><th>MINERVA</th><th>Map page</th></tr>
+  {% assign cd = site.static_files | where_exp: 'f', "f.path contains '/converter/sbgn/cd/'" | where: 'extname', '.sbgn' %}
+  {% for f in cd %}
+  {% assign title = f.basename %}{% assign page = nil %}
+  {% for m in site.maps %}{% assign g = m.downloads | where: 'label', 'GraphML' | first %}
+  {% assign name = g.url | split: '/' | last | replace: '.graphml', '' %}
+  {% if name == f.basename %}{% assign title = m.title %}{% assign page = m.page %}{% endif %}
+  {% endfor %}
+  <tr>
+    <td>{{ title }}</td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io{{ f.path }}?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/{{ f.basename }}.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td>{% if page %}<a href="{{ page }}" target="_blank" rel="noopener">{{ page }}</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
 </table>
 
 <h3>SBGN-ML → GraphML, CellDesigner</h3>
