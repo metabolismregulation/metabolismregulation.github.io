@@ -165,6 +165,13 @@ public here (user's choice). The page's copy is `converter/mapconv/` with the co
 map-converter and push here (`VERSION`: date and commit, not shown on the page). Annotation comes from the GraphML's node properties (HGNC,
 UniProt, ChEBI), or its node links when a map has none.
 
+## Home page
+
+The pathway highlight on the home page (`index.html`) is chosen by `highlight:` in its front
+matter, the permalink of a `_projects/` page (e.g. `/glycolysis/`). Its title, links and image
+are taken from that page (everything before its first section heading), so they change with it.
+Never copy them into `index.html` by hand.
+
 ## Contributors
 
 People, their affiliations and ORCID iDs are in `_data/contributors.yml`
