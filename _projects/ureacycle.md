@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of the urea cycle via CPS1
 permalink: /ureacycle/
+released: 2026-10-16
 contributors:
   - marcio-luis-acencio
 project: true

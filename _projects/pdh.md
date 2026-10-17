@@ -2,6 +2,7 @@
 layout: post
 title: Regulation of pyruvate dehydrogenase via PDK and PDP
 permalink: /pdh/
+released: 2026-10-16
 contributors:
   - alexander-mazein: [lih-cancer]
 project: true

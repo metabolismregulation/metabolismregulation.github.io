@@ -20,7 +20,7 @@
 # All maps' annotated nodes also go to atlas-data/search.json, the index of
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
-import os, re, glob, json, collections
+import os, re, glob, json, collections, datetime
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -58,8 +58,10 @@ GROUPS = [
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
-# maps published recently, marked with an outlined "new" tag in the Atlas list (user, 2026-10-16)
-NEW = {'ureacycle', 'bcaa', 'pdh', 'nnos'}
+# a map published from a draft (a first map or a new version) is marked with an outlined
+# "new" tag in the Atlas list for NEW_DAYS after the date in its page's "released:" line
+# (user, 2026-10-17); the daily run of atlas-data.yml takes the tag off when the time is up
+NEW_DAYS = 30
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
@@ -198,6 +200,9 @@ def main():
         if re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
             print('WARNING %s/%s.md links %s files' % (folder[slug], slug, wrong))
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
+        released = re.search(r'^released:\s*(\d{4}-\d\d-\d\d)', front, re.M)
+        new = (folder[slug] == '_projects' and released is not None and
+               (datetime.date.today() - datetime.date.fromisoformat(released.group(1))).days < NEW_DAYS)
         permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
         # the contributors entry as written (one line, or a list with indented lines)
         contrib = re.search(r'^contributors:.*\n(?:[ \t]+\S.*\n)*', front, re.M)
@@ -257,7 +262,7 @@ def main():
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
                   'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
-                  'new: %s' % ('true' if mid in NEW and folder[slug] != 'draftpages' else 'false'),
+                  'new: %s' % ('true' if new else 'false'),
                   'lists: %s' % ('true' if '## Reactome-Recon connection' in body else 'false'),
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,

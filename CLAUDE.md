@@ -36,8 +36,8 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
-A newly published map gets a "new" tag (outlined: grey edge and text, white fill, user 2026-10-16; the earlier blue one is kept in the palette) in the Atlas list: its name in NEW in
-`scripts/make_maps.py` (user, 2026-10-16). Working files stay in `maps-workbench`.
+A map published from a draft (a first map or a new version) gets a "new" tag (outlined: grey edge and text, white fill, user 2026-10-16; the earlier blue one is kept in the palette) in the Atlas list for 30 days:
+publishing adds `released: <date>` under the permalink of its `_projects/` page, and `scripts/make_maps.py` shows the tag while that date is less than 30 days old (user, 2026-10-17). The Atlas data workflow runs daily, so the tag goes on time. Working files stay in `maps-workbench`.
 
 A new version of a published map is a draft page with the same file name and the permalink
 `/<name>/draft/` (e.g. `draftpages/glutaminase.md`, /glutaminase/draft/): it replaces the
@@ -51,7 +51,7 @@ Reactome processes (linked). `make_maps.py` marks such a map (`lists` in the Atl
 "lists" tag (grey edge and text, white fill) is no longer shown in the Atlas list (user,
 2026-10-16) and is kept in the tag palette.
 
-Atlas list tags (user, 2026-10-16): draft or new after the map name. Every tag, used or not
+Atlas list tags (user, 2026-10-16): draft or new after the map name. Only these two are automatic (draft: a page in `draftpages/`, new: as above, user 2026-10-17). Every other tag is set by hand, on request. Every tag, used or not
 (draft, new, new blue, lists, drug), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,

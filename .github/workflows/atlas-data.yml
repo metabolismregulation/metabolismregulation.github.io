@@ -2,11 +2,15 @@
 # draft list) whenever map files or map pages change on master, so a file uploaded by
 # hand to atlas-downloads/ shows correctly without a manual step. Commits only if
 # something changed; a commit made with GITHUB_TOKEN does not start this workflow again.
+# It also runs once a day, so a "new" tag goes 30 days after the map's release date
+# without waiting for a push.
 name: Atlas data
 on:
   push:
     branches: [master]
     paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py']
+  schedule:
+    - cron: '17 3 * * *'
   workflow_dispatch:
 permissions:
   contents: write
