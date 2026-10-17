@@ -85,7 +85,7 @@ When a style is to be chosen (buttons and the like; user, 2026-10-16), show the 
 website: up to ten variants, one under another, on a hidden page (like the tag palette
 /atlas/tags/), each with its name, so the user picks one there. Once chosen, the test page is removed (user, 2026-10-17). Download buttons carry the
 download icon (tray and arrow) after the label (user, 2026-10-17, on trial: Atlas, Converter, map pages, Gallery); links to another site
-carry the external-link icon after the label.
+carry the external-link icon after the label (buttons and link rows, not a link in running text, user 2026-10-17).
 Map pages, drafts too (user, 2026-10-17): no "Downloads:" word, the links in the order GraphML, PNG, SVG,
 CellDesigner, SBML, SBGN-ML, Annotation, Newt, MINERVA (a file missing in `downloads/` is left out), each
 file with the download icon after its name (an inline SVG, copied from an existing map page; the include file was removed, user 2026-10-17), Newt and MINERVA with
