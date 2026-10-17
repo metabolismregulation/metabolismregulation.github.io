@@ -111,7 +111,8 @@ A tick box "Standard node sizes" (user, 2026-10-16) applies map-converter's `sty
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
-page /converter/routes/): "GraphML → CellDesigner, direct and advanced", and back, as plain text
+page /converter/routes/): "GraphML → CellDesigner, direct and advanced", "GraphML → GraphML corrected, if drawn
+outside the SBGN palette", and back, as plain text
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
