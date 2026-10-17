@@ -90,11 +90,25 @@ def scale_of(base, width):
 GN, YN = '{http://graphml.graphdrawing.org/xmlns}', '{http://www.yworks.com/xml/graphml}'
 # the annotation properties shown in the Atlas panel, in this order (other
 # custom properties, e.g. from a CellDesigner import, are left out)
-ANN_FIELDS = ['Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
+ANN_FIELDS = ['State', 'Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
               'HGNC', 'HGNC symbol', 'HGNC aliases', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
               'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey', 'Note', 'Family', 'Members']
 # a protein family node: its members' records, as JSON in this property
 MEMBERS_FIELD = 'Member annotation'
+# State: the node's modified sites, one per line as on a state variable (P@S505); the map
+# shows only the symbol (user, 2026-10-17). The panel reads "Phosphorylated at Ser505 and Ser727".
+MODIFIED = {'P': 'Phosphorylated', 'Ac': 'Acetylated', 'Me': 'Methylated', 'Ub': 'Ubiquitinated',
+            'Su': 'Succinylated', 'Glut': 'Glutarylated', 'Pa': 'Palmitoylated', 'My': 'Myristoylated'}
+RESIDUE = {'S': 'Ser', 'T': 'Thr', 'Y': 'Tyr', 'K': 'Lys', 'C': 'Cys', 'G': 'Gly', 'R': 'Arg', 'H': 'His'}
+
+
+def state_text(state):
+    sites = collections.OrderedDict()
+    for s in state.split('\n'):
+        sym, _, site = s.strip().partition('@')
+        sites.setdefault(sym, []).extend([RESIDUE.get(site[:1], site[:1]) + site[1:]] if site else [])
+    return ' '.join(MODIFIED.get(sym, sym) + (' at ' + ' and '.join(filter(None, [', '.join(v[:-1]), v[-1]])) if v else '') + '.'
+                    for sym, v in sites.items())
 
 
 def annotation(base):
@@ -117,7 +131,8 @@ def annotation(base):
     nodes = []
     for n in root.iter(GN + 'node'):
         data = {keys.get(d.get('key')): (d.text or '').strip() for d in n.findall(GN + 'data') if d.get('key') in keys}
-        props = [[keys[k], data[keys[k]]] for k in custom if data.get(keys[k])]
+        props = [[keys[k], state_text(data[keys[k]]) if keys[k] == 'State' else data[keys[k]]]
+                 for k in custom if data.get(keys[k])]
         if not props:
             continue
         members = json.loads(data[MEMBERS_FIELD]) if mkey and data.get(MEMBERS_FIELD) else None
