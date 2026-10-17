@@ -223,6 +223,14 @@ def write(diagram, ann, layout='direct'):
 
     ops = {i for i, d in N.items() if d.kind == 'Operator'}
     cen = lambda i: (box[i][0] + box[i][2] / 2, box[i][1] + box[i][3] / 2)
+    # what each process turns into what: consumed -> produced entities (a process with production
+    # arcs only, reversible: among those, both ways)
+    steps = {}
+    for q in procs:
+        cons = {e.source for e in E if e.target == q and e.source in ents and e.head is None} | \
+            {e.target for e in E if e.source == q and e.target in ents and e.head is None and not e.tail}
+        prod = {e.target for e in E if e.source == q and e.target in ents and e.head == 'production'}
+        steps[q] = (cons or prod, prod)
     def flows(p, quiet=False):
         # a process's arcs, the main reactant and product first
         # consumption arcs: no arrowhead, drawn either way in yEd (entity -> process or
@@ -258,8 +266,27 @@ def write(diagram, ann, layout='direct'):
         # small molecules are side substrates: a main line between larger species first
         # (complex to complex; user, eNOS BH4/BH2 exchange 2026-10-13)
         small = lambda i: 1 if N[i].kind in ('SimpleChemical', 'EmptySet') else 0
+        # then a pair drawn straight through the process (3 px), then a pair on a cycle: the product
+        # leads back to the reactant through other processes (user's iNOS v07: arginine,
+        # citrulline, argininosuccinate, not O2, NO, fumarate, aspartate)
+        def cycle(a, b):
+            seen, todo = {b}, [b]
+            for i in todo:
+                for q, (cons, prod) in steps.items():
+                    if q != p and i in cons:
+                        todo += [j for j in prod if j not in seen]
+                        seen |= prod
+            return a not in seen
+        # never a pair whose square (midway) would sit on another node
+        def covered(a, b):
+            mx, my = ((cen(a)[0] + cen(b)[0]) / 2, (cen(a)[1] + cen(b)[1]) / 2)
+            return any(box[j][0] < mx < box[j][0] + box[j][2] and box[j][1] < my < box[j][1] + box[j][3]
+                       for j in ents if j not in (a, b))
         bi, bo = min(((a, b) for a in range(len(ins)) for b in range(len(outs))),
                      key=lambda ab: (small(ins[ab[0]].source) + small(outs[ab[1]].target),
+                                     covered(ins[ab[0]].source, outs[ab[1]].target),
+                                     through(ins[ab[0]].source, outs[ab[1]].target) > 3,
+                                     cycle(ins[ab[0]].source, outs[ab[1]].target),
                                      through(ins[ab[0]].source, outs[ab[1]].target), ab))
         ins = [ins[bi]] + ins[:bi] + ins[bi + 1:]; outs = [outs[bo]] + outs[:bo] + outs[bo + 1:]
         return ins, outs, mods, gates, reversible, c
@@ -409,7 +436,7 @@ def write(diagram, ann, layout='direct'):
             a, b = chain[-2], chain[-1]
             if abs(a[0] - chain[-3][0]) < 0.5 and abs(a[1] - b[1]) < abs(a[0] - b[0]):
                 chain[-2] = (a[0], b[1])
-        return chain[1:]
+        return straight(M, chain[1:], T)
 
     def crosses(a, b, r):  # the segment a-b runs through the box r (Liang-Barsky)
         t0, t1 = 0.0, 1.0
