@@ -159,9 +159,9 @@ def meet(M, T, way=None):
     return 'ESE' if dx > 0 else 'WSW'
 
 
-def write(diagram, ann, layout='direct'):
+def write(diagram, ann, layout='straight'):
     # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
-    # layout 'direct': the necessary minimum, simple and reliable, improved by hand in CellDesigner
+    # layout 'straight' (straight lines, as yEd calls them): the necessary minimum, simple and reliable, improved by hand in CellDesigner
     # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
     # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16)
     advanced = layout == 'advanced'
@@ -932,9 +932,9 @@ def points(s):
     return [tuple(float(v) for v in q.split(',')) for q in (s or '').split()]
 
 
-def read(path, layout='direct'):
+def read(path, layout='straight'):
     # a CellDesigner file as a map (model.Map); what does not convert is printed. layout
-    # 'direct': our yEd conventions (arcs at node centres, metabolites at the yEd size);
+    # 'straight': our yEd conventions (arcs at node centres, metabolites at the yEd size);
     # 'advanced': CellDesigner's own geometry kept (node sizes, arcs at its anchor points as
     # yEd ports, modifier arcs ending beside the square; user, 2026-10-16, PD02 eicosanoids)
     advanced = layout == 'advanced'

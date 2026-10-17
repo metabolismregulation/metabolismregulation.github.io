@@ -37,9 +37,9 @@ noindex: true
     <span id="cv-drop-text">Loading the converter…</span>
   </div>
   <div>
-    <p class="cv-routes">GraphML → CellDesigner, direct and advanced<br>
+    <p class="cv-routes">GraphML → CellDesigner, straight-line and advanced edge routing<br>
     GraphML → GraphML corrected, if drawn outside the SBGN palette<br>
-    CellDesigner → GraphML, direct and advanced</p>
+    CellDesigner → GraphML, straight-line and advanced edge routing</p>
     <p>The conversion runs in your browser, and the files stay on your computer. The annotation
     (HGNC, UniProt, ChEBI) goes with the map both ways.</p>
     <p><label><input type="checkbox" id="cv-standard"> Standard node sizes</label><br><span class="cv-hint">CellDesigner
@@ -70,7 +70,7 @@ def convert(name, data, standard=False):
         f.write(data.to_bytes())
     out = {}
     back = not name.lower().endswith('.graphml')
-    for layout in ('direct', 'advanced'):
+    for layout in ('straight', 'advanced'):
         log, xml = io.StringIO(), None
         try:
             with contextlib.redirect_stdout(log):
@@ -137,8 +137,8 @@ def convert(name, data, standard=False):
       const notes = new Set(), errors = new Set();
       for (const layout of Object.keys(r)) {
         const { xml, log, back } = r[layout];
-        const mode = layout === 'direct' ? '' : ' (' + layout + ')';
-        if (xml) box.append(back ? button(xml, base + (layout === 'direct' ? '' : '-' + layout) + '.graphml', 'GraphML' + mode)
+        const mode = layout === 'straight' ? '' : ' (' + layout + ')';
+        if (xml) box.append(back ? button(xml, base + '-' + layout + '.graphml', 'GraphML' + mode)
                                  : button(xml, base + '-' + layout + '.xml', 'CellDesigner' + mode));
         for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
       }

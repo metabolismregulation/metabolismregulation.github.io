@@ -90,8 +90,10 @@ quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, 
 MINERVA), on hover filled in the blue of the chosen map in the map list (#4183c4, white text),
 the Images menu items in the font of the button. Ordered by use: GraphML, CellDesigner,
 SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and
-MINERVA, all in one row at the same spacing. The Converter buttons look and behave the same. Converter buttons: "CellDesigner" (the direct
-conversion) and "CellDesigner (advanced)" (user, 2026-10-16).
+MINERVA, all in one row at the same spacing. The Converter buttons look and behave the same. Converter buttons: "CellDesigner" (straight-line
+edge routing, yEd's name; "direct" dropped, user 2026-10-17) and "CellDesigner (advanced)" (user,
+2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
+`<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
 ## Atlas map window
 
@@ -104,14 +106,14 @@ Fit shows the map alone, with the annotation over its right side.
 ## Converter page
 
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop map files ("Drop map files here,
-or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, direct and
-advanced; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
+or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight-line and
+advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept); the page loads `yed.graphml`, the templates.
 A tick box "Standard node sizes" (user, 2026-10-16) applies map-converter's `style.py` to both GraphML
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
-page /converter/routes/): "GraphML → CellDesigner, direct and advanced", "GraphML → GraphML corrected, if drawn
+page /converter/routes/): "GraphML → CellDesigner, straight-line and advanced edge routing", "GraphML → GraphML corrected, if drawn
 outside the SBGN palette", and back, as plain text
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. Hidden like the Atlas: not in the navigation,
