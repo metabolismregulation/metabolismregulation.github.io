@@ -146,8 +146,10 @@ too), naming the maps, until the map is fixed (2026-10-18). A fetched value that
 unsuited to the panel is corrected in `atlas-data/overrides.json`, by hand, which beats the cache
 and survives a refresh (format in `make_maps.py`). A node with no database entry (a phenotype, a
 generic class, a drug ChEBI lacks) gets a ChEBI class or a GO term where one fits, otherwise no
-annotation and a plain label, not clickable (2026-10-18). GO is not read yet: the four such nodes
-on the Atlas (26S proteasome, RTK, Histone acetylation, pyrrophenone) are plain labels. `downloads/` keeps its full files until a map is published, except the ten
+annotation and a plain label, not clickable (2026-10-18). GO is left out for now (user,
+2026-10-18): it would come only as a general approach, for compartments too, not for single
+nodes. The four such nodes on the Atlas (26S proteasome, RTK, Histone acetylation,
+pyrrophenone) are plain labels. `downloads/` keeps its full files until a map is published, except the ten
 official maps whose drawing equals the Atlas one (glycolysis, mevalonate, SREBP, eNOS, carnitine,
 TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean Atlas copies
 (user, 2026-10-18). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
