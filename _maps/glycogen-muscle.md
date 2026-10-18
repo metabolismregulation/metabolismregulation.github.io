@@ -2,11 +2,11 @@
 title: "Regulation of glycogen metabolism, muscle"
 topic: "Glycogen metabolism"
 tab: "muscle"
-page: "/glycogen/"
+page: "/glycogen/draft/"
 group: "Carbohydrate metabolism"
 order: 4
 kind: "map"
-draft: false
+draft: true
 image: "/atlas-downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1751
@@ -22,14 +22,11 @@ contributors:
   - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F004-glycogen-muscle.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/F004-glycogen-muscle.png"}
   - {label: "SVG", url: "/atlas-downloads/F004-glycogen-muscle.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F004-glycogen-muscle.sbgn"}
   - {label: "SBML", url: "/atlas-downloads/F004-glycogen-muscle-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F004-glycogen-muscle.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/F004-glycogen.csv"}
-  - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-muscle.sbgn"}
-  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-muscle.sbgn"}
 ---
 ## Description
 
@@ -45,6 +42,7 @@ The liver map represents complementary regulation by insulin and glucagon. Gluca
 1. Brushia RJ, Walsh DA. Phosphorylase kinase: the complexity of its regulation is reflected in the complexity of its structure. Front Biosci. 1999 Sep 15;4:D618-41. doi: 10.2741/brushia. PMID: 10487978.
 1. Bulik S, Holzhütter HG, Berndt N. The relative importance of kinetic mechanisms and variable enzyme abundances for the regulation of hepatic glucose metabolism—insights from mathematical modeling. BMC Biol. 2016 Mar 2;14:15. doi: 10.1186/s12915-016-0237-6. PMID: 26935066.
 1. Cross DA, Watt PW, Shaw M, van der Kaay J, Downes CP, Holder JC, Cohen P. Insulin activates protein kinase B, inhibits glycogen synthase kinase-3 and activates glycogen synthase by rapamycin-insensitive pathways in skeletal muscle and adipose tissue. FEBS Lett. 1997 Apr 7;406(1-2):211-5. doi: 10.1016/s0014-5793(97)00240-8. PMID: 9109420.
+1. Esposito DL, Li Y, Cama A, Quon MJ. Tyr612 and Tyr632 in human insulin receptor substrate-1 are important for full activation of insulin-stimulated phosphatidylinositol 3-kinase activity and translocation of GLUT4 in adipose cells. Endocrinology. 2001 Jul;142(7):2833-40. doi: 10.1210/endo.142.7.8283. PMID: 11416002.
 1. Jiang G, Zhang BB. Glucagon and regulation of glucose metabolism. Am J Physiol Endocrinol Metab. 2003 Apr;284(4):E671-8. doi: 10.1152/ajpendo.00492.2002. PMID: 12626323.
 1. KEGG: Glucagon signaling pathway. [KEGG:hsa04922](https://www.kegg.jp/pathway/hsa04922){:target="_blank" rel="noopener"}.
 1. MetaCore: Glycogen metabolism. MetaCore:919.
@@ -52,6 +50,7 @@ The liver map represents complementary regulation by insulin and glucagon. Gluca
 1. Raz I, Katz A, Spencer MK. Epinephrine inhibits insulin-mediated glycogenesis but enhances glycolysis in human skeletal muscle. Am J Physiol. 1991 Mar;260(3 Pt 1):E430-5. doi: 10.1152/ajpendo.1991.260.3.E430. PMID: 1900669.
 1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359){:target="_blank" rel="noopener"}.
 1. Reactome: Glycogen metabolism. [Reactome:R-HSA-8982491](https://reactome.org/content/detail/R-HSA-8982491){:target="_blank" rel="noopener"}.
+1. Sun XJ, Crimmins DL, Myers MG Jr, Miralpeix M, White MF. Pleiotropic insulin signals are engaged by multisite phosphorylation of IRS-1. Mol Cell Biol. 1993 Dec;13(12):7418-28. doi: 10.1128/mcb.13.12.7418-7428.1993. PMID: 7504175.
 1. Zois CE, Harris AL. Glycogen metabolism has a key role in the cancer microenvironment and provides new targets for cancer therapy. J Mol Med (Berl). 2016 Feb;94(2):137-54. doi: 10.1007/s00109-015-1377-9. PMID: 26882899.
 
 ## Contributors

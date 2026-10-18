@@ -1,0 +1,52 @@
+---
+layout: post
+title: Regulation of glycogen metabolism, muscle
+permalink: /glycogen/draft/
+contributors:
+  - vasundra-toure
+  - luiz-ladeira
+  - tatiana-serebriyskaya
+  - valeriya-berzhitskaya
+  - alexander-mazein
+  - john-albanese
+project: true
+---
+
+<a href="/atlas-downloads/F004-glycogen-muscle.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/atlas-downloads/F004-glycogen-muscle.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<p align="middle"><a href="/glycogen/draft/"><img id="image" src="/atlas-downloads/F004-glycogen-muscle.svg" width="915"/></a></p>
+
+# Regulation of glycogen metabolism, liver
+
+<a href="/atlas-downloads/F004-glycogen-liver.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/atlas-downloads/F004-glycogen-liver.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<p align="middle"><a href="/glycogen/draft/"><img id="image" src="/atlas-downloads/F004-glycogen-liver.svg" width="915"/></a></p>
+
+## Description
+
+Intracellular glycogen stores contribute to blood-glucose homeostasis during fasting, provide energy for muscle contraction and support a broad range of cellular activities in many tissues. Glycogen synthase and glycogen phosphorylase control glycogen synthesis and breakdown, respectively. Glycogen phosphorylases, including the liver, muscle and brain forms PYGL, PYGM and PYGB, catalyse glycogen breakdown to glucose-1-phosphate.
+
+The muscle map represents regulation through insulin signalling, adrenergic signalling and calcium-dependent activation of phosphorylase kinase. Epinephrine activates the ADRB2–Gs–adenylate cyclase–cAMP–PKA pathway, promoting phosphorylation and activation of muscle glycogen phosphorylase PYGM, while insulin signalling through PI3K–PDPK1–AKT1 regulates glycogen synthase through inhibition of GSK3B.
+
+The liver map represents complementary regulation by insulin and glucagon. Glucagon signalling through GCGR activates the Gs–adenylate cyclase–cAMP–PKA pathway and promotes glycogen utilisation, whereas insulin signalling favours glycogen synthesis. In liver, the corresponding major metabolic enzymes are glycogen synthase GYS2 and glycogen phosphorylase PYGL.
+
+## References
+
+1. Adeva-Andany MM, González-Lucán M, Donapetry-García C, Fernández-Fernández C, Ameneiros-Rodríguez E. Glycogen metabolism in humans. BBA Clin. 2016 Jun;5:85-100. doi: 10.1016/j.bbacli.2016.02.001. PMID: 27051594.
+1. Brushia RJ, Walsh DA. Phosphorylase kinase: the complexity of its regulation is reflected in the complexity of its structure. Front Biosci. 1999 Sep 15;4:D618-41. doi: 10.2741/brushia. PMID: 10487978.
+1. Bulik S, Holzhütter HG, Berndt N. The relative importance of kinetic mechanisms and variable enzyme abundances for the regulation of hepatic glucose metabolism—insights from mathematical modeling. BMC Biol. 2016 Mar 2;14:15. doi: 10.1186/s12915-016-0237-6. PMID: 26935066.
+1. Cross DA, Watt PW, Shaw M, van der Kaay J, Downes CP, Holder JC, Cohen P. Insulin activates protein kinase B, inhibits glycogen synthase kinase-3 and activates glycogen synthase by rapamycin-insensitive pathways in skeletal muscle and adipose tissue. FEBS Lett. 1997 Apr 7;406(1-2):211-5. doi: 10.1016/s0014-5793(97)00240-8. PMID: 9109420.
+1. Esposito DL, Li Y, Cama A, Quon MJ. Tyr612 and Tyr632 in human insulin receptor substrate-1 are important for full activation of insulin-stimulated phosphatidylinositol 3-kinase activity and translocation of GLUT4 in adipose cells. Endocrinology. 2001 Jul;142(7):2833-40. doi: 10.1210/endo.142.7.8283. PMID: 11416002.
+1. Jiang G, Zhang BB. Glucagon and regulation of glucose metabolism. Am J Physiol Endocrinol Metab. 2003 Apr;284(4):E671-8. doi: 10.1152/ajpendo.00492.2002. PMID: 12626323.
+1. KEGG: Glucagon signaling pathway. [KEGG:hsa04922](https://www.kegg.jp/pathway/hsa04922){:target="_blank" rel="noopener"}.
+1. MetaCore: Glycogen metabolism. MetaCore:919.
+1. Newgard CB, Hwang PK, Fletterick RJ. The family of glycogen phosphorylases: structure and function. Crit Rev Biochem Mol Biol. 1989;24(1):69-99. doi: 10.3109/10409238909082552. PMID: 2667896.
+1. Raz I, Katz A, Spencer MK. Epinephrine inhibits insulin-mediated glycogenesis but enhances glycolysis in human skeletal muscle. Am J Physiol. 1991 Mar;260(3 Pt 1):E430-5. doi: 10.1152/ajpendo.1991.260.3.E430. PMID: 1900669.
+1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359){:target="_blank" rel="noopener"}.
+1. Reactome: Glycogen metabolism. [Reactome:R-HSA-8982491](https://reactome.org/content/detail/R-HSA-8982491){:target="_blank" rel="noopener"}.
+1. Sun XJ, Crimmins DL, Myers MG Jr, Miralpeix M, White MF. Pleiotropic insulin signals are engaged by multisite phosphorylation of IRS-1. Mol Cell Biol. 1993 Dec;13(12):7418-28. doi: 10.1128/mcb.13.12.7418-7428.1993. PMID: 7504175.
+1. Zois CE, Harris AL. Glycogen metabolism has a key role in the cancer microenvironment and provides new targets for cancer therapy. J Mol Med (Berl). 2016 Feb;94(2):137-54. doi: 10.1007/s00109-015-1377-9. PMID: 26882899.
+
+## Contributors
+
+{% include contributors.html %}
