@@ -408,7 +408,7 @@ sitemap: false
   function viewHeight() {
     if (autoH !== null && view.style.height !== autoH) return; // resized by the reader
     var v = view.getBoundingClientRect(), d = document.getElementById('m2-downloads').getBoundingClientRect();
-    var below = Math.max(d.bottom - v.bottom, 0) + 8;  // the download row and a small gap, in window pixels
+    var below = Math.max(d.bottom - v.bottom, 0) + 40;  // the download row and a gap of 40, in window pixels (user, 2026-10-18)
     autoH = Math.round(Math.max(300, (window.innerHeight - (v.top + window.scrollY) - below) / pz())) + 'px';
     view.style.height = autoH;
   }
