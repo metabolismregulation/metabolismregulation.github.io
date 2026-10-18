@@ -145,8 +145,8 @@ quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, 
 MINERVA), on hover filled in the blue of the chosen map in the map list (#4183c4, white text),
 the Images menu items in the font of the button. Ordered by use: GraphML, CellDesigner,
 SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and
-MINERVA, all in one row at the same spacing. The Converter buttons look and behave the same. Converter buttons: "CellDesigner" (straight-line
-edge routing, yEd's name; "direct" dropped, user 2026-10-17) and "CellDesigner (advanced)" (user,
+MINERVA, all in one row at the same spacing. The Converter buttons look and behave the same. Converter buttons: "CellDesigner (straight)" (straight-line
+edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added to every straight file's button, user 2026-10-19) and "CellDesigner (advanced)" (user,
 2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
@@ -220,7 +220,7 @@ family member or metabolite (and state), nothing the panel fetches (user, 2026-1
 
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop map files ("Drop map files here,
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
-advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
+advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML (straight)" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept), and two SBGN-ML files straight from the CellDesigner file (user, 2026-10-17); the page loads `yed.graphml`, the templates.
 A tick box "Standard node sizes" (box 2026-10-16; label "Standard node sizes for CellDesigner and SBGN-ML
 to GraphML", the sizes themselves on the description page, user 2026-10-17) applies map-converter's `style.py` to both GraphML
@@ -233,7 +233,7 @@ checked by map-converter's `rules.py`, as on the command line (user, 2026-10-17)
 converted files, a red "GraphML (marked)" button (the red of the Atlas's image error) gives `<map>-marked.graphml`, the
 map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
 line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat.
-SBGN-ML, from GraphML and from CellDesigner, comes in two layouts like CellDesigner (user, 2026-10-18): "SBGN-ML",
+SBGN-ML, from GraphML and from CellDesigner, comes in two layouts like CellDesigner (user, 2026-10-18): "SBGN-ML (straight)",
 `<map>-straight.sbgn` (every arc straight from centre to centre, no bends or ports; from CellDesigner each process
 midway between its main reactant and product), and "SBGN-ML (advanced)", `<map>-advanced.sbgn` (the source's
 drawing: ports and only the key bends, those that move a line by more than 20 px or keep it off a node; logic gate
@@ -252,8 +252,9 @@ any format converts into any other, a list of the formats replaces the lines. Th
 text (the routes, the browser note with a link "More about the converter", the tick box). Links on both pages in the
 Atlas's link blue #1c47a9, the same on hover (user, 2026-10-17); the details
 are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, in one pattern
-(user, 2026-10-17): a section per input format with Input (format, version, extensions), Check, Output (one line
-per button: label, file name: format and version. Content. When given) and Not converted, exact terms only, with
+(user, 2026-10-17): a section per input format with Input (format, version, extensions), Check, Output (a table, one row
+per button: label, file name, format and version, content with when given; notes common to a
+section's files in a paragraph under it; stacked rows at phone width, user 2026-10-19) and Not converted, exact terms only, with
 a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
 is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)
 with a head at each end, one way green (#3a9a4a), the GraphML correction a green loop (user, 2026-10-17). The description page ends with "Loading" (size, time), dated "Updated" with the

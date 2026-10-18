@@ -104,12 +104,12 @@ def convert(name, data, standard=False):
             def cd():
                 m = read()
                 return celldesigner.write(m, annotation.from_graphml(m), layout)
-            files.append(['-%s.xml' % layout, 'CellDesigner' + ('' if layout == 'straight' else ' (advanced)'), *run(cd)])
+            files.append(['-%s.xml' % layout, 'CellDesigner' + ' (%s)' % layout, *run(cd)])
         fixed = run(lambda: graphml.corrected(read()))[0]
         if fixed:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
             files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, '', False])
         for layout in ('straight', 'advanced'):
-            files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ('' if layout == 'straight' else ' (advanced)'),
+            files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ' (%s)' % layout,
                           *run(lambda: sbgnml.write(read(), layout))])
         if found:
             files.append(['-marked.graphml', 'GraphML (marked)', rules.mark(p, found),
@@ -117,14 +117,14 @@ def convert(name, data, standard=False):
                           + '\\n'.join(rules.lines(m, found)), True])
     elif ext == 'xml':
         for layout in ('straight', 'advanced'):
-            files.append(['-%s.graphml' % layout, 'GraphML' + ('' if layout == 'straight' else ' (advanced)'),
+            files.append(['-%s.graphml' % layout, 'GraphML' + ' (%s)' % layout,
                           *run(lambda: to_graphml(celldesigner.read(p, layout)))])
         for layout in ('straight', 'advanced'):
             def sbgn():
                 with contextlib.redirect_stdout(io.StringIO()):  # what CellDesigner gives that does not convert: said once, above
                     m = celldesigner.read(p, layout)
                 return sbgnml.write(celldesigner.straight(m) if layout == 'straight' else m, layout)
-            files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ('' if layout == 'straight' else ' (advanced)'), *run(sbgn)])
+            files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ' (%s)' % layout, *run(sbgn)])
     else:  # SBGN-ML, or Newt's own file
         files.append(['.graphml', 'GraphML', *run(lambda: to_graphml(sbgnml.read(p)))])
         for layout in ('straight', 'advanced'):
@@ -132,7 +132,7 @@ def convert(name, data, standard=False):
                 with contextlib.redirect_stdout(io.StringIO()):  # the glyphs left out: said once, above
                     m = sbgnml.read(p)
                 return celldesigner.write(m, annotation.from_graphml(m), layout)
-            files.append(['-%s.xml' % layout, 'CellDesigner' + ('' if layout == 'straight' else ' (advanced)'), *run(cd)])
+            files.append(['-%s.xml' % layout, 'CellDesigner' + ' (%s)' % layout, *run(cd)])
     return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
