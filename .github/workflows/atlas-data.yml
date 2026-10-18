@@ -4,13 +4,19 @@
 # something changed; a commit made with GITHUB_TOKEN does not start this workflow again.
 # First scripts/make_images.py draws the SVG (and PNG) of an
 # Atlas map whose GraphML changed without a new yEd SVG (atlas-data/images.json).
-# Liberation Sans (Arial's metrics) for the text of the drawn PNGs.
+# Liberation Sans (Arial's metrics) for the text of the drawn PNGs. Run by hand with
+# "refresh" ticked, it fetches every cached UniProt, HGNC and ChEBI entry again.
 name: Atlas data
 on:
   push:
     branches: [master]
     paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py', 'scripts/make_images.py', 'scripts/yrender/**']
   workflow_dispatch:
+    inputs:
+      refresh:
+        description: 'Fetch every UniProt, HGNC and ChEBI entry again'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency: atlas-data
@@ -24,7 +30,7 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-liberation
       - run: pip install pillow lxml cairosvg numpy
       - run: python3 scripts/make_images.py
-      - run: python3 scripts/make_maps.py
+      - run: python3 scripts/make_maps.py ${{ inputs.refresh && '--refresh' || '' }}
       - run: |
           git add -A _maps atlas-data atlas-downloads
           git diff --cached --quiet && exit 0

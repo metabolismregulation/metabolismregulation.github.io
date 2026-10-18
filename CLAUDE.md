@@ -120,8 +120,8 @@ UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2", also where the tit
 ("Protein: ALOX5", then "**ALOX5**, ...", so the bold symbol is always there, user 2026-10-18). Then the post-translational modifications, one line per site, no heading:
 "Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing), each followed by
 UniProt's enzyme for that site where UniProt names one with experimental evidence (ECO:0000269):
-"Phosphorylated at Ser312, by IKKB, MAPK8 and RPS6KB1" (`scripts/make_maps.py`, cached in
-`atlas-data/uniprot-sites.json`), no link of its own (the UNIPROT link under Annotations is there,
+"Phosphorylated at Ser312, by IKKB, MAPK8 and RPS6KB1" (`scripts/make_maps.py`, kept in
+`atlas-data/uniprot.json`), no link of its own (the UNIPROT link under Annotations is there,
 user 2026-10-18). Only the drawn sites: the rest of UniProt's sites and its PTM text stay at UniProt,
 not in the GraphML (user, 2026-10-18). Then Alternative names (or
 Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
@@ -132,6 +132,14 @@ searched. The Note property (ids.csv `note`) is dropped (user, 2026-10-18): it m
 A family member's record shows the same identity line and its sites. Annotations: the database
 links, NAME: ID in capitals, as in MINERVA, without brackets ("UNIPROT: P47712"); the HGNC symbol
 link "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page).
+Where the panel's text comes from (user, 2026-10-18): the map file keeps the identifiers (UniProt,
+HGNC, HGNC symbol, ChEBI) and what is curated (PTM, Family, Members). Names, function, location,
+formula and cross-references are fetched from UniProt, HGNC and ChEBI by `scripts/make_maps.py`,
+once per identifier, and kept in `atlas-data/uniprot.json`, `hgnc.json`, `chebi.json` (one entry per
+identifier, shared by all maps, the site enzymes in `uniprot.json`). They are not fetched again on
+their own: the Atlas data workflow run by hand with "refresh" ticked fetches them all again. No
+scheduled update for now (a monthly one later, on the user's request). Visitors' browsers read only
+these files, never UniProt. Atlas only: `downloads/` keeps its full files until a map is published.
 
 ## Converter page
 

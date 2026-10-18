@@ -15,12 +15,14 @@
 # same zoom. 1 for an SVG (yEd exports it at 1:1); for a PNG only an estimate
 # from the GraphML layout, which can extend beyond what is drawn.
 # A map whose GraphML has annotation (yEd custom node properties such as
-# Full name, UniProt, ChEBI) also gets atlas-data/<base>.json: each annotated
-# node's box in SVG pixels and its properties, for the Atlas click panel.
+# UniProt, HGNC, ChEBI) also gets atlas-data/<base>.json: each annotated
+# node's box in SVG pixels and its properties, for the Atlas click panel, the
+# names and the rest taken from atlas-data/uniprot.json, hgnc.json, chebi.json.
 # All maps' annotated nodes also go to atlas-data/search.json, the index of
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
-import os, re, glob, json, collections, urllib.request
+# python3 scripts/make_maps.py --refresh fetches the cached annotation again.
+import os, re, sys, glob, json, collections, urllib.request, urllib.parse
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -99,42 +101,142 @@ MODIFIED = {'P': 'Phosphorylated', 'Ac': 'Acetylated', 'Me': 'Methylated', 'Ub':
 RESIDUE = {'S': 'Ser', 'T': 'Thr', 'Y': 'Tyr', 'K': 'Lys', 'C': 'Cys', 'G': 'Gly', 'R': 'Arg', 'H': 'His'}
 
 
+# Extended annotation (user, 2026-10-18): the map file keeps the identifiers (UniProt, HGNC,
+# HGNC symbol, ChEBI) and what is curated (PTM, Family, Members); the names, function, location,
+# formula and cross-references shown in the panel and searched come from UniProt, HGNC and ChEBI.
+# Each identifier is fetched once, the first time a map has it, and kept in atlas-data/uniprot.json,
+# hgnc.json and chebi.json (one entry per identifier, shared by all maps); never fetched again on
+# its own. "make_maps.py --refresh" fetches every entry again, keeping the old one when a fetch
+# fails (the workflow's "refresh" option, run by hand). A failed first fetch is not cached, so the
+# next run tries again; until then the panel shows what the GraphML itself has.
 # UniProt's enzyme for a site the map draws (user, 2026-10-18): "Phosphorylated at Ser312, by IKKB,
 # MAPK8 and RPS6KB1", from the entry's Modified residue features with experimental evidence
-# (ECO:0000269), not the proteomics-only ones. Only the drawn sites: the rest stays at UniProt,
-# linked from the panel. Cached per accession in atlas-data/uniprot-sites.json (delete an entry
-# to fetch it again); a failed fetch is not cached, so the next run tries again.
-UNIPROT = 'https://rest.uniprot.org/uniprotkb/%s.json?fields=ft_mod_res'
-SITES_CACHE = os.path.join(ROOT, 'atlas-data', 'uniprot-sites.json')
+# (ECO:0000269), not the proteomics-only ones; kept as "sites" in uniprot.json. Only the drawn
+# sites: the rest stays at UniProt, linked from the panel.
+REFRESH = '--refresh' in sys.argv
+SOURCE = {'uniprot': 'https://rest.uniprot.org/uniprotkb/%s.json?fields=protein_name,cc_function,cc_subcellular_location,ft_mod_res',
+          'hgnc': 'https://rest.genenames.org/fetch/hgnc_id/%s',
+          'hgnc-symbol': 'https://rest.genenames.org/fetch/symbol/%s',
+          'chebi': 'https://www.ebi.ac.uk/chebi/backend/api/public/compound/%s/'}
+CACHE = {n: os.path.join(ROOT, 'atlas-data', n + '.json') for n in ('uniprot', 'hgnc', 'chebi')}
+cache = {n: json.load(open(f, encoding='utf-8')) if os.path.exists(f) else {} for n, f in CACHE.items()}
+fetched = set()  # what this run has fetched (with --refresh, each entry once)
 PREFIX = {'P': 'phospho', 'Ac': 'acetyl', 'Me': 'methyl', 'Su': 'succinyl', 'Glut': 'glutaryl'}
-sites_cache = json.load(open(SITES_CACHE, encoding='utf-8')) if os.path.exists(SITES_CACHE) else {}
 
 
-def uniprot_sites(acc):
-    # position -> [description, enzymes] for the sites UniProt gives an enzyme for
-    if acc not in sites_cache:
+def fetch(url):
+    req = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'metabolismregulation.github.io'})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.load(r)
+
+
+def cached(src, key, url, parse):
+    if key and (key not in cache[src] or REFRESH and (src, key) not in fetched):
+        fetched.add((src, key))
         try:
-            with urllib.request.urlopen(UNIPROT % acc, timeout=30) as r:
-                feats = json.load(r).get('features', [])
-        except (OSError, ValueError) as e:
-            print('%s: UniProt not reached (%s), sites without enzymes' % (acc, e))
-            return {}
-        sites_cache[acc] = {str(f['location']['start']['value']): [f['description'].split(';')[0], f['description'].split('; by ', 1)[1].split(';')[0]]
-                            for f in feats if '; by ' in f.get('description', '')
-                            and any(e.get('evidenceCode') == 'ECO:0000269' for e in f.get('evidences', []))}
-    return sites_cache[acc]
+            cache[src][key] = parse(fetch(url))
+        except (OSError, ValueError, KeyError, IndexError) as e:
+            print('%s %s: not fetched (%s)%s' % (src, key, e, ', the old entry kept' if key in cache[src] else ''))
+    return cache[src].get(key, {})
+
+
+def first_sentences(text, n=2):
+    # UniProt's function text without its evidence, in its first two sentences
+    text = re.sub(r'\s*\((?:PubMed|By similarity|Ref\.)[^()]*\)', '', text)
+    return ' '.join(re.split(r'(?<=\.)\s+(?=[A-Z0-9])', text)[:n]).strip()
+
+
+def parse_uniprot(u):
+    pd, com = u.get('proteinDescription', {}), u.get('comments', [])
+    fn = [c['texts'][0]['value'] for c in com if c['commentType'] == 'FUNCTION' and c.get('texts')]
+    return {'Full name': pd.get('recommendedName', {}).get('fullName', {}).get('value', ''),
+            'Alternative names': '; '.join(a['fullName']['value'] for a in pd.get('alternativeNames', [])),
+            'Function': first_sentences(fn[0]) if fn else '',
+            # every location, the isoforms' too, in UniProt's order
+            'Location': ', '.join(dict.fromkeys(l['location']['value'] for c in com if c['commentType'] == 'SUBCELLULAR LOCATION'
+                                                for l in c.get('subcellularLocations', []) if 'location' in l)),
+            # position -> [description, enzymes] for the sites UniProt gives an enzyme for
+            'sites': {str(f['location']['start']['value']): [f['description'].split(';')[0], f['description'].split('; by ', 1)[1].split(';')[0]]
+                      for f in u.get('features', []) if '; by ' in f.get('description', '')
+                      and any(e.get('evidenceCode') == 'ECO:0000269' for e in f.get('evidences', []))}}
+
+
+def parse_hgnc(h):
+    d = h['response']['docs'][0]
+    return {'HGNC': d['hgnc_id'], 'HGNC symbol': d['symbol'],
+            'Previous symbols': ', '.join(d.get('prev_symbol', [])), 'Alias symbols': ', '.join(d.get('alias_symbol', [])),
+            'Entrez': d.get('entrez_id', ''), 'Ensembl': d.get('ensembl_gene_id', ''),
+            'RefSeq': ', '.join(d.get('refseq_accession', [])), 'uniprot': d.get('uniprot_ids', [])}
+
+
+def parse_chebi(d):
+    # names checked by ChEBI only (status C), not the brand names it takes from ChEMBL
+    names, syn = sorted({x['ascii_name'] for l in (d.get('names') or {}).values() for x in l if x.get('status') == 'C'}), []
+    seen = {d['name'].lower(), d['ascii_name'].lower()}
+    for x in names:
+        if x.lower() not in seen:
+            seen.add(x.lower())
+            syn.append(x)
+    st, acc = d.get('default_structure') or {}, d.get('database_accessions') or {}
+    xref = lambda pre: ', '.join(dict.fromkeys(a['accession_number'] for t, l in acc.items() if t != 'CAS'
+                                               for a in l if (a.get('prefix') or '') == pre))
+    return {'Full name': d['ascii_name'], 'Synonyms': '; '.join(syn),
+            'Definition': re.sub(r'<[^>]+>', '', d.get('definition') or ''),
+            'Formula': (d.get('chemical_data') or {}).get('formula') or '',
+            'KEGG': xref('kegg.compound'), 'HMDB': xref('hmdb'),
+            'InChI': st.get('standard_inchi') or '', 'InChIKey': st.get('standard_inchi_key') or ''}
+
+
+def uniprot(acc):
+    return cached('uniprot', acc, SOURCE['uniprot'] % acc, parse_uniprot)
+
+
+def hgnc(hgnc_id='', symbol=''):
+    if not hgnc_id and symbol:
+        hgnc_id = next((k for k, v in cache['hgnc'].items() if v.get('HGNC symbol') == symbol), '')
+        if not hgnc_id:  # a symbol not seen yet: found by the symbol, kept under its HGNC ID
+            try:
+                h = parse_hgnc(fetch(SOURCE['hgnc-symbol'] % urllib.parse.quote(symbol)))
+                hgnc_id = h['HGNC']
+                cache['hgnc'][hgnc_id] = h
+                fetched.add(('hgnc', hgnc_id))
+            except (OSError, ValueError, KeyError, IndexError) as e:
+                print('hgnc %s: not found (%s)' % (symbol, e))
+                return {}
+    return cached('hgnc', hgnc_id, SOURCE['hgnc'] % hgnc_id, parse_hgnc)
+
+
+def chebi(chebi_id):
+    return cached('chebi', chebi_id, SOURCE['chebi'] % chebi_id.split(':')[-1], parse_chebi)
 
 
 def ptm_text(ptm, acc=''):
     # by position in the protein (Gly2, Cys15, Cys26), not in the stored order around the node
     sites = sorted((s.strip().partition('@') for s in ptm.split('\n')),
                    key=lambda x: int(re.sub(r'\D', '', x[2]) or 1e9))
-    known = uniprot_sites(acc.split(',')[0].strip()) if acc else {}
+    known = uniprot(acc.split(',')[0].strip()).get('sites', {}) if acc else {}
     def by(sym, site):
         u = known.get(site[1:])
         return ', by ' + u[1] if u and u[0].lower().startswith(PREFIX.get(sym, '-')) else ''
     return '\n'.join(MODIFIED.get(sym, sym) + (' at ' + RESIDUE.get(site[:1], site[:1]) + site[1:] + by(sym, site) if site else '')
                      for sym, _, site in sites)
+
+
+def record(data):
+    """The panel's properties of a node or a family member, in ANN_FIELDS order: its identifiers
+    and curated fields from the GraphML, the rest from the cache (the GraphML's own value where
+    the cache has none)."""
+    rec = dict(data)
+    h = hgnc(data.get('HGNC', ''), data.get('HGNC symbol', ''))
+    acc = (data.get('UniProt') or '').split(',')[0].strip()
+    if not acc and len(h.get('uniprot', [])) > 1:
+        print('%s: HGNC gives several UniProt entries (%s), none taken' % (h['HGNC symbol'], ', '.join(h['uniprot'])))
+    acc = acc or (h['uniprot'][0] if len(h.get('uniprot', [])) == 1 else '')
+    if acc:
+        rec['UniProt'] = data.get('UniProt') or acc
+    for got in (h, uniprot(acc) if acc else {}, chebi(data['ChEBI']) if data.get('ChEBI') else {}):
+        rec.update({k: v for k, v in got.items() if v and k in ANN_FIELDS})
+    return [[f, ptm_text(rec[f], rec.get('UniProt', '')) if f == 'PTM' else rec[f]] for f in ANN_FIELDS if rec.get(f)]
 
 
 def annotation(base):
@@ -148,7 +250,6 @@ def annotation(base):
     keys = {k.get('id'): k.get('attr.name') for k in root.findall(GN + 'key')
             if k.get('for') == 'node' and k.get('attr.name')}
     custom = sorted((k for k, n in keys.items() if n in ANN_FIELDS), key=lambda k: ANN_FIELDS.index(keys[k]))
-    mkey = [k for k, n in keys.items() if n == MEMBERS_FIELD]
     if not custom:
         return None
     # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty), the drawn one
@@ -158,13 +259,16 @@ def annotation(base):
     nodes = []
     for n in root.iter(GN + 'node'):
         data = {keys.get(d.get('key')): (d.text or '').strip() for d in n.findall(GN + 'data') if d.get('key') in keys}
-        props = [[keys[k], ptm_text(data[keys[k]], data.get('UniProt', '')) if keys[k] == 'PTM' else data[keys[k]]]
-                 for k in custom if data.get(keys[k])]
-        if not props:
+        data = {k: v for k, v in data.items() if v and k in ANN_FIELDS + [MEMBERS_FIELD]}
+        if not any(k in data for k in ANN_FIELDS):
             continue
-        members = json.loads(data[MEMBERS_FIELD]) if mkey and data.get(MEMBERS_FIELD) else None
-        for m in members or []:
-            m['props'] = [[k, ptm_text(v, dict(m['props']).get('UniProt', '')) if k == 'PTM' else v] for k, v in m['props'] if k in ANN_FIELDS]
+        props = record({k: v for k, v in data.items() if k != MEMBERS_FIELD})
+        # a family's members, by their HGNC symbols in Members; a member's sites (PTM) are
+        # still read from its record in Member annotation
+        old = {m['symbol']: dict(m['props']) for m in json.loads(data.get(MEMBERS_FIELD) or '[]')}
+        symbols = [x.strip() for x in data.get('Members', '').split(';') if x.strip()] or list(old)
+        members = [{'symbol': sym, 'props': record(dict({k: v for k, v in old.get(sym, {}).items() if k in ANN_FIELDS}, **{'HGNC symbol': sym}))}
+                   for sym in symbols] or None
         gn = n.find(GN + 'data/' + YN + 'GenericNode')
         if gn is None:  # a group node: its open realizer
             gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
@@ -174,7 +278,7 @@ def annotation(base):
                       'class': (gn.get('configuration') or '').replace('com.yworks.sbgn.', ''),
                       'box': [round(float(geo.get('x')) + tx, 1), round(float(geo.get('y')) + ty, 1),
                               round(float(geo.get('width')), 1), round(float(geo.get('height')), 1)],
-                      'url': data.get('url', ''), 'props': props})
+                      'props': props})
         if members:
             nodes[-1]['members'] = members
     return nodes
@@ -325,7 +429,8 @@ def main():
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
-    json.dump(sites_cache, open(SITES_CACHE, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
+    for n, f in CACHE.items():
+        json.dump(cache[n], open(f, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     print(len(written), 'maps:', ', '.join(written))
 
 
