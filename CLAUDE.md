@@ -59,8 +59,7 @@ Reactome processes (linked). The Atlas list has no tag for it (the "lists" tag w
 Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and image error (see Atlas images) are automatic (draft: a page in `draftpages/`). Every other tag is set by hand, on request. Set by hand
 (user, 2026-10-18, TAGS in `scripts/make_maps.py`, in place of the automatic draft): "new" in blue for a map not on
 the official site (alox5; glycolysis-cardiac, whose page and `downloads/` files were added by mistake on 2026-10-17 and are
-not in Maps or Gallery), "draft" for a map whose biology differs from the official one (also maps with no draft page:
-camp), "draft" in white for the same biology with small changes to the file
+not in Maps or Gallery), "draft" for a map whose biology differs from the official one (also a map with no draft page), "draft" in white for the same biology with small changes to the file
 (none at the moment). A map whose GraphML equals the official one has no tag. "copy" (the style of the white
 draft) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
 (draft, draft white, new, copy, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
@@ -204,10 +203,10 @@ nodes. The four such nodes on the Atlas (26S proteasome, RTK, Histone acetylatio
 pyrrophenone) are plain labels. `downloads/` keeps its full files until a map is published, except the ten
 official maps whose drawing equals the Atlas one (glycolysis, mevalonate, SREBP, eNOS, carnitine,
 TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean Atlas copies
-(user, 2026-10-18). ACLY, aspirin, phosphoinositides and iNOS were published from the Atlas the same way (2026-10-18;
+(user, 2026-10-18). ACLY, aspirin, phosphoinositides, iNOS and cAMP hydrolysis were published from the Atlas the same way (2026-10-18;
 ACLY: the user's yEd files, state variables off the top side; aspirin: the Atlas SVG, its PNG
 rendered from it at 2x; phosphoinositides: the EGF:EGFR dimer as a complex of EGF N:2 and EGFR N:2,
-the user's yEd SVG; iNOS: the Atlas GraphML with the user's yEd SVG; MINERVA upload by the user). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
+the user's yEd SVG; iNOS: the Atlas GraphML with the user's yEd SVG; cAMP hydrolysis: the Atlas GraphML and the SVG drawn from it by yrender, PKA as PKA-R N:2 with PKA-C; MINERVA upload by the user). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
 layout) and SBML and SBGN-ML are made from it by MINERVA's conversion service (maps-workbench
 `tools/minerva_exports.py`); the MINERVA projects stay as they are for now (user, 2026-10-18).
 The Atlas GraphMLs are lean (2026-10-18, maps-workbench `tools/lean_migration.py`; map-converter's
