@@ -4,7 +4,7 @@ topic: "Glycogen metabolism"
 tab: "muscle"
 page: "/glycogen/"
 group: "Carbohydrate metabolism"
-order: 4
+order: 5
 kind: "map"
 draft: false
 tag: ""

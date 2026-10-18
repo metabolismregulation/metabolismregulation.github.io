@@ -4,7 +4,7 @@ topic: "Estradiol biosynthesis"
 tab: ""
 page: "/estrogen/"
 group: "Lipid metabolism"
-order: 13
+order: 14
 kind: "map"
 draft: false
 tag: ""

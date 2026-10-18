@@ -4,7 +4,7 @@ topic: "Eicosanoid production"
 tab: ""
 page: "/eicosanoids/draft/"
 group: "Lipid metabolism"
-order: 7
+order: 8
 kind: "map"
 draft: true
 tag: "draft"

@@ -4,7 +4,7 @@ topic: "Pyruvate dehydrogenase"
 tab: ""
 page: "/pdh/"
 group: "Carbohydrate metabolism"
-order: 3
+order: 4
 kind: "map"
 draft: false
 tag: ""

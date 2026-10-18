@@ -52,7 +52,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-
 # Groups without maps are planned for future maps and are not shown.
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
 GROUPS = [
-    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'pdh', 'glycogen-muscle', 'glycogen-liver', 'acly']),
+    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycolysis-extended', 'pdh', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'alox5', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'gba1', 'aspirin']),
     ('Amino acid metabolism', ['glutaminase', 'bcaa', 'ureacycle']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
@@ -70,7 +70,7 @@ DRUG = {'aspirin'}
 # tags set by hand (user, 2026-10-18), in place of the automatic draft tag of a page in draftpages/:
 # new (blue): a map not on the official site; draft: the biology differs from the official map;
 # draft-white: the same biology as the official map, with small changes to its file
-TAGS = {'alox5': 'new', 'glycolysis-cardiac': 'new',
+TAGS = {'alox5': 'new', 'glycolysis-cardiac': 'new', 'glycolysis-extended': 'new',
         'camp': 'draft'}
 # the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
 # version (the reference first, then the working version), under the same name with the tag copy, for comparison: the official page's text and the
@@ -81,7 +81,7 @@ OFFICIAL_COPY = os.path.join(DL, 'copy')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis'}
+TOPIC = {'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then

@@ -4,7 +4,7 @@ topic: "nNOS pathway"
 tab: ""
 page: "/nnos/"
 group: "Nitric oxide metabolism"
-order: 24
+order: 25
 kind: "map"
 draft: false
 tag: ""
