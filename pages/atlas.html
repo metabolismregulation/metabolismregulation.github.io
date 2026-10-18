@@ -825,7 +825,7 @@ sitemap: false
     var topic = topics.filter(function (t) { return t.name === m.topic; })[0];
     img.removeAttribute('src');
     img.alt = m.title;
-    img.src = m.image;
+    img.src = m.image + BUILD; // a new build fetches the image again, not the cached one
     img.width = m.width;
     img.height = m.height;
     if (mode === 'fit') fit(); else standard();
