@@ -49,7 +49,7 @@ from .model import Map, Node, Arc
 
 MARGIN = 40
 STRAIGHTEN = os.environ.get('STRAIGHTEN', '1') == '1'  # STRAIGHTEN=0: positions as in yEd
-NAME_ROOM = 25.0  # below the members of a complex, for its name
+NAME_ROOM = 14.0  # below the members' outline in a complex, for its name (as the yEd packing rule)
 ALIGN = 15.0  # largest move of a modifier onto its square (px)
 # the points of the process square a modifier can end at (targetLineIndex -1,i): (along the flow,
 # to its right) in half square sizes (MINERVA's getAnchorPointOnReactionRect; the user's PDH edit
@@ -226,12 +226,19 @@ def write(diagram, ann, layout='straight'):
     for c in members:
         name_complex(c)
     # CellDesigner writes a complex's name at the bottom inside it: its members move up to leave
-    # NAME_ROOM below them, as far as the space above allows, and the complex grows down for the
-    # rest (user's edits of pyrimidine v05 and v06, 2026-10-16); inner complexes first
+    # NAME_ROOM below their outline (a state variable on the bottom edge 8.5 px below the node,
+    # yEd's second shape of a multimer 6 px), as far as the space above allows, and the complex
+    # grows down for the rest; a GraphML packed by the skill's complex_pack.py has the room and
+    # keeps its geometry (user, 2026-10-18; first 25 px from the node, pyrimidine edits 2026-10-16);
+    # inner complexes first
+    def low(j):
+        x, y, w, h = box[j]
+        n = N[j].count if N[j].kind in CLASS else 1
+        return y + h + max([0.0] + [8.5 for s in N[j].states if s[2] > 0.45] + [6.0 * (3 - n)] * (n > 1))
     for c in sorted(members, key=lambda c: len(cd_straighten.descendants(c, members))):
         inner = cd_straighten.descendants(c, members)
         x, y, w, h = box[c]
-        need = max(box[j][1] + box[j][3] for j in inner) + NAME_ROOM - (y + h)
+        need = max(low(j) for j in inner) + NAME_ROOM - (y + h)
         if need > 0:
             up = min(need, max(0.0, min(box[j][1] for j in inner) - y - 8))
             for j in inner:
