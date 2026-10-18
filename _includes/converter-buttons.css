@@ -1,0 +1,16 @@
+  /* the Converter's download buttons, shared by /converter/ and /converter/description/ (which shows
+     them in its tables as they look). The site's buttons, as on the Atlas: white, grey edge, black text;
+     on hover filled in the blue of the chosen map in the Atlas list, white text. Two lines (user,
+     2026-10-19): the format, and under it the variant (straight, advanced, corrected, marked) small
+     and grey, so a row of five fits; a button without a variant is as tall, its format centred */
+  .cv-btn { display: inline-flex; align-items: center; gap: 8px; box-sizing: border-box; min-height: 44px;
+            padding: 4px 10px; background: #fff; border: 1px solid #ccc; border-radius: 5px;
+            font-size: 14px; line-height: 18px; color: #222; text-decoration: none; vertical-align: middle; }
+  .cv-btn .cv-lines { display: flex; flex-direction: column; }
+  .cv-btn .cv-variant { font-size: 12px; line-height: 16px; color: #777; }
+  .cv-btn svg { width: 14px; height: 14px; flex: none; }
+  a.cv-btn:hover { background: #4183c4; border-color: #4183c4; color: #fff; text-decoration: none; }
+  a.cv-btn:hover .cv-variant { color: #fff; }
+  /* a map that breaks the rules: its marked copy red, as the Atlas's Images button for an image error */
+  .cv-btn.cv-bad, .cv-btn.cv-bad .cv-variant { color: #c62828; border-color: #c62828; }
+  a.cv-btn.cv-bad:hover, a.cv-btn.cv-bad:hover .cv-variant { background: #c62828; border-color: #c62828; color: #fff; }
