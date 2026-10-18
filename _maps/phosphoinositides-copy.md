@@ -8,24 +8,24 @@ order: 14.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F009-phosphoinositides.svg"
+image: "/atlas-downloads/copy/F009-phosphoinositides.svg"
 width: 739
 height: 989
 scale: 1
-annotation: "/atlas-data/F009-phosphoinositides-official.json"
+annotation: "/atlas-data/F009-phosphoinositides-copy.json"
 image_error: ""
 contributors:
   - james-greene
   - michael-blinov
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F009-phosphoinositides.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F009-phosphoinositides.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F009-phosphoinositides.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F009-phosphoinositides.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F009-phosphoinositides-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F009-phosphoinositides.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F009-phosphoinositides.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F009-phosphoinositides.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F009-phosphoinositides.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F009-phosphoinositides.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F009-phosphoinositides.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F009-phosphoinositides.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F009-phosphoinositides-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F009-phosphoinositides.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F009-phosphoinositides.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F009-phosphoinositides.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F009-phosphoinositides"}
 ---
 ## References

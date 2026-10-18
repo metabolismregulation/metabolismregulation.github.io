@@ -8,25 +8,25 @@ order: 18.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F020-pyrimidine.svg"
+image: "/atlas-downloads/copy/F020-pyrimidine.svg"
 width: 459
 height: 405
 scale: 1
-annotation: "/atlas-data/F020-pyrimidine-official.json"
+annotation: "/atlas-data/F020-pyrimidine-copy.json"
 image_error: ""
 contributors:
   - hanna-borlinghaus
   - falk-schreiber
   - john-albanese
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F020-pyrimidine.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F020-pyrimidine.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F020-pyrimidine.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F020-pyrimidine.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F020-pyrimidine-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F020-pyrimidine.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F020-pyrimidine.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F020-pyrimidine.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F020-pyrimidine.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F020-pyrimidine.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F020-pyrimidine.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F020-pyrimidine.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F020-pyrimidine-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F020-pyrimidine.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F020-pyrimidine.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F020-pyrimidine.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F020-pyrimidine"}
 ---
 ## Description

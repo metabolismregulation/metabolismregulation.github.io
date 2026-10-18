@@ -8,25 +8,25 @@ order: 19.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F012-camp.svg"
+image: "/atlas-downloads/copy/F012-camp.svg"
 width: 745
 height: 730
 scale: 1
-annotation: "/atlas-data/F012-camp-official.json"
+annotation: "/atlas-data/F012-camp-copy.json"
 image_error: ""
 contributors:
   - tatiana-serebriyskaya
   - valeriya-berzhitskaya
   - john-albanese
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F012-camp.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F012-camp.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F012-camp.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F012-camp.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F012-camp-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F012-camp.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F012-camp.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F012-camp.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F012-camp.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F012-camp.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F012-camp.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F012-camp.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F012-camp-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F012-camp.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F012-camp.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F012-camp.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F012-camp"}
 ---
 ## Description

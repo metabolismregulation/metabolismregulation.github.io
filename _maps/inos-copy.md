@@ -8,24 +8,24 @@ order: 20.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F007-inos.svg"
+image: "/atlas-downloads/copy/F007-inos.svg"
 width: 1590
 height: 1186
 scale: 1
-annotation: "/atlas-data/F007-inos-official.json"
+annotation: "/atlas-data/F007-inos-copy.json"
 image_error: ""
 contributors:
   - alexander-mazein
   - maria-del-carmen-heredia
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F007-inos.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F007-inos.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F007-inos.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F007-inos.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F007-inos-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F007-inos.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F007-inos.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F007-inos.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F007-inos.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F007-inos.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F007-inos.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F007-inos.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F007-inos-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F007-inos.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F007-inos.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F007-inos.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos"}
 ---
 ## References

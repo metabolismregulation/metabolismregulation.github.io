@@ -8,24 +8,24 @@ order: 5.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F006-acly.svg"
+image: "/atlas-downloads/copy/F006-acly.svg"
 width: 892
 height: 698
 scale: 1
-annotation: "/atlas-data/F006-acly-official.json"
+annotation: "/atlas-data/F006-acly-copy.json"
 image_error: ""
 contributors:
   - adrien-rougny
   - john-albanese
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F006-acly.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F006-acly.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F006-acly.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F006-acly.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F006-acly-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F006-acly.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F006-acly.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F006-acly.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F006-acly.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F006-acly.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F006-acly.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F006-acly.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F006-acly-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F006-acly.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F006-acly.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F006-acly.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F006-acly"}
 ---
 ## Description

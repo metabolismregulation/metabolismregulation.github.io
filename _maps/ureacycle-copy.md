@@ -8,23 +8,23 @@ order: 17.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F021-ureacycle.svg"
+image: "/atlas-downloads/copy/F021-ureacycle.svg"
 width: 1080
 height: 1061
 scale: 1
-annotation: "/atlas-data/F021-ureacycle-official.json"
+annotation: "/atlas-data/F021-ureacycle-copy.json"
 image_error: ""
 contributors:
   - marcio-luis-acencio
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F021-ureacycle.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F021-ureacycle.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F021-ureacycle.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F021-ureacycle.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F021-ureacycle-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F021-ureacycle.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F021-ureacycle.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F021-ureacycle.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F021-ureacycle.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F021-ureacycle.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F021-ureacycle.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F021-ureacycle.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F021-ureacycle-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F021-ureacycle.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F021-ureacycle.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F021-ureacycle.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F021-ureacycle"}
 ---
 ## Reactome-Recon connection

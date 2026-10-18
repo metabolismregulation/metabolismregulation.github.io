@@ -36,10 +36,18 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py), and delete its
-official copy from `atlas-downloads/official/` (see Official copies in the Atlas), so it no longer
+official copy from `atlas-downloads/copy/` (see Official copies in the Atlas), so it no longer
 shows twice in the Atlas list.
 A published map has the complete set of files in `downloads/`, each linked from its page (user,
-2026-10-18): GraphML, PNG, SVG, CellDesigner, SBML, SBGN-ML and the annotation CSV. The CSV is made
+2026-10-18): GraphML, PNG, SVG, CellDesigner, SBML, SBGN-ML and the annotation CSV. How the official
+formats are made (user, 2026-10-18, for now): the CellDesigner file from the map's GraphML by
+map-converter, advanced layout (`python3 -m mapconv <map.graphml> <map.xml> --layout advanced` in
+`metabolismregulation/map-converter`, checked with `python3 -m mapconv.check`), then SBML and
+SBGN-ML from that CellDesigner file by MINERVA's conversion service (maps-workbench
+`tools/minerva_exports.py <folder> <base>`), not by our converter yet. The user uploads the
+CellDesigner file to MINERVA. MINERVA 22.0.1 (2026-10-18) fails on a complex with a homodimer
+(N:2 on a complex, e.g. the EGF:EGFR dimer in phosphoinositides): "UnitOfInformation cannot be
+cast to StructuralState", even for a CellDesigner to CellDesigner round trip. The CSV is made
 from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
 (e.g. `F021-ureacycle "Urea cycle"`, the pathway as in the Atlas topic). `make_maps.py` warns
 for every official page that lacks a file of the set (COMPLETE in the script).
@@ -291,7 +299,7 @@ Every map tagged draft (grey or white) is preceded in the Atlas list by its offi
 reference first, then the draft, user 2026-10-18), under the same name with the tag "copy", for comparison (user, 2026-10-18): the official page's text, its
 image and click panel, and the complete official file set in its download row (Newt and MINERVA
 too). Nothing marks it above the map. The search finds only the working version. Its files are
-frozen copies of `downloads/` in `atlas-downloads/official/`, protected like `downloads/`: an
+frozen copies of `downloads/` in `atlas-downloads/copy/`, protected like `downloads/`: an
 Atlas request ("update this and that") always means the working files at the top level of
 `atlas-downloads/`, never the copies, and the Atlas never reads `downloads/`. A map gets its copy
 entry when its files are in that folder (`scripts/make_maps.py`; `make_images.py` reads only the

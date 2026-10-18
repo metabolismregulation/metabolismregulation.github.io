@@ -8,24 +8,24 @@ order: 7.5
 kind: "drug"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F100-aspirin.svg"
+image: "/atlas-downloads/copy/F100-aspirin.svg"
 width: 943
 height: 290
 scale: 1
-annotation: "/atlas-data/F100-aspirin-official.json"
+annotation: "/atlas-data/F100-aspirin-copy.json"
 image_error: ""
 contributors:
   - alexander-mazein
   - maria-del-carmen-heredia
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F100-aspirin.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F100-aspirin.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F100-aspirin.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F100-aspirin.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F100-aspirin-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F100-aspirin.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F100-aspirin.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F100-aspirin.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F100-aspirin.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F100-aspirin.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F100-aspirin.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F100-aspirin.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F100-aspirin-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F100-aspirin.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F100-aspirin.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F100-aspirin.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F100-aspirin"}
 ---
 ## References

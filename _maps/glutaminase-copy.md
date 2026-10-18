@@ -8,25 +8,25 @@ order: 15.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F019-glutaminase.svg"
+image: "/atlas-downloads/copy/F019-glutaminase.svg"
 width: 690
 height: 581
 scale: 1
-annotation: "/atlas-data/F019-glutaminase-official.json"
+annotation: "/atlas-data/F019-glutaminase-copy.json"
 image_error: ""
 contributors:
   - hanna-borlinghaus
   - falk-schreiber
   - maria-del-carmen-heredia
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F019-glutaminase.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F019-glutaminase.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F019-glutaminase.svg"}
-  - {label: "SBGN-ML", url: "/atlas-downloads/official/F019-glutaminase.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/official/F019-glutaminase-SBML.xml"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F019-glutaminase.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F019-glutaminase.csv"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/official/F019-glutaminase.sbgn"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F019-glutaminase.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F019-glutaminase.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F019-glutaminase.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/copy/F019-glutaminase.sbgn"}
+  - {label: "SBML", url: "/atlas-downloads/copy/F019-glutaminase-SBML.xml"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F019-glutaminase.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F019-glutaminase.csv"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/copy/F019-glutaminase.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F019-glutaminase"}
 ---
 ## Description

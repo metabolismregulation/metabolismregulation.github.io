@@ -23,7 +23,7 @@
 # Rerun after changing a map page or a map image. Needs: pillow.
 # python3 scripts/make_maps.py --refresh fetches the cached annotation again.
 # python3 scripts/make_maps.py --copy-official copies the official files of every map tagged draft
-# into atlas-downloads/official/ (OFFICIAL_COPY), and --check-official compares them with downloads/.
+# into atlas-downloads/copy/ (OFFICIAL_COPY), and --check-official compares them with downloads/.
 # Both are run by hand in a session, never by the workflow.
 # python3 scripts/make_maps.py --official-csv F021-ureacycle "Urea cycle" writes the
 # annotation CSV of a published map, downloads/<base>.csv, from downloads/<base>.graphml
@@ -78,7 +78,7 @@ TAGS = {'alox5': 'new',
 # complete official file set, frozen copies of the files in downloads/. Made by --copy-official,
 # never edited: Atlas work never touches them, and the Atlas never reads downloads/. A map gets
 # its copy entry when its files are in OFFICIAL_COPY.
-OFFICIAL_COPY = os.path.join(DL, 'official')
+OFFICIAL_COPY = os.path.join(DL, 'copy')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
@@ -561,7 +561,7 @@ def main():
             ann_url = ''
             if ann:
                 os.makedirs(os.path.join(ROOT, 'atlas-data'), exist_ok=True)
-                name = base + ('-official' if copy else '')
+                name = base + ('-copy' if copy else '')
                 json.dump({'nodes': ann}, open(os.path.join(ROOT, 'atlas-data', name + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
                 ann_url = '/atlas-data/' + name + '.json'
                 if not copy:  # the search finds the working version
@@ -617,7 +617,7 @@ def main():
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']
             out = '\n'.join(fm) + (text if k == 0 else '')
-            mid += '-official' if copy else ''
+            mid += '-copy' if copy else ''
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))

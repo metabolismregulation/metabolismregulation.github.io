@@ -8,22 +8,22 @@ order: 1.5
 kind: "map"
 draft: false
 tag: "copy"
-image: "/atlas-downloads/official/F001-glycolysis-cardiac.svg"
+image: "/atlas-downloads/copy/F001-glycolysis-cardiac.svg"
 width: 867
 height: 679
 scale: 1
-annotation: "/atlas-data/F001-glycolysis-cardiac-official.json"
+annotation: "/atlas-data/F001-glycolysis-cardiac-copy.json"
 image_error: ""
 contributors:
   - alexander-mazein
   - vasundra-toure
   - maria-del-carmen-heredia
 downloads:
-  - {label: "GraphML", url: "/atlas-downloads/official/F001-glycolysis-cardiac.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/official/F001-glycolysis-cardiac.png"}
-  - {label: "SVG", url: "/atlas-downloads/official/F001-glycolysis-cardiac.svg"}
-  - {label: "CellDesigner", url: "/atlas-downloads/official/F001-glycolysis-cardiac.xml"}
-  - {label: "Annotation", url: "/atlas-downloads/official/F001-glycolysis-cardiac.csv"}
+  - {label: "GraphML", url: "/atlas-downloads/copy/F001-glycolysis-cardiac.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/copy/F001-glycolysis-cardiac.png"}
+  - {label: "SVG", url: "/atlas-downloads/copy/F001-glycolysis-cardiac.svg"}
+  - {label: "CellDesigner", url: "/atlas-downloads/copy/F001-glycolysis-cardiac.xml"}
+  - {label: "Annotation", url: "/atlas-downloads/copy/F001-glycolysis-cardiac.csv"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F001-glycolysis-cardiac"}
 ---
 ## Description
