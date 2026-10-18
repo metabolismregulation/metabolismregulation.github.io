@@ -22,7 +22,7 @@
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
 # python3 scripts/make_maps.py --refresh fetches the cached annotation again.
-import os, re, sys, glob, json, collections, urllib.request, urllib.parse
+import os, re, sys, csv, glob, json, collections, urllib.request, urllib.parse
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -284,6 +284,34 @@ def annotation(base):
     return nodes
 
 
+# The Atlas annotation table (user, 2026-10-18): the map file's content as a table, one row per
+# protein, family member or metabolite, rebuilt from the GraphML for every Atlas CSV a map page
+# links (a draft has none). Lean: identifiers and sites only, what the panel shows is not copied.
+CSV_COLUMNS = ['Pathway', 'Entity type', 'Name', 'HGNC symbol', 'HGNC ID', 'UniProt ID', 'ChEBI ID', 'PTM']
+
+
+def table_rows(base, pathway):
+    root = ET.parse(os.path.join(ROOT, DL, base + '.graphml')).getroot()
+    keys = {k.get('id'): k.get('attr.name') for k in root.findall(GN + 'key') if k.get('for') == 'node'}
+    rows = []
+    for n in root.iter(GN + 'node'):
+        p = {keys.get(d.get('key')): (d.text or '').strip() for d in n.findall(GN + 'data')}
+        gn = n.find(GN + 'data/' + YN + 'GenericNode')
+        if gn is None:
+            gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
+        labels = [l.text.strip() for l in gn.findall(YN + 'NodeLabel') if l.text and l.text.strip() and not l.get('iconData')] if gn is not None else []
+        name = ' '.join(labels[0].split()) if labels else ''
+        kind = 'Nucleic acid' if 'NucleicAcid' in (gn.get('configuration') or '') else 'Protein'
+        records = [dict(m['props']) for m in json.loads(p.get(MEMBERS_FIELD) or '[]')] or [p]
+        for r in records:
+            if r.get('ChEBI') or r.get('HGNC symbol') or r.get('UniProt'):
+                row = (pathway, 'Metabolite' if r.get('ChEBI') else kind, name, r.get('HGNC symbol', ''), r.get('HGNC', ''),
+                             r.get('UniProt', ''), r.get('ChEBI', ''), '; '.join(x.strip() for x in r.get('PTM', '').split('\n') if x.strip()))
+                if row not in rows:
+                    rows.append(row)
+    return rows
+
+
 def search_entries(mid, nodes):
     """The search index of one map: one entry per molecule (copies of a node
     are joined), with its node indices in atlas-data/<base>.json.
@@ -338,6 +366,7 @@ def main():
     rank = lambda s: ORDER.index(JOIN.get(s, (s,))[0]) + (0.5 if s in JOIN else 0) if JOIN.get(s, (s,))[0] in ORDER else 999
     written = []
     search = []
+    tables = collections.defaultdict(list)  # Atlas CSV -> its rows
     for slug in sorted(slugs, key=rank):
         s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
@@ -397,11 +426,17 @@ def main():
                         print('%s: no %s in %s/, not offered in the Atlas' % (slug, local.rsplit('/', 1)[1], DL))
                         continue
                     downloads.append({'label': m.group(2), 'url': url})
+            map_title = title if k == 0 or len(blocks) == 1 else title.replace('muscle', 'liver')
+            map_tab = tab or (TABS.get(base) if len(blocks) > 1 or base in TABS else None) or ''
+            for d in downloads:
+                if d['label'] == 'Annotation' and d['url'].endswith('.csv') and os.path.exists(os.path.join(ROOT, DL, base + '.graphml')):
+                    t = tables[d['url'].lstrip('/')]
+                    t += [r for r in table_rows(base, topic + (', ' + map_tab if map_tab else '')) if r not in t]
             mid = base.split('-', 1)[1]
             fm = ['---',
-                  'title: ' + yaml_str(title if k == 0 or len(blocks) == 1 else title.replace('muscle', 'liver')),
+                  'title: ' + yaml_str(map_title),
                   'topic: ' + yaml_str(topic),
-                  'tab: ' + yaml_str(tab or (TABS.get(base) if len(blocks) > 1 or base in TABS else None) or ''),
+                  'tab: ' + yaml_str(map_tab),
                   'page: ' + yaml_str(permalink),
                   'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
@@ -429,6 +464,11 @@ def main():
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+    for path, rows in tables.items():
+        with open(os.path.join(ROOT, path), 'w', encoding='utf-8-sig', newline='') as f:
+            w = csv.writer(f, lineterminator='\n')
+            w.writerow(CSV_COLUMNS)
+            w.writerows(rows)
     for n, f in CACHE.items():
         json.dump(cache[n], open(f, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     print(len(written), 'maps:', ', '.join(written))
