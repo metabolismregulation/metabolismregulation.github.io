@@ -4,7 +4,7 @@ topic: "cAMP hydrolysis"
 tab: ""
 page: "/camp/"
 group: "Nucleotide metabolism"
-order: 20.5
+order: 19.5
 kind: "map"
 draft: false
 tag: "copy"

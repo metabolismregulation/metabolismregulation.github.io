@@ -287,8 +287,8 @@ their next GraphML change.
 
 ## Official copies in the Atlas
 
-Every map tagged draft (grey or white) is followed in the Atlas list by its official version, under
-the same name with the tag "copy", for comparison (user, 2026-10-18): the official page's text, its
+Every map tagged draft (grey or white) is preceded in the Atlas list by its official version (the
+reference first, then the draft, user 2026-10-18), under the same name with the tag "copy", for comparison (user, 2026-10-18): the official page's text, its
 image and click panel, and the complete official file set in its download row (Newt and MINERVA
 too). Nothing marks it above the map. The search finds only the working version. Its files are
 frozen copies of `downloads/` in `atlas-downloads/official/`, protected like `downloads/`: an

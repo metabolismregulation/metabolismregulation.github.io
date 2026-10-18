@@ -73,8 +73,8 @@ DRUG = {'aspirin'}
 TAGS = {'alox5': 'new',
         'glycolysis-cardiac': 'draft', 'camp': 'draft',
         'acly': 'draft-white', 'phosphoinositides': 'draft-white', 'inos': 'draft-white', 'aspirin': 'draft-white'}
-# the official copy (user, 2026-10-18): a map tagged draft is followed in the list by its official
-# version, under the same name with the tag copy, for comparison: the official page's text and the
+# the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
+# version (the reference first, then the working version), under the same name with the tag copy, for comparison: the official page's text and the
 # complete official file set, frozen copies of the files in downloads/. Made by --copy-official,
 # never edited: Atlas work never touches them, and the Atlas never reads downloads/. A map gets
 # its copy entry when its files are in OFFICIAL_COPY.
@@ -508,7 +508,7 @@ def main():
     jobs = []
     for slug in sorted(slugs, key=rank):
         jobs.append((slug, folder[slug], False))
-        # the official copy, after the working version, when its files are in OFFICIAL_COPY
+        # the official copy (listed before the working version), when its files are in OFFICIAL_COPY
         page = os.path.join(ROOT, '_projects', slug + '.md')
         if os.path.exists(page) and any(os.path.exists(os.path.join(ROOT, OFFICIAL_COPY, b + '.graphml')) for b in page_bases(page)):
             jobs.append((slug, '_projects', True))
@@ -594,7 +594,7 @@ def main():
                   'tab: ' + yaml_str(map_tab),
                   'page: ' + yaml_str(permalink),
                   'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
-                  'order: %s' % (order + 0.5 if copy else order),
+                  'order: %s' % (order - 0.5 if copy else order),  # the copy first, then the working version
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
                   'draft: %s' % ('true' if folder[slug] == 'draftpages' and not copy else 'false'),
                   'tag: ' + yaml_str('copy' if copy else TAGS.get(mid, 'draft' if folder[slug] == 'draftpages' else '')),

@@ -4,7 +4,7 @@ topic: "Glycolysis"
 tab: "cardiac muscle"
 page: "/glycolysis-cardiac/"
 group: "Carbohydrate metabolism"
-order: 2.5
+order: 1.5
 kind: "map"
 draft: false
 tag: "copy"
