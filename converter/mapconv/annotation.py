@@ -13,7 +13,7 @@ def miriam(p):
     # the URNs of one entity's properties
     if p.get('ChEBI'):  # CellDesigner drops other ChEBI forms when it saves
         return ['urn:miriam:obo.chebi:' + p['ChEBI'].replace(':', '%3A')]
-    out = ['urn:miriam:hgnc.symbol:' + p['HGNC symbol']]
+    out = ['urn:miriam:hgnc.symbol:' + p['HGNC symbol']] if p.get('HGNC symbol') else []  # CellDesigner: UniProt alone
     if p.get('HGNC'): out.append('urn:miriam:hgnc:' + p['HGNC'].replace('HGNC:', ''))
     if p.get('UniProt'): out.append('urn:miriam:uniprot:' + p['UniProt'])
     return out

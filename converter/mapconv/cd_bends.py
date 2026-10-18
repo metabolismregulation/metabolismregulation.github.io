@@ -37,15 +37,15 @@ def turn(route):
     return 'h' if abs(cy - sy) < abs(cx - sx) else 'v'
 
 
-def unbent(run):
+def unbent(run, tol=1):
     # a polyline without the points that lie on the straight line between their neighbours
-    # (between them, within 1 px): no bend in either program
+    # (between them, within tol px): no bend in either program
     run = list(run)
     k = 1
     while k < len(run) - 1:
         (ax, ay), (bx, by), (qx, qy) = run[k - 1], run[k], run[k + 1]
-        if off(run[k], run[k - 1], run[k + 1]) < 1 and \
-                min(ax, qx) - 1 <= bx <= max(ax, qx) + 1 and min(ay, qy) - 1 <= by <= max(ay, qy) + 1:
+        if off(run[k], run[k - 1], run[k + 1]) < tol and \
+                min(ax, qx) - tol <= bx <= max(ax, qx) + tol and min(ay, qy) - tol <= by <= max(ay, qy) + tol:
             del run[k]
         else:
             k += 1

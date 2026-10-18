@@ -95,7 +95,7 @@ Atlas (`atlas-downloads/`):
 | SVG | the user's yEd export when uploaded, else drawn from the GraphML by the workflow (Atlas images) |
 | PNG | drawn by the workflow for a published map; a draft has none |
 | CellDesigner | our converter, advanced layout (as above) |
-| SBGN-ML | our converter: `python3 -m mapconv <map.graphml> <map.sbgn>` |
+| SBGN-ML | our converter, advanced layout: `python3 -m mapconv <map.graphml> <map.sbgn> --layout advanced` (the default is straight since 2026-10-18) |
 | SBML | none: our converter writes no SBML (user, 2026-10-18). An official copy keeps its SBML |
 | Annotation CSV | rebuilt from the GraphML by `make_maps.py` on every run |
 
@@ -221,18 +221,28 @@ family member or metabolite (and state), nothing the panel fetches (user, 2026-1
 `/converter/` (`pages/converter.html`, user 2026-10-16): drop map files ("Drop map files here,
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
 advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML" (our yEd conventions) and
-"GraphML (advanced)" (the CellDesigner drawing kept), and SBGN-ML, `<map>.sbgn`, straight from the CellDesigner file (user, 2026-10-17); the page loads `yed.graphml`, the templates.
+"GraphML (advanced)" (the CellDesigner drawing kept), and two SBGN-ML files straight from the CellDesigner file (user, 2026-10-17); the page loads `yed.graphml`, the templates.
 A tick box "Standard node sizes" (box 2026-10-16; label "Standard node sizes for CellDesigner and SBGN-ML
 to GraphML", the sizes themselves on the description page, user 2026-10-17) applies map-converter's `style.py` to both GraphML
 files: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized to the name (a metabolite keeps its shape), the map rescaled if its objects are much larger or smaller. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
-2026-10-17); other styles are added case by case. A GraphML map also gives SBGN-ML, `<map>.sbgn`, and an
+2026-10-17); other styles are added case by case. A GraphML map also gives two SBGN-ML files, and an
 SBGN-ML or Newt file (.sbgn, .nwt) gives "GraphML" (`<map>.graphml`) and the two CellDesigner files (user, 2026-10-17:
 SBGN-ML converts better than CellDesigner, so it is on the page while it is improved). A GraphML map is first
 checked by map-converter's `rules.py`, as on the command line (user, 2026-10-17): the problem elements are left out of the
 converted files, a red "GraphML (marked)" button (the red of the Atlas's image error) gives `<map>-marked.graphml`, the
 map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
-line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
+line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat.
+SBGN-ML, from GraphML and from CellDesigner, comes in two layouts like CellDesigner (user, 2026-10-18): "SBGN-ML",
+`<map>-straight.sbgn` (every arc straight from centre to centre, no bends or ports; from CellDesigner each process
+midway between its main reactant and product), and "SBGN-ML (advanced)", `<map>-advanced.sbgn` (the source's
+drawing: ports and only the key bends, those that move a line by more than 20 px or keep it off a node; logic gate
+arcs straight). Both are made for Newt: every process and gate in a compartment, each compartment as large as
+Newt's padding needs so Newt keeps it as drawn, aligned edges kept aligned, and neighbours too close for the padding
+moved apart (noted under the map). A CellDesigner homodimer gets N:2. Checked by loading the files in Newt
+(headless) and comparing its compartments with the file's; the hidden page /converter/sbgn/
+(`pages/converter-sbgn.html`, map-converter `tools/sbgn_test.sh`) lists every Atlas map and official
+CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
 page /converter/routes/): "GraphML ⭢ GraphML corrected to the SBGN palette", "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
 "SBGN-ML ⭤ CellDesigner" (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
 directly, not CellDesigner through the GraphML), as plain text so it can be copied (user, 2026-10-17). All the text next to the drop area

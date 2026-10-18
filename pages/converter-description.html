@@ -55,14 +55,23 @@ the input file name without its extension.</p>
   <li><b>GraphML (corrected)</b>, <code>&lt;map&gt;-corrected.graphml</code>: yEd GraphML. The map redrawn
   with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with
   other shapes.</li>
-  <li><b>SBGN-ML</b>, <code>&lt;map&gt;.sbgn</code>: SBGN-ML 0.3, Process Description. Colours in the SBML
+  <li><b>SBGN-ML</b>, <code>&lt;map&gt;-straight.sbgn</code>: SBGN-ML 0.3, Process Description. Each arc a
+  straight line from centre to centre, without bends or ports, for improving by hand. Colours in the SBML
   render extension, annotation as RDF in each glyph. A phenotype with an arc leaving it is left out with
   its arcs: an SBGN phenotype takes no outgoing arc, and the converter does not decide whether it is a
   perturbing agent or a submap.</li>
+  <li><b>SBGN-ML (advanced)</b>, <code>&lt;map&gt;-advanced.sbgn</code>: SBGN-ML 0.3, Process Description.
+  The yEd drawing kept: process ports, and the bends that change the course of a line by more than
+  20 px or keep it off a node. Arcs of logic gates straight. Otherwise as SBGN-ML.</li>
   <li><b>GraphML (marked)</b>, red button, <code>&lt;map&gt;-marked.graphml</code>: yEd GraphML. The input
   map with the elements that break the rules drawn red, the reason shown on hover in yEd. Given only
   when the check finds problems.</li>
 </ul>
+<p>In both SBGN-ML files every process and logic gate sits in a compartment, and each compartment is as
+large as Newt needs to keep it as drawn: Newt leaves a margin inside a compartment and otherwise redraws
+it around its contents. Edges aligned in the map stay aligned. Where two compartments' contents are too
+close for that margin, everything past their shared edge moves on by the missing distance, noted under
+the map.</p>
 <p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
 with the element's id, label (an arc by its ends) and reason. Phenotypes left out of the SBGN-ML are
 listed under the map with their id and label. Equivalence operators are left out of the
@@ -79,10 +88,16 @@ extension.</p>
   <li><b>GraphML (advanced)</b>, <code>&lt;map&gt;-advanced.graphml</code>: yEd GraphML with the CellDesigner
   geometry. CellDesigner's node sizes, arcs at its anchor points, modifier arcs ending beside the
   process square.</li>
-  <li><b>SBGN-ML</b>, <code>&lt;map&gt;.sbgn</code>: SBGN-ML 0.3, Process Description, from the CellDesigner
-  file directly, its arcs at node centres. Colours in the SBML render extension, annotation as RDF in each
-  glyph. A phenotype with an arc leaving it is left out with its arcs, as from GraphML.</li>
+  <li><b>SBGN-ML</b>, <code>&lt;map&gt;-straight.sbgn</code>: SBGN-ML 0.3, Process Description, from the
+  CellDesigner file directly. Each arc a straight line from centre to centre, each process midway between
+  its main reactant and product, for improving by hand. Colours in the SBML render extension, annotation as
+  RDF in each glyph. A phenotype with an arc leaving it is left out with its arcs, as from GraphML.</li>
+  <li><b>SBGN-ML (advanced)</b>, <code>&lt;map&gt;-advanced.sbgn</code>: SBGN-ML 0.3, Process Description.
+  The CellDesigner drawing kept: its node sizes, process positions and the bends that change the course of
+  a line by more than 20 px or keep it off a node. Otherwise as SBGN-ML.</li>
 </ul>
+<p>Both SBGN-ML files give a homodimer its N:x unit, N:2 included. Since CellDesigner files carry no site
+names, their state variables have none.</p>
 <p><b>Not converted</b>: text and shapes drawn on layers, groups, compartments drawn as an edge line,
 and state variables on a complex, listed under the map.</p>
 
@@ -120,7 +135,7 @@ sized to the name. A metabolite keeps its shape. The map is rescaled if its obje
 smaller.</p>
 
 <h2 id="loading">Loading</h2>
-<p><b>Updated</b>: 17 October 2026, Pyodide 0.26.4.</p>
+<p><b>Updated</b>: 18 October 2026, Pyodide 0.26.4.</p>
 <p><b>Size</b>: about 7 MB compressed (about 20 MB unpacked), downloaded on the first visit, then taken
 from the browser cache. Almost all of it is
 Python running in the browser (Pyodide): the Python engine 3.0 MB, its standard library 2.3 MB and

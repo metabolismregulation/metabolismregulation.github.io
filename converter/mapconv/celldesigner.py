@@ -926,6 +926,7 @@ KIND = {'PROTEIN': 'Macromolecule', 'GENE': 'NucleicAcidFeature', 'RNA': 'Nuclei
         'DEGRADED': 'EmptySet'}
 UNIT = {'GENE': 'ct:gene', 'RNA': 'ct:mRNA', 'ANTISENSE_RNA': 'ct:asRNA'}  # when the file has no ct: unit
 PROCESS = {'KNOWN_TRANSITION_OMITTED': 'OmittedProcess', 'UNKNOWN_TRANSITION': 'UncertainProcess'}  # others: Process
+PROCESSES = ('Process',) + tuple(PROCESS.values())
 HEAD = {v: k for k, v in MOD.items()}
 HEAD.update({'UNKNOWN_CATALYSIS': 'catalysis', 'UNKNOWN_INHIBITION': 'inhibition',
              'TRANSCRIPTIONAL_ACTIVATION': 'stimulation', 'TRANSLATIONAL_ACTIVATION': 'stimulation',
@@ -955,6 +956,26 @@ def from_frame(a, b, p):
     # inverse of cd_bends.to_frame: a point given in the edit point frame a -> b
     ex = (b[0] - a[0], b[1] - a[1]); ey = (-ex[1], ex[0])
     return (a[0] + p[0] * ex[0] + p[1] * ey[0], a[1] + p[0] * ex[1] + p[1] * ey[1])
+
+
+def straight(m):
+    # the map for straight SBGN-ML (user, 2026-10-18): CellDesigner's bends placed the process
+    # square, and the arcs go straight, so each process midway between its main reactant and
+    # product: its first consumption and first product (read() writes the main line first), or of
+    # a reversible process (products only) its first two products
+    ins, outs = {}, {}
+    for a in m.arcs:
+        if a.head is None and m.nodes[a.target].kind in PROCESSES:
+            ins.setdefault(a.target, []).append(a.source)
+        elif a.head == 'production':
+            outs.setdefault(a.source, []).append(a.target)
+    cen = lambda i: (m.nodes[i].box[0] + m.nodes[i].box[2] / 2, m.nodes[i].box[1] + m.nodes[i].box[3] / 2)
+    for p, o in outs.items():
+        e = ins.get(p, [])[:1] + o
+        if len(e) > 1:
+            (ax, ay), (bx, by), (x, y, w, h) = cen(e[0]), cen(e[1]), m.nodes[p].box
+            m.nodes[p].box = ((ax + bx - w) / 2, (ay + by - h) / 2, w, h)
+    return m
 
 
 def points(s):
@@ -1027,6 +1048,8 @@ def read(path, layout='straight'):
         units = ['%s:%s' % (info.get('prefix'), info.get('label'))] if info is not None and info.get('state') != 'empty' else []
         if cls in UNIT and not any(u.startswith('ct:') for u in units):
             units.append(UNIT[cls])
+        if n > 1:  # N:x as on every multimer of our yEd maps (N:2 included, user 2026-10-18)
+            units.append('N:%d' % n)
         paint = f(a, 'cd:usualView/cd:paint')
         uris = [li.get('{%s}resource' % ns['rdf']) for li in xs(an, './/rdf:Description/*/rdf:Bag/rdf:li')] if an is not None else []
         fam = an is not None and f(an, './/rdf:Description/bq:hasVersion') is not None
