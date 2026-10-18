@@ -596,14 +596,9 @@ sitemap: false
   // line per site, right after the identity line, no heading; the notes are not shown, as most
   // nodes have none (user, 2026-10-17)
   // UniProt's enzyme follows a site where UniProt has one with experimental evidence
-  // (scripts/make_maps.py), and a link leads to all of the protein's modifications there
-  // (user, 2026-10-18)
+  // (scripts/make_maps.py, user, 2026-10-18)
   function ptm(p) {
     if (p['PTM']) p['PTM'].split('\n').forEach(function (t) { info.appendChild(el('p', null, t)); });
-    if (!p['UniProt']) return;
-    var a = el('a', null, 'All modifications in UniProt'), q = el('p');
-    a.href = LINK['UniProt'] + String(p['UniProt']).split(/,\s*/)[0] + '/entry#ptm_processing'; a.target = '_blank'; a.rel = 'noopener';
-    q.appendChild(a); info.appendChild(q);
   }
   function line(p, name) {
     if (!p[name]) return;

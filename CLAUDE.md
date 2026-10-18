@@ -122,8 +122,8 @@ UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2", also where the tit
 "Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing), each followed by
 UniProt's enzyme for that site where UniProt names one with experimental evidence (ECO:0000269):
 "Phosphorylated at Ser312, by IKKB, MAPK8 and RPS6KB1" (`scripts/make_maps.py`, cached in
-`atlas-data/uniprot-sites.json`), then a link "All modifications in UniProt" to the entry's PTM /
-Processing section. Only the drawn sites: the rest of UniProt's sites and its PTM text stay at UniProt,
+`atlas-data/uniprot-sites.json`), no link of its own (the UNIPROT link under Annotations is there,
+user 2026-10-18). Only the drawn sites: the rest of UniProt's sites and its PTM text stay at UniProt,
 not in the GraphML (user, 2026-10-18). Then Alternative names (or
 Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
 in the grey of the other labels, closed at first, opened by a square + (− when open) right after
