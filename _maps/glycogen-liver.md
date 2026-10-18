@@ -8,7 +8,7 @@ order: 5
 kind: "map"
 draft: true
 image: "/atlas-downloads/F004-glycogen-liver.svg"
-width: 2106
+width: 2131
 height: 1751
 scale: 1
 annotation: "/atlas-data/F004-glycogen-liver.json"
@@ -22,7 +22,6 @@ contributors:
   - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F004-glycogen-liver.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/F004-glycogen-liver.png"}
   - {label: "SVG", url: "/atlas-downloads/F004-glycogen-liver.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F004-glycogen-liver.sbgn"}
   - {label: "SBML", url: "/atlas-downloads/F004-glycogen-liver-SBML.xml"}
