@@ -117,8 +117,8 @@ Fit shows the map alone, with the annotation over its right side.
 
 The panel a click on the map opens (user, 2026-10-17). Title in plain weight, nothing bold:
 "Protein: cPLA2", "Protein family: ERK1/2". Under it one line: the HGNC symbol in bold and the
-UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2" (the symbol left out where the title
-is the symbol). Then the post-translational modifications, one line per site, no heading:
+UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2", also where the title is the symbol
+("Protein: ALOX5", then "**ALOX5**, ...", so the bold symbol is always there, user 2026-10-18). Then the post-translational modifications, one line per site, no heading:
 "Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing). Then Alternative names (or
 Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
 in the grey of the other labels, closed at first, opened by a square + (− when open) right after

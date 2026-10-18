@@ -530,9 +530,9 @@ sitemap: false
     x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
     if (!family) {
-      // the symbol only where the title is not the symbol (AKT1)
-      var sym = p['HGNC symbol'];
-      identity(sym && sym.toUpperCase() !== String(sel.label).replace(/[\s-]/g, '').toUpperCase() ? sym : '', p['Full name']);
+      // the symbol also where the title is the symbol (AKT1), so the line always looks the same
+      // (user, 2026-10-18)
+      identity(p['HGNC symbol'], p['Full name']);
       ptm(p);
       record(p);
       return;
