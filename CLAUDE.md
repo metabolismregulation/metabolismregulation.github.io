@@ -45,7 +45,9 @@ map-converter, advanced layout (`python3 -m mapconv <map.graphml> <map.xml> --la
 `metabolismregulation/map-converter`, checked with `python3 -m mapconv.check`), then SBML and
 SBGN-ML from that CellDesigner file by MINERVA's conversion service (maps-workbench
 `tools/minerva_exports.py <folder> <base>`), not by our converter yet. The user uploads the
-CellDesigner file to MINERVA. MINERVA 22.0.1 (2026-10-18) fails on a complex with a homodimer
+CellDesigner file to MINERVA. The Atlas copies of a map's formats are made by our converter (user,
+2026-10-18, first aspirin): CellDesigner (advanced) and SBGN-ML from the Atlas GraphML. Our
+converter writes no SBML, so the Atlas keeps MINERVA's SBML for now. MINERVA 22.0.1 (2026-10-18) fails on a complex with a homodimer
 (N:2 on a complex, e.g. the EGF:EGFR dimer in phosphoinositides): "UnitOfInformation cannot be
 cast to StructuralState", even for a CellDesigner to CellDesigner round trip. The CSV is made
 from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
