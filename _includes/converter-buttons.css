@@ -1,16 +1,16 @@
   /* the Converter's download buttons, shared by /converter/ and /converter/description/ (which shows
-     them in its tables as they look). The site's buttons, as on the Atlas: white, grey edge, black text;
-     on hover filled in the blue of the chosen map in the Atlas list, white text. Two lines (user,
-     2026-10-19): the format, and under it the variant (straight, advanced, corrected, marked) small
-     and grey, so a row of five fits; a button without a variant is as tall, its format centred */
-  .cv-btn { display: inline-flex; align-items: center; gap: 8px; box-sizing: border-box; min-height: 44px;
-            padding: 4px 10px; background: #fff; border: 1px solid #ccc; border-radius: 5px;
-            font-size: 14px; line-height: 18px; color: #222; text-decoration: none; vertical-align: middle; }
+     them in its tables as they look). Two lines (user, 2026-10-19): the format, and under it the
+     variant (straight, advanced, corrected, marked) small, so a row of six fits; all the same size,
+     a button without a variant with its format centred. Filled in the blue of the chosen map in
+     the Atlas list, white text; a problem file in the red of the Atlas's image error (user,
+     2026-10-19); on hover a darker shade */
+  .cv-btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 8px;
+            box-sizing: border-box; width: 128px; height: 44px; padding: 4px 10px;
+            background: #4183c4; border: 1px solid #4183c4; border-radius: 5px;
+            font-size: 14px; line-height: 18px; color: #fff; text-decoration: none; vertical-align: middle; }
   .cv-btn .cv-lines { display: flex; flex-direction: column; }
-  .cv-btn .cv-variant { font-size: 12px; line-height: 16px; color: #777; }
+  .cv-btn .cv-variant { font-size: 12px; line-height: 16px; }
   .cv-btn svg { width: 14px; height: 14px; flex: none; }
-  a.cv-btn:hover { background: #4183c4; border-color: #4183c4; color: #fff; text-decoration: none; }
-  a.cv-btn:hover .cv-variant { color: #fff; }
-  /* a map that breaks the rules: its marked copy red, as the Atlas's Images button for an image error */
-  .cv-btn.cv-bad, .cv-btn.cv-bad .cv-variant { color: #c62828; border-color: #c62828; }
-  a.cv-btn.cv-bad:hover, a.cv-btn.cv-bad:hover .cv-variant { background: #c62828; border-color: #c62828; color: #fff; }
+  .cv-btn.cv-bad { background: #c62828; border-color: #c62828; }
+  a.cv-btn:hover { background: #2f6aa5; border-color: #2f6aa5; color: #fff; text-decoration: none; }
+  a.cv-btn.cv-bad:hover { background: #a11f1f; border-color: #a11f1f; }

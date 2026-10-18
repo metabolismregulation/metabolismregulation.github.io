@@ -145,8 +145,8 @@ quiet at rest. Atlas download row: one colour for all buttons (no quieter SBML, 
 MINERVA), on hover filled in the blue of the chosen map in the map list (#4183c4, white text),
 the Images menu items in the font of the button. Ordered by use: GraphML, CellDesigner,
 SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and
-MINERVA, all in one row at the same spacing. The Converter buttons look and behave the same. Converter buttons: "CellDesigner (straight)" (straight-line
-edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added to every straight file's button, user 2026-10-19; two lines, the format and under it the variant small and grey, styles in `_includes/converter-buttons.css`, shared with the description page, whose tables show the buttons; the map name on its own line, its buttons in one row under it, user 2026-10-19) and "CellDesigner (advanced)" (user,
+MINERVA, all in one row at the same spacing. The Converter buttons differ (user, 2026-10-19): all one size (128 x 44), filled in that blue with white text, a problem file in the red of the image error, a darker shade on hover. Converter buttons: "CellDesigner (straight)" (straight-line
+edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added to every straight file's button, user 2026-10-19; two lines, the format and under it the variant small, styles in `_includes/converter-buttons.css`, shared with the description page, whose tables show the buttons; the map name on its own line, its buttons in one row under it, user 2026-10-19) and "CellDesigner (advanced)" (user,
 2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
