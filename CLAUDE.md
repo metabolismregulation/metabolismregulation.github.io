@@ -60,7 +60,7 @@ Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and ima
 (user, 2026-10-18, TAGS in `scripts/make_maps.py`, in place of the automatic draft): "new" in blue for a map not on
 the official site (alox5), "draft" for a map whose biology differs from the official one (also maps with no draft page:
 glycolysis-cardiac, camp), "draft" in white for the same biology with small changes to the file
-(phosphoinositides, inos). A map whose GraphML equals the official one has no tag. "copy" (the style of the white
+(inos). A map whose GraphML equals the official one has no tag. "copy" (the style of the white
 draft) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
 (draft, draft white, new, copy, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
@@ -105,7 +105,8 @@ one row per file in `downloads/` (file, sha1, made by, date), written at publish
 `tools/published_files.py record`; `tools/published_files.py check` (by hand) reports a file in
 `downloads/` without a row or changed since its row. `make_maps.py` warns when an
 official page lacks a file of the set. MINERVA is outside our control: 22.0.1 (2026-10-18) fails
-on a complex with a homodimer (N:2 on a complex, the EGF:EGFR dimer in phosphoinositides),
+on a complex with a homodimer (N:2 on a complex; phosphoinositides' EGF:EGFR dimer was redrawn as
+a complex of EGF N:2 and EGFR N:2 for it),
 "UnitOfInformation cannot be cast to StructuralState", even for a CellDesigner to CellDesigner
 round trip.
 
@@ -202,9 +203,10 @@ nodes. The four such nodes on the Atlas (26S proteasome, RTK, Histone acetylatio
 pyrrophenone) are plain labels. `downloads/` keeps its full files until a map is published, except the ten
 official maps whose drawing equals the Atlas one (glycolysis, mevalonate, SREBP, eNOS, carnitine,
 TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean Atlas copies
-(user, 2026-10-18). ACLY and aspirin were published from the Atlas the same way (2026-10-18;
+(user, 2026-10-18). ACLY, aspirin and phosphoinositides were published from the Atlas the same way (2026-10-18;
 ACLY: the user's yEd files, state variables off the top side; aspirin: the Atlas SVG, its PNG
-rendered from it at 2x; MINERVA upload by the user). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
+rendered from it at 2x; phosphoinositides: the EGF:EGFR dimer as a complex of EGF N:2 and EGFR N:2,
+the user's yEd SVG; MINERVA upload by the user). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
 layout) and SBML and SBGN-ML are made from it by MINERVA's conversion service (maps-workbench
 `tools/minerva_exports.py`); the MINERVA projects stay as they are for now (user, 2026-10-18).
 The Atlas GraphMLs are lean (2026-10-18, maps-workbench `tools/lean_migration.py`; map-converter's

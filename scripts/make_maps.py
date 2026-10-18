@@ -72,7 +72,7 @@ DRUG = {'aspirin'}
 # draft-white: the same biology as the official map, with small changes to its file
 TAGS = {'alox5': 'new',
         'glycolysis-cardiac': 'draft', 'camp': 'draft',
-        'phosphoinositides': 'draft-white', 'inos': 'draft-white'}
+        'inos': 'draft-white'}
 # the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
 # version (the reference first, then the working version), under the same name with the tag copy, for comparison: the official page's text and the
 # complete official file set, frozen copies of the files in downloads/. Made by --copy-official,
