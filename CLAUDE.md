@@ -36,6 +36,11 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
+A published map has the complete set of files in `downloads/`, each linked from its page (user,
+2026-10-18): GraphML, PNG, SVG, CellDesigner, SBML, SBGN-ML and the annotation CSV. The CSV is made
+from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
+(e.g. `F021-ureacycle "Urea cycle"`, the pathway as in the Atlas topic). `make_maps.py` warns
+for every official page that lacks a file of the set (COMPLETE in the script).
 No "new" tag for a newly published map, and no daily run of the Atlas data workflow (both removed, user 2026-10-18). Working files stay in `maps-workbench`.
 
 A new version of a published map is a draft page with the same file name and the permalink

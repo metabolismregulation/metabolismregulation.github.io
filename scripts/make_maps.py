@@ -22,6 +22,10 @@
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
 # python3 scripts/make_maps.py --refresh fetches the cached annotation again.
+# python3 scripts/make_maps.py --official-csv F021-ureacycle "Urea cycle" writes the
+# annotation CSV of a published map, downloads/<base>.csv, from downloads/<base>.graphml
+# (the same table as the Atlas one), and nothing else. Every official page is checked for the
+# complete set of files (COMPLETE), and a missing one is a warning.
 import os, re, sys, csv, glob, json, collections, urllib.request, urllib.parse
 import xml.etree.ElementTree as ET
 from PIL import Image
@@ -332,8 +336,8 @@ def annotation(base):
 CSV_COLUMNS = ['Pathway', 'Entity type', 'Name', 'HGNC symbol', 'HGNC ID', 'UniProt ID', 'ChEBI ID', 'PTM']
 
 
-def table_rows(base, pathway):
-    root = ET.parse(os.path.join(ROOT, DL, base + '.graphml')).getroot()
+def table_rows(base, pathway, folder=DL):
+    root = ET.parse(os.path.join(ROOT, folder, base + '.graphml')).getroot()
     keys = {k.get('id'): k.get('attr.name') for k in root.findall(GN + 'key') if k.get('for') == 'node'}
     rows = []
     for n in root.iter(GN + 'node'):
@@ -397,6 +401,27 @@ def yaml_str(v):
     return json.dumps(v, ensure_ascii=False)
 
 
+# The complete set of files of a published map (user, 2026-10-18): each linked from its page and
+# present in downloads/. Newt and MINERVA are links, not files.
+COMPLETE = ['GraphML', 'PNG', 'SVG', 'CellDesigner', 'SBML', 'SBGN-ML', 'Annotation']
+
+
+def check_complete(slug, body):
+    links = dict((m.group(2), m.group(1)) for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>',
+                 re.sub(r'<svg\b.*?</svg>|\{%[^%]*%\}', '', body, flags=re.S)))
+    missing = [l for l in COMPLETE if l not in links or not os.path.exists(os.path.join(ROOT, links[l].lstrip('/')))]
+    if missing:
+        print('%sWARNING _projects/%s.md: no %s in downloads/ or on the page (the complete set: %s)' % (
+              '::warning::' if os.environ.get('GITHUB_ACTIONS') else '', slug, ', '.join(missing), ', '.join(COMPLETE)))
+
+
+def write_table(path, rows):
+    with open(path, 'w', encoding='utf-8-sig', newline='') as f:
+        w = csv.writer(f, lineterminator='\n')
+        w.writerow(CSV_COLUMNS)
+        w.writerows(rows)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     for f in glob.glob(os.path.join(OUT, '*.md')):
@@ -417,6 +442,8 @@ def main():
         wrong = '/%s/' % DL if folder[slug] == '_projects' else '/downloads/'
         if re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
             print('WARNING %s/%s.md links %s files' % (folder[slug], slug, wrong))
+        if folder[slug] == '_projects':
+            check_complete(slug, body)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
         permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
         # the contributors entry as written (one line, or a list with indented lines)
@@ -507,10 +534,7 @@ def main():
             written.append(mid)
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     for path, rows in tables.items():
-        with open(os.path.join(ROOT, path), 'w', encoding='utf-8-sig', newline='') as f:
-            w = csv.writer(f, lineterminator='\n')
-            w.writerow(CSV_COLUMNS)
-            w.writerows(rows)
+        write_table(os.path.join(ROOT, path), rows)
     for n, f in CACHE.items():
         json.dump(cache[n], open(f, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     # in the Atlas data workflow, a warning on the run's page
@@ -520,4 +544,10 @@ def main():
     print(len(written), 'maps:', ', '.join(written))
 
 
-main()
+if '--official-csv' in sys.argv:
+    base, pathway = sys.argv[sys.argv.index('--official-csv') + 1:][:2]
+    rows = table_rows(base, pathway, 'downloads')
+    write_table(os.path.join(ROOT, 'downloads', base + '.csv'), rows)
+    print('downloads/%s.csv: %d rows' % (base, len(rows)))
+else:
+    main()
