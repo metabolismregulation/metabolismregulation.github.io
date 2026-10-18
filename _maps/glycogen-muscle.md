@@ -2,11 +2,11 @@
 title: "Regulation of glycogen metabolism, muscle"
 topic: "Glycogen metabolism"
 tab: "muscle"
-page: "/glycogen/draft/"
+page: "/glycogen/"
 group: "Carbohydrate metabolism"
 order: 4
 kind: "map"
-draft: true
+draft: false
 image: "/atlas-downloads/F004-glycogen-muscle.svg"
 width: 2131
 height: 1751
@@ -22,11 +22,14 @@ contributors:
   - john-albanese
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F004-glycogen-muscle.graphml"}
+  - {label: "PNG", url: "/atlas-downloads/F004-glycogen-muscle.png"}
   - {label: "SVG", url: "/atlas-downloads/F004-glycogen-muscle.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F004-glycogen-muscle.sbgn"}
   - {label: "SBML", url: "/atlas-downloads/F004-glycogen-muscle-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F004-glycogen-muscle.xml"}
-  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-muscle.sbgn"}
+  - {label: "Annotation", url: "/atlas-downloads/F004-glycogen.csv"}
+  - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-muscle.sbgn"}
+  - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F004-glycogen-muscle"}
 ---
 ## Description
 
@@ -63,7 +66,10 @@ The liver map represents complementary regulation by insulin and glucagon. Gluca
 1. Reactome: Glucagon signaling in metabolic regulation. [Reactome:R-HSA-163359](https://reactome.org/content/detail/R-HSA-163359){:target="_blank" rel="noopener"}.
 1. Reactome: Glycogen metabolism. [Reactome:R-HSA-8982491](https://reactome.org/content/detail/R-HSA-8982491){:target="_blank" rel="noopener"}.
 1. Reactome: PI3K-containing complexes phosphorylate PIP2 to PIP3. [Reactome:R-HSA-109699](https://reactome.org/content/detail/R-HSA-109699){:target="_blank" rel="noopener"}.
+1. Stiles B, Wang Y, Stahl A, Bassilian S, Lee WP, Kim YJ, Sherwin R, Devaskar S, Lesche R, Magnuson MA, Wu H. Liver-specific deletion of negative regulator Pten results in fatty liver and insulin hypersensitivity. Proc Natl Acad Sci U S A. 2004 Feb;101(7):2082-7. doi: 10.1073/pnas.0308617100. PMID: 14769918.
 1. Sun XJ, Crimmins DL, Myers MG Jr, Miralpeix M, White MF. Pleiotropic insulin signals are engaged by multisite phosphorylation of IRS-1. Mol Cell Biol. 1993 Dec;13(12):7418-28. doi: 10.1128/mcb.13.12.7418-7428.1993. PMID: 7504175.
+1. von Wilamowitz-Moellendorff A, Hunter RW, García-Rocha M, Kang L, López-Soldado I, Lantier L, Patel K, Peggie MW, Martínez-Pons C, Voss M, Calbó J, Cohen PT, Wasserman DH, Guinovart JJ, Sakamoto K. Glucose-6-phosphate-mediated activation of liver glycogen synthase plays a key role in hepatic glycogen synthesis. Diabetes. 2013 Dec;62(12):4070-82. doi: 10.2337/db13-0880. PMID: 23990365.
+1. Wan M, Leavens KF, Hunter RW, Koren S, von Wilamowitz-Moellendorff A, Lu M, Satapati S, Chu Q, Sakamoto K, Burgess SC, Birnbaum MJ. A noncanonical, GSK3-independent pathway controls postprandial hepatic glycogen deposition. Cell Metab. 2013 Jul;18(1):99-105. doi: 10.1016/j.cmet.2013.06.001. PMID: 23823480.
 1. White MF, Livingston JN, Backer JM, Lauris V, Dull TJ, Ullrich A, Kahn CR. Mutation of the insulin receptor at tyrosine 960 inhibits signal transmission but does not affect its tyrosine kinase activity. Cell. 1988 Aug;54(5):641-9. doi: 10.1016/s0092-8674(88)80008-4. PMID: 2842060.
 1. Wijesekara N, Konrad D, Eweida M, Jefferies C, Liadis N, Giacca A, Crackower M, Suzuki A, Mak TW, Kahn CR, Klip A, Woo M. Muscle-specific Pten deletion protects against insulin resistance and diabetes. Mol Cell Biol. 2005 Feb;25(3):1135-45. doi: 10.1128/MCB.25.3.1135-1145.2005. PMID: 15657439.
 1. Yeaman SJ, Cohen P. The hormonal control of activity of skeletal muscle phosphorylase kinase. Phosphorylation of the enzyme at two sites in vivo in response to adrenalin. Eur J Biochem. 1975 Feb;51(1):93-104. doi: 10.1111/j.1432-1033.1975.tb03910.x. PMID: 1122918.
