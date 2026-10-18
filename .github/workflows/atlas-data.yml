@@ -5,7 +5,8 @@
 # First scripts/make_images.py draws the SVG (and PNG) of an
 # Atlas map whose GraphML changed without a new yEd SVG (atlas-data/images.json).
 # Liberation Sans (Arial's metrics) for the text of the drawn PNGs. Run by hand with
-# "refresh" ticked, it fetches every cached UniProt, HGNC and ChEBI entry again.
+# "refresh" ticked, it fetches every cached UniProt, HGNC and ChEBI entry again; an
+# identifier that no longer resolves shows as a warning on the run's page.
 name: Atlas data
 on:
   push:

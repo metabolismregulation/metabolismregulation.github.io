@@ -113,6 +113,13 @@ RESIDUE = {'S': 'Ser', 'T': 'Thr', 'Y': 'Tyr', 'K': 'Lys', 'C': 'Cys', 'G': 'Gly
 # MAPK8 and RPS6KB1", from the entry's Modified residue features with experimental evidence
 # (ECO:0000269), not the proteomics-only ones; kept as "sites" in uniprot.json. Only the drawn
 # sites: the rest stays at UniProt, linked from the panel.
+# Identifiers that no longer resolve (2026-10-18): when a fetch finds the entry merged, split,
+# deleted, withdrawn or moved to another ID, the old entry is kept (the panel keeps its text) and
+# marked "stale" with the reason, and every run warns, naming the maps, until the map is fixed.
+# The same for an HGNC symbol in the map that HGNC no longer approves.
+# Corrections (2026-10-18): atlas-data/overrides.json, by hand, beats the fetched value and
+# survives a refresh: {"uniprot": {"P47712": {"Location": "Cytoplasm"}}}, the same for "hgnc"
+# (by HGNC ID) and "chebi" (CHEBI:...), any field the panel shows; "" hides it.
 REFRESH = '--refresh' in sys.argv
 SOURCE = {'uniprot': 'https://rest.uniprot.org/uniprotkb/%s.json?fields=protein_name,cc_function,cc_subcellular_location,ft_mod_res',
           'hgnc': 'https://rest.genenames.org/fetch/hgnc_id/%s',
@@ -121,6 +128,9 @@ SOURCE = {'uniprot': 'https://rest.uniprot.org/uniprotkb/%s.json?fields=protein_
 CACHE = {n: os.path.join(ROOT, 'atlas-data', n + '.json') for n in ('uniprot', 'hgnc', 'chebi')}
 cache = {n: json.load(open(f, encoding='utf-8')) if os.path.exists(f) else {} for n, f in CACHE.items()}
 fetched = set()  # what this run has fetched (with --refresh, each entry once)
+OVERRIDES = json.load(open(os.path.join(ROOT, 'atlas-data', 'overrides.json'), encoding='utf-8'))
+stale = collections.defaultdict(set)  # (source, identifier, reason) -> the maps that have it
+current = ''  # the map being read, for the warnings
 PREFIX = {'P': 'phospho', 'Ac': 'acetyl', 'Me': 'methyl', 'Su': 'succinyl', 'Glut': 'glutaryl'}
 
 
@@ -130,14 +140,39 @@ def fetch(url):
         return json.load(r)
 
 
+def gone(src, key, d):
+    """Why an identifier no longer resolves, from the source's answer ('' when it does)."""
+    if src == 'uniprot':
+        r = d.get('inactiveReason')
+        if r:
+            return r['inactiveReasonType'].lower() + (' into ' + ', '.join(r['mergeDemergeTo']) if r.get('mergeDemergeTo') else '')
+        return 'now ' + d['primaryAccession'] if d['primaryAccession'] != key else ''
+    if src == 'chebi':
+        return 'now ' + d['chebi_accession'] if d['chebi_accession'] != key else ''
+    docs = d['response']['docs']
+    return 'not found' if not docs else docs[0]['status'].lower() if docs[0]['status'] != 'Approved' else ''
+
+
 def cached(src, key, url, parse):
     if key and (key not in cache[src] or REFRESH and (src, key) not in fetched):
         fetched.add((src, key))
+        why = ''
         try:
-            cache[src][key] = parse(fetch(url))
+            d = fetch(url)
+            why = gone(src, key, d)
+            if not why:
+                cache[src][key] = parse(d)
         except (OSError, ValueError, KeyError, IndexError) as e:
-            print('%s %s: not fetched (%s)%s' % (src, key, e, ', the old entry kept' if key in cache[src] else ''))
-    return cache[src].get(key, {})
+            if getattr(e, 'code', None) in (400, 404):  # the source has no such entry
+                why = 'not found'
+            else:
+                print('%s %s: not fetched (%s)%s' % (src, key, e, ', the old entry kept' if key in cache[src] else ''))
+        if why:
+            cache[src][key] = dict(cache[src].get(key, {}), stale=why)
+    got = cache[src].get(key, {})
+    if got.get('stale'):
+        stale[(src, key, got['stale'])].add(current)
+    return dict(got, **OVERRIDES.get(src, {}).get(key, {}))
 
 
 def first_sentences(text, n=2):
@@ -201,7 +236,10 @@ def hgnc(hgnc_id='', symbol=''):
                 cache['hgnc'][hgnc_id] = h
                 fetched.add(('hgnc', hgnc_id))
             except (OSError, ValueError, KeyError, IndexError) as e:
-                print('hgnc %s: not found (%s)' % (symbol, e))
+                if isinstance(e, IndexError):  # no approved symbol of that name
+                    stale[('hgnc', symbol, 'not an approved symbol')].add(current)
+                else:
+                    print('hgnc %s: not fetched (%s)' % (symbol, e))
                 return {}
     return cached('hgnc', hgnc_id, SOURCE['hgnc'] % hgnc_id, parse_hgnc)
 
@@ -228,6 +266,8 @@ def record(data):
     the cache has none)."""
     rec = dict(data)
     h = hgnc(data.get('HGNC', ''), data.get('HGNC symbol', ''))
+    if data.get('HGNC symbol') and h.get('HGNC symbol', data['HGNC symbol']) != data['HGNC symbol']:
+        stale[('hgnc', data['HGNC symbol'], 'now ' + h['HGNC symbol'])].add(current)
     acc = (data.get('UniProt') or '').split(',')[0].strip()
     if not acc and len(h.get('uniprot', [])) > 1:
         print('%s: HGNC gives several UniProt entries (%s), none taken' % (h['HGNC symbol'], ', '.join(h['uniprot'])))
@@ -242,6 +282,8 @@ def record(data):
 def annotation(base):
     """Annotated nodes of a map: box in SVG pixels, label, class, properties.
     None when the GraphML has no custom node properties."""
+    global current
+    current = base
     g = os.path.join(ROOT, DL, base + '.graphml')
     svg = os.path.join(ROOT, DL, base + '.svg')
     if not (os.path.exists(g) and os.path.exists(svg)):
@@ -471,6 +513,10 @@ def main():
             w.writerows(rows)
     for n, f in CACHE.items():
         json.dump(cache[n], open(f, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
+    # in the Atlas data workflow, a warning on the run's page
+    for (src, key, why), maps in sorted(stale.items()):
+        print('%sWARNING %s %s no longer resolves (%s): %s' % ('::warning::' if os.environ.get('GITHUB_ACTIONS') else '',
+              {'uniprot': 'UniProt', 'hgnc': 'HGNC', 'chebi': 'ChEBI'}[src], key, why, ', '.join(sorted(maps))))
     print(len(written), 'maps:', ', '.join(written))
 
 

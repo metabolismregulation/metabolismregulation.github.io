@@ -139,7 +139,15 @@ once per identifier, and kept in `atlas-data/uniprot.json`, `hgnc.json`, `chebi.
 identifier, shared by all maps, the site enzymes in `uniprot.json`). They are not fetched again on
 their own: the Atlas data workflow run by hand with "refresh" ticked fetches them all again. No
 scheduled update for now (a monthly one later, on the user's request). Visitors' browsers read only
-these files, never UniProt. `downloads/` keeps its full files until a map is published, except the ten
+these files, never UniProt. An identifier that no longer resolves (merged, split, deleted,
+withdrawn, moved to another ID, or an HGNC symbol HGNC no longer approves) keeps its old entry,
+marked "stale" with the reason, and every run of `make_maps.py` warns (on the workflow's run page
+too), naming the maps, until the map is fixed (2026-10-18). A fetched value that is wrong or
+unsuited to the panel is corrected in `atlas-data/overrides.json`, by hand, which beats the cache
+and survives a refresh (format in `make_maps.py`). A node with no database entry (a phenotype, a
+generic class, a drug ChEBI lacks) gets a ChEBI class or a GO term where one fits, otherwise no
+annotation and a plain label, not clickable (2026-10-18). GO is not read yet: the four such nodes
+on the Atlas (26S proteasome, RTK, Histone acetylation, pyrrophenone) are plain labels. `downloads/` keeps its full files until a map is published, except the ten
 official maps whose drawing equals the Atlas one (glycolysis, mevalonate, SREBP, eNOS, carnitine,
 TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean Atlas copies
 (user, 2026-10-18). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
