@@ -58,8 +58,9 @@ Reactome processes (linked). The Atlas list has no tag for it (the "lists" tag w
 
 Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and image error (see Atlas images) are automatic (draft: a page in `draftpages/`). Every other tag is set by hand, on request. Set by hand
 (user, 2026-10-18, TAGS in `scripts/make_maps.py`, in place of the automatic draft): "new" in blue for a map not on
-the official site (alox5), "draft" for a map whose biology differs from the official one (also maps with no draft page:
-glycolysis-cardiac, camp), "draft" in white for the same biology with small changes to the file
+the official site (alox5; glycolysis-cardiac, whose page and `downloads/` files were added by mistake on 2026-10-17 and are
+not in Maps or Gallery), "draft" for a map whose biology differs from the official one (also maps with no draft page:
+camp), "draft" in white for the same biology with small changes to the file
 (none at the moment). A map whose GraphML equals the official one has no tag. "copy" (the style of the white
 draft) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
 (draft, draft white, new, copy, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
