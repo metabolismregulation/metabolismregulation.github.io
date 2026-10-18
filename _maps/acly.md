@@ -22,7 +22,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F006-acly.png"}
   - {label: "SVG", url: "/atlas-downloads/F006-acly.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F006-acly.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F006-acly-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F006-acly.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F006-acly.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F006-acly.sbgn"}

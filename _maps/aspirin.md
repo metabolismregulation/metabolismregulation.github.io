@@ -22,7 +22,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F100-aspirin.png"}
   - {label: "SVG", url: "/atlas-downloads/F100-aspirin.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F100-aspirin.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F100-aspirin-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F100-aspirin.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F100-aspirin.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F100-aspirin.sbgn"}

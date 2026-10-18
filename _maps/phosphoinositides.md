@@ -22,7 +22,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F009-phosphoinositides.png"}
   - {label: "SVG", url: "/atlas-downloads/F009-phosphoinositides.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F009-phosphoinositides.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F009-phosphoinositides-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F009-phosphoinositides.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F009-phosphoinositides.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F009-phosphoinositides.sbgn"}

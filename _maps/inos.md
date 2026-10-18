@@ -22,7 +22,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F007-inos.png"}
   - {label: "SVG", url: "/atlas-downloads/F007-inos.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F007-inos.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F007-inos-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F007-inos.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F007-inos.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F007-inos.sbgn"}

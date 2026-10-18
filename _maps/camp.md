@@ -23,7 +23,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F012-camp.png"}
   - {label: "SVG", url: "/atlas-downloads/F012-camp.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F012-camp.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F012-camp-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F012-camp.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F012-camp.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F012-camp.sbgn"}

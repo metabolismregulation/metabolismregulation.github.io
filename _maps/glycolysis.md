@@ -23,7 +23,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F001-glycolysis.png"}
   - {label: "SVG", url: "/atlas-downloads/F001-glycolysis.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F001-glycolysis.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F001-glycolysis-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F001-glycolysis.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F001-glycolysis.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F001-glycolysis.sbgn"}

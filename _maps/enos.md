@@ -22,7 +22,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F008-enos.png"}
   - {label: "SVG", url: "/atlas-downloads/F008-enos.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F008-enos.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F008-enos-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F008-enos.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F008-enos.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F008-enos.sbgn"}

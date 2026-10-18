@@ -26,7 +26,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F004-glycogen-liver.png"}
   - {label: "SVG", url: "/atlas-downloads/F004-glycogen-liver.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F004-glycogen-liver.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F004-glycogen-liver-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F004-glycogen-liver.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F004-glycogen.csv"}
   - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-liver.sbgn"}

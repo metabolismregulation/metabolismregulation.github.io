@@ -23,7 +23,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F015-tag.png"}
   - {label: "SVG", url: "/atlas-downloads/F015-tag.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F015-tag.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F015-tag-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F015-tag.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F015-tag.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F015-tag.sbgn"}

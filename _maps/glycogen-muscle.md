@@ -26,7 +26,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F004-glycogen-muscle.png"}
   - {label: "SVG", url: "/atlas-downloads/F004-glycogen-muscle.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F004-glycogen-muscle.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F004-glycogen-muscle-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F004-glycogen-muscle.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F004-glycogen.csv"}
   - {label: "Newt", url: "https://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F004-glycogen-muscle.sbgn"}

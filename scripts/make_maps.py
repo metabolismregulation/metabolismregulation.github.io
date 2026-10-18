@@ -569,7 +569,8 @@ def main():
             downloads = []
             # the link names without their icons (an inline <svg>, or {% include icon-... %})
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', re.sub(r'<svg\b.*?</svg>|\{%[^%]*%\}', '', links, flags=re.S)):
-                if m.group(2) in LABELS:
+                # no SBML on the Atlas (user, 2026-10-18): our converter writes none; an official copy keeps it
+                if m.group(2) in LABELS and (copy or m.group(2) != 'SBML'):
                     url = m.group(1).replace('/downloads/', '/%s/' % dl)
                     # the Atlas offers only its own copies: a file missing in atlas-downloads/ is left out
                     # (Newt names its SBGN-ML file by full address: that file is checked too)

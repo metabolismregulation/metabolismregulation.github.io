@@ -39,18 +39,8 @@ Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py)
 official copy from `atlas-downloads/copy/` (see Official copies in the Atlas), so it no longer
 shows twice in the Atlas list.
 A published map has the complete set of files in `downloads/`, each linked from its page (user,
-2026-10-18): GraphML, PNG, SVG, CellDesigner, SBML, SBGN-ML and the annotation CSV. How the official
-formats are made (user, 2026-10-18, for now): the CellDesigner file from the map's GraphML by
-map-converter, advanced layout (`python3 -m mapconv <map.graphml> <map.xml> --layout advanced` in
-`metabolismregulation/map-converter`, checked with `python3 -m mapconv.check`), then SBML and
-SBGN-ML from that CellDesigner file by MINERVA's conversion service (maps-workbench
-`tools/minerva_exports.py <folder> <base>`), not by our converter yet. The user uploads the
-CellDesigner file to MINERVA. The Atlas copies of a map's formats are made by our converter (user,
-2026-10-18, first aspirin): CellDesigner (advanced) and SBGN-ML from the Atlas GraphML. Our
-converter writes no SBML, so the Atlas keeps MINERVA's SBML for now. MINERVA 22.0.1 (2026-10-18) fails on a complex with a homodimer
-(N:2 on a complex, e.g. the EGF:EGFR dimer in phosphoinositides): "UnitOfInformation cannot be
-cast to StructuralState", even for a CellDesigner to CellDesigner round trip. The CSV is made
-from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
+2026-10-18): GraphML, PNG, SVG, CellDesigner, SBML, SBGN-ML and the annotation CSV, made as in
+File pipeline. The CSV is made from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
 (e.g. `F021-ureacycle "Urea cycle"`, the pathway as in the Atlas topic). `make_maps.py` warns
 for every official page that lacks a file of the set (COMPLETE in the script).
 No "new" tag for a newly published map, and no daily run of the Atlas data workflow (both removed, user 2026-10-18). Working files stay in `maps-workbench`.
@@ -80,6 +70,41 @@ no text-box trimming or per-word, per-font tuning.
 A draft carries only its GraphML and SVG (user, 2026-10-14): no CellDesigner, SBML,
 SBGN-ML, PNG or annotation CSV until the editing is done; those formats are made
 when the map is finished.
+
+## File pipeline
+
+How every map file is made (user, 2026-10-18). Same commands every time.
+
+Official site (`downloads/`), when a map is published:
+
+| File | Made by |
+|---|---|
+| GraphML | the user's final yEd file, or the Atlas GraphML the user approved |
+| SVG | the user's yEd export, 1:1 |
+| PNG | the user's yEd export; until there is one, rendered at 2x from the SVG (Chromium) |
+| CellDesigner | map-converter, advanced layout: `python3 -m mapconv <map.graphml> <map.xml> --layout advanced` (repository `metabolismregulation/map-converter`), then `python3 -m mapconv.check <map.graphml> <map.xml>`: the same entities and reactions on both sides |
+| SBML, SBGN-ML | MINERVA's conversion service from that CellDesigner file (maps-workbench `tools/minerva_exports.py <folder> <base>`), not our converter yet |
+| Annotation CSV | `python3 scripts/make_maps.py --official-csv <base> "<pathway>"` |
+| MINERVA project | the user uploads the CellDesigner file |
+
+Atlas (`atlas-downloads/`):
+
+| File | Made by |
+|---|---|
+| GraphML | the working version (workbench build or the user's upload) |
+| SVG | the user's yEd export when uploaded, else drawn from the GraphML by the workflow (Atlas images) |
+| PNG | drawn by the workflow for a published map; a draft has none |
+| CellDesigner | our converter, advanced layout (as above) |
+| SBGN-ML | our converter: `python3 -m mapconv <map.graphml> <map.sbgn>` |
+| SBML | none: our converter writes no SBML (user, 2026-10-18). An official copy keeps its SBML |
+| Annotation CSV | rebuilt from the GraphML by `make_maps.py` on every run |
+
+A draft carries only GraphML and SVG (Draft maps). Every published map's workbench README records the
+map-converter commit and the MINERVA version that made its files. `make_maps.py` warns when an
+official page lacks a file of the set. MINERVA is outside our control: 22.0.1 (2026-10-18) fails
+on a complex with a homodimer (N:2 on a complex, the EGF:EGFR dimer in phosphoinositides),
+"UnitOfInformation cannot be cast to StructuralState", even for a CellDesigner to CellDesigner
+round trip.
 
 ## Page text
 
@@ -324,7 +349,7 @@ There are two websites in this repository (user, 2026-10-13):
 - The Atlas (`/atlas/`, hidden: not in the site navigation), the future
   website. It uses its own copy of every map file, `atlas-downloads/`. All new
   work on maps goes there: GraphML, SVG, PNG, annotation CSV, CellDesigner,
-  SBML, SBGN-ML. It is checked on the Atlas.
+  SBGN-ML (no SBML, see File pipeline). It is checked on the Atlas.
 
 Files move from `atlas-downloads/` to `downloads/` only when the user says so.
 Clean separation, no shared files (user, 2026-10-16): the Atlas is the sandbox and changes

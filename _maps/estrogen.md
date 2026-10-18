@@ -23,7 +23,6 @@ downloads:
   - {label: "PNG", url: "/atlas-downloads/F018-estrogen.png"}
   - {label: "SVG", url: "/atlas-downloads/F018-estrogen.svg"}
   - {label: "SBGN-ML", url: "/atlas-downloads/F018-estrogen.sbgn"}
-  - {label: "SBML", url: "/atlas-downloads/F018-estrogen-SBML.xml"}
   - {label: "CellDesigner", url: "/atlas-downloads/F018-estrogen.xml"}
   - {label: "Annotation", url: "/atlas-downloads/F018-estrogen.csv"}
   - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F018-estrogen.sbgn"}
