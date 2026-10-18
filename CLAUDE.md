@@ -35,7 +35,9 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 `atlas-downloads/` (user, 2026-10-14; `scripts/make_maps.py` reads draftpages/). To publish
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
-Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
+Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py), and delete its
+official copy from `atlas-downloads/official/` (see Official copies in the Atlas), so it no longer
+shows twice in the Atlas list.
 A published map has the complete set of files in `downloads/`, each linked from its page (user,
 2026-10-18): GraphML, PNG, SVG, CellDesigner, SBML, SBGN-ML and the annotation CSV. The CSV is made
 from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
@@ -58,8 +60,9 @@ Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and ima
 (user, 2026-10-18, TAGS in `scripts/make_maps.py`, in place of the automatic draft): "new" in blue for a map not on
 the official site (alox5), "draft" for a map whose biology differs from the official one (also maps with no draft page:
 glycolysis-cardiac, camp), "draft" in white for the same biology with small changes to the file (acly,
-phosphoinositides, inos, aspirin). A map whose GraphML equals the official one has no tag. Every tag, used or not
-(draft, draft white, new, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+phosphoinositides, inos, aspirin). A map whose GraphML equals the official one has no tag. "copy" (white, dark edge
+and text) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
+(draft, draft white, new, copy, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.
@@ -281,6 +284,23 @@ error" tag, its Images button is red and downloads nothing (the old images do no
 current GraphML), and hovering or clicking it gives the reason (user, 2026-10-17). A yEd SVG
 upload or a new tool version clears it. Maps that were there before 2026-10-17 are drawn at
 their next GraphML change.
+
+## Official copies in the Atlas
+
+Every map tagged draft (grey or white) is followed in the Atlas list by its official version, under
+the same name with the tag "copy", for comparison (user, 2026-10-18): the official page's text, its
+image and click panel, and the complete official file set in its download row (Newt and MINERVA
+too). Nothing marks it above the map. The search finds only the working version. Its files are
+frozen copies of `downloads/` in `atlas-downloads/official/`, protected like `downloads/`: an
+Atlas request ("update this and that") always means the working files at the top level of
+`atlas-downloads/`, never the copies, and the Atlas never reads `downloads/`. A map gets its copy
+entry when its files are in that folder (`scripts/make_maps.py`; `make_images.py` reads only the
+top level, so it never redraws them). Scripts run by hand in a session, never by the workflow
+(no regular checks, user 2026-10-18): `python3 scripts/make_maps.py --copy-official` makes or
+refreshes the copies of every map tagged draft (after an official correction, or a new draft
+tag), `python3 scripts/make_maps.py --check-official` reports copies that differ from
+`downloads/`, are missing, or belong to a map no longer tagged draft. When a draft is published,
+its copy is deleted (publish step in Draft maps).
 
 ## Two websites: official and Atlas
 

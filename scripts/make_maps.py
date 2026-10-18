@@ -22,6 +22,9 @@
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
 # python3 scripts/make_maps.py --refresh fetches the cached annotation again.
+# python3 scripts/make_maps.py --copy-official copies the official files of every map tagged draft
+# into atlas-downloads/official/ (OFFICIAL_COPY), and --check-official compares them with downloads/.
+# Both are run by hand in a session, never by the workflow.
 # python3 scripts/make_maps.py --official-csv F021-ureacycle "Urea cycle" writes the
 # annotation CSV of a published map, downloads/<base>.csv, from downloads/<base>.graphml
 # (the same table as the Atlas one), and nothing else. Every official page is checked for the
@@ -70,6 +73,12 @@ DRUG = {'aspirin'}
 TAGS = {'alox5': 'new',
         'glycolysis-cardiac': 'draft', 'camp': 'draft',
         'acly': 'draft-white', 'phosphoinositides': 'draft-white', 'inos': 'draft-white', 'aspirin': 'draft-white'}
+# the official copy (user, 2026-10-18): a map tagged draft is followed in the list by its official
+# version, under the same name with the tag copy, for comparison: the official page's text and the
+# complete official file set, frozen copies of the files in downloads/. Made by --copy-official,
+# never edited: Atlas work never touches them, and the Atlas never reads downloads/. A map gets
+# its copy entry when its files are in OFFICIAL_COPY.
+OFFICIAL_COPY = os.path.join(DL, 'official')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
@@ -289,13 +298,13 @@ def record(data):
     return [[f, ptm_text(rec[f], rec.get('UniProt', '')) if f == 'PTM' else rec[f]] for f in ANN_FIELDS if rec.get(f)]
 
 
-def annotation(base):
+def annotation(base, folder=DL):
     """Annotated nodes of a map: box in SVG pixels, label, class, properties.
     None when the GraphML has no custom node properties."""
     global current
     current = base
-    g = os.path.join(ROOT, DL, base + '.graphml')
-    svg = os.path.join(ROOT, DL, base + '.svg')
+    g = os.path.join(ROOT, folder, base + '.graphml')
+    svg = os.path.join(ROOT, folder, base + '.svg')
     if not (os.path.exists(g) and os.path.exists(svg)):
         return None
     root = ET.parse(g).getroot()
@@ -428,6 +437,62 @@ def write_table(path, rows):
         w.writerows(rows)
 
 
+def page_bases(path):
+    """The map files (bases) a page shows, in its order."""
+    body = open(path, encoding='utf-8').read().split('---', 2)[2]
+    return re.findall(r'<img [^>]*src="/(?:atlas-)?downloads/([^"]+)\.(?:png|svg)"', body)
+
+
+def official_copies():
+    """The maps shown with an official copy: tagged draft (by hand or by a page in draftpages/)
+    and published. {slug: [bases]}"""
+    out = {}
+    for path in sorted(glob.glob(os.path.join(ROOT, '_projects', '*.md'))):
+        slug = os.path.basename(path)[:-3]
+        draft = TAGS.get(slug) in ('draft', 'draft-white') or (
+            slug not in TAGS and os.path.exists(os.path.join(ROOT, 'draftpages', slug + '.md')))
+        if draft:
+            out[slug] = page_bases(path)
+    return out
+
+
+COPY_FILES = ('.graphml', '.png', '.svg', '.xml', '-SBML.xml', '.sbgn', '.csv')
+
+
+def copy_official():
+    """Copies the official files of every map tagged draft into OFFICIAL_COPY."""
+    import shutil
+    os.makedirs(os.path.join(ROOT, OFFICIAL_COPY), exist_ok=True)
+    for slug, bases in official_copies().items():
+        for base in bases:
+            for e in COPY_FILES:
+                src = os.path.join(ROOT, 'downloads', base + e)
+                if os.path.exists(src):
+                    shutil.copyfile(src, os.path.join(ROOT, OFFICIAL_COPY, base + e))
+                    print('%s/%s%s' % (OFFICIAL_COPY, base, e))
+
+
+def check_official():
+    """Copies that differ from downloads/ or are missing, and copies of maps no longer tagged draft."""
+    want = {b for bases in official_copies().values() for b in bases}
+    have = sorted(os.path.basename(f) for f in glob.glob(os.path.join(ROOT, OFFICIAL_COPY, '*')))
+    problems = 0
+    for name in have:
+        base = next((b for b in want if name.startswith(b) and name[len(b):] in COPY_FILES), None)
+        off = os.path.join(ROOT, 'downloads', name)
+        if base is None:
+            print('%s/%s: the map is not tagged draft (published?): delete the copy' % (OFFICIAL_COPY, name)); problems += 1
+        elif not os.path.exists(off):
+            print('%s/%s: not in downloads/' % (OFFICIAL_COPY, name)); problems += 1
+        elif open(off, 'rb').read() != open(os.path.join(ROOT, OFFICIAL_COPY, name), 'rb').read():
+            print('%s/%s differs from downloads/' % (OFFICIAL_COPY, name)); problems += 1
+    for base in sorted(want):
+        for e in COPY_FILES:
+            if os.path.exists(os.path.join(ROOT, 'downloads', base + e)) and base + e not in have:
+                print('%s/%s missing' % (OFFICIAL_COPY, base + e)); problems += 1
+    print('official copies: %d files, %d problems' % (len(have), problems))
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     for f in glob.glob(os.path.join(OUT, '*.md')):
@@ -440,15 +505,23 @@ def main():
     written = []
     search = []
     tables = collections.defaultdict(list)  # Atlas CSV -> its rows
+    jobs = []
     for slug in sorted(slugs, key=rank):
-        s = open(os.path.join(ROOT, folder[slug], slug + '.md'), encoding='utf-8').read()
+        jobs.append((slug, folder[slug], False))
+        # the official copy, after the working version, when its files are in OFFICIAL_COPY
+        page = os.path.join(ROOT, '_projects', slug + '.md')
+        if os.path.exists(page) and any(os.path.exists(os.path.join(ROOT, OFFICIAL_COPY, b + '.graphml')) for b in page_bases(page)):
+            jobs.append((slug, '_projects', True))
+    for slug, src, copy in jobs:
+        dl = OFFICIAL_COPY if copy else DL
+        s = open(os.path.join(ROOT, src, slug + '.md'), encoding='utf-8').read()
         _, front, body = s.split('---', 2)
         # two separate environments (user, 2026-10-16): official pages use downloads/ only,
         # drafts atlas-downloads/ only
-        wrong = '/%s/' % DL if folder[slug] == '_projects' else '/downloads/'
-        if re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
-            print('WARNING %s/%s.md links %s files' % (folder[slug], slug, wrong))
-        if folder[slug] == '_projects':
+        wrong = '/%s/' % DL if src == '_projects' else '/downloads/'
+        if not copy and re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
+            print('WARNING %s/%s.md links %s files' % (src, slug, wrong))
+        if src == '_projects' and not copy:
             check_complete(slug, body)
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
         permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
@@ -470,8 +543,10 @@ def main():
             text.append(line)
         text = re.sub(r'\n{3,}', '\n\n', '\n'.join(text)).strip() + '\n'
         for k, (links, base) in enumerate(blocks):
+            if copy and not all(os.path.exists(os.path.join(ROOT, dl, base + e)) for e in ('.graphml', '.svg')):
+                continue
             # the SVG export when there is one (sharp at any zoom), else the PNG
-            svg = os.path.join(ROOT, DL, base + '.svg')
+            svg = os.path.join(ROOT, dl, base + '.svg')
             if os.path.exists(svg):
                 head = re.search(r'<svg\b[^>]*>', open(svg, encoding='utf-8').read()).group(0)
                 w = round(float(re.search(r'\swidth="([\d.]+)"', head).group(1)))
@@ -479,64 +554,70 @@ def main():
                 ext = '.svg'
                 scale = 1  # yEd exports SVG at 1:1, one px per yEd unit
             else:
-                w, h = Image.open(os.path.join(ROOT, DL, base + '.png')).size
+                w, h = Image.open(os.path.join(ROOT, dl, base + '.png')).size
                 ext = '.png'
                 scale = scale_of(base, w)
-            ann = annotation(base) if ext == '.svg' else None
+            ann = annotation(base, dl) if ext == '.svg' else None
             ann_url = ''
             if ann:
                 os.makedirs(os.path.join(ROOT, 'atlas-data'), exist_ok=True)
-                json.dump({'nodes': ann}, open(os.path.join(ROOT, 'atlas-data', base + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-                ann_url = '/atlas-data/' + base + '.json'
-                search += search_entries(base.split('-', 1)[1], ann)
+                name = base + ('-official' if copy else '')
+                json.dump({'nodes': ann}, open(os.path.join(ROOT, 'atlas-data', name + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+                ann_url = '/atlas-data/' + name + '.json'
+                if not copy:  # the search finds the working version
+                    search += search_entries(base.split('-', 1)[1], ann)
             downloads = []
             # the link names without their icons (an inline <svg>, or {% include icon-... %})
             for m in re.finditer(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', re.sub(r'<svg\b.*?</svg>|\{%[^%]*%\}', '', links, flags=re.S)):
                 if m.group(2) in LABELS:
-                    url = m.group(1).replace('/downloads/', '/%s/' % DL)
+                    url = m.group(1).replace('/downloads/', '/%s/' % dl)
                     # the Atlas offers only its own copies: a file missing in atlas-downloads/ is left out
                     # (Newt names its SBGN-ML file by full address: that file is checked too)
                     local = url[len(NEWT):] if url.startswith(NEWT) else url
                     if local.startswith('/') and not os.path.exists(os.path.join(ROOT, local.lstrip('/'))):
-                        print('%s: no %s in %s/, not offered in the Atlas' % (slug, local.rsplit('/', 1)[1], DL))
+                        if not copy:
+                            print('%s: no %s in %s/, not offered in the Atlas' % (slug, local.rsplit('/', 1)[1], DL))
                         continue
                     downloads.append({'label': m.group(2), 'url': url})
             map_title = title if k == 0 or len(blocks) == 1 else title.replace('muscle', 'liver')
             map_tab = tab or (TABS.get(base) if len(blocks) > 1 or base in TABS else None) or ''
             for d in downloads:
-                if d['label'] == 'Annotation' and d['url'].endswith('.csv') and os.path.exists(os.path.join(ROOT, DL, base + '.graphml')):
+                # an official copy is frozen: its table is not rebuilt
+                if not copy and d['label'] == 'Annotation' and d['url'].endswith('.csv') and os.path.exists(os.path.join(ROOT, DL, base + '.graphml')):
                     t = tables[d['url'].lstrip('/')]
                     t += [r for r in table_rows(base, topic + (', ' + map_tab if map_tab else '')) if r not in t]
             mid = base.split('-', 1)[1]
+            order = POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)
             fm = ['---',
                   'title: ' + yaml_str(map_title),
                   'topic: ' + yaml_str(topic),
                   'tab: ' + yaml_str(map_tab),
                   'page: ' + yaml_str(permalink),
                   'group: ' + yaml_str(GROUP_OF.get(mid, ('Other', 0))[0]),
-                  'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
+                  'order: %s' % (order + 0.5 if copy else order),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
-                  'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
-                  'tag: ' + yaml_str(TAGS.get(mid, 'draft' if folder[slug] == 'draftpages' else '')),
-                  'image: ' + yaml_str('/%s/' % DL + base + ext),
+                  'draft: %s' % ('true' if folder[slug] == 'draftpages' and not copy else 'false'),
+                  'tag: ' + yaml_str('copy' if copy else TAGS.get(mid, 'draft' if folder[slug] == 'draftpages' else '')),
+                  'image: ' + yaml_str('/%s/' % dl + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
                   'annotation: ' + yaml_str(ann_url),
                   # images the GraphML could not be drawn into (scripts/make_images.py): the
                   # Atlas blocks their download and marks the map red
-                  'image_error: ' + yaml_str(IMAGES.get(base, {}).get('error', ''))]
+                  'image_error: ' + yaml_str('' if copy else IMAGES.get(base, {}).get('error', ''))]
             # the page's contributor keys, for {% include contributors.html %} in the text
             if contrib:
                 fm.append(contrib.group(0).rstrip('\n'))
             fm.append('downloads:')
             for label, e in (('PNG', '.png'), ('SVG', '.svg'), ('SBGN-ML', '.sbgn'), ('SBML', '-SBML.xml'), ('CellDesigner', '.xml'), ('Newt', '.sbgn')):
-                if os.path.exists(os.path.join(ROOT, DL, base + e)) and not any(d['label'] == label for d in downloads):
+                if not copy and os.path.exists(os.path.join(ROOT, DL, base + e)) and not any(d['label'] == label for d in downloads):
                     url = '/%s/' % DL + base + e
                     downloads.append({'label': label, 'url': NEWT + url if label == 'Newt' else url})
             downloads.sort(key=lambda d: LABELS.index(d['label']))
             fm += ['  - {label: %s, url: %s}' % (yaml_str(d['label']), yaml_str(d['url'])) for d in downloads]
             fm += ['---', '']
             out = '\n'.join(fm) + (text if k == 0 else '')
+            mid += '-official' if copy else ''
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
@@ -551,7 +632,11 @@ def main():
     print(len(written), 'maps:', ', '.join(written))
 
 
-if '--official-csv' in sys.argv:
+if '--copy-official' in sys.argv:
+    copy_official()
+elif '--check-official' in sys.argv:
+    check_official()
+elif '--official-csv' in sys.argv:
     base, pathway = sys.argv[sys.argv.index('--official-csv') + 1:][:2]
     rows = table_rows(base, pathway, 'downloads')
     write_table(os.path.join(ROOT, 'downloads', base + '.csv'), rows)
