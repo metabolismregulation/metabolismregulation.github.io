@@ -129,7 +129,7 @@ Synonyms) and Location as text. Formula and Function (or Definition) under their
 in the grey of the other labels, closed at first, opened by a square + (− when open) right after
 the word: variant 3 of the former test page /atlas/folds/ (in git history) with the square of
 variant 7. Names from one source, UniProt: HGNC's previous and alias symbols are not shown, only
-searched. The curated notes (ids.csv `note`, GraphML Note) are not shown, as most nodes have none.
+searched. The Note property (ids.csv `note`) is dropped (user, 2026-10-18): it mixed full names, roles, evidence and curation remarks, with no clear way to maintain it. It is left out of the Atlas data and goes from the GraphML and the annotation CSV at their next rebuild.
 A family member's record shows the same identity line and its sites. Annotations: the database
 links, NAME: ID in capitals, as in MINERVA, without brackets ("UNIPROT: P47712"); the HGNC symbol
 link "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page).

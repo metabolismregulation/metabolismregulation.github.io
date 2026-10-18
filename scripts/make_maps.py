@@ -93,7 +93,7 @@ GN, YN = '{http://graphml.graphdrawing.org/xmlns}', '{http://www.yworks.com/xml/
 # custom properties, e.g. from a CellDesigner import, are left out)
 ANN_FIELDS = ['PTM', 'Full name', 'Alternative names', 'Synonyms', 'Definition', 'Function', 'Location', 'Formula',
               'HGNC', 'HGNC symbol', 'Previous symbols', 'Alias symbols', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt',
-              'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey', 'Note', 'Family', 'Members']
+              'ChEBI', 'KEGG', 'HMDB', 'InChI', 'InChIKey', 'Family', 'Members']
 # a protein family node: its members' records, as JSON in this property
 MEMBERS_FIELD = 'Member annotation'
 # PTM: the node's post-translational modifications, one per line as on a state variable
