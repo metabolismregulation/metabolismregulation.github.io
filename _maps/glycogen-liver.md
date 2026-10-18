@@ -7,6 +7,7 @@ group: "Carbohydrate metabolism"
 order: 5
 kind: "map"
 draft: false
+tag: ""
 image: "/atlas-downloads/F004-glycogen-liver.svg"
 width: 2131
 height: 1751

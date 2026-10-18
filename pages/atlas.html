@@ -201,8 +201,13 @@ sitemap: false
   // a grey and white capsule after the name of a drug action mechanism map
   // (yellow version: fill #FFE067, stroke #444)
   var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#d6d6d6" stroke="#777" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#777" stroke-width="1.6"/></g></svg>';
-  // the word draft on a small grey tag after the name of a draft map (page in draftpages/)
-  var DRAFT_ICON = '<span class="m2-draft"><span>draft</span></span>';
+  // the tag after a map name: draft on a small grey tag for a draft map (page in draftpages/),
+  // or set by hand in TAGS (make_maps.py): new in blue, draft in white for the same biology as the official map
+  var TAG_ICONS = {
+    'draft': ['<span class="m2-draft"><span>draft</span></span>', 'Draft map'],
+    'draft-white': ['<span class="m2-draft m2-white"><span>draft</span></span>', 'Draft map, the same biology as the official map'],
+    'new': ['<span class="m2-draft m2-new"><span>new</span></span>', 'New map, not on the official site']
+  };
   // a red tag when the map's images could not be drawn from its current GraphML (make_images.py)
   var ERROR_ICON = '<span class="m2-draft m2-error"><span>image error</span></span>';
   var DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
@@ -755,7 +760,8 @@ sitemap: false
       b.setAttribute('data-id', m.id);
       var tips = [label(m)];
       if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); tips.push('Drug action mechanism map'); }
-      if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); tips.push('Draft map'); }
+      var tag = TAG_ICONS[m.tag];
+      if (tag) { b.insertAdjacentHTML('beforeend', tag[0]); tips.push(tag[1]); }
       if (m.imageError) { b.insertAdjacentHTML('beforeend', ERROR_ICON); tips.push('Images not made from the current GraphML'); }
       b.title = tips.join(', ');
       b.addEventListener('click', function () { go(m.id); });

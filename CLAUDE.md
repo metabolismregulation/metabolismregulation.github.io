@@ -54,8 +54,12 @@ A map whose connection was chosen from the Reactome-Recon lists says so visibly 
 Reactome processes (linked). The Atlas list has no tag for it (the "lists" tag was removed, user
 2026-10-17).
 
-Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and image error (see Atlas images) are automatic (draft: a page in `draftpages/`). Every other tag is set by hand, on request. Every tag, used or not
-(draft, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and image error (see Atlas images) are automatic (draft: a page in `draftpages/`). Every other tag is set by hand, on request. Set by hand
+(user, 2026-10-18, TAGS in `scripts/make_maps.py`, in place of the automatic draft): "new" in blue for a map not on
+the official site (alox5), "draft" for a map whose biology differs from the official one (also maps with no draft page:
+glycolysis-cardiac, camp), "draft" in white for the same biology with small changes to the file (acly,
+phosphoinositides, inos, aspirin). A map whose GraphML equals the official one has no tag. Every tag, used or not
+(draft, draft white, new, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.

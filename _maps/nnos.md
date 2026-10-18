@@ -7,6 +7,7 @@ group: "Nitric oxide metabolism"
 order: 23
 kind: "map"
 draft: false
+tag: ""
 image: "/atlas-downloads/F025-nnos.svg"
 width: 881
 height: 756

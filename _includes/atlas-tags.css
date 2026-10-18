@@ -4,6 +4,12 @@
      per-font tuning (removed 2026-10-16: text-box is not in every browser). */
   .m2-draft { display: inline-block; box-sizing: border-box; height: 16px; line-height: 16px; padding: 0 5px; margin-left: 6px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
+  /* set by hand (TAGS in make_maps.py, user 2026-10-18): new in blue, a map not on the official
+     site; draft in white, the same biology as the official map with small changes to its file */
+  .m2-draft.m2-new { background: #4183c4; }
+  .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
+  .m2-draft.m2-white { line-height: 14px; color: #888; background: #fff; border: 1px solid #bbb; }
+  .m2-on .m2-draft.m2-white { color: #fff; background: transparent; border-color: #fff; }
   /* image error: red, the map's images could not be drawn from its current GraphML
      (scripts/make_images.py, user 2026-10-17) */
   .m2-draft.m2-error { background: #c62828; }

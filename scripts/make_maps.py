@@ -64,6 +64,12 @@ GROUPS = [
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
+# tags set by hand (user, 2026-10-18), in place of the automatic draft tag of a page in draftpages/:
+# new (blue): a map not on the official site; draft: the biology differs from the official map;
+# draft-white: the same biology as the official map, with small changes to its file
+TAGS = {'alox5': 'new',
+        'glycolysis-cardiac': 'draft', 'camp': 'draft',
+        'acly': 'draft-white', 'phosphoinositides': 'draft-white', 'inos': 'draft-white', 'aspirin': 'draft-white'}
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
@@ -511,6 +517,7 @@ def main():
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
                   'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
+                  'tag: ' + yaml_str(TAGS.get(mid, 'draft' if folder[slug] == 'draftpages' else '')),
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),

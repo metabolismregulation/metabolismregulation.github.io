@@ -7,6 +7,7 @@ group: "Lipid metabolism"
 order: 14
 kind: "map"
 draft: false
+tag: ""
 image: "/atlas-downloads/F018-estrogen.svg"
 width: 1233
 height: 1305
