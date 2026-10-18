@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner" level="2" version="4">
-<model metaid="F100_aspirin_annotated" id="F100_aspirin_annotated">
+<model metaid="F100_aspirin" id="F100_aspirin">
 <annotation>
 <celldesigner:extension>
 <celldesigner:modelVersion>4.0</celldesigner:modelVersion>
@@ -791,7 +791,9 @@
 <celldesigner:extension>
 <celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
 <celldesigner:baseReactants>
-<celldesigner:baseReactant species="s_n1" alias="sa_n1"/>
+<celldesigner:baseReactant species="s_n1" alias="sa_n1">
+<celldesigner:linkAnchor position="ESE"/>
+</celldesigner:baseReactant>
 </celldesigner:baseReactants>
 <celldesigner:baseProducts>
 <celldesigner:baseProduct species="s_n10" alias="sa_n10"/>
@@ -802,7 +804,7 @@
 <celldesigner:lineDirection index="1" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.9505863876479141,-0.21568902973244658</celldesigner:editPoints>
+<celldesigner:editPoints>0.9528529669960127,-0.21195327381974602</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="CATALYSIS" modifiers="s_n2" aliases="sa_n2" targetLineIndex="-1,3">
