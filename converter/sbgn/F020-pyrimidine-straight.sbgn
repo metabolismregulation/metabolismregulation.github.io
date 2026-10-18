@@ -174,10 +174,8 @@
       <label text="glutamate"/>
       <bbox x="750.4274457369609" y="770.7051069843835" w="100.0" h="30.0"/>
     </glyph>
-    <glyph class="process" id="n8" orientation="vertical">
+    <glyph class="process" id="n8">
       <bbox x="702.4274457369609" y="726.4180149324525" w="18.0" h="18.0"/>
-      <port id="n8.1" x="711.4274457369609" y="717.4180149324525"/>
-      <port id="n8.2" x="711.4274457369609" y="753.4180149324525"/>
     </glyph>
     <glyph class="simple chemical" id="n9">
       <extension>
@@ -196,10 +194,8 @@
       <label text="carbamoyl-P"/>
       <bbox x="661.4274457369609" y="865.817580538581" w="100.0" h="30.0"/>
     </glyph>
-    <glyph class="process" id="n10" orientation="vertical">
+    <glyph class="process" id="n10">
       <bbox x="490.0" y="646.4180149324525" w="18.0" h="18.0"/>
-      <port id="n10.1" x="499.0" y="637.4180149324525"/>
-      <port id="n10.2" x="499.0" y="673.4180149324525"/>
     </glyph>
     <glyph class="macromolecule" id="n11">
       <extension>
@@ -239,10 +235,8 @@
       <label text="EGFR"/>
       <bbox x="38.10127795947312" y="90.0" w="80.0" h="40.0"/>
     </glyph>
-    <glyph class="process" id="n13" orientation="horizontal">
+    <glyph class="process" id="n13">
       <bbox x="159.10127795947312" y="101.00000000000006" w="18.0" h="18.0"/>
-      <port id="n13.1" x="150.10127795947312" y="110.00000000000006"/>
-      <port id="n13.2" x="186.10127795947312" y="110.00000000000006"/>
     </glyph>
     <glyph class="complex" id="n14">
       <bbox x="216.30856060840244" y="47.37633658896499" w="105.38287878319511" h="125.2473268220703"/>
@@ -409,10 +403,8 @@
       <label text="GDP"/>
       <bbox x="198.10127795947312" y="335.8118317055177" w="60.0" h="32.0"/>
     </glyph>
-    <glyph class="process" id="n19" orientation="horizontal">
+    <glyph class="process" id="n19">
       <bbox x="259.1012779594731" y="251.0000000000001" w="18.0" h="18.0"/>
-      <port id="n19.1" x="286.1012779594731" y="260.0000000000001"/>
-      <port id="n19.2" x="250.10127795947312" y="260.0000000000001"/>
     </glyph>
     <glyph class="macromolecule" id="n20">
       <extension>
@@ -572,127 +564,121 @@
         <bbox x="430.3493722770486" y="667.9180149324525" w="15.0" h="15.0"/>
       </glyph>
     </glyph>
-    <glyph class="process" id="n26" orientation="horizontal">
+    <glyph class="process" id="n26">
       <bbox x="141.0" y="420.04167834348766" w="18.0" h="18.0"/>
-      <port id="n26.1" x="132.0" y="429.04167834348766"/>
-      <port id="n26.2" x="168.0" y="429.04167834348766"/>
     </glyph>
-    <glyph class="process" id="n27" orientation="horizontal">
+    <glyph class="process" id="n27">
       <bbox x="231.0" y="535.45969327594" w="18.0" h="18.0"/>
-      <port id="n27.1" x="222.0" y="544.45969327594"/>
-      <port id="n27.2" x="258.0" y="544.45969327594"/>
     </glyph>
-    <glyph class="process" id="n28" orientation="horizontal">
+    <glyph class="process" id="n28">
       <bbox x="315.5" y="646.4180149324525" w="18.0" h="18.0"/>
-      <port id="n28.1" x="306.5" y="655.4180149324525"/>
-      <port id="n28.2" x="342.5" y="655.4180149324525"/>
     </glyph>
     <arc class="catalysis" id="e0" source="n1" target="n8">
       <start x="539.0" y="735.4180149324525"/>
       <end x="702.4274457369609" y="735.4180149324525"/>
     </arc>
-    <arc class="consumption" id="e1" source="n0" target="n10.1">
+    <arc class="consumption" id="e1" source="n0" target="n10">
       <start x="499.0" y="600.8759361301071"/>
-      <end x="499.0" y="637.4180149324525"/>
+      <end x="499.0" y="646.4180149324525"/>
     </arc>
-    <arc class="production" id="e2" source="n10.2" target="n1">
-      <start x="499.0" y="673.4180149324525"/>
+    <arc class="production" id="e2" source="n10" target="n1">
+      <start x="499.0" y="664.4180149324525"/>
       <end x="499.0" y="715.4180149324525"/>
     </arc>
     <arc class="catalysis" id="e3" source="n25" target="n10">
       <start x="449.0" y="655.4180149324525"/>
       <end x="490.0" y="655.4180149324525"/>
     </arc>
-    <arc class="consumption" id="e4" source="n2" target="n8.1">
-      <start x="672.4274457369609" y="701.6906253876931"/>
-      <end x="711.4274457369609" y="717.4180149324525"/>
+    <arc class="consumption" id="e4" source="n2" target="n8">
+      <start x="665.0131824197817" y="704.592633430186"/>
+      <end x="702.4274457369609" y="729.4407912582438"/>
     </arc>
-    <arc class="consumption" id="e5" source="n3" target="n8.1">
+    <arc class="consumption" id="e5" source="n3" target="n8">
       <start x="711.4274457369609" y="655.3122469518371"/>
-      <end x="711.4274457369609" y="717.4180149324525"/>
+      <end x="711.4274457369609" y="726.4180149324525"/>
     </arc>
-    <arc class="consumption" id="e6" source="n4" target="n8.1">
-      <start x="750.4274457369609" y="702.2558427789975"/>
-      <end x="711.4274457369609" y="717.4180149324525"/>
+    <arc class="consumption" id="e6" source="n4" target="n8">
+      <start x="757.3378486088769" y="705.592633430186"/>
+      <end x="720.4274457369609" y="729.5712260408525"/>
     </arc>
-    <arc class="production" id="e7" source="n8.2" target="n5">
-      <start x="711.4274457369609" y="753.4180149324525"/>
-      <end x="672.4274457369609" y="771.6672408748483"/>
+    <arc class="production" id="e7" source="n8" target="n5">
+      <start x="702.4274457369609" y="741.9772008522696"/>
+      <end x="663.0092681841838" y="770.7051069843835"/>
     </arc>
-    <arc class="production" id="e8" source="n8.2" target="n6">
-      <start x="711.4274457369609" y="753.4180149324525"/>
-      <end x="655.0522058258892" y="820.3997708398514"/>
+    <arc class="production" id="e8" source="n8" target="n6">
+      <start x="705.2163125720747" y="744.4180149324525"/>
+      <end x="652.7793343451045" y="820.3997708398514"/>
     </arc>
-    <arc class="production" id="e9" source="n8.2" target="n7">
-      <start x="711.4274457369609" y="753.4180149324525"/>
-      <end x="759.079652697787" y="770.7051069843835"/>
+    <arc class="production" id="e9" source="n8" target="n7">
+      <start x="720.4274457369609" y="740.5032264882657"/>
+      <end x="773.8798776528618" y="770.7051069843835"/>
     </arc>
-    <arc class="production" id="e10" source="n8.2" target="n9">
-      <start x="711.4274457369609" y="753.4180149324525"/>
+    <arc class="production" id="e10" source="n8" target="n9">
+      <start x="711.4274457369609" y="744.4180149324525"/>
       <end x="711.4274457369609" y="865.817580538581"/>
     </arc>
-    <arc class="consumption" id="e11" source="n12" target="n13.1">
+    <arc class="consumption" id="e11" source="n12" target="n13">
       <start x="118.10127795947312" y="110.00000000000003"/>
-      <end x="150.10127795947312" y="110.00000000000006"/>
+      <end x="159.10127795947312" y="110.00000000000006"/>
     </arc>
-    <arc class="consumption" id="e12" source="n11" target="n13.1">
-      <start x="142.24413510233026" y="60.0"/>
-      <end x="150.10127795947312" y="110.00000000000006"/>
+    <arc class="consumption" id="e12" source="n11" target="n13">
+      <start x="147.3869922451874" y="60.0"/>
+      <end x="164.3727065309017" y="101.00000000000006"/>
     </arc>
-    <arc class="production" id="e13" source="n13.2" target="n14">
-      <start x="186.10127795947312" y="110.00000000000006"/>
-      <end x="216.30856060840244" y="110.00000000000009"/>
+    <arc class="production" id="e13" source="n13" target="n14">
+      <start x="177.10127795947312" y="110.00000000000007"/>
+      <end x="216.30856060840244" y="110.0000000000001"/>
     </arc>
-    <arc class="consumption" id="e14" source="n15" target="n19.1">
+    <arc class="consumption" id="e14" source="n15" target="n19">
       <start x="333.5111165273487" y="260.0000000000001"/>
-      <end x="286.1012779594731" y="260.0000000000001"/>
+      <end x="277.1012779594731" y="260.0000000000001"/>
     </arc>
-    <arc class="consumption" id="e15" source="n17" target="n19.1">
-      <start x="304.26734944000924" y="335.8118317055177"/>
-      <end x="286.1012779594731" y="260.0000000000001"/>
+    <arc class="consumption" id="e15" source="n17" target="n19">
+      <start x="301.1304988331752" y="335.8118317055177"/>
+      <end x="272.0223412180157" y="269.0000000000001"/>
     </arc>
-    <arc class="production" id="e16" source="n19.2" target="n16">
-      <start x="250.10127795947312" y="260.0000000000001"/>
+    <arc class="production" id="e16" source="n19" target="n16">
+      <start x="259.1012779594731" y="260.0000000000001"/>
       <end x="202.69143939159756" y="260.0000000000001"/>
     </arc>
-    <arc class="production" id="e17" source="n19.2" target="n18">
-      <start x="250.10127795947312" y="260.0000000000001"/>
-      <end x="231.93520647893698" y="335.8118317055177"/>
+    <arc class="production" id="e17" source="n19" target="n18">
+      <start x="264.18021470093055" y="269.0000000000001"/>
+      <end x="235.07205708577104" y="335.8118317055177"/>
     </arc>
     <arc class="stimulation" id="e18" source="n14" target="n19">
       <start x="268.62479155622646" y="172.6236634110353"/>
       <end x="268.15520128190474" y="251.0000000000001"/>
     </arc>
-    <arc class="consumption" id="e19" source="n20" target="n26.1">
+    <arc class="consumption" id="e19" source="n20" target="n26">
       <start x="100.0" y="429.04167834348766"/>
-      <end x="132.0" y="429.04167834348766"/>
+      <end x="141.0" y="429.04167834348766"/>
     </arc>
-    <arc class="production" id="e20" source="n26.2" target="n21">
-      <start x="168.0" y="429.04167834348766"/>
+    <arc class="production" id="e20" source="n26" target="n21">
+      <start x="159.0" y="429.04167834348766"/>
       <end x="200.0" y="429.04167834348766"/>
     </arc>
     <arc class="stimulation" id="e21" source="n16" target="n26">
       <start x="150.0" y="322.6236634110353"/>
       <end x="150.0" y="420.04167834348766"/>
     </arc>
-    <arc class="consumption" id="e22" source="n22" target="n27.1">
+    <arc class="consumption" id="e22" source="n22" target="n27">
       <start x="195.5" y="544.45969327594"/>
-      <end x="222.0" y="544.45969327594"/>
+      <end x="231.0" y="544.45969327594"/>
     </arc>
-    <arc class="production" id="e23" source="n27.2" target="n23">
-      <start x="258.0" y="544.45969327594"/>
+    <arc class="production" id="e23" source="n27" target="n23">
+      <start x="249.0" y="544.45969327594"/>
       <end x="284.5" y="544.45969327594"/>
     </arc>
     <arc class="catalysis" id="e24" source="n21" target="n27">
       <start x="240.0" y="449.04167834348766"/>
       <end x="240.0" y="535.45969327594"/>
     </arc>
-    <arc class="consumption" id="e25" source="n24" target="n28.1">
+    <arc class="consumption" id="e25" source="n24" target="n28">
       <start x="280.0" y="655.4180149324525"/>
-      <end x="306.5" y="655.4180149324525"/>
+      <end x="315.5" y="655.4180149324525"/>
     </arc>
-    <arc class="production" id="e26" source="n28.2" target="n25">
-      <start x="342.5" y="655.4180149324525"/>
+    <arc class="production" id="e26" source="n28" target="n25">
+      <start x="333.5" y="655.4180149324525"/>
       <end x="369.0" y="655.4180149324525"/>
     </arc>
     <arc class="catalysis" id="e27" source="n23" target="n28">

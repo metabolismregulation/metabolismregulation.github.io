@@ -54,10 +54,8 @@
       </label>
       <bbox x="21.476152926143087" y="862.1757408199989" w="395.2118470738574" h="205.4910437693435"/>
     </glyph>
-    <glyph class="process" id="n0" orientation="horizontal">
+    <glyph class="process" id="n0">
       <bbox x="319.0923045284281" y="656.1153422183774" w="18.0" h="18.0"/>
-      <port id="n0.1" x="310.0923045284281" y="665.1153422183774"/>
-      <port id="n0.2" x="346.0923045284281" y="665.1153422183774"/>
     </glyph>
     <glyph class="complex" id="n1">
       <bbox x="316.68800000000016" y="699.6018117341888" w="100.0" h="116.20000000000005"/>
@@ -129,10 +127,8 @@
       <label text="sterol"/>
       <bbox x="331.31300000000016" y="71.4525911974437" w="70.75" h="32.0"/>
     </glyph>
-    <glyph class="process" id="n2__n1" orientation="horizontal">
+    <glyph class="process" id="n2__n1">
       <bbox x="388.68800000000016" y="138.4525911974437" w="18.0" h="18.0"/>
-      <port id="n2__n1.1" x="379.68800000000016" y="147.4525911974437"/>
-      <port id="n2__n1.2" x="415.68800000000016" y="147.4525911974437"/>
     </glyph>
     <glyph class="macromolecule" id="n2__n2" compartmentRef="n2">
       <extension>
@@ -424,10 +420,8 @@
       <label text="Sar1"/>
       <bbox x="35.0" y="242.3467377567532" w="80.0" h="40.0"/>
     </glyph>
-    <glyph class="process" id="n2__n7" orientation="vertical">
+    <glyph class="process" id="n2__n7">
       <bbox x="139.34400000000005" y="283.3467377567532" w="18.0" h="18.0"/>
-      <port id="n2__n7.1" x="148.34400000000005" y="274.3467377567532"/>
-      <port id="n2__n7.2" x="148.34400000000005" y="310.3467377567532"/>
     </glyph>
     <glyph class="complex" id="n2__n8" compartmentRef="n2">
       <bbox x="181.6880000000001" y="198.3467377567532" w="100.0" h="116.2"/>
@@ -705,15 +699,11 @@
       <label text="S2P"/>
       <bbox x="455.19730813099596" y="896.3030723316198" w="80.0" h="40.0"/>
     </glyph>
-    <glyph class="process" id="n5__n4" orientation="vertical">
+    <glyph class="process" id="n5__n4">
       <bbox x="576.1973081309959" y="739.7013368649991" w="18.0" h="18.0"/>
-      <port id="n5__n4.1" x="585.1973081309959" y="730.7013368649991"/>
-      <port id="n5__n4.2" x="585.1973081309959" y="766.7013368649991"/>
     </glyph>
-    <glyph class="process" id="n5__n5" orientation="vertical">
+    <glyph class="process" id="n5__n5">
       <bbox x="576.1973081309959" y="907.3030723316198" w="18.0" h="18.0"/>
-      <port id="n5__n5.1" x="585.1973081309959" y="898.3030723316198"/>
-      <port id="n5__n5.2" x="585.1973081309959" y="934.3030723316198"/>
     </glyph>
     <glyph class="complex" id="n5__n6" compartmentRef="n5">
       <bbox x="485.53617531849596" y="625.3653422183772" w="199.322265625" h="79.50000000000006"/>
@@ -806,10 +796,8 @@
       <label text="Transcription &#10;of target genes"/>
       <bbox x="44.64940015278948" y="967.9491331757661" w="130.20681290958444" h="59.1015428675409"/>
     </glyph>
-    <glyph class="process" id="n7" orientation="horizontal">
+    <glyph class="process" id="n7">
       <bbox x="351.02676059668494" y="988.4999046095365" w="18.0" h="18.0"/>
-      <port id="n7.1" x="378.02676059668494" y="997.4999046095365"/>
-      <port id="n7.2" x="342.02676059668494" y="997.4999046095365"/>
     </glyph>
     <glyph class="macromolecule" id="n8">
       <extension>
@@ -830,10 +818,8 @@
       <label text="Importin-β"/>
       <bbox x="320.02676059668494" y="1047.4999046095365" w="80.0" h="40.0"/>
     </glyph>
-    <glyph class="process" id="n9" orientation="vertical">
+    <glyph class="process" id="n9">
       <bbox x="139.34400000000005" y="527.9972691817775" w="18.0" h="18.0"/>
-      <port id="n9.1" x="148.34400000000005" y="518.9972691817775"/>
-      <port id="n9.2" x="148.34400000000005" y="554.9972691817775"/>
     </glyph>
     <glyph class="submap" id="n10">
       <label text="Cholesterol &#10;biosynthesis"/>
@@ -847,93 +833,93 @@
       <start x="535.1973081309959" y="916.3030723316198"/>
       <end x="576.1973081309959" y="916.3030723316198"/>
     </arc>
-    <arc class="consumption" id="n5__e2" source="n5__n0" target="n5__n5.1">
+    <arc class="consumption" id="n5__e2" source="n5__n0" target="n5__n5">
       <start x="585.1973081309959" y="866.3030723316198"/>
-      <end x="585.1973081309959" y="898.3030723316198"/>
+      <end x="585.1973081309959" y="907.3030723316198"/>
     </arc>
-    <arc class="production" id="n5__e3" source="n5__n4.2" target="n5__n0">
-      <start x="585.1973081309959" y="766.7013368649991"/>
+    <arc class="production" id="n5__e3" source="n5__n4" target="n5__n0">
+      <start x="585.1973081309959" y="757.7013368649991"/>
       <end x="585.1973081309959" y="826.3030723316198"/>
     </arc>
-    <arc class="production" id="n5__e4" source="n5__n5.2" target="n5__n1">
-      <start x="585.1973081309959" y="934.3030723316198"/>
+    <arc class="production" id="n5__e4" source="n5__n5" target="n5__n1">
+      <start x="585.1973081309959" y="925.3030723316198"/>
       <end x="585.1973081309959" y="977.4999046095365"/>
     </arc>
-    <arc class="consumption" id="n2__e0" source="n2__n4" target="n2__n1.1">
+    <arc class="consumption" id="n2__e0" source="n2__n4" target="n2__n1">
       <start x="249.130265625" y="147.4525911974437"/>
-      <end x="379.68800000000016" y="147.4525911974437"/>
+      <end x="388.68800000000016" y="147.4525911974437"/>
     </arc>
-    <arc class="consumption" id="n2__e1" source="n2__n0" target="n2__n1.1">
-      <start x="370.1546666666668" y="103.4525911974437"/>
-      <end x="379.68800000000016" y="147.4525911974437"/>
+    <arc class="consumption" id="n2__e1" source="n2__n0" target="n2__n1">
+      <start x="374.9546666666668" y="103.4525911974437"/>
+      <end x="393.0380000000002" y="138.4525911974437"/>
     </arc>
-    <arc class="production" id="n2__e2" source="n2__n1.2" target="n2__n3">
-      <start x="415.68800000000016" y="147.4525911974437"/>
-      <end x="500.5361753184959" y="149.47532727749248"/>
+    <arc class="production" id="n2__e2" source="n2__n1" target="n2__n3">
+      <start x="406.68800000000016" y="147.64846807675147"/>
+      <end x="500.5361753184959" y="149.69098893343104"/>
     </arc>
-    <arc class="consumption" id="n2__e3" source="n2__n2" target="n2__n1.1">
-      <start x="371.0213333333335" y="187.4525911974437"/>
-      <end x="379.68800000000016" y="147.4525911974437"/>
+    <arc class="consumption" id="n2__e3" source="n2__n2" target="n2__n1">
+      <start x="377.0213333333335" y="187.4525911974437"/>
+      <end x="393.0380000000002" y="156.4525911974437"/>
     </arc>
     <arc class="stimulation" id="e0" source="n8" target="n7">
       <start x="360.02676059668494" y="1047.4999046095365"/>
       <end x="360.02676059668494" y="1006.4999046095365"/>
     </arc>
-    <arc class="consumption" id="e1" source="n5__n1" target="n7.1">
+    <arc class="consumption" id="e1" source="n5__n1" target="n7">
       <start x="545.1973081309959" y="997.4999046095365"/>
-      <end x="378.02676059668494" y="997.4999046095365"/>
+      <end x="369.02676059668494" y="997.4999046095365"/>
     </arc>
-    <arc class="production" id="e2" source="n7.2" target="n6__n0">
-      <start x="342.02676059668494" y="997.4999046095365"/>
+    <arc class="production" id="e2" source="n7" target="n6__n0">
+      <start x="351.02676059668494" y="997.4999046095365"/>
       <end x="302.4414868295294" y="997.4999046095365"/>
     </arc>
-    <arc class="consumption" id="n5__e5" source="n5__n6" target="n5__n4.1">
+    <arc class="consumption" id="n5__e5" source="n5__n6" target="n5__n4">
       <start x="585.1973081309959" y="704.8653422183772"/>
-      <end x="585.1973081309959" y="730.7013368649991"/>
+      <end x="585.1973081309959" y="739.7013368649991"/>
     </arc>
-    <arc class="consumption" id="n2__e4" source="n2__n4" target="n2__n7.1">
-      <start x="149.11668133613526" y="187.2025911974437"/>
-      <end x="148.34400000000005" y="274.3467377567532"/>
+    <arc class="consumption" id="n2__e4" source="n2__n4" target="n2__n7">
+      <start x="149.16046589696958" y="187.2025911974437"/>
+      <end x="148.4138868487994" y="283.3467377567532"/>
     </arc>
-    <arc class="production" id="n2__e5" source="n2__n7.2" target="n2__n5">
-      <start x="148.34400000000005" y="310.3467377567532"/>
+    <arc class="production" id="n2__e5" source="n2__n7" target="n2__n5">
+      <start x="148.34400000000005" y="301.3467377567532"/>
       <end x="148.34400000000005" y="340.69166913512987"/>
     </arc>
-    <arc class="consumption" id="n2__e6" source="n2__n6" target="n2__n7.1">
-      <start x="115.0" y="268.89124037455423"/>
-      <end x="148.34400000000005" y="274.3467377567532"/>
+    <arc class="consumption" id="n2__e6" source="n2__n6" target="n2__n7">
+      <start x="115.0" y="278.70799430125584"/>
+      <end x="139.34400000000005" y="288.66545503424015"/>
     </arc>
-    <arc class="consumption" id="n2__e7" source="n2__n8" target="n2__n7.1">
-      <start x="181.6880000000001" y="267.1853632126949"/>
-      <end x="148.34400000000005" y="274.3467377567532"/>
+    <arc class="consumption" id="n2__e7" source="n2__n8" target="n2__n7">
+      <start x="181.6880000000001" y="277.9839809896194"/>
+      <end x="157.34400000000005" y="288.4700339748373"/>
     </arc>
-    <arc class="consumption" id="e3" source="n2__n5" target="n9.1">
+    <arc class="consumption" id="e3" source="n2__n5" target="n9">
       <start x="148.34400000000005" y="514.4867377567532"/>
-      <end x="148.34400000000005" y="518.9972691817775"/>
+      <end x="148.34400000000005" y="527.9972691817775"/>
     </arc>
-    <arc class="consumption" id="e4" source="n4__n0" target="n0.1">
-      <start x="247.8191908276894" y="676.8856617377911"/>
-      <end x="310.0923045284281" y="665.1153422183774"/>
+    <arc class="consumption" id="e4" source="n4__n0" target="n0">
+      <start x="247.8191908276894" y="678.7700577044043"/>
+      <end x="319.0923045284281" y="666.6462712394241"/>
     </arc>
-    <arc class="production" id="e5" source="n9.2" target="n4__n0">
-      <start x="148.34400000000005" y="554.9972691817775"/>
-      <end x="148.27287660608303" y="608.8252034483754"/>
+    <arc class="production" id="e5" source="n9" target="n4__n0">
+      <start x="148.33345677793056" y="545.9972691817775"/>
+      <end x="148.2598557931372" y="608.8252034483755"/>
     </arc>
-    <arc class="production" id="e6" source="n0.2" target="n5__n6">
-      <start x="346.0923045284281" y="665.1153422183774"/>
+    <arc class="production" id="e6" source="n0" target="n5__n6">
+      <start x="337.0923045284281" y="665.1153422183774"/>
       <end x="485.5361753184959" y="665.1153422183772"/>
     </arc>
-    <arc class="production" id="e7" source="n0.2" target="n3">
-      <start x="346.0923045284281" y="665.1153422183774"/>
-      <end x="359.12806974406925" y="630.6288727025659"/>
+    <arc class="production" id="e7" source="n0" target="n3">
+      <start x="334.467488355366" y="656.1153422183774"/>
+      <end x="352.52092482902697" y="630.6288727025659"/>
     </arc>
-    <arc class="production" id="e8" source="n0.2" target="n1">
-      <start x="346.0923045284281" y="665.1153422183774"/>
-      <end x="353.7637583353584" y="699.6018117341888"/>
+    <arc class="production" id="e8" source="n0" target="n1">
+      <start x="331.84405422858083" y="674.1153422183774"/>
+      <end x="342.46837138012506" y="699.6018117341888"/>
     </arc>
-    <arc class="production" id="n5__e6" source="n5__n4.2" target="n5__n7">
-      <start x="585.1973081309959" y="766.7013368649991"/>
-      <end x="624.1973081309959" y="772.6253874979105"/>
+    <arc class="production" id="n5__e6" source="n5__n4" target="n5__n7">
+      <start x="594.1973081309959" y="752.1190583839865"/>
+      <end x="624.1973081309959" y="763.5114634472776"/>
     </arc>
     <arc class="stimulation" id="n6__e0" source="n6__n0" target="n6__n1">
       <start x="223.44148682952942" y="997.4999046095365"/>
