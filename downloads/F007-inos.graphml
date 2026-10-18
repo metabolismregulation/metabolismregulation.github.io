@@ -22,30 +22,14 @@
   <key attr.name="url" attr.type="string" for="edge" id="d18"/>
   <key attr.name="description" attr.type="string" for="edge" id="d19"/>
   <key for="edge" id="d20" yfiles.type="edgegraphics"/>
-  <key attr.name="Full name" attr.type="string" for="node" id="d100"/>
-  <key attr.name="Alternative names" attr.type="string" for="node" id="d101"/>
-  <key attr.name="Synonyms" attr.type="string" for="node" id="d102"/>
-  <key attr.name="Definition" attr.type="string" for="node" id="d103"/>
-  <key attr.name="Function" attr.type="string" for="node" id="d104"/>
-  <key attr.name="Location" attr.type="string" for="node" id="d105"/>
-  <key attr.name="Formula" attr.type="string" for="node" id="d106"/>
   <key attr.name="HGNC" attr.type="string" for="node" id="d107"/>
   <key attr.name="HGNC symbol" attr.type="string" for="node" id="d108"/>
-  <key attr.name="HGNC aliases" attr.type="string" for="node" id="d109"/>
-  <key attr.name="Entrez" attr.type="string" for="node" id="d110"/>
-  <key attr.name="Ensembl" attr.type="string" for="node" id="d111"/>
-  <key attr.name="RefSeq" attr.type="string" for="node" id="d112"/>
   <key attr.name="UniProt" attr.type="string" for="node" id="d113"/>
   <key attr.name="ChEBI" attr.type="string" for="node" id="d114"/>
-  <key attr.name="KEGG" attr.type="string" for="node" id="d115"/>
-  <key attr.name="HMDB" attr.type="string" for="node" id="d116"/>
-  <key attr.name="InChI" attr.type="string" for="node" id="d117"/>
-  <key attr.name="InChIKey" attr.type="string" for="node" id="d118"/>
-  <key attr.name="Note" attr.type="string" for="node" id="d119"/>
   <key attr.name="Family" attr.type="string" for="node" id="d120"/>
   <key attr.name="Members" attr.type="string" for="node" id="d121"/>
   <key attr.name="Member annotation" attr.type="string" for="node" id="d122"/>
-  <graph edgedefault="directed" id="G">
+  <key attr.name="PTM" attr.type="string" for="node" id="d125"/><graph edgedefault="directed" id="G">
     <data key="d0" xml:space="preserve"/>
     <node id="n0" yfiles.foldertype="group">
       <data key="d4" xml:space="preserve"/>
@@ -109,17 +93,9 @@
           </data>
         </node>
         <node id="n0::n1">
-          <data key="d100">Interferon regulatory factor 1</data>
-          <data key="d104">Transcriptional regulator which displays a remarkable functional diversity in the regulation of cellular responses. Regulates transcription of IFN and IFN-inducible genes, host response to viral and bacterial infections, regulation of many genes expressed during hematopoiesis, inflammation, immune responses and cell proliferation and differentiation, regulation of the cell cycle and induction of growth arrest and programmed cell death following DNA damage.</data>
-          <data key="d105">Nucleus, Cytoplasm</data>
           <data key="d107">HGNC:6116</data>
           <data key="d108">IRF1</data>
-          <data key="d109">MAR</data>
-          <data key="d110">3659</data>
-          <data key="d111">ENSG00000125347</data>
-          <data key="d112">NM_002198</data>
           <data key="d113">P10914</data>
-          <data key="d119">IFNγ-induced transcription factor</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -128,7 +104,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P10914</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="498.99999999999994" y="675.0"/>
@@ -142,14 +117,7 @@
           </data>
         </node>
         <node id="n0::n2">
-          <data key="d100">fumarate(2-)</data>
-          <data key="d102">(2E)-but-2-enedioate; (E)-2-butenedioic acid, ion(2-); FUMARATE</data>
-          <data key="d103">A C4-dicarboxylate that is the E-isomer of but-2-enedioate(2−)</data>
-          <data key="d106">C4H2O4</data>
           <data key="d114">CHEBI:29806</data>
-          <data key="d115">C00122</data>
-          <data key="d117">InChI=1S/C4H4O4/c5-3(6)1-2-4(7)8/h1-2H,(H,5,6)(H,7,8)/p-2/b2-1+</data>
-          <data key="d118">VZCYOOQTPOCHFL-OWOJBTEDSA-L</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -158,7 +126,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:29806</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1011.0" y="697.0"/>
@@ -169,13 +136,7 @@
           </data>
         </node>
         <node id="n0::n3">
-          <data key="d100">L-aspartate(1-)</data>
-          <data key="d102">(2S)-2-ammoniobutanedioate; (2S)-2-ammoniosuccinate; L-aspartate; L-aspartic acid monoanion; hydrogen L-aspartate</data>
-          <data key="d103">An aspartate(1−) that is the  conjugate base of L-aspartic acid.</data>
-          <data key="d106">C4H6NO4</data>
           <data key="d114">CHEBI:29991</data>
-          <data key="d117">InChI=1S/C4H7NO4/c5-2(4(8)9)1-3(6)7/h2H,1,5H2,(H,6,7)(H,8,9)/p-1/t2-/m0/s1</data>
-          <data key="d118">CKLJMWTZIZZHCS-REOHCLBHSA-M</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -184,7 +145,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:29991</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1496.0" y="692.0"/>
@@ -195,14 +155,7 @@
           </data>
         </node>
         <node id="n0::n4">
-          <data key="d100">L-citrulline zwitterion</data>
-          <data key="d102">(2S)-2-azaniumyl-5-(carbamoylamino)pentanoate; L-citrulline</data>
-          <data key="d103">Zwitterionic form of L-citrulline having an anionic carboxy group and a protonated amino group; major species at pH 7.3.</data>
-          <data key="d106">C6H13N3O3</data>
           <data key="d114">CHEBI:57743</data>
-          <data key="d117">InChI=1S/C6H13N3O3/c7-4(5(10)11)2-1-3-9-6(8)12/h4H,1-3,7H2,(H,10,11)(H3,8,9,12)/t4-/m0/s1</data>
-          <data key="d118">RHGKLRLOHDJJDR-BYPYZUCNSA-N</data>
-          <data key="d119">L-citrulline</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -211,7 +164,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57743</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1401.0" y="657.0"/>
@@ -222,14 +174,7 @@
           </data>
         </node>
         <node id="n0::n5">
-          <data key="d100">dioxygen</data>
-          <data key="d102">Disauerstoff; E 948; E-948; E948; O(2); O2; OXYGEN MOLECULE; Oxygen; [OO]; dioxygene; molecular oxygen</data>
-          <data key="d106">O2</data>
           <data key="d114">CHEBI:15379</data>
-          <data key="d115">C00007</data>
-          <data key="d116">HMDB0001377</data>
-          <data key="d117">InChI=1S/O2/c1-2</data>
-          <data key="d118">MYMOFIZGZYHOMD-UHFFFAOYSA-N</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -238,7 +183,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:15379</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1171.0" y="557.0"/>
@@ -249,13 +193,7 @@
           </data>
         </node>
         <node id="n0::n6">
-          <data key="d100">L-argininium(1+)</data>
-          <data key="d102">(2S)-2-amino-5-(carbamimidamido)pentanoate; (2S)-2-amino-5-guanidinopentanoate; (2S)-2-ammonio-5-guanidiniopentanoate; (2S)-2-azaniumyl-5-{[azaniumyl(imino)methyl]amino}pentanoate; L-arginine cation; L-arginine monocation; L-arginine; L-argininium; arginine(1+)</data>
-          <data key="d103">The L-enantiomer of argininium(1+).</data>
-          <data key="d106">C6H15N4O2</data>
           <data key="d114">CHEBI:32682</data>
-          <data key="d117">InChI=1S/C6H14N4O2/c7-4(5(11)12)2-1-3-10-6(8)9/h4H,1-3,7H2,(H,11,12)(H4,8,9,10)/p+1/t4-/m0/s1</data>
-          <data key="d118">ODKSFYDXXFIFQN-BYPYZUCNSA-O</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -264,7 +202,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:32682</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1111.0" y="657.0"/>
@@ -275,14 +212,7 @@
           </data>
         </node>
         <node id="n0::n7">
-          <data key="d100">nitric oxide</data>
-          <data key="d102">(.)NO; (NO)(.); EDRF; NO; NO(.); Nitrogen monoxide; Stickstoff(II)-oxid; Stickstoffmonoxid; [NO]; endothelium-derived relaxing factor; mononitrogen monoxide; monoxido de nitrogeno; monoxyde d'azote; nitrogen monooxide; nitrosyl; oxido de nitrogeno(II); oxido nitrico; oxidonitrogen(.); oxoazanyl; oxyde azotique; oxyde nitrique</data>
-          <data key="d103">A nitrogen oxide which is a free radical, each molecule of which consists of one nitrogen and one oxygen atom.</data>
-          <data key="d106">NO</data>
           <data key="d114">CHEBI:16480</data>
-          <data key="d115">C00533</data>
-          <data key="d117">InChI=1S/NO/c1-2</data>
-          <data key="d118">MWUXSHHQAYIFBG-UHFFFAOYSA-N</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -291,7 +221,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16480</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1341.0" y="557.0"/>
@@ -302,19 +231,10 @@
           </data>
         </node>
         <node id="n0::n8">
-          <data key="d100">Nitric oxide synthase, inducible</data>
-          <data key="d101">Hepatocyte NOS; Inducible NO synthase; NOS type II; Peptidyl-cysteine S-nitrosylase NOS2</data>
-          <data key="d104">Produces nitric oxide (NO) which is a messenger molecule with diverse functions throughout the body. In macrophages, NO mediates tumoricidal and bactericidal actions.</data>
-          <data key="d105">Cytoplasm, cytosol</data>
           <data key="d107">HGNC:7873</data>
           <data key="d108">NOS2</data>
-          <data key="d109">iNOS, NOS, HEP-NOS, NOS2A</data>
-          <data key="d110">4843</data>
-          <data key="d111">ENSG00000007171</data>
-          <data key="d112">NM_000625</data>
           <data key="d113">P35228</data>
-          <data key="d119">Inducible NOS, macrophages</data>
-          <data key="d12">https://www.uniprot.org/uniprotkb/P35228</data><data key="d4" xml:space="preserve"/>
+          <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
           <data key="d7" xml:space="preserve"/>
@@ -340,18 +260,10 @@
           </data>
         </node>
         <node id="n0::n9">
-          <data key="d100">Interferon regulatory factor 1</data>
-          <data key="d104">Transcriptional regulator which displays a remarkable functional diversity in the regulation of cellular responses. Regulates transcription of IFN and IFN-inducible genes, host response to viral and bacterial infections, regulation of many genes expressed during hematopoiesis, inflammation, immune responses and cell proliferation and differentiation, regulation of the cell cycle and induction of growth arrest and programmed cell death following DNA damage.</data>
-          <data key="d105">Nucleus, Cytoplasm</data>
           <data key="d107">HGNC:6116</data>
           <data key="d108">IRF1</data>
-          <data key="d109">MAR</data>
-          <data key="d110">3659</data>
-          <data key="d111">ENSG00000125347</data>
-          <data key="d112">NM_002198</data>
           <data key="d113">P10914</data>
-          <data key="d119">IFNγ-induced transcription factor</data>
-          <data key="d12">https://www.uniprot.org/uniprotkb/P10914</data><data key="d4" xml:space="preserve"/>
+          <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
           <data key="d7" xml:space="preserve"/>
@@ -377,14 +289,7 @@
           </data>
         </node>
         <node id="n0::n10">
-          <data key="d100">(N(omega)-L-arginino)succinate(1-)</data>
-          <data key="d102">2-(N(omega)-L-arginino)succinate; 2-{[{[(4S)-4-ammonio-4-carboxylatobutyl]amino}(iminio)methyl]amino}succinate; 2-{[{[(4S)-4-azaniumyl-4-carboxylatobutyl]amino}(iminiumyl)methyl]amino}butanedioate</data>
-          <data key="d103">Conjugate base of (Nω-L-arginino)succinic acid.</data>
-          <data key="d106">C10H17N4O6</data>
           <data key="d114">CHEBI:57472</data>
-          <data key="d117">InChI=1S/C10H18N4O6/c11-5(8(17)18)2-1-3-13-10(12)14-6(9(19)20)4-7(15)16/h5-6H,1-4,11H2,(H,15,16)(H,17,18)(H,19,20)(H3,12,13,14)/p-1/t5-,6?/m0/s1</data>
-          <data key="d118">KDZOASGQNOPSCU-ZBHICJROSA-M</data>
-          <data key="d119">L-argininosuccinate</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -393,7 +298,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57472</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="170.0" x="1216.0" y="844.5"/>
@@ -404,18 +308,9 @@
           </data>
         </node>
         <node id="n0::n11">
-          <data key="d100">Signal transducer and activator of transcription 1-alpha/beta</data>
-          <data key="d101">Transcription factor ISGF-3 components p91/p84</data>
-          <data key="d104">Signal transducer and transcription activator that mediates cellular responses to interferons (IFNs), cytokine KITLG/SCF and other cytokines and other growth factors. Following type I IFN (IFN-alpha and IFN-beta) binding to cell surface receptors, signaling via protein kinases leads to activation of Jak kinases (TYK2 and JAK1) and to tyrosine phosphorylation of STAT1 and STAT2.</data>
-          <data key="d105">Cytoplasm, Nucleus</data>
           <data key="d107">HGNC:11362</data>
           <data key="d108">STAT1</data>
-          <data key="d109">STAT91, ISGF-3</data>
-          <data key="d110">6772</data>
-          <data key="d111">ENSG00000115415</data>
-          <data key="d112">NM_007315</data>
           <data key="d113">P42224</data>
-          <data key="d119">IFNγ-activated transcription factor</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -424,14 +319,14 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P42224</data>
-          <data key="d14">
+          <data key="d125">P@Y701
+P@S727</data><data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="65.0" y="515.0"/>
               <y:Fill color="#C8D8EB" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="center" visible="true" width="53.7890625" x="13.10546875" xml:space="preserve" y="9.0625">STAT1<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="3" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="-6.971615715992641" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="3" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="-6.971615715992641" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -439,7 +334,7 @@
                   <y:SmartNodeLabelModelParameter labelRatioX="-0.34507520631127464" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="4" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="43.4800724630052" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="4" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="43.4800724630052" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -454,18 +349,9 @@
           </data>
         </node>
         <node id="n0::n12">
-          <data key="d100">Signal transducer and activator of transcription 1-alpha/beta</data>
-          <data key="d101">Transcription factor ISGF-3 components p91/p84</data>
-          <data key="d104">Signal transducer and transcription activator that mediates cellular responses to interferons (IFNs), cytokine KITLG/SCF and other cytokines and other growth factors. Following type I IFN (IFN-alpha and IFN-beta) binding to cell surface receptors, signaling via protein kinases leads to activation of Jak kinases (TYK2 and JAK1) and to tyrosine phosphorylation of STAT1 and STAT2.</data>
-          <data key="d105">Cytoplasm, Nucleus</data>
           <data key="d107">HGNC:11362</data>
           <data key="d108">STAT1</data>
-          <data key="d109">STAT91, ISGF-3</data>
-          <data key="d110">6772</data>
-          <data key="d111">ENSG00000115415</data>
-          <data key="d112">NM_007315</data>
           <data key="d113">P42224</data>
-          <data key="d119">IFNγ-activated transcription factor</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -474,14 +360,13 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P42224</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="301.681610208701" y="515.0"/>
               <y:Fill color="#C8D8EB" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="center" visible="true" width="53.7890625" x="13.10546875" xml:space="preserve" y="9.0625">STAT1<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="5" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="-6.971615715992641" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="5" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="-6.971615715992641" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -489,7 +374,7 @@
                   <y:SmartNodeLabelModelParameter labelRatioX="-0.34507520631127464" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="6" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="43.48007246300523" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="6" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="43.48007246300523" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -504,18 +389,9 @@
           </data>
         </node>
         <node id="n0::n13">
-          <data key="d100">Signal transducer and activator of transcription 1-alpha/beta</data>
-          <data key="d101">Transcription factor ISGF-3 components p91/p84</data>
-          <data key="d104">Signal transducer and transcription activator that mediates cellular responses to interferons (IFNs), cytokine KITLG/SCF and other cytokines and other growth factors. Following type I IFN (IFN-alpha and IFN-beta) binding to cell surface receptors, signaling via protein kinases leads to activation of Jak kinases (TYK2 and JAK1) and to tyrosine phosphorylation of STAT1 and STAT2.</data>
-          <data key="d105">Cytoplasm, Nucleus</data>
           <data key="d107">HGNC:11362</data>
           <data key="d108">STAT1</data>
-          <data key="d109">STAT91, ISGF-3</data>
-          <data key="d110">6772</data>
-          <data key="d111">ENSG00000115415</data>
-          <data key="d112">NM_007315</data>
           <data key="d113">P42224</data>
-          <data key="d119">IFNγ-activated transcription factor</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -524,14 +400,14 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P42224</data>
-          <data key="d14">
+          <data key="d125">P@Y701
+P@S727</data><data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="65.0" y="695.0"/>
               <y:Fill color="#C8D8EB" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="center" visible="true" width="53.7890625" x="13.10546875" xml:space="preserve" y="9.0625">STAT1<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="3" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="-6.971615715992641" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="3" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="-6.971615715992641" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -539,7 +415,7 @@
                   <y:SmartNodeLabelModelParameter labelRatioX="-0.34507520631127464" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="4" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="43.4800724630052" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="4" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="43.4800724630052" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -612,18 +488,9 @@
           </data>
         </node>
         <node id="n0::n16">
-          <data key="d100">Nitric oxide synthase, inducible</data>
-          <data key="d101">Hepatocyte NOS; Inducible NO synthase; NOS type II; Peptidyl-cysteine S-nitrosylase NOS2</data>
-          <data key="d104">Produces nitric oxide (NO) which is a messenger molecule with diverse functions throughout the body. In macrophages, NO mediates tumoricidal and bactericidal actions.</data>
-          <data key="d105">Cytoplasm, cytosol</data>
           <data key="d107">HGNC:7873</data>
           <data key="d108">NOS2</data>
-          <data key="d109">iNOS, NOS, HEP-NOS, NOS2A</data>
-          <data key="d110">4843</data>
-          <data key="d111">ENSG00000007171</data>
-          <data key="d112">NM_000625</data>
           <data key="d113">P35228</data>
-          <data key="d119">Inducible NOS, macrophages</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -632,7 +499,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P35228</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="836.0" y="680.0"/>
@@ -672,7 +538,7 @@
         </node>
         <node id="n0::n18">
           <data key="d121">CALM1; CALM2; CALM3</data>
-          <data key="d122">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
+          <data key="d122">[{"symbol": "CALM1", "props": [["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["UniProt", "P0DP23"]]}, {"symbol": "CALM2", "props": [["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["UniProt", "P0DP24"]]}, {"symbol": "CALM3", "props": [["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["UniProt", "P0DP25"]]}]</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -681,7 +547,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve"/>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="754.0" y="506.25746466504097"/>
@@ -736,7 +601,7 @@
           <graph edgedefault="directed" id="n0::n19:">
             <node id="n0::n19::n0">
               <data key="d121">CALM1; CALM2; CALM3</data>
-              <data key="d122">[{"symbol": "CALM1", "props": [["Full name", "Calmodulin-1"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cell projection, cilium, flagellum"], ["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["HGNC aliases", "CAMI, PHKD, DD132, PHKD1, CALML2"], ["Entrez", "801"], ["Ensembl", "ENSG00000198668"], ["RefSeq", "NM_001363669"], ["UniProt", "P0DP23"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM2", "props": [["Full name", "Calmodulin-2"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["HGNC aliases", "PHKD, PHKD2, CAMII"], ["Entrez", "805"], ["Ensembl", "ENSG00000143933"], ["RefSeq", "NM_001743"], ["UniProt", "P0DP24"], ["Note", "Identical calmodulin protein, ubiquitous"]]}, {"symbol": "CALM3", "props": [["Full name", "Calmodulin-3"], ["Function", "Calmodulin acts as part of a calcium signal transduction pathway by mediating the control of a large number of enzymes, ion channels, aquaporins and other proteins through calcium-binding. Calcium-binding is required for the activation of calmodulin."], ["Location", "Cytoplasm, cytoskeleton, spindle, Cytoplasm, cytoskeleton, spindle pole, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"], ["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["HGNC aliases", "PHKD, PHKD3"], ["Entrez", "808"], ["Ensembl", "ENSG00000160014"], ["RefSeq", "NM_001329921"], ["UniProt", "P0DP25"], ["Note", "Identical calmodulin protein, ubiquitous"]]}]</data>
+              <data key="d122">[{"symbol": "CALM1", "props": [["HGNC", "HGNC:1442"], ["HGNC symbol", "CALM1"], ["UniProt", "P0DP23"]]}, {"symbol": "CALM2", "props": [["HGNC", "HGNC:1445"], ["HGNC symbol", "CALM2"], ["UniProt", "P0DP24"]]}, {"symbol": "CALM3", "props": [["HGNC", "HGNC:1449"], ["HGNC symbol", "CALM3"], ["UniProt", "P0DP25"]]}]</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -766,19 +631,10 @@
               </data>
             </node>
             <node id="n0::n19::n1">
-              <data key="d100">Nitric oxide synthase, inducible</data>
-              <data key="d101">Hepatocyte NOS; Inducible NO synthase; NOS type II; Peptidyl-cysteine S-nitrosylase NOS2</data>
-              <data key="d104">Produces nitric oxide (NO) which is a messenger molecule with diverse functions throughout the body. In macrophages, NO mediates tumoricidal and bactericidal actions.</data>
-              <data key="d105">Cytoplasm, cytosol</data>
               <data key="d107">HGNC:7873</data>
               <data key="d108">NOS2</data>
-              <data key="d109">iNOS, NOS, HEP-NOS, NOS2A</data>
-              <data key="d110">4843</data>
-              <data key="d111">ENSG00000007171</data>
-              <data key="d112">NM_000625</data>
               <data key="d113">P35228</data>
-              <data key="d119">Inducible NOS, macrophages</data>
-              <data key="d12">https://www.uniprot.org/uniprotkb/P35228</data><data key="d4" xml:space="preserve"/>
+              <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
               <data key="d7" xml:space="preserve"/>
@@ -809,15 +665,8 @@
           </graph>
         </node>
         <node id="n0::n20">
-          <data key="d100">Argininosuccinate lyase</data>
-          <data key="d101">Arginosuccinase</data>
-          <data key="d104">Catalyzes the reversible cleavage of L-argininosuccinate to fumarate and L-arginine, an intermediate step reaction in the urea cycle mostly providing for hepatic nitrogen detoxification into excretable urea as well as de novo L-arginine synthesis in nonhepatic tissues. Essential regulator of intracellular and extracellular L-arginine pools.</data>
           <data key="d107">HGNC:746</data>
           <data key="d108">ASL</data>
-          <data key="d109">ASAL</data>
-          <data key="d110">435</data>
-          <data key="d111">ENSG00000126522</data>
-          <data key="d112">NM_000048</data>
           <data key="d113">P04424</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
@@ -827,7 +676,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve"/>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P04424</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="1001.0" y="765.0"/>
@@ -843,16 +691,8 @@
           </data>
         </node>
         <node id="n0::n21">
-          <data key="d100">Argininosuccinate synthase</data>
-          <data key="d101">Citrulline--aspartate ligase</data>
-          <data key="d104">One of the enzymes of the urea cycle, the metabolic pathway transforming neurotoxic amonia produced by protein catabolism into inocuous urea in the liver of ureotelic animals. Catalyzes the formation of arginosuccinate from aspartate, citrulline and ATP and together with ASL it is responsible for the biosynthesis of arginine in most body tissues</data>
-          <data key="d105">Cytoplasm, cytosol</data>
           <data key="d107">HGNC:758</data>
           <data key="d108">ASS1</data>
-          <data key="d109">CTLN1, ASS</data>
-          <data key="d110">445</data>
-          <data key="d111">ENSG00000130707</data>
-          <data key="d112">NM_000050</data>
           <data key="d113">P00966</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
@@ -862,7 +702,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P00966</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="1501.0" y="765.0"/>
@@ -886,7 +725,6 @@
       <data key="d9" xml:space="preserve"/>
       <data key="d10" xml:space="preserve"/>
       <data key="d11" xml:space="preserve">horizontal</data>
-      <data key="d12" xml:space="preserve"/>
       <data key="d14">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
@@ -915,18 +753,9 @@
       </data>
       <graph edgedefault="directed" id="n1:">
         <node id="n1::n0">
-          <data key="d100">Signal transducer and activator of transcription 1-alpha/beta</data>
-          <data key="d101">Transcription factor ISGF-3 components p91/p84</data>
-          <data key="d104">Signal transducer and transcription activator that mediates cellular responses to interferons (IFNs), cytokine KITLG/SCF and other cytokines and other growth factors. Following type I IFN (IFN-alpha and IFN-beta) binding to cell surface receptors, signaling via protein kinases leads to activation of Jak kinases (TYK2 and JAK1) and to tyrosine phosphorylation of STAT1 and STAT2.</data>
-          <data key="d105">Cytoplasm, Nucleus</data>
           <data key="d107">HGNC:11362</data>
           <data key="d108">STAT1</data>
-          <data key="d109">STAT91, ISGF-3</data>
-          <data key="d110">6772</data>
-          <data key="d111">ENSG00000115415</data>
-          <data key="d112">NM_007315</data>
           <data key="d113">P42224</data>
-          <data key="d119">IFNγ-activated transcription factor</data>
           <data key="d4" xml:space="preserve">STAT1- active dimer translocated</data>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -935,8 +764,8 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P42224</data>
-          <data key="d14">
+          <data key="d125">P@Y701
+P@S727</data><data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="65.0" y="966.6474609374999"/>
               <y:Fill color="#C8D8EB" transparent="false"/>
@@ -950,7 +779,7 @@
                   <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="3" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="-6.971615715992641" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="3" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="-6.971615715992641" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -958,7 +787,7 @@
                   <y:SmartNodeLabelModelParameter labelRatioX="-0.34507520631127464" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="4" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="43.4800724630052" y="32.0">
+              <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="4" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="43.4800724630052" y="32.0">
                 <y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
@@ -973,17 +802,9 @@
           </data>
         </node>
         <node id="n1::n1">
-          <data key="d100">Interferon regulatory factor 1</data>
-          <data key="d104">Transcriptional regulator which displays a remarkable functional diversity in the regulation of cellular responses. Regulates transcription of IFN and IFN-inducible genes, host response to viral and bacterial infections, regulation of many genes expressed during hematopoiesis, inflammation, immune responses and cell proliferation and differentiation, regulation of the cell cycle and induction of growth arrest and programmed cell death following DNA damage.</data>
-          <data key="d105">Nucleus, Cytoplasm</data>
           <data key="d107">HGNC:6116</data>
           <data key="d108">IRF1</data>
-          <data key="d109">MAR</data>
-          <data key="d110">3659</data>
-          <data key="d111">ENSG00000125347</data>
-          <data key="d112">NM_002198</data>
           <data key="d113">P10914</data>
-          <data key="d119">IFNγ-induced transcription factor</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -992,7 +813,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P10914</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.NucleicAcidFeature">
               <y:Geometry height="40.0" width="90.0" x="198.0" y="966.6474609374999"/>
@@ -1011,18 +831,10 @@
           </data>
         </node>
         <node id="n1::n2">
-          <data key="d100">Interferon regulatory factor 1</data>
-          <data key="d104">Transcriptional regulator which displays a remarkable functional diversity in the regulation of cellular responses. Regulates transcription of IFN and IFN-inducible genes, host response to viral and bacterial infections, regulation of many genes expressed during hematopoiesis, inflammation, immune responses and cell proliferation and differentiation, regulation of the cell cycle and induction of growth arrest and programmed cell death following DNA damage.</data>
-          <data key="d105">Nucleus, Cytoplasm</data>
           <data key="d107">HGNC:6116</data>
           <data key="d108">IRF1</data>
-          <data key="d109">MAR</data>
-          <data key="d110">3659</data>
-          <data key="d111">ENSG00000125347</data>
-          <data key="d112">NM_002198</data>
           <data key="d113">P10914</data>
-          <data key="d119">IFNγ-induced transcription factor</data>
-          <data key="d12">https://www.uniprot.org/uniprotkb/P10914</data><data key="d4" xml:space="preserve"/>
+          <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
           <data key="d7" xml:space="preserve"/>
@@ -1098,19 +910,10 @@
           </data>
         </node>
         <node id="n1::n5">
-          <data key="d100">Nitric oxide synthase, inducible</data>
-          <data key="d101">Hepatocyte NOS; Inducible NO synthase; NOS type II; Peptidyl-cysteine S-nitrosylase NOS2</data>
-          <data key="d104">Produces nitric oxide (NO) which is a messenger molecule with diverse functions throughout the body. In macrophages, NO mediates tumoricidal and bactericidal actions.</data>
-          <data key="d105">Cytoplasm, cytosol</data>
           <data key="d107">HGNC:7873</data>
           <data key="d108">NOS2</data>
-          <data key="d109">iNOS, NOS, HEP-NOS, NOS2A</data>
-          <data key="d110">4843</data>
-          <data key="d111">ENSG00000007171</data>
-          <data key="d112">NM_000625</data>
           <data key="d113">P35228</data>
-          <data key="d119">Inducible NOS, macrophages</data>
-          <data key="d12">https://www.uniprot.org/uniprotkb/P35228</data><data key="d4" xml:space="preserve"/>
+          <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
           <data key="d7" xml:space="preserve"/>
@@ -1136,19 +939,10 @@
           </data>
         </node>
         <node id="n1::n6">
-          <data key="d100">Nitric oxide synthase, inducible</data>
-          <data key="d101">Hepatocyte NOS; Inducible NO synthase; NOS type II; Peptidyl-cysteine S-nitrosylase NOS2</data>
-          <data key="d104">Produces nitric oxide (NO) which is a messenger molecule with diverse functions throughout the body. In macrophages, NO mediates tumoricidal and bactericidal actions.</data>
-          <data key="d105">Cytoplasm, cytosol</data>
           <data key="d107">HGNC:7873</data>
           <data key="d108">NOS2</data>
-          <data key="d109">iNOS, NOS, HEP-NOS, NOS2A</data>
-          <data key="d110">4843</data>
-          <data key="d111">ENSG00000007171</data>
-          <data key="d112">NM_000625</data>
           <data key="d113">P35228</data>
-          <data key="d119">Inducible NOS, macrophages</data>
-          <data key="d12">https://www.uniprot.org/uniprotkb/P35228</data><data key="d4" xml:space="preserve"/>
+          <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
           <data key="d7" xml:space="preserve"/>
@@ -1174,17 +968,9 @@
           </data>
         </node>
         <node id="n1::n7">
-          <data key="d100">Interferon regulatory factor 1</data>
-          <data key="d104">Transcriptional regulator which displays a remarkable functional diversity in the regulation of cellular responses. Regulates transcription of IFN and IFN-inducible genes, host response to viral and bacterial infections, regulation of many genes expressed during hematopoiesis, inflammation, immune responses and cell proliferation and differentiation, regulation of the cell cycle and induction of growth arrest and programmed cell death following DNA damage.</data>
-          <data key="d105">Nucleus, Cytoplasm</data>
           <data key="d107">HGNC:6116</data>
           <data key="d108">IRF1</data>
-          <data key="d109">MAR</data>
-          <data key="d110">3659</data>
-          <data key="d111">ENSG00000125347</data>
-          <data key="d112">NM_002198</data>
           <data key="d113">P10914</data>
-          <data key="d119">IFNγ-induced transcription factor</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -1193,7 +979,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P10914</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="499.0" y="966.6474609374999"/>
@@ -1285,18 +1070,9 @@
           </data>
           <graph edgedefault="directed" id="n2::n0:">
             <node id="n2::n0::n0">
-              <data key="d100">Tyrosine-protein kinase JAK1</data>
-              <data key="d101">Janus kinase 1</data>
-              <data key="d104">Non-membrane spanning protein tyrosine kinase that phosphorylates signal-transducing subunits of cytokine receptor complexes like IL2RB, IL10RA, IFNAR2, IL6ST, LIFR, OSMR and IL31RA. Functionally, is involved in the IFN-alpha/beta/gamma signal pathway.</data>
-              <data key="d105">Endomembrane system</data>
               <data key="d107">HGNC:6190</data>
               <data key="d108">JAK1</data>
-              <data key="d109">JAK1A, JTK3, JAK1B</data>
-              <data key="d110">3716</data>
-              <data key="d111">ENSG00000162434</data>
-              <data key="d112">NM_002227</data>
               <data key="d113">P23458</data>
-              <data key="d119">IFNγ receptor kinase</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1305,7 +1081,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P23458</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="811.0" y="317.66526646753067"/>
@@ -1319,18 +1094,9 @@
               </data>
             </node>
             <node id="n2::n0::n1">
-              <data key="d100">Tyrosine-protein kinase JAK2</data>
-              <data key="d101">Janus kinase 2</data>
-              <data key="d104">Non-membrane spanning protein tyrosine kinase that phosphorylates type I receptors such as growth hormone (GHR), prolactin (PRLR), leptin (LEPR), erythropoietin (EPOR), thrombopoietin receptor (MPL/TPOR); or type II receptors including IFN-alpha, IFN-beta, IFN-gamma and multiple interleukins. Functionally, plays a pivotal role in signal transduction and is involved in various processes such as cell growth, development, differentiation or histone modifications.</data>
-              <data key="d105">Endomembrane system, Cytoplasm, Nucleus</data>
               <data key="d107">HGNC:6192</data>
               <data key="d108">JAK2</data>
-              <data key="d109">JTK10</data>
-              <data key="d110">3717</data>
-              <data key="d111">ENSG00000096968</data>
-              <data key="d112">NM_001322194</data>
               <data key="d113">O60674</data>
-              <data key="d119">IFNγ receptor kinase</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1339,7 +1105,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/O60674</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="911.0" y="317.66526646753067"/>
@@ -1353,18 +1118,9 @@
               </data>
             </node>
             <node id="n2::n0::n2">
-              <data key="d100">Interferon gamma receptor 2</data>
-              <data key="d101">Interferon gamma receptor accessory factor 1; Interferon gamma receptor beta-chain; Interferon gamma transducer 1</data>
-              <data key="d104">Associates with IFNGR1 to form a receptor for the cytokine interferon gamma (IFNG). Ligand binding stimulates activation of the JAK/STAT signaling pathway.</data>
-              <data key="d105">Cell membrane, Cytoplasmic vesicle membrane, Golgi apparatus membrane, Endoplasmic reticulum membrane, Cytoplasm</data>
               <data key="d107">HGNC:5440</data>
               <data key="d108">IFNGR2</data>
-              <data key="d109">AF-1, IFNGT1</data>
-              <data key="d110">3460</data>
-              <data key="d111">ENSG00000159128</data>
-              <data key="d112">NM_001329128</data>
               <data key="d113">P38484</data>
-              <data key="d119">IFNγ receptor subunit 2</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1373,7 +1129,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P38484</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="911.0" y="257.66526646753067"/>
@@ -1395,19 +1150,10 @@
               </data>
             </node>
             <node id="n2::n0::n3">
-              <data key="d100">Interferon gamma receptor 1</data>
-              <data key="d101">CDw119; Interferon gamma receptor alpha-chain</data>
-              <data key="d104">Receptor subunit for interferon gamma/INFG that plays crucial roles in antimicrobial, antiviral, and antitumor responses by activating effector immune cells and enhancing antigen presentation. Associates with transmembrane accessory factor IFNGR2 to form a functional receptor.</data>
-              <data key="d105">Cell membrane</data>
               <data key="d107">HGNC:5439</data>
               <data key="d108">IFNGR1</data>
-              <data key="d109">CD119, IFNGR</data>
-              <data key="d110">3459</data>
-              <data key="d111">ENSG00000027697</data>
-              <data key="d112">NM_000416</data>
               <data key="d113">P15260</data>
-              <data key="d119">IFNγ receptor subunit 1</data>
-              <data key="d12">https://www.uniprot.org/uniprotkb/P15260</data><data key="d4" xml:space="preserve"/>
+              <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
               <data key="d7" xml:space="preserve"/>
@@ -1429,7 +1175,7 @@
                       <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                     </y:ModelParameter>
                   </y:NodeLabel>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="17" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="17.5" y="32.0">
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="17" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="17.5" y="32.0">
                     <y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
@@ -1486,17 +1232,9 @@
           </data>
           <graph edgedefault="directed" id="n2::n1:">
             <node id="n2::n1::n0">
-              <data key="d100">Interferon gamma</data>
-              <data key="d101">Immune interferon</data>
-              <data key="d104">Type II interferon produced by immune cells such as T-cells and NK cells that plays crucial roles in antimicrobial, antiviral, and antitumor responses by activating effector immune cells and enhancing antigen presentation. Primarily signals through the JAK-STAT pathway after interaction with its receptor IFNGR1 to affect gene regulation.</data>
-              <data key="d105">Secreted</data>
               <data key="d107">HGNC:5438</data>
               <data key="d108">IFNG</data>
-              <data key="d110">3458</data>
-              <data key="d111">ENSG00000111537</data>
-              <data key="d112">NM_000619</data>
               <data key="d113">P01579</data>
-              <data key="d119">Interferon γ</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1505,7 +1243,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P01579</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="533.0" y="228.25263571653767"/>
@@ -1527,18 +1264,9 @@
               </data>
             </node>
             <node id="n2::n1::n1">
-              <data key="d100">Interferon gamma receptor 2</data>
-              <data key="d101">Interferon gamma receptor accessory factor 1; Interferon gamma receptor beta-chain; Interferon gamma transducer 1</data>
-              <data key="d104">Associates with IFNGR1 to form a receptor for the cytokine interferon gamma (IFNG). Ligand binding stimulates activation of the JAK/STAT signaling pathway.</data>
-              <data key="d105">Cell membrane, Cytoplasmic vesicle membrane, Golgi apparatus membrane, Endoplasmic reticulum membrane, Cytoplasm</data>
               <data key="d107">HGNC:5440</data>
               <data key="d108">IFNGR2</data>
-              <data key="d109">AF-1, IFNGT1</data>
-              <data key="d110">3460</data>
-              <data key="d111">ENSG00000159128</data>
-              <data key="d112">NM_001329128</data>
               <data key="d113">P38484</data>
-              <data key="d119">IFNγ receptor subunit 2</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1547,7 +1275,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P38484</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="583.0" y="291.75309209611805"/>
@@ -1569,18 +1296,9 @@
               </data>
             </node>
             <node id="n2::n1::n2">
-              <data key="d100">Tyrosine-protein kinase JAK1</data>
-              <data key="d101">Janus kinase 1</data>
-              <data key="d104">Non-membrane spanning protein tyrosine kinase that phosphorylates signal-transducing subunits of cytokine receptor complexes like IL2RB, IL10RA, IFNAR2, IL6ST, LIFR, OSMR and IL31RA. Functionally, is involved in the IFN-alpha/beta/gamma signal pathway.</data>
-              <data key="d105">Endomembrane system</data>
               <data key="d107">HGNC:6190</data>
               <data key="d108">JAK1</data>
-              <data key="d109">JAK1A, JTK3, JAK1B</data>
-              <data key="d110">3716</data>
-              <data key="d111">ENSG00000162434</data>
-              <data key="d112">NM_002227</data>
               <data key="d113">P23458</data>
-              <data key="d119">IFNγ receptor kinase</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1589,7 +1307,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P23458</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="483.0" y="351.75309209611805"/>
@@ -1603,18 +1320,9 @@
               </data>
             </node>
             <node id="n2::n1::n3">
-              <data key="d100">Tyrosine-protein kinase JAK2</data>
-              <data key="d101">Janus kinase 2</data>
-              <data key="d104">Non-membrane spanning protein tyrosine kinase that phosphorylates type I receptors such as growth hormone (GHR), prolactin (PRLR), leptin (LEPR), erythropoietin (EPOR), thrombopoietin receptor (MPL/TPOR); or type II receptors including IFN-alpha, IFN-beta, IFN-gamma and multiple interleukins. Functionally, plays a pivotal role in signal transduction and is involved in various processes such as cell growth, development, differentiation or histone modifications.</data>
-              <data key="d105">Endomembrane system, Cytoplasm, Nucleus</data>
               <data key="d107">HGNC:6192</data>
               <data key="d108">JAK2</data>
-              <data key="d109">JTK10</data>
-              <data key="d110">3717</data>
-              <data key="d111">ENSG00000096968</data>
-              <data key="d112">NM_001322194</data>
               <data key="d113">O60674</data>
-              <data key="d119">IFNγ receptor kinase</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1623,7 +1331,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/O60674</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="583.0" y="351.75309209611805"/>
@@ -1637,19 +1344,10 @@
               </data>
             </node>
             <node id="n2::n1::n4">
-              <data key="d100">Interferon gamma receptor 1</data>
-              <data key="d101">CDw119; Interferon gamma receptor alpha-chain</data>
-              <data key="d104">Receptor subunit for interferon gamma/INFG that plays crucial roles in antimicrobial, antiviral, and antitumor responses by activating effector immune cells and enhancing antigen presentation. Associates with transmembrane accessory factor IFNGR2 to form a functional receptor.</data>
-              <data key="d105">Cell membrane</data>
               <data key="d107">HGNC:5439</data>
               <data key="d108">IFNGR1</data>
-              <data key="d109">CD119, IFNGR</data>
-              <data key="d110">3459</data>
-              <data key="d111">ENSG00000027697</data>
-              <data key="d112">NM_000416</data>
               <data key="d113">P15260</data>
-              <data key="d119">IFNγ receptor subunit 1</data>
-              <data key="d12">https://www.uniprot.org/uniprotkb/P15260</data><data key="d4" xml:space="preserve"/>
+              <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
               <data key="d7" xml:space="preserve"/>
@@ -1671,7 +1369,7 @@
                       <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                     </y:ModelParameter>
                   </y:NodeLabel>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="21" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="17.5" y="32.0">
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="21" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="17.5" y="32.0">
                     <y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
@@ -1728,17 +1426,9 @@
           </data>
           <graph edgedefault="directed" id="n2::n2:">
             <node id="n2::n2::n0">
-              <data key="d100">Interferon gamma</data>
-              <data key="d101">Immune interferon</data>
-              <data key="d104">Type II interferon produced by immune cells such as T-cells and NK cells that plays crucial roles in antimicrobial, antiviral, and antitumor responses by activating effector immune cells and enhancing antigen presentation. Primarily signals through the JAK-STAT pathway after interaction with its receptor IFNGR1 to affect gene regulation.</data>
-              <data key="d105">Secreted</data>
               <data key="d107">HGNC:5438</data>
               <data key="d108">IFNG</data>
-              <data key="d110">3458</data>
-              <data key="d111">ENSG00000111537</data>
-              <data key="d112">NM_000619</data>
               <data key="d113">P01579</data>
-              <data key="d119">Interferon γ</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1747,7 +1437,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P01579</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="189.0" y="230.19697165403767"/>
@@ -1769,18 +1458,9 @@
               </data>
             </node>
             <node id="n2::n2::n1">
-              <data key="d100">Interferon gamma receptor 1</data>
-              <data key="d101">CDw119; Interferon gamma receptor alpha-chain</data>
-              <data key="d104">Receptor subunit for interferon gamma/INFG that plays crucial roles in antimicrobial, antiviral, and antitumor responses by activating effector immune cells and enhancing antigen presentation. Associates with transmembrane accessory factor IFNGR2 to form a functional receptor.</data>
-              <data key="d105">Cell membrane</data>
               <data key="d107">HGNC:5439</data>
               <data key="d108">IFNGR1</data>
-              <data key="d109">CD119, IFNGR</data>
-              <data key="d110">3459</data>
-              <data key="d111">ENSG00000027697</data>
-              <data key="d112">NM_000416</data>
               <data key="d113">P15260</data>
-              <data key="d119">IFNγ receptor subunit 1</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1789,8 +1469,7 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P15260</data>
-              <data key="d14">
+              <data key="d125">P@Y457</data><data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="139.0" y="293.69742803361805"/>
                   <y:Fill color="#C8D8EB" transparent="false"/>
@@ -1804,7 +1483,7 @@
                       <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                     </y:ModelParameter>
                   </y:NodeLabel>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="24" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="45.0" x="17.5" y="32.0">
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" bottomInset="0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="16.0" horizontalTextPosition="center" iconData="24" iconTextGap="0" leftInset="0" modelName="custom" rightInset="0" textColor="#000000" topInset="0" verticalTextPosition="center" visible="true" width="16.0" x="17.5" y="32.0">
                     <y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
@@ -1819,18 +1498,9 @@
               </data>
             </node>
             <node id="n2::n2::n2">
-              <data key="d100">Interferon gamma receptor 2</data>
-              <data key="d101">Interferon gamma receptor accessory factor 1; Interferon gamma receptor beta-chain; Interferon gamma transducer 1</data>
-              <data key="d104">Associates with IFNGR1 to form a receptor for the cytokine interferon gamma (IFNG). Ligand binding stimulates activation of the JAK/STAT signaling pathway.</data>
-              <data key="d105">Cell membrane, Cytoplasmic vesicle membrane, Golgi apparatus membrane, Endoplasmic reticulum membrane, Cytoplasm</data>
               <data key="d107">HGNC:5440</data>
               <data key="d108">IFNGR2</data>
-              <data key="d109">AF-1, IFNGT1</data>
-              <data key="d110">3460</data>
-              <data key="d111">ENSG00000159128</data>
-              <data key="d112">NM_001329128</data>
               <data key="d113">P38484</data>
-              <data key="d119">IFNγ receptor subunit 2</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1839,7 +1509,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P38484</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="239.0" y="293.69742803361805"/>
@@ -1861,18 +1530,9 @@
               </data>
             </node>
             <node id="n2::n2::n3">
-              <data key="d100">Tyrosine-protein kinase JAK1</data>
-              <data key="d101">Janus kinase 1</data>
-              <data key="d104">Non-membrane spanning protein tyrosine kinase that phosphorylates signal-transducing subunits of cytokine receptor complexes like IL2RB, IL10RA, IFNAR2, IL6ST, LIFR, OSMR and IL31RA. Functionally, is involved in the IFN-alpha/beta/gamma signal pathway.</data>
-              <data key="d105">Endomembrane system</data>
               <data key="d107">HGNC:6190</data>
               <data key="d108">JAK1</data>
-              <data key="d109">JAK1A, JTK3, JAK1B</data>
-              <data key="d110">3716</data>
-              <data key="d111">ENSG00000162434</data>
-              <data key="d112">NM_002227</data>
               <data key="d113">P23458</data>
-              <data key="d119">IFNγ receptor kinase</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1881,7 +1541,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P23458</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="139.0" y="353.69742803361805"/>
@@ -1895,18 +1554,9 @@
               </data>
             </node>
             <node id="n2::n2::n4">
-              <data key="d100">Tyrosine-protein kinase JAK2</data>
-              <data key="d101">Janus kinase 2</data>
-              <data key="d104">Non-membrane spanning protein tyrosine kinase that phosphorylates type I receptors such as growth hormone (GHR), prolactin (PRLR), leptin (LEPR), erythropoietin (EPOR), thrombopoietin receptor (MPL/TPOR); or type II receptors including IFN-alpha, IFN-beta, IFN-gamma and multiple interleukins. Functionally, plays a pivotal role in signal transduction and is involved in various processes such as cell growth, development, differentiation or histone modifications.</data>
-              <data key="d105">Endomembrane system, Cytoplasm, Nucleus</data>
               <data key="d107">HGNC:6192</data>
               <data key="d108">JAK2</data>
-              <data key="d109">JTK10</data>
-              <data key="d110">3717</data>
-              <data key="d111">ENSG00000096968</data>
-              <data key="d112">NM_001322194</data>
               <data key="d113">O60674</data>
-              <data key="d119">IFNγ receptor kinase</data>
               <data key="d4" xml:space="preserve"/>
               <data key="d5" xml:space="preserve"/>
               <data key="d6" xml:space="preserve"/>
@@ -1915,7 +1565,6 @@
               <data key="d9" xml:space="preserve"/>
               <data key="d10" xml:space="preserve"/>
               <data key="d11" xml:space="preserve">horizontal</data>
-              <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/O60674</data>
               <data key="d14">
                 <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
                   <y:Geometry height="40.0" width="80.0" x="239.0" y="353.69742803361805"/>
@@ -1969,17 +1618,9 @@
       </data>
       <graph edgedefault="directed" id="n3:">
         <node id="n3::n0">
-          <data key="d100">Interferon gamma</data>
-          <data key="d101">Immune interferon</data>
-          <data key="d104">Type II interferon produced by immune cells such as T-cells and NK cells that plays crucial roles in antimicrobial, antiviral, and antitumor responses by activating effector immune cells and enhancing antigen presentation. Primarily signals through the JAK-STAT pathway after interaction with its receptor IFNGR1 to affect gene regulation.</data>
-          <data key="d105">Secreted</data>
           <data key="d107">HGNC:5438</data>
           <data key="d108">IFNG</data>
-          <data key="d110">3458</data>
-          <data key="d111">ENSG00000111537</data>
-          <data key="d112">NM_000619</data>
           <data key="d113">P01579</data>
-          <data key="d119">Interferon γ</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -1988,7 +1629,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.uniprot.org/uniprotkb/P01579</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.Macromolecule">
               <y:Geometry height="40.0" width="80.0" x="737.9999999999999" y="72.04313115861807"/>
@@ -2018,13 +1658,7 @@
           </data>
         </node>
         <node id="n3::n1">
-          <data key="d100">L-argininium(1+)</data>
-          <data key="d102">(2S)-2-amino-5-(carbamimidamido)pentanoate; (2S)-2-amino-5-guanidinopentanoate; (2S)-2-ammonio-5-guanidiniopentanoate; (2S)-2-azaniumyl-5-{[azaniumyl(imino)methyl]amino}pentanoate; L-arginine cation; L-arginine monocation; L-arginine; L-argininium; arginine(1+)</data>
-          <data key="d103">The L-enantiomer of argininium(1+).</data>
-          <data key="d106">C6H15N4O2</data>
           <data key="d114">CHEBI:32682</data>
-          <data key="d117">InChI=1S/C6H14N4O2/c7-4(5(11)12)2-1-3-10-6(8)9/h4H,1-3,7H2,(H,11,12)(H4,8,9,10)/p+1/t4-/m0/s1</data>
-          <data key="d118">ODKSFYDXXFIFQN-BYPYZUCNSA-O</data>
           <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
@@ -2033,7 +1667,6 @@
           <data key="d9" xml:space="preserve"/>
           <data key="d10" xml:space="preserve"/>
           <data key="d11" xml:space="preserve">horizontal</data>
-          <data key="d12" xml:space="preserve">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:32682</data>
           <data key="d14">
             <y:GenericNode configuration="com.yworks.sbgn.SimpleChemical">
               <y:Geometry height="36.0" width="80.0" x="1111.0" y="74.04313115861807"/>
@@ -2044,15 +1677,8 @@
           </data>
         </node>
         <node id="n3::n2">
-          <data key="d100">nitric oxide</data>
-          <data key="d102">(.)NO; (NO)(.); EDRF; NO; NO(.); Nitrogen monoxide; Stickstoff(II)-oxid; Stickstoffmonoxid; [NO]; endothelium-derived relaxing factor; mononitrogen monoxide; monoxido de nitrogeno; monoxyde d'azote; nitrogen monooxide; nitrosyl; oxido de nitrogeno(II); oxido nitrico; oxidonitrogen(.); oxoazanyl; oxyde azotique; oxyde nitrique</data>
-          <data key="d103">A nitrogen oxide which is a free radical, each molecule of which consists of one nitrogen and one oxygen atom.</data>
-          <data key="d106">NO</data>
           <data key="d114">CHEBI:16480</data>
-          <data key="d115">C00533</data>
-          <data key="d117">InChI=1S/NO/c1-2</data>
-          <data key="d118">MWUXSHHQAYIFBG-UHFFFAOYSA-N</data>
-          <data key="d12">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16480</data><data key="d4" xml:space="preserve"/>
+          <data key="d4" xml:space="preserve"/>
           <data key="d5" xml:space="preserve"/>
           <data key="d6" xml:space="preserve"/>
           <data key="d7" xml:space="preserve"/>
@@ -3295,40 +2921,40 @@
       <y:Resource id="3">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="43.3115234375" x="0.84423828125" xml:space="preserve" y="0.111328125">P@Y701</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="43.3115234375" x="0.84423828125" xml:space="preserve" y="0.111328125">P</y:NodeLabel>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
       <y:Resource id="4">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="42.466796875" x="1.2666015625" xml:space="preserve" y="0.111328125">P@S727</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="42.466796875" x="1.2666015625" xml:space="preserve" y="0.111328125">P</y:NodeLabel>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
       <y:Resource id="5">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.9482421875" x="2.02587890625" xml:space="preserve" y="0.111328125"> @Y701</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.9482421875" x="2.02587890625" xml:space="preserve" y="0.111328125"/>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
       <y:Resource id="6">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.103515625" x="2.4482421875" xml:space="preserve" y="0.111328125"> @S727</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.103515625" x="2.4482421875" xml:space="preserve" y="0.111328125"/>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
@@ -3445,10 +3071,10 @@
       <y:Resource id="17">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.9482421875" x="2.02587890625" xml:space="preserve" y="0.111328125"> @Y457</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.9482421875" x="2.02587890625" xml:space="preserve" y="0.111328125"/>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
@@ -3488,10 +3114,10 @@
       <y:Resource id="21">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.9482421875" x="2.02587890625" xml:space="preserve" y="0.111328125"> @Y457</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="40.9482421875" x="2.02587890625" xml:space="preserve" y="0.111328125"/>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
@@ -3520,10 +3146,10 @@
       <y:Resource id="24">
         <yed:NodeRealizerIcon>
           <y:GenericNode configuration="com.yworks.sbgn.StateVariable">
-            <y:Geometry height="16.0" width="45.0" x="0.0" y="0.0"/>
+            <y:Geometry height="16.0" width="16.0" x="0.0" y="0.0"/>
             <y:Fill color="#FFFFFF" transparent="false"/>
             <y:BorderStyle color="#000000" type="line" width="1.0"/>
-            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="43.3115234375" x="0.84423828125" xml:space="preserve" y="0.111328125">P@Y457</y:NodeLabel>
+            <y:NodeLabel alignment="right" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="center" visible="true" width="43.3115234375" x="0.84423828125" xml:space="preserve" y="0.111328125">P</y:NodeLabel>
           </y:GenericNode>
         </yed:NodeRealizerIcon>
       </y:Resource>
