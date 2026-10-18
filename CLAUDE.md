@@ -106,8 +106,9 @@ line above (#eee); no grey band. Icons: the theme's round dark GitHub icon and i
 
 ## Atlas map window
 
-The map window spans the middle column (no sideways resizing). Its height starts at the shape
-738 x 504, at most 70% of the window, so the buttons and text show below it, and its lower edge
+The map window spans the middle column (no sideways resizing). Its height reaches down so the
+download row is the last thing in the window and the text starts below it (user, 2026-10-18, for a
+15-inch MacBook; it was the shape 738 x 504, at most 70% of the window), and its lower edge
 can be dragged down to the whole window without the header, no further: over the map the wheel
 zooms, so a taller window would trap the page (user, 2026-10-16). A full-screen button after
 Fit shows the map alone, with the annotation over its right side.

@@ -68,8 +68,8 @@ sitemap: false
   .m2-on .m2-n { color: #fff; }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
-  /* the view spans the middle column. Its height starts at the shape 738 x 504, at most 70% of
-     the window (set in the script, so the buttons and text show below it), and its lower edge
+  /* the view spans the middle column. Its height reaches down so the download row is the last
+     thing in the window, the text below it (set in the script), and its lower edge
      can be dragged down to the whole window without the header (user, 2026-10-16) */
   #m2-view { position: relative; width: 100%; height: 504px; min-height: 300px; max-height: calc(100vh / var(--zoom, 1) - 70px); resize: vertical; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
   #m2-view.m2-drag { cursor: grabbing; }
@@ -401,16 +401,21 @@ sitemap: false
     e.preventDefault();
   });
   window.addEventListener('resize', draw);
-  // the view's height: the shape 738 x 504 at the column's width, at most 70% of the window,
-  // until the reader drags its lower edge (the browser then sets its own height)
+  // the view's height: down to just above the window's lower edge with the download row still
+  // in it, the text below (user, 2026-10-18), until the reader drags its lower edge (the browser
+  // then sets its own height). Measured on the page, so it fits any window and a wrapped row.
   var autoH = null;
   function viewHeight() {
     if (autoH !== null && view.style.height !== autoH) return; // resized by the reader
-    autoH = Math.round(Math.max(300, Math.min(view.clientWidth * 504 / 738, window.innerHeight / pz() * 0.7))) + 'px';
+    var v = view.getBoundingClientRect(), d = document.getElementById('m2-downloads').getBoundingClientRect();
+    var below = Math.max(d.bottom - v.bottom, 0) + 8;  // the download row and a small gap, in window pixels
+    autoH = Math.round(Math.max(300, (window.innerHeight - (v.top + window.scrollY) - below) / pz())) + 'px';
     view.style.height = autoH;
   }
   viewHeight();
   window.addEventListener('resize', viewHeight);
+  // again once a map's download row is filled in (or wraps): its height is known only then
+  if (window.ResizeObserver) new ResizeObserver(viewHeight).observe(document.getElementById('m2-downloads'));
   if (window.ResizeObserver) new ResizeObserver(draw).observe(view);
 
   // full screen: the map alone; Esc or the button returns to the page
