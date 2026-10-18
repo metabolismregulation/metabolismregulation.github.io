@@ -878,7 +878,8 @@ def write(diagram, ann, layout='straight'):
             ref(etree.SubElement(rx, 'listOfProducts'), 'speciesReference', e.target)
         elif e.source in ents and e.target in ents:
             print('arc %s (%s -> %s, %s): no process, not converted' % (e.id, label[e.source] or e.source, label[e.target] or e.target, e.head))
-        elif e.source in ops and e.target in ents:
+        elif e.source in ops and e.target in ents and e.head is not None:
+            # (a plain line from a gate to an entity is one of the gate's inputs, drawn the other way)
             # a logic gate on arcs between entities (the PD map's coding): one reaction, the inputs
             # as base reactants, the gate at its edit point (absolute), then a gate member for the
             # gate and one per input
