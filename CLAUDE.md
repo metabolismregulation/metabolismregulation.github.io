@@ -119,7 +119,12 @@ The panel a click on the map opens (user, 2026-10-17). Title in plain weight, no
 "Protein: cPLA2", "Protein family: ERK1/2". Under it one line: the HGNC symbol in bold and the
 UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2", also where the title is the symbol
 ("Protein: ALOX5", then "**ALOX5**, ...", so the bold symbol is always there, user 2026-10-18). Then the post-translational modifications, one line per site, no heading:
-"Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing). Then Alternative names (or
+"Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing), each followed by
+UniProt's enzyme for that site where UniProt names one with experimental evidence (ECO:0000269):
+"Phosphorylated at Ser312, by IKKB, MAPK8 and RPS6KB1" (`scripts/make_maps.py`, cached in
+`atlas-data/uniprot-sites.json`), then a link "All modifications in UniProt" to the entry's PTM /
+Processing section. Only the drawn sites: the rest of UniProt's sites and its PTM text stay at UniProt,
+not in the GraphML (user, 2026-10-18). Then Alternative names (or
 Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
 in the grey of the other labels, closed at first, opened by a square + (− when open) right after
 the word: variant 3 of the former test page /atlas/folds/ (in git history) with the square of

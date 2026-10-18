@@ -20,7 +20,7 @@
 # All maps' annotated nodes also go to atlas-data/search.json, the index of
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
-import os, re, glob, json, collections, datetime
+import os, re, glob, json, collections, datetime, urllib.request
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -104,11 +104,41 @@ MODIFIED = {'P': 'Phosphorylated', 'Ac': 'Acetylated', 'Me': 'Methylated', 'Ub':
 RESIDUE = {'S': 'Ser', 'T': 'Thr', 'Y': 'Tyr', 'K': 'Lys', 'C': 'Cys', 'G': 'Gly', 'R': 'Arg', 'H': 'His'}
 
 
-def ptm_text(ptm):
+# UniProt's enzyme for a site the map draws (user, 2026-10-18): "Phosphorylated at Ser312, by IKKB,
+# MAPK8 and RPS6KB1", from the entry's Modified residue features with experimental evidence
+# (ECO:0000269), not the proteomics-only ones. Only the drawn sites: the rest stays at UniProt,
+# linked from the panel. Cached per accession in atlas-data/uniprot-sites.json (delete an entry
+# to fetch it again); a failed fetch is not cached, so the next run tries again.
+UNIPROT = 'https://rest.uniprot.org/uniprotkb/%s.json?fields=ft_mod_res'
+SITES_CACHE = os.path.join(ROOT, 'atlas-data', 'uniprot-sites.json')
+PREFIX = {'P': 'phospho', 'Ac': 'acetyl', 'Me': 'methyl', 'Su': 'succinyl', 'Glut': 'glutaryl'}
+sites_cache = json.load(open(SITES_CACHE, encoding='utf-8')) if os.path.exists(SITES_CACHE) else {}
+
+
+def uniprot_sites(acc):
+    # position -> [description, enzymes] for the sites UniProt gives an enzyme for
+    if acc not in sites_cache:
+        try:
+            with urllib.request.urlopen(UNIPROT % acc, timeout=30) as r:
+                feats = json.load(r).get('features', [])
+        except (OSError, ValueError) as e:
+            print('%s: UniProt not reached (%s), sites without enzymes' % (acc, e))
+            return {}
+        sites_cache[acc] = {str(f['location']['start']['value']): [f['description'].split(';')[0], f['description'].split('; by ', 1)[1].split(';')[0]]
+                            for f in feats if '; by ' in f.get('description', '')
+                            and any(e.get('evidenceCode') == 'ECO:0000269' for e in f.get('evidences', []))}
+    return sites_cache[acc]
+
+
+def ptm_text(ptm, acc=''):
     # by position in the protein (Gly2, Cys15, Cys26), not in the stored order around the node
     sites = sorted((s.strip().partition('@') for s in ptm.split('\n')),
                    key=lambda x: int(re.sub(r'\D', '', x[2]) or 1e9))
-    return '\n'.join(MODIFIED.get(sym, sym) + (' at ' + RESIDUE.get(site[:1], site[:1]) + site[1:] if site else '')
+    known = uniprot_sites(acc.split(',')[0].strip()) if acc else {}
+    def by(sym, site):
+        u = known.get(site[1:])
+        return ', by ' + u[1] if u and u[0].lower().startswith(PREFIX.get(sym, '-')) else ''
+    return '\n'.join(MODIFIED.get(sym, sym) + (' at ' + RESIDUE.get(site[:1], site[:1]) + site[1:] + by(sym, site) if site else '')
                      for sym, _, site in sites)
 
 
@@ -133,13 +163,13 @@ def annotation(base):
     nodes = []
     for n in root.iter(GN + 'node'):
         data = {keys.get(d.get('key')): (d.text or '').strip() for d in n.findall(GN + 'data') if d.get('key') in keys}
-        props = [[keys[k], ptm_text(data[keys[k]]) if keys[k] == 'PTM' else data[keys[k]]]
+        props = [[keys[k], ptm_text(data[keys[k]], data.get('UniProt', '')) if keys[k] == 'PTM' else data[keys[k]]]
                  for k in custom if data.get(keys[k])]
         if not props:
             continue
         members = json.loads(data[MEMBERS_FIELD]) if mkey and data.get(MEMBERS_FIELD) else None
         for m in members or []:
-            m['props'] = [[k, ptm_text(v) if k == 'PTM' else v] for k, v in m['props'] if k in ANN_FIELDS]
+            m['props'] = [[k, ptm_text(v, dict(m['props']).get('UniProt', '')) if k == 'PTM' else v] for k, v in m['props'] if k in ANN_FIELDS]
         gn = n.find(GN + 'data/' + YN + 'GenericNode')
         if gn is None:  # a group node: its open realizer
             gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
@@ -306,6 +336,7 @@ def main():
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+    json.dump(sites_cache, open(SITES_CACHE, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     print(len(written), 'maps:', ', '.join(written))
 
 
