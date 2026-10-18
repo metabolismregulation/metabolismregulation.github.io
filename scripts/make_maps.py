@@ -53,7 +53,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
 GROUPS = [
     ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'pdh', 'glycogen-muscle', 'glycogen-liver', 'acly']),
-    ('Lipid metabolism', ['eicosanoids', 'aspirin', 'alox5', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides']),
+    ('Lipid metabolism', ['eicosanoids', 'alox5', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'aspirin']),
     ('Amino acid metabolism', ['glutaminase', 'bcaa', 'ureacycle']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
     ('Nitric oxide metabolism', ['inos', 'enos', 'nnos']),
