@@ -60,8 +60,8 @@ Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and ima
 (user, 2026-10-18, TAGS in `scripts/make_maps.py`, in place of the automatic draft): "new" in blue for a map not on
 the official site (alox5), "draft" for a map whose biology differs from the official one (also maps with no draft page:
 glycolysis-cardiac, camp), "draft" in white for the same biology with small changes to the file (acly,
-phosphoinositides, inos, aspirin). A map whose GraphML equals the official one has no tag. "copy" (white, dark edge
-and text) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
+phosphoinositides, inos, aspirin). A map whose GraphML equals the official one has no tag. "copy" (the style of the white
+draft) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
 (draft, draft white, new, copy, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
