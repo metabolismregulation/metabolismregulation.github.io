@@ -139,7 +139,10 @@ once per identifier, and kept in `atlas-data/uniprot.json`, `hgnc.json`, `chebi.
 identifier, shared by all maps, the site enzymes in `uniprot.json`). They are not fetched again on
 their own: the Atlas data workflow run by hand with "refresh" ticked fetches them all again. No
 scheduled update for now (a monthly one later, on the user's request). Visitors' browsers read only
-these files, never UniProt. Atlas only: `downloads/` keeps its full files until a map is published.
+these files, never UniProt. `downloads/` keeps its full files until a map is published, except the ten
+official maps whose drawing equals the Atlas one (glycolysis, mevalonate, SREBP, eNOS, carnitine,
+TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean Atlas copies
+(user, 2026-10-18); their images, CellDesigner, SBML and SBGN-ML stay as they were.
 The Atlas GraphMLs are lean (2026-10-18, maps-workbench `tools/lean_migration.py`; map-converter's
 `annotate` writes only these): HGNC, HGNC symbol, UniProt, ChEBI, PTM, Family, Members and Member
 annotation (each member's HGNC, HGNC symbol, UniProt and PTM). The Atlas annotation CSV is the
