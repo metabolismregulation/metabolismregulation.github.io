@@ -142,7 +142,10 @@ scheduled update for now (a monthly one later, on the user's request). Visitors'
 these files, never UniProt. `downloads/` keeps its full files until a map is published, except the ten
 official maps whose drawing equals the Atlas one (glycolysis, mevalonate, SREBP, eNOS, carnitine,
 TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean Atlas copies
-(user, 2026-10-18); their images, CellDesigner, SBML and SBGN-ML stay as they were.
+(user, 2026-10-18). For seven of them (all but BCAA, PDH, nNOS, whose CellDesigner files are the
+user's checked saves) the CellDesigner file is regenerated from that GraphML (map-converter, advanced
+layout) and SBML and SBGN-ML are made from it by MINERVA's conversion service (maps-workbench
+`tools/minerva_exports.py`); the MINERVA projects stay as they are for now (user, 2026-10-18).
 The Atlas GraphMLs are lean (2026-10-18, maps-workbench `tools/lean_migration.py`; map-converter's
 `annotate` writes only these): HGNC, HGNC symbol, UniProt, ChEBI, PTM, Family, Members and Member
 annotation (each member's HGNC, HGNC symbol, UniProt and PTM). The Atlas annotation CSV is the
