@@ -7,10 +7,10 @@ group: "Carbohydrate metabolism"
 order: 6
 kind: "map"
 draft: false
-tag: "draft-white"
+tag: ""
 image: "/atlas-downloads/F006-acly.svg"
 width: 892
-height: 698
+height: 690
 scale: 1
 annotation: "/atlas-data/F006-acly.json"
 image_error: ""
