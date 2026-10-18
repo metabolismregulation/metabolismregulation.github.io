@@ -4,7 +4,7 @@ topic: "Glutaminolysis"
 tab: ""
 page: "/glutaminase/"
 group: "Amino acid metabolism"
-order: 15.5
+order: 16.5
 kind: "map"
 draft: false
 tag: "copy"

@@ -4,7 +4,7 @@ topic: "iNOS pathway"
 tab: ""
 page: "/inos/"
 group: "Nitric oxide metabolism"
-order: 21
+order: 22
 kind: "map"
 draft: false
 tag: ""
