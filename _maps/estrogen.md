@@ -1,5 +1,5 @@
 ---
-title: "Regulation of estradiol biosynthesis via prostaglandin–cAMP signalling"
+title: "Regulation of estradiol biosynthesis via prostaglandin-cAMP signalling"
 topic: "Estradiol biosynthesis"
 tab: ""
 page: "/estrogen/"
