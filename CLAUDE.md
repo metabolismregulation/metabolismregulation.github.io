@@ -81,7 +81,7 @@ Official site (`downloads/`), when a map is published:
 |---|---|
 | GraphML | the user's final yEd file, or the Atlas GraphML the user approved |
 | SVG | the user's yEd export, 1:1 |
-| PNG | the user's yEd export; until there is one, rendered at 2x from the SVG (Chromium) |
+| PNG | rendered from the SVG at 2x: `python3 scripts/make_png.py <map.svg>` (cairosvg, Liberation Sans for yEd's Dialog, the renderer of the Atlas images), not a separate yEd PNG export (user, 2026-10-18) |
 | CellDesigner | map-converter, advanced layout: `python3 -m mapconv <map.graphml> <map.xml> --layout advanced` (repository `metabolismregulation/map-converter`), then `python3 -m mapconv.check <map.graphml> <map.xml>`: the same entities and reactions on both sides |
 | SBML, SBGN-ML | MINERVA's conversion service from that CellDesigner file (maps-workbench `tools/minerva_exports.py <folder> <base>`), not our converter yet |
 | Annotation CSV | `python3 scripts/make_maps.py --official-csv <base> "<pathway>"` |
@@ -99,8 +99,11 @@ Atlas (`atlas-downloads/`):
 | SBML | none: our converter writes no SBML (user, 2026-10-18). An official copy keeps its SBML |
 | Annotation CSV | rebuilt from the GraphML by `make_maps.py` on every run |
 
-A draft carries only GraphML and SVG (Draft maps). Every published map's workbench README records the
-map-converter commit and the MINERVA version that made its files. `make_maps.py` warns when an
+A draft carries only GraphML and SVG (Draft maps). Nothing about how a file was made goes into the
+map files themselves (user, 2026-10-18). The record is in maps-workbench `notes/published-files.csv`,
+one row per file in `downloads/` (file, sha1, made by, date), written at publishing by
+`tools/published_files.py record`; `tools/published_files.py check` (by hand) reports a file in
+`downloads/` without a row or changed since its row. `make_maps.py` warns when an
 official page lacks a file of the set. MINERVA is outside our control: 22.0.1 (2026-10-18) fails
 on a complex with a homodimer (N:2 on a complex, the EGF:EGFR dimer in phosphoinositides),
 "UnitOfInformation cannot be cast to StructuralState", even for a CellDesigner to CellDesigner
