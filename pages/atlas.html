@@ -68,7 +68,7 @@ sitemap: false
   .m2-on .m2-n { color: #fff; }
 
   #m2-title { font-size: 22px; margin: 20px 0 0; }
-  /* the view spans the middle column. Its height is 79% of the window (set in the script, so on a
+  /* the view spans the middle column. Its height is 78% of the window (set in the script, so on a
      15-inch MacBook the download row shows and the text starts below the window), and its lower edge
      can be dragged down to the whole window without the header (user, 2026-10-16) */
   #m2-view { position: relative; width: 100%; height: 504px; min-height: 300px; max-height: calc(100vh / var(--zoom, 1) - 70px); resize: vertical; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
@@ -401,13 +401,13 @@ sitemap: false
     e.preventDefault();
   });
   window.addEventListener('resize', draw);
-  // the view's height: 79% of the window (user, 2026-10-18: on a 15-inch MacBook the download
+  // the view's height: 78% of the window (user, 2026-10-18: on a 15-inch MacBook the download
   // row shows, the text starts below the window), until the reader drags its lower edge (the
   // browser then sets its own height)
   var autoH = null;
   function viewHeight() {
     if (autoH !== null && view.style.height !== autoH) return; // resized by the reader
-    autoH = Math.round(Math.max(300, window.innerHeight / pz() * 0.79)) + 'px';
+    autoH = Math.round(Math.max(300, window.innerHeight / pz() * 0.78)) + 'px';
     view.style.height = autoH;
   }
   viewHeight();
