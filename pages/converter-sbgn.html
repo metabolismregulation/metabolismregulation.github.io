@@ -24,11 +24,11 @@ noindex: true
 
 <h3>GraphML → SBGN-ML</h3>
 
-<p>Largest maps first. Each map opens in Newt: first as written by our converter from the Atlas GraphML, then as exported by MINERVA from the CellDesigner file, where the Atlas has one. The map page shows how it should look.</p>
+<p>Largest maps first. Each map opens in Newt: as written by our converter from the Atlas GraphML, straight (straight lines, for improving by hand) and advanced (the yEd drawing kept), then as exported by MINERVA from the CellDesigner file, where the Atlas has one. The map page shows how it should look.</p>
 
 {% assign v = site.github.build_revision | slice: 0, 7 %}
 <table class="sb">
-  <tr><th>Map</th><th>Our converter</th><th>MINERVA</th><th>Map page</th></tr>
+  <tr><th>Map</th><th>Straight</th><th>Advanced</th><th>MINERVA</th><th>Map page</th></tr>
   {% for e in site.data.sbgn_check %}{% for m in site.maps %}
   {% assign g = m.downloads | where: 'label', 'GraphML' | first %}
   {% assign name = g.url | split: '/' | last | replace: '.graphml', '' %}
@@ -36,7 +36,8 @@ noindex: true
   {% assign s = m.downloads | where: 'label', 'SBGN-ML' | first %}
   <tr>
     <td>{{ m.title }}</td>
-    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/converter/sbgn/{{ name }}.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/converter/sbgn/{{ name }}-straight.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/converter/sbgn/{{ name }}-advanced.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
     <td>{% if s %}<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io{{ s.url }}?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a>{% endif %}</td>
     <td><a href="{{ m.page }}" target="_blank" rel="noopener">{{ m.page }}</a></td>
   </tr>
@@ -46,21 +47,23 @@ noindex: true
 
 <h3>CellDesigner → SBGN-ML</h3>
 
-<p>The official CellDesigner files: each map opens in Newt, first as written by our converter, then as exported by MINERVA from the same file.</p>
+<p>The official CellDesigner files: each map opens in Newt as written by our converter, straight (straight lines, each process midway between its main reactant and product) and advanced (the CellDesigner drawing kept), then as exported by MINERVA from the same file.</p>
 
 <table class="sb">
-  <tr><th>Map</th><th>Our converter</th><th>MINERVA</th><th>Map page</th></tr>
-  {% assign cd = site.static_files | where_exp: 'f', "f.path contains '/converter/sbgn/cd/'" | where: 'extname', '.sbgn' %}
+  <tr><th>Map</th><th>Straight</th><th>Advanced</th><th>MINERVA</th><th>Map page</th></tr>
+  {% assign cd = site.static_files | where_exp: 'f', "f.path contains '/converter/sbgn/cd/'" | where_exp: 'f', "f.name contains '-straight.sbgn'" %}
   {% for f in cd %}
-  {% assign title = f.basename %}{% assign page = nil %}
+  {% assign base = f.basename | replace: '-straight', '' %}
+  {% assign title = base %}{% assign page = nil %}
   {% for m in site.maps %}{% assign g = m.downloads | where: 'label', 'GraphML' | first %}
   {% assign name = g.url | split: '/' | last | replace: '.graphml', '' %}
-  {% if name == f.basename %}{% assign title = m.title %}{% assign page = m.page %}{% endif %}
+  {% if name == base %}{% assign title = m.title %}{% assign page = m.page %}{% endif %}
   {% endfor %}
   <tr>
     <td>{{ title }}</td>
-    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io{{ f.path }}?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
-    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/{{ f.basename }}.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/converter/sbgn/cd/{{ base }}-straight.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/converter/sbgn/cd/{{ base }}-advanced.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
+    <td><a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/{{ base }}.sbgn?v={{ v }}" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a></td>
     <td>{% if page %}<a href="{{ page }}" target="_blank" rel="noopener">{{ page }}</a>{% endif %}</td>
   </tr>
   {% endfor %}
