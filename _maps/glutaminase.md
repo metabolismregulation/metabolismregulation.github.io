@@ -7,7 +7,6 @@ group: "Amino acid metabolism"
 order: 16
 kind: "map"
 draft: true
-new: false
 image: "/atlas-downloads/F019-glutaminase.svg"
 width: 1170
 height: 939

@@ -7,7 +7,6 @@ group: "Lipid metabolism"
 order: 7
 kind: "map"
 draft: true
-new: false
 image: "/atlas-downloads/F002-eicosanoids.svg"
 width: 1175
 height: 1050

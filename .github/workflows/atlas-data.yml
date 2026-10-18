@@ -2,8 +2,7 @@
 # draft list) whenever map files or map pages change on master, so a file uploaded by
 # hand to atlas-downloads/ shows correctly without a manual step. Commits only if
 # something changed; a commit made with GITHUB_TOKEN does not start this workflow again.
-# It also runs once a day, so a "new" tag goes 30 days after the map's release date
-# without waiting for a push. First scripts/make_images.py draws the SVG (and PNG) of an
+# First scripts/make_images.py draws the SVG (and PNG) of an
 # Atlas map whose GraphML changed without a new yEd SVG (atlas-data/images.json).
 # Liberation Sans (Arial's metrics) for the text of the drawn PNGs.
 name: Atlas data
@@ -11,8 +10,6 @@ on:
   push:
     branches: [master]
     paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py', 'scripts/make_images.py', 'scripts/yrender/**']
-  schedule:
-    - cron: '17 3 * * *'
   workflow_dispatch:
 permissions:
   contents: write

@@ -203,8 +203,6 @@ sitemap: false
   var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#d6d6d6" stroke="#777" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#777" stroke-width="1.6"/></g></svg>';
   // the word draft on a small grey tag after the name of a draft map (page in draftpages/)
   var DRAFT_ICON = '<span class="m2-draft"><span>draft</span></span>';
-  // the word new on a small outlined tag after the name of a map published in the last 30 days ("released:" on its page, make_maps.py)
-  var NEW_ICON = '<span class="m2-draft m2-new"><span>new</span></span>';
   // a red tag when the map's images could not be drawn from its current GraphML (make_images.py)
   var ERROR_ICON = '<span class="m2-draft m2-error"><span>image error</span></span>';
   var DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
@@ -758,7 +756,6 @@ sitemap: false
       var tips = [label(m)];
       if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); tips.push('Drug action mechanism map'); }
       if (m.draft) { b.insertAdjacentHTML('beforeend', DRAFT_ICON); tips.push('Draft map'); }
-      if (m.new) { b.insertAdjacentHTML('beforeend', NEW_ICON); tips.push('New map'); }
       if (m.imageError) { b.insertAdjacentHTML('beforeend', ERROR_ICON); tips.push('Images not made from the current GraphML'); }
       b.title = tips.join(', ');
       b.addEventListener('click', function () { go(m.id); });

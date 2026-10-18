@@ -7,7 +7,6 @@ group: "Carbohydrate metabolism"
 order: 4
 kind: "map"
 draft: false
-new: false
 image: "/atlas-downloads/F004-glycogen-muscle.svg"
 width: 2106
 height: 1751

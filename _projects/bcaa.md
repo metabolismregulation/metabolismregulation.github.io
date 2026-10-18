@@ -2,7 +2,6 @@
 layout: post
 title: Regulation of branched-chain amino acid catabolism via BCKDK and PPM1K
 permalink: /bcaa/
-released: 2026-10-16
 contributors:
   - alexander-mazein: [lih-cancer]
 project: true

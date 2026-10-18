@@ -1,15 +1,9 @@
-  /* Tags (draft, new): plain CSS, the same for every word and browser. The tag's
+  /* Tags (draft, image error): plain CSS, the same for every word and browser. The tag's
      line is as high as the tag, so the browser centres the word in it; the tag is centred on
      the list item's line (align-items in .m2-map). No text-box trimming, no per-word or
      per-font tuning (removed 2026-10-16: text-box is not in every browser). */
   .m2-draft { display: inline-block; box-sizing: border-box; height: 16px; line-height: 16px; padding: 0 5px; margin-left: 6px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
   .m2-on .m2-draft { color: #4183c4; background: #fff; }
-  /* new: outlined (grey edge and text, white fill); the 1px edge takes 2px of the line */
-  .m2-draft.m2-new { line-height: 14px; color: #888; background: #fff; border: 1px solid #888; padding: 0 4px; }
-  .m2-on .m2-draft.m2-new { color: #fff; background: none; border-color: #fff; }
-  /* new, blue (used until 2026-10-16, kept in the palette /atlas/tags/) */
-  .m2-draft.m2-newblue { background: #4183c4; }
-  .m2-on .m2-draft.m2-newblue { color: #4183c4; background: #fff; }
   /* image error: red, the map's images could not be drawn from its current GraphML
      (scripts/make_images.py, user 2026-10-17) */
   .m2-draft.m2-error { background: #c62828; }

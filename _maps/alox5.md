@@ -7,7 +7,6 @@ group: "Lipid metabolism"
 order: 9
 kind: "map"
 draft: true
-new: false
 image: "/atlas-downloads/F024-alox5.svg"
 width: 1159
 height: 764

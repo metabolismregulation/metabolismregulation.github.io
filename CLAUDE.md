@@ -36,8 +36,7 @@ listed in the Atlas with a draft mark once its PNG or SVG is in
 it, move the page to `_projects/` (the URL stays the same), copy its files to
 `downloads/` and point the page at them, and add it to the
 Maps and Gallery lists (it is already in the Atlas list, GROUPS in make_maps.py).
-A map published for the first time gets a "new" tag (outlined: grey edge and text, white fill, user 2026-10-16; the earlier blue one is kept in the palette) in the Atlas list for 30 days:
-its first publication adds `released: <date>` under the permalink of its `_projects/` page, written once and never changed (a new version or a small fix to a published page does not make it new, user 2026-10-17), and `scripts/make_maps.py` shows the tag while that date is less than 30 days old (user, 2026-10-17). The Atlas data workflow runs daily, so the tag goes on time. Working files stay in `maps-workbench`.
+No "new" tag for a newly published map, and no daily run of the Atlas data workflow (both removed, user 2026-10-18). Working files stay in `maps-workbench`.
 
 A new version of a published map is a draft page with the same file name and the permalink
 `/<name>/draft/` (e.g. `draftpages/glutaminase.md`, /glutaminase/draft/): it replaces the
@@ -50,8 +49,8 @@ A map whose connection was chosen from the Reactome-Recon lists says so visibly 
 Reactome processes (linked). The Atlas list has no tag for it (the "lists" tag was removed, user
 2026-10-17).
 
-Atlas list tags (user, 2026-10-16): draft and new after the map name, independent of each other (both show when a map published less than 30 days ago has a draft, user 2026-10-17). Only these and image error (see Atlas images) are automatic (draft: a page in `draftpages/`, new: as above, user 2026-10-17). Every other tag is set by hand, on request. Every tag, used or not
-(draft, new, new blue, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
+Atlas list tags (user, 2026-10-16): draft after the map name. Only draft and image error (see Atlas images) are automatic (draft: a page in `draftpages/`). Every other tag is set by hand, on request. Every tag, used or not
+(draft, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
 the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.

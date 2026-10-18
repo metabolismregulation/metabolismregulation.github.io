@@ -7,7 +7,6 @@ group: "Amino acid metabolism"
 order: 18
 kind: "map"
 draft: true
-new: true
 image: "/atlas-downloads/F021-ureacycle.svg"
 width: 1080
 height: 1061

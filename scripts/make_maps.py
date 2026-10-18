@@ -20,7 +20,7 @@
 # All maps' annotated nodes also go to atlas-data/search.json, the index of
 # the Atlas search (names, symbols, synonyms and IDs of what is on the maps).
 # Rerun after changing a map page or a map image. Needs: pillow.
-import os, re, glob, json, collections, datetime, urllib.request
+import os, re, glob, json, collections, urllib.request
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -58,11 +58,6 @@ GROUPS = [
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
-# a map published for the first time is marked with an outlined "new" tag in the Atlas
-# list for NEW_DAYS after the date in its page's "released:" line, written once at the
-# first publication and never changed: a new version or a small fix does not make a map
-# new (user, 2026-10-17). The daily run of atlas-data.yml takes the tag off on time.
-NEW_DAYS = 30
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
@@ -248,11 +243,6 @@ def main():
         if re.search(r'(?:href|src)="%s' % re.escape(wrong), body):
             print('WARNING %s/%s.md links %s files' % (folder[slug], slug, wrong))
         title = re.search(r'^title:\s*(.+)$', front, re.M).group(1).strip()
-        # new and draft are independent: the date is read from the official page, also when a
-        # draft of the map replaces it in the Atlas (user, 2026-10-17)
-        official = os.path.join(ROOT, '_projects', slug + '.md')
-        released = os.path.exists(official) and re.search(r'^released:\s*(\d{4}-\d\d-\d\d)', open(official, encoding='utf-8').read(), re.M)
-        new = bool(released) and (datetime.date.today() - datetime.date.fromisoformat(released.group(1))).days < NEW_DAYS
         permalink = re.search(r'^permalink:\s*(\S+)', front, re.M).group(1)
         # the contributors entry as written (one line, or a list with indented lines)
         contrib = re.search(r'^contributors:.*\n(?:[ \t]+\S.*\n)*', front, re.M)
@@ -313,7 +303,6 @@ def main():
                   'order: %d' % (POSITION.index(mid) + 1 if mid in POSITION else 900 + len(written)),
                   'kind: ' + yaml_str('drug' if mid in DRUG else 'map'),
                   'draft: %s' % ('true' if folder[slug] == 'draftpages' else 'false'),
-                  'new: %s' % ('true' if new else 'false'),
                   'image: ' + yaml_str('/%s/' % DL + base + ext),
                   'width: %d' % w, 'height: %d' % h,
                   'scale: %s' % (scale or 'null'),
