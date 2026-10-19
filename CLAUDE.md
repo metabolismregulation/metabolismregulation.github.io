@@ -269,6 +269,13 @@ the archived `metabolismregulation/map-converter-v1`, until the new converter pa
 agrees; the plan is on the hidden page /converter/architecture/, `pages/converter-architecture.html`) (`VERSION`: date and commit, not shown on the page). Annotation comes from the GraphML's node properties (HGNC,
 UniProt, ChEBI), or its node links when a map has none.
 
+## Human-like layout page
+
+`/human-like-layout/architecture/` (`pages/layout-architecture.html`, user 2026-10-19), hidden like the
+converter's architecture page and drawn the same way: how the layout tool (the skill in the private
+repository `metabolismregulation/human-like-layout`, used by maps-workbench) is built today, and the
+suggested architecture. Update its figures and the commit line when the tool changes much.
+
 ## Home page
 
 The pathway highlight on the home page (`index.html`) is chosen by `highlight:` in its front
