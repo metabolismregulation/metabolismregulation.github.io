@@ -264,7 +264,9 @@ out of the sitemap and search engines (`noindex: true`). It runs the converter o
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
 `VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
-map-converter and push here (`VERSION`: date and commit, not shown on the page). Annotation comes from the GraphML's node properties (HGNC,
+map-converter and push here (not during the restructuring of map-converter, user 2026-10-19: the copy stays at v1, ba08e72, from
+the archived `metabolismregulation/map-converter-v1`, until the new converter passes its reference files and the user
+agrees; the plan is on the hidden page /converter/architecture/, `pages/converter-architecture.html`) (`VERSION`: date and commit, not shown on the page). Annotation comes from the GraphML's node properties (HGNC,
 UniProt, ChEBI), or its node links when a map has none.
 
 ## Home page
