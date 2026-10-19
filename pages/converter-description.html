@@ -56,8 +56,8 @@ is converted with the map. In GraphML it is read from the node properties, or fr
 (what is checked before conversion), <b>Output</b> (one row per download button) and <b>Not converted</b>
 (what is left out). Each file is named after the input file and its button, for example
 <code>glycolysis-advanced.xml</code> for CellDesigner (advanced) from <code>glycolysis.graphml</code>.</p>
-<p><b>Layouts</b>: advanced is recommended. It keeps the drawing of the input map: node positions, process
-ports and the bends that matter. Straight is the simpler fallback, for a map whose drawing does not convert
+<p><b>Layouts</b>: advanced is recommended. It preserves the layout of the input map as closely as possible:
+node positions, process ports and the key bends. Straight is the simpler fallback, for a map whose drawing does not convert
 well: every arc a straight line between node centres, each process midway between its main reactant and
 product, for laying out by hand.</p>
 
