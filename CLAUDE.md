@@ -150,8 +150,6 @@ edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added 
 2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
-Logo (`images/logo.svg`, every page): the blue of the buttons, #4183c4 (user, 2026-10-19; it was #557BA2).
-
 Footer (every page, user 2026-10-17, variant 2 of the former test page /atlas/footers/, in git history): white, a thin
 line above (#eee); no grey band. Icons: the theme's round dark GitHub icon and its email icon redrawn to match (white envelope on the same dark circle)
 (the two links in `_layouts/default.html`, the icons drawn in `_sass/_svg-icons.scss`, 36 px, 40 in the theme); GitHub's grey mark (#77827a) was tried and dropped, too greenish (user, 2026-10-17).
