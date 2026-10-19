@@ -249,7 +249,7 @@ directly, not CellDesigner through the GraphML), as plain text so it can be copi
 (routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. The page keeps only minimal
-text (the routes, the browser note with a link "More about the converter", the tick box). Links on both pages in the
+text (the routes, the layout note, the browser note with a link "More about the converter", the tick box). Layouts (user, 2026-10-19): advanced is recommended (the drawing kept), straight a simpler fallback for laying out by hand, said in one grey line next to the drop area and in a "Layouts" paragraph above the sections of the description page. Links on both pages in the
 Atlas's link blue #1c47a9, the same on hover (user, 2026-10-17); the details
 are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, in one pattern
 (user, 2026-10-17): a section per input format with Input (format, version, extensions), Check, Output (a table, one row
