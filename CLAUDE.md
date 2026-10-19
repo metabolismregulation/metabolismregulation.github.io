@@ -335,6 +335,16 @@ another export setting) measure a protein node in the image and set the width so
 out at about 54 px. Never copy a width from another page. Exceptions to look
 at with the user: iNOS (0.75), eNOS (0.60), glycogen (two maps, 0.43).
 
+## Gallery cuts
+
+A Gallery image is the map's official SVG (`downloads/`) copied to `images/gallery/<base>-cut.svg`
+with its own viewBox, 500 x 625 (4:5), shown 600 px wide. The cut may cross nodes and lines, but
+nothing sits right at its edge (user, 2026-10-19): a node is either cut clearly (about half or more
+shown) or left out entirely, and a line or node edge parallel to the border is at least 6 to 8
+units from it (about 10 px on screen). Before choosing the viewBox, find where nodes and lines lie
+near each edge (render the region with a grid, or scan the rendered image's rows and columns) and
+check the result as an image.
+
 ## Atlas images
 
 The Atlas map images are made from the GraphML (user, 2026-10-17); the official pages keep the
