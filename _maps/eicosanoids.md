@@ -1,6 +1,6 @@
 ---
 title: "Regulation of eicosanoid production"
-topic: "Eicosanoid production"
+topic: "Eicosanoids"
 tab: "generic"
 page: "/eicosanoids/draft/"
 group: "Lipid metabolism"

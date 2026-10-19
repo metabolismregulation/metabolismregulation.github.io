@@ -1,6 +1,6 @@
 ---
 title: "Regulation of eicosanoid production, platelets"
-topic: "Eicosanoid production"
+topic: "Eicosanoids"
 tab: "platelet"
 page: "/eicosanoids-platelet/"
 group: "Lipid metabolism"

@@ -1,6 +1,6 @@
 ---
 title: "Regulation of eicosanoid production, mast cells"
-topic: "Eicosanoid production"
+topic: "Eicosanoids"
 tab: "mast cell"
 page: "/eicosanoids-mast-cell/"
 group: "Lipid metabolism"
