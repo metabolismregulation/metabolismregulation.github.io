@@ -171,14 +171,32 @@ def convert(name, data, standard=False):
     return labelled(a, label, ICON);
   }
 
-  // Newt opens a map only from a web address, and the converted files stay in the browser, so
-  // the Newt button downloads its SBGN-ML file and opens Newt in a new tab, to open the file
-  // there with File, Open (user, 2026-10-19)
-  function newt(file, label) {
+  // Newt opens a map only from a web address, fetched by its own server, and the converted files
+  // stay in the browser. So the Newt button sends its SBGN-ML file to our relay (map-converter
+  // newt-relay/), which keeps it ten minutes at a random address, and opens Newt on that address
+  // (user, 2026-10-19). Without the relay (not set, or not answering) it downloads the file and
+  // opens Newt, to open the file there with File, Open.
+  const RELAY = '';  // https://newt-relay.<account>.workers.dev, once it is set up
+  const NEWT = 'http://web.newteditor.org/';
+
+  function newt(file, label, text) {
     const a = document.createElement('a');
-    a.className = 'cv-btn cv-newt'; a.href = 'http://web.newteditor.org/'; a.target = '_blank'; a.rel = 'noopener';
-    a.title = 'Downloads ' + file.download + ' and opens Newt: open the file there with File, Open';
-    a.addEventListener('click', () => file.click());
+    a.className = 'cv-btn cv-newt'; a.href = NEWT; a.target = '_blank'; a.rel = 'noopener';
+    a.title = RELAY ? 'Opens ' + file.download + ' in Newt, the file kept online for ten minutes'
+                    : 'Downloads ' + file.download + ' and opens Newt: open the file there with File, Open';
+    a.addEventListener('click', async e => {
+      if (!RELAY) { file.click(); return; }
+      e.preventDefault();
+      const tab = window.open('about:blank', '_blank');  // at once, so the browser does not block it
+      tab.opener = null;
+      try {
+        const r = await fetch(RELAY + '/' + file.download, { method: 'POST', body: text });
+        if (!r.ok) throw new Error(r.status);
+        tab.location = NEWT + '?URL=' + (await r.json()).url;
+      } catch {
+        file.click(); tab.location = NEWT;
+      }
+    });
     return labelled(a, label.replace('SBGN-ML', 'Newt'), EXTERNAL);
   }
 
@@ -202,7 +220,7 @@ def convert(name, data, standard=False):
           const b = button(xml, base + end, label, red);
           if (end.endsWith('.sbgn')) {  // its Newt button under it
             const pair = document.createElement('div'); pair.className = 'cv-pair';
-            pair.append(b, newt(b, label)); box.append(pair);
+            pair.append(b, newt(b, label, xml)); box.append(pair);
           } else box.append(b);
         }
         if (red) { problems.push(log); continue; }
