@@ -51,13 +51,13 @@ noindex: true
 <p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
 draws them: story first, then blocks, straight arcs, compact complexes. It is the Claude skill
 <code>sbgn-human-like-layout</code> (private repository <code>metabolismregulation/human-like-layout</code>),
-and the map builds in <code>maps-workbench</code> use it as a submodule. This page shows how it is built today
-and the architecture suggested for it.</p>
+and the map builds in <code>maps-workbench</code> use it as a submodule. This page shows how it is built today,
+what is left for later and what comes next.</p>
 
 <h2>Today</h2>
 
 <div class="ca-fig">
-<svg viewBox="0 0 1200 620" role="img" aria-label="The layout tool today: five readers, three sets of placement helpers, three finishing passes, two checks">
+<svg viewBox="0 0 1200 620" role="img" aria-label="The layout tool today: five readers, placement helpers, three finishing passes and the arc fixes, one check">
   <defs>
     <marker id="la-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
@@ -97,47 +97,41 @@ and the architecture suggested for it.</p>
   <text class="ca-name" x="255" y="353" text-anchor="middle">ygml.py</text>
   <text class="ca-sub" x="255" y="371" text-anchor="middle">workbench, 55 lines</text>
 
-  <rect class="ca-lay" x="370" y="76" width="190" height="50" rx="7"/>
+  <rect class="ca-box" x="370" y="76" width="190" height="50" rx="7"/>
   <text class="ca-name" x="465" y="97" text-anchor="middle">kit.Layout</text>
-  <text class="ca-sub" x="465" y="115" text-anchor="middle">put, route, fork + F001 blocks</text>
-  <rect class="ca-lay" x="370" y="140" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="161" text-anchor="middle">layout.py</text>
-  <text class="ca-sub" x="465" y="179" text-anchor="middle">F001 v8, its own copy of them</text>
-  <rect class="ca-lay" x="370" y="204" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="225" text-anchor="middle">F022-bcaa/kit.py</text>
-  <text class="ca-sub" x="465" y="243" text-anchor="middle">node, arc, ports: 40 builds</text>
-  <rect class="ca-box" x="370" y="268" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="289" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="307" text-anchor="middle">82 map scripts, workbench</text>
-  <rect class="ca-box" x="370" y="332" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="353" text-anchor="middle">A_inside_out, B_modular</text>
-  <text class="ca-sub" x="465" y="371" text-anchor="middle">assembly templates, F001</text>
+  <text class="ca-sub" x="465" y="115" text-anchor="middle">put, route, fork, blocks</text>
+  <rect class="ca-box" x="370" y="140" width="190" height="50" rx="7"/>
+  <text class="ca-name" x="465" y="161" text-anchor="middle">F022-bcaa/kit.py</text>
+  <text class="ca-sub" x="465" y="179" text-anchor="middle">node, arc: workbench builds</text>
+  <rect class="ca-box" x="370" y="204" width="190" height="50" rx="7"/>
+  <text class="ca-name" x="465" y="225" text-anchor="middle">build_vN.py</text>
+  <text class="ca-sub" x="465" y="243" text-anchor="middle">82 map scripts, workbench</text>
 
   <rect class="ca-box" x="590" y="76" width="170" height="50" rx="7"/>
   <text class="ca-name" x="675" y="97" text-anchor="middle">complex_pack</text>
-  <text class="ca-sub" x="675" y="115" text-anchor="middle">pack, fit_insets: 20 builds</text>
+  <text class="ca-sub" x="675" y="115" text-anchor="middle">pack, fit_insets</text>
   <rect class="ca-box" x="590" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="161" text-anchor="middle">snap_grid</text>
-  <text class="ca-sub" x="675" y="179" text-anchor="middle">8 px nodes, 4 px bends</text>
+  <text class="ca-name" x="675" y="161" text-anchor="middle">arcs.py</text>
+  <text class="ca-sub" x="675" y="179" text-anchor="middle">centre ports, soft bends</text>
   <rect class="ca-box" x="590" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="225" text-anchor="middle">hub_grid</text>
-  <text class="ca-sub" x="675" y="243" text-anchor="middle">6 px at hubs: 3 builds</text>
-  <text class="ca-sub" x="675" y="290" text-anchor="middle">each run by hand,</text>
-  <text class="ca-sub" x="675" y="306" text-anchor="middle">in no fixed order</text>
-  <text class="ca-sub" x="675" y="338" text-anchor="middle">snap_grid: no build yet</text>
+  <text class="ca-name" x="675" y="225" text-anchor="middle">snap_grid</text>
+  <text class="ca-sub" x="675" y="243" text-anchor="middle">maps drawn in yEd</text>
+  <rect class="ca-box" x="590" y="268" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="675" y="289" text-anchor="middle">hub_grid</text>
+  <text class="ca-sub" x="675" y="307" text-anchor="middle">maps from CellDesigner</text>
 
-  <rect class="ca-lay" x="790" y="76" width="170" height="50" rx="7"/>
+  <rect class="ca-box" x="790" y="76" width="170" height="50" rx="7"/>
   <text class="ca-name" x="875" y="97" text-anchor="middle">check.py</text>
-  <text class="ca-sub" x="875" y="115" text-anchor="middle">skill: groups, near straight</text>
-  <rect class="ca-lay" x="790" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="161" text-anchor="middle">check.py</text>
-  <text class="ca-sub" x="875" y="179" text-anchor="middle">workbench: ports, bends</text>
+  <text class="ca-sub" x="875" y="115" text-anchor="middle">layout, preferences</text>
+  <rect class="ca-box" x="790" y="140" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="875" y="161" text-anchor="middle">check.py --input</text>
+  <text class="ca-sub" x="875" y="179" text-anchor="middle">content unchanged</text>
   <rect class="ca-box" x="790" y="204" width="170" height="50" rx="7"/>
   <text class="ca-name" x="875" y="225" text-anchor="middle">sides.py</text>
-  <text class="ca-sub" x="875" y="243" text-anchor="middle">two antennas, used by both</text>
-  <rect class="ca-plan" x="790" y="268" width="170" height="50" rx="7"/>
-  <text class="ca-title" x="875" y="289" text-anchor="middle">content unchanged</text>
-  <text class="ca-sub" x="875" y="307" text-anchor="middle">a snippet in README.md</text>
+  <text class="ca-sub" x="875" y="243" text-anchor="middle">two antennas</text>
+  <rect class="ca-box" x="790" y="268" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="875" y="289" text-anchor="middle">tools/check.py</text>
+  <text class="ca-sub" x="875" y="307" text-anchor="middle">workbench: runs the skill's</text>
 
   <rect class="ca-fmt" x="1010" y="100" width="160" height="40" rx="5"/>
   <text class="ca-fmtt" x="1090" y="125" text-anchor="middle">GraphML</text>
@@ -157,11 +151,11 @@ and the architecture suggested for it.</p>
   <text class="ca-name" x="32" y="488">SKILL.md, METHOD.md</text>
   <text class="ca-sub" x="32" y="507">the procedure, its reasoning, section 10 the rules from the user's edits</text>
   <rect class="ca-box" x="411" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="423" y="488">archive/, examples/</text>
-  <text class="ca-sub" x="423" y="507">22 reference maps, 1 approved layout, compared by hand</text>
+  <text class="ca-name" x="423" y="488">archive/</text>
+  <text class="ca-sub" x="423" y="507">22 reference maps: the house style, the test set</text>
   <rect class="ca-box" x="802" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="814" y="488">run_all.sh</text>
-  <text class="ca-sub" x="814" y="507">F001 v8, v9A, v9B reproduced byte for byte, nothing else</text>
+  <text class="ca-name" x="814" y="488">examples/ (repository)</text>
+  <text class="ca-sub" x="814" y="507">approved layouts, the F001 v8 and v9 scripts with run_all.sh</text>
   <rect class="ca-box" x="20" y="540" width="377" height="52" rx="7"/>
   <text class="ca-name" x="32" y="562">inspect_graphml, stats</text>
   <text class="ca-sub" x="32" y="581">the network as a list, the house style measured</text>
@@ -175,206 +169,56 @@ and the architecture suggested for it.</p>
 </div>
 <div class="ca-legend">
   <span><i class="ca-sw lay"></i>the same job written more than once</span>
-  <span><i class="ca-sw" style="background:#fff;border:1px dashed #bbb"></i>not a script</span>
 </div>
 
 <p>There is no layout engine. The story decisions (the anchor, the side each branch enters from, the blocks) are
 made by the person, and a build script per map writes them down as positions and routes. The tool is what these
-scripts share: placement helpers, finishing passes and checks. Most of it is generic, but it grew in two
-repositories, so the same jobs sit in several places.</p>
+scripts share: placement helpers, finishing passes and one check. Snap to grid is for maps drawn in yEd,
+<code>hub_grid</code> for maps converted from CellDesigner. The check reports faults (overlaps, also inside
+compartments and complexes, arcs through nodes, crossings, two antennas, groups yEd redraws), the two preferences
+for maps drawn in yEd (arcs at node centres, soft bends) and, with <code>--input</code>, every change of content
+since the input file.</p>
 
 <table class="ca-table">
-  <tr><th>Job</th><th>Where it is written</th></tr>
-  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code> (used by <code>snap_grid</code>), <code>hub_grid.load</code>, and in the workbench <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). <code>yedit</code> and <code>complex_pack</code> both define <code>realizer</code>, <code>box</code>, <code>set_box</code>, <code>shift</code>.</td></tr>
-  <tr><td>Place nodes, route arcs</td><td><code>kit.Layout</code> (with the F001 blocks and F001's <code>_style_fixes</code> in the same file), <code>layout.py</code> (its own copy of translate, put, route, fork), and <code>F022-bcaa/kit.py</code> in the workbench, which 40 of the 82 map builds import from the BCAA folder. <code>kit.Layout</code> is used by one map build and two workbench tools.</td></tr>
-  <tr><td>Check</td><td>Two <code>check.py</code>. The skill's finds groups yEd redraws and almost straight segments, the workbench's finds off-centre ports and bends not smoothed. SKILL.md section 10 sends to the second for two strict rules. Content identity is a snippet in README.md, run by hand.</td></tr>
+  <tr><th>Still written more than once</th><th>Where</th></tr>
+  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code> (used by <code>snap_grid</code>), <code>hub_grid.load</code>, and in the workbench <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
   <tr><td>Render</td><td><code>ygml.render_svg</code> (the skill's preview) and the workbench's <code>yrender.py</code> (the Atlas images, copied to this website).</td></tr>
-  <tr><td>Test</td><td><code>run_all.sh</code> reproduces only F001. The finishing passes were checked on the 22 archive maps, the examples and the Atlas maps, each time by a script written for that session.</td></tr>
 </table>
 
-<p class="ca-note">The two grids disagree. <code>hub_grid</code> spaces the arcs at a hub 6 px apart through the hub
-centre, <code>snap_grid</code> puts bends on a 4 px grid. Tried on the F002 eicosanoids advanced layout (v05, a test,
-nothing saved): the snap moved all 48 hub ports that <code>hub_grid</code> had placed, to 0, 4 or 8 px, and 108 of the
-map's 270 off-centre ports at metabolite circles. It also sent 12 arcs through nodes, 2 before. Keeping the ports on
-circles fixed made it worse (orthogonal segments 332 to 274 of 472), and running the hubs after the snap restored only
-26 of the 48. Maps drawn in yEd have their ports at the centre and are not touched (one port moved on the 22 archive
-and 28 Atlas maps).</p>
-
-<h2>Suggested architecture</h2>
-
-<p>Three small fixes and some housekeeping, no restructuring. The skill gets the full check and the two fixes for
-what it reports, so a claude.ai chat with the skill has them too. Snap and hubs are for different maps.
-The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: what changes).</p>
-
-<div class="ca-fig">
-<svg viewBox="0 0 1200 620" role="img" aria-label="The plan: the layout tool as today, with arcs.py and one check in the skill, the snap keeping circle ports, the F001 scripts in examples">
-  <defs>
-    <marker id="la-tip3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
-    </marker>
-  </defs>
-  <text class="ca-head" x="80" y="44" text-anchor="middle">Input</text>
-  <text class="ca-head" x="255" y="44" text-anchor="middle">Readers</text>
-  <text class="ca-head" x="465" y="44" text-anchor="middle">Placement</text>
-  <text class="ca-head" x="675" y="44" text-anchor="middle">Finishing passes</text>
-  <text class="ca-head" x="875" y="44" text-anchor="middle">Checks</text>
-  <text class="ca-head" x="1090" y="44" text-anchor="middle">Output</text>
-
-  <rect class="ca-col" x="160" y="62" width="190" height="346" rx="10"/>
-  <rect class="ca-col" x="360" y="62" width="210" height="346" rx="10"/>
-  <rect class="ca-col" x="580" y="62" width="190" height="346" rx="10"/>
-  <rect class="ca-col" x="780" y="62" width="190" height="346" rx="10"/>
-
-  <rect class="ca-fmt" x="20" y="100" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt" x="80" y="125" text-anchor="middle">GraphML (yEd)</text>
-  <text class="ca-sub" x="80" y="158" text-anchor="middle">drawn by the user,</text>
-  <text class="ca-sub" x="80" y="174" text-anchor="middle">or converted from</text>
-  <text class="ca-sub" x="80" y="190" text-anchor="middle">CellDesigner</text>
-
-  <rect class="ca-lay" x="170" y="76" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="97" text-anchor="middle">ygml.Model</text>
-  <text class="ca-sub" x="255" y="115" text-anchor="middle">288 lines, with preview</text>
-  <rect class="ca-lay" x="170" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="161" text-anchor="middle">complex_pack</text>
-  <text class="ca-sub" x="255" y="179" text-anchor="middle">realizer, box, shift</text>
-  <rect class="ca-lay" x="170" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="225" text-anchor="middle">hub_grid.load</text>
-  <text class="ca-sub" x="255" y="243" text-anchor="middle">its own node list</text>
-  <rect class="ca-lay" x="170" y="268" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="289" text-anchor="middle">yedit.py</text>
-  <text class="ca-sub" x="255" y="307" text-anchor="middle">workbench, 247 lines</text>
-  <rect class="ca-lay" x="170" y="332" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="353" text-anchor="middle">ygml.py</text>
-  <text class="ca-sub" x="255" y="371" text-anchor="middle">workbench, 55 lines</text>
-
-  <rect class="ca-box" x="370" y="76" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="97" text-anchor="middle">kit.Layout</text>
-  <text class="ca-sub" x="465" y="115" text-anchor="middle">put, route, fork, no F001</text>
-  <rect class="ca-new" x="370" y="140" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="161" text-anchor="middle">arcs.py</text>
-  <text class="ca-sub" x="465" y="179" text-anchor="middle">centre ports, soft bends</text>
-  <rect class="ca-box" x="370" y="204" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="225" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="243" text-anchor="middle">with the BCAA kit and yedit</text>
-
-  <rect class="ca-box" x="590" y="76" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="97" text-anchor="middle">complex_pack</text>
-  <text class="ca-sub" x="675" y="115" text-anchor="middle">pack, fit_insets</text>
-  <rect class="ca-box" x="590" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="161" text-anchor="middle">snap_grid</text>
-  <text class="ca-sub" x="675" y="179" text-anchor="middle">maps drawn in yEd</text>
-  <rect class="ca-box" x="590" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="225" text-anchor="middle">hub_grid</text>
-  <text class="ca-sub" x="675" y="243" text-anchor="middle">maps from CellDesigner</text>
-
-  <rect class="ca-new" x="790" y="76" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="97" text-anchor="middle">check.py</text>
-  <text class="ca-sub" x="875" y="115" text-anchor="middle">skill: every rule</text>
-  <rect class="ca-new" x="790" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="161" text-anchor="middle">tools/check.py</text>
-  <text class="ca-sub" x="875" y="179" text-anchor="middle">workbench: calls the skill's</text>
-  <rect class="ca-box" x="790" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="225" text-anchor="middle">sides.py</text>
-  <text class="ca-sub" x="875" y="243" text-anchor="middle">two antennas</text>
-  <rect class="ca-plan" x="790" y="268" width="170" height="50" rx="7"/>
-  <text class="ca-title" x="875" y="289" text-anchor="middle">content unchanged</text>
-  <text class="ca-sub" x="875" y="307" text-anchor="middle">a snippet in README.md</text>
-
-  <rect class="ca-fmt" x="1010" y="100" width="160" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1090" y="125" text-anchor="middle">GraphML</text>
-  <rect class="ca-fmt" x="1010" y="164" width="160" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1090" y="189" text-anchor="middle">preview PNG</text>
-  <text class="ca-sub" x="1090" y="232" text-anchor="middle">the user finishes</text>
-  <text class="ca-sub" x="1090" y="248" text-anchor="middle">the map in yEd</text>
-
-  <g class="ca-arr" marker-end="url(#la-tip3)">
-    <path d="M140,120 H158"/><path d="M350,235 H358"/><path d="M570,235 H578"/><path d="M770,235 H778"/>
-    <path d="M970,120 H1008"/><path d="M970,184 H1008"/>
-  </g>
-
-  <rect class="ca-band" x="10" y="430" width="1180" height="180" rx="10"/>
-  <text class="ca-head" x="26" y="453">Around it</text>
-  <rect class="ca-box" x="20" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="488">SKILL.md, METHOD.md</text>
-  <text class="ca-sub" x="32" y="507">the procedure, its reasoning, section 10 the rules from the user's edits</text>
-  <rect class="ca-box" x="411" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="423" y="488">archive/, examples/</text>
-  <text class="ca-sub" x="423" y="507">22 reference maps, approved layouts, run after every change</text>
-  <rect class="ca-new" x="802" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="814" y="488">examples/F001-glycolysis-v8-v9</text>
-  <text class="ca-sub" x="814" y="507">layout.py, the OR scripts, A and B, kit's F001 blocks, run_all.sh</text>
-  <rect class="ca-box" x="20" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="562">inspect_graphml, stats</text>
-  <text class="ca-sub" x="32" y="581">the network as a list, the house style measured</text>
-  <rect class="ca-lay" x="411" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="423" y="562">ygml.render_svg, yrender.py</text>
-  <text class="ca-sub" x="423" y="581">two renderers, kept: see Left for later</text>
-  <rect class="ca-box" x="802" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="814" y="562">skill zip, submodule</text>
-  <text class="ca-sub" x="814" y="581">to claude.ai on every push, to maps-workbench by hand</text>
-</svg>
-</div>
-<div class="ca-legend">
-  <span><i class="ca-sw new"></i>changed by the plan</span>
-  <span><i class="ca-sw lay"></i>the same job written more than once, left as it is</span>
-  <span><i class="ca-sw" style="background:#fff;border:1px dashed #bbb"></i>not a script</span>
-</div>
-
-<h3>What changes</h3>
-<ul>
-  <li><b>Snap and hubs</b>: one rule in SKILL.md, no code. Snap to grid is for maps drawn in yEd, <code>hub_grid</code>
-    for maps converted from CellDesigner, which are not snapped. Done 2026-10-19.</li>
-  <li><b>check.py</b>: the skill's check gets the two strict rules only the workbench checks today (off-centre ports,
-    bends not smoothed), as preferences for maps drawn in yEd, not strict rules. The workbench's
-    <code>tools/check.py</code> runs it. Done 2026-10-19.</li>
-  <li><b>arcs.py</b>: centre ports and soft bends, the two fixes for what the check reports, move from
-    <code>F022-bcaa/kit.py</code> into the skill, and the kit calls them. The rest of the kit stays in the workbench: it
-    works on the workbench's <code>yedit</code>, which edits content, and content is not the layout skill's job.
-    Done 2026-10-19: five recent builds give the same files.</li>
-  <li><b>F001 scripts</b>: <code>layout.py</code>, <code>or_variant.py</code>, <code>make_v7or.py</code>,
-    <code>A_inside_out.py</code>, <code>B_modular.py</code>, the F001 blocks of <code>kit.py</code> and
-    <code>run_all.sh</code> move to <code>examples/F001-glycolysis-v8-v9/</code>. <code>kit.py</code> keeps the
-    generic Layout class. Done 2026-10-19: the same files byte for byte.</li>
-</ul>
-
-<h3>The grid</h3>
-<p>The hubs keep 6 px, the spacing taken from the user's edit of the arachidonate hub. The two passes never meet:
-the snap is for maps drawn in yEd, whose arcs leave from node centres and have no hubs to space, and
-<code>hub_grid</code> for maps converted from CellDesigner, which keep their ports on circles and are not snapped. If
-converted maps are snapped one day, an 8 px hub spacing is the consistent choice, as the snap already puts hub lines
-8 px apart.</p>
-
-<h3>Left for later</h3>
+<h2>Left for later</h2>
 <ul>
   <li><b>One reader</b>: five readers could drift apart, but none has so far. The definition that matters most, the
     bounds yEd computes for a group, is already in one place (<code>complex_pack</code>).</li>
-  <li><b>One pipeline in a fixed order</b>: worth it once snap and hubs run in map builds. Today snap runs in none
-    and hubs in three.</li>
+  <li><b>One pipeline in a fixed order</b>: worth it once the finishing passes run together in map builds. Today
+    snap runs in none and the hubs in three.</li>
   <li><b>One renderer</b>: <code>ygml.render_svg</code> is a rough preview Claude looks at while it lays out a map.
     <code>yrender</code> (workbench, 542 lines) draws a map as yEd exports it and makes the Atlas images, and this
     website keeps a copy. Using <code>yrender</code> for the preview too would mean that what Claude checks is what
     the Atlas shows. For that it has to move into the skill folder, as the skill zip in claude.ai holds only that
-    folder. The workbench and this website would then copy it from there. Kept as it is: the preview is good enough
-    for laying out, and the user judges the result in yEd.</li>
+    folder. Kept as it is: the preview is good enough for laying out, and the user judges the result in yEd.</li>
   <li><b>map-converter's model</b>: map-converter is being rebuilt around a model that holds a map's biology and
     its drawing apart. The layout tool reads and writes only yEd GraphML. A CellDesigner map goes to GraphML through
     the converter, is laid out, and goes back through the converter, which works today. Laying out the converter's
     drawing directly would save those two conversions and would let a file without any drawing (BioPAX, SBML
-    without layout) get its first drawing here. That has to wait until the new model exists. Until then the bridge
-    is the converter's GraphML.</li>
+    without layout) get its first drawing here. That has to wait until the new model exists.</li>
 </ul>
 
-<h3>Order of work</h3>
-<ol>
-  <li><code>check.py</code> with the two preferences. Done.</li>
-  <li><code>arcs.py</code>. Five recent map builds give the same files byte for byte. Done.</li>
-  <li>The F001 scripts to <code>examples/</code>. <code>run_all.sh</code> gives the same files from there. Done.</li>
-</ol>
+<h2>Next</h2>
+<ul>
+  <li>The processes that break the two-antennas rule on Atlas maps (mevalonate, eNOS, both glycogen maps, SREBP,
+    phosphoinositides, TAG), listed for the user to judge.</li>
+  <li>The overlaps inside compartments and complexes on the Atlas maps: 49 pairs on 12 maps, many of them intended
+    closeness (two lane processes, a side substrate by its stem), the same way.</li>
+  <li><code>hub_grid</code> on a second map converted from CellDesigner.</li>
+  <li>Modular and step-by-step drawing, combined: pieces that each tell the story of a subpathway, kept as yEd
+    GraphML, one file per piece with its interface nodes.</li>
+</ul>
 
 <h2>First suggestion (outdated)</h2>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Kept for comparison. Replaced by the plan above (2026-10-19):
-most of it costs more than it gains today.</p>
+<p class="ca-sub" style="font-size: 13px; color: #777;">Kept for comparison (2026-10-19). A smaller plan was done in
+its place: one check, the arc fixes in the skill, the F001 scripts in <code>examples/</code>, snap and hubs for
+different maps. The rest costs more than it gains today.</p>
 
 <p>One reader and writer of yEd GraphML that every script uses, the skill's and the workbench's. On it, one file of
 placement helpers for the map builds, and one finishing pipeline that runs the passes in a fixed order. One check
@@ -536,7 +380,7 @@ packing are stale, and the two grids above undo each other. One pipeline with on
 </ul>
 
 <h3>Open questions</h3>
-<p>Answered in the plan above: the grid, the renderer and map-converter's model.</p>
+<p>Answered since: the grid (snap and hubs for different maps), the renderer and map-converter's model (Left for later).</p>
 
 <h3>Order of work</h3>
 <ol>
@@ -548,5 +392,5 @@ packing are stale, and the two grids above undo each other. One pipeline with on
   <li>F001 scripts to <code>examples/</code>, <code>ygml.render_svg</code> removed.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for human-like-layout commit a2a5939 and maps-workbench bf3bdf6 (the plan done).
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for human-like-layout commit 26cb621 and maps-workbench 7576925.
 The skill is in the private repository <code>metabolismregulation/human-like-layout</code>.</p>
