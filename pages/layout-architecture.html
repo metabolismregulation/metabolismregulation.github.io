@@ -194,17 +194,16 @@ repositories, so the same jobs sit in several places.</p>
 
 <p class="ca-note">The two grids disagree. <code>hub_grid</code> spaces the arcs at a hub 6 px apart through the hub
 centre, <code>snap_grid</code> puts bends on a 4 px grid. Tried on the F002 eicosanoids advanced layout (v05, a test,
-nothing saved): the snap moved all 48 hub ports that <code>hub_grid</code> had placed, and 108 of the map's 270
-off-centre ports at metabolite circles, some of them off the circle (19.1, −6 to 8, −8). The cause is in
-<code>snap_grid</code>: it keeps a port in place only when it sits on the border of the node's box, and a port on a
-circle lies inside the box, so the snap moves it with its line. Maps drawn in yEd have their ports at the centre
-and are not touched (one port moved on the 22 archive and 28 Atlas maps). Maps converted from CellDesigner, the
-ones <code>hub_grid</code> is for, are.</p>
+nothing saved): the snap moved all 48 hub ports that <code>hub_grid</code> had placed, to 0, 4 or 8 px, and 108 of the
+map's 270 off-centre ports at metabolite circles. It also sent 12 arcs through nodes, 2 before. Keeping the ports on
+circles fixed made it worse (orthogonal segments 332 to 274 of 472), and running the hubs after the snap restored only
+26 of the 48. Maps drawn in yEd have their ports at the centre and are not touched (one port moved on the 22 archive
+and 28 Atlas maps).</p>
 
 <h2>Suggested architecture</h2>
 
 <p>Three small fixes and some housekeeping, no restructuring. The skill gets the check and the build helpers every
-map build uses, so a claude.ai chat with the skill has them too. The snap keeps ports on a circle where they are.
+map build uses, so a claude.ai chat with the skill has them too. Snap and hubs are for different maps.
 The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: what changes).</p>
 
 <div class="ca-fig">
@@ -263,12 +262,12 @@ The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: 
   <rect class="ca-box" x="590" y="76" width="170" height="50" rx="7"/>
   <text class="ca-name" x="675" y="97" text-anchor="middle">complex_pack</text>
   <text class="ca-sub" x="675" y="115" text-anchor="middle">pack, fit_insets</text>
-  <rect class="ca-new" x="590" y="140" width="170" height="50" rx="7"/>
+  <rect class="ca-box" x="590" y="140" width="170" height="50" rx="7"/>
   <text class="ca-name" x="675" y="161" text-anchor="middle">snap_grid</text>
-  <text class="ca-sub" x="675" y="179" text-anchor="middle">circle ports stay</text>
+  <text class="ca-sub" x="675" y="179" text-anchor="middle">maps drawn in yEd</text>
   <rect class="ca-box" x="590" y="204" width="170" height="50" rx="7"/>
   <text class="ca-name" x="675" y="225" text-anchor="middle">hub_grid</text>
-  <text class="ca-sub" x="675" y="243" text-anchor="middle">6 px at hubs, as now</text>
+  <text class="ca-sub" x="675" y="243" text-anchor="middle">maps from CellDesigner</text>
 
   <rect class="ca-new" x="790" y="76" width="170" height="50" rx="7"/>
   <text class="ca-name" x="875" y="97" text-anchor="middle">check.py</text>
@@ -325,10 +324,8 @@ The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: 
 
 <h3>What changes</h3>
 <ul>
-  <li><b>snap_grid</b>: a port on a circle's outline stays where it is and its line follows it, as a port on a
-    box's border does today. The hub lines then keep their 6 px spacing after a snap, 2 px off the 4 px grid where
-    the spacing is not a multiple of 4. A few lines in the script. No change expected on the archive and Atlas maps
-    (one port moved there today, at eNOS).</li>
+  <li><b>Snap and hubs</b>: one rule in SKILL.md, no code. Snap to grid is for maps drawn in yEd, <code>hub_grid</code>
+    for maps converted from CellDesigner, which are not snapped. Done 2026-10-19.</li>
   <li><b>check.py</b>: the skill's check gets the two strict rules only the workbench checks today (off-centre ports,
     bends not smoothed). The workbench's <code>tools/check.py</code> then calls it.</li>
   <li><b>build.py</b>: <code>F022-bcaa/kit.py</code> (node and arc from a template, centre_ports, smooth_bends,
@@ -340,10 +337,11 @@ The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: 
 </ul>
 
 <h3>The grid</h3>
-<p>The hubs keep 6 px, the spacing taken from the user's edit of the arachidonate hub. A port on a circle counts
-as fixed, as a corner port does, so the snap leaves it and its line in place. Changing the hub spacing to 8 px
-would put the hub lines on the snap grid too, but changes the look of a hub the user approved, and the fix in the
-snap is needed anyway for CellDesigner's anchor ports (18.5, 7.7), which no spacing puts on a grid.</p>
+<p>The hubs keep 6 px, the spacing taken from the user's edit of the arachidonate hub. The two passes never meet:
+the snap is for maps drawn in yEd, whose arcs leave from node centres and have no hubs to space, and
+<code>hub_grid</code> for maps converted from CellDesigner, which keep their ports on circles and are not snapped. If
+converted maps are snapped one day, an 8 px hub spacing is the consistent choice, as the snap already puts hub lines
+8 px apart.</p>
 
 <h3>Left for later</h3>
 <ul>
@@ -367,8 +365,6 @@ snap is needed anyway for CellDesigner's anchor ports (18.5, 7.7), which no spac
 
 <h3>Order of work</h3>
 <ol>
-  <li>The snap fix, checked on the F002 advanced layout (hub ports kept), the 22 archive maps, the examples and the
-    Atlas maps.</li>
   <li><code>check.py</code> with the two rules. Its report on the archive maps is the same plus the two counts.</li>
   <li><code>build.py</code>. A recent map build run with it gives the same file byte for byte.</li>
   <li>The F001 scripts to <code>examples/</code>. <code>run_all.sh</code> gives the same files from there.</li>
