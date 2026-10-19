@@ -218,6 +218,7 @@ def convert(name, data, standard=False):
       for (const [end, label, xml, log, red] of r) {
         if (xml) {
           const b = button(xml, base + end, label, red);
+          if (end === '-corrected.graphml') b.classList.add('cv-grey');
           if (end.endsWith('.sbgn')) {  // its Newt button under it
             const pair = document.createElement('div'); pair.className = 'cv-pair';
             pair.append(b, newt(b, label, xml)); box.append(pair);
