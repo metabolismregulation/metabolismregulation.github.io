@@ -48,7 +48,9 @@ noindex: true
     <p class="cv-hint">Advanced layout recommended. Straight layout is a fallback option, a basis for manual
     layout. The conversion runs in the browser, and the files never leave the computer.</p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner
-    and SBGN-ML to GraphML</label></p>
+    and SBGN-ML to GraphML</label><br>
+    <label class="cv-hint"><input type="checkbox" id="cv-keep"> Keep node positions for CellDesigner (no small
+    moves to straighten lines)</label></p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}">Description</a> · <a href="{{ '/converter/architecture/' | relative_url }}">Architecture</a></p>
   </div>
 </div>
@@ -60,78 +62,36 @@ noindex: true
 <script>
 (() => {
   const BASE = '{{ "/converter/mapconv/" | relative_url }}';
-  const MODULES = ['model', 'graphml', 'annotation', 'celldesigner', 'cd_bends', 'cd_straighten', 'style', 'sbgnml', 'rules'];
-  // the converter's own code (mapconv): a GraphML map gives two CellDesigner files (annotation
-  // from the GraphML), the map in the SBGN palette if it is drawn with other shapes, and two
-  // SBGN-ML files; a CellDesigner file two GraphML and two SBGN-ML files, an SBGN-ML or Newt file
-  // GraphML and two CellDesigner files: straight and advanced each (user, 2026-10-18). A
-  // GraphML map is first checked (mapconv.rules, as on the command line): the problem elements
-  // are left out of the converted files, and the map comes back with them marked red, "GraphML
-  // (marked)", its problems listed under the map in red as text to copy (user, 2026-10-17).
-  // Each file: [name ending, button label, text, log, red]; a message the converter prints (a
-  // warning, the summary) is kept for the page
+  const MODULES = ['model', 'report', 'graphml', 'annotation', 'biology', 'celldesigner', 'cd_layout', 'layout', 'newt_layout',
+                   'cd_straighten', 'style', 'sbgnml', 'rules', 'routes'];
+  const DATA = ['yed.graphml', 'conjugates.json'];  // the yEd templates; ChEBI's conjugate acids and bases
+  // the converter's own code (mapconv): which files each input gives and how each is made is the
+  // converter's (mapconv/routes.py, the same as on the command line). A GraphML map is first checked
+  // (mapconv.rules): the problem elements are left out of the converted files, and the map comes back
+  // with them marked red, "GraphML (marked)", its problems listed under the map in red as text to copy
+  // (user, 2026-10-17). Each file: [name ending, button label, text, log, red]; the converter's
+  // messages are kept for the page, its summary ("46 species, ...") left out
   const DRIVER = `
-import contextlib, io, os, sys
+import os, sys
 sys.path.insert(0, '/home/pyodide')
-from mapconv import annotation, celldesigner, graphml, rules, sbgnml, style
+from mapconv import routes
 
-def run(f):
-    log, text = io.StringIO(), None
-    try:
-        with contextlib.redirect_stdout(log):
-            text = f()
-    except BaseException as e:
-        log.write('Not converted: %s\\n' % e)
-    return text, log.getvalue(), False
-
-def convert(name, data, standard=False):
+def convert(name, data, standard=False, keep=False):
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
-    ext = name.lower().rsplit('.', 1)[-1]
-    to_graphml = lambda m: graphml.write(style.standardise(m) if standard else m)
     files = []
-    if ext == 'graphml':
-        try:
-            m = graphml.read(p)
-            found = rules.problems(m)
-        except BaseException as e:
-            return [['', '', None, 'Not converted: %s\\n' % e, False]]
-        read = lambda: rules.clean(graphml.read(p), found)  # a fresh copy for each file
-        for layout in ('straight', 'advanced'):
-            def cd():
-                m = read()
-                return celldesigner.write(m, annotation.from_graphml(m), layout)
-            files.append(['-%s.xml' % layout, 'CellDesigner' + ' (%s)' % layout, *run(cd)])
-        for layout in ('straight', 'advanced'):
-            files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ' (%s)' % layout,
-                          *run(lambda: sbgnml.write(read(), layout))])
-        fixed = run(lambda: graphml.corrected(read()))[0]
-        if fixed:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
-            files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, '', False])
-        if found:
-            files.append(['-marked.graphml', 'GraphML (marked)', rules.mark(p, found),
-                          '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's')
-                          + '\\n'.join(rules.lines(m, found)), True])
-    elif ext == 'xml':
-        for layout in ('straight', 'advanced'):
-            files.append(['-%s.graphml' % layout, 'GraphML' + ' (%s)' % layout,
-                          *run(lambda: to_graphml(celldesigner.read(p, layout)))])
-        for layout in ('straight', 'advanced'):
-            def sbgn():
-                with contextlib.redirect_stdout(io.StringIO()):  # what CellDesigner gives that does not convert: said once, above
-                    m = celldesigner.read(p, layout)
-                return sbgnml.write(celldesigner.straight(m) if layout == 'straight' else m, layout)
-            files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ' (%s)' % layout, *run(sbgn)])
-    else:  # SBGN-ML, or Newt's own file
-        files.append(['.graphml', 'GraphML', *run(lambda: to_graphml(sbgnml.read(p)))])
-        for layout in ('straight', 'advanced'):
-            def cd():
-                with contextlib.redirect_stdout(io.StringIO()):  # the glyphs left out: said once, above
-                    m = sbgnml.read(p)
-                return celldesigner.write(m, annotation.from_graphml(m), layout)
-            files.append(['-%s.xml' % layout, 'CellDesigner' + ' (%s)' % layout, *run(cd)])
+    for o in routes.outputs(p, standard, not keep):
+        text, said = routes.made(o)
+        if o.ending == '-corrected.graphml' and text is None and not said:
+            continue  # only for a map drawn with other shapes than the SBGN palette
+        if o.red:
+            found = [m for k, m in said if k == 'problem']
+            log = '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's') + '\\n'.join(found)
+        else:
+            log = ''.join(m + '\\n' for k, m in said if k != 'summary')
+        files.append([o.ending, o.label, text, log, o.red])
     return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
@@ -143,11 +103,8 @@ def convert(name, data, standard=False):
     const p = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/' });
     await p.loadPackage('lxml');
     p.FS.mkdirTree('/home/pyodide/mapconv');
-    for (const m of MODULES) {
-      const r = await fetch(BASE + m + '.py');
-      p.FS.writeFile('/home/pyodide/mapconv/' + m + '.py', await r.text());
-    }
-    p.FS.writeFile('/home/pyodide/mapconv/yed.graphml', await (await fetch(BASE + 'yed.graphml')).text());
+    for (const f of MODULES.map(m => m + '.py').concat(DATA))
+      p.FS.writeFile('/home/pyodide/mapconv/' + f, await (await fetch(BASE + f)).text());
     p.runPython(DRIVER);
     return p;
   }
@@ -180,12 +137,12 @@ def convert(name, data, standard=False):
       if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner or SBGN-ML file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
-      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked)
-                  .toJs();
+      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked,
+                                          document.getElementById('cv-keep').checked).toJs();
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
-      // the converter's messages, each once and without its summary line ("46 species, ...")
+      // the converter's messages, each once
       const notes = new Set(), errors = new Set();
       const problems = [];
       for (const [end, label, xml, log, red] of r) {
@@ -196,7 +153,7 @@ def convert(name, data, standard=False):
           box.append(b);
         }
         if (red) { problems.push(log); continue; }
-        for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
+        for (const l of log.split('\n').filter(l => l.trim())) (xml ? notes : errors).add(l.trim());
       }
       for (const [set, cls] of [[new Set(problems), 'cv-log cv-error'], [errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
         if (!set.size) continue;

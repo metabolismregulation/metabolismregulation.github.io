@@ -1,5 +1,7 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
 # from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
+# Where lines, squares and points go, and the tidy moves: cd_layout.py (the CellDesigner adapter);
+# this module writes them.
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -17,13 +19,13 @@
 #   the square midway (CellDesigner's default); the other reactants and
 #   products are added links. Where two processes join the same two species
 #   (HMGCR <-> HMGCR-P), each line uses the quarter points on the facing sides.
-# - Bend points only for long connectors that yEd draws as one L (cd_bends.py);
+# - Bend points only for long connectors that yEd draws as one L (layout.py);
 #   others the user adds by hand. Lines end at node centres. Main lines a few px off the vertical or
 #   horizontal are straightened (cd_straighten.py); modifiers up to 15 px off
 #   their square are moved onto it, if nothing overlaps after the move.
 # - MIRIAM annotation from the map's node properties (annotation.py):
 #   bqbiol:is for one entity, bqbiol:hasVersion for a family.
-# - Metabolites become circles of CHEMICAL diameter on the yEd centre.
+# - Metabolites become circles of cd_layout.CHEMICAL diameter on the yEd centre.
 # - Complexes: complexSpeciesAlias; members are included species (aliases
 #   with complexSpeciesAlias, RDF in their notes). An unlabelled complex is
 #   named after its members (A:B).
@@ -42,20 +44,13 @@ import math, os, re, sys
 from dataclasses import replace
 from struct import pack, unpack
 from lxml import etree
-from . import cd_straighten, cd_bends, style
+from . import cd_layout, report
+from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
+from .layout import unbent
 from .annotation import to_properties
 from .graphml import EQUIV, without_delays
 from .model import Map, Node, Arc
 
-MARGIN = 40
-STRAIGHTEN = os.environ.get('STRAIGHTEN', '1') == '1'  # STRAIGHTEN=0: positions as in yEd
-NAME_ROOM = 14.0  # below the members' outline in a complex, for its name (as the yEd packing rule)
-ALIGN = 15.0  # largest move of a modifier onto its square (px)
-# the points of the process square a modifier can end at (targetLineIndex -1,i): (along the flow,
-# to its right) in half square sizes (MINERVA's getAnchorPointOnReactionRect; the user's PDH edit
-# has 6 and 7)
-SQUARE = {2: (0, -1), 3: (0, 1), 4: (-1, -1), 5: (1, -1), 6: (-1, 1), 7: (1, 1)}
-CHEMICAL = 36.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
 CD = 'http://www.sbml.org/2001/ns/celldesigner'
 CLASS = {'Macromolecule': 'PROTEIN', 'SimpleChemical': 'SIMPLE_MOLECULE', 'NucleicAcidFeature': 'GENE',
          'UnspecifiedEntity': 'UNKNOWN', 'Complex': 'COMPLEX', 'Phenotype': 'PHENOTYPE',
@@ -134,52 +129,19 @@ def border_angle(rx, ry):
     return a % (2 * math.pi)
 
 
-# CellDesigner's anchor points on a node box (Startup Guide, Appendix 2.3; cd2sbgnml): the
-# quarter points (written for two processes on the same two species), the sides' middles and
-# the corners
-QUARTER = {'NNE': (.75, 0), 'ENE': (1, .25), 'ESE': (1, .75), 'SSE': (.75, 1),
-           'SSW': (.25, 1), 'WSW': (0, .75), 'WNW': (0, .25), 'NNW': (.25, 0)}
-ANCHOR = dict(QUARTER, N=(.5, 0), NE=(1, 0), E=(1, .5), SE=(1, 1), S=(.5, 1), SW=(0, 1), W=(0, .5), NW=(0, 0))
-# on an ellipse the points sit at 22.5 degree steps (checked through MINERVA; cd2sbgnml)
-ANGLE = {k: 22.5 * i for i, k in enumerate(['E', 'ENE', 'NE', 'NNE', 'N', 'NNW', 'NW', 'WNW',
-                                            'W', 'WSW', 'SW', 'SSW', 'S', 'SSE', 'SE', 'ESE'])}
-
-
-def anchor_point(box, side, circle=False):
-    x, y, w, h = box
-    if not side:  # no anchor: the centre
-        return (x + w / 2, y + h / 2)
-    if circle:
-        a = math.radians(ANGLE[side])
-        return (x + w / 2 * (1 + math.cos(a)), y + h / 2 * (1 - math.sin(a)))
-    fx, fy = ANCHOR[side]
-    return (x + fx * w, y + fy * h)
-
-
-def square_point(sq, f, a, c, r=5):
-    # a point of the process square at sq (half size r), flow f: a along the flow, c to its right
-    return (sq[0] + r * (a * f[0] - c * f[1]), sq[1] + r * (a * f[1] + c * f[0]))
-
-
-def meet(M, T, way=None):
-    # the anchor where a line from a metabolite circle at M towards T leaves it, its name across
-    # the middle: the top or bottom, or the lower quarter of a side (way 'h' or 'v': its first leg)
-    dx, dy = (T[0] - M[0]) * (way != 'v'), (T[1] - M[1]) * (way != 'h')
-    if abs(dy) >= abs(dx):
-        return 'N' if dy < 0 else 'S'
-    return 'ESE' if dx > 0 else 'WSW'
-
-
-def write(diagram, ann, layout='straight'):
+def write(diagram, ann, layout='straight', move=True):
     # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
     # layout 'straight' (straight lines, as yEd calls them): the necessary minimum, simple and reliable, improved by hand in CellDesigner
     # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
-    # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16)
+    # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16).
+    # move: the tidy moves (main lines straightened, an end onto a larger node's centre line, a
+    # modifier onto its square), on unless the user forbids moving nodes (user, 2026-10-19); what
+    # CellDesigner itself needs (circles, multimers, the complex name's room) is done either way
     advanced = layout == 'advanced'
     diagram = without_delays(diagram, 'CellDesigner')
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
     if eq:  # CellDesigner has no equivalence operator
-        print('equivalence operator: no CellDesigner form, left out (%s), its entities kept' % ', '.join(eq))
+        report.say('left out', 'equivalence operator: no CellDesigner form, left out (%s), its entities kept' % ', '.join(eq))
         diagram = replace(diagram, nodes={i: d for i, d in diagram.nodes.items() if i not in eq},
                           arcs=[a for a in diagram.arcs if a.source not in eq and a.target not in eq])
     N, E = diagram.nodes, diagram.arcs
@@ -193,23 +155,8 @@ def write(diagram, ann, layout='straight'):
         return q
     other = set(N) - set(ents) - set(procs) - set(comps) - {i for i, d in N.items() if d.kind == 'Operator'}
     if other:
-        print('not converted:', ', '.join(sorted('%s %s' % (i, N[i].kind) for i in other)))
-    x0 = min(d.box[0] for d in N.values()) - MARGIN
-    y0 = min(d.box[1] for d in N.values()) - MARGIN
-    box = {i: (d.box[0] - x0, d.box[1] - y0, d.box[2], d.box[3]) for i, d in N.items()}
-    W = max(b[0] + b[2] for b in box.values()) + MARGIN
-    H = max(b[1] + b[3] for b in box.values()) + MARGIN
-    # metabolites: circles, centre kept (the map size above keeps room for their labels)
-    for i, d in N.items():
-        if d.kind == 'SimpleChemical':
-            x, y, w, h = box[i]
-            box[i] = (x + w / 2 - CHEMICAL / 2, y + h / 2 - CHEMICAL / 2, CHEMICAL, CHEMICAL)
-    # multimers of more than 2: the box grows 6 per extra unit, top left kept (yEd draws N:2's size)
+        report.say('left out', 'not converted: ' + ', '.join(sorted('%s %s' % (i, N[i].kind) for i in other)))
     mult = {i: d.count for i, d in N.items() if d.kind in CLASS}
-    for i, n in mult.items():
-        if n > 2:
-            x, y, w, h = box[i]
-            box[i] = (x, y, w + 6 * (n - 2), h + 6 * (n - 2))
     label = {i: ' '.join(d.labels[0].split()) if d.labels else '' for i, d in ents.items()}
     # yEd ids of nested nodes (n3::n0) are no SBML ids: n3_n0 (a double underscore makes
     # MINERVA cut the id: re_n1__n28 and re_n1__n31 both became re_n1)
@@ -225,320 +172,10 @@ def write(diagram, ann, layout='straight'):
         return label[c]
     for c in members:
         name_complex(c)
-    # CellDesigner writes a complex's name at the bottom inside it: its members move up to leave
-    # NAME_ROOM below their outline (a state variable on the bottom edge 8.5 px below the node,
-    # yEd's second shape of a multimer 6 px), as far as the space above allows, and the complex
-    # grows down for the rest; a GraphML packed by the skill's complex_pack.py has the room and
-    # keeps its geometry (user, 2026-10-18; first 25 px from the node, pyrimidine edits 2026-10-16);
-    # inner complexes first
-    def low(j):
-        x, y, w, h = box[j]
-        n = N[j].count if N[j].kind in CLASS else 1
-        return y + h + max([0.0] + [8.5 for s in N[j].states if s[2] > 0.45] + [6.0 * (3 - n)] * (n > 1))
-    for c in sorted(members, key=lambda c: len(cd_straighten.descendants(c, members))):
-        inner = cd_straighten.descendants(c, members)
-        x, y, w, h = box[c]
-        need = max(low(j) for j in inner) + NAME_ROOM - (y + h)
-        if need > 0:
-            up = min(need, max(0.0, min(box[j][1] for j in inner) - y - 8))
-            for j in inner:
-                box[j] = (box[j][0], box[j][1] - up) + box[j][2:]
-            box[c] = (x, y, w, h + need - up)
-
-    ops = {i for i, d in N.items() if d.kind == 'Operator'}
-    cen = lambda i: (box[i][0] + box[i][2] / 2, box[i][1] + box[i][3] / 2)
-    # what each process turns into what: consumed -> produced entities (a process with production
-    # arcs only, reversible: among those, both ways)
-    steps = {}
-    for q in procs:
-        cons = {e.source for e in E if e.target == q and e.source in ents and e.head is None} | \
-            {e.target for e in E if e.source == q and e.target in ents and e.head is None and not e.tail}
-        prod = {e.target for e in E if e.source == q and e.target in ents and e.head == 'production'}
-        steps[q] = (cons or prod, prod)
-    def flows(p, quiet=False):
-        # a process's arcs, the main reactant and product first
-        # consumption arcs: no arrowhead, drawn either way in yEd (entity -> process or
-        # process -> entity); turned to entity -> process
-        ins = [e for e in E if e.target == p and e.source in ents and e.head is None]
-        ins += [replace(e, source=e.target, target=p, points=e.points[::-1], source_at=e.target_at, target_at=e.source_at) for e in E
-                if e.source == p and e.target in ents and e.head is None and not e.tail]
-        outs = [e for e in E if e.source == p and e.target in ents and e.head is not None]
-        mods = [e for e in E if e.target == p and e.source in ents and e.head in MOD]
-        gates = [e for e in E if e.target == p and e.source in ops and e.head in MOD]
-        # reversible (SBGN: production arcs on both sides): the arcs on the upper (or left) side
-        # are the reactants; an arc's side is that of its first bend, else of its entity
-        reversible = not ins and len(outs) >= 2
-        c = cen(p)
-        if reversible:
-            at = lambda e: (e.points[0][0] - x0, e.points[0][1] - y0) if e.points else cen(e.target)
-            # the axis the arcs spread along most, all together (a straight side arc must not decide it)
-            ax = 1 if sum(abs(at(e)[1] - c[1]) for e in outs) >= sum(abs(at(e)[0] - c[0]) for e in outs) else 0
-            ins = [replace(e, source=e.target, target=p, points=e.points[::-1], source_at=e.target_at, target_at=e.source_at) for e in outs if at(e)[ax] < c[ax]]
-            outs = [e for e in outs if at(e)[ax] >= c[ax]]
-        if not ins or not outs:
-            if not quiet: print('process %s: no reactant or product, skipped' % p)
-            return None
-        # the main direction: the reactant and product that face each other through the
-        # process, centre to centre; the others are extra links (CellDesigner: first one
-        # source and one target, then more substrates and products; user, eNOS 2026-10-13)
-        def through(a, b):
-            (ax, ay), (bx, by) = cen(a), cen(b)
-            L2 = (bx - ax) ** 2 + (by - ay) ** 2 or 1
-            t_ = ((c[0] - ax) * (bx - ax) + (c[1] - ay) * (by - ay)) / L2
-            d = abs((bx - ax) * (c[1] - ay) - (by - ay) * (c[0] - ax)) / math.sqrt(L2)
-            return d + (0 if 0 < t_ < 1 else 1e6)  # the process between them
-        # small molecules are side substrates: a main line between larger species first
-        # (complex to complex; user, eNOS BH4/BH2 exchange 2026-10-13)
-        small = lambda i: 1 if N[i].kind in ('SimpleChemical', 'EmptySet') else 0
-        # then a pair drawn straight through the process (3 px), then a pair on a cycle: the product
-        # leads back to the reactant through other processes (user's iNOS v07: arginine,
-        # citrulline, argininosuccinate, not O2, NO, fumarate, aspartate)
-        def cycle(a, b):
-            seen, todo = {b}, [b]
-            for i in todo:
-                for q, (cons, prod) in steps.items():
-                    if q != p and i in cons:
-                        todo += [j for j in prod if j not in seen]
-                        seen |= prod
-            return a not in seen
-        # never a pair whose square (midway) would sit on another node
-        def covered(a, b):
-            mx, my = ((cen(a)[0] + cen(b)[0]) / 2, (cen(a)[1] + cen(b)[1]) / 2)
-            return any(box[j][0] < mx < box[j][0] + box[j][2] and box[j][1] < my < box[j][1] + box[j][3]
-                       for j in ents if j not in (a, b))
-        bi, bo = min(((a, b) for a in range(len(ins)) for b in range(len(outs))),
-                     key=lambda ab: (small(ins[ab[0]].source) + small(outs[ab[1]].target),
-                                     covered(ins[ab[0]].source, outs[ab[1]].target),
-                                     through(ins[ab[0]].source, outs[ab[1]].target) > 3,
-                                     cycle(ins[ab[0]].source, outs[ab[1]].target),
-                                     through(ins[ab[0]].source, outs[ab[1]].target), ab))
-        ins = [ins[bi]] + ins[:bi] + ins[bi + 1:]; outs = [outs[bo]] + outs[:bo] + outs[bo + 1:]
-        return ins, outs, mods, gates, reversible, c
-
-    # straighten main lines a few pixels off the vertical or horizontal (cd_straighten.py)
-    if STRAIGHTEN:
-        fl = [flows(p, quiet=True) for p in procs]
-        cd_straighten.straighten(box, [(f[0][0].source, f[1][0].target) for f in fl if f], members)
-    # anchor points sit on the front shape of a multimer: CellDesigner draws it 6 smaller in
-    # width and height (the user's glycolysis file: PFKFB2 dimer)
-    front = {}
-    for i, d in ents.items():
-        k = 6 * (mult[i] - 1) if d.kind != 'SimpleChemical' else 0
-        front[i] = (box[i][0], box[i][1], box[i][2] - k, box[i][3] - k)
-
-    # the species each process joins by consumption and production arcs (twins: two processes, same species)
-    joins = {p: frozenset(e.target if e.source == p else e.source for e in E if p in (e.source, e.target) and e.head not in MOD
-                          and (e.source in ents or e.target in ents)) for p in procs}
-    yed = lambda pts: [(q[0] - x0, q[1] - y0) for q in pts]  # yEd points in the map's frame here
-
-    # yEd route points of an arc at process p, without the process ports (one process width from its centre)
-    def route(p, pts):
-        return [q for q in yed(pts) if math.dist(q, cen(p)) > max(box[p][2], box[p][3]) + 3]
-
-    def off_line(i, a, T):  # anchor a of entity i moves its line to T by more than 2 px
-        A, C = anchor_point(box[i], a, N[i].kind == 'SimpleChemical'), cen(i)
-        return abs((T[0] - C[0]) * (A[1] - C[1]) - (T[1] - C[1]) * (A[0] - C[0])) / (math.dist(C, T) or 1) > 2
-
-    def nearest(i, at):
-        # the anchor nearest to where an arc meets entity i (scaled to its box here), if nearer than
-        # its centre; on a metabolite circle not E or W, where the name is: ESE, WSW
-        u, v = at[0] * box[i][2] / N[i].box[2], at[1] * box[i][3] / N[i].box[3]
-        pt = lambda a: anchor_point(box[i], a, N[i].kind == 'SimpleChemical')
-        a = min(ANCHOR, key=lambda a: math.dist(pt(a), (cen(i)[0] + u, cen(i)[1] + v)))
-        if math.dist(pt(a), (cen(i)[0] + u, cen(i)[1] + v)) >= math.hypot(u, v):
-            return None
-        return {'E': 'ESE', 'W': 'WSW'}.get(a, a) if N[i].kind == 'SimpleChemical' else a
-
-    def level(e, c):
-        # a modifier arc that reaches the process at c straight across in yEd (5 px), in line with
-        # its port or its centre (PD02 eicosanoids: an arc from above the process to a corner)
-        q = yed(e.points)[-1] if e.points else \
-            (cen(e.source)[0] + e.source_at[0], cen(e.source)[1] + e.source_at[1])
-        return any(min(abs(q[0] - c[0] - t[0]), abs(q[1] - c[1] - t[1])) <= 5 for t in (e.target_at, (0, 0)))
-
-    def geometry(p, fl, place=True):
-        # the main line of process p: its ends, anchors, bend, the square and the flow direction;
-        # place: the square where yEd has it, where a modifier needs it (else midway)
-        ins, outs, mods, gates, reversible, c = fl
-        r_, q_ = ins[0].source, outs[0].target
-        ra = qa = None  # line ends at the centres
-        # advanced: the significant bends of the yEd route (a Z, a detour round other nodes; PD02
-        # eicosanoids, 2026-10-16)
-        rb = cd_bends.bends([cen(r_)] + route(p, ins[0].points) + [c]) if advanced else []
-        qb = cd_bends.bends([c] + route(p, outs[0].points) + [cen(q_)]) if advanced else []
-        if not rb + qb and any(q != p and joins[q] == joins[p] for q in procs):
-            # two processes on the same two species, drawn straight (user's edit of mevalonate,
-            # HMGCR): each a straight line between quarter points on the facing sides, on the side
-            # of the line between the centres where yEd has the process (upper/lower, left/right)
-            (rx_, ry_), (qx_, qy_) = cen(r_), cen(q_)
-            side = (qx_ - rx_) * (c[1] - ry_) - (qy_ - ry_) * (c[0] - rx_)  # >0: process right of r->q
-            if abs(qx_ - rx_) >= abs(qy_ - ry_):  # side by side: E/W faces, upper or lower quarter
-                v = 'N' if (side < 0) == (qx_ > rx_) else 'S'
-                fr, fq = ('E', 'W') if qx_ > rx_ else ('W', 'E')
-                ra, qa = fr + v + fr, fq + v + fq
-            else:  # stacked: N/S faces, left or right quarter
-                v = 'W' if (side > 0) == (qy_ > ry_) else 'E'
-                fr, fq = ('S', 'N') if qy_ > ry_ else ('N', 'S')
-                ra, qa = fr + fr + v, fq + fq + v
-        twin = bool(ra)
-        # a significant bend on the main line: one long L on the reactant arc or on the product arc
-        # (with the bend at the process's port: it says from which side the line comes in;
-        # user's iNOS v08 edit, ASL and ASS1 as L shapes)
-        wr = cd_bends.turn([cen(r_)] + yed(ins[0].points) + [c])
-        wq = cd_bends.turn([cen(q_)] + yed(outs[0].points)[::-1] + [c])
-        if advanced and not twin:
-            # a line meets an entity where the yEd arc meets its border (a CellDesigner anchor read
-            # back); else a metabolite circle where its name is not: N, S, ESE or WSW, by the way
-            # it leaves (the L's first leg, else towards the process; user's PD02 eicosanoids)
-            other = {'h': 'v', 'v': 'h'}
-            ra = nearest(r_, ins[0].source_at) or (meet(cen(r_), c, wr or (other[wq] if wq else None)) if N[r_].kind == 'SimpleChemical' else None)
-            qa = nearest(q_, outs[0].target_at) or (meet(cen(q_), c, wq or (other[wr] if wr else None)) if N[q_].kind == 'SimpleChemical' else None)
-            # only where they change the line (user's edit of pyrimidine v06: side middles on the
-            # line's own axis removed)
-            ra = ra if ra and off_line(r_, ra, (rb + [c])[0]) else None
-            qa = qa if qa and off_line(q_, qa, (qb[::-1] + [c])[0]) else None
-        A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical')
-        B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical')
-        # edit points: one long L (both layouts); in the advanced layout else the route's bends
-        pts, k, corner = rb + qb, len(rb), False
-        bend = (cd_bends.corner(A, B, wr) if wr else cd_bends.corner(B, A, wq)) if bool(wr) != bool(wq) and not twin else None
-        if bend and (not pts or len(pts) == 1 and math.dist(bend, pts[0]) < cd_bends.EPS):  # else a slanting leg (PD02)
-            corner = min(math.hypot(bend[0] - P[0], bend[1] - P[1]) for P in (A, B)) >= cd_bends.EPS
-            pts, k = ([bend], 1 if wr else 0) if corner else ([], 0)  # else the ends are already in line
-        # the square (CellDesigner: midway on segment k; after the corner when yEd has the
-        # process on the arc that bends from the reactant) and the flow direction through it
-        run = [A] + pts + [B]
-        P, Q = run[k], run[k + 1]
-        sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
-        L = math.hypot(Q[0] - P[0], Q[1] - P[1])
-        f = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
-        ep = [cd_bends.to_frame(A, B, q) for q in pts]
-        off = lambda m: min(abs(cen(m)[0] - sq[0]), abs(cen(m)[1] - sq[1]))  # a modifier off its square
-        if advanced and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods + gates):
-            # a modifier (or logic gate) straight across in yEd that could not be moved onto the midway square
-            # (more than ALIGN px, or other squares it reaches): the square where yEd has the
-            # process, if that is on its segment. Two edit points half way to the nearer end on
-            # either side, so the arcs keep their antennas (user's pyrimidine v07 edit, CAD)
-            u = ((c[0] - P[0]) * f[0] + (c[1] - P[1]) * f[1]) / L
-            across = abs((c[0] - P[0]) * f[1] - (c[1] - P[1]) * f[0])
-            if across < 3 and abs(u - 0.5) * L > 3 and 0.1 < u < 0.9:
-                sq = (P[0] + u * L * f[0], P[1] + u * L * f[1])
-                h = min(u, 1 - u) / 2
-                split = [(u - h, 0.0), (u + h, 0.0)] if not pts else \
-                    [cd_bends.to_frame(A, B, (sq[0] + d * f[0], sq[1] + d * f[1])) for d in (-h * L, h * L)]
-                ep, k = ep[:k] + split + ep[k:], k + 1
-        return dict(r=r_, q=q_, ra=ra, qa=qa, A=A, B=B, ep=ep, k=k, sq=sq, f=f)
-
-    def side(g, pt):  # the side of the square facing a point: 2 left of the flow, 3 right
-        f, sq = g['f'], g['sq']
-        return 2 if f[0] * (pt[1] - sq[1]) - f[1] * (pt[0] - sq[0]) < 0 else 3
-
-    def lane(m, M, T, e):
-        # advanced layout: the edit points of a modifier arc from M to T as yEd draws it, or
-        # None for a straight arc from the centre
-        pts = yed(e.points)
-        if not pts:
-            if cd_bends.off((M[0] + e.source_at[0], M[1] + e.source_at[1]), M, T) <= 2:
-                return None  # the yEd arc runs as from the centre
-            # an off-centre start at the square's height: straight across, from just outside the node
-            x, y, w, h = box[m]
-            return cd_bends.unbent([M, (x + w + 1 if T[0] > M[0] else x - 1, T[1]), T])[1:-1] \
-                if abs(M[1] + e.source_at[1] - T[1]) <= 5 else None
-        # the yEd bends, each segment made horizontal or vertical, the last one ending on the square
-        chain = [M] + pts
-        for i in range(1, len(chain)):
-            a, b = chain[i - 1], chain[i]
-            chain[i] = (b[0], a[1]) if abs(b[1] - a[1]) < abs(b[0] - a[0]) else (a[0], b[1])
-        last = chain[-1]
-        chain[-1] = (last[0], T[1]) if abs(T[1] - last[1]) < abs(T[0] - last[0]) else (T[0], last[1])
-        if len(chain) > 2:  # the point before keeps its segment straight
-            a, b = chain[-2], chain[-1]
-            if abs(a[0] - chain[-3][0]) < 0.5 and abs(a[1] - b[1]) < abs(a[0] - b[0]):
-                chain[-2] = (a[0], b[1])
-        return cd_bends.unbent(chain + [T])[1:-1]
-
-    def crosses(a, b, r):  # the segment a-b runs through the box r (Liang-Barsky)
-        t0, t1 = 0.0, 1.0
-        for p_, q_ in ((a[0] - b[0], a[0] - r[0]), (b[0] - a[0], r[0] + r[2] - a[0]),
-                       (a[1] - b[1], a[1] - r[1]), (b[1] - a[1], r[1] + r[3] - a[1])):
-            if p_ == 0:
-                if q_ < 0: return False
-            elif p_ < 0: t0 = max(t0, q_ / p_)
-            else: t1 = min(t1, q_ / p_)
-        return t0 < t1
-
-    def target(g, e, pt, many):
-        # the point of the square an arc from pt ends at: the side facing pt; in the advanced layout,
-        # where several arcs regulate the process and yEd ends this one off its centre, the point
-        # nearest that yEd port, so the arcs stay apart (user, PDH 2026-10-17)
-        o, h, f = e.target_at, N[e.target].box[2] / 2, g['f']
-        if advanced and many and math.hypot(*o) > 2:
-            a, c = (o[0] * f[0] + o[1] * f[1]) / h, (o[1] * f[0] - o[0] * f[1]) / h
-            if abs(c) > 0.5:
-                return min(SQUARE, key=lambda i: math.dist(SQUARE[i], (a, c)))
-        return side(g, pt)
-
-    def attach(g, i):  # the square's point i (targetLineIndex -1,i)
-        return square_point(g['sq'], g['f'], *SQUARE[i])
-
-    def overlap(a, b):
-        return a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3]
-
-    def shift(m, ax, d, ends):
-        # move entity m by d along axis ax, with the entities joined to it by main lines straight
-        # on that axis (and their complex members), if all stay in their compartments and overlap
-        # nothing (user's pyrimidine v08 edit: ERK1/2 and its phosphorylation moved together)
-        group = [m]
-        for j in group:
-            group += [b if a == j else a for a, b in ends if j in (a, b) and abs(cen(a)[ax] - cen(b)[ax]) < 1
-                      and (b if a == j else a) not in group]
-        moved = group + [i for j in group for i in cd_straighten.descendants(j, members)]
-        new = {j: tuple(v + (d if k == ax else 0) for k, v in enumerate(box[j])) for j in moved}
-        inside = lambda j, cm: box[cm][0] <= new[j][0] and new[j][0] + new[j][2] <= box[cm][0] + box[cm][2] \
-            and box[cm][1] <= new[j][1] and new[j][1] + new[j][3] <= box[cm][1] + box[cm][3]
-        if any(comp_of(j) and not inside(j, comp_of(j)) for j in group):
-            return
-        if any(overlap(new[g_], box[j]) for g_ in group for j in ents if j not in moved and N[j].parent not in moved
-               and g_ not in cd_straighten.descendants(j, members)):
-            return
-        box.update(new)
-        for j in moved:
-            front[j] = (box[j][0], box[j][1]) + front[j][2:]
-
-    # a main line yEd draws level into a larger node off its centre (an end point beside the
-    # centre): CellDesigner aims at the centre, so the other end moves onto its centre line
-    # (user's iNOS v07 and v08 edits: CaM moved 25 px for CaM -> CaM:iNOS)
-    fls = {p: fl for p, fl in ((p, flows(p, quiet=True)) for p in procs) if fl}
-    ends = [(fl[0][0].source, fl[1][0].target) for fl in fls.values()]
-    for p, (ins, outs, mods, gates, reversible, c) in fls.items():
-        r_, q_ = ins[0].source, outs[0].target
-        pts = [(cen(r_)[0] + ins[0].source_at[0], cen(r_)[1] + ins[0].source_at[1])] + \
-            yed(ins[0].points + outs[0].points) + [c] + \
-            [(cen(q_)[0] + outs[0].target_at[0], cen(q_)[1] + outs[0].target_at[1])]
-        for ax in (0, 1):
-            if max(q[ax] for q in pts) - min(q[ax] for q in pts) < 1 and abs(cen(r_)[ax] - cen(q_)[ax]) > 0.5:
-                if abs(ins[0].source_at[ax]) < 0.5 <= abs(outs[0].target_at[ax]):
-                    shift(r_, ax, cen(q_)[ax] - cen(r_)[ax], ends)
-                elif abs(outs[0].target_at[ax]) < 0.5 <= abs(ins[0].source_at[ax]):
-                    shift(q_, ax, cen(r_)[ax] - cen(q_)[ax], ends)
-
-    # modifiers onto their (midway) square: a small move so the arc meets the square straight
-    # (the user's edits of the full set: 23 such moves). Only a move of at most ALIGN px along
-    # one axis, the same for every reaction the modifier acts on (shift above)
-    geo = {p: geometry(p, fl, False) for p, fl in fls.items()}
-    want = {}
-    for p, g in geo.items():
-        for e in fls[p][2]:
-            m = e.source
-            if N[m].parent in ents or cd_bends.turn([cen(m)] + route(p, e.points) + [cen(p)]):
-                continue  # complex members move with their complex; an L arc is straight already
-            M = cen(m)
-            T = attach(g, target(g, e, M, len(fls[p][2]) + len(fls[p][3]) > 1))
-            ax = 0 if abs(M[0] - T[0]) < abs(M[1] - T[1]) else 1  # the axis with the small offset
-            want.setdefault((m, ax), []).append(T[ax] - M[ax])
-    for (m, ax), ds in sorted(want.items()):
-        if 0.5 < abs(ds[0]) <= ALIGN and max(ds) - min(ds) <= 1:
-            shift(m, ax, ds[0], ends)
+    # where every line, square and point goes, the tidy moves included (cd_layout.py)
+    drawing = cd_layout.draw(diagram, ents, members, label, advanced, move)
+    box, cen = drawing.box, drawing.cen
+    W, H = drawing.size
 
     # proteins: one per label, residues from the state variables of all its nodes
     sv = {i: [(txt, border_angle(rx, ry)) for txt, rx, ry in d.states] for i, d in ents.items() if d.kind in ('Macromolecule', 'Complex')}
@@ -554,7 +191,7 @@ def write(diagram, ann, layout='straight'):
             struct[i] = ('/'.join(dict.fromkeys(name(txt) for txt, _ in st)), max(st, key=lambda q: cnt(q[0]))[1])
         sv[i] = [(txt, ang) for txt, ang in sv[i] if not is_structural(txt)]
         if ents[i].kind == 'Complex' and sv[i]:
-            print('complex %s: state variables not converted' % i); sv[i] = []
+            report.say('left out', 'complex %s: state variables not converted' % i); sv[i] = []
     # a protein marked only by free text (Su, Glut: not in CellDesigner's menu) gets no empty
     # residues: the free-text state where it is marked, nothing where unmodified (user, 2026-10-16)
     free = {label[i] for i in struct} - {label[i] for i in sv if any(txt for txt, _ in sv[i])}
@@ -583,7 +220,7 @@ def write(diagram, ann, layout='straight'):
                 # the top middle stays free for MINERVA's N:x; state variables on the sides
                 # (lower half) or at the corners (user's rule, 2026-10-13)
                 if mult[i] > 1 and abs(ang - math.pi / 2) < math.pi / 8:
-                    print('%s: state variable %r at the top middle, where N:%d goes' % (label[i], txt, mult[i]))
+                    report.say('warning', '%s: state variable %r at the top middle, where N:%d goes' % (label[i], txt, mult[i]))
                 sites.append(hit)
             sv[i][k] = (txt, hit['id'])
 
@@ -614,15 +251,28 @@ def write(diagram, ann, layout='straight'):
         fc = (d.fill or '#FFFFFF').lstrip('#'); al = int(fc[6:8], 16) / 255 if len(fc) == 8 else 1
         rgb = ''.join('%02x' % round(255 - al * (255 - int(fc[k:k + 2], 16))) for k in (0, 2, 4))
         sub(a, 'paint', color='ff' + rgb, scheme='Color'); sub(a, 'info', state='empty', angle='-1.5707963267948966')
+    # one species per entity, each glyph an alias of it, as CellDesigner saves a molecule drawn
+    # twice (the user's pyrimidine: ATP is species s11 with aliases n3 and n12; user, 2026-10-19);
+    # a member's species belongs to its complex's species; a source or sink stays on its own (SBGN
+    # does not clone the empty set)
+    rep, first = {}, {}
+    def rep_of(i):
+        if i not in rep:
+            d = ents[i]
+            k = i if cls[i] == 'DEGRADED' else (rep_of(d.parent) if d.parent in ents else None, diagram.biology.glyph[i])
+            rep[i] = first.setdefault(k, i)
+        return rep[i]
+    for i in ents: rep_of(i)
+    spec = lambda i: 's_' + sid(rep[i])
     lca = sub(ext, 'listOfComplexSpeciesAliases')
     las = sub(ext, 'listOfSpeciesAliases')
     for i, d in ents.items():
         x, y, w, h = box[i]
         cx = d.parent if d.parent in ents else None
         if d.kind == 'Complex':
-            a = sub(lca, 'complexSpeciesAlias', id='sa_' + sid(i), species='s_' + sid(i))
+            a = sub(lca, 'complexSpeciesAlias', id='sa_' + sid(i), species=spec(i))
         else:
-            a = sub(las, 'speciesAlias', id='sa_' + sid(i), species='s_' + sid(i))
+            a = sub(las, 'speciesAlias', id='sa_' + sid(i), species=spec(i))
         if cx: a.set('complexSpeciesAlias', 'sa_' + sid(cx))  # members carry no compartment (CellDesigner's files)
         elif comp_of(i): a.set('compartmentAlias', 'ca_' + sid(comp_of(i)))
         sub(a, 'activity', 'inactive'); sub(a, 'bounds', x=x, y=y, w=w, h=h)
@@ -731,62 +381,65 @@ def write(diagram, ann, layout='straight'):
             sub(si, 'name', name_of(i))
 
     # a source/sink is named after its id, as CellDesigner names a new degraded species (s48)
-    name_of = lambda i: 's_' + sid(i) if cls[i] == 'DEGRADED' else cd_name(label[i])
+    name_of = lambda i: spec(i) if cls[i] == 'DEGRADED' else cd_name(label[i])
     XH = 'http://www.w3.org/1999/xhtml'
     lsp = etree.SubElement(model, 'listOfSpecies')
     for i, d in ents.items():
+        if rep[i] != i:
+            continue
         if d.parent in ents:
             # a complex member: an included species, its MIRIAM RDF in the notes (CellDesigner's convention)
-            s = sub(inc, 'species', id='s_' + sid(i), name=cd_name(label[i]))
+            s = sub(inc, 'species', id=spec(i), name=cd_name(label[i]))
             h = etree.SubElement(sub(s, 'notes'), '{%s}html' % XH, nsmap={None: XH})
             etree.SubElement(etree.SubElement(h, '{%s}head' % XH), '{%s}title' % XH)
-            miriam(etree.SubElement(h, '{%s}body' % XH), 's_' + sid(i), label[i], abc=True)
-            x = sub(s, 'annotation'); sub(x, 'complexSpecies', 's_' + sid(d.parent))
+            miriam(etree.SubElement(h, '{%s}body' % XH), spec(i), label[i], abc=True)
+            x = sub(s, 'annotation'); sub(x, 'complexSpecies', spec(d.parent))
             identity(x, i)
             continue
-        s = etree.SubElement(lsp, 'species', metaid='s_' + sid(i), id='s_' + sid(i), name=name_of(i),
+        s = etree.SubElement(lsp, 'species', metaid=spec(i), id=spec(i), name=name_of(i),
                              compartment='c_' + sid(comp_of(i)) if comp_of(i) else 'default', initialAmount='0')
         an = etree.SubElement(s, 'annotation'); x = sub(an, 'extension')
         sub(x, 'positionToCompartment', 'inside')
         identity(x, i)
-        if i in catalysed:
+        cat = list(dict.fromkeys(r for j in ents if rep[j] == i for r in catalysed.get(j, ())))
+        if cat:
             lc = sub(x, 'listOfCatalyzedReactions')
-            for r in catalysed[i]: sub(lc, 'catalyzed', reaction=r)
-        miriam(an, 's_' + sid(i), label[i])
+            for r in cat: sub(lc, 'catalyzed', reaction=r)
+        miriam(an, spec(i), label[i])
 
     def typed(e, t):  # a dashed arc: CellDesigner's unknown type, or the type itself with a note
         if not e.dashed: return t
-        if t not in UNKNOWN: print('arc %s: dashed %s written solid (CellDesigner has no unknown form)' % (e.id, t))
+        if t not in UNKNOWN: report.say('changed', 'arc %s: dashed %s written solid (CellDesigner has no unknown form)' % (e.id, t))
         return UNKNOWN.get(t, t)
     lr = etree.SubElement(model, 'listOfReactions')
     n_ref = [0]
     def ref(parent, tag, i):
         n_ref[0] += 1
-        r = etree.SubElement(parent, tag, metaid='SR%d' % n_ref[0], species='s_' + sid(i))
+        r = etree.SubElement(parent, tag, metaid='SR%d' % n_ref[0], species=spec(i))
         sub(sub(etree.SubElement(r, 'annotation'), 'extension'), 'alias', 'sa_' + sid(i))
     def line(k, n=1, **a):  # connect scheme with n segments
         ld = sub(sub(k, 'connectScheme', connectPolicy='direct', **a), 'listOfLineDirection')
         for j in range(n): sub(ld, 'lineDirection', index=j, value='unknown')
-    for p in procs:
-        fl = flows(p)
-        if fl is None: continue
+    for p, fl in drawing.lines().items():
+        if fl is None:
+            report.say('left out', 'process %s: no reactant or product, skipped' % p); continue
         ins, outs, mods, gates, reversible, c = fl
-        g = geometry(p, fl)
+        g = drawing.geometry(p, fl)
         r_, q_, ra, qa, A, B, sq, f = (g[k] for k in ('r', 'q', 'ra', 'qa', 'A', 'B', 'sq', 'f'))
-        side_of = lambda pt: side(g, pt)
+        side_of = lambda pt: drawing.side(g, pt)
         rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(p), id='re_' + sid(p))
         if not reversible: rx.set('reversible', 'false')  # true is the SBML default; CellDesigner then leaves it out
         x = sub(etree.SubElement(rx, 'annotation'), 'extension')
         sub(x, 'reactionType', REACTION.get(N[p].kind, 'STATE_TRANSITION'))
-        br = sub(sub(x, 'baseReactants'), 'baseReactant', species='s_' + sid(r_), alias='sa_' + sid(r_)); ra and sub(br, 'linkAnchor', position=ra)
-        bp = sub(sub(x, 'baseProducts'), 'baseProduct', species='s_' + sid(q_), alias='sa_' + sid(q_)); qa and sub(bp, 'linkAnchor', position=qa)
+        br = sub(sub(x, 'baseReactants'), 'baseReactant', species=spec(r_), alias='sa_' + sid(r_)); ra and sub(br, 'linkAnchor', position=ra)
+        bp = sub(sub(x, 'baseProducts'), 'baseProduct', species=spec(q_), alias='sa_' + sid(q_)); qa and sub(bp, 'linkAnchor', position=qa)
         # added reactants and products: to the centre, no linkAnchor (as CellDesigner saves them)
         for lst, tag, attr, es, end, idx in (('listOfReactantLinks', 'reactantLink', 'reactant', ins[1:], 'source', '-1,0'),
                                              ('listOfProductLinks', 'productLink', 'product', outs[1:], 'target', '-1,1')):
             if es:
                 l = sub(x, lst)
                 for e in es:
-                    k = sub(l, tag, **{attr: 's_' + sid(getattr(e, end))}, alias='sa_' + sid(getattr(e, end)), targetLineIndex=idx)
+                    k = sub(l, tag, **{attr: spec(getattr(e, end))}, alias='sa_' + sid(getattr(e, end)), targetLineIndex=idx)
                     line(k); sub(k, 'line', width='1.0', color='ff000000', type='Straight')
         line(x, len(g['ep']) + 1, rectangleIndex=g['k'])
         if g['ep']:
@@ -795,45 +448,16 @@ def write(diagram, ann, layout='straight'):
         if mods or gates:
             lm = sub(x, 'listOfModification')
             for e in mods:
-                m = e.source; M = cen(m)
-                i = target(g, e, M, len(mods) + len(gates) > 1)
-                T = attach(g, i)  # the arc's end on the square (the user's glycolysis v01 bends)
-                # a slanting straight arc from the border of another entity: that anchor (as read
-                # back); one that runs across at the process's height takes a lane (below)
-                at = advanced and not e.points and N[m].kind != 'SimpleChemical' and nearest(m, e.source_at)
-                if at and off_line(m, at, T) and abs(M[1] + e.source_at[1] - cen(p)[1]) > 5:
-                    M = anchor_point(front[m], at)
-                else:
-                    at = None
-                pts = advanced and not at and lane(m, M, T, e)
-                if advanced and N[m].kind == 'SimpleChemical':
-                    # it leaves the circle where the name is not (meet), its first bend in line with that point
-                    at = meet(M, pts[0] if pts else T)
-                    M = anchor_point(box[m], at, True)
-                    if pts:
-                        q = pts[0]
-                        pts[0] = (q[0], M[1]) if at in ('ESE', 'WSW') else (M[0], q[1])
-                if pts:
-                    run = [M] + pts + [T]
-                    for j in ents:
-                        if j != m and N[j].parent not in ents and m not in cd_straighten.descendants(j, members) and \
-                                any(crosses(a, b, box[j]) for a, b in zip(run, run[1:])):
-                            print('%s: the arc from %s runs through %s' % (p, label[m] or m, label[j] or j))
-                else:
-                    # a significant bend: one long L from the modifier to that end
-                    w = cd_bends.turn([cen(m)] + route(p, e.points) + [c])
-                    bend = cd_bends.corner(M, T, w) if w else None
-                    if bend and min(math.hypot(bend[0] - P[0], bend[1] - P[1]) for P in (M, T)) < cd_bends.EPS:
-                        bend = None
-                    pts = [bend] if bend else []
+                m = e.source
+                i, M, T, at, pts = drawing.modifier(p, g, e, len(mods) + len(gates) > 1)
                 # a line to the centre has no linkTarget (the user's CellDesigner edit of estrogen v01)
-                k = sub(lm, 'modification', type=typed(e, MOD[e.head]), modifiers='s_' + sid(m), aliases='sa_' + sid(m),
+                k = sub(lm, 'modification', type=typed(e, MOD[e.head]), modifiers=spec(m), aliases='sa_' + sid(m),
                         targetLineIndex='-1,%d' % i)
                 if pts:  # frame: origin the modifier's centre (or its anchor), x axis to the arc's end
-                    k.set('editPoints', ' '.join('%s,%s' % cd_bends.to_frame(M, T, q) for q in pts))
+                    k.set('editPoints', ' '.join('%s,%s' % to_frame(M, T, q) for q in pts))
                 line(k, len(pts) + 1)
                 if at:  # as the PD map writes an anchored modifier
-                    sub(sub(k, 'linkTarget', species='s_' + sid(m), alias='sa_' + sid(m)), 'linkAnchor', position=at)
+                    sub(sub(k, 'linkTarget', species=spec(m), alias='sa_' + sid(m)), 'linkAnchor', position=at)
                 sub(k, 'line', width='1.0', color='ff000000')
             # a gate (the user's CellDesigner file, mevalonate): one modification of type
             # BOOLEAN_LOGIC_GATE_* listing all inputs, the gate at editPoints (absolute; checked
@@ -841,14 +465,14 @@ def write(diagram, ann, layout='straight'):
             for e in gates:
                 o = e.source; inp = gate_in[o]
                 gc = cen(o)
-                k = sub(lm, 'modification', type=GATE[' | '.join(N[o].labels).strip().upper()], modifiers=','.join('s_' + sid(m) for m in inp),
+                k = sub(lm, 'modification', type=GATE[' | '.join(N[o].labels).strip().upper()], modifiers=','.join(spec(m) for m in inp),
                         aliases=','.join('sa_' + sid(m) for m in inp), modificationType=MOD[e.head],
                         targetLineIndex='-1,%d' % side_of(gc), editPoints='%s,%s' % gc)
                 line(k)
                 sub(k, 'line', width='1.0', color='ff000000')
                 for m in inp:
                     # as CellDesigner saves it: targetLineIndex -1,0, no linkTarget (mevalonate, user's file)
-                    k = sub(lm, 'modification', type=MOD[e.head], modifiers='s_' + sid(m), aliases='sa_' + sid(m), targetLineIndex='-1,0')
+                    k = sub(lm, 'modification', type=MOD[e.head], modifiers=spec(m), aliases='sa_' + sid(m), targetLineIndex='-1,0')
                     line(k)
                     sub(k, 'line', width='1.0', color='ff000000')
         lr_ = etree.SubElement(rx, 'listOfReactants')
@@ -861,7 +485,7 @@ def write(diagram, ann, layout='straight'):
             for e in gates:
                 for m in gate_in[e.source]: ref(lm_, 'modifierSpeciesReference', m)
         left = [e for e in E if p in (e.source, e.target) and e.id not in {f.id for f in ins + outs + mods + gates}]
-        if left: print('process %s: edges not converted: %s' % (p, ', '.join(e.id for e in left)))
+        if left: report.say('left out', 'process %s: edges not converted: %s' % (p, ', '.join(e.id for e in left)))
     # arcs between two entities (no process: reduced notation, e.g. a stimulation of a phenotype)
     for e in E:
         if e.source in ents and e.target in ents and e.head in REDUCED:
@@ -870,14 +494,14 @@ def write(diagram, ann, layout='straight'):
             x = sub(etree.SubElement(rx, 'annotation'), 'extension')
             sub(x, 'reactionType', typed(e, REDUCED[e.head]))
             # both ends at the centre: no linkAnchor (CellDesigner's save of the SREBP and ACLY files)
-            sub(sub(x, 'baseReactants'), 'baseReactant', species='s_' + sid(e.source), alias='sa_' + sid(e.source))
-            sub(sub(x, 'baseProducts'), 'baseProduct', species='s_' + sid(e.target), alias='sa_' + sid(e.target))
+            sub(sub(x, 'baseReactants'), 'baseReactant', species=spec(e.source), alias='sa_' + sid(e.source))
+            sub(sub(x, 'baseProducts'), 'baseProduct', species=spec(e.target), alias='sa_' + sid(e.target))
             line(x)
             sub(x, 'line', width='1.0', color='ff000000')
             ref(etree.SubElement(rx, 'listOfReactants'), 'speciesReference', e.source)
             ref(etree.SubElement(rx, 'listOfProducts'), 'speciesReference', e.target)
         elif e.source in ents and e.target in ents:
-            print('arc %s (%s -> %s, %s): no process, not converted' % (e.id, label[e.source] or e.source, label[e.target] or e.target, e.head))
+            report.say('left out', 'arc %s (%s -> %s, %s): no process, not converted' % (e.id, label[e.source] or e.source, label[e.target] or e.target, e.head))
         elif e.source in ops and e.target in ents and e.head is not None:
             # (a plain line from a gate to an entity is one of the gate's inputs, drawn the other way)
             # a logic gate on arcs between entities (the PD map's coding): one reaction, the inputs
@@ -886,7 +510,7 @@ def write(diagram, ann, layout='straight'):
             o, inp = e.source, gate_in[e.source]
             kind = ' | '.join(N[o].labels).strip().upper()
             if e.head not in GATE_ARC or kind not in GATE or not inp or len(inp) < sum(1 for a in E if o in (a.source, a.target) and a.head is None):
-                print('arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted%s' % (
+                report.say('left out', 'arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted%s' % (
                     e.id, kind, label[e.target] or e.target, e.head, ' (a gate into a gate)' if inp else ''))
                 continue
             gx, gy = cen(o)
@@ -895,8 +519,8 @@ def write(diagram, ann, layout='straight'):
             sub(x, 'reactionType', 'BOOLEAN_LOGIC_GATE')
             brs = sub(x, 'baseReactants')
             for m in inp:
-                sub(brs, 'baseReactant', species='s_' + sid(m), alias='sa_' + sid(m))
-            sub(sub(x, 'baseProducts'), 'baseProduct', species='s_' + sid(e.target), alias='sa_' + sid(e.target))
+                sub(brs, 'baseReactant', species=spec(m), alias='sa_' + sid(m))
+            sub(sub(x, 'baseProducts'), 'baseProduct', species=spec(e.target), alias='sa_' + sid(e.target))
             sub(x, 'connectScheme', connectPolicy='direct')
             sub(x, 'editPoints', '%s,%s' % (gx, gy))
             sub(x, 'line', width='1.0', color='ff000000')
@@ -913,7 +537,7 @@ def write(diagram, ann, layout='straight'):
             ref(etree.SubElement(rx, 'listOfProducts'), 'speciesReference', e.target)
     # written as CellDesigner writes it (no indentation, double-quoted declaration),
     # so a file opened and saved in CellDesigner can be compared line by line
-    print('%s: %d species, %d proteins, %d reactions' % (diagram.name, len(ents), len(prot), len(lr)))
+    report.say('summary', '%s: %d species, %d proteins, %d reactions' % (diagram.name, len(ents), len(prot), len(lr)))
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n' + etree.tostring(sbml, encoding='UTF-8', pretty_print=True).decode('utf-8')
     return '\n'.join(l.lstrip() for l in xml.split('\n'))
 
@@ -952,10 +576,6 @@ def border_point(a):
     return 0.5 * (a - 3 * math.pi / 2) / q, 0.5
 
 
-def from_frame(a, b, p):
-    # inverse of cd_bends.to_frame: a point given in the edit point frame a -> b
-    ex = (b[0] - a[0], b[1] - a[1]); ey = (-ex[1], ex[0])
-    return (a[0] + p[0] * ex[0] + p[1] * ey[0], a[1] + p[0] * ex[1] + p[1] * ey[1])
 
 
 def straight(m):
@@ -982,12 +602,10 @@ def points(s):
     return [tuple(float(v) for v in q.split(',')) for q in (s or '').split()]
 
 
-def read(path, layout='straight'):
-    # a CellDesigner file as a map (model.Map); what does not convert is printed. layout
-    # 'straight': our yEd conventions (arcs at node centres, metabolites at the yEd size);
-    # 'advanced': CellDesigner's own geometry kept (node sizes, arcs at its anchor points as
-    # yEd ports, modifier arcs ending beside the square; user, 2026-10-16, PD02 eicosanoids)
-    advanced = layout == 'advanced'
+def read(path):
+    # a CellDesigner file as a map (model.Map), its own geometry kept (node sizes, arcs at its anchor
+    # points as yEd ports, modifier arcs ending beside the square; user, 2026-10-16, PD02
+    # eicosanoids); what does not convert is printed. The straight layout: layout.at_centres
     r = etree.parse(path).getroot()
     ns = {'cd': CD, 's': SBML, 'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'bq': 'http://biomodels.net/biology-qualifiers/'}
     f = lambda x, q: x.find(q, ns)
@@ -1002,7 +620,7 @@ def read(path, layout='straight'):
     for a in xs(ext, 'cd:listOfCompartmentAliases/cd:compartmentAlias'):
         b = f(a, 'cd:bounds')
         if b is None:  # closeup compartments: a line, no box
-            print('compartment %s: %s, not converted' % (cname.get(a.get('compartment')), f(a, 'cd:class').text)); continue
+            report.say('left out', 'compartment %s: %s, not converted' % (cname.get(a.get('compartment')), f(a, 'cd:class').text)); continue
         box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
         np_ = f(a, 'cd:namePoint')
         nodes[a.get('id')] = Node(id=a.get('id'), kind='Compartment', box=box, labels=[name(cname.get(a.get('compartment')))],
@@ -1024,15 +642,12 @@ def read(path, layout='straight'):
         s, si, an = species[a.get('species')]
         cls = f(si, 'cd:class').text
         if cls not in KIND:
-            print('species %s: class %s, not converted' % (s.get('name'), cls)); continue
+            report.say('left out', 'species %s: class %s, not converted' % (s.get('name'), cls)); continue
         kind = KIND[cls]
         b = f(a, 'cd:bounds'); box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
         n = int(f(si, 'cd:state/cd:homodimer').text) if f(si, 'cd:state/cd:homodimer') is not None else 1
         if n > 2:  # the box grew 6 per unit beyond 2 (forward rule), top left kept
             box = box[:2] + (box[2] - 6 * (n - 2), box[3] - 6 * (n - 2))
-        if kind == 'SimpleChemical' and not advanced:  # our yEd size (a circle, or a stadium for its name), centre kept
-            W, H = style.chemical(Node(id='', kind=kind, box=box, labels=[name(s.get('name'))]))
-            box = (box[0] + box[2] / 2 - W / 2, box[1] + box[3] / 2 - H / 2, W, H)
         states = []
         pref = f(si, 'cd:proteinReference')
         for m in xs(si, 'cd:state/cd:listOfModifications/cd:modification'):
@@ -1059,7 +674,7 @@ def read(path, layout='straight'):
             parent=a.get('complexSpeciesAlias') or a.get('compartmentAlias'),
             fill=None if cls == 'DRUG' or paint is None else '#' + paint.get('color')[2:].upper(),
             states=states, units=units, count=n, data=to_properties(fam, uris) if uris else {},
-            dashed=hyp is not None and hyp.text == 'true')
+            dashed=hyp is not None and hyp.text == 'true', species=a.get('species'))
     # an unlabelled complex in yEd is named after its members in CellDesigner: the name goes
     def member_names(c):
         return [m.labels[0] or ':'.join(member_names(m.id)) for m in nodes.values() if m.parent == c]
@@ -1075,15 +690,15 @@ def read(path, layout='straight'):
         if b is None or b.get('position') not in ANCHOR:
             return cen(d.id)
         return anchor_point(d.box, b.get('position'), d.kind in ('SimpleChemical', 'UnspecifiedEntity'))
-    # an arc's port: where it meets its node, from the node's centre (advanced), else the centre
-    port = lambda i, P: (P[0] - cen(i)[0], P[1] - cen(i)[1]) if advanced else (0.0, 0.0)
+    # an arc's port: where it meets its node, from the node's centre
+    port = lambda i, P: (P[0] - cen(i)[0], P[1] - cen(i)[1])
     for rx in xs(r, 's:model/s:listOfReactions/s:reaction'):
         x = f(rx, 's:annotation/cd:extension')
         typ = f(x, 'cd:reactionType').text
         rid = rx.get('id')
         br, bp = list(xs(x, 'cd:baseReactants/cd:baseReactant')), list(xs(x, 'cd:baseProducts/cd:baseProduct'))
         if any(alias_of(e) not in nodes for e in br + bp):
-            print('reaction %s: an end is not converted, left out' % rid); continue
+            report.say('left out', 'reaction %s: an end is not converted, left out' % rid); continue
         if typ in REDUCED_TYPES:  # reduced notation: an arc between the entities (user, Q8)
             arcs.append(Arc(id=rid, source=alias_of(br[0]), target=alias_of(bp[0]), head=HEAD[typ],
                             points=[from_frame(cen(alias_of(br[0])), cen(alias_of(bp[0])), q) for q in points(x.findtext('cd:editPoints', namespaces=ns))],
@@ -1097,7 +712,7 @@ def read(path, layout='straight'):
             g = f(x, 'cd:listOfGateMember/cd:GateMember')
             mt = g.get('modificationType')
             if mt not in HEAD or not pts:
-                print('reaction %s: logic gate with %s, not converted' % (rid, mt)); continue
+                report.say('left out', 'reaction %s: logic gate with %s, not converted' % (rid, mt)); continue
             (gx, gy), op = pts[-1], rid + '_gate'
             nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[g.get('type').rsplit('_', 1)[1]])
             for e in br:
@@ -1135,7 +750,7 @@ def read(path, layout='straight'):
             lines = [(alias_of(br[0]), True, line[1:k + 1], port(alias_of(br[0]), A)),
                      (alias_of(bp[0]), False, line[k + 1:-1], port(alias_of(bp[0]), B))]
         else:
-            print('reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
+            report.say('left out', 'reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
         S = 18.0  # the process size in our yEd maps
         nodes[rid] = Node(id=rid, kind=PROCESS.get(typ, 'Process'), box=(sq[0] - S / 2, sq[1] - S / 2, S, S), labels=[''])
         reversible = rx.get('reversible') != 'false'
@@ -1150,7 +765,7 @@ def read(path, layout='straight'):
             for l in xs(x, tag):
                 if alias_of(l) in nodes:
                     if l.get('editPoints') or f(l, 'cd:editPoints') is not None:
-                        print('reaction %s: edit points of an added link left out' % rid)
+                        report.say('left out', 'reaction %s: edit points of an added link left out' % rid)
                     flow(alias_of(l), into)
         # modifiers: the arc ends at the point of the square targetLineIndex names (a side middle or a
         # corner); in yEd at that point of the 18 px process (corners at 9, 9)
@@ -1164,7 +779,7 @@ def read(path, layout='straight'):
                 gx, gy = points(m.get('editPoints'))[0]
                 nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[t.rsplit('_', 1)[1]])
                 if t.endswith('UNKNOWN'):
-                    print('reaction %s: logic gate of unknown type kept as an operator "UNKNOWN"' % rid)
+                    report.say('changed', 'reaction %s: logic gate of unknown type kept as an operator "UNKNOWN"' % rid)
                 for a_ in m.get('aliases').split(','):
                     if a_ in nodes:
                         arcs.append(Arc(id='%s_%s' % (op, a_), source=a_, target=op)); gate_inputs.add((a_, m.get('modificationType')))
@@ -1174,18 +789,18 @@ def read(path, layout='straight'):
             if (a_, t) in gate_inputs or a_ not in nodes:
                 continue  # an input of a gate (listed once more by CellDesigner), or not converted
             if t not in HEAD:
-                print('reaction %s: modifier type %s, not converted' % (rid, t)); continue
+                report.say('left out', 'reaction %s: modifier type %s, not converted' % (rid, t)); continue
             lt = f(m, 'cd:linkTarget')
             M = end(lt) if lt is not None else cen(a_)  # its anchor on the modifier, else the centre
             arcs.append(Arc(id='%s_%s_%s' % (rid, a_, t.lower()), source=a_, target=rid, head=HEAD[t],
                             points=[from_frame(M, T, q) for q in points(m.get('editPoints'))],
-                            source_at=port(a_, M), target_at=square_point((0, 0), fl, *spot, S / 2) if advanced else (0.0, 0.0),
+                            source_at=port(a_, M), target_at=square_point((0, 0), fl, *spot, S / 2),
                             dashed=t.startswith('UNKNOWN_')))
     for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
         k = sum(1 for _ in xs(ext, tag))
-        if k: print('%d %s left out' % (k, tag.split(':')[-1] + 's'))
+        if k: report.say('left out', '%d %s left out' % (k, tag.split(':')[-1] + 's'))
     # an edit point on the straight line between its neighbours is no bend in yEd (the advanced
     # layout's two points beside the square): left out
     for e in arcs:
-        e.points = cd_bends.unbent([cen(e.source)] + e.points + [cen(e.target)])[1:-1]
+        e.points = unbent([cen(e.source)] + e.points + [cen(e.target)])[1:-1]
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)

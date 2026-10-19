@@ -2,6 +2,7 @@
 # independent of the file format. Coordinates are absolute, in the units of the source
 # (yEd: one unit per pixel of a 1:1 export), y down.
 from dataclasses import dataclass, field
+from functools import cached_property
 
 # glyph at an arc's target: None (consumption, logic arc), or one of these
 HEADS = ('production', 'catalysis', 'inhibition', 'modulation', 'stimulation', 'trigger')
@@ -22,6 +23,7 @@ class Node:
     data: dict = field(default_factory=dict)  # yEd node data by name: url, annotation (HGNC symbol, UniProt, ...)
     dashed: bool = False  # dashed border: a hypothetical entity (CellDesigner)
     outline: str = None  # the plain yEd shape it was read from by its outline (not the SBGN palette)
+    species: str = None  # the entity the file says the glyph draws (CellDesigner species), if it says one
 
 
 @dataclass
@@ -42,3 +44,45 @@ class Map:
     name: str
     nodes: dict  # id -> Node, in the order of the file
     arcs: list
+
+    @cached_property
+    def biology(self):  # what the drawing means (biology.py); a changed map is a new Map
+        from .biology import build
+        return build(self)
+
+
+# The biology a map draws (biology.build): entities and what happens to them, each pointing
+# to the glyphs (Node and Arc ids above) that draw it.
+@dataclass
+class Entity:
+    id: str
+    key: tuple         # (compartment, identity, class, state): two glyphs with one key draw one entity
+    glyphs: list       # the nodes drawing it
+    inside: str = None  # the complex entity it is a member of
+
+
+@dataclass
+class Reaction:
+    id: str            # the process node
+    reactants: list    # entity ids; a reversible process has none, its products are both sides
+    products: list
+    modifiers: list    # (entity id, head)
+    gates: list        # (operator label, [entity ids], head): a logic gate on the process
+
+
+@dataclass
+class Influence:       # an arc between entities, with or without a logic gate
+    id: str            # the arc
+    sources: list      # entity ids, or (operator label,) for a gate inside the gate
+    target: str
+    head: str          # see HEADS; None for an equivalence
+    gate: str = None   # operator label (AND, OR, NOT, ≡)
+
+
+@dataclass
+class Biology:
+    entities: dict     # id -> Entity
+    reactions: list
+    influences: list
+    glyph: dict        # node id -> entity id
+    notes: list        # what the entity key could not settle (one label, two identifiers)

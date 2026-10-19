@@ -6,9 +6,10 @@ sitemap: false
 noindex: true
 ---
 
-<!-- how the converter (map-converter, its copy in converter/mapconv/) is built, and the
-     architecture suggested for it (user, 2026-10-19). Hidden like /converter/description/. Both
-     diagrams in one drawing grammar: a row per format, kept from input to output. -->
+<!-- how the converter (map-converter, its copy in converter/mapconv/) is built since the
+     restructuring (user, 2026-10-19); the page before it, with v1 and the plan, is
+     /converter/architecture-v1-backup/. Hidden like /converter/description/. The diagram: a row per
+     format, kept from input to output. -->
 <style>
   #main a, #main a:hover, #main a:active { color: #1c47a9; }
   .ca-fig { overflow-x: auto; margin: 12px 0 8px; }
@@ -45,139 +46,18 @@ noindex: true
   @media (max-width: 600px) { .ca-table td:first-child { white-space: normal; } }
 </style>
 
-<p>The <a href="{{ '/converter/' | relative_url }}">converter</a> reads every format into one model of the map
-and writes every format from it. This page shows how it is built today and the architecture suggested for it.
-The format details are on the <a href="{{ '/converter/description/' | relative_url }}">description page</a>.</p>
+<p>The <a href="{{ '/converter/' | relative_url }}">converter</a> converts maps: every input has a drawing. It reads
+every format into one model of the map and writes every format from it. The model holds two things: the biology
+(entities, reactions, annotation) and its drawing (boxes, arcs and bends, each pointing to what it draws by its
+id). Readers read and writers write, nothing else. What every format shares in the layout is in one module, what
+only one target needs (yEd, CellDesigner, Newt) in an adapter next to its writer. SBML with layout is planned in
+both directions, SBML without layout and BioPAX as an export only (dashed). The format details are on the
+<a href="{{ '/converter/description/' | relative_url }}">description page</a>.</p>
 
-<h2>Today</h2>
-
-<div class="ca-fig">
-<svg viewBox="0 0 1000 530" role="img" aria-label="The converter today: readers, model.Map, writers and the transforms on the model">
-  <defs>
-    <marker id="ca-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
-    </marker>
-  </defs>
-  <text class="ca-head" x="85" y="44" text-anchor="middle">Input</text>
-  <text class="ca-head" x="275" y="44" text-anchor="middle">Readers</text>
-  <text class="ca-head" x="500" y="44" text-anchor="middle">Model</text>
-  <text class="ca-head" x="725" y="44" text-anchor="middle">Writers</text>
-  <text class="ca-head" x="915" y="44" text-anchor="middle">Output</text>
-
-  <rect class="ca-fmt" x="20" y="90" width="130" height="40" rx="5"/>
-  <text class="ca-fmtt" x="85" y="115" text-anchor="middle">GraphML (yEd)</text>
-  <rect class="ca-fmt" x="20" y="180" width="130" height="40" rx="5"/>
-  <text class="ca-fmtt" x="85" y="205" text-anchor="middle">CellDesigner</text>
-  <rect class="ca-fmt" x="20" y="270" width="130" height="40" rx="5"/>
-  <text class="ca-fmtt" x="85" y="295" text-anchor="middle">SBGN-ML, Newt</text>
-
-  <rect class="ca-box" x="190" y="85" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="275" y="106" text-anchor="middle">graphml.read</text>
-  <text class="ca-sub" x="275" y="124" text-anchor="middle">SBGN palette or outlines</text>
-  <rect class="ca-lay" x="190" y="175" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="275" y="196" text-anchor="middle">celldesigner.read</text>
-  <text class="ca-sub" x="275" y="214" text-anchor="middle">straight or advanced</text>
-  <rect class="ca-box" x="190" y="265" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="275" y="286" text-anchor="middle">sbgnml.read</text>
-  <text class="ca-sub" x="275" y="304" text-anchor="middle">SBGN-ML 0.3, .nwt</text>
-
-  <rect class="ca-hub" x="410" y="80" width="180" height="240" rx="10"/>
-  <text class="ca-big" x="500" y="110" text-anchor="middle">model.Map</text>
-  <text class="ca-sub" x="500" y="130" text-anchor="middle">the one in-between format</text>
-  <text class="ca-name" x="428" y="166">Node</text>
-  <text class="ca-sub" x="428" y="184">kind, box, labels,</text>
-  <text class="ca-sub" x="428" y="200">states, units, data</text>
-  <text class="ca-name" x="428" y="230">Arc</text>
-  <text class="ca-sub" x="428" y="248">source, target, head,</text>
-  <text class="ca-sub" x="428" y="264">bends, ports</text>
-  <text class="ca-sub" x="428" y="298">absolute coordinates, y down</text>
-
-  <rect class="ca-box" x="640" y="85" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="725" y="106" text-anchor="middle">graphml.write</text>
-  <text class="ca-sub" x="725" y="124" text-anchor="middle">from the yEd template</text>
-  <rect class="ca-lay" x="640" y="175" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="725" y="196" text-anchor="middle">sbgnml.write</text>
-  <text class="ca-sub" x="725" y="214" text-anchor="middle">straight or advanced</text>
-  <rect class="ca-lay" x="640" y="265" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="725" y="286" text-anchor="middle">celldesigner.write</text>
-  <text class="ca-sub" x="725" y="304" text-anchor="middle">≈770 lines, layout inside</text>
-
-  <rect class="ca-fmt" x="850" y="90" width="130" height="40" rx="5"/>
-  <text class="ca-fmtt" x="915" y="115" text-anchor="middle">GraphML</text>
-  <rect class="ca-fmt" x="850" y="180" width="130" height="40" rx="5"/>
-  <text class="ca-fmtt" x="915" y="205" text-anchor="middle">SBGN-ML ×2</text>
-  <rect class="ca-fmt" x="850" y="270" width="130" height="40" rx="5"/>
-  <text class="ca-fmtt" x="915" y="295" text-anchor="middle">CellDesigner ×2</text>
-
-  <g class="ca-arr" marker-end="url(#ca-tip)">
-    <path d="M150,110 H188"/><path d="M150,200 H188"/><path d="M150,290 H188"/>
-    <path d="M360,110 H408"/><path d="M360,200 H408"/><path d="M360,290 H408"/>
-    <path d="M590,110 H638"/><path d="M590,200 H638"/><path d="M590,290 H638"/>
-    <path d="M810,110 H848"/><path d="M810,200 H848"/><path d="M810,290 H848"/>
-  </g>
-
-  <rect class="ca-band" x="10" y="350" width="980" height="170" rx="10"/>
-  <text class="ca-head" x="26" y="373">Transforms on the model · the driver in converter.html picks which run</text>
-  <path class="ca-arr" d="M500,322 V348" marker-start="url(#ca-tip)" marker-end="url(#ca-tip)"/>
-
-  <rect class="ca-box" x="20" y="385" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="407">rules.problems, clean</text>
-  <text class="ca-sub" x="32" y="426">check, problem elements left out</text>
-  <rect class="ca-box" x="265" y="385" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="277" y="407">without_delays</text>
-  <text class="ca-sub" x="277" y="426">a delay joined to its target</text>
-  <rect class="ca-box" x="510" y="385" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="522" y="407">graphml.corrected</text>
-  <text class="ca-sub" x="522" y="426">other shapes to the SBGN palette</text>
-  <rect class="ca-box" x="755" y="385" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="767" y="407">annotation.from_graphml</text>
-  <text class="ca-sub" x="767" y="426">MIRIAM URNs for CD and SBGN-ML</text>
-
-  <rect class="ca-lay" x="20" y="452" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="474">style.standardise</text>
-  <text class="ca-sub" x="32" y="493">sizes and scale, GraphML only</text>
-  <rect class="ca-lay" x="265" y="452" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="277" y="474">celldesigner.straight</text>
-  <text class="ca-sub" x="277" y="493">process midway, CD to SBGN only</text>
-  <rect class="ca-lay" x="510" y="452" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="522" y="474">sbgnml.for_newt</text>
-  <text class="ca-sub" x="522" y="493">shifted, placed, moved for Newt</text>
-  <rect class="ca-lay" x="755" y="452" width="225" height="52" rx="7"/>
-  <text class="ca-name" x="767" y="474">cd_bends, cd_straighten</text>
-  <text class="ca-sub" x="767" y="493">bends and straightening helpers</text>
-</svg>
-</div>
-<div class="ca-legend">
-  <span><i class="ca-sw lay"></i>holds layout logic (edge routing, small position corrections)</span>
-  <span><i class="ca-sw hub"></i>the model every route passes through</span>
-</div>
-
-<p>There is no layout algorithm: no route places nodes. Every route keeps the positions of the input map
-and only corrects them by a few pixels. What the converter calls a layout is the routing of the arcs and
-these corrections, and they sit in four places.</p>
-
-<table class="ca-table">
-  <tr><th>Where</th><th>What it does</th></tr>
-  <tr><td><code>celldesigner.write</code>, lines 318–540</td><td>Straightens main lines (up to 10 px), moves a main line onto a node's centre, aligns modifiers with their square (up to 15 px), makes room for a complex's name, places the square and its bends, routes the modifier arcs.</td></tr>
-  <tr><td><code>celldesigner.read</code>, <code>straight</code></td><td>Reads the straight or the advanced geometry. <code>straight()</code> puts each process midway, used only from CellDesigner to SBGN-ML.</td></tr>
-  <tr><td><code>sbgnml.py</code></td><td>Fits compartments for Newt (<code>shifted</code>, <code>placed</code>, <code>for_newt</code>, <code>moved</code>), its own straight and advanced arcs, bend simplification from <code>cd_bends</code>.</td></tr>
-  <tr><td><code>style.standardise</code></td><td>Standard node sizes and rescaling, GraphML output only.</td></tr>
-</table>
-
-<p class="ca-note">From one GraphML map the two straight files differ. CellDesigner (straight) gets the square midway,
-straightened main lines and aligned modifiers. SBGN-ML (straight) keeps yEd's process positions and runs the arcs
-from centre to centre.</p>
-
-<h2>Suggested architecture</h2>
-
-<p>The converter converts maps: every input has a drawing. The model holds two things: the biology (entities,
-reactions, annotation) and its drawing (boxes, arcs and bends, each pointing to what it draws by its id). Layout
-moves out of the readers and writers into one module that works on the drawing. What only one target needs (yEd,
-CellDesigner, Newt) goes into an adapter next to its writer. Readers then read and writers write, nothing else.
-SBML with layout is planned in both directions, SBML without layout and BioPAX as an export only (dashed).</p>
+<h2>How it is built</h2>
 
 <div class="ca-fig">
-<svg viewBox="0 0 1200 720" role="img" aria-label="The suggested architecture: readers, a model of biology and drawing, layout, adapters, writers, with SBML and a BioPAX export planned">
+<svg viewBox="0 0 1200 720" role="img" aria-label="The converter: readers, a model of biology and drawing, layout, adapters, writers, with SBML and a BioPAX export planned">
   <defs>
     <marker id="ca-tip2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
@@ -200,13 +80,13 @@ SBML with layout is planned in both directions, SBML without layout and BioPAX a
   <text class="ca-fmtt ca-pt" x="80" y="355" text-anchor="middle">SBML (layout)</text>
   <rect class="ca-box" x="170" y="85" width="150" height="50" rx="7"/>
   <text class="ca-name" x="245" y="106" text-anchor="middle">graphml.read</text>
-  <text class="ca-sub" x="245" y="124" text-anchor="middle">biology and drawing</text>
+  <text class="ca-sub" x="245" y="124" text-anchor="middle">the drawing</text>
   <rect class="ca-box" x="170" y="165" width="150" height="50" rx="7"/>
   <text class="ca-name" x="245" y="186" text-anchor="middle">celldesigner.read</text>
   <text class="ca-sub" x="245" y="204" text-anchor="middle">species and aliases</text>
   <rect class="ca-box" x="170" y="245" width="150" height="50" rx="7"/>
   <text class="ca-name" x="245" y="266" text-anchor="middle">sbgnml.read</text>
-  <text class="ca-sub" x="245" y="284" text-anchor="middle">biology and drawing</text>
+  <text class="ca-sub" x="245" y="284" text-anchor="middle">the drawing</text>
   <rect class="ca-plan" x="170" y="325" width="150" height="50" rx="7"/>
   <text class="ca-name ca-pt" x="245" y="346" text-anchor="middle">sbml.read</text>
   <text class="ca-sub" x="245" y="364" text-anchor="middle">with layout only</text>
@@ -226,23 +106,24 @@ SBML with layout is planned in both directions, SBML without layout and BioPAX a
   <text class="ca-sub" x="374" y="370">one per map</text>
   <rect class="ca-lay" x="530" y="80" width="150" height="300" rx="10"/>
   <text class="ca-big" x="605" y="108" text-anchor="middle">layout.py</text>
-  <text class="ca-sub" x="605" y="127" text-anchor="middle">passes on the drawing</text>
-  <text class="ca-name" x="544" y="170">straight</text>
-  <text class="ca-sub" x="544" y="188">square midway,</text>
-  <text class="ca-sub" x="544" y="204">arcs centre to centre</text>
-  <text class="ca-name" x="544" y="250">advanced</text>
-  <text class="ca-sub" x="544" y="268">the input's drawing</text>
-  <text class="ca-sub" x="544" y="284">kept, key bends only</text>
-  <text class="ca-sub" x="544" y="364">same for every format</text>
-  <rect class="ca-box" x="710" y="85" width="140" height="50" rx="7"/>
-  <text class="ca-title" x="780" y="106" text-anchor="middle">yEd</text>
-  <text class="ca-sub" x="780" y="124" text-anchor="middle">standard sizes (option)</text>
+  <text class="ca-sub" x="605" y="127" text-anchor="middle">shared by every format</text>
+  <text class="ca-name" x="544" y="170">main_lines</text>
+  <text class="ca-sub" x="544" y="188">main reactant and</text>
+  <text class="ca-sub" x="544" y="204">product of a process</text>
+  <text class="ca-name" x="544" y="242">bends, twins</text>
+  <text class="ca-sub" x="544" y="260">bends that matter,</text>
+  <text class="ca-sub" x="544" y="276">two processes apart</text>
+  <text class="ca-name" x="544" y="314">at_centres</text>
+  <text class="ca-sub" x="544" y="332">straight, after reading</text>
+    <rect class="ca-box" x="710" y="85" width="140" height="50" rx="7"/>
+  <text class="ca-name" x="780" y="106" text-anchor="middle">style.py</text>
+  <text class="ca-sub" x="780" y="124" text-anchor="middle">yEd: standard sizes</text>
   <rect class="ca-box" x="710" y="165" width="140" height="50" rx="7"/>
-  <text class="ca-title" x="780" y="186" text-anchor="middle">CellDesigner</text>
-  <text class="ca-sub" x="780" y="204" text-anchor="middle">anchors, multimers</text>
+  <text class="ca-name" x="780" y="186" text-anchor="middle">cd_layout.py</text>
+  <text class="ca-sub" x="780" y="204" text-anchor="middle">CellDesigner</text>
   <rect class="ca-box" x="710" y="245" width="140" height="50" rx="7"/>
-  <text class="ca-title" x="780" y="266" text-anchor="middle">Newt</text>
-  <text class="ca-sub" x="780" y="284" text-anchor="middle">compartment padding</text>
+  <text class="ca-name" x="780" y="266" text-anchor="middle">newt_layout.py</text>
+  <text class="ca-sub" x="780" y="284" text-anchor="middle">Newt: compartments</text>
   <rect class="ca-box" x="880" y="85" width="150" height="50" rx="7"/>
   <text class="ca-name" x="955" y="106" text-anchor="middle">graphml.write</text>
   <text class="ca-sub" x="955" y="124" text-anchor="middle">writes the file only</text>
@@ -290,8 +171,8 @@ SBML with layout is planned in both directions, SBML without layout and BioPAX a
   <text class="ca-name" x="327" y="552">without_delays, clean</text>
   <text class="ca-sub" x="327" y="571">what a format cannot hold, left out</text>
   <rect class="ca-box" x="610" y="530" width="275" height="52" rx="7"/>
-  <text class="ca-name" x="622" y="552">identity</text>
-  <text class="ca-sub" x="622" y="571">nodes of one entity joined, by annotation</text>
+  <text class="ca-name" x="622" y="552">biology.py</text>
+  <text class="ca-sub" x="622" y="571">one entity per key: identifiers, else labels</text>
   <rect class="ca-box" x="905" y="530" width="275" height="52" rx="7"/>
   <text class="ca-name" x="917" y="552">graphml.corrected</text>
   <text class="ca-sub" x="917" y="571">other shapes to the SBGN palette</text>
@@ -305,7 +186,7 @@ SBML with layout is planned in both directions, SBML without layout and BioPAX a
   <text class="ca-sub" x="425" y="686">which input gives which files, for the page and the command line</text>
   <rect class="ca-box" x="806" y="645" width="373" height="52" rx="7"/>
   <text class="ca-name" x="818" y="667">reference files</text>
-  <text class="ca-sub" x="818" y="686">every Atlas map, every route, compared on each change</text>
+  <text class="ca-sub" x="818" y="686">every Atlas map, every route, compared on each change, and v1</text>
 </svg>
 </div>
 <div class="ca-legend">
@@ -314,13 +195,37 @@ SBML with layout is planned in both directions, SBML without layout and BioPAX a
   <span><i class="ca-sw" style="background:#fff;border:1px dashed #bbb"></i>planned</span>
 </div>
 
+<h3>Layout</h3>
+<p>There is no layout algorithm: no route places nodes. Every route keeps the positions of the input map and
+corrects them by a few pixels at most. The layout is the routing of the arcs and these corrections.</p>
+<table class="ca-table">
+  <tr><th>Module</th><th>What it does</th></tr>
+  <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, and the straight layout of a map read from CellDesigner (arcs at the centres, metabolites at the yEd size).</td></tr>
+  <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers, room for a complex's name), the process square, anchors and edit points, and the small moves that make lines meet straight (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its square). The moves are listed under the map and can be switched off on the Converter page (Keep node positions).</td></tr>
+  <tr><td><code>newt_layout.py</code></td><td>Newt: every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart.</td></tr>
+  <tr><td><code>style.py</code></td><td>yEd: standard node sizes and rescaling, when the box is ticked.</td></tr>
+</table>
+
+<h3>Checked against v1</h3>
+<p>The same inputs through every route with v1 and with the restructured converter. The tests are in
+<code>map-converter</code> (<code>tools/reference.py</code>, <code>tools/roundtrip_*.py</code>).</p>
+<table class="ca-table">
+  <tr><th>Test</th><th>Result</th></tr>
+  <tr><td>610 reference files</td><td>The same apart from three intended changes: the moves listed under the map (57 message files), one CellDesigner species per molecule (96 files: 3462 species became 2972, aliases, reactions and drawing identical), and the straight GraphML from CellDesigner read without layout (10 files, process squares up to 3.2 px).</td></tr>
+  <tr><td>Meaning kept</td><td>Of 497 outputs, 461 hold exactly the entities and reactions of their input with both. The other 36 lose the same with both (Activity Flow, equivalence operators, gates on arcs in test files).</td></tr>
+  <tr><td>Round trips</td><td>To the other format and back, twice, both layouts: the same with both. v1 fails two maps (glycogen LL05, a multimer metabolite), the restructured converter none.</td></tr>
+  <tr><td>Whole maps</td><td>8 maps of ACSN 2.0, ACSN, AsthmaMap and the PD map: the same apart from the straight GraphML of three (process squares up to 7.5 px). Two ACSN 2.0 files, in an older CellDesigner format, are read by neither.</td></tr>
+  <tr><td>Speed</td><td>13 seconds for all reference files with both.</td></tr>
+</table>
+
+
 <h3>Why biology and drawing apart</h3>
 <p>Most formats already keep them apart. CellDesigner has species and their aliases (one species can be drawn
 more than once). The SBML Layout package draws species and reactions with glyphs that refer to them by id. BioPAX
-has no drawing at all. Today's model has only the drawing: one node per alias, joined again by label when
-CellDesigner is written. A species drawn twice comes back as two species. yEd and SBGN-ML hold only a drawing, so
-their readers build the biology from it, joining the nodes of one entity by their annotation (HGNC, UniProt,
-ChEBI), or by their label where a map has none. The biology alone is also what an export to BioPAX or to SBML
+has no drawing at all. v1's model had only the drawing: one node per alias, joined again by label when
+CellDesigner was written, so a species drawn twice came back as two species. Now the CellDesigner reader keeps
+each alias's species, and for yEd and SBGN-ML, which hold only a drawing, the biology is built from it, joining
+the nodes of one entity by their annotation (HGNC, UniProt, ChEBI), or by their label where a map has none. The biology alone is also what an export to BioPAX or to SBML
 without layout writes.</p>
 
 <h3>Maps only</h3>
@@ -329,36 +234,18 @@ layout and BioPAX are written from a map but not read: making a map from a file 
 without layout, a table) is the work of the <a href="{{ '/human-like-layout/architecture/' | relative_url }}">human-like layout</a> project, not of the converter. Its maps can then
 come here.</p>
 
-<h3>What changes</h3>
-<ul>
-  <li><b>Model</b>: biology and drawing.</li>
-  <li><b>Readers</b> read what the file says, the CellDesigner reader too. Straight or advanced is chosen in the layout, not when the file is read.</li>
-  <li><b>Reactions</b>: the main reactant and product of each process are worked out once, on the biology. Today
-    <code>celldesigner.write</code>, <code>celldesigner.straight</code>, <code>sbgnml.write</code> and <code>rules.py</code> each work them out on their own.</li>
-  <li><b>Layout</b>: what every format needs (the main reactant and product, bends that matter, two processes on the
-    same species kept apart) in one module; what one format needs in its adapter. SBGN-ML (straight) keeps yEd's
-    process positions: placing each process midway, as CellDesigner does, would turn 50 of the 350 Atlas
-    processes, drawn as an L in yEd, into diagonals (2026-10-19).</li>
-  <li><b>Adapters</b> hold what one target needs: CellDesigner's anchor points, multimer front shape and MINERVA's
-    square anchors, Newt's compartment padding, yEd's standard sizes.</li>
-  <li><b>Report</b>: the converter's messages, about 30 kinds (left out, moved, not converted), go into one list. Today they are printed and
-    caught by the page.</li>
-  <li><b>Routes</b>: which input gives which buttons moves from the script in <code>converter.html</code> into the
-    converter, so the page and the command line run the same code.</li>
-</ul>
-
 <h3>Order of work</h3>
-<p>In a new repository <code>map-converter</code>, started from a copy of the current one with its history. The
-current one is kept, unchanged, as <code>map-converter-v1</code>, the reference.</p>
+<p>In a new repository <code>map-converter</code>, started from a copy of v1 with its history. v1 is kept,
+unchanged, as <code>map-converter-v1</code>, the reference. A branch <code>v1-fixed</code> holds v1 with bug fixes
+only, the fallback if the page has to go back to it.</p>
 <ol>
-  <li>Convert every Atlas map and every official CellDesigner file with the current converter and keep the results as reference files.</li>
-  <li>The new model (biology and drawing), with the current readers and writers adapted to it. The files stay as they are.</li>
-  <li>Report and routes. The files stay as they are.</li>
-  <li>The layout passes moved out of <code>celldesigner.write</code> one at a time, then the adapters, each checked against the reference files.
-    The files stay as they are. Nothing new until the restructuring is done (2026-10-19).</li>
-  <li>SBML with layout, read and written, and SBML without layout written.</li>
-  <li>BioPAX written.</li>
+  <li>Done. Every Atlas map, every official CellDesigner and SBGN-ML file and the test files converted with v1 and kept as reference files.</li>
+  <li>Done. The model (biology and drawing), the readers and writers adapted to it.</li>
+  <li>Done. Report and routes.</li>
+  <li>Done. The layout out of the readers and writers into <code>layout.py</code> and the three adapters, checked against the reference files after each move.</li>
+  <li>SBML with layout, read and written, and SBML without layout written. Later.</li>
+  <li>BioPAX written. Later.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for map-converter commit ba08e72 (2026-10-18).
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for map-converter commit e278d35 (2026-10-19). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
 The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>

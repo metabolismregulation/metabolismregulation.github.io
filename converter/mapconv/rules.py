@@ -129,10 +129,22 @@ def lines(m, found):
 
 
 def clean(m, found):
-    # the map without the problem elements and the arcs at removed nodes
+    # the map without the problem elements and the arcs at removed nodes; a removed complex takes
+    # its members with it, what a removed compartment holds moves to the compartment around it
     from dataclasses import replace
-    gone = {i for i, _ in found}
-    nodes = {i: d for i, d in m.nodes.items() if i not in gone}
+    gone, N = {i for i, _ in found}, m.nodes
+    def left_out(i):  # a problem element, or a member of a complex that is one
+        q = i
+        while q in N:
+            if q in gone and (q == i or N[q].kind == 'Complex'):
+                return True
+            q = N[q].parent
+        return False
+    def kept(q):  # the nearest enclosing node that stays
+        while q in gone:
+            q = N[q].parent
+        return q
+    nodes = {i: d if kept(d.parent) == d.parent else replace(d, parent=kept(d.parent)) for i, d in N.items() if not left_out(i)}
     return replace(m, nodes=nodes, arcs=[e for e in m.arcs if e.id not in gone and e.source in nodes and e.target in nodes])
 
 

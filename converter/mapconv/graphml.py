@@ -2,6 +2,7 @@
 import copy, os, re
 from dataclasses import replace
 from lxml import etree
+from . import report
 from .model import Map, Node, Arc
 from .style import scale_of
 
@@ -165,7 +166,7 @@ def without_delays(m, form):
     ds = {i for i, d in m.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [DELAY]}
     if not ds:
         return m
-    print('delay: no %s form, its input joined to its target (%s)' % (form, ', '.join(sorted(ds))))
+    report.say('changed', 'delay: no %s form, its input joined to its target (%s)' % (form, ', '.join(sorted(ds))))
     arcs = [a for a in m.arcs if a.source not in ds and a.target not in ds]
     for d in ds:
         outs = [a for a in m.arcs if a.source == d and (a.head or m.nodes[a.target].kind == 'Operator')]
@@ -257,6 +258,8 @@ def write(diagram):
             l.set('x', repr(float(lx))); l.set('y', repr(float(ly)))
         if d.count > 1:  # yEd draws a multimer as two shapes; N:x says how many
             sp = gn.find('y:StyleProperties', NS)
+            if sp is None:  # the simple chemical template has none (a multimer Ca2+, O2)
+                sp = etree.SubElement(gn, Y + 'StyleProperties')
             etree.SubElement(sp, Y + 'Property', {'class': 'java.lang.Integer', 'name': 'com.yworks.sbgn.style.mcount', 'value': '2'})
         units = d.units + (['N:%d' % d.count] if d.count > 2 and not any(re.fullmatch(r'N:\d+', u) for u in d.units) else [])
         icons = [('StateVariable', txt, rx, ry) for txt, rx, ry in d.states]
@@ -275,7 +278,7 @@ def write(diagram):
     for i in kids.get(None, []):
         node(g, i)
     for k, ids in missing.items():
-        print('no yEd template for %s: %d nodes left out (%s)' % (k, len(ids), ', '.join(N[i].labels[0] or i for i in ids)))
+        report.say('left out', 'no yEd template for %s: %d nodes left out (%s)' % (k, len(ids), ', '.join(N[i].labels[0] or i for i in ids)))
     gone = {i for ids in missing.values() for i in ids}
     for a in diagram.arcs:
         if a.source in gone or a.target in gone:

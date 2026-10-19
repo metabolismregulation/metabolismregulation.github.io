@@ -1,0 +1,225 @@
+---
+layout: default
+title: Converter description (v1 backup)
+permalink: /converter/description-v1-backup/
+sitemap: false
+noindex: true
+---
+<p style="font-size: 13px; color: #777;">This page as it was before the Converter switched from v1 to the restructured converter (19 October 2026).</p>
+
+<!-- what the Converter (/converter/) does, in more detail than the minimal text there (user,
+     2026-10-17). The chart is drawn from FORMATS and ROUTES in the script below: a new
+     converter is one more line there (a new format one more name). -->
+<style>
+  /* links in the Atlas's link blue (MINERVA's), darker than the site's #4183c4, the same on hover */
+  #main a, #main a:hover, #main a:active { color: #1c47a9; }
+  #cv-chart { display: block; width: 100%; max-width: 440px; margin: 8px auto 24px; }
+  #cv-chart text { font-size: 14px; fill: #222; }
+  #cv-chart text.cv-ext { font-size: 12px; fill: #777; }
+  /* the formats as buttons (user, 2026-10-19): rounded rectangles, white with a grey edge, filled blue on hover */
+  #cv-chart .cv-node rect { fill: #fff; stroke: #ccc; stroke-width: 1.2; }
+  #cv-chart .cv-node:hover rect { fill: #4183c4; stroke: #4183c4; }
+  #cv-chart .cv-node:hover text { fill: #fff; }
+  #cv-chart .cv-route { fill: none; stroke-width: 1.6; }
+  #cv-chart .cv-route:hover { stroke-width: 3; }
+  /* the outputs, one row per download button, in the style of the hidden /converter/sbgn/ tables */
+  .cv-out { border-collapse: collapse; font-size: 14px; margin: 8px 0 16px; width: 100%; }
+  .cv-out th { text-align: left; font-weight: normal; color: #888; font-size: 13px; padding: 4px 16px 4px 0;
+               border-bottom: 1px solid #ddd; }
+  /* every row three lines high, so the rows and their buttons are evenly spaced (user, 2026-10-19) */
+  .cv-out td { height: 63px; padding: 4px 16px 4px 0; line-height: 18px; vertical-align: middle; border-bottom: 1px solid #eee; }
+  .cv-out td:first-child { white-space: nowrap; }
+  .cv-out td:nth-child(2) { width: 24%; }
+  /* the extension, the format and its version or language, one line each (user, 2026-10-19) */
+  .cv-out td:nth-child(2) > * { display: block; }
+  /* phone width: each button a block, label and file on one line, format and content below */
+  @media (max-width: 600px) {
+    .cv-out, .cv-out tbody, .cv-out tr, .cv-out td { display: block; }
+    .cv-out tr:first-child { display: none; }
+    .cv-out tr { padding: 8px 0; border-bottom: 1px solid #eee; }
+    .cv-out td { height: auto; padding: 0; border: 0; }
+    .cv-out td:first-child { margin-bottom: 4px; }
+    .cv-out td:nth-child(2) { width: auto; color: #777; font-size: 13px; }
+    .cv-out td:nth-child(2) > * { display: inline; }
+    .cv-out td:nth-child(2) > * + *::before { content: ', '; }
+  }
+{% include converter-buttons.css %}
+</style>
+
+<p class="cv-text">The <a href="{{ '/converter/' | relative_url }}">converter</a> turns a map from one format into another.
+It does not hold a map strictly to the standards. Common deviations are accepted where their meaning
+is clear, so that the conversion is as useful as possible, and whatever is left out is listed. It runs in the browser, and the files never leave the computer. The annotation (HGNC, UniProt, ChEBI)
+is converted with the map. In GraphML it is read from the node properties, or from the node links when a map has none.</p>
+
+<svg id="cv-chart" viewBox="0 42 440 264" role="img" aria-label="What converts to what"></svg>
+
+<p>Each section below has the same parts: <b>Input</b> (format, version, file extensions), <b>Check</b>
+(what is checked before conversion), <b>Output</b> (one row per download button) and <b>Not converted</b>
+(what is left out). Each file is named after the input file and its button, for example
+<code>glycolysis-advanced.xml</code> for CellDesigner (advanced) from <code>glycolysis.graphml</code>.</p>
+<p><b>Layouts</b>: advanced is recommended. It preserves the layout of the input map as closely as possible:
+node positions, process ports and the key bends. Straight is the simpler fallback, for a map whose drawing does not convert
+well: every arc a straight line between node centres, each process midway between its main reactant and
+product, for laying out by hand.</p>
+
+<h2 id="graphml">From GraphML</h2>
+<p><b>Input</b>: yEd GraphML (<code>.graphml</code>), an SBGN Process Description map.</p>
+<p><b>Check</b>: the SBGN Process Description rules, with two exceptions: 1) a phenotype may also stand
+for a perturbing agent or a submap, and 2) stimulation, inhibition, modulation and trigger may connect two
+entities directly (CellDesigner’s Reduced Notation). Elements that break the rules are left out of the
+converted files.</p>
+<p><b>Output</b>:</p>
+<table class="cv-out">
+  <tr><th>Button</th><th>File</th><th>Content</th></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">straight</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Each reaction a straight line between the centres of its main reactant and product, the process square midway.</td></tr>
+  <tr><td><span class="cv-btn"><span class="cv-lines">CellDesigner<span class="cv-variant">advanced</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Process squares, bends and modifier arcs where the GraphML has them.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, without bends or ports, for improving by hand.</td></tr>
+  <tr><td><span class="cv-btn"><span class="cv-lines">SBGN-ML<span class="cv-variant">advanced</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The yEd drawing kept: process ports, and the bends that change the course of a line by more than 20 px or keep it off a node. Arcs of logic gates straight.</td></tr>
+  <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">corrected</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The map redrawn with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with other shapes.</td></tr>
+  <tr><td><span class="cv-btn cv-bad"><span class="cv-lines">GraphML<span class="cv-variant">marked</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>Given only when the check finds problems: the input map with the elements that break the SBGN rules drawn red, the reason shown on hover in yEd.</td></tr>
+</table>
+<p>CellDesigner 4.0 is SBML Level 2 Version 4 with the CellDesigner extension. Both SBGN-ML files have
+their colours in the SBML render extension and the annotation as RDF in each glyph. A phenotype with an arc
+leaving it is left out of them with its arcs: an SBGN phenotype takes no outgoing arc, and the converter does
+not decide whether it is a perturbing agent or a submap.</p>
+<p>In both SBGN-ML files every process and logic gate sits in a compartment, and each compartment is as
+large as Newt needs to keep it as drawn: Newt leaves a margin inside a compartment and otherwise redraws
+it around its contents. Edges aligned in the map stay aligned. Where two compartments' contents are too
+close for that margin, everything past their shared edge moves on by the missing distance, noted under
+the map.</p>
+<p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
+with the element's id, label (an arc by its ends) and reason. Phenotypes left out of the SBGN-ML are
+listed under the map with their id and label. Equivalence operators are left out of the
+CellDesigner files, which have no such element, and kept in the SBGN-ML.</p>
+
+<h2 id="celldesigner">From CellDesigner</h2>
+<p><b>Input</b>: CellDesigner 4.x (<code>.xml</code>), SBML Level 2 Version 4 with the CellDesigner
+extension.</p>
+<p><b>Check</b>: none.</p>
+<p><b>Output</b>:</p>
+<table class="cv-out">
+  <tr><th>Button</th><th>File</th><th>Content</th></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">GraphML<span class="cv-variant">straight</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>Our conventions: arcs at node centres, metabolites at the yEd size.</td></tr>
+  <tr><td><span class="cv-btn"><span class="cv-lines">GraphML<span class="cv-variant">advanced</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The CellDesigner geometry: its node sizes, arcs at its anchor points, modifier arcs ending beside the process square.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, each process midway between its main reactant and product, for improving by hand.</td></tr>
+  <tr><td><span class="cv-btn"><span class="cv-lines">SBGN-ML<span class="cv-variant">advanced</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The CellDesigner drawing kept: its node sizes, process positions and the bends that change the course of a line by more than 20 px or keep it off a node.</td></tr>
+</table>
+<p>Both SBGN-ML files are made from the CellDesigner file directly, with their colours in the SBML render
+extension and the annotation as RDF in each glyph. A phenotype with an arc leaving it is left out with its
+arcs, as from GraphML.</p>
+<p>Both SBGN-ML files give a homodimer its N:x unit, N:2 included. Since CellDesigner files carry no site
+names, their state variables have none.</p>
+<p><b>Not converted</b>: text and shapes drawn on layers, groups, compartments drawn as an edge line,
+and state variables on a complex, listed under the map.</p>
+
+<h2 id="sbgnml">From SBGN-ML</h2>
+<p><b>Input</b>: SBGN-ML 0.3 or SBGN-ML 0.2 (<code>.sbgn</code>), Process Description. Also a
+<a href="https://newteditor.org/" target="_blank" rel="noopener">Newt</a> file (<code>.nwt</code>):
+SBGN-ML with Newt's own settings added, converted the same way. An Activity Flow map is read too and
+drawn the CellDesigner way: each activity as the entity it comes from, a protein's activity as a protein,
+the influences as arcs between them.</p>
+<p><b>Check</b>: none.</p>
+<p><b>Output</b>:</p>
+<table class="cv-out">
+  <tr><th>Button</th><th>File</th><th>Content</th></tr>
+  <tr><td><span class="cv-btn"><span class="cv-lines">GraphML</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td></td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">straight</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Each reaction a straight line between the centres of its main reactant and product, the process square midway.</td></tr>
+  <tr><td><span class="cv-btn"><span class="cv-lines">CellDesigner<span class="cv-variant">advanced</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Process squares, bends and modifier arcs where the SBGN-ML has them.</td></tr>
+</table>
+<p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</p>
+<p><b>Not converted</b>: glyph and arc classes the converter does not read, and clone markers, left out
+of all three files and listed under the map with their class and ids. A perturbing agent becomes a
+phenotype in all three files: our maps, like CellDesigner, have one glyph for both. An
+Activity Flow delay is kept in the GraphML as a logic operator labelled τ. The CellDesigner files have no
+delay, so there its input is joined to its target. An Activity Flow submap becomes a phenotype with its name,
+without its terminals and tags. Its equivalence arcs become plain lines to that phenotype in the GraphML. Equivalence operators are left out of the
+CellDesigner files, which have no such element, and kept in the GraphML.</p>
+
+<h2 id="sizes">Standard node sizes</h2>
+<p><b>Purpose</b>: for maps drawn with a font that is too large or too small for their shapes, so the
+shapes do not look as they should, for example rounded corners that cannot be told from sharp ones, or arrowheads too small to
+see.</p>
+<p><b>Applies to</b>: the GraphML made from CellDesigner or SBGN-ML, when the box is ticked.</p>
+<p><b>Sizes</b>: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums
+sized to the name. A metabolite keeps its shape. The map is rescaled if its objects are much larger or
+smaller.</p>
+
+<h2 id="loading">Loading</h2>
+<p><b>Updated</b>: 18 October 2026, Pyodide 0.26.4.</p>
+<p><b>Size</b>: about 7 MB compressed (about 20 MB unpacked), downloaded on the first visit, then taken
+from the browser cache. Almost all of it is
+Python running in the browser (Pyodide): the Python engine 3.0 MB, its standard library 2.3 MB and
+the XML library lxml 1.4 MB. The converter itself is 0.05 MB.</p>
+<p><b>Time</b>: estimated 3 to 5 seconds on the first visit over a fast connection, about 10 seconds
+over a slow one (10 Mbit/s). Later visits need only the start of Python, 1 to 4 seconds. Loading starts
+as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
+
+<script>
+(() => {
+  // the formats, clockwise from the top, and the routes: [from, to]
+  // [name, section on this page, file extensions]
+  const FORMATS = [['GraphML', 'graphml', ['.graphml']], ['SBGN-ML', 'sbgnml', ['.sbgn', '.nwt']], ['CellDesigner', 'celldesigner', ['.xml']]];
+  const ROUTES = [
+    ['GraphML', 'CellDesigner'],
+    ['GraphML', 'SBGN-ML'],
+    ['CellDesigner', 'GraphML'],
+    ['CellDesigner', 'SBGN-ML'],
+    ['SBGN-ML', 'GraphML'],
+    ['SBGN-ML', 'CellDesigner'],
+  ];
+  const svg = document.getElementById('cv-chart'), NS = 'http://www.w3.org/2000/svg';
+  const CX = 220, CY = 205, R = 125, HW = 60, HH = 31;  // the buttons' half width and half height
+  const el = (tag, attrs, parent = svg) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    parent.append(e); return e;
+  };
+  const pos = {};
+  FORMATS.forEach(([name], i) => {
+    const a = -Math.PI / 2 + i * 2 * Math.PI / FORMATS.length;
+    pos[name] = { x: CX + R * Math.cos(a), y: CY + R * Math.sin(a), a };
+  });
+  // one straight line per pair of formats: both ways blue with a head at each end, one way green
+  const BOTH = '#4183c4', ONE = '#3a9a4a';
+  const defs = el('defs', {});
+  for (const [id, colour] of [['both', BOTH], ['one', ONE]]) {
+    const m = el('marker', { id: 'cv-' + id, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 10, markerHeight: 10,
+                             orient: 'auto-start-reverse', markerUnits: 'userSpaceOnUse' }, defs);
+    el('path', { d: 'M0 0L10 5L0 10z', fill: colour }, m);
+  }
+  const f = n => n.toFixed(1);
+  // where a line from a button's centre in direction (dx, dy) leaves its edge, plus a gap
+  const edge = (p, dx, dy, gap = 0) => {
+    const l = Math.hypot(dx, dy), t = Math.min(HW / Math.abs(dx || 1e-9), HH / Math.abs(dy || 1e-9));
+    return [p.x + dx * t + gap * dx / l, p.y + dy * t + gap * dy / l];
+  };
+  const has = (a, b) => ROUTES.some(([x, y]) => x === a && y === b);
+  const done = new Set();
+  for (const [from, to] of ROUTES) {
+    const p = pos[from], q = pos[to];
+    const key = [from, to].sort().join('|');
+    if (done.has(key)) continue;
+    done.add(key);
+    const both = has(to, from);
+    const dx = q.x - p.x, dy = q.y - p.y;
+    const [x1, y1] = edge(p, dx, dy, 3), [x2, y2] = edge(q, -dx, -dy, 3);
+    const line = el('line', { x1: f(x1), y1: f(y1), x2: f(x2), y2: f(y2),
+                              class: 'cv-route', stroke: both ? BOTH : ONE, 'marker-end': `url(#cv-${both ? 'both' : 'one'})` });
+    if (both) line.setAttribute('marker-start', 'url(#cv-both)');
+    el('title', {}, line).textContent = `${from} ${both ? '↔' : '→'} ${to}`;
+  }
+  for (const [name, id, ext] of FORMATS) {
+    const p = pos[name];
+    const a = el('a', { href: '#' + id, class: 'cv-node' });
+    el('rect', { x: f(p.x - HW), y: f(p.y - HH), width: 2 * HW, height: 2 * HH, rx: 6 }, a);
+    // the name, then one extension per line, the block centred in the button
+    const top = p.y - 15 * ext.length / 2 - 1;
+    const t = el('text', { x: f(p.x), y: f(top), 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
+    t.textContent = name;
+    ext.forEach((x, i) => {
+      const e = el('text', { x: f(p.x), y: f(top + 17 + 15 * i), class: 'cv-ext', 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
+      e.textContent = x;
+    });
+  }
+})();
+</script>

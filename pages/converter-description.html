@@ -58,8 +58,9 @@ is converted with the map. In GraphML it is read from the node properties, or fr
 <code>glycolysis-advanced.xml</code> for CellDesigner (advanced) from <code>glycolysis.graphml</code>.</p>
 <p><b>Layouts</b>: advanced is recommended. It preserves the layout of the input map as closely as possible:
 node positions, process ports and the key bends. Straight is the simpler fallback, for a map whose drawing does not convert
-well: every arc a straight line between node centres, each process midway between its main reactant and
-product, for laying out by hand.</p>
+well: every arc a straight line between node centres, for laying out by hand. In CellDesigner each process
+square sits midway between its main reactant and product. In both CellDesigner files a few nodes may move a
+little so that lines meet straight, unless <a href="#keep">Keep node positions</a> is ticked.</p>
 
 <h2 id="graphml">From GraphML</h2>
 <p><b>Input</b>: yEd GraphML (<code>.graphml</code>), an SBGN Process Description map.</p>
@@ -77,7 +78,10 @@ converted files.</p>
   <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">corrected</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The map redrawn with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with other shapes.</td></tr>
   <tr><td><span class="cv-btn cv-bad"><span class="cv-lines">GraphML<span class="cv-variant">marked</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>Given only when the check finds problems: the input map with the elements that break the SBGN rules drawn red, the reason shown on hover in yEd.</td></tr>
 </table>
-<p>CellDesigner 4.0 is SBML Level 2 Version 4 with the CellDesigner extension. Both SBGN-ML files have
+<p>CellDesigner 4.0 is SBML Level 2 Version 4 with the CellDesigner extension. A molecule drawn more than
+once is one CellDesigner species with one alias per drawing, as CellDesigner saves it. Two boxes are the same
+species when they have the same identifier (HGNC, UniProt or ChEBI, else the label), state, compartment and
+glyph. Both SBGN-ML files have
 their colours in the SBML render extension and the annotation as RDF in each glyph. A phenotype with an arc
 leaving it is left out of them with its arcs: an SBGN phenotype takes no outgoing arc, and the converter does
 not decide whether it is a perturbing agent or a submap.</p>
@@ -93,7 +97,7 @@ CellDesigner files, which have no such element, and kept in the SBGN-ML.</p>
 
 <h2 id="celldesigner">From CellDesigner</h2>
 <p><b>Input</b>: CellDesigner 4.x (<code>.xml</code>), SBML Level 2 Version 4 with the CellDesigner
-extension.</p>
+extension. Files of older CellDesigner versions, without the extension element, are not read.</p>
 <p><b>Check</b>: none.</p>
 <p><b>Output</b>:</p>
 <table class="cv-out">
@@ -143,15 +147,26 @@ see.</p>
 sized to the name. A metabolite keeps its shape. The map is rescaled if its objects are much larger or
 smaller.</p>
 
+<h2 id="keep">Keep node positions</h2>
+<p><b>Purpose</b>: for a map whose node positions must stay exactly as drawn.</p>
+<p><b>Applies to</b>: both CellDesigner files, when the box is ticked.</p>
+<p><b>Moves</b>: without it, three small corrections make lines meet straight in CellDesigner. A main line up
+to 10 px off the horizontal or vertical is straightened. An end that meets a larger node beside its centre
+moves onto that node's centre line. A modifier up to 15 px off its process square moves onto it. Each move is
+listed under the map with the node and the distance. Metabolite circles, the size of a multimer and the
+room for a complex's name below its members are CellDesigner's own and are kept either way.</p>
+
 <h2 id="loading">Loading</h2>
-<p><b>Updated</b>: 18 October 2026, Pyodide 0.26.4.</p>
+<p><b>Updated</b>: 19 October 2026, Pyodide 0.26.4.</p>
 <p><b>Size</b>: about 7 MB compressed (about 20 MB unpacked), downloaded on the first visit, then taken
 from the browser cache. Almost all of it is
 Python running in the browser (Pyodide): the Python engine 3.0 MB, its standard library 2.3 MB and
-the XML library lxml 1.4 MB. The converter itself is 0.05 MB.</p>
+the XML library lxml 1.4 MB. The converter itself is 0.06 MB.</p>
 <p><b>Time</b>: estimated 3 to 5 seconds on the first visit over a fast connection, about 10 seconds
 over a slow one (10 Mbit/s). Later visits need only the start of Python, 1 to 4 seconds. Loading starts
 as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
+
+<p style="font-size: 13px; color: #777;">This page before the switch to the restructured converter: <a href="{{ '/converter/description-v1-backup/' | relative_url }}">v1 backup</a>.</p>
 
 <script>
 (() => {
