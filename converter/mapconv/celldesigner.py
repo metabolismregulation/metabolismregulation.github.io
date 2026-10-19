@@ -129,6 +129,27 @@ def border_angle(rx, ry):
     return a % (2 * math.pi)
 
 
+def opened_ors(m):
+    # an OR gate fed by another gate (Newt's TGF-beta: AND into OR) has no CellDesigner form: each of
+    # its inputs points at its target with the type of its arc out, as several arcs onto one target
+    # read as any of them (user, 2026-10-19). A gate into an AND stays left out: no such reading.
+    ops = {i for i, d in m.nodes.items() if d.kind == 'Operator'}
+    opened, arcs = [], m.arcs
+    for o in ops:
+        if ' | '.join(m.nodes[o].labels).strip().upper() != 'OR':
+            continue
+        outs = [a for a in m.arcs if a.source == o and a.head is not None]
+        ins = [a.target if a.source == o else a.source for a in m.arcs if o in (a.source, a.target) and a.head is None]
+        if len(outs) == 1 and any(i in ops for i in ins):
+            opened.append(o)
+            arcs = [a for a in arcs if o not in (a.source, a.target)] + \
+                   [replace(outs[0], id='%s_%s' % (outs[0].id, i), source=i, points=[], source_at=(0.0, 0.0)) for i in ins]
+    if not opened:
+        return m
+    report.say('changed', 'OR gate fed by a gate: no CellDesigner form, its inputs joined to its target (%s)' % ', '.join(sorted(opened)))
+    return replace(m, nodes={i: d for i, d in m.nodes.items() if i not in opened}, arcs=arcs)
+
+
 def write(diagram, ann, layout='straight', move=True):
     # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
     # layout 'straight' (straight lines, as yEd calls them): the necessary minimum, simple and reliable, improved by hand in CellDesigner
@@ -138,7 +159,7 @@ def write(diagram, ann, layout='straight', move=True):
     # modifier onto its square), on unless the user forbids moving nodes (user, 2026-10-19); what
     # CellDesigner itself needs (circles, multimers, the complex name's room) is done either way
     advanced = layout == 'advanced'
-    diagram = without_delays(diagram, 'CellDesigner')
+    diagram = opened_ors(without_delays(diagram, 'CellDesigner'))
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
     if eq:  # CellDesigner has no equivalence operator
         report.say('left out', 'equivalence operator: no CellDesigner form, left out (%s), its entities kept' % ', '.join(eq))
@@ -509,9 +530,11 @@ def write(diagram, ann, layout='straight', move=True):
             # gate and one per input
             o, inp = e.source, gate_in[e.source]
             kind = ' | '.join(N[o].labels).strip().upper()
-            if e.head not in GATE_ARC or kind not in GATE or not inp or len(inp) < sum(1 for a in E if o in (a.source, a.target) and a.head is None):
+            nested = len(inp) < sum(1 for a in E if o in (a.source, a.target) and a.head is None)
+            if e.head not in GATE_ARC or kind not in GATE or not inp or nested:
                 report.say('left out', 'arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted%s' % (
-                    e.id, kind, label[e.target] or e.target, e.head, ' (a gate into a gate)' if inp else ''))
+                    e.id, kind, label[e.target] or e.target, e.head, ' (a gate into a gate)' if nested else
+                    ' (no %s out of a gate in our CellDesigner files)' % e.head if e.head not in GATE_ARC else ''))
                 continue
             gx, gy = cen(o)
             rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(e.id), id='re_' + sid(e.id), reversible='false')

@@ -126,7 +126,8 @@ SBGN-ML with Newt's own settings added, converted the same way. An Activity Flow
 drawn the CellDesigner way: each activity as the entity it comes from, a protein's activity as a protein,
 the influences as arcs between them. In a map that mixes Process Description and Activity Flow, an
 activity joined to its entity by a performance arc is drawn as that entity, one node for the molecule and
-its activity, as in CellDesigner's reduced notation.</p>
+its activity, as in CellDesigner's reduced notation. "activity" at the end of an activity's name is
+dropped, so "SHC activity" becomes SHC.</p>
 <p><b>Check</b>: none.</p>
 <p><b>Output</b>:</p>
 <table class="cv-out">
@@ -135,7 +136,10 @@ its activity, as in CellDesigner's reduced notation.</p>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">straight</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Each reaction a straight line between the centres of its main reactant and product, the process square midway.</td></tr>
   <tr><td><span class="cv-btn"><span class="cv-lines">CellDesigner</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Process squares, bends and modifier arcs where the SBGN-ML has them.</td></tr>
 </table>
-<p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML.</p>
+<p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML. CellDesigner has no
+logic gate feeding another gate. When the second gate is OR, it is dropped and each of its inputs points
+at its target with the same arc, as several arcs onto one target read as any of them. When it is AND,
+the arc is left out.</p>
 <p><b>Not converted</b>: glyph and arc classes the converter does not read, and clone markers, left out
 of all three files and listed under the map with their class and ids. A perturbing agent becomes a
 phenotype in all three files: our maps, like CellDesigner, have one glyph for both. An

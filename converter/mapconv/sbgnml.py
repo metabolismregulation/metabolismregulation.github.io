@@ -320,7 +320,8 @@ HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'cat
 # influences are arcs between entities; a delay is an Operator labelled tau; a submap is a phenotype
 # with its name, its terminals and the tags left out; an equivalence arc is a plain line (to a terminal:
 # to the submap). In Newt's hybrid maps (PD and AF) an activity joined to its entity by a performance
-# arc is that entity, as in CellDesigner's reduced notation (user, 2026-10-19)
+# arc is that entity, as in CellDesigner's reduced notation, and "activity" at the end of an activity's
+# label goes (user, 2026-10-19)
 ACTIVITY = {'macromolecule': 'Macromolecule', 'nucleic acid feature': 'NucleicAcidFeature', 'simple chemical': 'SimpleChemical',
             'unspecified entity': 'UnspecifiedEntity', 'complex': 'Complex', 'perturbation': 'Phenotype'}
 HEAD.update({'positive influence': 'stimulation', 'negative influence': 'inhibition', 'unknown influence': 'modulation'})
@@ -360,7 +361,7 @@ def read(path):
     fill = {i: st.find(R + 'g').get('fill') for st in m.iter(R + 'style') if st.find(R + 'g') is not None
             for i in (st.get('idList') or '').split()}
     port = {}
-    nodes, skipped, activities = {}, {}, set()
+    nodes, skipped, activities, renamed = {}, {}, set(), []
 
     def text(g):
         lab = g.find(S + 'label')
@@ -375,6 +376,9 @@ def read(path):
             u = next((c.find(S + 'entity') for c in g.findall(S + 'glyph') if c.get('class') == 'unit of information'), None)
             kind = ACTIVITY.get((u.get('name') if u is not None else '').replace(' multimer', ''), 'Macromolecule')
             activities.add(i)
+            if re.search(r'\sactivity\s*$', text(g), re.I):  # the node is the molecule: "SHC activity" is SHC (user, 2026-10-19)
+                g.find(S + 'label').set('text', re.sub(r'\s+activity\s*$', '', text(g), flags=re.I))
+                renamed.append(g.get('id'))
         if af and cls == 'submap':  # a phenotype with the submap's name, no terminals or tags (user, 2026-10-17)
             kind = 'Phenotype'
             for c in g.findall(S + 'glyph'):
@@ -436,9 +440,12 @@ def read(path):
         for a in arcs:  # the activity's arcs start or end at its entity, straight
             if t in (a.source, a.target):
                 a.source, a.target, a.points = s if a.source == t else a.source, s if a.target == t else a.target, []
-        report.say('changed', '%s: drawn as %s, the entity it is the activity of (performance arc)'
+        report.say('changed', 'activity of %s: drawn as %s, its entity (performance arc)'
                    % (' '.join(nodes[t].labels[0].split()) or t, ' '.join(nodes[s].labels[0].split()) or s))
         del nodes[t]
+    kept = [' '.join(nodes[i].labels[0].split()) for i in renamed if i in nodes]
+    if kept:
+        report.say('changed', '"activity" cut from the label of: %s' % ', '.join(kept))
     for what, ids in skipped.items():
         report.say('left out', '%s: %d left out (%s)' % (what, len(ids), ', '.join(ids[:5]) + (' ...' if len(ids) > 5 else '')))
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
