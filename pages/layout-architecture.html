@@ -327,13 +327,15 @@ The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: 
   <li><b>Snap and hubs</b>: one rule in SKILL.md, no code. Snap to grid is for maps drawn in yEd, <code>hub_grid</code>
     for maps converted from CellDesigner, which are not snapped. Done 2026-10-19.</li>
   <li><b>check.py</b>: the skill's check gets the two strict rules only the workbench checks today (off-centre ports,
-    bends not smoothed). The workbench's <code>tools/check.py</code> then calls it.</li>
+    bends not smoothed), as preferences for maps drawn in yEd, not strict rules. The workbench's
+    <code>tools/check.py</code> runs it. Done 2026-10-19.</li>
   <li><b>build.py</b>: <code>F022-bcaa/kit.py</code> (node and arc from a template, centre_ports, smooth_bends,
-    fit_label) moves into the skill. New map builds import it from there.</li>
+    fit_label) moves into the skill. New map builds import it from there. Open: the kit works on the workbench's
+    <code>yedit</code> (content editing), so it cannot move alone.</li>
   <li><b>F001 scripts</b>: <code>layout.py</code>, <code>or_variant.py</code>, <code>make_v7or.py</code>,
     <code>A_inside_out.py</code>, <code>B_modular.py</code>, the F001 blocks of <code>kit.py</code> and
     <code>run_all.sh</code> move to <code>examples/F001-glycolysis-v8-v9/</code>. <code>kit.py</code> keeps the
-    generic Layout class.</li>
+    generic Layout class. Done 2026-10-19: the same files byte for byte.</li>
 </ul>
 
 <h3>The grid</h3>
