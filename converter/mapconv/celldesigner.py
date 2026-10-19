@@ -46,7 +46,7 @@ from struct import pack, unpack
 from lxml import etree
 from . import cd_layout, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
-from .layout import unbent
+from .layout import visible
 from .annotation import to_properties
 from .graphml import EQUIV, without_delays
 from .model import Map, Node, Arc
@@ -799,8 +799,6 @@ def read(path):
     for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
         k = sum(1 for _ in xs(ext, tag))
         if k: report.say('left out', '%d %s left out' % (k, tag.split(':')[-1] + 's'))
-    # an edit point on the straight line between its neighbours is no bend in yEd (the advanced
-    # layout's two points beside the square): left out
-    for e in arcs:
-        e.points = unbent([cen(e.source)] + e.points + [cen(e.target)])[1:-1]
-    return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
+    # only the bends CellDesigner shows (none hidden under a node or on the straight line between
+    # their neighbours, as the advanced layout's two points beside the square)
+    return visible(Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs))

@@ -111,6 +111,9 @@ extension. Files of older CellDesigner versions, without the extension element, 
 <p>Both SBGN-ML files are made from the CellDesigner file directly, with their colours in the SBML render
 extension and the annotation as RDF in each glyph. A phenotype with an arc leaving it is left out with its
 arcs, as from GraphML.</p>
+<p>CellDesigner draws its nodes over the arcs, so its files hold bends nobody sees: inside an arc's own start or
+end node, or on the straight line between two others. These are left out of the GraphML and SBGN-ML files, and
+an arc starts where its line crosses the node's border in CellDesigner.</p>
 <p>Both SBGN-ML files give a homodimer its N:x unit, N:2 included. Since CellDesigner files carry no site
 names, their state variables have none.</p>
 <p><b>Not converted</b>: text and shapes drawn on layers, groups, compartments drawn as an edge line,
