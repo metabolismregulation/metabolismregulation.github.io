@@ -335,8 +335,10 @@ come here.</p>
   <li><b>Readers</b> read what the file says, the CellDesigner reader too. Straight or advanced is chosen in the layout, not when the file is read.</li>
   <li><b>Reactions</b>: the main reactant and product of each process are worked out once, on the biology. Today
     <code>celldesigner.write</code>, <code>celldesigner.straight</code>, <code>sbgnml.write</code> and <code>rules.py</code> each work them out on their own.</li>
-  <li><b>Layout</b>: straight and advanced become two lists of passes, the same for every format. Both straight
-    files from one map then have the same geometry.</li>
+  <li><b>Layout</b>: what every format needs (the main reactant and product, bends that matter, two processes on the
+    same species kept apart) in one module; what one format needs in its adapter. SBGN-ML (straight) keeps yEd's
+    process positions: placing each process midway, as CellDesigner does, would turn 50 of the 350 Atlas
+    processes, drawn as an L in yEd, into diagonals (2026-10-19).</li>
   <li><b>Adapters</b> hold what one target needs: CellDesigner's anchor points, multimer front shape and MINERVA's
     square anchors, Newt's compartment padding, yEd's standard sizes.</li>
   <li><b>Report</b>: the converter's messages, about 30 kinds (left out, moved, not converted), go into one list. Today they are printed and
@@ -353,7 +355,7 @@ current one is kept, unchanged, as <code>map-converter-v1</code>, the reference.
   <li>The new model (biology and drawing), with the current readers and writers adapted to it. The files stay as they are.</li>
   <li>Report and routes. The files stay as they are.</li>
   <li>The layout passes moved out of <code>celldesigner.write</code> one at a time, then the adapters, each checked against the reference files.
-    Then SBGN-ML (straight) on the same passes, the one intended change in the files.</li>
+    The files stay as they are. Nothing new until the restructuring is done (2026-10-19).</li>
   <li>SBML with layout, read and written, and SBML without layout written.</li>
   <li>BioPAX written.</li>
 </ol>
