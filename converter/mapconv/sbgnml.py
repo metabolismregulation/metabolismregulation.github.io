@@ -319,7 +319,8 @@ HEAD = {'consumption': None, 'logic arc': None, 'production': 'production', 'cat
 # perturbation: phenotype, as in CellDesigner), its label (the molecule's name) stays a unit; the
 # influences are arcs between entities; a delay is an Operator labelled tau; a submap is a phenotype
 # with its name, its terminals and the tags left out; an equivalence arc is a plain line (to a terminal:
-# to the submap)
+# to the submap). In Newt's hybrid maps (PD and AF) an activity joined to its entity by a performance
+# arc is that entity, as in CellDesigner's reduced notation (user, 2026-10-19)
 ACTIVITY = {'macromolecule': 'Macromolecule', 'nucleic acid feature': 'NucleicAcidFeature', 'simple chemical': 'SimpleChemical',
             'unspecified entity': 'UnspecifiedEntity', 'complex': 'Complex', 'perturbation': 'Phenotype'}
 HEAD.update({'positive influence': 'stimulation', 'negative influence': 'inhibition', 'unknown influence': 'modulation'})
@@ -359,7 +360,7 @@ def read(path):
     fill = {i: st.find(R + 'g').get('fill') for st in m.iter(R + 'style') if st.find(R + 'g') is not None
             for i in (st.get('idList') or '').split()}
     port = {}
-    nodes, skipped = {}, {}
+    nodes, skipped, activities = {}, {}, set()
 
     def text(g):
         lab = g.find(S + 'label')
@@ -373,6 +374,7 @@ def read(path):
         if cls == 'biological activity':
             u = next((c.find(S + 'entity') for c in g.findall(S + 'glyph') if c.get('class') == 'unit of information'), None)
             kind = ACTIVITY.get((u.get('name') if u is not None else '').replace(' multimer', ''), 'Macromolecule')
+            activities.add(i)
         if af and cls == 'submap':  # a phenotype with the submap's name, no terminals or tags (user, 2026-10-17)
             kind = 'Phenotype'
             for c in g.findall(S + 'glyph'):
@@ -416,15 +418,27 @@ def read(path):
 
     for g in m.findall(S + 'glyph'):
         glyph(g, g.get('compartmentRef'))
-    arcs = []
+    arcs, performers = [], {}
     head = dict(HEAD, **{'equivalence arc': None}) if af else HEAD  # AF: a plain line (user, 2026-10-17)
     for a in m.findall(S + 'arc'):
         cls = a.get('class')
         s, t = (port.get(a.get(k), a.get(k)) for k in ('source', 'target'))
+        if cls == 'performance arc' and t in activities and s in nodes and s not in activities:
+            performers.setdefault(t, []).append((s, a.get('id'))); continue
         if cls not in head or s not in nodes or t not in nodes:
             skipped.setdefault(cls + ' arc' if cls not in head else 'arc to a glyph left out', []).append(a.get('id')); continue
         arcs.append(Arc(id=a.get('id'), source=s, target=t, head=head[cls],
                         points=[(float(p.get('x')), float(p.get('y'))) for p in a.findall(S + 'next')]))
+    for t, ps in performers.items():
+        if len(ps) > 1:  # which entity it stands for is not guessed
+            skipped.setdefault('performance arc', []).extend(i for _, i in ps); continue
+        s = ps[0][0]
+        for a in arcs:  # the activity's arcs start or end at its entity, straight
+            if t in (a.source, a.target):
+                a.source, a.target, a.points = s if a.source == t else a.source, s if a.target == t else a.target, []
+        report.say('changed', '%s: drawn as %s, the entity it is the activity of (performance arc)'
+                   % (' '.join(nodes[t].labels[0].split()) or t, ' '.join(nodes[s].labels[0].split()) or s))
+        del nodes[t]
     for what, ids in skipped.items():
         report.say('left out', '%s: %d left out (%s)' % (what, len(ids), ', '.join(ids[:5]) + (' ...' if len(ids) > 5 else '')))
     return Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs)
