@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 tag: "draft"
 image: "/atlas-downloads/F002-eicosanoids-platelet.svg"
-width: 1367
-height: 1620
+width: 1351
+height: 1464
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids-platelet.json"
 image_error: ""
