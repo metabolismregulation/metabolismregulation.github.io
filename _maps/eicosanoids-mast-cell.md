@@ -10,7 +10,7 @@ draft: true
 tag: "draft"
 image: "/atlas-downloads/F002-eicosanoids-mast-cell.svg"
 width: 1510
-height: 1819
+height: 1822
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids-mast-cell.json"
 image_error: ""
