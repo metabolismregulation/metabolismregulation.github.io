@@ -33,10 +33,17 @@ def for_newt(diagram, ports=True):
     # NEWT_PAD inside every edge, else it wraps the contents and edges aligned in the source drift
     # apart or overlap. Each box is widened as its contents need; edges aligned in the source (within
     # 2 px) move together. Where two neighbours' contents are too close across their shared edge,
-    # everything past that edge moves on by what is missing, so the edges stay aligned (printed)
+    # everything past that edge moves on by what is missing, so the edges stay aligned (printed).
+    # Compartments side by side keep the gap the source has between them, up to NEWT_PAD (platelet
+    # eicosanoids: 2.7 px apart in yEd, CYTOSOL grew into DENSE TUBULAR SYSTEM; user, 2026-10-19)
     N = diagram.nodes
     comps = [c for c, d in N.items() if d.kind == 'Compartment']
     value = lambda c, k: N[c].box[k % 2] + (N[c].box[2 + k % 2] if k > 1 else 0)
+    # facing pairs: a before b along an axis, side by side on the other, neither around the other
+    within = lambda a, b: all(value(a, k) >= value(b, k) - 1 for k in (0, 1)) and all(value(a, k) <= value(b, k) + 1 for k in (2, 3))
+    facing = [(a, b, ax, min(NEWT_PAD, max(0.0, value(b, ax) - value(a, ax + 2)))) for a in comps for b in comps for ax in (0, 1)
+              if a != b and not within(a, b) and not within(b, a) and value(a, ax + 2) - 2 <= value(b, ax)
+              and min(value(a, 3 - ax), value(b, 3 - ax)) - max(value(a, 1 - ax), value(b, 1 - ax)) > 0.5]
     for _ in range(50):
         ext = {c: [math.inf, math.inf, -math.inf, -math.inf] for c in comps}
         for i, d in N.items():
@@ -57,7 +64,13 @@ def for_newt(diagram, ports=True):
             g.append((c, k)) if g else groups.append([(c, k)])
         bounds = [(g, max([ext[c][k] + NEWT_PAD for c, k in g if k > 1 and ext[c][k] > -math.inf], default=-math.inf),
                    min([ext[c][k] - NEWT_PAD for c, k in g if k < 2 and ext[c][k] < math.inf], default=math.inf)) for g in groups]
-        clash = sorted(((value(*g[0]), g, lo - hi) for g, lo, hi in bounds if lo > hi + 0.5), key=lambda t: (t[1][0][1] % 2, t[0]))
+        # each edge where it ends up (an edge grows outward as its contents need); a facing pair
+        # closer than its gap moves b's side on
+        end = {(c, k): max(lo, value(c, k)) if k > 1 else min(hi, value(c, k)) for g, lo, hi in bounds for c, k in g}
+        clash = sorted([(value(*g[0]), g, lo - hi) for g, lo, hi in bounds if lo > hi + 0.5] +
+                       [(value(b, ax), [(b, ax)], end[a, ax + 2] + gap - end[b, ax]) for a, b, ax, gap in facing
+                        if end[a, ax + 2] + gap > end[b, ax] + 0.5 and abs(value(a, ax + 2) - value(b, ax)) > 2],
+                       key=lambda t: (t[1][0][1] % 2, t[0]))
         if not clash:
             break
         at, g, by = clash[0]
