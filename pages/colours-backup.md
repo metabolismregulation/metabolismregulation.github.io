@@ -2,6 +2,8 @@
 layout: default
 title: Colours (backup)
 permalink: /colours-backup/
+sitemap: false
+noindex: true
 ---
 
 ## Colour Scheme #002

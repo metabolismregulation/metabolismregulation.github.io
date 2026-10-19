@@ -2,6 +2,8 @@
 layout: default
 title: Colours
 permalink: /styles/
+sitemap: false
+noindex: true
 ---
 
 
