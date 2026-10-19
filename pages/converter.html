@@ -16,11 +16,16 @@ noindex: true
   #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
   #cv-drop.cv-wait { cursor: progress; }
   #cv-status { font-size: 14px; color: #666; min-height: 20px; }
-  .cv-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; border-top: 1px solid #eee; padding: 8px 0; }
-  /* the map's name on its own line, its buttons in one row under it (user, 2026-10-19) */
-  .cv-name { flex-basis: 100%; font-weight: 600; overflow-wrap: anywhere; }
+  /* the map's name in the left half, plain weight, its buttons in the right half: the advanced
+     files (and the marked map) in the first row, the straight ones (and the corrected map) under
+     them, white, as the fallback (user, 2026-10-19); three buttons to a row */
+  .cv-map { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; border-top: 1px solid #eee; padding: 8px 0; }
+  .cv-name { align-self: center; overflow-wrap: anywhere; }
+  .cv-rows { display: flex; flex-direction: column; gap: 6px; }
+  .cv-row { display: flex; flex-wrap: wrap; gap: 6px 8px; }
+  @media (max-width: 600px) { .cv-map { grid-template-columns: 1fr; } }
 {% include converter-buttons.css %}
-  .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
+  .cv-log { grid-column: 1 / -1; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
   /* links in the Atlas's link blue (MINERVA's), darker than the site's #4183c4, the same on hover */
   .cv-top a, .cv-top a:hover, .cv-top a:active { color: #1c47a9; }
@@ -179,8 +184,9 @@ def convert(name, data, standard=False):
       const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked)
                   .toJs();
       const box = document.createElement('div'); box.className = 'cv-map';
-      box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
+      box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div><div class="cv-rows"><div class="cv-row"></div><div class="cv-row"></div></div>');
       box.querySelector('.cv-name').textContent = base;
+      const [first, second] = box.querySelectorAll('.cv-row');
       // the converter's messages, each once and without its summary line ("46 species, ...")
       const notes = new Set(), errors = new Set();
       const problems = [];
@@ -188,7 +194,8 @@ def convert(name, data, standard=False):
         if (xml) {
           const b = button(xml, base + end, label, red);
           if (end === '-corrected.graphml') b.classList.add('cv-grey');
-          box.append(b);
+          if (end.startsWith('-straight.')) b.classList.add('cv-alt');
+          (end === '-corrected.graphml' || end.startsWith('-straight.') ? second : first).append(b);
         }
         if (red) { problems.push(log); continue; }
         for (const l of log.split('\n').filter(l => l.trim() && !/: \d+ species, /.test(l))) (xml ? notes : errors).add(l.trim());
@@ -198,6 +205,8 @@ def convert(name, data, standard=False):
         const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
         box.append(d);
       }
+      if (!second.childElementCount) second.remove();
+      if (!first.childElementCount) first.remove();
       out.insertBefore(box, top);
     }
     status.textContent = '';
