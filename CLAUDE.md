@@ -305,6 +305,11 @@ record. Add an ORCID only after checking it on orcid.org.
 A change to how an entity is drawn applies to every instance of it on the map, including
 empty state variables (user, 2026-10-17).
 
+A transport (the same species moved between compartments) is not catalysed: a transporter or
+channel acts on it by stimulation (white arrow), not catalysis (user, 2026-10-19; Atlas
+eicosanoids IP3:IP3R, urea cycle SLC25A15, BCAA SLC25A44, nNOS Ca2+ entry changed then, the
+official files in `downloads/` not).
+
 Modification sites (user, 2026-10-17, tested on the eicosanoids draft): a state variable shows
 only its symbol (P, or empty for an unmodified site); the site goes into the node property PTM,
 one line per modified site as on a state variable (P@S505), clockwise from the top left.

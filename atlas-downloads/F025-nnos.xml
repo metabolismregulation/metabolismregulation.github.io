@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level2/version4" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner" level="2" version="4">
-<model metaid="F025_nnos_v6_edited" id="F025_nnos_v6_edited">
+<model metaid="F025_nnos" id="F025_nnos">
 <annotation>
 <celldesigner:extension>
 <celldesigner:modelVersion>4.0</celldesigner:modelVersion>
@@ -1692,14 +1692,17 @@
 <celldesigner:baseProducts>
 <celldesigner:baseProduct species="s_n3" alias="sa_n3"/>
 </celldesigner:baseProducts>
-<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="1">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
+<celldesigner:lineDirection index="1" value="unknown"/>
+<celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
+<celldesigner:editPoints>0.3225185073273908,0.0 0.7741728357757969,0.0</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
-<celldesigner:modification type="BOOLEAN_LOGIC_GATE_OR" modifiers="s_n1_n12,s_n1_n13" aliases="sa_n1_n12,sa_n1_n13" modificationType="CATALYSIS" targetLineIndex="-1,2" editPoints="715.8401459854017,126.06640625">
+<celldesigner:modification type="BOOLEAN_LOGIC_GATE_OR" modifiers="s_n1_n12,s_n1_n13" aliases="sa_n1_n12,sa_n1_n13" modificationType="PHYSICAL_STIMULATION" targetLineIndex="-1,2" editPoints="715.8401459854017,126.06640625">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -1707,7 +1710,7 @@
 </celldesigner:connectScheme>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:modification>
-<celldesigner:modification type="CATALYSIS" modifiers="s_n1_n12" aliases="sa_n1_n12" targetLineIndex="-1,0">
+<celldesigner:modification type="PHYSICAL_STIMULATION" modifiers="s_n1_n12" aliases="sa_n1_n12" targetLineIndex="-1,0">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -1715,7 +1718,7 @@
 </celldesigner:connectScheme>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:modification>
-<celldesigner:modification type="CATALYSIS" modifiers="s_n1_n13" aliases="sa_n1_n13" targetLineIndex="-1,0">
+<celldesigner:modification type="PHYSICAL_STIMULATION" modifiers="s_n1_n13" aliases="sa_n1_n13" targetLineIndex="-1,0">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
