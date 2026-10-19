@@ -46,14 +46,15 @@ SHORT = dict(re.findall(r'class="gallery-title" href="/([^/]+)/">([^<]+)<',
 # map pages shown as a tab of another page's topic
 # tab: the variant shown in brackets after the topic in the list, as in
 # Glycogen metabolism (muscle)
-JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle')}
-TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-glycolysis': 'generic'}
+JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle'), 'eicosanoids-platelet': ('eicosanoids', 'platelet'),
+        'eicosanoids-mast-cell': ('eicosanoids', 'mast cell')}
+TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-glycolysis': 'generic', 'F002-eicosanoids': 'generic'}
 # the Atlas list: groups in this order, maps in this order within a group.
 # Groups without maps are planned for future maps and are not shown.
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
 GROUPS = [
     ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycolysis-extended', 'pdh', 'glycogen-muscle', 'glycogen-liver', 'acly']),
-    ('Lipid metabolism', ['eicosanoids', 'alox5', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'gba1', 'aspirin']),
+    ('Lipid metabolism', ['eicosanoids', 'eicosanoids-platelet', 'eicosanoids-mast-cell', 'alox5', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'gba1', 'aspirin']),
     ('Amino acid metabolism', ['glutaminase', 'bcaa', 'ureacycle']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
     ('Nitric oxide metabolism', ['inos', 'enos', 'nnos']),

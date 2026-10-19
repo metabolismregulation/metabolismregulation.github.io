@@ -1,7 +1,7 @@
 ---
 title: "Regulation of eicosanoid production"
 topic: "Eicosanoid production"
-tab: ""
+tab: "generic"
 page: "/eicosanoids/"
 group: "Lipid metabolism"
 order: 7.5
