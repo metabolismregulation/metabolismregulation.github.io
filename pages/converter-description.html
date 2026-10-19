@@ -60,13 +60,10 @@ when the file is given if not always. Each file is named after the input file an
 
 <h2 id="graphml">From GraphML</h2>
 <p><b>Input</b>: yEd GraphML (<code>.graphml</code>), an SBGN Process Description map.</p>
-<p><b>Check</b>: the SBGN Process Description rules, with these exceptions:</p>
-<ul>
-  <li>a phenotype may also stand for a perturbing agent or a submap</li>
-  <li>stimulation, inhibition, modulation and trigger may connect two entities directly (CellDesigner’s
-  Reduced Notation)</li>
-</ul>
-<p>Elements that break the rules are left out of the converted files.</p>
+<p><b>Check</b>: the SBGN Process Description rules, with two exceptions: 1) a phenotype may also stand
+for a perturbing agent or a submap, and 2) stimulation, inhibition, modulation and trigger may connect two
+entities directly (CellDesigner’s Reduced Notation). Elements that break the rules are left out of the
+converted files.</p>
 <p><b>Output</b>:</p>
 <table class="cv-out">
   <tr><th>Button</th><th>File</th><th>Content</th></tr>
