@@ -408,7 +408,7 @@ map-converter's model and from files without a drawing (dashed).</p>
   <text class="ca-sub ca-pt" x="80" y="340" text-anchor="middle">without a drawing</text>
 
   <rect class="ca-hub" x="175" y="80" width="160" height="300" rx="10"/>
-  <text class="ca-big" x="255" y="108" text-anchor="middle">yedfile.py</text>
+  <text class="ca-big" x="255" y="108" text-anchor="middle">yfile.py</text>
   <text class="ca-sub" x="255" y="127" text-anchor="middle">read and write, once</text>
   <rect class="ca-inner" x="187" y="142" width="136" height="104" rx="7"/>
   <text class="ca-name" x="199" y="164">Map</text>
@@ -530,7 +530,7 @@ packing are stale, and the two grids above undo each other. One pipeline with on
 
 <h3>What changes</h3>
 <ul>
-  <li><b>yedfile.py</b>: one reader and writer, from <code>complex_pack</code>'s helpers and <code>ygml.Model</code>. <code>hub_grid</code>, <code>snap_grid</code>, <code>kit</code> and the workbench's <code>yedit</code> use it.</li>
+  <li><b>yfile.py</b>: one reader and writer, from <code>complex_pack</code>'s helpers and <code>ygml.Model</code>. <code>hub_grid</code>, <code>snap_grid</code>, <code>kit</code> and the workbench's <code>yedit</code> use it.</li>
   <li><b>build.py</b>: the generic part of <code>kit.Layout</code> and of <code>F022-bcaa/kit.py</code> (node and arc from a template, fit_label), so map builds no longer import from the BCAA folder.</li>
   <li><b>finish.py</b>: the passes in one order, the grid decided once. <code>centre_ports</code> and <code>smooth_bends</code>, today in the BCAA kit, become passes.</li>
   <li><b>check.py</b>: the two merged, the content identity added, siblings inside groups checked too (SKILL.md section 9: today only top-level nodes are compared).</li>
@@ -544,7 +544,7 @@ packing are stale, and the two grids above undo each other. One pipeline with on
 <h3>Order of work</h3>
 <ol>
   <li>Reference files: every finishing pass on the 22 archive maps, the examples and the 28 Atlas maps, and the 82 map builds run once, kept with their outputs.</li>
-  <li><code>yedfile.py</code>, with the readers moved onto it one at a time. The files stay as they are.</li>
+  <li><code>yfile.py</code>, with the readers moved onto it one at a time. The files stay as they are.</li>
   <li><code>check.py</code> merged. Its report on the reference maps is the sum of the two today.</li>
   <li><code>build.py</code>, map builds moved from the BCAA kit. The files stay as they are.</li>
   <li><code>finish.py</code> and the grid decision, the one intended change in the files.</li>
