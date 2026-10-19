@@ -98,12 +98,12 @@ def convert(name, data, standard=False):
                 m = read()
                 return celldesigner.write(m, annotation.from_graphml(m), layout)
             files.append(['-%s.xml' % layout, 'CellDesigner' + ' (%s)' % layout, *run(cd)])
-        fixed = run(lambda: graphml.corrected(read()))[0]
-        if fixed:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
-            files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, '', False])
         for layout in ('straight', 'advanced'):
             files.append(['-%s.sbgn' % layout, 'SBGN-ML' + ' (%s)' % layout,
                           *run(lambda: sbgnml.write(read(), layout))])
+        fixed = run(lambda: graphml.corrected(read()))[0]
+        if fixed:  # drawn with other shapes than the SBGN palette: also the map in the SBGN palette
+            files.append(['-corrected.graphml', 'GraphML (corrected)', fixed, '', False])
         if found:
             files.append(['-marked.graphml', 'GraphML (marked)', rules.mark(p, found),
                           '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's')
