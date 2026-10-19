@@ -20,7 +20,7 @@ noindex: true
      files (and the marked map) in the first row, the straight ones (and the corrected map) under
      them, white, as the fallback (user, 2026-10-19); three buttons to a row */
   .cv-map { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; border-top: 1px solid #eee; padding: 8px 0; }
-  .cv-name { align-self: center; overflow-wrap: anywhere; }
+  .cv-name { align-self: start; display: flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; } /* level with the first row */
   .cv-rows { display: flex; flex-direction: column; gap: 6px; }
   .cv-row { display: flex; flex-wrap: wrap; gap: 6px 8px; }
   @media (max-width: 600px) { .cv-map { grid-template-columns: 1fr; } }
