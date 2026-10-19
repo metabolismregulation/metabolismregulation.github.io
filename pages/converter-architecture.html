@@ -1,0 +1,311 @@
+---
+layout: default
+title: Converter architecture
+permalink: /converter/architecture/
+sitemap: false
+noindex: true
+---
+
+<!-- how the converter (map-converter, its copy in converter/mapconv/) is built, and the
+     architecture suggested for it (user, 2026-10-19). Hidden like /converter/description/. Both
+     diagrams in one drawing grammar: a row per format, kept from input to output. -->
+<style>
+  #main a, #main a:hover, #main a:active { color: #1c47a9; }
+  .ca-fig { overflow-x: auto; margin: 12px 0 8px; }
+  .ca-fig svg { display: block; width: 100%; min-width: 860px; height: auto; }
+  .ca-head { fill: #888; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .ca-fmt { fill: #fff; stroke: #ccc; stroke-width: 1; }
+  .ca-box { fill: #f5f7fa; stroke: #ccc; stroke-width: 1; }
+  .ca-hub { fill: #eaf2fa; stroke: #4183c4; stroke-width: 1.5; }
+  .ca-lay { fill: #fcf3e3; stroke: #c47a12; stroke-width: 2; }
+  .ca-band { fill: none; stroke: #ccc; stroke-width: 1; stroke-dasharray: 5 5; }
+  .ca-name { fill: #222; font: 600 13px Menlo, Consolas, "Liberation Mono", monospace; }
+  .ca-big { fill: #222; font: 600 16px Menlo, Consolas, "Liberation Mono", monospace; }
+  .ca-title { fill: #222; font-size: 13px; font-weight: 600; }
+  .ca-fmtt { fill: #222; font-size: 13px; }
+  .ca-sub { fill: #777; font-size: 11.5px; }
+  .ca-arr { stroke: #888; stroke-width: 1.3; fill: none; }
+  .ca-dash { stroke-dasharray: 4 4; }
+  .ca-tip { fill: #888; }
+  .ca-legend { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13px; color: #777; margin: 0 0 16px; }
+  .ca-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .ca-sw { display: inline-block; width: 22px; height: 14px; border-radius: 4px; border: 1px solid #ccc; background: #f5f7fa; }
+  .ca-sw.lay { border: 2px solid #c47a12; background: #fcf3e3; }
+  .ca-sw.hub { border: 1.5px solid #4183c4; background: #eaf2fa; }
+  .ca-sw.dash { border: 0; height: 0; border-top: 2px dashed #888; border-radius: 0; }
+  .ca-table { border-collapse: collapse; font-size: 14px; width: 100%; margin: 8px 0 16px; }
+  .ca-table th { text-align: left; font-weight: normal; color: #888; font-size: 13px; padding: 4px 16px 4px 0; border-bottom: 1px solid #ddd; }
+  .ca-table td { padding: 8px 16px 8px 0; vertical-align: top; border-bottom: 1px solid #eee; }
+  .ca-table td:first-child { white-space: nowrap; }
+  .ca-note { border-left: 3px solid #c47a12; background: #fcf3e3; padding: 10px 14px; margin: 8px 0 16px; }
+  @media (max-width: 600px) { .ca-table td:first-child { white-space: normal; } }
+</style>
+
+<p>The <a href="{{ '/converter/' | relative_url }}">converter</a> reads every format into one model of the map
+and writes every format from it. This page shows how it is built today and the architecture suggested for it.
+The format details are on the <a href="{{ '/converter/description/' | relative_url }}">description page</a>.</p>
+
+<h2>Today</h2>
+
+<div class="ca-fig">
+<svg viewBox="0 0 1000 530" role="img" aria-label="The converter today: readers, model.Map, writers and the transforms on the model">
+  <defs>
+    <marker id="ca-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <text class="ca-head" x="85" y="44" text-anchor="middle">Input</text>
+  <text class="ca-head" x="275" y="44" text-anchor="middle">Readers</text>
+  <text class="ca-head" x="500" y="44" text-anchor="middle">Model</text>
+  <text class="ca-head" x="725" y="44" text-anchor="middle">Writers</text>
+  <text class="ca-head" x="915" y="44" text-anchor="middle">Output</text>
+
+  <rect class="ca-fmt" x="20" y="90" width="130" height="40" rx="5"/>
+  <text class="ca-fmtt" x="85" y="115" text-anchor="middle">GraphML (yEd)</text>
+  <rect class="ca-fmt" x="20" y="180" width="130" height="40" rx="5"/>
+  <text class="ca-fmtt" x="85" y="205" text-anchor="middle">CellDesigner</text>
+  <rect class="ca-fmt" x="20" y="270" width="130" height="40" rx="5"/>
+  <text class="ca-fmtt" x="85" y="295" text-anchor="middle">SBGN-ML, Newt</text>
+
+  <rect class="ca-box" x="190" y="85" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="275" y="106" text-anchor="middle">graphml.read</text>
+  <text class="ca-sub" x="275" y="124" text-anchor="middle">SBGN palette or outlines</text>
+  <rect class="ca-lay" x="190" y="175" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="275" y="196" text-anchor="middle">celldesigner.read</text>
+  <text class="ca-sub" x="275" y="214" text-anchor="middle">straight or advanced</text>
+  <rect class="ca-box" x="190" y="265" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="275" y="286" text-anchor="middle">sbgnml.read</text>
+  <text class="ca-sub" x="275" y="304" text-anchor="middle">SBGN-ML 0.3, .nwt</text>
+
+  <rect class="ca-hub" x="410" y="80" width="180" height="240" rx="10"/>
+  <text class="ca-big" x="500" y="110" text-anchor="middle">model.Map</text>
+  <text class="ca-sub" x="500" y="130" text-anchor="middle">the one in-between format</text>
+  <text class="ca-name" x="428" y="166">Node</text>
+  <text class="ca-sub" x="428" y="184">kind, box, labels,</text>
+  <text class="ca-sub" x="428" y="200">states, units, data</text>
+  <text class="ca-name" x="428" y="230">Arc</text>
+  <text class="ca-sub" x="428" y="248">source, target, head,</text>
+  <text class="ca-sub" x="428" y="264">bends, ports</text>
+  <text class="ca-sub" x="428" y="298">absolute coordinates, y down</text>
+
+  <rect class="ca-box" x="640" y="85" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="725" y="106" text-anchor="middle">graphml.write</text>
+  <text class="ca-sub" x="725" y="124" text-anchor="middle">from the yEd template</text>
+  <rect class="ca-lay" x="640" y="175" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="725" y="196" text-anchor="middle">sbgnml.write</text>
+  <text class="ca-sub" x="725" y="214" text-anchor="middle">straight or advanced</text>
+  <rect class="ca-lay" x="640" y="265" width="170" height="50" rx="7"/>
+  <text class="ca-name" x="725" y="286" text-anchor="middle">celldesigner.write</text>
+  <text class="ca-sub" x="725" y="304" text-anchor="middle">≈770 lines, layout inside</text>
+
+  <rect class="ca-fmt" x="850" y="90" width="130" height="40" rx="5"/>
+  <text class="ca-fmtt" x="915" y="115" text-anchor="middle">GraphML</text>
+  <rect class="ca-fmt" x="850" y="180" width="130" height="40" rx="5"/>
+  <text class="ca-fmtt" x="915" y="205" text-anchor="middle">SBGN-ML ×2</text>
+  <rect class="ca-fmt" x="850" y="270" width="130" height="40" rx="5"/>
+  <text class="ca-fmtt" x="915" y="295" text-anchor="middle">CellDesigner ×2</text>
+
+  <g class="ca-arr" marker-end="url(#ca-tip)">
+    <path d="M150,110 H188"/><path d="M150,200 H188"/><path d="M150,290 H188"/>
+    <path d="M360,110 H408"/><path d="M360,200 H408"/><path d="M360,290 H408"/>
+    <path d="M590,110 H638"/><path d="M590,200 H638"/><path d="M590,290 H638"/>
+    <path d="M810,110 H848"/><path d="M810,200 H848"/><path d="M810,290 H848"/>
+  </g>
+
+  <rect class="ca-band" x="10" y="350" width="980" height="170" rx="10"/>
+  <text class="ca-head" x="26" y="373">Transforms on the model · the driver in converter.html picks which run</text>
+  <path class="ca-arr" d="M500,322 V348" marker-start="url(#ca-tip)" marker-end="url(#ca-tip)"/>
+
+  <rect class="ca-box" x="20" y="385" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="32" y="407">rules.problems, clean</text>
+  <text class="ca-sub" x="32" y="426">check, problem elements left out</text>
+  <rect class="ca-box" x="265" y="385" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="277" y="407">without_delays</text>
+  <text class="ca-sub" x="277" y="426">a delay joined to its target</text>
+  <rect class="ca-box" x="510" y="385" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="522" y="407">graphml.corrected</text>
+  <text class="ca-sub" x="522" y="426">other shapes to the SBGN palette</text>
+  <rect class="ca-box" x="755" y="385" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="767" y="407">annotation.from_graphml</text>
+  <text class="ca-sub" x="767" y="426">MIRIAM URNs for CD and SBGN-ML</text>
+
+  <rect class="ca-lay" x="20" y="452" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="32" y="474">style.standardise</text>
+  <text class="ca-sub" x="32" y="493">sizes and scale, GraphML only</text>
+  <rect class="ca-lay" x="265" y="452" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="277" y="474">celldesigner.straight</text>
+  <text class="ca-sub" x="277" y="493">process midway, CD to SBGN only</text>
+  <rect class="ca-lay" x="510" y="452" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="522" y="474">sbgnml.for_newt</text>
+  <text class="ca-sub" x="522" y="493">shifted, placed, moved for Newt</text>
+  <rect class="ca-lay" x="755" y="452" width="225" height="52" rx="7"/>
+  <text class="ca-name" x="767" y="474">cd_bends, cd_straighten</text>
+  <text class="ca-sub" x="767" y="493">bends and straightening helpers</text>
+</svg>
+</div>
+<div class="ca-legend">
+  <span><i class="ca-sw lay"></i>holds layout logic (edge routing, small position corrections)</span>
+  <span><i class="ca-sw hub"></i>the model every route passes through</span>
+</div>
+
+<p>There is no layout algorithm: no route places nodes. Every route keeps the positions of the input map
+and only corrects them by a few pixels. What the converter calls a layout is the routing of the arcs and
+these corrections, and they sit in four places.</p>
+
+<table class="ca-table">
+  <tr><th>Where</th><th>What it does</th></tr>
+  <tr><td><code>celldesigner.write</code>, lines 318–540</td><td>Straightens main lines (up to 10 px), moves a main line onto a node's centre, aligns modifiers with their square (up to 15 px), makes room for a complex's name, places the square and its bends, routes the modifier arcs.</td></tr>
+  <tr><td><code>celldesigner.read</code>, <code>straight</code></td><td>Reads the straight or the advanced geometry. <code>straight()</code> puts each process midway, used only from CellDesigner to SBGN-ML.</td></tr>
+  <tr><td><code>sbgnml.py</code></td><td>Fits compartments for Newt (<code>shifted</code>, <code>placed</code>, <code>for_newt</code>, <code>moved</code>), its own straight and advanced arcs, bend simplification from <code>cd_bends</code>.</td></tr>
+  <tr><td><code>style.standardise</code></td><td>Standard node sizes and rescaling, GraphML output only.</td></tr>
+</table>
+
+<p class="ca-note">From one GraphML map the two straight files differ. CellDesigner (straight) gets the square midway,
+straightened main lines and aligned modifiers. SBGN-ML (straight) keeps yEd's process positions and runs the arcs
+from centre to centre.</p>
+
+<h2>Suggested architecture</h2>
+
+<p>The same rows, with two new columns between the model and the writers. Layout moves out of the readers
+and writers into one module. What only one target needs (CellDesigner, Newt, yEd) goes into an adapter
+next to its writer. Readers then read and writers write, nothing else.</p>
+
+<div class="ca-fig">
+<svg viewBox="0 0 1200 575" role="img" aria-label="The suggested architecture: readers, model.Map, layout, adapters, writers, and the shared parts">
+  <defs>
+    <marker id="ca-tip2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <text class="ca-head" x="80" y="44" text-anchor="middle">Input</text>
+  <text class="ca-head" x="245" y="44" text-anchor="middle">Readers</text>
+  <text class="ca-head" x="425" y="44" text-anchor="middle">Model</text>
+  <text class="ca-head" x="605" y="44" text-anchor="middle">Layout</text>
+  <text class="ca-head" x="780" y="44" text-anchor="middle">Adapters</text>
+  <text class="ca-head" x="955" y="44" text-anchor="middle">Writers</text>
+  <text class="ca-head" x="1120" y="44" text-anchor="middle">Output</text>
+  <rect class="ca-fmt" x="20" y="90" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="80" y="115" text-anchor="middle">GraphML (yEd)</text>
+  <rect class="ca-fmt" x="20" y="180" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="80" y="205" text-anchor="middle">CellDesigner</text>
+  <rect class="ca-fmt" x="20" y="270" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="80" y="295" text-anchor="middle">SBGN-ML, Newt</text>
+  <rect class="ca-box" x="170" y="85" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="245" y="106" text-anchor="middle">graphml.read</text>
+  <text class="ca-sub" x="245" y="124" text-anchor="middle">what the file says</text>
+  <rect class="ca-box" x="170" y="175" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="245" y="196" text-anchor="middle">celldesigner.read</text>
+  <text class="ca-sub" x="245" y="214" text-anchor="middle">what the file says</text>
+  <rect class="ca-box" x="170" y="265" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="245" y="286" text-anchor="middle">sbgnml.read</text>
+  <text class="ca-sub" x="245" y="304" text-anchor="middle">what the file says</text>
+  <rect class="ca-hub" x="350" y="80" width="150" height="240" rx="10"/>
+  <text class="ca-big" x="425" y="110" text-anchor="middle">model.Map</text>
+  <text class="ca-sub" x="425" y="130" text-anchor="middle">as today</text>
+  <text class="ca-name" x="364" y="166">Node, Arc</text>
+  <text class="ca-sub" x="364" y="184">geometry, labels,</text>
+  <text class="ca-sub" x="364" y="200">annotation</text>
+  <text class="ca-name" x="364" y="230">reactions</text>
+  <text class="ca-sub" x="364" y="248">main reactant and</text>
+  <text class="ca-sub" x="364" y="264">product, found once</text>
+  <rect class="ca-lay" x="530" y="80" width="150" height="240" rx="10"/>
+  <text class="ca-big" x="605" y="110" text-anchor="middle">layout.py</text>
+  <text class="ca-sub" x="605" y="130" text-anchor="middle">two lists of passes</text>
+  <text class="ca-name" x="544" y="166">straight</text>
+  <text class="ca-sub" x="544" y="184">square midway,</text>
+  <text class="ca-sub" x="544" y="200">arcs centre to centre</text>
+  <text class="ca-name" x="544" y="230">advanced</text>
+  <text class="ca-sub" x="544" y="248">the input's drawing</text>
+  <text class="ca-sub" x="544" y="264">kept, key bends only</text>
+  <text class="ca-sub" x="544" y="298">same for every format</text>
+  <rect class="ca-box" x="710" y="85" width="140" height="50" rx="7"/>
+  <text class="ca-title" x="780" y="106" text-anchor="middle">yEd</text>
+  <text class="ca-sub" x="780" y="124" text-anchor="middle">standard sizes (option)</text>
+  <rect class="ca-box" x="710" y="175" width="140" height="50" rx="7"/>
+  <text class="ca-title" x="780" y="196" text-anchor="middle">Newt</text>
+  <text class="ca-sub" x="780" y="214" text-anchor="middle">compartment padding</text>
+  <rect class="ca-box" x="710" y="265" width="140" height="50" rx="7"/>
+  <text class="ca-title" x="780" y="286" text-anchor="middle">CellDesigner</text>
+  <text class="ca-sub" x="780" y="304" text-anchor="middle">anchors, multimers</text>
+  <rect class="ca-box" x="880" y="85" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="955" y="106" text-anchor="middle">graphml.write</text>
+  <text class="ca-sub" x="955" y="124" text-anchor="middle">writes the file only</text>
+  <rect class="ca-box" x="880" y="175" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="955" y="196" text-anchor="middle">sbgnml.write</text>
+  <text class="ca-sub" x="955" y="214" text-anchor="middle">writes the file only</text>
+  <rect class="ca-box" x="880" y="265" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="955" y="286" text-anchor="middle">celldesigner.write</text>
+  <text class="ca-sub" x="955" y="304" text-anchor="middle">writes the file only</text>
+  <rect class="ca-fmt" x="1060" y="90" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="1120" y="115" text-anchor="middle">GraphML</text>
+  <rect class="ca-fmt" x="1060" y="180" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="1120" y="205" text-anchor="middle">SBGN-ML ×2</text>
+  <rect class="ca-fmt" x="1060" y="270" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="1120" y="295" text-anchor="middle">CellDesigner ×2</text>
+  <g class="ca-arr" marker-end="url(#ca-tip2)">
+    <path d="M140,110 H168"/><path d="M140,200 H168"/><path d="M140,290 H168"/>
+    <path d="M320,110 H348"/><path d="M320,200 H348"/><path d="M320,290 H348"/>
+    <path d="M500,110 H528"/><path d="M500,200 H528"/><path d="M500,290 H528"/>
+    <path d="M680,110 H708"/><path d="M680,200 H708"/><path d="M680,290 H708"/>
+    <path d="M850,110 H878"/><path d="M850,200 H878"/><path d="M850,290 H878"/>
+    <path d="M1030,110 H1058"/><path d="M1030,200 H1058"/><path d="M1030,290 H1058"/>
+  </g>
+  <rect class="ca-band" x="10" y="345" width="1180" height="100" rx="10"/>
+  <text class="ca-head" x="26" y="368">On the model, before the layout</text>
+  <path class="ca-arr" d="M425,322 V343" marker-start="url(#ca-tip2)" marker-end="url(#ca-tip2)"/>
+  <rect class="ca-box" x="20" y="380" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="32" y="402">rules</text>
+  <text class="ca-sub" x="32" y="421">the check, for every input format</text>
+  <rect class="ca-box" x="315" y="380" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="327" y="402">without_delays, clean</text>
+  <text class="ca-sub" x="327" y="421">what a format cannot hold, left out</text>
+  <rect class="ca-box" x="610" y="380" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="622" y="402">annotation</text>
+  <text class="ca-sub" x="622" y="421">on the nodes, for every writer</text>
+  <rect class="ca-box" x="905" y="380" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="917" y="402">graphml.corrected</text>
+  <text class="ca-sub" x="917" y="421">other shapes to the SBGN palette</text>
+  <rect class="ca-band" x="10" y="460" width="1180" height="105" rx="10"/>
+  <text class="ca-head" x="26" y="483">Shared by every step</text>
+  <rect class="ca-box" x="20" y="497" width="373" height="52" rx="7"/>
+  <text class="ca-name" x="32" y="519">report</text>
+  <text class="ca-sub" x="32" y="538">every message in one list: the page, the command line, the tests</text>
+  <rect class="ca-box" x="413" y="497" width="373" height="52" rx="7"/>
+  <text class="ca-name" x="425" y="519">routes.py</text>
+  <text class="ca-sub" x="425" y="538">which input gives which files, for the page and the command line</text>
+  <rect class="ca-box" x="806" y="497" width="373" height="52" rx="7"/>
+  <text class="ca-name" x="818" y="519">reference files</text>
+  <text class="ca-sub" x="818" y="538">every Atlas map, every route, compared on each change</text>
+</svg>
+</div>
+<div class="ca-legend">
+  <span><i class="ca-sw lay"></i>layout, in one place</span>
+  <span><i class="ca-sw hub"></i>the model, as today</span>
+</div>
+
+<h3>What changes</h3>
+<ul>
+  <li><b>Readers</b> read what the file says, the CellDesigner reader too. Straight or advanced is chosen in the layout, not when the file is read.</li>
+  <li><b>Reactions</b>: the main reactant and product of each process are worked out once, on the model. Today
+    <code>celldesigner.write</code>, <code>celldesigner.straight</code>, <code>sbgnml.write</code> and <code>rules.py</code> each work them out on their own.</li>
+  <li><b>Layout</b>: straight and advanced become two lists of passes, the same for every format. Both straight
+    files from one map then have the same geometry. Placing the nodes of a map that has no coordinates (SBML
+    without a layout) would be one more pass.</li>
+  <li><b>Adapters</b> hold what one target needs: CellDesigner's anchor points, multimer front shape and MINERVA's
+    square anchors, Newt's compartment padding, yEd's standard sizes.</li>
+  <li><b>Report</b>: the converter's messages, about 30 kinds (left out, moved, not converted) go into one list. Today they are printed and
+    caught by the page.</li>
+  <li><b>Routes</b>: which input gives which buttons moves from the script in <code>converter.html</code> into the
+    converter, so the page and the command line run the same code.</li>
+</ul>
+
+<h3>Order of work</h3>
+<ol>
+  <li>Convert every Atlas map and every official CellDesigner file with the current code and keep the results as reference files.</li>
+  <li>Report and routes. Nothing in the files changes.</li>
+  <li>Reactions on the model, then the layout passes moved out of <code>celldesigner.write</code> one at a time, each checked against the reference files.</li>
+  <li>The adapters, then SBGN-ML (straight) on the same passes. This is the one intended change in the files.</li>
+</ol>
+
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for map-converter commit ba08e72 (2026-10-18).
+The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>
