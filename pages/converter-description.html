@@ -21,7 +21,6 @@ noindex: true
   #cv-chart .cv-node:hover text { fill: #fff; }
   #cv-chart .cv-route { fill: none; stroke-width: 1.6; }
   #cv-chart .cv-route:hover { stroke-width: 3; }
-  #cv-chart text.cv-note { font-size: 12px; fill: #777; }
   /* the outputs, one row per download button, in the style of the hidden /converter/sbgn/ tables */
   .cv-out { border-collapse: collapse; font-size: 14px; margin: 8px 0 16px; width: 100%; }
   .cv-out th { text-align: left; font-weight: normal; color: #888; font-size: 13px; padding: 4px 16px 4px 0;
@@ -51,7 +50,7 @@ It does not hold a map strictly to the standards. Common deviations are accepted
 is clear, so that the conversion is as useful as possible, and whatever is left out is listed. It runs in the browser, and the files never leave the computer. The annotation (HGNC, UniProt, ChEBI)
 is converted with the map. In GraphML it is read from the node properties, or from the node links when a map has none.</p>
 
-<svg id="cv-chart" viewBox="0 0 440 306" role="img" aria-label="What converts to what"></svg>
+<svg id="cv-chart" viewBox="0 42 440 264" role="img" aria-label="What converts to what"></svg>
 
 <p>Each section below has the same parts: <b>Input</b> (format, version, file extensions), <b>Check</b>
 (what is checked before conversion), <b>Output</b> (one row per download button) and <b>Not converted</b>
@@ -156,11 +155,10 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
 
 <script>
 (() => {
-  // the formats, clockwise from the top, and the routes: [from, to, note]
+  // the formats, clockwise from the top, and the routes: [from, to]
   // [name, section on this page, file extensions]
   const FORMATS = [['GraphML', 'graphml', ['.graphml']], ['SBGN-ML', 'sbgnml', ['.sbgn', '.nwt']], ['CellDesigner', 'celldesigner', ['.xml']]];
   const ROUTES = [
-    ['GraphML', 'GraphML', 'corrected to the SBGN palette'],
     ['GraphML', 'CellDesigner'],
     ['GraphML', 'SBGN-ML'],
     ['CellDesigner', 'GraphML'],
@@ -196,24 +194,8 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
   };
   const has = (a, b) => ROUTES.some(([x, y]) => x === a && y === b);
   const done = new Set();
-  for (const [from, to, note] of ROUTES) {
+  for (const [from, to] of ROUTES) {
     const p = pos[from], q = pos[to];
-    if (from === to) {  // a loop outside the circle of formats, from the button's outer edge back to it
-      const u = [Math.cos(p.a), Math.sin(p.a)], v = [-u[1], u[0]];
-      const s = edge(p, u[0] - 0.6 * v[0], u[1] - 0.6 * v[1]);
-      const e = edge(p, u[0] + 0.6 * v[0], u[1] + 0.6 * v[1], 2);
-      const c1 = [s[0] + 55 * u[0] - 30 * v[0], s[1] + 55 * u[1] - 30 * v[1]];
-      const c2 = [e[0] + 55 * u[0] + 30 * v[0], e[1] + 55 * u[1] + 30 * v[1]];
-      const path = el('path', { d: `M${f(s[0])} ${f(s[1])}C${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(e[0])} ${f(e[1])}`,
-                                class: 'cv-route', stroke: ONE, 'marker-end': 'url(#cv-one)' });
-      el('title', {}, path).textContent = `${from} → ${to}` + (note ? `, ${note}` : '');
-      if (note) {
-        const t = el('text', { x: f(p.x + 48 * v[0] + (HH + 34) * u[0]), y: f(p.y + 48 * v[1] + (HH + 34) * u[1]),
-                               class: 'cv-note', 'text-anchor': 'start', 'dominant-baseline': 'middle' });
-        t.textContent = note;
-      }
-      continue;
-    }
     const key = [from, to].sort().join('|');
     if (done.has(key)) continue;
     done.add(key);
