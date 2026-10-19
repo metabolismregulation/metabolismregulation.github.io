@@ -29,7 +29,7 @@ noindex: true
   /* the routes, one line each, as plain text with the font's arrow, so it can be copied (user, 2026-10-17) */
   label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; } /* the box level with the small label */
   .cv-top p.cv-routes { margin-bottom: 12px; }
-  /* the other converter pages, a quiet link row under the drop area (user, 2026-10-19) */
+  /* the other converter pages, a quiet link row under the text next to the drop area (user, 2026-10-19) */
   .cv-top p.cv-links { margin: 8px 0 0; font-size: 13px; line-height: 19px; color: #777; }
 </style>
 
@@ -39,7 +39,6 @@ noindex: true
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/></svg>
       <span id="cv-drop-text">Loading the converter…</span>
     </div>
-    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}">Description</a> · <a href="{{ '/converter/architecture/' | relative_url }}">Architecture</a></p>
   </div>
   <div>
     <p class="cv-routes cv-hint">GraphML ⭢ GraphML corrected to the SBGN palette<br>
@@ -50,6 +49,7 @@ noindex: true
     layout. The conversion runs in the browser, and the files never leave the computer.</p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner
     and SBGN-ML to GraphML</label></p>
+    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}">Description</a> · <a href="{{ '/converter/architecture/' | relative_url }}">Architecture</a></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>
