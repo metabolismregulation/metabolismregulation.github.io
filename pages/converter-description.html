@@ -15,8 +15,9 @@ noindex: true
   #cv-chart { display: block; width: 100%; max-width: 440px; margin: 8px auto 24px; }
   #cv-chart text { font-size: 14px; fill: #222; }
   #cv-chart text.cv-ext { font-size: 12px; fill: #777; }
-  #cv-chart .cv-node circle { fill: #fff; stroke: #ccc; stroke-width: 1.2; }
-  #cv-chart .cv-node:hover circle { fill: #4183c4; stroke: #4183c4; }
+  /* the formats as buttons (user, 2026-10-19): rounded rectangles, white with a grey edge, filled blue on hover */
+  #cv-chart .cv-node rect { fill: #fff; stroke: #ccc; stroke-width: 1.2; }
+  #cv-chart .cv-node:hover rect { fill: #4183c4; stroke: #4183c4; }
   #cv-chart .cv-node:hover text { fill: #fff; }
   #cv-chart .cv-route { fill: none; stroke-width: 1.6; }
   #cv-chart .cv-route:hover { stroke-width: 3; }
@@ -50,7 +51,7 @@ It does not hold a map strictly to the standards. Common deviations are accepted
 is clear, so that the conversion is as useful as possible, and whatever is left out is listed. It runs in the browser, and the files never leave the computer. The annotation (HGNC, UniProt, ChEBI)
 is converted with the map. In GraphML it is read from the node properties, or from the node links when a map has none.</p>
 
-<svg id="cv-chart" viewBox="0 0 440 340" role="img" aria-label="What converts to what"></svg>
+<svg id="cv-chart" viewBox="0 0 440 306" role="img" aria-label="What converts to what"></svg>
 
 <p>Each section below has the same parts: <b>Input</b> (format, version, file extensions), <b>Check</b>
 (what is checked before conversion), <b>Output</b> (one row per download button) and <b>Not converted</b>
@@ -168,7 +169,7 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
     ['SBGN-ML', 'CellDesigner'],
   ];
   const svg = document.getElementById('cv-chart'), NS = 'http://www.w3.org/2000/svg';
-  const CX = 220, CY = 205, R = 125, NODE = 46;
+  const CX = 220, CY = 205, R = 125, HW = 60, HH = 31;  // the buttons' half width and half height
   const el = (tag, attrs, parent = svg) => {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -188,21 +189,26 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
     el('path', { d: 'M0 0L10 5L0 10z', fill: colour }, m);
   }
   const f = n => n.toFixed(1);
+  // where a line from a button's centre in direction (dx, dy) leaves its edge, plus a gap
+  const edge = (p, dx, dy, gap = 0) => {
+    const l = Math.hypot(dx, dy), t = Math.min(HW / Math.abs(dx || 1e-9), HH / Math.abs(dy || 1e-9));
+    return [p.x + dx * t + gap * dx / l, p.y + dy * t + gap * dy / l];
+  };
   const has = (a, b) => ROUTES.some(([x, y]) => x === a && y === b);
   const done = new Set();
   for (const [from, to, note] of ROUTES) {
     const p = pos[from], q = pos[to];
-    if (from === to) {  // a loop outside the circle
+    if (from === to) {  // a loop outside the circle of formats, from the button's outer edge back to it
       const u = [Math.cos(p.a), Math.sin(p.a)], v = [-u[1], u[0]];
-      const s = [p.x + NODE * (0.6 * u[0] - 0.8 * v[0]), p.y + NODE * (0.6 * u[1] - 0.8 * v[1])];
-      const e = [p.x + NODE * (0.6 * u[0] + 0.8 * v[0]), p.y + NODE * (0.6 * u[1] + 0.8 * v[1])];
+      const s = edge(p, u[0] - 0.6 * v[0], u[1] - 0.6 * v[1]);
+      const e = edge(p, u[0] + 0.6 * v[0], u[1] + 0.6 * v[1], 2);
       const c1 = [s[0] + 55 * u[0] - 30 * v[0], s[1] + 55 * u[1] - 30 * v[1]];
       const c2 = [e[0] + 55 * u[0] + 30 * v[0], e[1] + 55 * u[1] + 30 * v[1]];
       const path = el('path', { d: `M${f(s[0])} ${f(s[1])}C${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(e[0])} ${f(e[1])}`,
                                 class: 'cv-route', stroke: ONE, 'marker-end': 'url(#cv-one)' });
       el('title', {}, path).textContent = `${from} → ${to}` + (note ? `, ${note}` : '');
       if (note) {
-        const t = el('text', { x: f(p.x + (NODE + 8) * v[0] + 52 * u[0]), y: f(p.y + (NODE + 8) * v[1] + 52 * u[1]),
+        const t = el('text', { x: f(p.x + 48 * v[0] + (HH + 34) * u[0]), y: f(p.y + 48 * v[1] + (HH + 34) * u[1]),
                                class: 'cv-note', 'text-anchor': 'start', 'dominant-baseline': 'middle' });
         t.textContent = note;
       }
@@ -212,8 +218,9 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
     if (done.has(key)) continue;
     done.add(key);
     const both = has(to, from);
-    const dx = q.x - p.x, dy = q.y - p.y, l = Math.hypot(dx, dy), gap = NODE + 3;
-    const line = el('line', { x1: f(p.x + gap * dx / l), y1: f(p.y + gap * dy / l), x2: f(q.x - gap * dx / l), y2: f(q.y - gap * dy / l),
+    const dx = q.x - p.x, dy = q.y - p.y;
+    const [x1, y1] = edge(p, dx, dy, 3), [x2, y2] = edge(q, -dx, -dy, 3);
+    const line = el('line', { x1: f(x1), y1: f(y1), x2: f(x2), y2: f(y2),
                               class: 'cv-route', stroke: both ? BOTH : ONE, 'marker-end': `url(#cv-${both ? 'both' : 'one'})` });
     if (both) line.setAttribute('marker-start', 'url(#cv-both)');
     el('title', {}, line).textContent = `${from} ${both ? '↔' : '→'} ${to}`;
@@ -221,8 +228,8 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
   for (const [name, id, ext] of FORMATS) {
     const p = pos[name];
     const a = el('a', { href: '#' + id, class: 'cv-node' });
-    el('circle', { cx: f(p.x), cy: f(p.y), r: NODE }, a);
-    // the name, then one extension per line, the block centred in the circle
+    el('rect', { x: f(p.x - HW), y: f(p.y - HH), width: 2 * HW, height: 2 * HH, rx: 6 }, a);
+    // the name, then one extension per line, the block centred in the button
     const top = p.y - 15 * ext.length / 2 - 1;
     const t = el('text', { x: f(p.x), y: f(top), 'text-anchor': 'middle', 'dominant-baseline': 'central' }, a);
     t.textContent = name;

@@ -255,7 +255,7 @@ are on `/converter/description/` (`pages/converter-description.html`, hidden the
 (user, 2026-10-17): a section per input format with Input (format, version, extensions), Check, Output (a table, one row
 per button: the button as it looks, the extension, format and version in one column, one line each (one line at phone width), content with when given; file names explained once in the intro by an example (user, 2026-10-19), every row three lines high so rows and buttons are evenly spaced, so a row's content stays within three lines at full width; notes common to a
 section's files in a paragraph under it; stacked rows at phone width, user 2026-10-19) and Not converted, exact terms only, with
-a circular chart of what converts to what, drawn from FORMATS and ROUTES in its script: a new converter
+a chart of what converts to what, the formats as buttons (rounded rectangles, white with a grey edge, blue on hover, user 2026-10-19) on a circle and the arrows ending at their edges, drawn from FORMATS and ROUTES in its script: a new converter
 is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)
 with a head at each end, one way green (#3a9a4a), the GraphML correction a green loop (user, 2026-10-17). The description page ends with "Loading" (size, time), dated "Updated" with the
 Pyodide version (user, 2026-10-17): update the figures and the date when Pyodide, lxml or the converter changes much. Newt files (.nwt) are accepted: not mentioned on the Converter
