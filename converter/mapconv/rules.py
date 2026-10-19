@@ -15,8 +15,7 @@ from .celldesigner import CLASS
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
 MODIFIERS = ('catalysis', 'inhibition', 'modulation', 'stimulation', 'trigger')
-REDUCED = ('stimulation', 'inhibition', 'modulation', 'trigger')  # allowed between two entities
-GATE_OUT = ('stimulation', 'inhibition')  # from a logic gate to an entity (CellDesigner's gate types known to us)
+REDUCED = ('stimulation', 'inhibition', 'modulation', 'trigger')  # allowed between two entities, also from a logic gate
 RED = '#FF0000'
 
 
@@ -86,12 +85,9 @@ def problems(m):
                 why = 'a production arrow points away from its process'
             elif not (s in procs and t in epn):
                 why = 'a production arrow must run from a process to an entity'
-        elif s in epn and t in epn:  # reduced notation
+        elif (s in epn or s in ops) and t in epn:  # reduced notation, between entities or from a logic gate
             if h not in REDUCED:
                 why = 'a %s arc must end on a process' % h
-        elif s in ops and t in epn:  # reduced notation from a logic gate (a delay is joined through: as between entities)
-            if h not in (REDUCED if N[s].labels[:1] == [DELAY] else GATE_OUT):
-                why = 'a %s arc from a logic gate must end on a process (to an entity only stimulation and inhibition)' % h
         elif not (s in epn | ops and t in procs):
             why = 'a %s arc must run from an entity (or a logic gate) to a process' % h
         if why:

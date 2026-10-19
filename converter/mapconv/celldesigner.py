@@ -63,7 +63,8 @@ REDUCED = {'stimulation': 'PHYSICAL_STIMULATION',
            'inhibition': 'NEGATIVE_INFLUENCE',
            'modulation': 'REDUCED_MODULATION', 'trigger': 'REDUCED_TRIGGER'}  # as the PD map (CellDesigner 4.4, autumn 2025)
 # a logic gate on arcs between entities: a BOOLEAN_LOGIC_GATE reaction, its arc typed as in the PD map
-GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE'}
+GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE',  # the PD map
+            'trigger': 'REDUCED_TRIGGER', 'modulation': 'REDUCED_MODULATION'}  # the user's file, tests/celldesigner/gate-trigger-modulation.xml
 # a dashed arc (unknown) in CellDesigner's unknown types, where it has one (as the PD map)
 UNKNOWN = {'CATALYSIS': 'UNKNOWN_CATALYSIS', 'INHIBITION': 'UNKNOWN_INHIBITION', 'NEGATIVE_INFLUENCE': 'UNKNOWN_NEGATIVE_INFLUENCE'}
 REACTION = {'Process': 'STATE_TRANSITION', 'OmittedProcess': 'KNOWN_TRANSITION_OMITTED', 'UncertainProcess': 'UNKNOWN_TRANSITION'}
@@ -533,8 +534,7 @@ def write(diagram, ann, layout='straight', move=True):
             nested = len(inp) < sum(1 for a in E if o in (a.source, a.target) and a.head is None)
             if e.head not in GATE_ARC or kind not in GATE or not inp or nested:
                 report.say('left out', 'arc %s (%s gate -> %s, %s): a logic gate on an arc between entities, not converted%s' % (
-                    e.id, kind, label[e.target] or e.target, e.head, ' (a gate into a gate)' if nested else
-                    ' (no %s out of a gate in our CellDesigner files)' % e.head if e.head not in GATE_ARC else ''))
+                    e.id, kind, label[e.target] or e.target, e.head, ' (a gate into a gate)' if nested else ''))
                 continue
             gx, gy = cen(o)
             rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(e.id), id='re_' + sid(e.id), reversible='false')
