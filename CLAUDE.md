@@ -249,8 +249,8 @@ Newt's padding needs so Newt keeps it as drawn, aligned edges kept aligned, and 
 moved apart (noted under the map). A CellDesigner homodimer gets N:2. Checked by loading the files in Newt
 (headless) and comparing its compartments with the file's; the hidden page /converter/sbgn/
 (`pages/converter-sbgn.html`, map-converter `tools/sbgn_test.sh`) lists every Atlas map and official
-CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the hidden
-page /converter/routes/): "GraphML ⭢ GraphML corrected to the SBGN palette", "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
+CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the former test
+page /converter/routes/, in git history): "GraphML ⭢ GraphML corrected to the SBGN palette", "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
 "SBGN-ML ⭤ CellDesigner" (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
 directly, not CellDesigner through the GraphML), as plain text so it can be copied (user, 2026-10-17). All the text next to the drop area
 (routes, the note on the browser, Standard node sizes) is in the same small light grey (13 px, #777) (user, 2026-10-17)
