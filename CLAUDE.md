@@ -312,6 +312,10 @@ No state variable on the top side of a node (user, 2026-10-17): MINERVA draws N:
 protein's circles sit in the same place on every instance (eNOS: My left, Pa bottom left and
 right, P right; AKT1: P bottom left and right).
 
+## Page width
+
+Every page is 960 px wide (`.container` in `style.scss`, 16 px padding: header, page and footer, user 2026-10-19; it was 840 px). Wide pages (Atlas, Colours) set their own width from the window.
+
 ## Map image size on the pages
 
 Every map page shows its map at the same zoom, so a protein node (80 x 40 yEd units) looks
