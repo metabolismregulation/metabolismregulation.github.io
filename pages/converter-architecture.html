@@ -172,14 +172,14 @@ from centre to centre.</p>
 
 <h2>Suggested architecture</h2>
 
-<p>The model holds two things: the biology (entities, reactions, annotation) and its drawing (boxes, arcs and bends,
-each pointing to what it draws by its id). A map may have no drawing (BioPAX, SBML without layout) or more than one.
-Layout moves out of the readers and writers into one module that works on the drawing. What only one target needs
-(yEd, CellDesigner, Newt) goes into an adapter next to its writer. Readers then read and writers write, nothing else.
-SBML and BioPAX are planned (dashed).</p>
+<p>The converter converts maps: every input has a drawing. The model holds two things: the biology (entities,
+reactions, annotation) and its drawing (boxes, arcs and bends, each pointing to what it draws by its id). Layout
+moves out of the readers and writers into one module that works on the drawing. What only one target needs (yEd,
+CellDesigner, Newt) goes into an adapter next to its writer. Readers then read and writers write, nothing else.
+SBML with layout is planned in both directions, SBML without layout and BioPAX as an export only (dashed).</p>
 
 <div class="ca-fig">
-<svg viewBox="0 0 1200 720" role="img" aria-label="The suggested architecture: readers, a model of biology and drawing, layout, adapters, writers, with SBML and BioPAX planned">
+<svg viewBox="0 0 1200 720" role="img" aria-label="The suggested architecture: readers, a model of biology and drawing, layout, adapters, writers, with SBML and a BioPAX export planned">
   <defs>
     <marker id="ca-tip2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
@@ -199,9 +199,7 @@ SBML and BioPAX are planned (dashed).</p>
   <rect class="ca-fmt" x="20" y="250" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="80" y="275" text-anchor="middle">SBGN-ML, Newt</text>
   <rect class="ca-plan" x="20" y="330" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="80" y="355" text-anchor="middle">SBML</text>
-  <rect class="ca-plan" x="20" y="410" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="80" y="435" text-anchor="middle">BioPAX</text>
+  <text class="ca-fmtt ca-pt" x="80" y="355" text-anchor="middle">SBML (layout)</text>
   <rect class="ca-box" x="170" y="85" width="150" height="50" rx="7"/>
   <text class="ca-name" x="245" y="106" text-anchor="middle">graphml.read</text>
   <text class="ca-sub" x="245" y="124" text-anchor="middle">biology and drawing</text>
@@ -213,10 +211,7 @@ SBML and BioPAX are planned (dashed).</p>
   <text class="ca-sub" x="245" y="284" text-anchor="middle">biology and drawing</text>
   <rect class="ca-plan" x="170" y="325" width="150" height="50" rx="7"/>
   <text class="ca-name ca-pt" x="245" y="346" text-anchor="middle">sbml.read</text>
-  <text class="ca-sub" x="245" y="364" text-anchor="middle">drawing if it has one</text>
-  <rect class="ca-plan" x="170" y="405" width="150" height="50" rx="7"/>
-  <text class="ca-name ca-pt" x="245" y="426" text-anchor="middle">biopax.read</text>
-  <text class="ca-sub" x="245" y="444" text-anchor="middle">biology only</text>
+  <text class="ca-sub" x="245" y="364" text-anchor="middle">with layout only</text>
   <rect class="ca-hub" x="350" y="80" width="150" height="380" rx="10"/>
   <text class="ca-big" x="425" y="108" text-anchor="middle">model.Map</text>
   <rect class="ca-inner" x="362" y="124" width="126" height="130" rx="7"/>
@@ -230,19 +225,16 @@ SBML and BioPAX are planned (dashed).</p>
   <text class="ca-sub" x="374" y="316">boxes, arcs, bends</text>
   <text class="ca-sub" x="374" y="334">each by the id of</text>
   <text class="ca-sub" x="374" y="352">what it draws</text>
-  <text class="ca-sub" x="374" y="370">none, one or more</text>
+  <text class="ca-sub" x="374" y="370">one per map</text>
   <rect class="ca-lay" x="530" y="80" width="150" height="300" rx="10"/>
   <text class="ca-big" x="605" y="108" text-anchor="middle">layout.py</text>
   <text class="ca-sub" x="605" y="127" text-anchor="middle">passes on the drawing</text>
-  <text class="ca-name" x="544" y="160">straight</text>
-  <text class="ca-sub" x="544" y="178">square midway,</text>
-  <text class="ca-sub" x="544" y="194">arcs centre to centre</text>
-  <text class="ca-name" x="544" y="224">advanced</text>
-  <text class="ca-sub" x="544" y="242">the input's drawing</text>
-  <text class="ca-sub" x="544" y="258">kept, key bends only</text>
-  <text class="ca-name ca-pt" x="544" y="288">place</text>
-  <text class="ca-sub" x="544" y="306">a drawing for a map</text>
-  <text class="ca-sub" x="544" y="322">that has none (planned)</text>
+  <text class="ca-name" x="544" y="170">straight</text>
+  <text class="ca-sub" x="544" y="188">square midway,</text>
+  <text class="ca-sub" x="544" y="204">arcs centre to centre</text>
+  <text class="ca-name" x="544" y="250">advanced</text>
+  <text class="ca-sub" x="544" y="268">the input's drawing</text>
+  <text class="ca-sub" x="544" y="284">kept, key bends only</text>
   <text class="ca-sub" x="544" y="364">same for every format</text>
   <rect class="ca-box" x="710" y="85" width="140" height="50" rx="7"/>
   <text class="ca-title" x="780" y="106" text-anchor="middle">yEd</text>
@@ -264,10 +256,10 @@ SBML and BioPAX are planned (dashed).</p>
   <text class="ca-sub" x="955" y="284" text-anchor="middle">writes the file only</text>
   <rect class="ca-plan" x="880" y="325" width="150" height="50" rx="7"/>
   <text class="ca-name ca-pt" x="955" y="346" text-anchor="middle">sbml.write</text>
-  <text class="ca-sub" x="955" y="364" text-anchor="middle">biology and drawing</text>
+  <text class="ca-sub" x="955" y="364" text-anchor="middle">with or without layout</text>
   <rect class="ca-plan" x="880" y="405" width="150" height="50" rx="7"/>
   <text class="ca-name ca-pt" x="955" y="426" text-anchor="middle">biopax.write</text>
-  <text class="ca-sub" x="955" y="444" text-anchor="middle">biology only</text>
+  <text class="ca-sub" x="955" y="444" text-anchor="middle">biology only, export</text>
   <rect class="ca-fmt" x="1060" y="90" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="1120" y="115" text-anchor="middle">GraphML</text>
   <rect class="ca-fmt" x="1060" y="170" width="120" height="40" rx="5"/>
@@ -279,13 +271,17 @@ SBML and BioPAX are planned (dashed).</p>
   <rect class="ca-plan" x="1060" y="410" width="120" height="40" rx="5"/>
   <text class="ca-fmtt ca-pt" x="1120" y="435" text-anchor="middle">BioPAX</text>
   <g class="ca-arr" marker-end="url(#ca-tip2)">
-    <path d="M140,110 H168"/><path d="M320,110 H348"/><path d="M1030,110 H1058"/><path d="M140,190 H168"/><path d="M320,190 H348"/><path d="M1030,190 H1058"/><path d="M140,270 H168"/><path d="M320,270 H348"/><path d="M1030,270 H1058"/><path d="M140,350 H168"/><path d="M320,350 H348"/><path d="M1030,350 H1058"/><path d="M140,430 H168"/><path d="M320,430 H348"/><path d="M1030,430 H1058"/>
+    <path d="M140,110 H168"/><path d="M320,110 H348"/><path d="M140,190 H168"/><path d="M320,190 H348"/><path d="M140,270 H168"/><path d="M320,270 H348"/><path d="M140,350 H168"/><path d="M320,350 H348"/>
+    <path d="M1030,110 H1058"/><path d="M1030,190 H1058"/><path d="M1030,270 H1058"/><path d="M1030,350 H1058"/><path d="M1030,430 H1058"/>
     <path d="M500,110 H528"/><path d="M500,190 H528"/><path d="M500,270 H528"/><path d="M500,350 H528"/>
     <path d="M680,110 H708"/><path d="M850,110 H878"/><path d="M680,190 H708"/><path d="M850,190 H878"/><path d="M680,270 H708"/><path d="M850,270 H878"/>
     <path d="M680,350 H878"/><path d="M500,430 H878"/>
   </g>
   <text class="ca-sub" x="780" y="343" text-anchor="middle">no adapter needed</text>
   <text class="ca-sub" x="690" y="423" text-anchor="middle">biology only, no drawing</text>
+  <text class="ca-sub ca-pt" x="80" y="428" text-anchor="middle">BioPAX, SBML</text>
+  <text class="ca-sub ca-pt" x="80" y="444" text-anchor="middle">without layout:</text>
+  <text class="ca-sub ca-pt" x="245" y="436" text-anchor="middle">export only, not read</text>
   <rect class="ca-band" x="10" y="495" width="1180" height="100" rx="10"/>
   <text class="ca-head" x="26" y="518">On the model, before the layout</text>
   <path class="ca-arr" d="M425,462 V493" marker-start="url(#ca-tip2)" marker-end="url(#ca-tip2)"/>
@@ -322,21 +318,27 @@ SBML and BioPAX are planned (dashed).</p>
 
 <h3>Why biology and drawing apart</h3>
 <p>Most formats already keep them apart. CellDesigner has species and their aliases (one species can be drawn
-more than once). The SBML Layout package draws species and reactions with glyphs that refer to them by id, and a
-model need not have a layout. BioPAX has no drawing at all. Today's model has only the drawing: one node per
-alias, joined again by label when CellDesigner is written. A species drawn twice comes back as two species.
-yEd and SBGN-ML hold only a drawing, so their readers build the biology from it, joining the nodes of one entity
-by their annotation (HGNC, UniProt, ChEBI), or by their label where a map has none.</p>
+more than once). The SBML Layout package draws species and reactions with glyphs that refer to them by id. BioPAX
+has no drawing at all. Today's model has only the drawing: one node per alias, joined again by label when
+CellDesigner is written. A species drawn twice comes back as two species. yEd and SBGN-ML hold only a drawing, so
+their readers build the biology from it, joining the nodes of one entity by their annotation (HGNC, UniProt,
+ChEBI), or by their label where a map has none. The biology alone is also what an export to BioPAX or to SBML
+without layout writes.</p>
+
+<h3>Maps only</h3>
+<p>Every route starts from a map. SBML with layout converts both ways, as it carries a drawing. SBML without
+layout and BioPAX are written from a map but not read: making a map from a file without a drawing (BioPAX, SBML
+without layout, a table) is the work of the human-like layout project, not of the converter. Its maps can then
+come here.</p>
 
 <h3>What changes</h3>
 <ul>
-  <li><b>Model</b>: biology and drawing, the drawing optional and possibly more than one.</li>
+  <li><b>Model</b>: biology and drawing.</li>
   <li><b>Readers</b> read what the file says, the CellDesigner reader too. Straight or advanced is chosen in the layout, not when the file is read.</li>
   <li><b>Reactions</b>: the main reactant and product of each process are worked out once, on the biology. Today
     <code>celldesigner.write</code>, <code>celldesigner.straight</code>, <code>sbgnml.write</code> and <code>rules.py</code> each work them out on their own.</li>
   <li><b>Layout</b>: straight and advanced become two lists of passes, the same for every format. Both straight
-    files from one map then have the same geometry. A map without a drawing (SBML without layout, BioPAX) gets one
-    from a placement pass, the first layout algorithm of the converter.</li>
+    files from one map then have the same geometry.</li>
   <li><b>Adapters</b> hold what one target needs: CellDesigner's anchor points, multimer front shape and MINERVA's
     square anchors, Newt's compartment padding, yEd's standard sizes.</li>
   <li><b>Report</b>: the converter's messages, about 30 kinds (left out, moved, not converted), go into one list. Today they are printed and
@@ -354,9 +356,8 @@ current one is kept, unchanged, as <code>map-converter-v1</code>, the reference.
   <li>Report and routes. The files stay as they are.</li>
   <li>The layout passes moved out of <code>celldesigner.write</code> one at a time, then the adapters, each checked against the reference files.
     Then SBGN-ML (straight) on the same passes, the one intended change in the files.</li>
-  <li>SBML with layout, read and written.</li>
-  <li>Placement for a map without a drawing.</li>
-  <li>BioPAX.</li>
+  <li>SBML with layout, read and written, and SBML without layout written.</li>
+  <li>BioPAX written.</li>
 </ol>
 
 <p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for map-converter commit ba08e72 (2026-10-18).
