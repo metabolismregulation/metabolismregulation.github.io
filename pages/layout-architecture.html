@@ -207,7 +207,7 @@ what it reports, so a claude.ai chat with the skill has them too. Snap and hubs 
 The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: what changes).</p>
 
 <div class="ca-fig">
-<svg viewBox="0 0 1200 620" role="img" aria-label="The plan: the layout tool as today, with build.py and one check in the skill, the snap keeping circle ports, the F001 scripts in examples">
+<svg viewBox="0 0 1200 620" role="img" aria-label="The plan: the layout tool as today, with arcs.py and one check in the skill, the snap keeping circle ports, the F001 scripts in examples">
   <defs>
     <marker id="la-tip3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
@@ -366,9 +366,9 @@ converted maps are snapped one day, an 8 px hub spacing is the consistent choice
 
 <h3>Order of work</h3>
 <ol>
-  <li><code>check.py</code> with the two rules. Its report on the archive maps is the same plus the two counts.</li>
-  <li><code>build.py</code>. A recent map build run with it gives the same file byte for byte.</li>
-  <li>The F001 scripts to <code>examples/</code>. <code>run_all.sh</code> gives the same files from there.</li>
+  <li><code>check.py</code> with the two preferences. Done.</li>
+  <li><code>arcs.py</code>. Five recent map builds give the same files byte for byte. Done.</li>
+  <li>The F001 scripts to <code>examples/</code>. <code>run_all.sh</code> gives the same files from there. Done.</li>
 </ol>
 
 <h2>First suggestion (outdated)</h2>
@@ -548,5 +548,5 @@ packing are stale, and the two grids above undo each other. One pipeline with on
   <li>F001 scripts to <code>examples/</code>, <code>ygml.render_svg</code> removed.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for human-like-layout commit 3b1e91b (2026-10-18) and maps-workbench d43abe0.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for human-like-layout commit a2a5939 and maps-workbench bf3bdf6 (the plan done).
 The skill is in the private repository <code>metabolismregulation/human-like-layout</code>.</p>
