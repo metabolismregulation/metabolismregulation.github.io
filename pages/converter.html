@@ -45,12 +45,12 @@ noindex: true
     GraphML ⭤ CellDesigner<br>
     GraphML ⭤ SBGN-ML<br>
     SBGN-ML ⭤ CellDesigner</p>
-    <p class="cv-hint">Advanced layout recommended. Straight layout is a fallback option, a basis for manual
-    layout. The conversion runs in the browser, and the files never leave the computer.</p>
+    <p class="cv-hint">The files keep the drawing of the input map. Straight layout is a fallback option, a basis
+    for manual layout. The conversion runs in the browser, and the files never leave the computer.</p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner/SBGN-ML
     to GraphML</label><br>
-    <label class="cv-hint"><input type="checkbox" id="cv-keep"> Keep node positions for CellDesigner (no small
-    moves to straighten lines)</label></p>
+    <label class="cv-hint"><input type="checkbox" id="cv-move" checked> Move nodes slightly to straighten lines
+    (CellDesigner)</label></p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}">Description</a> · <a href="{{ '/converter/architecture/' | relative_url }}">Architecture</a></p>
   </div>
 </div>
@@ -76,13 +76,13 @@ import os, sys
 sys.path.insert(0, '/home/pyodide')
 from mapconv import routes
 
-def convert(name, data, standard=False, keep=False):
+def convert(name, data, standard=False, move=True):
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
     files = []
-    for o in routes.outputs(p, standard, not keep):
+    for o in routes.outputs(p, standard, move):
         text, said = routes.made(o)
         if o.ending == '-corrected.graphml' and text is None and not said:
             continue  # only for a map drawn with other shapes than the SBGN palette
@@ -91,7 +91,9 @@ def convert(name, data, standard=False, keep=False):
             log = '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's') + '\\n'.join(found)
         else:
             log = ''.join(m + '\\n' for k, m in said if k != 'summary')
-        files.append([o.ending, o.label, text, log, o.red])
+        # the layout that keeps the drawing is the plain file, "CellDesigner", <map>.xml; straight the
+        # variant (user, 2026-10-19; the converter's own names stay advanced)
+        files.append([o.ending.replace('-advanced', ''), o.label.replace(' (advanced)', ''), text, log, o.red])
     return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
@@ -138,7 +140,7 @@ def convert(name, data, standard=False, keep=False):
       status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
       const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked,
-                                          document.getElementById('cv-keep').checked).toJs();
+                                          document.getElementById('cv-move').checked).toJs();
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
