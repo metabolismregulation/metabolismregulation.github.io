@@ -273,7 +273,11 @@ public here (user's choice). The page's copy is `converter/mapconv/` with the co
 `VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
 map-converter and push here (`VERSION`: date and commit, not shown on the page). Since 2026-10-19 (user) the
 page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`, a second
-tick box "Keep node positions for CellDesigner" forbids the small moves (map-converter's tidy moves). The pages
+tick box "Move nodes slightly to straighten lines for CellDesigner", ticked by default, allows the small moves
+(map-converter's tidy moves; it replaced "Keep node positions", user 2026-10-19). The layout that keeps the
+drawing has no variant on its button and in its file name (user, 2026-10-19): "CellDesigner", "SBGN-ML",
+"GraphML", `<map>.xml`, `<map>.sbgn`, `<map>.graphml`, renamed by the page's driver from the converter's
+"(advanced)" and `-advanced`; straight keeps its variant. The pages
 before the switch are kept, hidden: /converter/description-v1-backup/ and /converter/architecture-v1-backup/
 (`pages/converter-*-v1-backup.html`, user 2026-10-19), linked at the foot of the new ones. Annotation comes from the GraphML's node properties (HGNC,
 UniProt, ChEBI), or its node links when a map has none.
