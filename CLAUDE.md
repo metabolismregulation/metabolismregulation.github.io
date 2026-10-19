@@ -306,6 +306,9 @@ record. Add an ORCID only after checking it on orcid.org.
 
 ## Map drawing
 
+Before drawing or changing any map, load the layout skill (sbgn-human-like-layout), also in a
+session that is mainly biology research (user, 2026-10-19; details in maps-workbench CLAUDE.md).
+
 A change to how an entity is drawn applies to every instance of it on the map, including
 empty state variables (user, 2026-10-17).
 
