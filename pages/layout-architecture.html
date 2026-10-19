@@ -202,8 +202,8 @@ and 28 Atlas maps).</p>
 
 <h2>Suggested architecture</h2>
 
-<p>Three small fixes and some housekeeping, no restructuring. The skill gets the check and the build helpers every
-map build uses, so a claude.ai chat with the skill has them too. Snap and hubs are for different maps.
+<p>Three small fixes and some housekeeping, no restructuring. The skill gets the full check and the two fixes for
+what it reports, so a claude.ai chat with the skill has them too. Snap and hubs are for different maps.
 The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: what changes).</p>
 
 <div class="ca-fig">
@@ -251,13 +251,11 @@ The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: 
   <text class="ca-name" x="465" y="97" text-anchor="middle">kit.Layout</text>
   <text class="ca-sub" x="465" y="115" text-anchor="middle">put, route, fork, no F001</text>
   <rect class="ca-new" x="370" y="140" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="161" text-anchor="middle">build.py</text>
-  <text class="ca-sub" x="465" y="179" text-anchor="middle">the BCAA kit, in the skill</text>
+  <text class="ca-name" x="465" y="161" text-anchor="middle">arcs.py</text>
+  <text class="ca-sub" x="465" y="179" text-anchor="middle">centre ports, soft bends</text>
   <rect class="ca-box" x="370" y="204" width="190" height="50" rx="7"/>
   <text class="ca-name" x="465" y="225" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="243" text-anchor="middle">new builds import build.py</text>
-  <text class="ca-sub" x="465" y="290" text-anchor="middle">old builds stay as they are:</text>
-  <text class="ca-sub" x="465" y="306" text-anchor="middle">they never run again</text>
+  <text class="ca-sub" x="465" y="243" text-anchor="middle">with the BCAA kit and yedit</text>
 
   <rect class="ca-box" x="590" y="76" width="170" height="50" rx="7"/>
   <text class="ca-name" x="675" y="97" text-anchor="middle">complex_pack</text>
@@ -329,9 +327,10 @@ The F001 scripts move to <code>examples/</code>. The rest stays as it is (blue: 
   <li><b>check.py</b>: the skill's check gets the two strict rules only the workbench checks today (off-centre ports,
     bends not smoothed), as preferences for maps drawn in yEd, not strict rules. The workbench's
     <code>tools/check.py</code> runs it. Done 2026-10-19.</li>
-  <li><b>build.py</b>: <code>F022-bcaa/kit.py</code> (node and arc from a template, centre_ports, smooth_bends,
-    fit_label) moves into the skill. New map builds import it from there. Open: the kit works on the workbench's
-    <code>yedit</code> (content editing), so it cannot move alone.</li>
+  <li><b>arcs.py</b>: centre ports and soft bends, the two fixes for what the check reports, move from
+    <code>F022-bcaa/kit.py</code> into the skill, and the kit calls them. The rest of the kit stays in the workbench: it
+    works on the workbench's <code>yedit</code>, which edits content, and content is not the layout skill's job.
+    Done 2026-10-19: five recent builds give the same files.</li>
   <li><b>F001 scripts</b>: <code>layout.py</code>, <code>or_variant.py</code>, <code>make_v7or.py</code>,
     <code>A_inside_out.py</code>, <code>B_modular.py</code>, the F001 blocks of <code>kit.py</code> and
     <code>run_all.sh</code> move to <code>examples/F001-glycolysis-v8-v9/</code>. <code>kit.py</code> keeps the
