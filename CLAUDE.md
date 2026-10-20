@@ -272,9 +272,11 @@ repository `metabolismregulation/map-converter` in the browser (Pyodide), so tha
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
 `VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
 map-converter and push here (`VERSION`: date and commit, not shown on the page). Since 2026-10-19 (user) the
-page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`, a second
-tick box "Move nodes slightly to straighten lines for CellDesigner", ticked by default, allows the small moves
-(map-converter's tidy moves; it replaced "Keep node positions", user 2026-10-19). The layout that keeps the
+page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`, the small
+moves (map-converter's tidy moves) are in both CellDesigner files, and the button "CellDesigner (nodes kept)",
+`<map>-kept.xml`, white like straight, gives the CellDesigner file without them, only when they changed the map (user,
+2026-10-20, in place of the tick boxes "Keep node positions" and "Move nodes slightly to straighten lines for CellDesigner",
+which read as if they applied to every format). The layout that keeps the
 drawing has no variant on its button and in its file name (user, 2026-10-19): "CellDesigner", "SBGN-ML",
 "GraphML", `<map>.xml`, `<map>.sbgn`, `<map>.graphml`, renamed by the page's driver from the converter's
 "(advanced)" and `-advanced`; straight keeps its variant. The pages
