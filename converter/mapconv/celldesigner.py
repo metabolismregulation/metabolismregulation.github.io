@@ -58,19 +58,19 @@ CLASS = {'Macromolecule': 'PROTEIN', 'SimpleChemical': 'SIMPLE_MOLECULE', 'Nucle
          # CellDesigner has no submap: a phenotype (user's SREBP file, 2026-10-13)
          'Submap': 'PHENOTYPE'}
 # arc between two entities (no process) -> CellDesigner reduced-notation reaction. A stimulation
-# (user, 2026-10-20): REDUCED_PHYSICAL_STIMULATION, POSITIVE_INFLUENCE to a phenotype in a map
-# mainly in Process Description (the PD map's way); onto a process it stays a PHYSICAL_STIMULATION modifier
+# (user, 2026-10-20): REDUCED_PHYSICAL_STIMULATION, its white arrowhead SBGN's; POSITIVE_INFLUENCE (an
+# open arrow, nothing in SBGN) is read as a stimulation, never written
 REDUCED = {'stimulation': 'REDUCED_PHYSICAL_STIMULATION',
            'inhibition': 'NEGATIVE_INFLUENCE',
            'modulation': 'REDUCED_MODULATION', 'trigger': 'REDUCED_TRIGGER'}  # as the PD map (CellDesigner 4.4, autumn 2025)
 # a logic gate on arcs between entities: a BOOLEAN_LOGIC_GATE reaction, its arc typed as in the PD map
-GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE',  # the PD map
+GATE_ARC = {'stimulation': 'REDUCED_PHYSICAL_STIMULATION', 'inhibition': 'NEGATIVE_INFLUENCE',  # as between entities
             'trigger': 'REDUCED_TRIGGER', 'modulation': 'REDUCED_MODULATION'}  # the user's file, tests/celldesigner/gate-trigger-modulation.xml
 # a dashed arc (unknown) in CellDesigner's unknown types, where it has one (as the PD map)
 UNKNOWN = {'CATALYSIS': 'UNKNOWN_CATALYSIS', 'INHIBITION': 'UNKNOWN_INHIBITION'}
 # reduced notation, between entities and out of a gate: UNKNOWN_ before the type (the user's file
 # tests/celldesigner/unknown-reduced.xml); a stimulation as REDUCED_PHYSICAL_STIMULATION, the same head
-UNKNOWN.update({t: 'UNKNOWN_' + t for t in ('POSITIVE_INFLUENCE', 'NEGATIVE_INFLUENCE', 'REDUCED_PHYSICAL_STIMULATION',
+UNKNOWN.update({t: 'UNKNOWN_' + t for t in ('NEGATIVE_INFLUENCE', 'REDUCED_PHYSICAL_STIMULATION',
                                              'REDUCED_MODULATION', 'REDUCED_TRIGGER')})
 REACTION = {'Process': 'STATE_TRANSITION', 'OmittedProcess': 'KNOWN_TRANSITION_OMITTED', 'UncertainProcess': 'UNKNOWN_TRANSITION'}
 GATE = {'AND': 'BOOLEAN_LOGIC_GATE_AND', 'OR': 'BOOLEAN_LOGIC_GATE_OR', 'NOT': 'BOOLEAN_LOGIC_GATE_NOT'}
@@ -513,15 +513,13 @@ def write(diagram, ann, layout='straight', move=True):
                 for m in gate_in[e.source]: ref(lm_, 'modifierSpeciesReference', m)
         left = [e for e in E if p in (e.source, e.target) and e.id not in {f.id for f in ins + outs + mods + gates}]
         if left: report.say('left out', 'process %s: edges not converted: %s' % (p, ', '.join(e.id for e in left)))
-    # arcs between two entities (no process: reduced notation, e.g. a stimulation of a phenotype);
-    # pd: a map mainly in Process Description, more arcs at processes than between entities
-    pd = sum(1 for e in E if e.source in procs or e.target in procs) > sum(1 for e in E if e.source in ents and e.target in ents)
+    # arcs between two entities (no process: reduced notation, e.g. a stimulation of a phenotype)
     for e in E:
         if e.source in ents and e.target in ents and e.head in REDUCED:
             # straight from source to target, no process
             rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(e.id), id='re_' + sid(e.id), reversible='false')
             x = sub(etree.SubElement(rx, 'annotation'), 'extension')
-            sub(x, 'reactionType', typed(e, 'POSITIVE_INFLUENCE' if e.head == 'stimulation' and pd and N[e.target].kind in ('Phenotype', 'Submap') else REDUCED[e.head]))
+            sub(x, 'reactionType', typed(e, REDUCED[e.head]))
             # both ends at the centre: no linkAnchor (CellDesigner's save of the SREBP and ACLY files)
             sub(sub(x, 'baseReactants'), 'baseReactant', species=spec(e.source), alias='sa_' + sid(e.source))
             sub(sub(x, 'baseProducts'), 'baseProduct', species=spec(e.target), alias='sa_' + sid(e.target))
