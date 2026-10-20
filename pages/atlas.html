@@ -93,11 +93,12 @@ noindex: true
   #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
 
   #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: flex-start; }
-  /* the buttons of the site (user, 2026-10-16): one colour for all, white, grey edge, black
-     text; on hover filled in the blue of the chosen map in the list, white text. Order by use:
+  /* the buttons of the site: one colour for all, in the style of the Converter's grey button
+     (user, 2026-10-20): white, grey edge and text (#777), filled in the blue of the chosen
+     map in the list on hover, white text. Order by use:
      GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG, SVG in a menu), Data (the annotation
      table), then Newt and MINERVA, all at the same spacing */
-  #m2-downloads > a, #m2-downloads summary { display: inline-block; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #222; background: #fff; border: 1px solid #ccc; border-radius: 5px; text-decoration: none; cursor: pointer; }
+  #m2-downloads > a, #m2-downloads summary { display: inline-block; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #777; background: #fff; border: 1px solid #777; border-radius: 5px; text-decoration: none; cursor: pointer; }
   #m2-downloads > a:hover, #m2-downloads summary:hover, #m2-downloads details[open] summary { background: #4183c4; border-color: #4183c4; color: #fff; }
   #m2-downloads details { display: inline-block; position: relative; }
   #m2-downloads summary { list-style: none; }
@@ -105,7 +106,7 @@ noindex: true
   #m2-downloads .m2-caret { margin-left: 4px; font-size: 11px; }
   #m2-downloads .m2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
   /* the menu items in the font of the button (Images) */
-  #m2-downloads .m2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #222; text-decoration: none; }
+  #m2-downloads .m2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #777; text-decoration: none; }
   #m2-downloads .m2-list a:hover { background: #4183c4; color: #fff; }
   /* the online viewers open another site: the usual external-link icon */
   #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
