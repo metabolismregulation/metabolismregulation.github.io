@@ -20,7 +20,7 @@ noindex: true
      the page like the text next to the drop area; four columns or more reach further left and the
      left side narrows (user, 2026-10-20); the straight files white, as the fallback (user, 2026-10-19) */
   .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 24px; border-top: 1px solid #eee; padding: 8px 0; }
-  .cv-left { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .cv-left { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
   .cv-buttons { flex: 0 0 auto; min-width: calc(50% - 12px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; }
   /* at phone width the name, the buttons under it, then the notes */
   @media (max-width: 600px) {
@@ -29,8 +29,8 @@ noindex: true
     .cv-buttons { min-width: 0; order: 1; }
     .cv-log { order: 2; }
   }
-  .cv-name { display: flex; align-items: center; min-height: 44px;
-             font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+  /* the name level with the top of the buttons, the notes right under it (user, 2026-10-20) */
+  .cv-name { font-size: 14px; line-height: 20px; font-weight: 600; overflow-wrap: anywhere; }
   /* one column per format, the blue button on top and its straight line file under it, the same
      for Newt; other variants below (user, 2026-10-20) */
   .cv-col { display: flex; flex-direction: column; gap: 6px; }
