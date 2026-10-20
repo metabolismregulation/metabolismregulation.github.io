@@ -4,8 +4,10 @@
 #            with other shapes; GraphML (marked) when it breaks a rule (the problems left out)
 #   CellDesigner: GraphML and SBGN-ML, straight and advanced
 #   SBGN-ML, Newt: GraphML; CellDesigner, straight and advanced
-# standard: the GraphML outputs with standard node sizes (style.py). move: the CellDesigner outputs
-# with the tidy moves (celldesigner.write), unless the user forbids moving nodes.
+#   CellDesigner, SBGN-ML, Newt: also GraphML (standard sizes) for a map drawn at another scale
+#            (style.standard; user, 2026-10-20)
+# move: the CellDesigner outputs with the tidy moves (celldesigner.write), unless the user forbids
+# moving nodes.
 import contextlib, io
 from dataclasses import dataclass
 from . import annotation, celldesigner, graphml, report, rules, sbgnml, style
@@ -36,9 +38,18 @@ def made(o):
     return text, [(None, l) for l in printed.getvalue().splitlines()] + said
 
 
-def outputs(path, standard=False, move=True):
+def standard(read, program):
+    # GraphML (standard sizes), None for a map at the usual scale; the reader's messages are the
+    # plain GraphML's
+    with report.collect(), contextlib.redirect_stdout(io.StringIO()):
+        m = read()
+    t = style.standard(m, program)
+    return graphml.write(t) if t else None
+
+
+def outputs(path, move=True):
     ext = path.lower().rsplit('.', 1)[-1]
-    to_graphml = lambda m: graphml.write(style.standardise(m) if standard else m)
+    std = lambda read, program: Output('-standard.graphml', 'GraphML (standard sizes)', lambda: standard(read, program))
     to_cd = lambda m, layout: celldesigner.write(m, annotation.from_graphml(m), layout, move)
     if ext == 'graphml':
         try:
@@ -63,7 +74,8 @@ def outputs(path, standard=False, move=True):
         def sbgn(l):
             m = cd(l)
             return sbgnml.write(celldesigner.straight(m) if l == 'straight' else m, l)
-        return [Output('-%s.graphml' % l, 'GraphML (%s)' % l, lambda l=l: to_graphml(cd(l))) for l in LAYOUTS] + \
+        return [Output('-%s.graphml' % l, 'GraphML (%s)' % l, lambda l=l: graphml.write(cd(l))) for l in LAYOUTS] + \
+               [std(lambda: celldesigner.read(path), 'CellDesigner')] + \
                [Output('-%s.sbgn' % l, 'SBGN-ML (%s)' % l, lambda l=l: sbgn(l)) for l in LAYOUTS]
-    return [Output('.graphml', 'GraphML', lambda: to_graphml(sbgnml.read(path)))] + \
+    return [Output('.graphml', 'GraphML', lambda: graphml.write(sbgnml.read(path))), std(lambda: sbgnml.read(path), 'Newt')] + \
            [Output('-%s.xml' % l, 'CellDesigner (%s)' % l, lambda l=l: to_cd(sbgnml.read(path), l)) for l in LAYOUTS]

@@ -47,8 +47,6 @@ noindex: true
     SBGN-ML ⭤ CellDesigner</p>
     <p class="cv-hint">The files keep the drawing of the input map. Straight layout is a fallback option, a basis
     for manual layout. The conversion runs in the browser, and the files never leave the computer.</p>
-    <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner/SBGN-ML
-    to GraphML</label></p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}">Description</a> · <a href="{{ '/converter/architecture/' | relative_url }}">Architecture</a></p>
   </div>
 </div>
@@ -74,19 +72,19 @@ import os, sys
 sys.path.insert(0, '/home/pyodide')
 from mapconv import routes
 
-def convert(name, data, standard=False):
+def convert(name, data):
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
     # CellDesigner (nodes kept): the CellDesigner file without the small moves that straighten lines,
     # given only when the converter moved nodes (user, 2026-10-20, in place of a tick box)
-    kept = {o.ending: o for o in routes.outputs(p, standard, False) if o.ending == '-advanced.xml'}
+    kept = {o.ending: o for o in routes.outputs(p, False) if o.ending == '-advanced.xml'}
     files = []
-    for o in routes.outputs(p, standard, True):
+    for o in routes.outputs(p, True):
         text, said = routes.made(o)
-        if o.ending == '-corrected.graphml' and text is None and not said:
-            continue  # only for a map drawn with other shapes than the SBGN palette
+        if o.ending in ('-corrected.graphml', '-standard.graphml') and text is None and not said:
+            continue  # only for a map drawn with other shapes than the SBGN palette, or at another scale
         if o.red:
             found = [m for k, m in said if k == 'problem']
             log = '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's') + '\\n'.join(found)
@@ -144,7 +142,7 @@ def convert(name, data, standard=False):
       if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner or SBGN-ML file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
-      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked).toJs();
+      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer())).toJs();
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
@@ -154,7 +152,7 @@ def convert(name, data, standard=False):
       for (const [end, label, xml, log, red] of r) {
         if (xml) {
           const b = button(xml, base + end, label, red);
-          if (end === '-corrected.graphml') b.classList.add('cv-grey');
+          if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
           if (end.startsWith('-straight.') || end === '-kept.xml') b.classList.add('cv-alt');
           box.append(b);
         }

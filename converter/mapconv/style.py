@@ -4,13 +4,23 @@
 # kept. A map whose objects are clearly larger or smaller than
 # ours (median protein height off 40 by more than 20%, e.g. a large font) is first scaled as a
 # whole, distances included. Collisions that follow are the user's to look at.
+# The file with standard sizes is made only when the map is drawn at another scale than usual (user,
+# 2026-10-20, in place of the page's tick box): the median protein height off our 40, the median
+# label font off the program's default, or, on a map without proteins, the median metabolite height
+# off CHEMICAL, each by more than NOTICED; the reasons go into its messages.
 import math, statistics
 from dataclasses import replace
+from . import report
 
 PROTEIN = (80.0, 40.0)
 SIZE = {'Macromolecule': PROTEIN, 'NucleicAcidFeature': PROTEIN}
 CIRCLE = (36.0, 36.0)  # the yEd metabolite glyph is a circle when square, else a stadium
 NOTICED = 1.2  # a scale this far from 1 (either way) is rescaled
+# the program's default label font: CellDesigner (all 926 labels of the website's CellDesigner
+# files), Newt (its sample files)
+FONT = {'CellDesigner': 12.0, 'Newt': 11.0}
+CHEMICAL = (25.0, 36.0)  # usual metabolite heights: CellDesigner's 70 x 25 to our circle (Newt: 30 to 40)
+ENTITY = ('Macromolecule', 'NucleicAcidFeature', 'SimpleChemical', 'Complex', 'UnspecifiedEntity', 'Perturbation', 'Phenotype')
 
 
 def chemical(d):
@@ -28,6 +38,40 @@ def scale_of(m):
     hs = [d.box[3] for d in m.nodes.values() if d.kind == 'Macromolecule' and d.count == 1]
     s = statistics.median(hs) / PROTEIN[1] if hs else 1.0
     return s if s > NOTICED or s < 1 / NOTICED else 1.0
+
+
+def off(v, default):
+    return v > default * NOTICED or v < default / NOTICED
+
+
+def reasons(m, program):
+    # why the map is not at the usual scale, [] when it is
+    font = FONT[program]
+    median = lambda vs: statistics.median(vs) if vs else None
+    fonts = median([d.font for d in m.nodes.values() if d.font and d.kind in ENTITY])
+    proteins = median([d.box[3] for d in m.nodes.values() if d.kind == 'Macromolecule' and d.count == 1])
+    chems = median([d.box[3] for d in m.nodes.values() if d.kind == 'SimpleChemical' and d.count == 1])
+    why = []
+    if fonts and off(fonts, font):
+        why.append('font %g (%s: %g)' % (fonts, program, font))
+    if proteins and off(proteins, PROTEIN[1]):
+        why.append('proteins %g high (ours: %g)' % (proteins, PROTEIN[1]))
+    if not proteins and chems and (chems < CHEMICAL[0] / NOTICED or chems > CHEMICAL[1] * NOTICED):
+        why.append('metabolites %g high (usual: %g to %g)' % (chems, *CHEMICAL))
+    return why
+
+
+def standard(m, program):
+    # the map with standard sizes when it is drawn at another scale, its reasons said; else None
+    why = reasons(m, program)
+    if not why:
+        return None
+    s = scale_of(m)
+    report.say('changed', 'GraphML (standard sizes), as the map is drawn at another scale: %s; %s' % (
+        ', '.join(why), 'scaled by %.2f, then ' % (1 / s) if s != 1 else '') + 'proteins 80 x 40, metabolites 36 x 36 or 32 high')
+    if not why[0].startswith('font') and any(d.font for d in m.nodes.values()):
+        report.say('warning', 'GraphML (standard sizes): the font is the usual one, the larger or smaller nodes may be drawn so on purpose')
+    return standardise(m)
 
 
 def standardise(m):

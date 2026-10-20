@@ -24,6 +24,7 @@ class Node:
     dashed: bool = False  # dashed border: a hypothetical entity (CellDesigner)
     outline: str = None  # the plain yEd shape it was read from by its outline (not the SBGN palette)
     species: str = None  # the entity the file says the glyph draws (CellDesigner species), if it says one
+    font: float = None  # its label's font size, where the file gives one (CellDesigner, Newt): style.reasons
 
 
 @dataclass

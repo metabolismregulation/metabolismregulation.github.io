@@ -360,6 +360,9 @@ def read(path):
     defs = {c.get('id'): c.get('value') for c in m.iter(R + 'colorDefinition')}
     fill = {i: st.find(R + 'g').get('fill') for st in m.iter(R + 'style') if st.find(R + 'g') is not None
             for i in (st.get('idList') or '').split()}
+    font = {i: float(st.find(R + 'g').get('font-size')) for st in m.iter(R + 'style')
+            if st.find(R + 'g') is not None and st.find(R + 'g').get('font-size')
+            for i in (st.get('idList') or '').split()}
     port = {}
     nodes, skipped, activities, renamed = {}, {}, set(), []
 
@@ -413,7 +416,7 @@ def read(path):
                         fill=colour(fill.get(i), defs), states=states, units=units,
                         count=(n[0] if n else 2) if cls.endswith(' multimer') else 1,
                         label_at=(float(lb.get('x')) - x, float(lb.get('y')) - y) if kind == 'Compartment' and lb is not None else None,
-                        data=data)
+                        data=data, font=font.get(i))
         if g.find(S + 'clone') is not None:
             skipped.setdefault('clone marker', []).append(i)
         for c in g.findall(S + 'glyph'):

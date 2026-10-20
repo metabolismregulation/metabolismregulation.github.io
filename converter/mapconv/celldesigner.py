@@ -696,12 +696,14 @@ def read(path):
         uris = [li.get('{%s}resource' % ns['rdf']) for li in xs(an, './/rdf:Description/*/rdf:Bag/rdf:li')] if an is not None else []
         fam = an is not None and f(an, './/rdf:Description/bq:hasVersion') is not None
         hyp = f(si, 'cd:hypothetical')
+        font = f(a, 'cd:font')
         nodes[a.get('id')] = Node(
             id=a.get('id'), kind=kind, box=box, labels=[name(s.get('name')) if cls != 'DEGRADED' else ''],
             parent=a.get('complexSpeciesAlias') or a.get('compartmentAlias'),
             fill=None if cls == 'DRUG' or paint is None else '#' + paint.get('color')[2:].upper(),
             states=states, units=units, count=n, data=to_properties(fam, uris) if uris else {},
-            dashed=hyp is not None and hyp.text == 'true', species=a.get('species'))
+            dashed=hyp is not None and hyp.text == 'true', species=a.get('species'),
+            font=float(font.get('size')) if font is not None and font.get('size') else None)
     # an unlabelled complex in yEd is named after its members in CellDesigner: the name goes
     def member_names(c):
         return [m.labels[0] or ':'.join(member_names(m.id)) for m in nodes.values() if m.parent == c]
