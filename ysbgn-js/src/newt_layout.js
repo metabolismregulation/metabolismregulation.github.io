@@ -1,7 +1,7 @@
 // Port of newt_layout.py, the Newt adapter: what an SBGN-ML map needs so Newt draws it as the
 // source does. Every process and gate in a compartment, each compartment as large as Newt's
 // padding needs, neighbours too close for it moved apart (map-converter docs/SBGNML.md).
-import { formatD, min, sorted } from './py.js';
+import { Dict, formatD, min, sorted } from './py.js';
 import * as report from './report.js';
 import { PROCESSES, centre, compartment_of, decorations } from './layout.js';
 
@@ -52,12 +52,19 @@ export function for_newt(diagram, ports = true) {
         pmin(value(a, 3 - ax), value(b, 3 - ax)) - pmax(value(a, 1 - ax), value(b, 1 - ax)) > 0.5)
       facing.push([a, b, ax, pmin(NEWT_PAD, pmax(0.0, value(b, ax) - value(a, ax + 2)))]);
   }
+  // a node outside every compartment that a compartment, once in place, grows over by more than
+  // half is covered whole, so the edge does not stop inside it (SREBP from CellDesigner, straight:
+  // the COPII vesicle grew to its process and cut the Sec23:Sec24 complex; user, 2026-10-20); one
+  // the growth only grazes, or the source draws across the edge, stays as it is
+  const free = [...N].filter(([i, d]) => d.kind !== 'Compartment' && d.parent === null && compartment_of(N, i) === null).map(([i]) => i);
+  const covered = new Dict();
+  const inside = (b, q) => pmax(0, pmin(b[0] + b[2], q[2]) - pmax(b[0], q[0])) * pmax(0, pmin(b[1] + b[3], q[3]) - pmax(b[1], q[1]));
   const key = (c, k) => c + '\u0000' + k;
   let bounds;
   for (let round = 0; round < 50; round++) {
     const ext = new Map(comps.map(c => [c, [Infinity, Infinity, -Infinity, -Infinity]]));
     for (const [i, d] of N) {
-      const c = compartment_of(N, i);
+      const c = covered.has(i) ? covered.get(i) : compartment_of(N, i);
       if (c === null || d.parent !== null && N.at(d.parent).kind === 'Complex') continue;  // a member: inside its complex
       // a complex with its padding, a process or gate as Newt draws it (18 px: 51 with its
       // ports, 27 without)
@@ -90,7 +97,20 @@ export function for_newt(diagram, ports = true) {
           Math.abs(value(a, ax + 2) - value(b, ax)) > 2)
           .map(([a, b, ax, gap]) => [value(b, ax), [[b, ax]], end.get(key(a, ax + 2)) + gap - end.get(key(b, ax))])),
       t => [t[1][0][1] % 2, t[0]]);
-    if (!clash.length) break;
+    if (!clash.length) {
+      const grown = new Map(comps.map(c => [c, [0, 1, 2, 3].map(k => k < 2 ? pmin(value(c, k), ext.get(c)[k] - NEWT_PAD) : pmax(value(c, k), ext.get(c)[k] + NEWT_PAD))]));
+      const hit = new Dict();
+      for (const i of free) {
+        if (covered.has(i)) continue;
+        const b = N.at(i).box;
+        for (const c of comps)
+          if (0.5 * b[2] * b[3] < inside(b, grown.get(c)) && inside(b, grown.get(c)) < b[2] * b[3] &&
+              !inside(b, [0, 1, 2, 3].map(k => value(c, k)))) hit.set(i, c);
+      }
+      if (!hit.size) break;
+      for (const [i, c] of hit) covered.set(i, c);
+      continue;
+    }
     const [at, g, by] = clash[0];
     moved(diagram, g[0][1] % 2, at, by);
     const names = sorted(new Set(g.map(([c]) => N.at(c).labels.length ? N.at(c).labels[0] : c)));

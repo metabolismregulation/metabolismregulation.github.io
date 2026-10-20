@@ -44,10 +44,17 @@ def for_newt(diagram, ports=True):
     facing = [(a, b, ax, min(NEWT_PAD, max(0.0, value(b, ax) - value(a, ax + 2)))) for a in comps for b in comps for ax in (0, 1)
               if a != b and not within(a, b) and not within(b, a) and value(a, ax + 2) - 2 <= value(b, ax)
               and min(value(a, 3 - ax), value(b, 3 - ax)) - max(value(a, 1 - ax), value(b, 1 - ax)) > 0.5]
+    # a node outside every compartment that a compartment, once in place, grows over by more than
+    # half is covered whole, so the edge does not stop inside it (SREBP from CellDesigner, straight:
+    # the COPII vesicle grew to its process and cut the Sec23:Sec24 complex; user, 2026-10-20); one
+    # the growth only grazes, or the source draws across the edge, stays as it is
+    free = [i for i, d in N.items() if d.kind != 'Compartment' and d.parent is None and compartment_of(N, i) is None]
+    covered = {}
+    inside = lambda b, q: max(0, min(b[0] + b[2], q[2]) - max(b[0], q[0])) * max(0, min(b[1] + b[3], q[3]) - max(b[1], q[1]))
     for _ in range(50):
         ext = {c: [math.inf, math.inf, -math.inf, -math.inf] for c in comps}
         for i, d in N.items():
-            c = compartment_of(N, i)
+            c = covered.get(i, compartment_of(N, i))
             if c is None or d.parent is not None and N[d.parent].kind == 'Complex':  # a member: inside its complex
                 continue
             # a complex with its padding, a process or gate as Newt draws it (18 px: 51 with its
@@ -72,7 +79,14 @@ def for_newt(diagram, ports=True):
                         if end[a, ax + 2] + gap > end[b, ax] + 0.5 and abs(value(a, ax + 2) - value(b, ax)) > 2],
                        key=lambda t: (t[1][0][1] % 2, t[0]))
         if not clash:
-            break
+            grown = {c: [min(value(c, k), ext[c][k] - NEWT_PAD) if k < 2 else max(value(c, k), ext[c][k] + NEWT_PAD) for k in range(4)] for c in comps}
+            hit = {i: c for i in free if i not in covered for c in comps
+                   if 0.5 * N[i].box[2] * N[i].box[3] < inside(N[i].box, grown[c]) < N[i].box[2] * N[i].box[3]
+                   and not inside(N[i].box, [value(c, k) for k in range(4)])}
+            if not hit:
+                break
+            covered.update(hit)
+            continue
         at, g, by = clash[0]
         moved(diagram, g[0][1] % 2, at, by)
         report.say('changed', 'compartments %s: moved %d px apart, so that Newt does not overlap them'

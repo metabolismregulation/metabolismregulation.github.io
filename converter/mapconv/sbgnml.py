@@ -123,10 +123,12 @@ def write(diagram, layout='advanced'):
             cls = ARC.get(a.head)
             if cls is None:
                 report.say('left out', 'arc %s: no SBGN arc for %s, left out' % (a.id, a.head)); continue
+        if N[s].kind == 'Phenotype':  # a perturbing agent, a submap or neither: not guessed (user, 2026-10-17)
+            report.say('left out', 'arc %s: leaves phenotype %s (%s), no SBGN Process Description equivalent, left out'
+                       % (a.id, s, N[s].labels[0] if N[s].labels else '')); continue
         if a.tail:
             report.say('left out', 'arc %s: its arrow at the source has no place in SBGN-ML, dropped' % a.id)
         arcs.append((a, cls, s, t, pts, s_at, t_at))
-    sources = {a[2] for a in arcs}
 
     # a process or gate has two ports, on the line from its inputs to its outputs (the spec,
     # 2.10): port 1 where the consumptions (gate inputs) come in, port 2 where the products leave.
@@ -198,8 +200,6 @@ def write(diagram, layout='advanced'):
             cls = {v: k for k, v in OPERATORS.items()}.get((d.labels[0] if d.labels else '').strip().upper())
             if cls is None:
                 report.say('left out', 'gate %s: label %r is not AND, OR, NOT or %s, left out' % (i, d.labels[:1], EQUIV)); return
-        elif d.kind == 'Phenotype' and i in sources:  # a perturbing agent, a submap or neither: not guessed (user, 2026-10-17)
-            report.say('left out', 'phenotype %s (%s): an arc leaves it, no SBGN Process Description equivalent, left out' % (i, d.labels[0] if d.labels else '')); return
         elif d.kind in CLASS:
             cls = CLASS[d.kind] + (' multimer' if d.count > 1 and d.kind in MULTIMER else '')
         else:

@@ -125,10 +125,12 @@ export function write(diagram, layout = 'advanced') {
       cls = get(ARC, a.head);
       if (cls === null) { report.say('left out', `arc ${a.id}: no SBGN arc for ${a.head}, left out`); continue; }
     }
+    if (N.at(s).kind === 'Phenotype') {  // a perturbing agent, a submap or neither: not guessed (user, 2026-10-17)
+      report.say('left out', `arc ${a.id}: leaves phenotype ${s} (${N.at(s).labels.length ? N.at(s).labels[0] : ''}), no SBGN Process Description equivalent, left out`); continue;
+    }
     if (a.tail) report.say('left out', `arc ${a.id}: its arrow at the source has no place in SBGN-ML, dropped`);
     arcs.push([a, cls, s, t, pts, s_at, t_at]);
   }
-  const sources = new Set(arcs.map(a => a[2]));
 
   // a process or gate has two ports, on the line from its inputs to its outputs (the spec,
   // 2.10): port 1 where the consumptions (gate inputs) come in, port 2 where the products leave.
@@ -213,8 +215,6 @@ export function write(diagram, layout = 'advanced') {
     if (d.kind === 'Operator') {
       cls = get(OPERATOR_CLASS, strip(d.labels.length ? d.labels[0] : '').toUpperCase());
       if (cls === null) { report.say('left out', `gate ${i}: label ${reprList(d.labels.slice(0, 1))} is not AND, OR, NOT or ${EQUIV}, left out`); return; }
-    } else if (d.kind === 'Phenotype' && sources.has(i)) {  // a perturbing agent, a submap or neither: not guessed (user, 2026-10-17)
-      report.say('left out', `phenotype ${i} (${d.labels.length ? d.labels[0] : ''}): an arc leaves it, no SBGN Process Description equivalent, left out`); return;
     } else if (has(CLASS, d.kind)) {
       cls = CLASS[d.kind] + (d.count > 1 && MULTIMER.includes(d.kind) ? ' multimer' : '');
     } else {

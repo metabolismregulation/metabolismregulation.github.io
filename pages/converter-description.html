@@ -90,17 +90,18 @@ converted files.</p>
 once is one CellDesigner species with one alias per drawing, as CellDesigner saves it. Two boxes are the same
 species when they have the same identifier (HGNC, UniProt or ChEBI, else the label), state, compartment and
 glyph. Both SBGN-ML files have
-their colours in the SBML render extension and the annotation as RDF in each glyph. A phenotype with an arc
-leaving it is left out of them with its arcs: an SBGN phenotype takes no outgoing arc, and the converter does
-not decide whether it is a perturbing agent or a submap.</p>
+their colours in the SBML render extension and the annotation as RDF in each glyph. An arc leaving a
+phenotype is left out of them, the phenotype and the arcs into it kept: an SBGN phenotype takes no outgoing
+arc, and the converter does not decide whether it is a perturbing agent or a submap.</p>
 <p>In both SBGN-ML files every process and logic gate sits in a compartment, and each compartment is as
 large as Newt needs to keep it as drawn: Newt leaves a margin inside a compartment and otherwise redraws
 it around its contents. Edges aligned in the map stay aligned. Where two compartments' contents are too
 close for that margin, everything past their shared edge moves on by the missing distance, noted under
-the map.</p>
+the map. A node outside every compartment that a compartment grows over by more than half is covered whole,
+so no edge runs through it.</p>
 <p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
-with the element's id, label (an arc by its ends) and reason. Phenotypes left out of the SBGN-ML are
-listed under the map with their id and label. Equivalence operators are left out of the
+with the element's id, label (an arc by its ends) and reason. Arcs leaving a phenotype, left out of the
+SBGN-ML, are listed under the map with the phenotype's id and label. Equivalence operators are left out of the
 CellDesigner files, which have no such element, and kept in the SBGN-ML.</p>
 
 <h2 id="celldesigner">From CellDesigner</h2>
@@ -117,8 +118,8 @@ extension. Files of older CellDesigner versions, without the extension element, 
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, each process midway between its main reactant and product, for improving by hand.</td></tr>
 </table>
 <p>Both SBGN-ML files are made from the CellDesigner file directly, with their colours in the SBML render
-extension and the annotation as RDF in each glyph. A phenotype with an arc leaving it is left out with its
-arcs, as from GraphML.</p>
+extension and the annotation as RDF in each glyph. An arc leaving a phenotype is left out, the phenotype
+kept, as from GraphML.</p>
 <p>CellDesigner draws its nodes over the arcs, so its files hold bends nobody sees: inside an arc's own start or
 end node, or on the straight line between two others. These are left out of the GraphML and SBGN-ML files, and
 an arc starts where its line crosses the node's border in CellDesigner.</p>
