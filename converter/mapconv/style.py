@@ -10,7 +10,6 @@
 # off CHEMICAL, each by more than NOTICED.
 import math, statistics
 from dataclasses import replace
-from . import report
 
 PROTEIN = (80.0, 40.0)
 SIZE = {'Macromolecule': PROTEIN, 'NucleicAcidFeature': PROTEIN}
@@ -62,12 +61,10 @@ def reasons(m, program):
 
 
 def standard(m, program, asked=False):
-    # the map with standard node sizes when asked or drawn at another scale (reasons), else None; one
-    # note for every case, in the user's words (2026-10-20)
+    # the map with standard node sizes when asked or drawn at another scale (reasons), else None; no
+    # note under the map, the description page says what the file holds (user, 2026-10-20)
     if not asked and not reasons(m, program):
         return None
-    report.say('changed', 'GraphML standard sizes: map set to font size 14, protein size 80 x 40, metabolite circles '
-               '36 x 36 or stadium shapes with height 32.')
     return standardise(m)
 
 

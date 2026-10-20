@@ -236,8 +236,7 @@ drawing kept, with map-converter's `style.py`: proteins 80 x 40, metabolite circ
 to the name (a metabolite keeps its shape), the map rescaled if its proteins are much larger or smaller. Made when one
 is more than 20% off: the median protein height against 40, the median label font against the program's default
 (CellDesigner 12, Newt 11), or, without proteins, the median metabolite height against 25 to 40 (`style.reasons`).
-One note under the map for every case, in the user's words (2026-10-20): "GraphML standard sizes: map set to font
-size 14, protein size 80 x 40, metabolite circles 36 x 36 or stadium shapes with height 32."
+No note under the map: the description page says what the file holds (user, 2026-10-20).
 Test files: map-converter `tests/celldesigner/scale-*.xml`. The thresholds and sizes are on the description page. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. A GraphML map also gives two SBGN-ML files, and an
