@@ -46,7 +46,7 @@ from struct import pack, unpack
 from lxml import etree
 from . import cd_layout, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
-from .layout import visible
+from .layout import exit_point, visible
 from .annotation import to_properties
 from .graphml import EQUIV, without_delays
 from .model import Map, Node, Arc
@@ -66,7 +66,11 @@ REDUCED = {'stimulation': 'PHYSICAL_STIMULATION',
 GATE_ARC = {'stimulation': 'POSITIVE_INFLUENCE', 'inhibition': 'NEGATIVE_INFLUENCE',  # the PD map
             'trigger': 'REDUCED_TRIGGER', 'modulation': 'REDUCED_MODULATION'}  # the user's file, tests/celldesigner/gate-trigger-modulation.xml
 # a dashed arc (unknown) in CellDesigner's unknown types, where it has one (as the PD map)
-UNKNOWN = {'CATALYSIS': 'UNKNOWN_CATALYSIS', 'INHIBITION': 'UNKNOWN_INHIBITION', 'NEGATIVE_INFLUENCE': 'UNKNOWN_NEGATIVE_INFLUENCE'}
+UNKNOWN = {'CATALYSIS': 'UNKNOWN_CATALYSIS', 'INHIBITION': 'UNKNOWN_INHIBITION'}
+# reduced notation, between entities and out of a gate: UNKNOWN_ before the type (the user's file
+# tests/celldesigner/unknown-reduced.xml); a stimulation as REDUCED_PHYSICAL_STIMULATION, the same head
+UNKNOWN.update({t: 'UNKNOWN_' + t for t in ('POSITIVE_INFLUENCE', 'NEGATIVE_INFLUENCE', 'REDUCED_PHYSICAL_STIMULATION',
+                                             'REDUCED_MODULATION', 'REDUCED_TRIGGER')})
 REACTION = {'Process': 'STATE_TRANSITION', 'OmittedProcess': 'KNOWN_TRANSITION_OMITTED', 'UncertainProcess': 'UNKNOWN_TRANSITION'}
 GATE = {'AND': 'BOOLEAN_LOGIC_GATE_AND', 'OR': 'BOOLEAN_LOGIC_GATE_OR', 'NOT': 'BOOLEAN_LOGIC_GATE_NOT'}
 # glyph at the end of an arc into a process -> CellDesigner modification type
@@ -514,7 +518,7 @@ def write(diagram, ann, layout='straight', move=True):
             # straight from source to target, no process
             rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(e.id), id='re_' + sid(e.id), reversible='false')
             x = sub(etree.SubElement(rx, 'annotation'), 'extension')
-            sub(x, 'reactionType', typed(e, REDUCED[e.head]))
+            sub(x, 'reactionType', typed(e, 'REDUCED_PHYSICAL_STIMULATION' if e.dashed and e.head == 'stimulation' else REDUCED[e.head]))
             # both ends at the centre: no linkAnchor (CellDesigner's save of the SREBP and ACLY files)
             sub(sub(x, 'baseReactants'), 'baseReactant', species=spec(e.source), alias='sa_' + sid(e.source))
             sub(sub(x, 'baseProducts'), 'baseProduct', species=spec(e.target), alias='sa_' + sid(e.target))
@@ -549,10 +553,10 @@ def write(diagram, ann, layout='straight', move=True):
             sub(x, 'line', width='1.0', color='ff000000')
             gm = sub(x, 'listOfGateMember')
             g = sub(gm, 'GateMember', type=GATE[kind], aliases=','.join('sa_' + sid(m) for m in inp),
-                    modificationType=GATE_ARC[e.head], editPoints='%s,%s' % (gx, gy))
+                    modificationType=typed(e, GATE_ARC[e.head]), editPoints='%s,%s' % (gx, gy))
             line(g); sub(g, 'line', width='1.0', color='ff000000')
             for m in inp:
-                g = sub(gm, 'GateMember', type=GATE_ARC[e.head], aliases='sa_' + sid(m), targetLineIndex='-1,0')
+                g = sub(gm, 'GateMember', type=UNKNOWN[GATE_ARC[e.head]] if e.dashed else GATE_ARC[e.head], aliases='sa_' + sid(m), targetLineIndex='-1,0')
                 line(g); sub(g, 'line', width='1.0', color='ff000000')
             lr_ = etree.SubElement(rx, 'listOfReactants')
             for m in inp:
@@ -715,6 +719,17 @@ def read(path):
         return anchor_point(d.box, b.get('position'), d.kind in ('SimpleChemical', 'UnspecifiedEntity'))
     # an arc's port: where it meets its node, from the node's centre
     port = lambda i, P: (P[0] - cen(i)[0], P[1] - cen(i)[1])
+
+    def rim(e, P, Q):  # where CellDesigner draws the main line's end P (towards Q): an anchor, else the border
+        b = f(e, 'cd:linkAnchor')
+        if b is not None and b.get('position') in ANCHOR:
+            return P
+        d = nodes[alias_of(e)]
+        if d.kind not in ('SimpleChemical', 'UnspecifiedEntity'):
+            return exit_point(d.box, P, Q)
+        dx, dy = Q[0] - P[0], Q[1] - P[1]
+        t = min(1.0, 1 / (math.hypot(dx / (d.box[2] / 2), dy / (d.box[3] / 2)) or 1))
+        return (P[0] + t * dx, P[1] + t * dy)
     for rx in xs(r, 's:model/s:listOfReactions/s:reaction'):
         x = f(rx, 's:annotation/cd:extension')
         typ = f(x, 'cd:reactionType').text
@@ -757,6 +772,7 @@ def read(path):
             ends = [end(e) for e in br + bp]
             bent = [[from_frame(sq, ends[k], q) for q in arm[k]] for k in range(3)]
             lines = [(three[k], k < len(br), bent[k][::-1] if k < len(br) else bent[k], port(three[k], ends[k])) for k in range(3)]
+            joins = None
             Q = ends[2] if len(br) == 2 else ends[0]
             L = math.hypot(Q[0] - sq[0], Q[1] - sq[1]) or 1
             fl = ((Q[0] - sq[0]) / L, (Q[1] - sq[1]) / L) if len(br) == 2 else ((sq[0] - Q[0]) / L, (sq[1] - Q[1]) / L)
@@ -772,6 +788,12 @@ def read(path):
             fl = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
             lines = [(alias_of(br[0]), True, line[1:k + 1], port(alias_of(br[0]), A)),
                      (alias_of(bp[0]), False, line[k + 1:-1], port(alias_of(bp[0]), B))]
+            # an added reactant's link joins the square's segment at 3/8, a product's at 5/8, the
+            # segment's ends where CellDesigner draws them (the user's file
+            # tests/celldesigner/added-link-bends.xml; all 22 such links of two PD map submaps fit)
+            P = rim(br[0], P, Q) if k == 0 else P
+            Q = rim(bp[0], Q, P) if k == len(line) - 2 else Q
+            joins = [(P[0] + t * (Q[0] - P[0]), P[1] + t * (Q[1] - P[1])) for t in (0.375, 0.625)]
         else:
             report.say('left out', 'reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
         S = 18.0  # the process size in our yEd maps
@@ -787,9 +809,12 @@ def read(path):
         for tag, into in (('cd:listOfReactantLinks/cd:reactantLink', True), ('cd:listOfProductLinks/cd:productLink', False)):
             for l in xs(x, tag):
                 if alias_of(l) in nodes:
-                    if l.get('editPoints') or f(l, 'cd:editPoints') is not None:
-                        report.say('left out', 'reaction %s: edit points of an added link left out' % rid)
-                    flow(alias_of(l), into)
+                    # its edit points in the frame species -> join (a product's: join -> species)
+                    q, O = points(l.get('editPoints') or l.findtext('cd:editPoints', '', ns)), end(l)
+                    if q and joins is None:
+                        report.say('left out', 'reaction %s: edit points of an added link left out (a branched reaction)' % rid); q = []
+                    J = joins[0 if into else 1] if joins else None
+                    flow(alias_of(l), into, [from_frame(O, J, p) if into else from_frame(J, O, p) for p in q], port(alias_of(l), O))
         # modifiers: the arc ends at the point of the square targetLineIndex names (a side middle or a
         # corner); in yEd at that point of the 18 px process (corners at 9, 9)
         gate_inputs, gates = set(), 0
