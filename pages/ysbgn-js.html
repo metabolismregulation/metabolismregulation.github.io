@@ -74,6 +74,8 @@ noindex: true
     return a;
   }
 
+{% include newt-open.js %}
+
   async function convert(files) {
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
@@ -96,7 +98,10 @@ noindex: true
       box.append(nm);
       // problems and what the file failed or lost: red when no file came, else grey as the Converter's notes
       const problems = new Set(), errors = new Set(), losses = new Set();
+      // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
+      const newt = /\.(sbgn|nwt)$/i.test(f.name) ? [{ text, name: f.name }] : [];
       for (const [end, label, xml, said, red] of r) {
+        if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end, variant: (label.match(/\((.*)\)$/) || [])[1] });
         if (xml) {
           const b = button(xml, base + end, label, red);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
@@ -110,6 +115,7 @@ noindex: true
         }
         for (const [, m] of said) (xml ? losses : errors).add(m);
       }
+      addNewtButtons(box, newt);
       for (const [set, cls] of [[problems, 'cv-log cv-error'], [errors, 'cv-log cv-error'], [losses, 'cv-log']]) {
         if (!set.size) continue;
         const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');

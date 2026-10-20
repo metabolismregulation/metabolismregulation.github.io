@@ -142,6 +142,8 @@ def convert(name, data, standard=False):
     return labelled(a, label, ICON);
   }
 
+{% include newt-open.js %}
+
   async function convert(files) {
     if (!py) return;
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
@@ -164,7 +166,10 @@ def convert(name, data, standard=False):
       // the converter's messages, each once
       const notes = new Set(), errors = new Set();
       const problems = [];
+      // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
+      const newt = /\.(sbgn|nwt)$/i.test(f.name) ? [{ text: await f.text(), name: f.name }] : [];
       for (const [end, label, xml, log, red] of r) {
+        if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end, variant: (label.match(/\((.*)\)$/) || [])[1] });
         if (xml) {
           const b = button(xml, base + end, label, red);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
@@ -174,6 +179,7 @@ def convert(name, data, standard=False):
         if (red) { problems.push(log); continue; }
         for (const l of log.split('\n').filter(l => l.trim())) (xml ? notes : errors).add(l.trim());
       }
+      addNewtButtons(box, newt);
       for (const [set, cls] of [[new Set(problems), 'cv-log cv-error'], [errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
         if (!set.size) continue;
         const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');

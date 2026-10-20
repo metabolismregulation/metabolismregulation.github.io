@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+  <map language="process description">
+    <extension>
+      <renderInformation 
+        xmlns="http://www.sbml.org/sbml/level3/version1/render/version1" id="renderInformation" program-name="sbgnviz" program-version="6.0.1" background-color="#00000000">
+        <listOfColorDefinitions>
+          <colorDefinition id="color_1" value="#ffffff7f"/>
+          <colorDefinition id="color_2" value="#c0c0c0"/>
+          <colorDefinition id="color_3" value="#ffffffff"/>
+          <colorDefinition id="color_4" value="#ffffff"/>
+          <colorDefinition id="color_5" value="#555555"/>
+        </listOfColorDefinitions>
+        <listOfBackgroundImages>
+          <backgroundImage id="image_1" value="data:image/png;base64,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AaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsEjgAaAaAsQhMaAaAaCaEjAaAagItQbAaAaEbCaAiAaAagItQbAaAakBcaAaAaAegItQaAaAakhCyAaAaAekItAaAaAamhCqAaAiCe0AqAaAbAqmgCaAaAiCe0AqAaAjAqmgAaAaBiCe0AaAaAjIqmAaAaAbJcEwAaAaAjoQkAaAcAhNaEaAaAqEjoAgAaAcAhNaEaAaCqEjoAaAaAsAhNaAaAaCsE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"/>
+          <backgroundImage id="image_2" value="http://newteditor.org/color-scheme-images/gr2_gradient.png"/>
+          <backgroundImage id="image_3" value="http://newteditor.org/color-scheme-images/rb2_gradient.png"/>
+          <backgroundImage id="image_4" value="http://newteditor.org/color-scheme-images/rb1_gradient.png"/>
+          <backgroundImage id="image_5" value="http://newteditor.org/color-scheme-images/bw1_gradient.png"/>
+        </listOfBackgroundImages>
+        <listOfStyles>
+          <style id="nodeffffffc0c0c03.2514normalnormalHelvetica000image_1none505010010010.5" idList="cytosol">
+            <g font-size="14" font-family="Helvetica" font-weight="normal" font-style="normal" font-color="#000" stroke="color_2" stroke-width="3.25" fill="color_1" background-image="image_1" background-fit="none" background-pos-x="50%" background-pos-y="50%" background-width="100%" background-height="100%" background-image-opacity="1" background-opacity="0.5"/>
+          </style>
+          <style id="nodeffffffc0c0c01.2511normalnormalHelvetica000image_2none505010010011" idList="http___purl.org_pc2_4_SmallMolecule_2b7802ab3b846710b6711f7966cb4f8a http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb http___purl.org_pc2_4_SmallMolecule_88449f8c414354b2e2be74e69a31b118 http___purl.org_pc2_4_SmallMolecule_8316df479bb3709e8d15776878a7e571 http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996 http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1 http___purl.org_pc2_4_SmallMolecule_c3394cf65de6c31664d8f1f300339e17_http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329 http___purl.org_pc2_4_SmallMolecule_e2b8ad8b66fd7603dfacf0a739e90361_http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0 http___purl.org_pc2_4_SmallMolecule_88179082aacab03e631c9b8dc9c0cc0d http___purl.org_pc2_4_SmallMolecule_033520cffb36b4edd567f814414b4acf_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32 http___purl.org_pc2_4_SmallMolecule_5071b82d38e1c940eeb5f4a8c71c6934_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32 http___purl.org_pc2_4_SmallMolecule_78ca41315683997f30659d5a46af366b_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32 http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71 http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT">
+            <g font-size="11" font-family="Helvetica" font-weight="normal" font-style="normal" font-color="#000" stroke="color_2" stroke-width="1.25" fill="color_3" background-image="image_2" background-fit="none" background-pos-x="50%" background-pos-y="50%" background-width="100%" background-height="100%" background-image-opacity="1" background-opacity="1"/>
+          </style>
+          <style id="nodeffffffc0c0c01.2511normalnormalHelvetica000image_3none505010010010.5" idList="http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329 http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0 http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32">
+            <g font-size="11" font-family="Helvetica" font-weight="normal" font-style="normal" font-color="#000" stroke="color_2" stroke-width="1.25" fill="color_1" background-image="image_3" background-fit="none" background-pos-x="50%" background-pos-y="50%" background-width="100%" background-height="100%" background-image-opacity="1" background-opacity="0.5"/>
+          </style>
+          <style id="nodeffffffc0c0c01.2511normalnormalHelvetica000image_4none505010010011" idList="http___purl.org_pc2_4_Protein_269f509de4b089e3814c8883cba1da2a_http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329 http___purl.org_pc2_4_Protein_1b235ff261fe500a6447d1b99f212fac_http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0 http___purl.org_pc2_4_Protein_10eb099b277fbb1b0efe28055d04533c_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32">
+            <g font-size="11" font-family="Helvetica" font-weight="normal" font-style="normal" font-color="#000" stroke="color_2" stroke-width="1.25" fill="color_3" background-image="image_4" background-fit="none" background-pos-x="50%" background-pos-y="50%" background-width="100%" background-height="100%" background-image-opacity="1" background-opacity="1"/>
+          </style>
+          <style id="infoboxffffff55555519normalnormalArial0f0f0fstadium" idList="http___purl.org_pc2_4_Protein_269f509de4b089e3814c8883cba1da2a_http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329_0 http___purl.org_pc2_4_Protein_1b235ff261fe500a6447d1b99f212fac_http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0_0 http___purl.org_pc2_4_Protein_10eb099b277fbb1b0efe28055d04533c_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32_0">
+            <g font-size="9" font-family="Arial" font-weight="normal" font-style="normal" font-color="#0f0f0f" stroke="color_5" stroke-width="1" fill="color_4"/>
+          </style>
+          <style id="nodeffffffc0c0c01.25image_5none505010010011" idList="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT">
+            <g stroke="color_2" stroke-width="1.25" fill="color_3" background-image="image_5" background-fit="none" background-pos-x="50%" background-pos-y="50%" background-width="100%" background-height="100%" background-image-opacity="1" background-opacity="1"/>
+          </style>
+          <style id="edge5555551.25" idList="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb http___purl.org_pc2_4_SmallMolecule_88449f8c414354b2e2be74e69a31b118-http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996-http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0-http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71 http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_88179082aacab03e631c9b8dc9c0cc0d http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_2b7802ab3b846710b6711f7966cb4f8a http___purl.org_pc2_4_SmallMolecule_8316df479bb3709e8d15776878a7e571-http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996 http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1-http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT">
+            <g stroke="color_5" stroke-width="1.25"/>
+          </style>
+        </listOfStyles>
+      </renderInformation>
+      <nwt:mapProperties xmlns:nwt="https://newteditor.org/">
+
+        <compoundPadding>0</compoundPadding>
+        <extraCompartmentPadding>14</extraCompartmentPadding>
+        <extraComplexPadding>10</extraComplexPadding>
+        <arrowScale>1.25</arrowScale>
+        <showComplexName>true</showComplexName>
+        <dynamicLabelSize>regular</dynamicLabelSize>
+        <inferNestingOnLoad>false</inferNestingOnLoad>
+        <fitLabelsToNodes>false</fitLabelsToNodes>
+        <fitLabelsToInfoboxes>false</fitLabelsToInfoboxes>
+        <recalculateLayoutOnComplexityManagement>true</recalculateLayoutOnComplexityManagement>
+        <rearrangeOnComplexityManagement>true</rearrangeOnComplexityManagement>
+        <animateOnDrawingChanges>true</animateOnDrawingChanges>
+        <adjustNodeLabelFontSizeAutomatically>false</adjustNodeLabelFontSizeAutomatically>
+        <enablePorts>true</enablePorts>
+        <enableSIFTopologyGrouping>false</enableSIFTopologyGrouping>
+        <allowCompoundNodeResize>false</allowCompoundNodeResize>
+        <mapColorScheme>opposed_grey_red</mapColorScheme>
+        <mapColorSchemeStyle>gradient</mapColorSchemeStyle>
+        <mapName>Vitamins B6 activation to pyridoxal phosphate</mapName>
+        <mapDescription>Animals cannot synthesize pyridoxal 5'-phosphate (PLP) which is a ligand in aminotransferases and other enzymes. PLP's accessible derivatives pyridoxine, pyridoxal, and pyridoxamine are traditionally called vitamins B6. They are taken up nutritionally from bacteria and plants, but also created from PLP in the body. The pathways used to recycle PLP from these three compounds can therefore be called vitamin B6 activation as well as PLP salvage. Because of the close similarity of the molecules, only two enzymes are needed for the task (McCormick &amp; Chen, 1999)</mapDescription>
+        <highlightColor>#0B9BCD</highlightColor>
+        <extraHighlightThickness>2</extraHighlightThickness>
+        <defaultInfoboxHeight>12</defaultInfoboxHeight>
+        <defaultInfoboxWidth>30</defaultInfoboxWidth>
+        <rearrangeAfterExpandCollapse>true</rearrangeAfterExpandCollapse>
+      </nwt:mapProperties>
+    </extension>
+    <glyph id="cytosol" class="compartment">
+      <extension>
+        <nwt:extraInfo  xmlns:nwt="https://newteditor.org/">
+          <w>649.8796627465442</w>
+          <h>498.4864950051295</h>
+          <minW>0</minW>
+          <minH>0</minH>
+          <WLBias>0</WLBias>
+          <WRBias>0</WRBias>
+          <HTBias>0</HTBias>
+          <HBBias>0</HBBias>
+        </nwt:extraInfo>
+      </extension>
+      <label text="cytosol"/>
+      <bbox x="78.06039920578644" y="69.80137208480892" w="677.8796627465442" h="526.4864950051294"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_2b7802ab3b846710b6711f7966cb4f8a" class="simple chemical" compartmentRef="cytosol">
+      <label text="PDXate"/>
+      <bbox x="632.8557196831413" y="407.344183767868" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb" class="simple chemical" compartmentRef="cytosol">
+      <label text="PXLP"/>
+      <bbox x="356.08030949955" y="344.5589736326797" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_88449f8c414354b2e2be74e69a31b118" class="simple chemical" compartmentRef="cytosol">
+      <label text="PDX"/>
+      <bbox x="303.8538884366462" y="85.42637208480888" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_8316df479bb3709e8d15776878a7e571" class="simple chemical" compartmentRef="cytosol">
+      <label text="PXA"/>
+      <bbox x="93.68539920578638" y="494.4457904462116" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996" class="simple chemical" compartmentRef="cytosol">
+      <label text="PDXP"/>
+      <bbox x="330.1122045389772" y="214.50026579551908" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1" class="simple chemical" compartmentRef="cytosol">
+      <label text="PXL"/>
+      <bbox x="490.4788374393596" y="396.3460107176124" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329" class="complex" compartmentRef="cytosol">
+      <extension>
+        <nwt:extraInfo  xmlns:nwt="https://newteditor.org/">
+          <w>63.25</w>
+          <h>91.5</h>
+          <minW>0</minW>
+          <minH>0</minH>
+          <WLBias>0</WLBias>
+          <WRBias>0</WRBias>
+          <HTBias>0</HTBias>
+          <HBBias>0</HBBias>
+        </nwt:extraInfo>
+      </extension>
+      <label text="2xPNPO:2xFMN"/>
+      <bbox x="160.03317052683667" y="272.06126801336694" w="83.25" h="111.5"/>
+      <glyph id="http___purl.org_pc2_4_SmallMolecule_c3394cf65de6c31664d8f1f300339e17_http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329" class="simple chemical">
+        <label text="FMN"/>
+        <bbox x="171.65817052683667" y="331.93626801336694" w="48" h="40"/>
+      </glyph>
+      <glyph id="http___purl.org_pc2_4_Protein_269f509de4b089e3814c8883cba1da2a_http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329" class="macromolecule">
+        <label text="PNPO"/>
+        <bbox x="171.65817052683667" y="283.68626801336694" w="60" h="35"/>
+        <glyph id="http___purl.org_pc2_4_Protein_269f509de4b089e3814c8883cba1da2a_http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329_0" class="state variable">
+          <state value="x[1 - 261]"/>
+          <bbox x="182.4172380258003" y="311.18626801336694" w="41.689453125" h="15"/>
+        </glyph>
+      </glyph>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0" class="complex" compartmentRef="cytosol">
+      <extension>
+        <nwt:extraInfo  xmlns:nwt="https://newteditor.org/">
+          <w>63.25</w>
+          <h>91.49999999999994</h>
+          <minW>0</minW>
+          <minH>0</minH>
+          <WLBias>0</WLBias>
+          <WRBias>0</WRBias>
+          <HTBias>0</HTBias>
+          <HBBias>0</HBBias>
+        </nwt:extraInfo>
+      </extension>
+      <label text="2xPDXK:2xZn2+"/>
+      <bbox x="353.36870235714605" y="469.16286708993835" w="83.25" h="111.49999999999994"/>
+      <glyph id="http___purl.org_pc2_4_SmallMolecule_e2b8ad8b66fd7603dfacf0a739e90361_http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0" class="simple chemical">
+        <label text="Zn2+"/>
+        <bbox x="364.99370235714605" y="529.0378670899383" w="48" h="40"/>
+      </glyph>
+      <glyph id="http___purl.org_pc2_4_Protein_1b235ff261fe500a6447d1b99f212fac_http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0" class="macromolecule">
+        <label text="PDXK"/>
+        <bbox x="364.99370235714605" y="480.7878670899384" w="60" h="35"/>
+        <glyph id="http___purl.org_pc2_4_Protein_1b235ff261fe500a6447d1b99f212fac_http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0_0" class="state variable">
+          <state value="x[1 - 312]"/>
+          <bbox x="375.8912263751974" y="508.2878670899384" w="41.689453125" h="15"/>
+        </glyph>
+      </glyph>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_88179082aacab03e631c9b8dc9c0cc0d" class="simple chemical" compartmentRef="cytosol">
+      <label text="NH4+"/>
+      <bbox x="331.46434737749564" y="403.5460935230064" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32" class="complex" compartmentRef="cytosol">
+      <extension>
+        <nwt:extraInfo  xmlns:nwt="https://newteditor.org/">
+          <w>112.5</w>
+          <h>96.5</h>
+          <minW>0</minW>
+          <minH>0</minH>
+          <WLBias>0</WLBias>
+          <WRBias>0</WRBias>
+          <HTBias>0</HTBias>
+          <HBBias>0</HBBias>
+        </nwt:extraInfo>
+      </extension>
+      <label text="2xAOX1:cofactors"/>
+      <clone/>
+      <bbox x="607.8150619523307" y="264.45352407369137" w="132.5" h="116.5"/>
+      <glyph id="http___purl.org_pc2_4_Protein_10eb099b277fbb1b0efe28055d04533c_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32" class="macromolecule">
+        <label text="AOX1"/>
+        <bbox x="619.4400619523307" y="276.07852407369137" w="60" h="35"/>
+        <glyph id="http___purl.org_pc2_4_Protein_10eb099b277fbb1b0efe28055d04533c_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32_0" class="state variable">
+          <state value="x[1 - 1338]"/>
+          <bbox x="626.6204733400085" y="303.57852407369137" w="47.2509765625" h="15"/>
+        </glyph>
+      </glyph>
+      <glyph id="http___purl.org_pc2_4_SmallMolecule_033520cffb36b4edd567f814414b4acf_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32" class="simple chemical">
+        <label text="(4Fe-4S)&#xA;(2+)"/>
+        <bbox x="619.4400619523307" y="329.32852407369137" w="48" h="40"/>
+      </glyph>
+      <glyph id="http___purl.org_pc2_4_SmallMolecule_5071b82d38e1c940eeb5f4a8c71c6934_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32" class="simple chemical">
+        <label text="FAD"/>
+        <clone/>
+        <bbox x="692.6900619523307" y="276.07852407369137" w="36" h="40"/>
+      </glyph>
+      <glyph id="http___purl.org_pc2_4_SmallMolecule_78ca41315683997f30659d5a46af366b_http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32" class="simple chemical">
+        <label text="MPT"/>
+        <bbox x="680.6900619523307" y="329.32852407369137" w="48" h="40"/>
+      </glyph>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71" class="simple chemical" compartmentRef="cytosol">
+      <label text="PXAP"/>
+      <bbox x="206.65395717778895" y="403.667919440449" w="48" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="ADP"/>
+      <clone/>
+      <bbox x="260.3826745477546" y="161.70421938725502" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="ATP"/>
+      <clone/>
+      <bbox x="456.9770842845784" y="460.09248749217693" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="ATP"/>
+      <clone/>
+      <bbox x="385.1251309065397" y="129.71748017587007" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="H2O2"/>
+      <clone/>
+      <bbox x="439.38738171546277" y="274.782557544668" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="H2O2"/>
+      <clone/>
+      <bbox x="312.8872888453767" y="290.21161156748957" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="H2O2"/>
+      <clone/>
+      <bbox x="592.005990646052" y="467.24080987252745" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="O2"/>
+      <clone/>
+      <bbox x="409.64784602437385" y="212.18473026492882" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="O2"/>
+      <clone/>
+      <bbox x="275.3191253585605" y="419.2049177114637" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="H2O"/>
+      <clone/>
+      <bbox x="258.935320972988" y="284.3766757137504" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="H2O"/>
+      <clone/>
+      <bbox x="545.0582186371493" y="335.12261656210785" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="ADP"/>
+      <clone/>
+      <bbox x="193.2273660548532" y="504.0700843815923" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="ADP"/>
+      <clone/>
+      <bbox x="441.2430039691948" y="341.6604090813932" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="ATP"/>
+      <clone/>
+      <bbox x="96.53664307328152" y="406.05235057452984" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="simple chemical" compartmentRef="cytosol">
+      <label text="O2"/>
+      <clone/>
+      <bbox x="531.1826065442767" y="461.01317115489127" w="36" h="40"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" class="process" compartmentRef="cytosol">
+      <bbox x="389.4743260863905" y="289.2640400753104" w="10.714285714285715" h="10.714285714285715"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT.1" x="394.8314689435333" y="287.1211829324532"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT.2" x="394.8314689435333" y="302.1211829324532"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="process" compartmentRef="cytosol">
+      <bbox x="290.47491247269375" y="365.1067295942512" w="10.714285714285715" h="10.714285714285715"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.1" x="288.3320553298366" y="370.463872451394"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.2" x="303.3320553298366" y="370.463872451394"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="process" compartmentRef="cytosol">
+      <bbox x="434.3485114380235" y="417.40969579363735" w="10.714285714285715" h="10.714285714285715"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT.1" x="447.2056542951663" y="422.7668386507802"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT.2" x="432.2056542951663" y="422.7668386507802"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="process" compartmentRef="cytosol">
+      <bbox x="582.0366366748482" y="414.34515898958307" w="10.714285714285715" h="10.714285714285715"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.1" x="579.8937795319911" y="419.7023018467259"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.2" x="594.8937795319911" y="419.7023018467259"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" class="process" compartmentRef="cytosol">
+      <bbox x="164.6036679333982" y="460.97723639247545" w="10.714285714285715" h="10.714285714285715"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT.1" x="162.46081079054107" y="466.3343792496183"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT.2" x="177.46081079054107" y="466.3343792496183"/>
+    </glyph>
+    <glyph id="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" class="process" compartmentRef="cytosol">
+      <bbox x="335.85399239428904" y="164.47208568964757" w="10.714285714285715" h="10.714285714285715"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT.1" x="341.21113525143187" y="162.32922854679043"/>
+      <port id="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT.2" x="341.21113525143187" y="177.32922854679043"/>
+    </glyph>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="418.2788298826962" y="250.0102242684291"/>
+      <end x="394.8314689435333" y="286.4961829324532"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="303.9570553298366" y="370.463872451394"/>
+      <end x="352.4237280828223" y="366.49740329566515"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_88449f8c414354b2e2be74e69a31b118-http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_88449f8c414354b2e2be74e69a31b118" target="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="332.06842768019175" y="125.74705416242071"/>
+      <end x="341.21113525143187" y="161.70422854679043"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="282.5576392346504" y="324.0395045424505"/>
+      <end x="287.7070553298366" y="370.463872451394"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71" target="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="248.28900868424066" y="409.2726526927925"/>
+      <end x="287.7070553298366" y="370.463872451394"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="130.10754795074098" y="437.3692122001411"/>
+      <end x="161.83581079054107" y="466.3343792496183"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996-http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996" target="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="366.26246667177617" y="252.43980654017705"/>
+      <end x="394.8314689435333" y="286.4961829324532"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="431.5806542951663" y="422.7668386507802"/>
+      <end x="452.0750848407623" y="384.0793119872911"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="464.4898309689396" y="463.0478538874846"/>
+      <end x="447.8306542951663" y="422.7668386507802"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="595.5187795319911" y="419.7023018467259"/>
+      <end x="602.5391901724585" y="464.9388527057082"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="394.8314689435333" y="302.7461829324532"/>
+      <end x="385.0090982201536" y="341.19073635911343"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0-http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="catalysis" source="http___purl.org_pc2_4_Complex_bb744f8a7e7637ffafa1c8061c4977a0" target="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="419.6704942894655" y="468.53786708993835"/>
+      <end x="435.91217996068184" y="431.43316433011097"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_afa59f5c733d2dbf4f07e09c6117ba71">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="178.08581079054107" y="466.3343792496183"/>
+      <end x="209.23568178986773" y="438.7246769232422"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_88179082aacab03e631c9b8dc9c0cc0d" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_88179082aacab03e631c9b8dc9c0cc0d">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="303.9570553298366" y="370.463872451394"/>
+      <end x="336.25555232580336" y="406.4472118526807"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="294.0724855084186" y="418.59679701153414"/>
+      <end x="287.7070553298366" y="370.463872451394"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1" target="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="539.0667339657376" y="417.4777971063364"/>
+      <end x="579.2687795319911" y="419.7023018467259"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_38fe63aaf0680b6a23821a7568ddf02dLEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="394.8314689435333" y="302.7461829324532"/>
+      <end x="435.6374426497365" y="294.72644953142196"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_20effea8daaecd76b87fc5a7be9c2efb">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="431.5806542951663" y="422.7668386507802"/>
+      <end x="398.35097577176145" y="382.39528937742045"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="178.08581079054107" y="466.3343792496183"/>
+      <end x="197.85111214001893" y="505.35547525439995"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329-http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="catalysis" source="http___purl.org_pc2_4_Complex_30d74cbefecaa3b05b9cdfacad488329" target="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="243.90817052683667" y="346.9468547131867"/>
+      <end x="287.18184099320354" y="366.5460753765854"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_f206dac25614ddf411b7935ba3e90a52http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="341.21113525143187" y="177.95422854679043"/>
+      <end x="299.81281146442893" y="177.65378306038644"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_292f40eecee225d66bffbd1085de4353http___purl.org_pc2_4_BiochemicalReaction_15907d245c801b55be8cef31ab143afdLEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="303.9570553298366" y="370.463872451394"/>
+      <end x="319.22835758406785" y="330.25075829496683"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="catalysis" source="http___purl.org_pc2_4_Complex_1727e90f52ed647723f8fec499a6df32" target="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="621.4585047394412" y="381.57852407369137"/>
+      <end x="594.6616136863545" y="411.56845392912624"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_2b7802ab3b846710b6711f7966cb4f8a" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_2b7802ab3b846710b6711f7966cb4f8a">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="595.5187795319911" y="419.7023018467259"/>
+      <end x="629.334182226955" y="424.3163912951727"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_8316df479bb3709e8d15776878a7e571-http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_8316df479bb3709e8d15776878a7e571" target="http___purl.org_pc2_4_BiochemicalReaction_39e2c558a8bff86658047ecac40d2f98LEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="134.25956619248007" y="499.19183951662444"/>
+      <end x="161.83581079054107" y="466.3343792496183"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_1c06b4a932bf168e21f7d14cb36906e6http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="385.2531648215303" y="155.5228959141399"/>
+      <end x="341.21113525143187" y="161.70422854679043"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_70b704f552443c5739ac3222c48a7f7fhttp___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="559.7618893324437" y="464.03842336036587"/>
+      <end x="579.2687795319911" y="419.7023018467259"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT-http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_e9500430c906d471a6cda842c93312e2http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT" target="http___purl.org_pc2_4_BiochemicalReaction_60515a97cff0a17de37f3ae46659d6bcLEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="570.2308806213299" y="374.1568297283027"/>
+      <end x="579.2687795319911" y="419.7023018467259"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT-http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996" class="production" source="http___purl.org_pc2_4_BiochemicalReaction_672850ff7265bb20daba71ad02ea716cLEFT_TO_RIGHT.2" target="http___purl.org_pc2_4_SmallMolecule_e61c1707d13ae8ff9ca13303af87b996">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="341.21113525143187" y="177.95422854679043"/>
+      <end x="349.4426760393375" y="211.09265168203356"/>
+    </arc>
+    <arc id="http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1-http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT" class="consumption" source="http___purl.org_pc2_4_SmallMolecule_059742ba750ed7c0a4385fc152766cd1" target="http___purl.org_pc2_4_BiochemicalReaction_b740a81d273dd6cbec8d902ebb363227LEFT_TO_RIGHT.1">
+      <extension>
+        <curveStyle>bezier</curveStyle>
+      </extension>
+      <start x="489.9822459414255" y="418.4495509487942"/>
+      <end x="447.8306542951663" y="422.7668386507802"/>
+    </arc>
+  </map>
+</sbgn>

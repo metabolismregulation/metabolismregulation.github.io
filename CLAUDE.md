@@ -153,7 +153,7 @@ MINERVA), in the style of the Converter's grey button (user, 2026-10-20): white,
 text (#777), on hover filled in the blue of the chosen map in the map list (#4183c4, white text), the Images menu items in the font and colours of the button. Ordered by use: GraphML, CellDesigner,
 SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and
 MINERVA, all in one row at the same spacing. The Converter buttons differ (user, 2026-10-19): all one size (128 x 44), filled in that blue with white text, a problem file white with red edge and text (the red of the image error), filled red on hover, GraphML (corrected) white with grey edge and text (#777), filled blue on hover (user 2026-10-20), a darker shade on hover. Converter buttons: "CellDesigner (straight)" (straight-line
-edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added to every straight file's button, user 2026-10-19; shown as "straight line" on the buttons and the description page, file names unchanged, user 2026-10-20; each format's buttons together, the blue one first (page and description tables), user 2026-10-20; two lines, the format and under it the variant small, styles in `_includes/converter-buttons.css`, shared with the description page, whose tables show the buttons; the map name (14 px, bold) and its buttons in one row, four buttons next to the name, more wrap to the next line, user 2026-10-19; the straight buttons white with blue edge and text, filled blue on hover, as the fallback, user 2026-10-19; no Newt button: Newt opens a map only from a web address, which the browser-only files lack; a relay (Cloudflare), our own Newt copy and a secret gist were considered and dropped, user 2026-10-19) and "CellDesigner (advanced)" (user,
+edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added to every straight file's button, user 2026-10-19; shown as "straight line" on the buttons and the description page, file names unchanged, user 2026-10-20; each format's buttons together, the blue one first (page and description tables), user 2026-10-20; two lines, the format and under it the variant small, styles in `_includes/converter-buttons.css`, shared with the description page, whose tables show the buttons; the map name (14 px, bold) and its buttons in one row, four buttons next to the name, more wrap to the next line, user 2026-10-19; the straight buttons white with blue edge and text, filled blue on hover, as the fallback, user 2026-10-19; a grey "Newt" button after the SBGN-ML buttons for each SBGN-ML file, and one for an SBGN-ML or Newt input, opening it in our copy of Newt, see Newt copy; user 2026-10-20, in place of the 2026-10-19 decision against a Newt button) and "CellDesigner (advanced)" (user,
 2026-10-16). Their files: `<map>-straight.xml`, `<map>-advanced.xml`, and back
 `<map>-straight.graphml`, `<map>-advanced.graphml` (user, 2026-10-17).
 
@@ -299,10 +299,22 @@ Converter page's look (drop area, buttons from `_includes/converter-buttons.css`
 box), no list of routes, no description or architecture pages, a brief text next to the drop area,
 in the page's regular font size (15 px) and the Converter's grey (#777) (user 2026-10-20), the tick box scaled with it
 (13.5 px as shown, the Converter's is 11.7; the Converter page itself unchanged).
-Only problems and losses are shown under a map (user, 2026-10-20): the rule problems in red with the
+The Converter's Newt buttons (see Newt copy). Only problems and losses are shown under a map (user, 2026-10-20): the rule problems in red with the
 marked GraphML, what a file left out in grey, a failed file in red; no development messages. Its
 copy is `ysbgn-js/src/` with the commit in `ysbgn-js/VERSION`: after a change, run
 `sh tools/to_website.sh <this repository>` in ysbgn-js and push here.
+
+## Newt copy
+
+`/newt/` (user, 2026-10-20): our copy of Newt (iVis-at-Bilkent/newt, LGPL-3.0), built as is, so the
+Newt buttons of the Converter and ysbgn.js pages can open a converted SBGN-ML file without a web
+address: the page opens /newt/ in a new tab and hands the file to Newt's own file input, as a dropped
+file (`_includes/newt-open.js`; a cookie skips Newt's welcome tour). Kept silent (user's wish, no
+fork): no Google Analytics, no referrer, noindex, out of the sitemap, the colour scheme images served
+from the copy, so opening a map contacts no other site. Newt's server functions (validation, database
+lookups, conversions, opening by URL) do not work in the copy. Made by maps-workbench
+`tools/newt_build.sh <this repository> [<Newt commit>]`, which gives the same files every time; the
+commit in `newt/VERSION`. Not linked from the site.
 
 ## Human-like layout page
 
