@@ -3,6 +3,7 @@ layout: post
 title: Regulation of glucosylceramide hydrolysis via GBA1
 permalink: /gba1/
 contributors:
+  - marek-ostaszewski
   - alexander-mazein: [lih-cancer]
 project: true
 ---

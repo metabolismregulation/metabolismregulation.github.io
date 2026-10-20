@@ -15,6 +15,7 @@ scale: 1
 annotation: "/atlas-data/F026-gba1.json"
 image_error: ""
 contributors:
+  - marek-ostaszewski
   - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F026-gba1.graphml"}
