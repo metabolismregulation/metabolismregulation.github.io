@@ -36,7 +36,7 @@ permalink: /reactome-recon-complexes/
 # Reactome-Recon List 2
 
 This list includes proteins from Recon2 that are also involved in the complexes that participate in signalling processes in Reactome pathways as reactants or products.
-Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes.
+Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes. The MRegAtlas column links a protein–process pair to the map that draws that process.
 
 Downloads (all tables): &nbsp;
 <a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
@@ -405,7 +405,7 @@ Downloads (all tables): &nbsp;
   </tbody>
 </table>
 
-### Table 2c. Expression signalling processes & Recon2 compounds-catalysers
+### Table 2c. Gene expression signalling processes & Recon2 compounds-catalysers
 
 <table class="rr-table">
   <thead>
