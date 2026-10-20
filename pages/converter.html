@@ -111,7 +111,7 @@ def convert(name, data, standard=False):
     await p.loadPackage('lxml');
     p.FS.mkdirTree('/home/pyodide/mapconv');
     for (const f of MODULES.map(m => m + '.py').concat(DATA))
-      p.FS.writeFile('/home/pyodide/mapconv/' + f, await (await fetch(BASE + f)).text());
+      p.FS.writeFile('/home/pyodide/mapconv/' + f, await (await fetch(BASE + f, { cache: 'no-cache' })).text());  // the converter as now, not a cached older copy
     p.runPython(DRIVER);
     return p;
   }
@@ -144,7 +144,12 @@ def convert(name, data, standard=False):
       if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner or SBGN-ML file'; continue; }
       status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
-      const r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked).toJs();
+      let r;
+      try {
+        r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked).toJs();
+      } catch (e) {  // said under the drop area, not left at "Converting"
+        status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
+      }
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
