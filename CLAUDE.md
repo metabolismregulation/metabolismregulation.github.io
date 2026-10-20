@@ -297,7 +297,8 @@ UniProt, ChEBI), or its node links when a map has none.
 `metabolismregulation/ysbgn-js`, a port of map-converter giving the same files), no Pyodide. The
 Converter page's look (drop area, buttons from `_includes/converter-buttons.css`, the standard sizes tick
 box), no list of routes, no description or architecture pages, a brief text next to the drop area,
-in the page's regular font size (15 px) and the Converter's grey (#777) (user 2026-10-20).
+in the page's regular font size (15 px) and the Converter's grey (#777) (user 2026-10-20), the tick box scaled with it
+(13.5 px as shown, the Converter's is 11.7; the Converter page itself unchanged).
 Only problems and losses are shown under a map (user, 2026-10-20): the rule problems in red with the
 marked GraphML, what a file left out in grey, a failed file in red; no development messages. Its
 copy is `ysbgn-js/src/` with the commit in `ysbgn-js/VERSION`: after a change, run
