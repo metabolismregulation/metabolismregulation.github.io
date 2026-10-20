@@ -22,8 +22,8 @@ noindex: true
 {% include converter-buttons.css %}
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
-  .cv-top p.cv-hint, .cv-hint { font-size: 13px; line-height: 19px; color: #777; }
-  label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; }
+  /* the text in the page's regular size (user, 2026-10-20), not the Converter's small grey */
+  .cv-top label input { vertical-align: -1px; margin: 0 4px 0 0; }
 </style>
 
 <div class="cv-top">
@@ -34,10 +34,10 @@ noindex: true
     </div>
   </div>
   <div>
-    <p class="cv-hint">ysbgn.js converts yEd GraphML maps drawn with the SBGN palette to SBGN-ML, and SBGN-ML or Newt maps to GraphML.
+    <p>ysbgn.js converts yEd GraphML maps drawn with the SBGN palette to SBGN-ML, and SBGN-ML or Newt maps to GraphML.
     The files keep the layout of the input map. Straight lines layout is a fallback option.
     The conversion runs in the browser, and the files never leave the computer.</p>
-    <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for SBGN-ML to GraphML</label></p>
+    <p><label><input type="checkbox" id="cv-standard"> Standard node sizes for SBGN-ML to GraphML</label></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.sbgn,.nwt" multiple hidden>
