@@ -229,13 +229,16 @@ family member or metabolite (and state), nothing the panel fetches (user, 2026-1
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
 advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML (straight)" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept), and two SBGN-ML files straight from the CellDesigner file (user, 2026-10-17); the page loads `yed.graphml`, the templates.
-Standard node sizes (user, 2026-10-20, in place of the tick box): a CellDesigner, SBGN-ML or Newt map drawn at
-another scale also gives "GraphML (standard sizes)", `<map>-standard.graphml` (grey, as GraphML (corrected)), from the
+Standard node sizes (user, 2026-10-20): a CellDesigner, SBGN-ML or Newt map gives a second GraphML file with them,
+for every map when the tick box "Standard node sizes for CellDesigner/SBGN-ML to GraphML" is ticked (to harmonise how a
+map looks), otherwise only for a map drawn at a different scale: button "GraphML (standard sizes)", `<map>-standard.graphml` (grey, as GraphML (corrected)), from the
 drawing kept, with map-converter's `style.py`: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized
 to the name (a metabolite keeps its shape), the map rescaled if its proteins are much larger or smaller. Made when one
 is more than 20% off: the median protein height against 40, the median label font against the program's default
-(CellDesigner 12, Newt 11), or, without proteins, the median metabolite height against 25 to 36; the reasons are
-listed under the map (`style.reasons`), with a note when the font is the usual one (larger nodes may be on purpose).
+(CellDesigner 12, Newt 11), or, without proteins, the median metabolite height against 25 to 40; the reasons are
+listed under the map (`style.reasons`), with a note when the font is the default (other node sizes may be intended).
+The notes are formal sentences that name the change ("Standard node sizes: ..."), not a format: there is no
+"GraphML (standard sizes)" format (user, 2026-10-20).
 Test files: map-converter `tests/celldesigner/scale-*.xml`. The thresholds and sizes are on the description page. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. A GraphML map also gives two SBGN-ML files, and an
@@ -258,7 +261,7 @@ CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next
 page /converter/routes/, in git history): "GraphML ⭢ GraphML corrected to the SBGN palette", "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
 "SBGN-ML ⭤ CellDesigner" (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
 directly, not CellDesigner through the GraphML), as plain text so it can be copied (user, 2026-10-17). All the text next to the drop area
-(routes, the note on the browser) is in the same small light grey (13 px, #777) (user, 2026-10-17)
+(routes, the note on the browser, the tick box) is in the same small light grey (13 px, #777) (user, 2026-10-17)
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. The page keeps only minimal
 text (the routes, the layout note, the browser note, then "See also the description and the architecture of the converter", user 2026-10-19, linking `/converter/description/` and `/converter/architecture/`). Layouts (user, 2026-10-19): advanced is recommended (the drawing kept), straight a simpler fallback for laying out by hand, said next to the drop area in one paragraph with the browser note (user, 2026-10-19); a quiet link row "Description · Architecture" (13 px, user 2026-10-19) under that text, next to the drop area and in a "Layouts" paragraph above the sections of the description page. Links on both pages in the

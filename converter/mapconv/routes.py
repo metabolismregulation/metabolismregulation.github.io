@@ -4,8 +4,8 @@
 #            with other shapes; GraphML (marked) when it breaks a rule (the problems left out)
 #   CellDesigner: GraphML and SBGN-ML, straight and advanced
 #   SBGN-ML, Newt: GraphML; CellDesigner, straight and advanced
-#   CellDesigner, SBGN-ML, Newt: also GraphML (standard sizes) for a map drawn at another scale
-#            (style.standard; user, 2026-10-20)
+#   CellDesigner, SBGN-ML, Newt: also GraphML (standard sizes) for a map drawn at another scale,
+#            or for every map when standard (style.standard; user, 2026-10-20)
 # move: the CellDesigner outputs with the tidy moves (celldesigner.write), unless the user forbids
 # moving nodes.
 import contextlib, io
@@ -38,18 +38,18 @@ def made(o):
     return text, [(None, l) for l in printed.getvalue().splitlines()] + said
 
 
-def standard(read, program):
-    # GraphML (standard sizes), None for a map at the usual scale; the reader's messages are the
-    # plain GraphML's
+def standardised(read, program, asked):
+    # GraphML (standard sizes), None for a map at the usual scale unless asked; the reader's messages
+    # are the plain GraphML's
     with report.collect(), contextlib.redirect_stdout(io.StringIO()):
         m = read()
-    t = style.standard(m, program)
+    t = style.standard(m, program, asked)
     return graphml.write(t) if t else None
 
 
-def outputs(path, move=True):
+def outputs(path, move=True, standard=False):
     ext = path.lower().rsplit('.', 1)[-1]
-    std = lambda read, program: Output('-standard.graphml', 'GraphML (standard sizes)', lambda: standard(read, program))
+    std = lambda read, program: Output('-standard.graphml', 'GraphML (standard sizes)', lambda: standardised(read, program, standard))
     to_cd = lambda m, layout: celldesigner.write(m, annotation.from_graphml(m), layout, move)
     if ext == 'graphml':
         try:
