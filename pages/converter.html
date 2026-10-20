@@ -196,7 +196,7 @@ def convert(name, data, standard=False):
       r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || a[1].includes('(') - b[1].includes('('));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
-      box.querySelector('.cv-name').textContent = base;
+      box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
       // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
       const notes = new Map(), errors = new Map();
       const problems = [];
