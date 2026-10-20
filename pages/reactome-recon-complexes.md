@@ -38,7 +38,7 @@ permalink: /reactome-recon-complexes/
 This list includes proteins <del style="color:red">from Recon2 that are also involved in the complexes that participate</del><span style="color:red">that Recon2 lists as parts of enzyme complexes and that participate</span> in signalling processes in Reactome pathways as reactants or products<span style="color:red">, directly or within a Reactome complex</span>.
 Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes. <span style="color:red">136 protein–process pairs are also in <a href="/reactome-recon-proteins/">List 1</a>, for proteins that Recon2 gives as enzymes on their own for some reactions and as parts of complexes for others.</span> The MRegAtlas column links a protein–process pair to the map that draws that process.
 
-Downloads (all tables): &nbsp;
+Downloads (all tables<span style="color:red">, one row per table row, with its table in the Website table column</span>): &nbsp;
 <a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
 <a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
 {: .rr-space}
