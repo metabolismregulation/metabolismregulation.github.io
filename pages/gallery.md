@@ -233,6 +233,7 @@ permalink: /gallery/
     <a class="gallery-title" href="/ureacycle/">Urea cycle</a>
     <div class="gallery-downloads">
       <a href="/downloads/F021-ureacycle.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
+      <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F021-ureacycle" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/ureacycle/">
       <img class="gallery-image" src="/images/gallery/F021-ureacycle-cut.svg" alt="Urea cycle map">
@@ -243,6 +244,7 @@ permalink: /gallery/
     <a class="gallery-title" href="/bcaa/">BCAA catabolism</a>
     <div class="gallery-downloads">
       <a href="/downloads/F022-bcaa.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
+      <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F022-bcaa" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/bcaa/">
       <img class="gallery-image" src="/images/gallery/F022-bcaa-cut.svg" alt="BCAA catabolism map">
@@ -253,6 +255,7 @@ permalink: /gallery/
     <a class="gallery-title" href="/pdh/">Pyruvate dehydrogenase</a>
     <div class="gallery-downloads">
       <a href="/downloads/F023-pdh.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
+      <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F023-pdh" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/pdh/">
       <img class="gallery-image" src="/images/gallery/F023-pdh-cut.svg" alt="Pyruvate dehydrogenase map">
@@ -263,6 +266,7 @@ permalink: /gallery/
     <a class="gallery-title" href="/nnos/">nNOS pathway</a>
     <div class="gallery-downloads">
       <a href="/downloads/F025-nnos.graphml">GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a>
+      <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F025-nnos" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a>
     </div>
     <a href="/nnos/">
       <img class="gallery-image" src="/images/gallery/F025-nnos-cut.svg" alt="nNOS pathway map">
