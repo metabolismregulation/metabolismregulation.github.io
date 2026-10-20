@@ -27,6 +27,7 @@ noindex: true
 {% include converter-buttons.css %}
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
+  .cv-from { font-weight: 600; }
   /* links in the Atlas's link blue (MINERVA's), darker than the site's #4183c4, the same on hover */
   .cv-top a, .cv-top a:hover, .cv-top a:active { color: #1c47a9; }
   /* the text next to the drop area in the page's regular size, in grey (user, 2026-10-20, as ysbgn.js) */
@@ -185,8 +186,8 @@ def convert(name, data, standard=False):
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
-      // the converter's messages, each once
-      const notes = new Set(), errors = new Set();
+      // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
+      const notes = new Map(), errors = new Map();
       const problems = [];
       // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
       const newt = /\.(sbgn|nwt)$/i.test(f.name) ? [{ text: await f.text(), name: f.name }] : [];
@@ -199,14 +200,36 @@ def convert(name, data, standard=False):
           box.append(b);
         }
         if (red) { problems.push(log); continue; }
-        for (const l of log.split('\n').filter(l => l.trim())) (xml ? notes : errors).add(l.trim());
+        const shown = label.replace(/ \((.*)\)$/, ' $1');
+        for (const l of new Set(log.split('\n').map(l => l.trim()).filter(l => l))) {
+          const m = xml ? notes : errors;
+          if (!m.has(l)) m.set(l, []);
+          m.get(l).push(shown);
+        }
       }
       addNewtButtons(box, newt);
       arrange(box);
-      for (const [set, cls] of [[new Set(problems), 'cv-log cv-error'], [errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
-        if (!set.size) continue;
-        const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
+      if (problems.length) {
+        const d = document.createElement('div'); d.className = 'cv-log cv-error'; d.textContent = [...new Set(problems)].join('\n');
         box.append(d);
+      }
+      // the messages grouped by the files they come from, a group's files named over it, in the
+      // order of the buttons: those of all its files first, then those of each file alone
+      for (const [m, cls] of [[errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
+        const groups = new Map();
+        for (const [l, from] of m) {
+          const k = from.join('|');
+          if (!groups.has(k)) groups.set(k, []);
+          groups.get(k).push(l);
+        }
+        const keys = [...groups.keys()].sort((a, b) => b.split('|').length - a.split('|').length);
+        for (const k of keys) {
+          const from = k.split('|'), names = from.length < 2 ? from[0] : from.slice(0, -1).join(', ') + ' and ' + from.at(-1);
+          const d = document.createElement('div'); d.className = cls;
+          const h = document.createElement('div'); h.className = 'cv-from'; h.textContent = names + ':';
+          d.append(h, groups.get(k).join('\n'));
+          box.append(d);
+        }
       }
       out.insertBefore(box, top);
     }
