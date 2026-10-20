@@ -7,7 +7,7 @@
 # The file with standard sizes is made when asked (the page's tick box, to harmonise a map) or when
 # the map is drawn at another scale than usual (user, 2026-10-20): the median protein height off our 40, the median
 # label font off the program's default, or, on a map without proteins, the median metabolite height
-# off CHEMICAL, each by more than NOTICED; the reasons go into its messages.
+# off CHEMICAL, each by more than NOTICED.
 import math, statistics
 from dataclasses import replace
 from . import report
@@ -62,17 +62,12 @@ def reasons(m, program):
 
 
 def standard(m, program, asked=False):
-    # the map with standard node sizes when asked or drawn at another scale, its reasons said; else None
-    why = reasons(m, program)
-    if not why and not asked:
+    # the map with standard node sizes when asked or drawn at another scale (reasons), else None; one
+    # note for every case, in the user's words (2026-10-20)
+    if not asked and not reasons(m, program):
         return None
-    # the user's wording (2026-10-20), then the reasons
-    text = ['GraphML standard sizes download: map scaled to proteins size 80 x 40 and metabolites size 36 x 36 or height 32, font size 14.']
-    if why:
-        text += ['The map is drawn at a different scale.'] + why
-        if not why[0].startswith('Median font') and any(d.font for d in m.nodes.values()):
-            text.append('The font size is the default, so the different node sizes may be intended.')
-    report.say('changed', ' '.join(text))
+    report.say('changed', 'GraphML standard sizes: map set to font size 14, protein size 80 x 40, metabolite circles '
+               '36 x 36 or stadium shapes with height 32.')
     return standardise(m)
 
 
