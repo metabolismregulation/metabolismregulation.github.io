@@ -93,8 +93,8 @@ def convert(name, data, standard=False):
         else:
             log = ''.join(m + '\\n' for k, m in said if k != 'summary')
         # the layout that keeps the drawing is the plain file, "CellDesigner", <map>.xml; straight the
-        # variant (user, 2026-10-19; the converter's own names stay advanced)
-        files.append([o.ending.replace('-advanced', ''), o.label.replace(' (advanced)', ''), text, log, o.red])
+        # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names stay)
+        files.append([o.ending.replace('-advanced', ''), o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)'), text, log, o.red])
         if o.ending in kept and text is not None:
             k, k_said = routes.made(kept[o.ending])
             if k is not None and k != text:
