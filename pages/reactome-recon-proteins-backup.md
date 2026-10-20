@@ -39,8 +39,8 @@ noindex: true
 These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs. Table 1a includes phosphorylation processes, while Tables 1b and 1c include other types of processes.
 
 Downloads (all tables): &nbsp;
-<a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
-<a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
+<a href="/downloads/reactome-recon-lists-backup.xlsx" download>XLSX</a> &nbsp;
+<a href="/downloads/reactome-recon-lists-backup.csv" download>CSV</a> &nbsp;
 {: .rr-space}
 
 ### Table 1a. Signalling phosphorylation processes & Recon2 catalysers

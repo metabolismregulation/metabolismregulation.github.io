@@ -41,8 +41,8 @@ This list includes proteins from Recon2 that are also involved in the complexes 
 Table 2a includes phosphorylation processes, while Tables 2b and 2c include other types of processes.
 
 Downloads (all tables): &nbsp;
-<a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
-<a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
+<a href="/downloads/reactome-recon-lists-backup.xlsx" download>XLSX</a> &nbsp;
+<a href="/downloads/reactome-recon-lists-backup.csv" download>CSV</a> &nbsp;
 {: .rr-space}
 
 ### Table 2a. Signalling phosphorylation processes & Recon2 compounds-catalysers
