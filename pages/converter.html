@@ -16,10 +16,14 @@ noindex: true
   #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
   #cv-drop.cv-wait { cursor: progress; }
   #cv-status { font-size: 14px; color: #666; min-height: 20px; }
-  .cv-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; border-top: 1px solid #eee; padding: 8px 0; }
-  /* the map's name and its buttons in one row, four buttons next to the name, more wrap to the
+  .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; border-top: 1px solid #eee; padding: 8px 0; }
+  /* the map's name and its buttons in one row, four columns next to the name, more wrap to the
      next line (user, 2026-10-19); the straight files white, as the fallback (user, 2026-10-19) */
-  .cv-name { flex: 1 1 200px; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+  .cv-name { flex: 1 1 200px; display: flex; align-items: center; min-height: 44px;
+             font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+  /* one column per format, the blue button on top and its straight line file under it, the same
+     for Newt; other variants below (user, 2026-10-20) */
+  .cv-col { display: flex; flex-direction: column; gap: 6px; }
 {% include converter-buttons.css %}
   .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
@@ -144,6 +148,24 @@ def convert(name, data, standard=False):
 
 {% include newt-open.js %}
 
+  // the buttons in one column per format, in the order they came: the one without a variant on
+  // top, straight line under it, the others below (user, 2026-10-20)
+  function arrange(box) {
+    const cols = new Map();
+    for (const b of box.querySelectorAll('a.cv-btn')) {
+      const format = b.querySelector('.cv-lines').firstChild.textContent;
+      if (!cols.has(format)) cols.set(format, []);
+      cols.get(format).push(b);
+    }
+    const rank = b => { const v = b.querySelector('.cv-variant'); return !v ? 0 : v.textContent.startsWith('straight') ? 1 : 2; };
+    let at = box.querySelector('.cv-name');
+    for (const buttons of cols.values()) {
+      const col = document.createElement('div'); col.className = 'cv-col';
+      col.append(...buttons.sort((a, b) => rank(a) - rank(b)));
+      at.after(col); at = col;
+    }
+  }
+
   async function convert(files) {
     if (!py) return;
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
@@ -180,6 +202,7 @@ def convert(name, data, standard=False):
         for (const l of log.split('\n').filter(l => l.trim())) (xml ? notes : errors).add(l.trim());
       }
       addNewtButtons(box, newt);
+      arrange(box);
       for (const [set, cls] of [[new Set(problems), 'cv-log cv-error'], [errors, 'cv-log cv-error'], [notes, 'cv-log']]) {
         if (!set.size) continue;
         const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
