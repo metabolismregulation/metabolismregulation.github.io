@@ -25,14 +25,16 @@ noindex: true
   .cv-error { color: #b00; }
   /* links in the Atlas's link blue (MINERVA's), darker than the site's #4183c4, the same on hover */
   .cv-top a, .cv-top a:hover, .cv-top a:active { color: #1c47a9; }
-  .cv-top p.cv-hint, .cv-hint { font-size: 13px; line-height: 19px; color: #777; }
+  /* the text next to the drop area in the page's regular size, in grey (user, 2026-10-20, as ysbgn.js) */
+  .cv-top p.cv-hint, .cv-hint { color: #777; }
   /* the routes, one line each, as plain text with the font's arrow, so it can be copied (user, 2026-10-17) */
-  label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; } /* the box level with the small label */
+  /* the box scaled with the text, as on the ysbgn.js page */
+  label.cv-hint input { width: 15px; height: 15px; vertical-align: -2px; margin: 0 5px 0 0; }
   .cv-top p.cv-routes { margin-bottom: 12px; }
   /* the subpages, each with an arrow down and right before it, grey, blue on hover, above the tick box,
      which comes last (user, 2026-10-20,
      variant 4 of the former test page /converter/links/, in git history) */
-  .cv-top p.cv-links { margin: 8px 0 10px; font-size: 13px; line-height: 19px; color: #777; }
+  .cv-top p.cv-links { margin: 8px 0 10px; color: #777; }
   .cv-top p.cv-links a { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
   .cv-top p.cv-links a:hover { color: #1c47a9; }
 </style>
@@ -50,7 +52,7 @@ noindex: true
     GraphML ⭤ SBGN-ML<br>
     SBGN-ML ⭤ CellDesigner</p>
     <p class="cv-hint">The files keep the layout of the input map. Straight lines layout is a fallback option. The conversion runs in the browser, and the files never leave the computer.</p>
-    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
+    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner/SBGN-ML
     to GraphML</label></p>
   </div>
