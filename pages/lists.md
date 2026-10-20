@@ -31,15 +31,15 @@ This list includes the developed diagrams and suggested topics. Some initial inf
 
 # Reactome-Recon lists
 
-Reactome-Recon lists were generated automatically using a combination of two resources: the Reactome Neo4j graph database (Fabregat et al., 2018, PMID: 29377902) and the Recon Neo4j graph database (Balaur et al., 2017, PMID: 27993779) of the Human Metabolic Network Reconstruction Recon2 (Thiele et al., 2013, PMID: 23455439).
+Reactome-Recon lists were generated automatically using a combination of two resources: the Reactome Neo4j graph database (Fabregat et al., 2018, PMID: 29377902)<span style="color:red">, release 97,</span> and the Recon Neo4j graph database (Balaur et al., 2017, PMID: 27993779) of the Human Metabolic Network Reconstruction Recon2 (Thiele et al., 2013, PMID: 23455439). <span style="color:red">They contain 318 Recon2 proteins associated with 773 Reactome signalling processes. In both lists, a protein takes part in a Reactome signalling process as a reactant or product, directly or within a Reactome complex. 136 protein–process pairs are in both lists, for proteins that Recon2 gives as enzymes on their own for some reactions and as parts of complexes for others. The two lists together hold 918 different pairs.</span>
 
 ### <a href="/reactome-recon-proteins/">Reactome-Recon List 1 - Proteins</a>
   
-The list includes proteins from Recon2 that match those in Reactome pathways and participate in signalling processes in Reactome pathways as reactants or products, i.e. cases in which a protein is connected to a process via a production or consumption arc.
+The list includes proteins <del style="color:red">from Recon2 that match those in Reactome pathways and participate in signalling processes in Reactome pathways as reactants or products, i.e. cases in which a protein is connected to a process via a production or consumption arc</del><span style="color:red">that Recon2 lists as enzymes on their own</span>.
 
 ### <a href="/reactome-recon-complexes/">Reactome-Recon List 2 - Complexes</a>
 
-This list includes proteins from Recon2 that are also involved in complexes participating in signalling processes in Reactome pathways as reactants or products.
+This list includes proteins <del style="color:red">from Recon2 that are also involved in complexes participating in signalling processes in Reactome pathways as reactants or products</del><span style="color:red">that Recon2 lists as parts of enzyme complexes</span>.
 
 # References
 
