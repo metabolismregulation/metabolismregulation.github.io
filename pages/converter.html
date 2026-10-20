@@ -150,6 +150,9 @@ def convert(name, data, standard=False):
       } catch (e) {  // said under the drop area, not left at "Converting"
         status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
       }
+      // each format's buttons together, the blue one (no variant) first (user, 2026-10-20)
+      const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
+      r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || a[1].includes('(') - b[1].includes('('));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
       box.querySelector('.cv-name').textContent = base;
