@@ -66,12 +66,13 @@ def standard(m, program, asked=False):
     why = reasons(m, program)
     if not why and not asked:
         return None
-    s = scale_of(m)
-    report.say('changed', 'Standard node sizes: %s %sroteins set to 80 x 40, metabolites to 36 x 36 or a height of 32.' % (
-        ' '.join(['the map is drawn at a different scale.'] + why) if why else 'applied on request.',
-        'Map scaled by %.2f, p' % (1 / s) if s != 1 else 'P'))
-    if why and not why[0].startswith('Median font') and any(d.font for d in m.nodes.values()):
-        report.say('warning', 'Standard node sizes: the font size is the default, so the different node sizes may be intended.')
+    # the user's wording (2026-10-20), then the reasons
+    text = ['GraphML standard sizes download: map scaled to proteins size 80 x 40 and metabolites size 36 x 36 or height 32, font size 14.']
+    if why:
+        text += ['The map is drawn at a different scale.'] + why
+        if not why[0].startswith('Median font') and any(d.font for d in m.nodes.values()):
+            text.append('The font size is the default, so the different node sizes may be intended.')
+    report.say('changed', ' '.join(text))
     return standardise(m)
 
 
