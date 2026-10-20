@@ -16,16 +16,26 @@ noindex: true
   #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
   #cv-drop.cv-wait { cursor: progress; }
   #cv-status { font-size: 14px; color: #666; min-height: 20px; }
-  .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; border-top: 1px solid #eee; padding: 8px 0; }
-  /* the map's name and its buttons in one row, four columns next to the name, more wrap to the
-     next line (user, 2026-10-19); the straight files white, as the fallback (user, 2026-10-19) */
-  .cv-name { flex: 1 1 200px; display: flex; align-items: center; min-height: 44px;
+  /* on the left the map's name and under it the notes, on the right the buttons, from the middle of
+     the page like the text next to the drop area; four columns or more reach further left and the
+     left side narrows (user, 2026-10-20); the straight files white, as the fallback (user, 2026-10-19) */
+  .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 24px; border-top: 1px solid #eee; padding: 8px 0; }
+  .cv-left { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .cv-buttons { flex: 0 0 auto; min-width: calc(50% - 12px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; }
+  /* at phone width the name, the buttons under it, then the notes */
+  @media (max-width: 600px) {
+    .cv-map { flex-direction: column; align-items: stretch; }
+    .cv-left { display: contents; }
+    .cv-buttons { min-width: 0; order: 1; }
+    .cv-log { order: 2; }
+  }
+  .cv-name { display: flex; align-items: center; min-height: 44px;
              font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
   /* one column per format, the blue button on top and its straight line file under it, the same
      for Newt; other variants below (user, 2026-10-20) */
   .cv-col { display: flex; flex-direction: column; gap: 6px; }
 {% include converter-buttons.css %}
-  .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
+  .cv-log { font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
   .cv-from { font-weight: 600; }
   /* links in the Atlas's link blue (MINERVA's), darker than the site's #4183c4, the same on hover */
@@ -159,12 +169,13 @@ def convert(name, data, standard=False):
       cols.get(format).push(b);
     }
     const rank = b => { const v = b.querySelector('.cv-variant'); return !v ? 0 : v.textContent.startsWith('straight') ? 1 : 2; };
-    let at = box.querySelector('.cv-name');
+    const all = document.createElement('div'); all.className = 'cv-buttons';
     for (const buttons of cols.values()) {
       const col = document.createElement('div'); col.className = 'cv-col';
       col.append(...buttons.sort((a, b) => rank(a) - rank(b)));
-      at.after(col); at = col;
+      all.append(col);
     }
+    box.append(all);
   }
 
   async function convert(files) {
@@ -184,7 +195,7 @@ def convert(name, data, standard=False):
       const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
       r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || a[1].includes('(') - b[1].includes('('));
       const box = document.createElement('div'); box.className = 'cv-map';
-      box.insertAdjacentHTML('beforeend', '<div class="cv-name"></div>');
+      box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
       box.querySelector('.cv-name').textContent = base;
       // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
       const notes = new Map(), errors = new Map();
@@ -211,7 +222,7 @@ def convert(name, data, standard=False):
       arrange(box);
       if (problems.length) {
         const d = document.createElement('div'); d.className = 'cv-log cv-error'; d.textContent = [...new Set(problems)].join('\n');
-        box.append(d);
+        box.querySelector('.cv-left').append(d);
       }
       // the messages grouped by the files they come from, a group's files named over it, in the
       // order of the buttons: those of all its files first, then those of each file alone
@@ -228,7 +239,7 @@ def convert(name, data, standard=False):
           const d = document.createElement('div'); d.className = cls;
           const h = document.createElement('div'); h.className = 'cv-from'; h.textContent = names + ':';
           d.append(h, groups.get(k).join('\n'));
-          box.append(d);
+          box.querySelector('.cv-left').append(d);
         }
       }
       out.insertBefore(box, top);
