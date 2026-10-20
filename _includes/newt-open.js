@@ -1,7 +1,8 @@
   // Newt buttons, shared by /converter/ and /ysbgn-js/: an SBGN-ML file opened in our copy of Newt
   // (/newt/, iVis-at-Bilkent/newt built as is), as if dropped on it. Newt opens a map only from a web
   // address, which these files lack; on our own site the page can hand it the file (user, 2026-10-20).
-  // The cookie skips Newt's welcome tour.
+  // The cookie skips Newt's welcome tour. The file's name goes into the address (after #, which Newt
+  // does not read) and the tab title, so a map can be named in feedback (user, 2026-10-20).
   const NEWT = '{{ "/newt/" | relative_url }}';
   const NEWT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" ' +
                     'stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>' +
@@ -9,7 +10,7 @@
 
   function openInNewt(text, name) {
     document.cookie = 'showIntro=false; path=' + NEWT + '; max-age=15552000; SameSite=Lax';
-    const w = window.open(NEWT, '_blank');
+    const w = window.open(NEWT + '#' + encodeURIComponent(name), '_blank');
     if (!w) return;
     const started = Date.now();
     const wait = setInterval(() => {
@@ -17,6 +18,7 @@
       try {
         if (w.document.readyState !== 'complete' || !w.cy || !w.$ || !w.$('#file-input').length) return;
         clearInterval(wait);
+        w.document.title = name + ' · Newt';
         setTimeout(() => w.$('#file-input').trigger('change', [new w.File([text], name, { type: 'text/plain' })]), 300);
       } catch (e) { /* the new tab is still on about:blank */ }
     }, 200);
