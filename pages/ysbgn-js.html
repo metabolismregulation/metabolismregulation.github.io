@@ -1,0 +1,128 @@
+---
+layout: default
+title: ySBGN.js
+permalink: /ysbgn-js/
+sitemap: false
+noindex: true
+---
+
+<style>
+  /* the Converter page's look (pages/converter.html): drop area on the left, brief text on the right */
+  .cv-top { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin: 24px 0 16px; }
+  @media (max-width: 600px) { .cv-top { grid-template-columns: 1fr; } }
+  .cv-top p { margin: 0 0 6px; font-size: 15px; }
+  #cv-drop { aspect-ratio: 24 / 13; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+             border: 2px dashed #bbb; border-radius: 6px; padding: 0 12px; text-align: center; font-size: 14px; color: #666; cursor: pointer; }
+  #cv-drop svg { width: 36px; height: 36px; }
+  #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
+  #cv-drop.cv-wait { cursor: progress; }
+  #cv-status { font-size: 14px; color: #666; min-height: 20px; }
+  .cv-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; border-top: 1px solid #eee; padding: 8px 0; }
+  .cv-name { flex: 1 1 200px; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+{% include converter-buttons.css %}
+  .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
+  .cv-error { color: #b00; }
+  .cv-top p.cv-hint, .cv-hint { font-size: 13px; line-height: 19px; color: #777; }
+  label.cv-hint input { vertical-align: -2px; margin: 0 4px 0 0; }
+</style>
+
+<div class="cv-top">
+  <div>
+    <div id="cv-drop" class="cv-wait" tabindex="0">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/></svg>
+      <span id="cv-drop-text">Loading the converter…</span>
+    </div>
+  </div>
+  <div>
+    <p class="cv-hint">ySBGN.js converts yEd GraphML maps drawn with the SBGN palette to SBGN-ML, and SBGN-ML or Newt maps to GraphML.
+    The files keep the layout of the input map. Straight lines layout is a fallback option.
+    The conversion runs in the browser, and the files never leave the computer.</p>
+    <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for SBGN-ML to GraphML</label></p>
+  </div>
+</div>
+<input id="cv-file" type="file" accept=".graphml,.sbgn,.nwt" multiple hidden>
+<div id="cv-status"></div>
+<div id="cv-out"></div>
+
+<script type="module">
+  // ySBGN.js (metabolismregulation/ysbgn-js, its copy in /ysbgn-js/src/): the GraphML and SBGN-ML
+  // routes of the Converter, in JavaScript. Only problems and losses are shown (user, 2026-10-20)
+  import { made, outputs, reported } from '{{ "/ysbgn-js/src/index.js" | relative_url }}';
+
+  const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
+  const dropText = document.getElementById('cv-drop-text');
+  const status = document.getElementById('cv-status'), out = document.getElementById('cv-out');
+
+  const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" ' +
+               'stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
+
+  // a button in two lines: the format, and the variant under it, small
+  function button(text, name, label, red) {
+    const a = document.createElement('a');
+    a.className = red ? 'cv-btn cv-bad' : 'cv-btn';
+    a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
+    a.download = name; a.title = name;
+    const [, format, variant] = label.match(/^(.*?)(?: \((.*)\))?$/);
+    const lines = document.createElement('span'); lines.className = 'cv-lines';
+    lines.append(format);
+    if (variant) { const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = variant; lines.append(v); }
+    a.append(lines);
+    a.insertAdjacentHTML('beforeend', ICON);
+    return a;
+  }
+
+  async function convert(files) {
+    const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
+    for (const f of files) {
+      if (!/\.(graphml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML or SBGN-ML file'; continue; }
+      const base = f.name.replace(/\.(graphml|sbgn|nwt)$/i, '');
+      const text = await f.text();
+      // [name ending, button label, text, messages, red]; the layout that keeps the drawing is the
+      // plain file, straight the variant, "straight line" on its button, as on the Converter page
+      const r = outputs(f.name, text, document.getElementById('cv-standard').checked).flatMap(o => {
+        const [xml, said] = made(o);
+        if (['-corrected.graphml', '-standard.graphml'].includes(o.ending) && xml === null && !said.length) return [];
+        return [[o.ending.replace('-advanced', ''), o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)'),
+                 xml, reported(said), o.red]];
+      });
+      // each format's buttons together, the blue one (no variant) first
+      const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
+      r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || a[1].includes('(') - b[1].includes('('));
+      const box = document.createElement('div'); box.className = 'cv-map';
+      const nm = document.createElement('div'); nm.className = 'cv-name'; nm.textContent = base;
+      box.append(nm);
+      // problems and what the file failed or lost: red when no file came, else grey as the Converter's notes
+      const problems = new Set(), errors = new Set(), losses = new Set();
+      for (const [end, label, xml, said, red] of r) {
+        if (xml) {
+          const b = button(xml, base + end, label, red);
+          if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
+          if (end.startsWith('-straight.')) b.classList.add('cv-alt');
+          box.append(b);
+        }
+        if (red) {
+          const found = said.filter(([k]) => k === 'problem').map(([, m]) => m);
+          problems.add(`${f.name}: ${found.length} problem${found.length === 1 ? '' : 's'}, left out of the converted files\n` + found.join('\n'));
+          continue;
+        }
+        for (const [, m] of said) (xml ? losses : errors).add(m);
+      }
+      for (const [set, cls] of [[problems, 'cv-log cv-error'], [errors, 'cv-log cv-error'], [losses, 'cv-log']]) {
+        if (!set.size) continue;
+        const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
+        box.append(d);
+      }
+      out.insertBefore(box, top);
+    }
+    status.textContent = '';
+  }
+
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+  input.addEventListener('change', () => { convert([...input.files]); input.value = ''; });
+  drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('cv-over'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('cv-over'));
+  drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('cv-over'); convert([...e.dataTransfer.files]); });
+  drop.classList.remove('cv-wait');
+  dropText.textContent = 'Drop map files here, or click to choose';
+</script>

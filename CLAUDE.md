@@ -290,6 +290,18 @@ before the switch are kept, hidden: /converter/description-v1-backup/ and /conve
 (`pages/converter-*-v1-backup.html`, user 2026-10-19), linked at the foot of the new ones. Annotation comes from the GraphML's node properties (HGNC,
 UniProt, ChEBI), or its node links when a map has none.
 
+## ySBGN.js page
+
+`/ysbgn-js/` (`pages/ysbgn-js.html`, user 2026-10-20), hidden like the Converter (not in the navigation,
+`noindex: true`): the GraphML and SBGN-ML routes in JavaScript (private repository
+`metabolismregulation/ysbgn-js`, a port of map-converter giving the same files), no Pyodide. The
+Converter page's look (drop area, buttons from `_includes/converter-buttons.css`, the standard sizes tick
+box), no list of routes, no description or architecture pages, a brief text next to the drop area.
+Only problems and losses are shown under a map (user, 2026-10-20): the rule problems in red with the
+marked GraphML, what a file left out in grey, a failed file in red; no development messages. Its
+copy is `ysbgn-js/src/` with the commit in `ysbgn-js/VERSION`: after a change, run
+`sh tools/to_website.sh <this repository>` in ysbgn-js and push here.
+
 ## Human-like layout page
 
 `/human-like-layout/architecture/` (`pages/layout-architecture.html`, user 2026-10-19), hidden like the
