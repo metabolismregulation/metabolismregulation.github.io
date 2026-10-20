@@ -156,11 +156,15 @@ CellDesigner files, which have no such element, and kept in the GraphML.</p>
 <p><b>Purpose</b>: for maps drawn with a font that is too large or too small for their shapes, so the
 shapes do not look as they should, for example rounded corners that cannot be told from sharp ones, or arrowheads too small to
 see.</p>
-<p><b>Applies to</b>: a second GraphML file made from CellDesigner or SBGN-ML, given for every map when
-the box is ticked, to harmonise how its nodes look. Without the box it is given only for a map drawn at a
-different scale, more than 20% off in one of these: the median protein height against the standard 40, the
-median label font size against the program's default (CellDesigner 12, Newt 11) or, on a map without
-proteins, the median metabolite height against the usual range of 25 to 40.</p>
+<p><b>Applies to</b>: a second GraphML file made from CellDesigner or SBGN-ML, "GraphML standard sizes".
+With the box ticked, every map gets it, so that its nodes look alike.</p>
+<p><b>Without the box</b>: the file is made only for a map drawn at a clearly different scale, when one of
+these is more than 20% off:</p>
+<ul>
+  <li>the median protein height, against the standard 40,</li>
+  <li>the median font size of the names, against the program's default, 12 in CellDesigner and 11 in Newt,</li>
+  <li>on a map without proteins, the median metabolite height, against the usual 25 to 40.</li>
+</ul>
 <p><b>Sizes</b>: proteins 80&nbsp;x&nbsp;40, metabolite circles 36&nbsp;x&nbsp;36, metabolite stadiums
 sized to the name, names in font size 14. A metabolite keeps its shape. The map is rescaled if its proteins are much larger or
 smaller.</p>
