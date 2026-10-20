@@ -1,0 +1,133 @@
+---
+layout: default
+title: Converter links
+permalink: /converter/links/
+sitemap: false
+noindex: true
+---
+
+<!-- test page (user, 2026-10-20): variants of the links from the Converter to its subpages
+     (Description, Architecture) and back from them. Removed once one is chosen. -->
+<style>
+  .lv { border-top: 1px solid #eee; padding: 14px 0 18px; }
+  .lv h3 { font-size: 15px; font-weight: 600; margin: 0 0 10px; }
+  .lv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 600px) { .lv-pair { grid-template-columns: 1fr; } }
+  .lv-where { font-size: 12px; color: #aaa; margin: 0 0 6px; }
+  .lv-hint { font-size: 13px; line-height: 19px; color: #777; margin: 0 0 8px; }
+  .lv-row { font-size: 13px; line-height: 19px; color: #777; margin: 0; }
+  .lv-row a { text-decoration: none; white-space: nowrap; }
+  .lv-row svg { vertical-align: -2px; }
+  .lv-sep { margin: 0 10px; }
+
+  /* 1 grey text, blue on hover */
+  .v-grey a { color: #777; }
+  .v-grey a:hover { color: #1c47a9; }
+  /* 2 link blue, as now */
+  .v-blue a, .v-blue a:hover { color: #1c47a9; }
+  /* 7 tabs: the current page in black, the others grey, blue on hover */
+  .v-tabs a { color: #777; }
+  .v-tabs a:hover { color: #1c47a9; }
+  .v-tabs .lv-here { color: #222; }
+  /* 8 tabs with a line under the current page */
+  .v-under { border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .v-under a, .v-under .lv-here { display: inline-block; padding-bottom: 4px; margin-bottom: -5px; margin-right: 14px; }
+  .v-under a { color: #777; border-bottom: 2px solid transparent; }
+  .v-under a:hover { color: #1c47a9; }
+  .v-under .lv-here { color: #222; border-bottom: 2px solid #4183c4; }
+</style>
+
+<p>Variants of the links from the <a href="{{ '/converter/' | relative_url }}">Converter</a> to its
+two subpages and back. Left: under the text next to the drop area. Right: at the top of the
+Description and Architecture pages, above the first paragraph.</p>
+
+{% capture chev_r %}<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="margin-left:2px" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>{% endcapture %}
+{% capture chev_l %}<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>{% endcapture %}
+{% capture arr_r %}<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>{% endcapture %}
+{% capture arr_l %}<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>{% endcapture %}
+{% capture sub_r %}<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>{% endcapture %}
+{% capture up_l %}<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px" aria-hidden="true"><path d="M18 20v-8a3 3 0 0 0-3-3H4M9 4L4 9l5 5"/></svg>{% endcapture %}
+{% assign hint = "The conversion runs in the browser, and the files never leave the computer." %}
+{% assign conv = '/converter/' | relative_url %}
+{% assign desc = '/converter/description/' | relative_url %}
+{% assign arch = '/converter/architecture/' | relative_url %}
+
+<div class="lv">
+  <h3>1. Chevron after the word, grey, blue on hover</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-grey"><a href="{{ desc }}">Description{{ chev_r }}</a><span class="lv-sep"></span><a href="{{ arch }}">Architecture{{ chev_r }}</a></p></div>
+    <div><p class="lv-where">Description, Architecture</p>
+      <p class="lv-row v-grey"><a href="{{ conv }}">{{ chev_l }}Converter</a></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>2. Chevron after the word, link blue</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-blue"><a href="{{ desc }}">Description{{ chev_r }}</a><span class="lv-sep"></span><a href="{{ arch }}">Architecture{{ chev_r }}</a></p></div>
+    <div><p class="lv-where">Description, Architecture</p>
+      <p class="lv-row v-blue"><a href="{{ conv }}">{{ chev_l }}Converter</a></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>3. Arrow after the word, grey, blue on hover</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-grey"><a href="{{ desc }}">Description{{ arr_r }}</a><span class="lv-sep"></span><a href="{{ arch }}">Architecture{{ arr_r }}</a></p></div>
+    <div><p class="lv-where">Description, Architecture</p>
+      <p class="lv-row v-grey"><a href="{{ conv }}">{{ arr_l }}Converter</a></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>4. Subpage arrow before the word (down and right), back arrow (up and left), grey</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-grey"><a href="{{ desc }}">{{ sub_r }}Description</a><span class="lv-sep"></span><a href="{{ arch }}">{{ sub_r }}Architecture</a></p></div>
+    <div><p class="lv-where">Description, Architecture</p>
+      <p class="lv-row v-grey"><a href="{{ conv }}">{{ up_l }}Converter</a></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>5. Subpages one under another, chevron after, grey</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-grey"><a href="{{ desc }}">Description{{ chev_r }}</a><br><a href="{{ arch }}">Architecture{{ chev_r }}</a></p></div>
+    <div><p class="lv-where">Description, Architecture</p>
+      <p class="lv-row v-grey"><a href="{{ conv }}">{{ chev_l }}Converter</a></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>6. Back as a path: Converter › Description</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-grey"><a href="{{ desc }}">Description{{ chev_r }}</a><span class="lv-sep"></span><a href="{{ arch }}">Architecture{{ chev_r }}</a></p></div>
+    <div><p class="lv-where">Description</p>
+      <p class="lv-row v-grey"><a href="{{ conv }}">Converter</a>{{ chev_r }}<span style="color:#222;margin-left:2px">Description</span></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>7. The same row on all three pages, the current one in black</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-tabs"><span class="lv-here">Converter</span><span class="lv-sep"></span><a href="{{ desc }}">Description</a><span class="lv-sep"></span><a href="{{ arch }}">Architecture</a></p></div>
+    <div><p class="lv-where">Description</p>
+      <p class="lv-row v-tabs"><a href="{{ conv }}">Converter</a><span class="lv-sep"></span><span class="lv-here">Description</span><span class="lv-sep"></span><a href="{{ arch }}">Architecture</a></p></div>
+  </div>
+</div>
+
+<div class="lv">
+  <h3>8. As 7, with a blue line under the current page</h3>
+  <div class="lv-pair">
+    <div><p class="lv-where">Converter</p><p class="lv-hint">{{ hint }}</p>
+      <p class="lv-row v-under"><span class="lv-here">Converter</span><a href="{{ desc }}">Description</a><a href="{{ arch }}">Architecture</a></p></div>
+    <div><p class="lv-where">Description</p>
+      <p class="lv-row v-under"><a href="{{ conv }}">Converter</a><span class="lv-here">Description</span><a href="{{ arch }}">Architecture</a></p></div>
+  </div>
+</div>
