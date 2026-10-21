@@ -1,8 +1,9 @@
 # Which files each input gives, as on the Converter page, for the page, the command line and the
 # reference files alike. outputs() lists them; each file is made only when asked (made()).
-#   GraphML: CellDesigner and SBGN-ML, straight and advanced; GraphML (corrected) for a map drawn
+#   GraphML: CellDesigner and SBGN-ML, straight and advanced, SBGN-ML also each for Newt
+#            (newt_layout); GraphML (corrected) for a map drawn
 #            with other shapes; GraphML (marked) when it breaks a rule (the problems left out)
-#   CellDesigner: GraphML and SBGN-ML, straight and advanced
+#   CellDesigner: GraphML and SBGN-ML, straight and advanced, SBGN-ML also each for Newt
 #   SBGN-ML, Newt: GraphML; CellDesigner, straight and advanced
 #   CellDesigner, SBGN-ML, Newt: also GraphML (standard sizes) for a map drawn at another scale,
 #            or for every map when standard (style.standard; user, 2026-10-20)
@@ -49,6 +50,9 @@ def standardised(read, program, asked):
 
 def outputs(path, move=True, standard=False):
     ext = path.lower().rsplit('.', 1)[-1]
+    # SBGN-ML straight and advanced, then each for Newt (user, 2026-10-21); read(layout) -> the map
+    sbgn = lambda read: [Output('-%s%s.sbgn' % (l, '-newt' * n), 'SBGN-ML (%s%s)' % (l, ', for Newt' * n),
+                                lambda l=l, n=n: sbgnml.write(read(l), l, n)) for n in (False, True) for l in LAYOUTS]
     std = lambda read, program: Output('-standard.graphml', 'GraphML (standard sizes)', lambda: standardised(read, program, standard))
     to_cd = lambda m, layout: celldesigner.write(m, annotation.from_graphml(m), layout, move)
     if ext == 'graphml':
@@ -66,16 +70,13 @@ def outputs(path, move=True, standard=False):
                 report.say('problem', line)
             return rules.mark(path, found)
         out = [Output('-%s.xml' % l, 'CellDesigner (%s)' % l, lambda l=l: to_cd(read(), l)) for l in LAYOUTS] + \
-              [Output('-%s.sbgn' % l, 'SBGN-ML (%s)' % l, lambda l=l: sbgnml.write(read(), l)) for l in LAYOUTS] + \
+              sbgn(lambda l: read()) + \
               [Output('-corrected.graphml', 'GraphML (corrected)', lambda: graphml.corrected(read()))]
         return out + ([Output('-marked.graphml', 'GraphML (marked)', marked, red=True)] if found else [])
     if ext == 'xml':
         cd = lambda l: at_centres(celldesigner.read(path)) if l == 'straight' else celldesigner.read(path)
-        def sbgn(l):
-            m = cd(l)
-            return sbgnml.write(celldesigner.straight(m) if l == 'straight' else m, l)
         return [Output('-%s.graphml' % l, 'GraphML (%s)' % l, lambda l=l: graphml.write(cd(l))) for l in LAYOUTS] + \
                [std(lambda: celldesigner.read(path), 'CellDesigner')] + \
-               [Output('-%s.sbgn' % l, 'SBGN-ML (%s)' % l, lambda l=l: sbgn(l)) for l in LAYOUTS]
+               sbgn(lambda l: celldesigner.straight(cd(l)) if l == 'straight' else cd(l))
     return [Output('.graphml', 'GraphML', lambda: graphml.write(sbgnml.read(path))), std(lambda: sbgnml.read(path), 'Newt')] + \
            [Output('-%s.xml' % l, 'CellDesigner (%s)' % l, lambda l=l: to_cd(sbgnml.read(path), l)) for l in LAYOUTS]

@@ -113,8 +113,12 @@ def convert(name, data, standard=False):
         else:
             log = ''.join(m + '\\n' for k, m in said if k != 'summary')
         # the layout that keeps the drawing is the plain file, "CellDesigner", <map>.xml; straight the
-        # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names stay)
-        files.append([o.ending.replace('-advanced', ''), o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)'), text, log, o.red])
+        # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names
+        # stay); SBGN-ML for Newt: "for Newt", <map>-newt.sbgn, and "straight, Newt" (user, 2026-10-21;
+        # "straight line, for Newt" does not fit the button)
+        label = o.label.replace(' (advanced)', '').replace('(advanced, ', '(').replace('(straight, for Newt)', '(straight, Newt)') \
+                       .replace(' (straight)', ' (straight line)')
+        files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
         if o.ending in kept and text is not None:
             k, k_said = routes.made(kept[o.ending])
             if k is not None and k != text:
@@ -159,8 +163,12 @@ def convert(name, data, standard=False):
 
 {% include newt-open.js %}
 
-  // the buttons in one column per format, in the order they came: the one without a variant on
-  // top, straight line under it, the others below (user, 2026-10-20)
+  // a format's buttons: the one without a variant on top, straight line under it, then for Newt
+  // and straight for Newt (user, 2026-10-21), the others below (user, 2026-10-20)
+  const VARIANTS = ['straight line', 'for Newt', 'straight, Newt'];
+  const rank = variant => !variant ? 0 : VARIANTS.indexOf(variant) + 1 || 2;
+
+  // the buttons in one column per format, in the order they came, ranked as above
   function arrange(box) {
     const cols = new Map();
     for (const b of box.querySelectorAll('a.cv-btn')) {
@@ -168,11 +176,11 @@ def convert(name, data, standard=False):
       if (!cols.has(format)) cols.set(format, []);
       cols.get(format).push(b);
     }
-    const rank = b => { const v = b.querySelector('.cv-variant'); return !v ? 0 : v.textContent.startsWith('straight') ? 1 : 2; };
+    const ranked = b => rank(b.querySelector('.cv-variant')?.textContent);
     const all = document.createElement('div'); all.className = 'cv-buttons';
     for (const buttons of cols.values()) {
       const col = document.createElement('div'); col.className = 'cv-col';
-      col.append(...buttons.sort((a, b) => rank(a) - rank(b)));
+      col.append(...buttons.sort((a, b) => ranked(a) - ranked(b)));
       all.append(col);
     }
     box.append(all);
@@ -191,23 +199,24 @@ def convert(name, data, standard=False):
       } catch (e) {  // said under the drop area, not left at "Converting"
         status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
       }
-      // each format's buttons together, the blue one (no variant) first (user, 2026-10-20)
+      // each format's buttons together, ranked (the blue one, no variant, first; user, 2026-10-20)
       const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
-      r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || a[1].includes('(') - b[1].includes('('));
+      const variant = label => (label.match(/\((.*)\)$/) || [])[1];
+      r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || rank(variant(a[1])) - rank(variant(b[1])));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
       box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
       // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
       const notes = new Map(), errors = new Map();
       const problems = [];
-      // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
+      // Newt: each SBGN-ML file for Newt (user, 2026-10-21), or an SBGN-ML or Newt input itself
       const newt = /\.(sbgn|nwt)$/i.test(f.name) ? [{ text: await f.text(), name: f.name }] : [];
       for (const [end, label, xml, log, red] of r) {
-        if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end, variant: (label.match(/\((.*)\)$/) || [])[1] });
+        if (xml && end.endsWith('-newt.sbgn')) newt.push({ text: xml, name: base + end, variant: end.startsWith('-straight') ? 'straight line' : undefined });
         if (xml) {
           const b = button(xml, base + end, label, red);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
-          if (end.startsWith('-straight.') || end === '-kept.xml') b.classList.add('cv-alt');
+          if (end.startsWith('-straight') || end === '-newt.sbgn' || end === '-kept.xml') b.classList.add('cv-alt');
           box.append(b);
         }
         if (red) { problems.push(log); continue; }

@@ -1,9 +1,35 @@
 # The Newt adapter (restructuring step 4, 2026-10-19): what an SBGN-ML map needs so Newt draws it as
-# the source does. Every process and gate in a compartment, each compartment as large as Newt's
-# padding needs, neighbours too close for it moved apart (SBGNML.md).
+# the source does, kept apart from the SBGN-ML itself (user, 2026-10-21: the "for Newt" files). Every
+# process and gate in a compartment, each compartment as large as Newt's padding needs, neighbours
+# too close for it moved apart (adjust); arcs drawn as Newt aims them (leaving, unaimed; SBGNML.md).
 import math
 from . import report
-from .layout import PROCESSES, centre, compartment_of, decorations
+from .layout import PROCESSES, centre, compartment_of, decorations, unbent
+
+
+def adjust(diagram, layout):
+    # the map, its boxes as Newt keeps them (a process's port stubs only in advanced)
+    return for_newt(placed(diagram), layout != 'straight')
+
+
+def leaving(d, p, q, at_border, gap=3):
+    # Newt draws only the bends and aims each end at the node's centre: an end at a yEd port p gets
+    # a bend where the arc to q leaves the node, gap px beyond (Newt loses an arc whose bend lies on
+    # the border), so the line keeps yEd's course (eNOS: arcs level with the process, at a complex's
+    # side); none where that is the border point anyway
+    x, y, w, h = d.box
+    dx, dy = q[0] - p[0], q[1] - p[1]
+    ts = [t for t in ((x + w - p[0]) / dx if dx > 0 else (x - p[0]) / dx if dx < 0 else None,
+                      (y + h - p[1]) / dy if dy > 0 else (y - p[1]) / dy if dy < 0 else None) if t is not None]
+    t = max(0.0, min(ts)) + gap / math.hypot(dx, dy) if ts else 0.0
+    b = (p[0] + t * dx, p[1] + t * dy)
+    return [b] if math.dist(b, at_border) > 5 else []
+
+
+def unaimed(pts, a, b):
+    # the bends without those on or near (5 px) the line from where Newt aims the ends (a port, else
+    # the node's centre): Newt loses an arc with two bends in one place (iNOS, IRF1 mRNA; 2026-10-18)
+    return unbent([a] + pts + [b], 5)[1:-1]
 
 
 def placed(diagram):

@@ -129,7 +129,7 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-sub" x="780" y="204" text-anchor="middle">CellDesigner</text>
   <rect class="ca-box" x="710" y="245" width="140" height="50" rx="7"/>
   <text class="ca-name" x="780" y="266" text-anchor="middle">newt_layout.py</text>
-  <text class="ca-sub" x="780" y="284" text-anchor="middle">Newt: compartments</text>
+  <text class="ca-sub" x="780" y="284" text-anchor="middle">Newt: the files for Newt</text>
   <rect class="ca-box" x="880" y="85" width="150" height="50" rx="7"/>
   <text class="ca-name" x="955" y="106" text-anchor="middle">graphml.write</text>
   <text class="ca-sub" x="955" y="124" text-anchor="middle">writes the file only</text>
@@ -150,7 +150,7 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <rect class="ca-fmt" x="1060" y="170" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="1120" y="195" text-anchor="middle">CellDesigner ×2</text>
   <rect class="ca-fmt" x="1060" y="250" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1120" y="275" text-anchor="middle">SBGN-ML ×2</text>
+  <text class="ca-fmtt" x="1120" y="275" text-anchor="middle">SBGN-ML ×4</text>
   <rect class="ca-plan" x="1060" y="330" width="120" height="40" rx="5"/>
   <text class="ca-fmtt ca-pt" x="1120" y="355" text-anchor="middle">SBML</text>
   <rect class="ca-plan" x="1060" y="410" width="120" height="40" rx="5"/>
@@ -169,6 +169,8 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-sub ca-pt" x="245" y="436" text-anchor="middle">export only, not read</text>
   <rect class="ca-band" x="10" y="495" width="1180" height="100" rx="10"/>
   <text class="ca-head" x="26" y="518">On the model, before the layout</text>
+  <path class="ca-arr" d="M690,270 V232 H866 V270"/>
+  <text class="ca-sub" x="780" y="228" text-anchor="middle">SBGN-ML: no adapter</text>
   <path class="ca-arr" d="M425,462 V493" marker-start="url(#ca-tip2)" marker-end="url(#ca-tip2)"/>
   <rect class="ca-box" x="20" y="530" width="275" height="52" rx="7"/>
   <text class="ca-name" x="32" y="552">rules</text>
@@ -208,7 +210,7 @@ corrects them by a few pixels at most. The layout is the routing of the arcs and
   <tr><th>Module</th><th>What it does</th></tr>
   <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, and the straight layout of a map read from CellDesigner (arcs at the centres, metabolites at the yEd size).</td></tr>
   <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers, room for a complex's name), the process square, anchors and edit points, and the small moves that make lines meet straight (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its square). The moves are listed under the map and are left out of the Converter page's CellDesigner (nodes kept) file.</td></tr>
-  <tr><td><code>newt_layout.py</code></td><td>Newt: every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart.</td></tr>
+  <tr><td><code>newt_layout.py</code></td><td>Newt, only for the files for Newt (the SBGN-ML files keep the drawing of the input map): every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart, and an arc that leaves a node off centre bent just outside it, as Newt aims every arc at the node's centre.</td></tr>
   <tr><td><code>style.py</code></td><td>yEd: standard node sizes and rescaling, for a map drawn at another scale.</td></tr>
 </table>
 
@@ -253,5 +255,5 @@ only, the fallback if the page has to go back to it.</p>
   <li>BioPAX written. Later.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for map-converter commit e278d35 (2026-10-19). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-21, for map-converter commit 084501d (2026-10-21). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
 The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>

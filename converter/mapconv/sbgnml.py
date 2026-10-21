@@ -3,12 +3,12 @@
 # GraphML. Colours as the SBML render extension on the map (the spec's Appendix B), annotation
 # as RDF in each glyph's extension with identifiers.org links in Newt's form (db:id).
 # read() at the end goes the other way, also for Newt's .nwt (SBGN-ML with its settings).
-import collections, copy, math, os, re
+import collections, copy, os, re
 from lxml import etree
 from . import report
 from .annotation import from_graphml, to_properties
 from .layout import bends, centre, compartment_of, decorations, unbent
-from .newt_layout import for_newt, placed
+from . import newt_layout
 from .graphml import DELAY, EQUIV, LINE, CHAR, without_delays
 from .model import Map, Node, Arc
 
@@ -46,17 +46,6 @@ def border(d, p):
     return cx + t * dx, cy + t * dy
 
 
-def leave(d, p, q, gap=3):
-    # where the line from p (inside the node's box or on it) to q leaves the box, gap px beyond
-    # (Newt loses an arc whose bend lies on the node's border)
-    x, y, w, h = d.box
-    dx, dy = q[0] - p[0], q[1] - p[1]
-    ts = [t for t in ((x + w - p[0]) / dx if dx > 0 else (x - p[0]) / dx if dx < 0 else None,
-                      (y + h - p[1]) / dy if dy > 0 else (y - p[1]) / dy if dy < 0 else None) if t is not None]
-    t = max(0.0, min(ts)) + gap / math.hypot(dx, dy) if ts else 0.0
-    return p[0] + t * dx, p[1] + t * dy
-
-
 def cuts(p, q, box, inset=1):
     # whether the segment p-q runs through the box's inside (Liang-Barsky)
     x, y, w, h = box
@@ -88,12 +77,16 @@ def shifted(diagram, margin=20):
     return d
 
 
-def write(diagram, layout='advanced'):
+def write(diagram, layout='advanced', newt=False):
     # layout 'straight' (user, 2026-10-18): every arc straight from centre to centre (no bends, no
     # yEd ports, no process ports), the necessary minimum, improved by hand in Newt; 'advanced':
     # the drawing of the source kept (bends, arcs at yEd ports), the arcs of logic gates straight
     # (yEd's bend where the inputs meet lies past the gate's port: the line turns back, iNOS)
-    diagram = for_newt(placed(without_delays(shifted(diagram), 'SBGN Process Description')), layout != 'straight')
+    # newt (user, 2026-10-21): the map adjusted as Newt needs it (newt_layout); without it the
+    # SBGN-ML of the source, its compartments as drawn
+    diagram = without_delays(shifted(diagram), 'SBGN Process Description')
+    if newt:
+        diagram = newt_layout.adjust(diagram, layout)
     N = diagram.nodes
     ids = {i: xml_id(i) for i in N}
     ann = from_graphml(diagram)
@@ -271,19 +264,14 @@ def write(diagram, layout='advanced'):
         p1 = ports[t][1] if tgt.endswith('.1') and t in ports else None
         nxt = pts[0] if pts else (p1 or centre(N[t]))
         prv = pts[-1] if pts else (p0 or centre(N[s]))
-        # Newt draws only the bends and aims the ends at the node's centre: an end at a yEd port
-        # gets a bend where the arc leaves the node, so the line keeps yEd's course (eNOS: arcs
-        # level with the process, at a complex's side)
         if p0 is None:
             p0 = (centre(N[s])[0] + s_at[0], centre(N[s])[1] + s_at[1]) if any(s_at) else border(N[s], nxt)
-            q = leave(N[s], p0, nxt)
-            if any(s_at) and s not in hubs and math.dist(q, border(N[s], nxt)) > 5:
-                pts = [q] + pts
+            if newt and any(s_at) and s not in hubs:
+                pts = newt_layout.leaving(N[s], p0, nxt, border(N[s], nxt)) + pts
         if p1 is None:
             p1 = (centre(N[t])[0] + t_at[0], centre(N[t])[1] + t_at[1]) if any(t_at) else border(N[t], prv)
-            q = leave(N[t], p1, prv)
-            if any(t_at) and t not in hubs and math.dist(q, border(N[t], prv)) > 5:
-                pts = pts + [q]
+            if newt and any(t_at) and t not in hubs:
+                pts = pts + newt_layout.leaving(N[t], p1, prv, border(N[t], prv))
         # key bends only (user, 2026-10-18): a bend stays if leaving it out moves the line by more
         # than 20 px (layout.bends, as for CellDesigner), or the line without it runs through a node
         # it does not run through now
@@ -292,13 +280,12 @@ def write(diagram, layout='advanced'):
         if crossed(key, s, t) - crossed(line, s, t):
             key = line
         pts = key[1:-1]
-        # a bend on or near (5 px) the straight line between its neighbours, or on the one before,
-        # is left out: SBGN-ML places the process itself (the bends that placed it in CellDesigner, and
-        # the 3 px stubs at its anchor points, are not needed), and Newt loses an arc with two bends in
-        # one place (iNOS, IRF1 mRNA; user, 2026-10-18). On the line as drawn and from where Newt aims
-        # the ends (a port, else the node's centre)
+        # a bend on or near (5 px) the straight line between its neighbours is left out: SBGN-ML
+        # places the process itself (the bends that placed it in CellDesigner, and the 3 px stubs at
+        # its anchor points, are not needed; user, 2026-10-18)
         pts = unbent([p0] + pts + [p1], 5)[1:-1]
-        pts = unbent([p0 if s in ports else centre(N[s])] + pts + [p1 if t in ports else centre(N[t])], 5)[1:-1]
+        if newt:
+            pts = newt_layout.unaimed(pts, p0 if s in ports else centre(N[s]), p1 if t in ports else centre(N[t]))
         e = etree.SubElement(m, S + 'arc', {'class': cls, 'id': xml_id(a.id), 'source': src, 'target': tgt})
         etree.SubElement(e, S + 'start', x=repr(float(p0[0])), y=repr(float(p0[1])))
         for q in pts:

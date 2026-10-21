@@ -67,7 +67,8 @@ is converted with the map. In GraphML it is read from the node properties, or fr
 node positions, process ports and the key bends. Straight line is the simpler fallback, for a map whose drawing does not convert
 well: every arc a straight line between node centres, for laying out by hand. In CellDesigner each process
 square sits midway between its main reactant and product. In both CellDesigner files a few nodes move a
-little so that lines meet straight (<a href="#move">Small moves</a>). CellDesigner (nodes kept) is the same file without them.</p>
+little so that lines meet straight (<a href="#move">Small moves</a>). CellDesigner (nodes kept) is the same file without them.
+SBGN-ML comes in both layouts also adjusted for Newt (<a href="#newt">for Newt</a>).</p>
 
 <h2 id="graphml">From GraphML</h2>
 <p><b>Input</b>: yEd GraphML (<code>.graphml</code>), an SBGN Process Description map.</p>
@@ -83,22 +84,26 @@ converted files.</p>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">nodes kept</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>The CellDesigner file with every node where the GraphML has it. Given only when the <a href="#move">small moves</a> changed the map.</td></tr>
   <tr><td><span class="cv-btn"><span class="cv-lines">SBGN-ML</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The yEd drawing kept: process ports, and the bends that change the course of a line by more than 20 px or keep it off a node. Arcs of logic gates straight.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, without bends or ports, for improving by hand.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">for Newt</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The SBGN-ML file adjusted for <a href="#newt">Newt</a>, which the Newt button opens.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight, Newt</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The SBGN-ML (straight line) file adjusted for <a href="#newt">Newt</a>, which the Newt (straight line) button opens.</td></tr>
   <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">corrected</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The map redrawn with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with other shapes.</td></tr>
   <tr><td><span class="cv-btn cv-bad"><span class="cv-lines">GraphML<span class="cv-variant">marked</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>Given only when the check finds problems: the input map with the elements that break the SBGN rules drawn red, the reason shown on hover in yEd.</td></tr>
 </table>
 <p>CellDesigner 4.0 is SBML Level 2 Version 4 with the CellDesigner extension. A molecule drawn more than
 once is one CellDesigner species with one alias per drawing, as CellDesigner saves it. Two boxes are the same
 species when they have the same identifier (HGNC, UniProt or ChEBI, else the label), state, compartment and
-glyph. Both SBGN-ML files have
+glyph. All SBGN-ML files have
 their colours in the SBML render extension and the annotation as RDF in each glyph. An arc leaving a
 phenotype is left out of them, the phenotype and the arcs into it kept: an SBGN phenotype takes no outgoing
 arc, and the converter does not decide whether it is a perturbing agent or a submap.</p>
-<p>In both SBGN-ML files every process and logic gate sits in a compartment, and each compartment is as
-large as Newt needs to keep it as drawn: Newt leaves a margin inside a compartment and otherwise redraws
-it around its contents. Edges aligned in the map stay aligned. Where two compartments' contents are too
-close for that margin, everything past their shared edge moves on by the missing distance, noted under
-the map. A node outside every compartment that a compartment grows over by more than half is covered whole,
-so no edge runs through it.</p>
+<p id="newt">SBGN-ML and SBGN-ML for Newt: the SBGN-ML files keep the compartments as drawn. Newt leaves a margin
+inside a compartment and otherwise redraws it around its contents, so compartments that touch or stand close
+in the map overlap there. In the files for Newt every process and logic gate sits in a compartment, and each
+compartment is as large as that margin needs. Edges aligned in the map stay aligned. Where two compartments'
+contents are too close for the margin, everything past their shared edge moves on by the missing distance,
+noted under the map. A node outside every compartment that a compartment grows over by more than half is
+covered whole, so no edge runs through it. Newt also aims every arc at the centre of its node, so an arc that
+leaves a node off centre gets a bend just outside it, to keep its course.</p>
 <p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
 with the element's id, label (an arc by its ends) and reason. Arcs leaving a phenotype, left out of the
 SBGN-ML, are listed under the map with the phenotype's id and label. Equivalence operators are left out of the
@@ -116,14 +121,16 @@ extension. Files of older CellDesigner versions, without the extension element, 
   <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">standard sizes</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The GraphML with <a href="#sizes">standard node sizes</a>. Given when the box is ticked, or when the map is drawn at a different scale.</td></tr>
   <tr><td><span class="cv-btn"><span class="cv-lines">SBGN-ML</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The CellDesigner drawing kept: its node sizes, process positions and the bends that change the course of a line by more than 20 px or keep it off a node.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, each process midway between its main reactant and product, for improving by hand.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">for Newt</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The SBGN-ML file adjusted for <a href="#newt">Newt</a>, which the Newt button opens.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">straight, Newt</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The SBGN-ML (straight line) file adjusted for <a href="#newt">Newt</a>, which the Newt (straight line) button opens.</td></tr>
 </table>
-<p>Both SBGN-ML files are made from the CellDesigner file directly, with their colours in the SBML render
+<p>The SBGN-ML files are made from the CellDesigner file directly, with their colours in the SBML render
 extension and the annotation as RDF in each glyph. An arc leaving a phenotype is left out, the phenotype
-kept, as from GraphML.</p>
+kept, and the files for Newt are adjusted as <a href="#newt">from GraphML</a>.</p>
 <p>CellDesigner draws its nodes over the arcs, so its files hold bends nobody sees: inside an arc's own start or
 end node, or on the straight line between two others. These are left out of the GraphML and SBGN-ML files, and
 an arc starts where its line crosses the node's border in CellDesigner.</p>
-<p>Both SBGN-ML files give a homodimer its N:x unit, N:2 included. Since CellDesigner files carry no site
+<p>All SBGN-ML files give a homodimer its N:x unit, N:2 included. Since CellDesigner files carry no site
 names, their state variables have none.</p>
 <p><b>Not converted</b>: text and shapes drawn on layers, groups, compartments drawn as an edge line,
 and state variables on a complex, listed under the map.</p>

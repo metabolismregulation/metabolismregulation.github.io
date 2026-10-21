@@ -98,7 +98,7 @@ Atlas (`atlas-downloads/`):
 | SVG | the user's yEd export when uploaded, else drawn from the GraphML by the workflow (Atlas images) |
 | PNG | drawn by the workflow for a published map; a draft has none |
 | CellDesigner | our converter, advanced layout (as above) |
-| SBGN-ML | our converter, advanced layout: `python3 -m mapconv <map.graphml> <map.sbgn> --layout advanced` (the default is straight since 2026-10-18) |
+| SBGN-ML | our converter, advanced layout, for Newt: `python3 -m mapconv <map.graphml> <map.sbgn> --layout advanced --newt` (the default is straight since 2026-10-18; `--newt` since 2026-10-21, as the Atlas's SBGN-ML and Newt buttons share the file) |
 | SBML | none: our converter writes no SBML (user, 2026-10-18). An official copy keeps its SBML |
 | Annotation CSV | rebuilt from the GraphML by `make_maps.py` on every run |
 
@@ -252,7 +252,12 @@ midway between its main reactant and product), and "SBGN-ML (advanced)", `<map>-
 drawing: ports and only the key bends, those that move a line by more than 20 px or keep it off a node; logic gate
 arcs straight). Both are made for Newt: every process and gate in a compartment, each compartment as large as
 Newt's padding needs so Newt keeps it as drawn, aligned edges kept aligned, and neighbours too close for the padding
-moved apart (noted under the map). A CellDesigner homodimer gets N:2. Checked by loading the files in Newt
+moved apart (noted under the map). A CellDesigner homodimer gets N:2.
+SBGN-ML and SBGN-ML for Newt (user, 2026-10-21): the SBGN-ML files are the SBGN-ML of the source, compartments as
+drawn; the Newt adjustments (compartments, processes into compartments, arc ends as Newt aims them) are only in
+the files for Newt, map-converter's `newt_layout.py`. Buttons "SBGN-ML (for Newt)", `<map>-newt.sbgn`, and
+"SBGN-ML (straight, Newt)", `<map>-straight-newt.sbgn` ("straight line, for Newt" does not fit the button), white
+like straight, under the straight line button; the Newt buttons open these two. Checked by loading the files in Newt
 (headless) and comparing its compartments with the file's; the hidden page /converter/sbgn/
 (`pages/converter-sbgn.html`, map-converter `tools/sbgn_test.sh`) lists every Atlas map and official
 CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the former test
