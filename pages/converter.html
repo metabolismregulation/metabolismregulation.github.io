@@ -35,6 +35,8 @@ noindex: true
   /* one column per format, the blue button on top and its straight line file under it, the same
      for Newt; other variants below (user, 2026-10-20) */
   .cv-col { display: flex; flex-direction: column; gap: 6px; }
+  /* a larger gap before the Open in Newt buttons, so the downloads and the opening read as two groups (user, 2026-10-21) */
+  .cv-col .cv-open-first { margin-top: 8px; }
 {% include converter-buttons.css %}
   .cv-log { font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
@@ -190,6 +192,8 @@ def convert(name, data, standard=False):
     for (const buttons of cols.values()) {
       const col = document.createElement('div'); col.className = 'cv-col';
       col.append(...buttons.sort((a, b) => ranked(a) - ranked(b)));
+      const open = [...col.children].find(b => b.querySelector('.cv-lines').firstChild.textContent === 'Open in Newt');
+      if (open && open !== col.firstChild) open.classList.add('cv-open-first');
       all.append(col);
     }
     box.append(all);
