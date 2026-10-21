@@ -255,9 +255,12 @@ Newt's padding needs so Newt keeps it as drawn, aligned edges kept aligned, and 
 moved apart (noted under the map). A CellDesigner homodimer gets N:2.
 SBGN-ML and SBGN-ML for Newt (user, 2026-10-21): the SBGN-ML files are the SBGN-ML of the source, compartments as
 drawn; the Newt adjustments (compartments, processes into compartments, arc ends as Newt aims them) are only in
-the files for Newt, map-converter's `newt_layout.py`. Buttons "SBGN-ML (for Newt)", `<map>-newt.sbgn`, and
-"SBGN-ML (straight, Newt)", `<map>-straight-newt.sbgn` ("straight line, for Newt" does not fit the button), white
-like straight, under the straight line button; the Newt buttons open these two. Checked by loading the files in Newt
+the files for Newt, map-converter's `newt_layout.py`. Buttons (user, 2026-10-21), the target named on each: "SBGN-ML
+(Newt)", `<map>-newt.sbgn`, blue as the recommended file for now, with "SBGN-ML (straight, Newt)",
+`<map>-straight-newt.sbgn`, under it; to its right a column "SBGN-ML (plain)", `<map>.sbgn`, and "SBGN-ML (straight,
+plain)", `<map>-straight.sbgn`, all white but the Newt one (four in one column were too many; "straight line, for
+Newt" does not fit the button). The Newt buttons open the two Newt files. Next to the drop area: "The blue button
+gives the recommended file of each format, the white buttons its variants." Checked by loading the files in Newt
 (headless) and comparing its compartments with the file's; the hidden page /converter/sbgn/
 (`pages/converter-sbgn.html`, map-converter `tools/sbgn_test.sh`) lists every Atlas map and official
 CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the former test

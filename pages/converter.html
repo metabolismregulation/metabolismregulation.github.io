@@ -66,7 +66,7 @@ noindex: true
     GraphML ⭤ CellDesigner<br>
     GraphML ⭤ SBGN-ML<br>
     SBGN-ML ⭤ CellDesigner</p>
-    <p class="cv-hint">The files keep the layout of the input map. Straight lines layout is a fallback option. The conversion runs in the browser, and the files never leave the computer.</p>
+    <p class="cv-hint">The files keep the layout of the input map. The blue button gives the recommended file of each format, the white buttons its variants. Straight lines layout is a fallback option. The conversion runs in the browser, and the files never leave the computer.</p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes for CellDesigner/SBGN-ML
     to GraphML</label></p>
@@ -114,10 +114,11 @@ def convert(name, data, standard=False):
             log = ''.join(m + '\\n' for k, m in said if k != 'summary')
         # the layout that keeps the drawing is the plain file, "CellDesigner", <map>.xml; straight the
         # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names
-        # stay); SBGN-ML for Newt: "for Newt", <map>-newt.sbgn, and "straight, Newt" (user, 2026-10-21;
-        # "straight line, for Newt" does not fit the button)
-        label = o.label.replace(' (advanced)', '').replace('(advanced, ', '(').replace('(straight, for Newt)', '(straight, Newt)') \
-                       .replace(' (straight)', ' (straight line)')
+        # stay). SBGN-ML: "Newt" (blue, <map>-newt.sbgn), "straight, Newt", "plain" (<map>.sbgn) and
+        # "straight, plain" (user, 2026-10-21; "straight line, for Newt" does not fit the button)
+        label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (straight, Newt)',
+                 'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (straight, plain)'}.get(o.label) or \
+                o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
         files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
         if o.ending in kept and text is not None:
             k, k_said = routes.made(kept[o.ending])
@@ -163,18 +164,19 @@ def convert(name, data, standard=False):
 
 {% include newt-open.js %}
 
-  // a format's buttons: the one without a variant on top, straight line under it, then for Newt
-  // and straight for Newt (user, 2026-10-21), the others below (user, 2026-10-20)
-  const VARIANTS = ['straight line', 'for Newt', 'straight, Newt'];
-  const rank = variant => !variant ? 0 : VARIANTS.indexOf(variant) + 1 || 2;
+  // a column's buttons: the blue one on top (no variant, or SBGN-ML Newt), its straight line file
+  // under it, the others below (user, 2026-10-20); SBGN-ML plain in a column of its own, right of
+  // SBGN-ML Newt (user, 2026-10-21: four in a column are too many)
+  const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : variant.startsWith('straight') ? 1 : 2;
+  const column = (format, variant) => format + (/plain$/.test(variant || '') ? ' plain' : '');
 
-  // the buttons in one column per format, in the order they came, ranked as above
+  // the buttons in their columns, in the order they came, ranked as above
   function arrange(box) {
     const cols = new Map();
     for (const b of box.querySelectorAll('a.cv-btn')) {
-      const format = b.querySelector('.cv-lines').firstChild.textContent;
-      if (!cols.has(format)) cols.set(format, []);
-      cols.get(format).push(b);
+      const k = column(b.querySelector('.cv-lines').firstChild.textContent, b.querySelector('.cv-variant')?.textContent);
+      if (!cols.has(k)) cols.set(k, []);
+      cols.get(k).push(b);
     }
     const ranked = b => rank(b.querySelector('.cv-variant')?.textContent);
     const all = document.createElement('div'); all.className = 'cv-buttons';
@@ -199,10 +201,11 @@ def convert(name, data, standard=False):
       } catch (e) {  // said under the drop area, not left at "Converting"
         status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
       }
-      // each format's buttons together, ranked (the blue one, no variant, first; user, 2026-10-20)
+      // each format's buttons together, in their columns, ranked (the blue one first; user, 2026-10-20)
       const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
       const variant = label => (label.match(/\((.*)\)$/) || [])[1];
-      r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || rank(variant(a[1])) - rank(variant(b[1])));
+      const plain = label => /plain$/.test(variant(label) || '');
+      r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || plain(a[1]) - plain(b[1]) || rank(variant(a[1])) - rank(variant(b[1])));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
       box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
@@ -216,7 +219,7 @@ def convert(name, data, standard=False):
         if (xml) {
           const b = button(xml, base + end, label, red);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
-          if (end.startsWith('-straight') || end === '-newt.sbgn' || end === '-kept.xml') b.classList.add('cv-alt');
+          if (end.startsWith('-straight') || end === '.sbgn' || end === '-kept.xml') b.classList.add('cv-alt');
           box.append(b);
         }
         if (red) { problems.push(log); continue; }
