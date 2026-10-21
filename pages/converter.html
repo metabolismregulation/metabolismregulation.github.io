@@ -113,10 +113,10 @@ def convert(name, data, standard=False):
             log = ''.join(m + '\\n' for k, m in said if k != 'summary')
         # the layout that keeps the drawing is the plain file, "CellDesigner", <map>.xml; straight the
         # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names
-        # stay). SBGN-ML: "Newt" (blue, <map>-newt.sbgn), "straight, Newt", "plain" (<map>.sbgn) and
-        # "straight, plain" (user, 2026-10-21; "straight line, for Newt" does not fit the button)
-        label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (straight, Newt)',
-                 'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (straight, plain)'}.get(o.label) or \
+        # stay). SBGN-ML: "Newt" (blue, <map>-newt.sbgn) and "plain" (<map>.sbgn), each also with "straight
+        # line", on a third line of the button (user, 2026-10-21)
+        label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (Newt, straight line)',
+                 'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
                 o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
         files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
         if o.ending in kept and text is not None:
@@ -149,7 +149,9 @@ def convert(name, data, standard=False):
     const [, format, variant] = label.match(/^(.*?)(?: \((.*)\))?$/);
     const lines = document.createElement('span'); lines.className = 'cv-lines';
     lines.append(format);
-    if (variant) { const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = variant; lines.append(v); }
+    for (const t of variant ? variant.split(', ') : []) {  // "Newt, straight line": a line each
+      const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = t; lines.append(v);
+    }
     a.append(lines);
     a.insertAdjacentHTML('beforeend', icon);
     return a;
@@ -167,18 +169,19 @@ def convert(name, data, standard=False):
   // a column's buttons: the blue one on top (no variant, or SBGN-ML Newt), its straight line file
   // under it, the others below (user, 2026-10-20); SBGN-ML plain in a column of its own, right of
   // SBGN-ML Newt (user, 2026-10-21: four in a column are too many)
-  const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : variant.startsWith('straight') ? 1 : 2;
-  const column = (format, variant) => format + (/plain$/.test(variant || '') ? ' plain' : '');
+  const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : /straight line$/.test(variant) ? 1 : 2;
+  const column = (format, variant) => format + (/^plain/.test(variant || '') ? ' plain' : '');
+  const variantOf = b => [...b.querySelectorAll('.cv-variant')].map(v => v.textContent).join(', ');
 
   // the buttons in their columns, in the order they came, ranked as above
   function arrange(box) {
     const cols = new Map();
     for (const b of box.querySelectorAll('a.cv-btn')) {
-      const k = column(b.querySelector('.cv-lines').firstChild.textContent, b.querySelector('.cv-variant')?.textContent);
+      const k = column(b.querySelector('.cv-lines').firstChild.textContent, variantOf(b));
       if (!cols.has(k)) cols.set(k, []);
       cols.get(k).push(b);
     }
-    const ranked = b => rank(b.querySelector('.cv-variant')?.textContent);
+    const ranked = b => rank(variantOf(b));
     const all = document.createElement('div'); all.className = 'cv-buttons';
     for (const buttons of cols.values()) {
       const col = document.createElement('div'); col.className = 'cv-col';
@@ -208,7 +211,7 @@ def convert(name, data, standard=False):
       // each format's buttons together, in their columns, ranked (the blue one first; user, 2026-10-20)
       const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
       const variant = label => (label.match(/\((.*)\)$/) || [])[1];
-      const plain = label => /plain$/.test(variant(label) || '');
+      const plain = label => /^plain/.test(variant(label) || '');
       r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || plain(a[1]) - plain(b[1]) || rank(variant(a[1])) - rank(variant(b[1])));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
