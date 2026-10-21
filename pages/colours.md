@@ -151,7 +151,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 
 </div>
 <div class="c2-mapcol">
-<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}"></canvas>
+<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}" data-layers-half="/images/colours2/F007-inos-layers-half.png?v={{ site.time | date: '%s' }}"></canvas>
 <p class="c2-under" data-v="{{ site.time | date: '%s' }}">
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>

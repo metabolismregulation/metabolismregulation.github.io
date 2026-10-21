@@ -1,5 +1,6 @@
 // Colour theme playground for the iNOS map.
-// F007-inos-layers.png stores, per pixel of F007-inos.png:
+// F007-inos-layers.png stores, per pixel of F007-inos.png (F007-inos-layers-half.png
+// the same at half size, for smaller screens):
 //   R = fill class * 24, G = fill share t (0..255); the rest is ink.
 //   B = 255 where that ink is text, 0 where it is a line or border.
 // A pixel is redrawn as t * fill[class] + (1 - t) * ink, ink being the
@@ -110,9 +111,12 @@
   }
 
   // ---------- map rendering ----------
+  var layersSrc = null;
   function loadLayers(src, done) {
+    layersSrc = src;
     var img = new Image();
     img.onload = function () {
+      if (src !== layersSrc) return; // a larger file was asked for meanwhile
       var w = img.naturalWidth, h = img.naturalHeight;
       var tmp = document.createElement('canvas');
       tmp.width = w; tmp.height = h;
@@ -1412,7 +1416,19 @@
   applyPreset(linked || PRESETS[0][1]);
   // once applied, the theme code leaves the address bar
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-  loadLayers(document.getElementById('c2-map').getAttribute('data-layers'), render);
+  // The half-size layers where the map is shown at up to HALF_MAX device
+  // pixels (built about four times faster), the full size above that, also
+  // when the window is made larger later
+  var HALF_MAX = 1730; // the half file's width (1576) plus 10%
+  var layersFull = null;
+  function loadForScreen() {
+    var full = canvas.clientWidth * (window.devicePixelRatio || 1) > HALF_MAX;
+    if (layersFull === true || layersFull === false && !full) return;
+    layersFull = full;
+    loadLayers(canvas.getAttribute(full ? 'data-layers' : 'data-layers-half'), render);
+  }
+  loadForScreen();
+  window.addEventListener('resize', loadForScreen);
 
   document.getElementById('c2-cvd').addEventListener('change', render);
   var hlBox = document.getElementById('c2-hl');
