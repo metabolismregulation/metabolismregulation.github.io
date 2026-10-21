@@ -26,9 +26,6 @@
   });
 
   var PRESETS = window.C2_PRESETS;
-  // prefix of the keys kept in this browser; another page (the dark test
-  // page) sets its own, so the two keep separate presets and orders
-  var STORE = (window.C2_STORE || 'colours') + '.';
 
   // Machado et al. 2009, severity 1.0, applied in linear RGB
   var CVD = {
@@ -270,7 +267,7 @@
 
   // Colours added to the Mixer with + are kept in this browser, per column,
   // after the built-in ones; they can be removed with their cross.
-  var MIX_KEY = STORE + 'mixerColours';
+  var MIX_KEY = 'colours.mixerColours';
   // added colours are [name, hex, id]; the id tells apart repeats of a colour
   // earlier long names, shortened for colours already added in this browser
   var SHORT_NAMES = { Mushroom: 'Oat', Pistachio: 'Fern', Celadon: 'Jade', Seafoam: 'Foam',
@@ -347,7 +344,7 @@
   }
   // Mixer colours can be dragged by their swatch to reorder a column; the
   // order is kept in this browser.
-  var MIX_ORDER_KEY = STORE + 'mixerOrder';
+  var MIX_ORDER_KEY = 'colours.mixerOrder';
   var mixDrag = null, mixDragged = false;
   function loadMixOrder() {
     try { return JSON.parse(localStorage.getItem(MIX_ORDER_KEY)) || {}; } catch (e) { return {}; }
@@ -770,7 +767,7 @@
   // Preset order can be rearranged by dragging the colours; the order is kept
   // in this browser only. Reset returns to the order in PRESETS and shows
   // hidden built-in presets again.
-  var ORDER_KEY = STORE + 'presetOrder';
+  var ORDER_KEY = 'colours.presetOrder';
   var dragging = null, dragged = false;
   var lastPreset = null;
 
@@ -808,7 +805,7 @@
   document.addEventListener('pointercancel', stopDrag);
 
   // Presets added with "Add to presets" are kept in this browser only.
-  var CUSTOM_KEY = STORE + 'customPresets';
+  var CUSTOM_KEY = 'colours.customPresets';
   function loadCustom() {
     try { return JSON.parse(localStorage.getItem(CUSTOM_KEY)) || []; } catch (e) { return []; }
   }
@@ -897,7 +894,7 @@
 
   // Built-in presets removed with their cross are only hidden, in this
   // browser; Reset brings them back. Added presets are removed for good.
-  var HIDDEN_KEY = STORE + 'hiddenPresets';
+  var HIDDEN_KEY = 'colours.hiddenPresets';
   function loadHidden() {
     try { return JSON.parse(localStorage.getItem(HIDDEN_KEY)) || []; } catch (e) { return []; }
   }
