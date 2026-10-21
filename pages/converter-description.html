@@ -232,8 +232,8 @@ as soon as the page opens. Once Python runs, a conversion takes a moment.</p>
     pos[name] = { x: CX + R * Math.cos(a), y: CY + R * Math.sin(a), a };
   });
   pos['GraphML'].y += 10;  // 10 px lower than the circle puts it (user, 2026-10-21)
-  // one straight line per pair of formats: both ways grey (#777, the extensions' grey, user 2026-10-21) with a head at each end, one way green
-  const BOTH = '#777', ONE = '#3a9a4a';
+  // one straight line per pair of formats: both ways grey (#999, user 2026-10-21) with a head at each end, one way green
+  const BOTH = '#999', ONE = '#3a9a4a';
   const defs = el('defs', {});
   for (const [id, colour] of [['both', BOTH], ['one', ONE]]) {
     const m = el('marker', { id: 'cv-' + id, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 10, markerHeight: 10,
