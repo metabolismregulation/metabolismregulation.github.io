@@ -18,13 +18,13 @@
                     '<polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
 
   // a button in the Converter's two lines: "Open in Newt" (user, 2026-10-21; it was "Newt"), and under
-  // it the variant, small; white with the orange of Newt's logo (user, 2026-10-21; grey, then blue before), the external-link
+  // it the variant, small; white with the blue edge (user, 2026-10-21; it was grey; Newt's orange tried and dropped), the external-link
   // icon after it (the buttons made wider for it)
   function newtButton(text, name, variant) {
     const a = document.createElement('a');
     const key = RUN + '-' + (NEWT_FILES.size + 1);
     NEWT_FILES.set(key, text);
-    a.className = 'cv-btn cv-newt'; a.href = NEWT + '?f=' + key + '#' + encodeURIComponent(name); a.target = '_blank';
+    a.className = 'cv-btn cv-alt'; a.href = NEWT + '?f=' + key + '#' + encodeURIComponent(name); a.target = '_blank';
     a.title = hover('Open in Newt', variant, '', name);
     const lines = document.createElement('span'); lines.className = 'cv-lines';
     lines.append('Open in Newt');
