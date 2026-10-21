@@ -1,11 +1,12 @@
   /* the Converter's download buttons, shared by /converter/ and /converter/description/ (which shows
      them in its tables as they look). Two lines (user, 2026-10-19): the format, and under it the
      variant (straight, advanced, corrected, marked) small, so a row of six fits; all the same size,
-     a button without a variant with its format centred. Filled in the blue of the chosen map in
+     a button without a variant with its format centred. 140 px wide (user, 2026-10-21; it was 128), so
+     "Open in Newt" fits with its icon. Filled in the blue of the chosen map in
      the Atlas list, white text; a problem file white with the red of the Atlas's image error (user,
      2026-10-19); on hover a darker shade */
   .cv-btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 8px;
-            box-sizing: border-box; width: 128px; height: 44px; padding: 4px 10px;
+            box-sizing: border-box; width: 140px; height: 44px; padding: 4px 10px;
             background: #4183c4; border: 1px solid #4183c4; border-radius: 5px;
             font-size: 14px; line-height: 18px; color: #fff; text-decoration: none; vertical-align: middle; }
   .cv-btn .cv-lines { display: flex; flex-direction: column; }

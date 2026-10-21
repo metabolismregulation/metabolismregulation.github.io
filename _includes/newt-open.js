@@ -5,6 +5,10 @@
   // does not read) and the tab title, so a map can be named in feedback (user, 2026-10-20).
   const NEWT = '{{ "/newt/" | relative_url }}';
 
+  const NEWT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" ' +
+                    'stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>' +
+                    '<polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
   function openInNewt(text, name) {
     document.cookie = 'showIntro=false; path=' + NEWT + '; max-age=15552000; SameSite=Lax';
     const w = window.open(NEWT + '#' + encodeURIComponent(name), '_blank');
@@ -22,8 +26,8 @@
   }
 
   // a button in the Converter's two lines: "Open in Newt" (user, 2026-10-21; it was "Newt"), and under
-  // it the variant, small; white with the blue edge (user, 2026-10-21; it was grey), no external-link
-  // icon (our own copy, and "Open in Newt" fills the button)
+  // it the variant, small; white with the blue edge (user, 2026-10-21; it was grey), the external-link
+  // icon after it (the buttons made wider for it)
   function newtButton(text, name, variant) {
     const a = document.createElement('a');
     a.className = 'cv-btn cv-alt'; a.href = NEWT; a.title = 'Open ' + name + ' in Newt';
@@ -31,6 +35,7 @@
     lines.append('Open in Newt');
     if (variant) { const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = variant; lines.append(v); }
     a.append(lines);
+    a.insertAdjacentHTML('beforeend', NEWT_ICON);
     a.addEventListener('click', e => { e.preventDefault(); openInNewt(text, name); });
     return a;
   }
