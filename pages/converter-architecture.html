@@ -63,7 +63,7 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
 <h2>How it is built</h2>
 
 <div class="ca-fig">
-<svg viewBox="0 0 1200 720" role="img" aria-label="The converter: readers, a model of biology and drawing, layout, adapters, writers, with SBML and a BioPAX export planned">
+<svg viewBox="0 0 1200 800" role="img" aria-label="The converter: readers, a model of biology and drawing, layout, adapters, writers, with SBML and a BioPAX export planned">
   <defs>
     <marker id="ca-tip2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
@@ -82,8 +82,8 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-fmtt" x="80" y="195" text-anchor="middle">CellDesigner</text>
   <rect class="ca-fmt" x="20" y="250" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="80" y="275" text-anchor="middle">SBGN-ML, Newt</text>
-  <rect class="ca-plan" x="20" y="330" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="80" y="355" text-anchor="middle">SBML (layout)</text>
+  <rect class="ca-plan" x="20" y="410" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt ca-pt" x="80" y="435" text-anchor="middle">SBML (layout)</text>
   <rect class="ca-box" x="170" y="85" width="150" height="50" rx="7"/>
   <text class="ca-name" x="245" y="106" text-anchor="middle">graphml.read</text>
   <text class="ca-sub" x="245" y="124" text-anchor="middle">the drawing</text>
@@ -93,10 +93,10 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <rect class="ca-box" x="170" y="245" width="150" height="50" rx="7"/>
   <text class="ca-name" x="245" y="266" text-anchor="middle">sbgnml.read</text>
   <text class="ca-sub" x="245" y="284" text-anchor="middle">the drawing</text>
-  <rect class="ca-plan" x="170" y="325" width="150" height="50" rx="7"/>
-  <text class="ca-name ca-pt" x="245" y="346" text-anchor="middle">sbml.read</text>
-  <text class="ca-sub" x="245" y="364" text-anchor="middle">with layout only</text>
-  <rect class="ca-hub" x="350" y="80" width="150" height="380" rx="10"/>
+  <rect class="ca-plan" x="170" y="405" width="150" height="50" rx="7"/>
+  <text class="ca-name ca-pt" x="245" y="426" text-anchor="middle">sbml.read</text>
+  <text class="ca-sub" x="245" y="444" text-anchor="middle">with layout only</text>
+  <rect class="ca-hub" x="350" y="80" width="150" height="460" rx="10"/>
   <text class="ca-big" x="425" y="108" text-anchor="middle">model.Map</text>
   <rect class="ca-inner" x="362" y="124" width="126" height="130" rx="7"/>
   <text class="ca-name" x="374" y="148">biology</text>
@@ -104,13 +104,13 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-sub" x="374" y="188">reactions</text>
   <text class="ca-sub" x="374" y="206">annotation</text>
   <text class="ca-sub" x="374" y="224">one per entity</text>
-  <rect class="ca-inner" x="362" y="270" width="126" height="176" rx="7"/>
+  <rect class="ca-inner" x="362" y="270" width="126" height="256" rx="7"/>
   <text class="ca-name" x="374" y="294">drawing</text>
   <text class="ca-sub" x="374" y="316">boxes, arcs, bends</text>
   <text class="ca-sub" x="374" y="334">each by the id of</text>
   <text class="ca-sub" x="374" y="352">what it draws</text>
   <text class="ca-sub" x="374" y="370">one per map</text>
-  <rect class="ca-lay" x="530" y="80" width="150" height="300" rx="10"/>
+  <rect class="ca-lay" x="530" y="80" width="150" height="380" rx="10"/>
   <text class="ca-big" x="605" y="108" text-anchor="middle">layout.py</text>
   <text class="ca-sub" x="605" y="127" text-anchor="middle">shared by every format</text>
   <text class="ca-name" x="544" y="170">main_lines</text>
@@ -129,7 +129,7 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-sub" x="780" y="204" text-anchor="middle">CellDesigner</text>
   <rect class="ca-box" x="710" y="245" width="140" height="50" rx="7"/>
   <text class="ca-name" x="780" y="266" text-anchor="middle">newt_layout.py</text>
-  <text class="ca-sub" x="780" y="284" text-anchor="middle">Newt: the files for Newt</text>
+  <text class="ca-sub" x="780" y="284" text-anchor="middle">Newt: compartments, arcs</text>
   <rect class="ca-box" x="880" y="85" width="150" height="50" rx="7"/>
   <text class="ca-name" x="955" y="106" text-anchor="middle">graphml.write</text>
   <text class="ca-sub" x="955" y="124" text-anchor="middle">writes the file only</text>
@@ -139,62 +139,67 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <rect class="ca-box" x="880" y="245" width="150" height="50" rx="7"/>
   <text class="ca-name" x="955" y="266" text-anchor="middle">sbgnml.write</text>
   <text class="ca-sub" x="955" y="284" text-anchor="middle">writes the file only</text>
-  <rect class="ca-plan" x="880" y="325" width="150" height="50" rx="7"/>
-  <text class="ca-name ca-pt" x="955" y="346" text-anchor="middle">sbml.write</text>
-  <text class="ca-sub" x="955" y="364" text-anchor="middle">with or without layout</text>
   <rect class="ca-plan" x="880" y="405" width="150" height="50" rx="7"/>
-  <text class="ca-name ca-pt" x="955" y="426" text-anchor="middle">biopax.write</text>
-  <text class="ca-sub" x="955" y="444" text-anchor="middle">biology only, export</text>
+  <text class="ca-name ca-pt" x="955" y="426" text-anchor="middle">sbml.write</text>
+  <text class="ca-sub" x="955" y="444" text-anchor="middle">with or without layout</text>
+  <rect class="ca-plan" x="880" y="485" width="150" height="50" rx="7"/>
+  <text class="ca-name ca-pt" x="955" y="506" text-anchor="middle">biopax.write</text>
+  <text class="ca-sub" x="955" y="524" text-anchor="middle">biology only, export</text>
   <rect class="ca-fmt" x="1060" y="90" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="1120" y="115" text-anchor="middle">GraphML</text>
   <rect class="ca-fmt" x="1060" y="170" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="1120" y="195" text-anchor="middle">CellDesigner ×2</text>
   <rect class="ca-fmt" x="1060" y="250" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1120" y="275" text-anchor="middle">SBGN-ML ×4</text>
-  <rect class="ca-plan" x="1060" y="330" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="1120" y="355" text-anchor="middle">SBML</text>
+  <text class="ca-fmtt" x="1120" y="268" text-anchor="middle">SBGN-ML ×2</text>
+  <text class="ca-sub" x="1120" y="284" text-anchor="middle">for Newt</text>
   <rect class="ca-plan" x="1060" y="410" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="1120" y="435" text-anchor="middle">BioPAX</text>
-  <g class="ca-arr" marker-end="url(#ca-tip2)">
-    <path d="M140,110 H168"/><path d="M320,110 H348"/><path d="M140,190 H168"/><path d="M320,190 H348"/><path d="M140,270 H168"/><path d="M320,270 H348"/><path d="M140,350 H168"/><path d="M320,350 H348"/>
-    <path d="M1030,110 H1058"/><path d="M1030,190 H1058"/><path d="M1030,270 H1058"/><path d="M1030,350 H1058"/><path d="M1030,430 H1058"/>
-    <path d="M500,110 H528"/><path d="M500,190 H528"/><path d="M500,270 H528"/><path d="M500,350 H528"/>
-    <path d="M680,110 H708"/><path d="M850,110 H878"/><path d="M680,190 H708"/><path d="M850,190 H878"/><path d="M680,270 H708"/><path d="M850,270 H878"/>
-    <path d="M680,350 H878"/><path d="M500,430 H878"/>
-  </g>
+  <text class="ca-fmtt ca-pt" x="1120" y="435" text-anchor="middle">SBML</text>
+  <rect class="ca-plan" x="1060" y="490" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt ca-pt" x="1120" y="515" text-anchor="middle">BioPAX</text>
+  <text class="ca-sub" x="780" y="423" text-anchor="middle">no adapter needed</text>
+  <text class="ca-sub" x="690" y="503" text-anchor="middle">biology only, no drawing</text>
+  <text class="ca-sub ca-pt" x="80" y="508" text-anchor="middle">BioPAX, SBML</text>
+  <text class="ca-sub ca-pt" x="80" y="524" text-anchor="middle">without layout:</text>
+  <text class="ca-sub ca-pt" x="245" y="516" text-anchor="middle">export only, not read</text>
+  <rect class="ca-band" x="10" y="575" width="1180" height="100" rx="10"/>
+  <text class="ca-head" x="26" y="598">On the model, before the layout</text>
+  <rect class="ca-box" x="20" y="610" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="32" y="632">rules</text>
+  <text class="ca-sub" x="32" y="651">the check, for every input format</text>
+  <rect class="ca-box" x="315" y="610" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="327" y="632">without_delays, clean</text>
+  <text class="ca-sub" x="327" y="651">what a format cannot hold, left out</text>
+  <rect class="ca-box" x="610" y="610" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="622" y="632">biology.py</text>
+  <text class="ca-sub" x="622" y="651">one entity per key: identifiers, else labels</text>
+  <rect class="ca-box" x="905" y="610" width="275" height="52" rx="7"/>
+  <text class="ca-name" x="917" y="632">graphml.corrected</text>
+  <text class="ca-sub" x="917" y="651">other shapes to the SBGN palette</text>
+  <rect class="ca-band" x="10" y="690" width="1180" height="100" rx="10"/>
+  <text class="ca-head" x="26" y="713">Shared by every step</text>
+  <rect class="ca-box" x="20" y="725" width="373" height="52" rx="7"/>
+  <text class="ca-name" x="32" y="747">report</text>
+  <text class="ca-sub" x="32" y="766">every message in one list: the page, the command line, the tests</text>
+  <rect class="ca-box" x="413" y="725" width="373" height="52" rx="7"/>
+  <text class="ca-name" x="425" y="747">routes.py</text>
+  <text class="ca-sub" x="425" y="766">which input gives which files, for the page and the command line</text>
+  <rect class="ca-box" x="806" y="725" width="373" height="52" rx="7"/>
+  <text class="ca-name" x="818" y="747">reference files</text>
+  <text class="ca-sub" x="818" y="766">every Atlas map, every route, compared on each change, and v1</text>
+  <rect class="ca-box" x="880" y="325" width="150" height="50" rx="7"/>
+  <text class="ca-name" x="955" y="346" text-anchor="middle">sbgnml.write</text>
+  <text class="ca-sub" x="955" y="364" text-anchor="middle">writes the file only</text>
+  <rect class="ca-fmt" x="1060" y="330" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="1120" y="355" text-anchor="middle">SBGN-ML ×2</text>
   <text class="ca-sub" x="780" y="343" text-anchor="middle">no adapter needed</text>
-  <text class="ca-sub" x="690" y="423" text-anchor="middle">biology only, no drawing</text>
-  <text class="ca-sub ca-pt" x="80" y="428" text-anchor="middle">BioPAX, SBML</text>
-  <text class="ca-sub ca-pt" x="80" y="444" text-anchor="middle">without layout:</text>
-  <text class="ca-sub ca-pt" x="245" y="436" text-anchor="middle">export only, not read</text>
-  <rect class="ca-band" x="10" y="495" width="1180" height="100" rx="10"/>
-  <text class="ca-head" x="26" y="518">On the model, before the layout</text>
-  <path class="ca-arr" d="M680,318 H955 V297" marker-end="url(#ca-tip2)"/>
-  <text class="ca-sub" x="780" y="311" text-anchor="middle">SBGN-ML: no adapter</text>
-  <path class="ca-arr" d="M425,462 V493" marker-start="url(#ca-tip2)" marker-end="url(#ca-tip2)"/>
-  <rect class="ca-box" x="20" y="530" width="275" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="552">rules</text>
-  <text class="ca-sub" x="32" y="571">the check, for every input format</text>
-  <rect class="ca-box" x="315" y="530" width="275" height="52" rx="7"/>
-  <text class="ca-name" x="327" y="552">without_delays, clean</text>
-  <text class="ca-sub" x="327" y="571">what a format cannot hold, left out</text>
-  <rect class="ca-box" x="610" y="530" width="275" height="52" rx="7"/>
-  <text class="ca-name" x="622" y="552">biology.py</text>
-  <text class="ca-sub" x="622" y="571">one entity per key: identifiers, else labels</text>
-  <rect class="ca-box" x="905" y="530" width="275" height="52" rx="7"/>
-  <text class="ca-name" x="917" y="552">graphml.corrected</text>
-  <text class="ca-sub" x="917" y="571">other shapes to the SBGN palette</text>
-  <rect class="ca-band" x="10" y="610" width="1180" height="100" rx="10"/>
-  <text class="ca-head" x="26" y="633">Shared by every step</text>
-  <rect class="ca-box" x="20" y="645" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="667">report</text>
-  <text class="ca-sub" x="32" y="686">every message in one list: the page, the command line, the tests</text>
-  <rect class="ca-box" x="413" y="645" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="425" y="667">routes.py</text>
-  <text class="ca-sub" x="425" y="686">which input gives which files, for the page and the command line</text>
-  <rect class="ca-box" x="806" y="645" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="818" y="667">reference files</text>
-  <text class="ca-sub" x="818" y="686">every Atlas map, every route, compared on each change, and v1</text>
+  <g class="ca-arr" marker-end="url(#ca-tip2)">
+    <path d="M140,110 H168"/><path d="M320,110 H348"/><path d="M140,190 H168"/><path d="M320,190 H348"/><path d="M140,270 H168"/><path d="M320,270 H348"/><path d="M140,430 H168"/><path d="M320,430 H348"/>
+    <path d="M1030,110 H1058"/><path d="M1030,190 H1058"/><path d="M1030,270 H1058"/><path d="M1030,350 H1058"/><path d="M1030,430 H1058"/><path d="M1030,510 H1058"/>
+    <path d="M500,110 H528"/><path d="M500,190 H528"/><path d="M500,270 H528"/><path d="M500,350 H528"/><path d="M500,430 H528"/>
+    <path d="M680,110 H708"/><path d="M850,110 H878"/><path d="M680,190 H708"/><path d="M850,190 H878"/><path d="M680,270 H708"/><path d="M850,270 H878"/>
+    <path d="M680,350 H878"/><path d="M680,430 H878"/><path d="M500,510 H878"/>
+  </g>
+  <path class="ca-arr" d="M425,542 V573" marker-start="url(#ca-tip2)" marker-end="url(#ca-tip2)"/>
 </svg>
 </div>
 <div class="ca-legend">
