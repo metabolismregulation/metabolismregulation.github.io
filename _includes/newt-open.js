@@ -13,14 +13,21 @@
     document.cookie = 'showIntro=false; path=' + NEWT + '; max-age=15552000; SameSite=Lax';
     const w = window.open(NEWT + '#' + encodeURIComponent(name), '_blank');
     if (!w) return;
+    // handed over once Newt's file input has its handler, and again if the map has not arrived two
+    // seconds later (Chrome showed an empty map now and then, user 2026-10-21), up to three times
     const started = Date.now();
+    let tries = 0, last = 0;
     const wait = setInterval(() => {
       if (w.closed || Date.now() - started > 60000) { clearInterval(wait); return; }
       try {
-        if (w.document.readyState !== 'complete' || !w.cy || !w.$ || !w.$('#file-input').length) return;
-        clearInterval(wait);
+        const input = w.$ && w.$('#file-input')[0];
+        if (w.document.readyState !== 'complete' || !w.cy || !input || !(w.$._data(input, 'events') || {}).change) return;
+        if (w.cy.elements().length) { clearInterval(wait); return; }
+        if (Date.now() - last < 2000) return;
+        if (tries++ === 3) { clearInterval(wait); return; }
+        last = Date.now();
         w.document.title = name + ' · Newt';
-        setTimeout(() => w.$('#file-input').trigger('change', [new w.File([text], name, { type: 'text/plain' })]), 300);
+        w.$(input).trigger('change', [new w.File([text], name, { type: 'text/plain' })]);
       } catch (e) { /* the new tab is still on about:blank */ }
     }, 200);
   }
@@ -38,7 +45,8 @@
     }
     a.append(lines);
     a.insertAdjacentHTML('beforeend', NEWT_ICON);
-    a.addEventListener('click', e => { e.preventDefault(); openInNewt(text, name); });
+    for (const ev of ['click', 'auxclick'])  // a middle click too, which would open an empty Newt
+      a.addEventListener(ev, e => { if (e.button > 1) return; e.preventDefault(); openInNewt(text, name); });
     return a;
   }
 

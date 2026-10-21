@@ -118,6 +118,8 @@ def read(path):
         border = gn.find('y:BorderStyle', NS)
         if kind == 'Process' and l is not None:
             kind = PROCESS_LABEL.get(l.text.strip(), kind)
+        if kind == 'Submap':  # our maps' phenotype, as in CellDesigner (user, 2026-10-21: SREBP's two submap glyphs)
+            kind = 'Phenotype'
         outline = kind if kind in OUTLINE else None
         if outline:
             kind = 'Operator' if (l is not None and l.text.strip() in ('AND', 'OR', 'NOT') and 'ellipse' in outline) else OUTLINE[outline]
