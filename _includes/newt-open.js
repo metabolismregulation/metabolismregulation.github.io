@@ -25,7 +25,7 @@
     const key = RUN + '-' + (NEWT_FILES.size + 1);
     NEWT_FILES.set(key, text);
     a.className = 'cv-btn cv-alt'; a.href = NEWT + '?f=' + key + '#' + encodeURIComponent(name); a.target = '_blank';
-    a.title = 'Open ' + name + ' in Newt';
+    a.title = hover('Open in Newt', variant, '', name);
     const lines = document.createElement('span'); lines.className = 'cv-lines';
     lines.append('Open in Newt');
     for (const t of variant ? variant.split(', ') : []) {  // "plain, straight line": a line each

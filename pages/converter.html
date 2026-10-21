@@ -99,7 +99,7 @@ def convert(name, data, standard=False):
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
-    # CellDesigner (nodes kept): the CellDesigner file without the small moves that straighten lines,
+    # CellDesigner (positions kept): the CellDesigner file without the small moves that straighten lines,
     # given only when the converter moved nodes (user, 2026-10-20, in place of a tick box)
     kept = {o.ending: o for o in routes.outputs(p, False, standard) if o.ending == '-advanced.xml'}
     files = []
@@ -123,7 +123,7 @@ def convert(name, data, standard=False):
         if o.ending in kept and text is not None:
             k, k_said = routes.made(kept[o.ending])
             if k is not None and k != text:
-                files.append(['-kept.xml', 'CellDesigner (nodes kept)', k, ''.join(m + '\\n' for c, m in k_said if c != 'summary'), False])
+                files.append(['-kept.xml', 'CellDesigner (positions kept)', k, ''.join(m + '\\n' for c, m in k_said if c != 'summary'), False])
     return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
@@ -158,13 +158,15 @@ def convert(name, data, standard=False):
     return a;
   }
 
-  function button(text, name, label, red) {
+  function button(text, name, label, red, input) {
     const a = document.createElement('a');
     a.className = red ? 'cv-btn cv-bad' : 'cv-btn'; a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
-    a.download = name; a.title = name;
+    const [, format, variant] = label.match(/^(.*?)(?: \((.*)\))?$/);
+    a.download = name; a.title = hover(format, variant, input, name);
     return labelled(a, label, ICON);
   }
 
+{% include converter-hover.js %}
 {% include newt-open.js %}
 
   // a column's buttons: the blue one on top (no variant, or SBGN-ML Newt), its straight line file
@@ -227,7 +229,7 @@ def convert(name, data, standard=False):
         if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end,
           variant: [end.endsWith('-newt.sbgn') ? '' : 'plain', end.startsWith('-straight') ? 'straight line' : ''].filter(Boolean).join(', ') || undefined });
         if (xml) {
-          const b = button(xml, base + end, label, red);
+          const b = button(xml, base + end, label, red, f.name);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
           if (end.startsWith('-straight') || end === '.sbgn' || end === '-kept.xml') b.classList.add('cv-alt');
           box.append(b);

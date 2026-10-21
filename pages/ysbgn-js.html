@@ -73,12 +73,12 @@ noindex: true
                'stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
 
   // a button in two lines: the format, and the variant under it, small
-  function button(text, name, label, red) {
+  function button(text, name, label, red, input) {
     const a = document.createElement('a');
     a.className = red ? 'cv-btn cv-bad' : 'cv-btn';
     a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
-    a.download = name; a.title = name;
     const [, format, variant] = label.match(/^(.*?)(?: \((.*)\))?$/);
+    a.download = name; a.title = hover(format, variant, input, name);
     const lines = document.createElement('span'); lines.className = 'cv-lines';
     lines.append(format);
     if (variant) { const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = variant; lines.append(v); }
@@ -87,6 +87,7 @@ noindex: true
     return a;
   }
 
+{% include converter-hover.js %}
 {% include newt-open.js %}
 
   // the buttons in columns, one per format (Newt one of its own), in the order they came: the one
@@ -136,7 +137,7 @@ noindex: true
       for (const [end, label, xml, said, red] of r) {
         if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end, variant: (label.match(/\((.*)\)$/) || [])[1] });
         if (xml) {
-          const b = button(xml, base + end, label, red);
+          const b = button(xml, base + end, label, red, f.name);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
           if (end.startsWith('-straight.')) b.classList.add('cv-alt');
           box.append(b);
