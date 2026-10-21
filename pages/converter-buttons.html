@@ -1,0 +1,74 @@
+---
+layout: default
+title: Converter buttons
+permalink: /converter/buttons/
+sitemap: false
+noindex: true
+---
+
+<!-- test page (user, 2026-10-21): the Converter's buttons a little taller, in three lines (format,
+     variant, layout), for the user to pick one; removed once chosen -->
+<style>
+{% include converter-buttons.css %}
+  .bt-variant { margin: 0 0 28px; }
+  .bt-variant h3 { font-size: 15px; margin: 0 0 4px; }
+  .bt-variant p { font-size: 13px; color: #777; margin: 0 0 8px; }
+  .bt-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+  .bt-col { display: flex; flex-direction: column; gap: 6px; }
+</style>
+
+<p><a href="{{ '/converter/' | relative_url }}">↰ Converter</a></p>
+<p>The Converter's buttons, all 140 px wide, in three lines: the format, the variant and, where there is one, the
+layout. Variant 0 is the button as it is now.</p>
+
+<div id="bt"></div>
+
+<script>
+(function () {
+  const VARIANTS = [
+    ['0. As now', 'two lines, 44 px high, format 14 px, variant 12 px', 44, 14, 18, 12, 16, true],
+    ['1. 52 px, 14 / 11', 'format 14 px, variant and layout 11 px', 52, 14, 17, 11, 13],
+    ['2. 52 px, 13 / 11', 'format 13 px, variant and layout 11 px', 52, 13, 16, 11, 13],
+    ['3. 54 px, 14 / 12', 'format 14 px, variant and layout 12 px', 54, 14, 17, 12, 14],
+    ['4. 56 px, 14 / 12', 'format 14 px, variant and layout 12 px, more room between the lines', 56, 14, 18, 12, 15],
+    ['5. 50 px, 13 / 10.5', 'format 13 px, variant and layout 10.5 px, the most compact', 50, 13, 16, 10.5, 12.5],
+    ['6. 54 px, 13 / 11.5', 'format 13 px, variant and layout 11.5 px', 54, 13, 16, 11.5, 14],
+  ];
+  // [class, format, variant, layout]; the layout on a third line where there is one
+  const COLS = [
+    [['', 'CellDesigner'], ['cv-alt', 'CellDesigner', 'straight line'], ['cv-alt', 'CellDesigner', 'nodes kept']],
+    [['', 'SBGN-ML', 'Newt'], ['cv-alt', 'SBGN-ML', 'Newt', 'straight line']],
+    [['cv-alt', 'SBGN-ML', 'plain'], ['cv-alt', 'SBGN-ML', 'plain', 'straight line']],
+    [['cv-alt', 'Open in Newt', '', '', 1], ['cv-alt', 'Open in Newt', 'straight line', '', 1]],
+    [['cv-grey', 'GraphML', 'corrected'], ['cv-grey', 'GraphML', 'standard sizes'], ['cv-bad', 'GraphML', 'marked']],
+  ];
+  // two lines, as now: the variant and the layout on one line
+  const NOW = { 'Newt straight line': 'straight, Newt', 'plain straight line': 'straight, plain' };
+  const DOWN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
+  const EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+  const out = document.getElementById('bt');
+  const css = document.createElement('style');
+  VARIANTS.forEach(([name, note, h, f, fl, v, vl, two], i) => {
+    css.textContent += `.bt-v${i} .cv-btn { height: ${h}px; font-size: ${f}px; line-height: ${fl}px; }
+      .bt-v${i} .cv-btn .cv-variant { font-size: ${v}px; line-height: ${vl}px; }\n`;
+    const d = document.createElement('div'); d.className = 'bt-variant bt-v' + i;
+    d.innerHTML = '<h3></h3><p></p><div class="bt-row"></div>';
+    d.querySelector('h3').textContent = name; d.querySelector('p').textContent = note;
+    for (const col of COLS) {
+      const c = document.createElement('div'); c.className = 'bt-col';
+      for (const [cls, format, variant, layout, newt] of col) {
+        const a = document.createElement('a'); a.href = '#'; a.className = ('cv-btn ' + cls).trim();
+        a.addEventListener('click', e => e.preventDefault());
+        const lines = document.createElement('span'); lines.className = 'cv-lines'; lines.append(format);
+        const parts = two && layout ? [NOW[variant + ' ' + layout]] : [variant, layout];
+        for (const t of parts.filter(Boolean)) { const s = document.createElement('span'); s.className = 'cv-variant'; s.textContent = t; lines.append(s); }
+        a.append(lines); a.insertAdjacentHTML('beforeend', newt ? EXT : DOWN);
+        c.append(a);
+      }
+      d.querySelector('.bt-row').append(c);
+    }
+    out.append(d);
+  });
+  document.head.append(css);
+})();
+</script>
