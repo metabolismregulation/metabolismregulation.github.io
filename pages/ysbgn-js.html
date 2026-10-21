@@ -17,10 +17,23 @@ noindex: true
   #cv-drop.cv-over { border-color: #4183c4; color: #4183c4; background: #f4f8fc; }
   #cv-drop.cv-wait { cursor: progress; }
   #cv-status { font-size: 14px; color: #666; min-height: 20px; }
-  .cv-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; border-top: 1px solid #eee; padding: 8px 0; }
-  .cv-name { flex: 1 1 200px; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+  /* a map as on the Converter page (user, 2026-10-21): on the left the dropped file's name and under it
+     the notes, on the right the buttons, from the middle of the page, one column per format, the blue
+     button on top and its straight line file under it, the same for Newt */
+  .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 24px; border-top: 1px solid #eee; padding: 8px 0; }
+  .cv-left { flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .cv-buttons { flex: 0 0 auto; min-width: calc(50% - 12px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; }
+  /* at phone width the name, the buttons under it, then the notes */
+  @media (max-width: 600px) {
+    .cv-map { flex-direction: column; align-items: stretch; }
+    .cv-left { display: contents; }
+    .cv-buttons { min-width: 0; order: 1; }
+    .cv-log { order: 2; }
+  }
+  .cv-name { font-size: 14px; line-height: 20px; font-weight: 600; overflow-wrap: anywhere; }
+  .cv-col { display: flex; flex-direction: column; gap: 6px; }
 {% include converter-buttons.css %}
-  .cv-log { flex-basis: 100%; font-size: 12px; color: #666; white-space: pre-wrap; }
+  .cv-log { font-size: 12px; color: #666; white-space: pre-wrap; }
   .cv-error { color: #b00; }
   /* the text in the page's regular size, in the Converter's grey (user, 2026-10-20) */
   .cv-top p, .cv-top label { color: #777; }
@@ -76,6 +89,26 @@ noindex: true
 
 {% include newt-open.js %}
 
+  // the buttons in columns, one per format (Newt one of its own), in the order they came: the one
+  // without a variant on top, its straight line file under it, the others below, as on the Converter page
+  const rank = variant => !variant ? 0 : /straight line$/.test(variant) ? 1 : 2;
+  function arrange(box) {
+    const cols = new Map();
+    for (const b of box.querySelectorAll('a.cv-btn')) {
+      const k = b.querySelector('.cv-lines').firstChild.textContent;
+      if (!cols.has(k)) cols.set(k, []);
+      cols.get(k).push(b);
+    }
+    const ranked = b => rank((b.querySelector('.cv-variant') || {}).textContent);
+    const all = document.createElement('div'); all.className = 'cv-buttons';
+    for (const buttons of cols.values()) {
+      const col = document.createElement('div'); col.className = 'cv-col';
+      col.append(...buttons.sort((a, b) => ranked(a) - ranked(b)));
+      all.append(col);
+    }
+    box.append(all);
+  }
+
   async function convert(files) {
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
@@ -94,8 +127,8 @@ noindex: true
       const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
       r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || a[1].includes('(') - b[1].includes('('));
       const box = document.createElement('div'); box.className = 'cv-map';
-      const nm = document.createElement('div'); nm.className = 'cv-name'; nm.textContent = base;
-      box.append(nm);
+      box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
+      box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension
       // problems and what the file failed or lost: red when no file came, else grey as the Converter's notes
       const problems = new Set(), errors = new Set(), losses = new Set();
       // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
@@ -116,10 +149,11 @@ noindex: true
         for (const [, m] of said) (xml ? losses : errors).add(m);
       }
       addNewtButtons(box, newt);
+      arrange(box);
       for (const [set, cls] of [[problems, 'cv-log cv-error'], [errors, 'cv-log cv-error'], [losses, 'cv-log']]) {
         if (!set.size) continue;
         const d = document.createElement('div'); d.className = cls; d.textContent = [...set].join('\n');
-        box.append(d);
+        box.querySelector('.cv-left').append(d);
       }
       out.insertBefore(box, top);
     }
