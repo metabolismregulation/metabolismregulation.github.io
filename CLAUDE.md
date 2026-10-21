@@ -292,6 +292,10 @@ UniProt, ChEBI), or its node links when a map has none.
 
 ## ysbgn.js page
 
+ysbgn.js is a completed experiment (what a JavaScript port can do and at what effort), on hold until
+the user takes it up again (user, 2026-10-21). Work on the Converter (map-converter, `converter/mapconv/`)
+does not mention it, propose matching changes to it, or ask for its repository.
+
 `/ysbgn-js/` (`pages/ysbgn-js.html`, user 2026-10-20; the name in lowercase everywhere), hidden like the Converter (not in the navigation,
 `noindex: true`): the GraphML and SBGN-ML routes in JavaScript (private repository
 `metabolismregulation/ysbgn-js`, a port of map-converter giving the same files), no Pyodide. The
