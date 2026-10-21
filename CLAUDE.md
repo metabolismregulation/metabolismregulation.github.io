@@ -287,7 +287,7 @@ public here (user's choice). The page's copy is `converter/mapconv/` with the co
 `VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
 map-converter and push here (`VERSION`: date and commit, not shown on the page). Since 2026-10-19 (user) the
 page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`, the small
-moves (map-converter's tidy moves) are in both CellDesigner files, and the button "CellDesigner (positions kept)" ("nodes kept" until 2026-10-21, user: it read as if other files lose nodes),
+moves (map-converter's tidy moves) are in both CellDesigner files, and the button "CellDesigner (positions kept)" (kept on the page, user 2026-10-21: for round trips, aligned maps and a wrong move) ("nodes kept" until 2026-10-21, user: it read as if other files lose nodes),
 `<map>-kept.xml`, white like straight, gives the CellDesigner file without them, only when they changed the map (user,
 2026-10-20, in place of the tick boxes "Keep node positions" and "Move nodes slightly to straighten lines for CellDesigner",
 which read as if they applied to every format). The layout that keeps the
@@ -318,7 +318,7 @@ copy is `ysbgn-js/src/` with the commit in `ysbgn-js/VERSION`: after a change, r
 
 ## Newt copy
 
-`/newt/` (user, 2026-10-20): our copy of Newt (iVis-at-Bilkent/newt, LGPL-3.0), built as is with one
+For the development stage only (user, 2026-10-21): the copy and the Open in Newt buttons will probably not stay, as the copy would need maintaining; useful while the converter is developed. `/newt/` (user, 2026-10-20): our copy of Newt (iVis-at-Bilkent/newt, LGPL-3.0), built as is with one
 script of ours, `newt/open.js` (maps-workbench `tools/newt_open.js`, user 2026-10-21), so the Newt buttons of
 the Converter and ysbgn.js pages can open a converted SBGN-ML file without a web address. Each button is a
 link to `/newt/?f=<key>#<file name>` (`_includes/newt-open.js`), so a click, a middle click and right-click
