@@ -99,9 +99,11 @@ noindex: true
   #c2-export { width: 100%; resize: none; font-family: monospace; font-size: 11px; box-sizing: border-box; }
   .c2-small { font-size: 12px; color: #666; }
   .c2-panel select { font-size: 13px; }
-  button.c2-act { font-size: 13px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; color: #222; background: #f4f4f4; border: 1px solid #bbb; border-radius: 5px; }
-  button.c2-act:hover { background: #ebebeb; border-color: #999; }
-  button.c2-act:disabled { color: #999; cursor: default; }
+  /* the Atlas download buttons: white, grey edge and text, filled blue on hover */
+  button.c2-act { font-family: inherit; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; color: #777; background: #fff; border: 1px solid #777; border-radius: 5px; }
+  button.c2-act:hover { background: #4183c4; border-color: #4183c4; color: #fff; }
+  button.c2-act:disabled, button.c2-act:disabled:hover { color: #bbb; background: #fff; border-color: #ccc; cursor: default; }
+  button.c2-act svg { width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; }
 </style>
 
 <div class="c2-wide">
@@ -152,8 +154,8 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}"></canvas>
 <p class="c2-under" data-v="{{ site.time | date: '%s' }}">
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
-<button type="button" class="c2-act" id="c2-yed">Download yEd file</button>
-<button type="button" class="c2-act" id="c2-cd">Download CellDesigner file</button>
+<button type="button" class="c2-act" id="c2-yed">Download yEd file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
+<button type="button" class="c2-act" id="c2-cd">Download CellDesigner file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-add">Add to Presets</button>
 </p>
 <p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour; the text will remain black in CellDesigner. The yEd file keeps the current view.</p>
