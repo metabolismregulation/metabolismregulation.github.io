@@ -18,10 +18,10 @@ noindex: true
   #cv-status { font-size: 14px; color: #666; min-height: 20px; }
   /* on the left the map's name and under it the notes, on the right the buttons, from the middle of
      the page like the text next to the drop area; four columns or more reach further left and the
-     left side narrows (user, 2026-10-20; down to 150 px, so five columns fit, 2026-10-21); the straight
+     left side narrows (user, 2026-10-20); the straight
      files white, as the fallback (user, 2026-10-19) */
   .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 24px; border-top: 1px solid #eee; padding: 8px 0; }
-  .cv-left { flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .cv-left { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
   .cv-buttons { flex: 0 0 auto; min-width: calc(50% - 12px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; }
   /* at phone width the name, the buttons under it, then the notes */
   @media (max-width: 600px) {
@@ -171,9 +171,10 @@ def convert(name, data, standard=False):
 
   // a column's buttons: the blue one on top (no variant, or SBGN-ML Newt), its straight line file
   // under it, the others below (user, 2026-10-20); SBGN-ML plain in a column of its own, right of
-  // SBGN-ML Newt (user, 2026-10-21: four in a column are too many)
+  // SBGN-ML Newt (user, 2026-10-21: four in a column are too many); the Open in Newt buttons at the
+  // end of their SBGN-ML files' column (user, 2026-10-21)
   const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : /straight line$/.test(variant) ? 1 : 2;
-  const column = (format, variant) => format + (/^plain/.test(variant || '') ? ' plain' : '');
+  const column = (format, variant) => (format === 'Open in Newt' ? 'SBGN-ML' : format) + (/^plain/.test(variant || '') ? ' plain' : '');
   const variantOf = b => [...b.querySelectorAll('.cv-variant')].map(v => v.textContent).join(', ');
 
   // the buttons in their columns, in the order they came, ranked as above
@@ -184,7 +185,7 @@ def convert(name, data, standard=False):
       if (!cols.has(k)) cols.set(k, []);
       cols.get(k).push(b);
     }
-    const ranked = b => rank(variantOf(b));
+    const ranked = b => rank(variantOf(b)) + (b.querySelector('.cv-lines').firstChild.textContent === 'Open in Newt' ? 10 : 0);
     const all = document.createElement('div'); all.className = 'cv-buttons';
     for (const buttons of cols.values()) {
       const col = document.createElement('div'); col.className = 'cv-col';
