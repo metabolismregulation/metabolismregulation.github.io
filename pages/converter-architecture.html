@@ -52,8 +52,7 @@ noindex: true
 
 <p class="cv-back"><a href="{{ '/converter/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M18 20v-8a3 3 0 0 0-3-3H4M9 4L4 9l5 5"/></svg>Converter</a></p>
 
-<p>The <a href="{{ '/converter/' | relative_url }}">converter</a> converts maps: every input has a drawing. It reads
-every format into one model of the map and writes every format from it. The model holds two things: the biology
+<p>The converter reads every format into one model of the map and writes every format from it. The model holds two things: the biology
 (entities, reactions, annotation) and its drawing (boxes, arcs and bends, each pointing to what it draws by its
 id). Readers read and writers write, nothing else. What every format shares in the layout is in one module, what
 only one target needs (yEd, CellDesigner, Newt) in an adapter next to its writer. SBML with layout is planned in
