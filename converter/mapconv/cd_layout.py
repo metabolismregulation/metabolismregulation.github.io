@@ -361,7 +361,7 @@ def draw(diagram, ents, members, label, advanced, move):
             want.setdefault((m, ax), []).append(T[ax] - M[ax])
     for (m, ax), ds in sorted(want.items()):
         if 0.5 < abs(ds[0]) <= ALIGN and max(ds) - min(ds) <= 1:
-            shift(m, ax, ds[0], ends, 'onto its process square')
+            shift(m, ax, ds[0], ends, 'onto its process glyph')
 
     def modifier(p, g, e, many):
         # a modifier arc of process p (main line g): the point of the square it ends at, its start M,

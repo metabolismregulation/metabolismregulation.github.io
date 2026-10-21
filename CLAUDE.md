@@ -280,7 +280,7 @@ a chart of what converts to what, the formats as buttons (rounded rectangles, wh
 is one more line there (user, 2026-10-17). One straight line per pair of formats: both ways blue (#4183c4)
 with a head at each end, one way green (#3a9a4a) (user, 2026-10-17); the GraphML correction is not in the chart (user, 2026-10-19). The description page ends with "Loading" (size, time), dated "Updated" with the
 Pyodide version (user, 2026-10-17): update the figures and the date when Pyodide, lxml or the converter changes much. Newt files (.nwt) are accepted: not mentioned on the Converter
-page, as Newt is not widely used, but described under "From SBGN-ML" on the description page (user, 2026-10-17). Files dropped or chosen while the converter loads wait and are converted once it has loaded, said under the drop area (user, 2026-10-21). Hidden like the Atlas: not in the navigation,
+page, as Newt is not widely used, but described under "From SBGN-ML" on the description page (user, 2026-10-17). "Process glyph", never "process square", in the Converter's pages and messages (user, 2026-10-21). After a style choice on a test page, the page is removed in the same commit and its removal confirmed (user, 2026-10-21). Files dropped or chosen while the converter loads wait and are converted once it has loaded, said under the drop area (user, 2026-10-21). Hidden like the Atlas: not in the navigation,
 out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
 repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
