@@ -24,7 +24,7 @@ noindex: true
 
 <h3>GraphML → SBGN-ML</h3>
 
-<p>Largest maps first. Each map opens in Newt: as written by our converter from the Atlas GraphML, straight (straight lines, for improving by hand) and advanced (the yEd drawing kept), then as exported by MINERVA from the CellDesigner file, where the Atlas has one. The map page shows how it should look.</p>
+<p>Largest maps first. Each map opens in Newt: as written by the converter from the Atlas GraphML, straight (straight lines, for improving by hand) and advanced (the yEd drawing kept), then as exported by MINERVA from the CellDesigner file, where the Atlas has one. The map page shows how it should look.</p>
 
 {% assign v = site.github.build_revision | slice: 0, 7 %}
 <table class="sb">
@@ -47,7 +47,7 @@ noindex: true
 
 <h3>CellDesigner → SBGN-ML</h3>
 
-<p>The official CellDesigner files: each map opens in Newt as written by our converter, straight (straight lines, each process midway between its main reactant and product) and advanced (the CellDesigner drawing kept), then as exported by MINERVA from the same file.</p>
+<p>The official CellDesigner files: each map opens in Newt as written by the converter, straight (straight lines, each process midway between its main reactant and product) and advanced (the CellDesigner drawing kept), then as exported by MINERVA from the same file.</p>
 
 <table class="sb">
   <tr><th>Map</th><th>Straight</th><th>Advanced</th><th>MINERVA</th><th>Map page</th></tr>
@@ -71,10 +71,10 @@ noindex: true
 
 <h3>SBGN-ML → GraphML, CellDesigner</h3>
 
-<p>Maps saved by Newt: the map in Newt, then the GraphML and CellDesigner files our converter makes from it.</p>
+<p>Maps saved by Newt: the map in Newt, then the GraphML and CellDesigner files the converter makes from it.</p>
 
 <table class="sb">
-  <tr><th>Map</th><th>Saved by Newt</th><th>Our converter</th></tr>
+  <tr><th>Map</th><th>Saved by Newt</th><th>Converter</th></tr>
   {% assign back = site.static_files | where_exp: 'f', "f.path contains '/converter/sbgn/back/'" | where: 'extname', '.sbgn' %}
   {% for f in back %}
   <tr>
