@@ -33,7 +33,9 @@
     a.className = 'cv-btn cv-alt'; a.href = NEWT; a.title = 'Open ' + name + ' in Newt';
     const lines = document.createElement('span'); lines.className = 'cv-lines';
     lines.append('Open in Newt');
-    if (variant) { const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = variant; lines.append(v); }
+    for (const t of variant ? variant.split(', ') : []) {  // "plain, straight line": a line each
+      const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = t; lines.append(v);
+    }
     a.append(lines);
     a.insertAdjacentHTML('beforeend', NEWT_ICON);
     a.addEventListener('click', e => { e.preventDefault(); openInNewt(text, name); });

@@ -258,7 +258,7 @@ drawn; the Newt adjustments (compartments, processes into compartments, arc ends
 the files for Newt, map-converter's `newt_layout.py`. Buttons (user, 2026-10-21), the target named on each: "SBGN-ML
 (Newt)", `<map>-newt.sbgn`, blue as the recommended file for now, with "SBGN-ML / Newt / straight line",
 `<map>-straight-newt.sbgn`, under it; to its right a column "SBGN-ML (plain)", `<map>.sbgn`, and "SBGN-ML / plain /
-straight line", `<map>-straight.sbgn`, all white but the Newt one (four in one column were too many). The Newt buttons, "Open in Newt" (user, 2026-10-21; it was "Newt"), white with the blue edge (it was grey), with the external-link icon, open the two Newt files. Next to the drop area (user, 2026-10-21, their words): "The blue button
+straight line", `<map>-straight.sbgn`, all white but the Newt one (four in one column were too many). The Newt buttons, "Open in Newt" (user, 2026-10-21; it was "Newt"), white with the blue edge (it was grey), with the external-link icon, open the two Newt files, and in a column to their right "Open in Newt / plain" and "/ plain / straight line" open the plain files, to see what Newt makes of them (user, 2026-10-21). Next to the drop area (user, 2026-10-21, their words): "The blue button
 gives the recommended file of each format. The white buttons are fallback versions. The conversion runs in the
 browser, and the files never leave the computer." ("Straight lines layout is a fallback option." went into it.) "The files keep the layout of the input map." removed before it (user, 2026-10-21: it says nothing).Checked by loading the files in Newt
 (headless) and comparing its compartments with the file's; the hidden page /converter/sbgn/

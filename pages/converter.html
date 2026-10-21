@@ -18,9 +18,10 @@ noindex: true
   #cv-status { font-size: 14px; color: #666; min-height: 20px; }
   /* on the left the map's name and under it the notes, on the right the buttons, from the middle of
      the page like the text next to the drop area; four columns or more reach further left and the
-     left side narrows (user, 2026-10-20); the straight files white, as the fallback (user, 2026-10-19) */
+     left side narrows (user, 2026-10-20; down to 150 px, so five columns fit, 2026-10-21); the straight
+     files white, as the fallback (user, 2026-10-19) */
   .cv-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 24px; border-top: 1px solid #eee; padding: 8px 0; }
-  .cv-left { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .cv-left { flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
   .cv-buttons { flex: 0 0 auto; min-width: calc(50% - 12px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; }
   /* at phone width the name, the buttons under it, then the notes */
   @media (max-width: 600px) {
@@ -219,10 +220,12 @@ def convert(name, data, standard=False):
       // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
       const notes = new Map(), errors = new Map();
       const problems = [];
-      // Newt: each SBGN-ML file for Newt (user, 2026-10-21), or an SBGN-ML or Newt input itself
+      // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
       const newt = /\.(sbgn|nwt)$/i.test(f.name) ? [{ text: await f.text(), name: f.name }] : [];
       for (const [end, label, xml, log, red] of r) {
-        if (xml && end.endsWith('-newt.sbgn')) newt.push({ text: xml, name: base + end, variant: end.startsWith('-straight') ? 'straight line' : undefined });
+        // every SBGN-ML file, the plain ones too, to see what Newt makes of them (user, 2026-10-21)
+        if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end,
+          variant: [end.endsWith('-newt.sbgn') ? '' : 'plain', end.startsWith('-straight') ? 'straight line' : ''].filter(Boolean).join(', ') || undefined });
         if (xml) {
           const b = button(xml, base + end, label, red);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
