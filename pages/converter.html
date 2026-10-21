@@ -129,6 +129,7 @@ def convert(name, data, standard=False):
   const dropText = document.getElementById('cv-drop-text');
   const status = document.getElementById('cv-status'), out = document.getElementById('cv-out');
   let py = null;
+  const waiting = [];  // files dropped or chosen while the converter loads, converted once it is there (user, 2026-10-21)
 
   async function load() {
     const p = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/' });
@@ -188,7 +189,11 @@ def convert(name, data, standard=False):
   }
 
   async function convert(files) {
-    if (!py) return;
+    if (!py) {
+      waiting.push(...files);
+      status.textContent = waiting.map(f => f.name).join(', ') + ': converted once the converter has loaded…';
+      return;
+    }
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
       if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner or SBGN-ML file'; continue; }
@@ -258,8 +263,8 @@ def convert(name, data, standard=False):
     status.textContent = '';
   }
 
-  drop.addEventListener('click', () => py && input.click());
-  drop.addEventListener('keydown', e => { if (py && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); input.click(); } });
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
   input.addEventListener('change', () => { convert([...input.files]); input.value = ''; });
   drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('cv-over'); });
   drop.addEventListener('dragleave', () => drop.classList.remove('cv-over'));
@@ -268,6 +273,7 @@ def convert(name, data, standard=False):
   load().then(p => {
     py = p; drop.classList.remove('cv-wait');
     dropText.textContent = 'Drop map files here, or click to choose';
-  }).catch(e => { dropText.textContent = 'The converter could not be loaded: ' + e.message; });
+    if (waiting.length) convert(waiting.splice(0));
+  }).catch(e => { dropText.textContent = 'The converter could not be loaded: ' + e.message; status.textContent = ''; });
 })();
 </script>
