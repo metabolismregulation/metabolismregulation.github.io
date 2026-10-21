@@ -37,8 +37,8 @@ permalink: /reactome-recon-proteins/
 These tables contain proteins from the Human Metabolic Reconstruction Recon2 that match those in Reactome pathways and participate in signalling processes, the cases when a protein connected to a process via production or consumption arcs. Table 1a includes phosphorylation processes, while Tables 1b and 1c include other types of processes. The MRegAtlas column links a protein-process pair to the map that draws that process.
 
 Downloads (all tables): &nbsp;
-<a href="/downloads/reactome-recon-lists.xlsx" download>XLSX</a> &nbsp;
-<a href="/downloads/reactome-recon-lists.csv" download>CSV</a> &nbsp;
+<a href="/downloads/reactome-recon-lists.xlsx" download>XLSX<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/reactome-recon-lists.csv" download>CSV<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 {: .rr-space}
 
 ### Table 1a. Signalling phosphorylation processes & Recon2 catalysers
