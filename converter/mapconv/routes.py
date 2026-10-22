@@ -7,6 +7,7 @@
 #   SBGN-ML, Newt: GraphML; CellDesigner, straight and advanced
 #   CellDesigner, SBGN-ML, Newt: also GraphML (standard sizes) for a map drawn at another scale,
 #            or for every map when standard (style.standard; user, 2026-10-20)
+#   GraphML: GraphML (standard sizes) only when standard (user, 2026-10-22)
 # move: the CellDesigner outputs with the tidy moves (celldesigner.write), unless the user forbids
 # moving nodes.
 import contextlib, io
@@ -71,7 +72,8 @@ def outputs(path, move=True, standard=False):
             return rules.mark(path, found)
         out = [Output('-%s.xml' % l, 'CellDesigner (%s)' % l, lambda l=l: to_cd(read(), l)) for l in LAYOUTS] + \
               sbgn(lambda l: read()) + \
-              [Output('-corrected.graphml', 'GraphML (corrected)', lambda: graphml.corrected(read()))]
+              [Output('-corrected.graphml', 'GraphML (corrected)', lambda: graphml.corrected(read()))] + \
+              ([Output('-standard.graphml', 'GraphML (standard sizes)', lambda: graphml.write(style.standardise(read())))] if standard else [])
         return out + ([Output('-marked.graphml', 'GraphML (marked)', marked, red=True)] if found else [])
     if ext == 'xml':
         cd = lambda l: at_centres(celldesigner.read(path)) if l == 'straight' else celldesigner.read(path)

@@ -87,6 +87,7 @@ converted files.</p>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">plain</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The yEd drawing kept: process ports, and the bends that change the course of a line by more than 20 px or keep it off a node. Arcs of logic gates straight. The compartments as drawn.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">plain</span><span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, without bends or ports, for improving by hand.</td></tr>
   <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">corrected</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The map redrawn with the SBGN palette, its shapes recognised by their outline. Given only when the map is drawn with other shapes.</td></tr>
+  <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">standard sizes</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The GraphML with <a href="#sizes">standard node sizes</a>. Given only when the box is ticked.</td></tr>
   <tr><td><span class="cv-btn cv-bad"><span class="cv-lines">GraphML<span class="cv-variant">marked</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>Given only when the check finds problems: the input map with the elements that break the SBGN rules drawn red, the reason shown on hover in yEd.</td></tr>
 </table>
 <p>CellDesigner 4.0 is SBML Level 2 Version 4 with the CellDesigner extension. A molecule drawn more than
@@ -170,10 +171,10 @@ CellDesigner files, which have no such element, and kept in the GraphML.</p>
 <p><b>Purpose</b>: for maps drawn with a font that is too large or too small for their shapes, so the
 shapes do not look as they should, for example rounded corners that cannot be told from sharp ones, or arrowheads too small to
 see.</p>
-<p><b>Applies to</b>: a second GraphML file made from CellDesigner or SBGN-ML, "GraphML standard sizes".
-With the box ticked, every map gets it, so that its nodes look alike.</p>
-<p><b>Without the box</b>: the file is made only for a map drawn at a clearly different scale, when one of
-these is more than 20% off:</p>
+<p><b>Applies to</b>: a second GraphML file, "GraphML standard sizes". With the box ticked, every map gets it,
+so that its nodes look alike.</p>
+<p><b>Without the box</b>: a map from CellDesigner or SBGN-ML gets the file only when it is drawn at a clearly
+different scale, when one of these is more than 20% off (a GraphML map gets it only with the box ticked):</p>
 <ul>
   <li>the median protein height, against the standard 40,</li>
   <li>the median font size of the names, against the program's default, 12 in CellDesigner and 11 in Newt,</li>
