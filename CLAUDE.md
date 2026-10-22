@@ -5,8 +5,9 @@ finished maps and site files.
 
 Intermediate work (drafts, uploaded sources, curation tables, build scripts,
 map versions) belongs in the private repository
-`metabolismregulation/maps-workbench`, never here. If that repository is not
-attached to the session, ask for it before saving any working files.
+`metabolismregulation/maps-workbench`, never here.
+
+Repositories (user, 2026-10-22): attach any `metabolismregulation` repository the work needs yourself (add_repo, then clone), without asking or listing it as an action for the user. Only if attaching fails, say what failed.
 
 When something cannot be done, say exactly what stops it (a blocked host, a missing file, no
 access), not as a task left to do (user, 2026-10-19; details in maps-workbench CLAUDE.md).
