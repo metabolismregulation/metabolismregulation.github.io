@@ -4,18 +4,20 @@
 # list cdviewer/maps.json (name, group, page, file, sha1, error). A file whose sha1 is unchanged
 # is not sent again (--all sends every file). A file MINERVA cannot draw keeps no image: its
 # entry carries MINERVA's reason, shown in the map window. Run by the Atlas data workflow.
-# CellDesigner's own drawing (user, 2026-10-22): the user's SVG export from CellDesigner (File,
-# Export Image, SVG) uploaded as cdviewer/celldesigner/<base>.svg (a copy suffix such as _1 is
-# dropped), shown by the viewer's MINERVA / CellDesigner switch. The export has no size and asks
-# for Java's Dialog font: both are added here, in place. Its entry "cd" keeps the sha1 of the
-# CellDesigner file it was exported from (the one in downloads/ when the export first came), so
-# the viewer says when the file changed after the export.
+# The CellDesigner view (the viewer's MINERVA / CellDesigner switch, user 2026-10-22): every file
+# drawn as CellDesigner draws it by scripts/cdrender.py into cdviewer/drawn/<base>.svg, entry
+# "drawn". Its reference, the user's SVG exports from CellDesigner (File, Export Image, SVG), are
+# kept as cdviewer/celldesigner/<base>.svg (a copy suffix such as _1 is dropped), not shown: the
+# export has no size and asks for Java's Dialog font, both added here in place, and its entry "cd"
+# keeps the sha1 of the CellDesigner file it was exported from.
 #   python3 scripts/make_cdviewer.py [--all]
 import hashlib, json, os, re, sys, urllib.request
+import cdrender
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'cdviewer')
 CD = os.path.join(OUT, 'celldesigner')
+DRAWN = os.path.join(OUT, 'drawn')
 URL = 'https://minerva-service.lcsb.uni.lu/minerva/api/convert/image/CellDesigner_SBML:svg'
 
 
@@ -110,7 +112,7 @@ def exports(bases):
 
 
 def main():
-    os.makedirs(OUT, exist_ok=True)
+    os.makedirs(DRAWN, exist_ok=True)
     listing = os.path.join(OUT, 'maps.json')
     old = {m['base']: m for m in json.load(open(listing))} if os.path.exists(listing) else {}
     names = atlas_names()
@@ -142,6 +144,10 @@ def main():
             head = re.search(r'<svg\b[^>]*>', open(svg_path, encoding='utf-8').read()).group(0)
             vb = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', head)
             entry['width'], entry['height'] = float(vb.group(1)), float(vb.group(2))
+        drawn = cdrender.render(os.path.join(ROOT, 'downloads', base + '.xml'))
+        open(os.path.join(DRAWN, base + '.svg'), 'w', encoding='utf-8').write(drawn)
+        vb = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', drawn)
+        entry['drawn'] = {'svg': hashlib.sha1(drawn.encode('utf-8')).hexdigest(), 'width': float(vb.group(1)), 'height': float(vb.group(2))}
         if base in cds:
             svg = open(cds[base], encoding='utf-8').read()
             fixed = tidy(svg)
@@ -154,9 +160,10 @@ def main():
                            'width': float(vb.group(1)), 'height': float(vb.group(2))}
         maps.append(entry)
     maps.sort(key=lambda m: m.pop('order'))  # the Atlas's order
-    for f in os.listdir(OUT):
-        if f.endswith('.svg') and f[:-4] not in {m['base'] for m in maps}:
-            os.remove(os.path.join(OUT, f))
+    for d in (OUT, DRAWN):
+        for f in os.listdir(d):
+            if f.endswith('.svg') and f[:-4] not in {m['base'] for m in maps}:
+                os.remove(os.path.join(d, f))
     json.dump(maps, open(listing, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
     open(listing, 'a').write('\n')
 

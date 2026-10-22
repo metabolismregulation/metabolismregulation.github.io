@@ -9,7 +9,7 @@ noindex: true
 <style>
   /* the Atlas's layout, lean: the official maps on the left, the CellDesigner file of the
      chosen one in the middle, as MINERVA draws it (scripts/make_cdviewer.py) or as CellDesigner
-     exports it (the switch at the top left of the map window), and an empty
+     draws it (scripts/cdrender.py; the switch at the top left of the map window), and an empty
      column of the list's width on the right, so the middle stays centred under the header */
   .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
         width: min(100vw / var(--zoom, 1) - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }
@@ -89,7 +89,7 @@ noindex: true
 <div id="m2-note"></div>
 <div class="m2-mode" role="group" aria-label="Drawing">
 <button type="button" data-mode="minerva" title="As MINERVA draws the CellDesigner file">MINERVA</button>
-<button type="button" data-mode="cd" title="As CellDesigner exports it (SVG)">CellDesigner</button>
+<button type="button" data-mode="cd" title="As CellDesigner draws the file">CellDesigner</button>
 </div>
 <div class="m2-ctrl">
 <span id="m2-zoom"></span>
@@ -109,7 +109,7 @@ noindex: true
   // chosen, never above the reading size (100%, 0.675 px per unit, as the map pages), the
   // wheel or a pinch zooms at the pointer, a drag moves it, Fit returns. The up and down
   // arrow keys go through the list. The switch at the top left shows MINERVA's drawing or
-  // CellDesigner's own SVG export (?view=celldesigner, remembered in this browser).
+  // the drawing in CellDesigner's style (?view=celldesigner, remembered in this browser).
   var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
   var err = document.getElementById('m2-err'), list = document.getElementById('m2-list');
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80;
@@ -224,7 +224,7 @@ noindex: true
 
   // a map drawn by Update is shown from the browser's memory, the others from cdviewer/
   function svgOf(m) { return m.src || '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
-  function cdOf(m) { return '{{ site.baseurl }}/cdviewer/celldesigner/' + m.base + '.svg?' + m.cd.svg.slice(0, 8); }
+  function cdOf(m) { return '{{ site.baseurl }}/cdviewer/drawn/' + m.base + '.svg?' + m.drawn.svg.slice(0, 8); }
   var note = document.getElementById('m2-note'), modes = document.querySelectorAll('.m2-mode button');
   var mode = new URLSearchParams(location.search).get('view') === 'celldesigner' ? 'cd' : null;
   if (!mode) try { mode = localStorage.getItem('cdviewer-mode'); } catch (e) {}
@@ -238,7 +238,7 @@ noindex: true
     Array.prototype.forEach.call(modes, function (b) { b.classList.toggle('m2-on', b.getAttribute('data-mode') === mode); });
     note.textContent = '';
     err.className = '';
-    var why = cd ? (m.cd ? '' : 'No CellDesigner export of this map yet.') : m.error;
+    var why = cd ? (m.drawn ? '' : 'Drawn after the next update of the site.') : m.error;
     if (why) {
       shown = false;
       img.removeAttribute('src');
@@ -248,11 +248,11 @@ noindex: true
       document.getElementById('m2-zoom').textContent = '';
       return;
     }
-    if (cd && m.cd.sha1 !== m.sha1) note.textContent = 'Exported from an earlier version of the CellDesigner file.';
+    if (cd && m.drawnSha && m.drawnSha !== m.sha1) note.textContent = 'Drawn from the file before its last change.';
     err.textContent = '';
     img.style.display = '';
-    mapW = cd ? m.cd.width : m.width;
-    mapH = cd ? m.cd.height : m.height;
+    mapW = cd ? m.drawn.width : m.width;
+    mapH = cd ? m.drawn.height : m.height;
     shown = true;
     img.src = cd ? cdOf(m) : svgOf(m);
     fit();
@@ -260,7 +260,7 @@ noindex: true
     [cur - 1, cur + 1].forEach(function (j) {
       var n = maps[j];
       if (!n) return;
-      if (cd && n.cd) new Image().src = cdOf(n);
+      if (cd && n.drawn) new Image().src = cdOf(n);
       else if (!cd && !n.error) new Image().src = svgOf(n);
     });
   }
@@ -348,6 +348,7 @@ noindex: true
       var vb = /viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"/.exec(t);
       m.width = +vb[1];
       m.height = +vb[2];
+      if (m.drawn && !m.drawnSha) m.drawnSha = m.sha1;  // the CellDesigner-style drawing is of this file
       if (m.src) URL.revokeObjectURL(m.src);
       m.src = URL.createObjectURL(new Blob([t], { type: 'image/svg+xml' }));
       m.error = '';

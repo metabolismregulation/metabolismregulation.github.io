@@ -387,15 +387,17 @@ up and down arrow keys go through the list, in full screen too, `?map=<name>` op
 map page it lists, compares every CellDesigner file they link (sha1) with the one drawn, and has MINERVA draw the
 changed and new ones in the browser (MINERVA allows the site's origin); a new map goes under "New on the Maps
 page", the result is said under the button. Those drawings last until the page is reloaded. A switch at the top left of the map window (user, 2026-10-22), "MINERVA" and "CellDesigner"
-(blue the chosen one, `?view=celldesigner`, remembered in the browser), shows MINERVA's drawing or
-CellDesigner's. CellDesigner's is for now the user's SVG export from CellDesigner,
-`cdviewer/celldesigner/<base>.svg` (a copy suffix such as _1 is dropped. `make_cdviewer.py` adds the
-size the export lacks and Arial's metrics after Dialog, and keeps in maps.json `cd` the sha1 of the
-CellDesigner file it came from, so the page says "Exported from an earlier version of the CellDesigner
-file." when the file changed). A map without one says so. Next (user, 2026-10-22): our own drawing
-from the CellDesigner XML by CellDesigner's rules, read off the user's exports (iNOS, then eNOS, ACLY,
-mevalonate, SREBP, estrogen, which with iNOS cover every CellDesigner feature of the official files),
-the exports kept as its reference. The SVGs are made by
+(blue the chosen one, `?view=celldesigner`, remembered in the browser), shows MINERVA's drawing or the
+file drawn as CellDesigner draws it: `scripts/cdrender.py` (user, 2026-10-22: drawn from the XML, not
+MINERVA's SVG restyled), run by `make_cdviewer.py` for every map into `cdviewer/drawn/<base>.svg`
+(maps.json `drawn`). Its rules are read off the user's SVG exports from CellDesigner, kept as its
+reference in `cdviewer/celldesigner/<base>.svg` (iNOS, eNOS, ACLY, mevalonate, SREBP, estrogen,
+which cover every CellDesigner feature of the official files; not shown on the page; a copy suffix
+such as _1 is dropped, and `make_cdviewer.py` adds the size the export lacks and Arial's metrics
+after Dialog; maps.json `cd`). More exports from the user improve the rules. Line geometry as
+map-converter reads CellDesigner (`converter/mapconv/cd_layout.py`). A map MINERVA redraws by
+Update keeps its CellDesigner-style drawing of the earlier file until the site's data is rebuilt,
+said under the map. The SVGs are made by
 `python3 scripts/make_cdviewer.py` (MINERVA's conversion service, CellDesigner to SVG, Java's Dialog font
 given Arial's metrics) into `cdviewer/<base>.svg`, listed in `cdviewer/maps.json` with each file's sha1, so
 only a changed file is sent again (`--all` sends all); a file MINERVA cannot draw shows MINERVA's reason in
