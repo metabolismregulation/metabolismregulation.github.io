@@ -204,8 +204,8 @@ noindex: true
   // a map drawn by Update is shown from the browser's memory, the others from cdviewer/
   function svgOf(m) { return m.src || '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
   var DL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
-  // a new tab: a plain up-right arrow, in the lines of the download sign (user, 2026-10-22: not the external-link box)
-  var EXT_ICON = '<svg viewBox="0 0 24 24" class="m2-ext" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+  // a new tab: the arrow that goes up and then right (↱), the Converter's navigation arrow (↳) turned upwards (user, 2026-10-22)
+  var EXT_ICON = '<svg viewBox="0 0 24 24" class="m2-ext" aria-hidden="true"><path d="M6 20v-8a3 3 0 0 1 3-3h11M15 4l5 5-5 5"/></svg>';
   function choose(i, again) {
     if (i < 0 || i >= maps.length || (i === cur && !again)) return;
     if (cur >= 0 && buttons[cur]) buttons[cur].classList.remove('m2-on');
