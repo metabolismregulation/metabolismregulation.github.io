@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 tag: "new"
 image: "/atlas-downloads/F001-glycolysis-extended.svg"
-width: 1905
-height: 1776
+width: 1907
+height: 1780
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-extended.json"
 image_error: ""

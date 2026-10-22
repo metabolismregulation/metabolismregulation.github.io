@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F012-camp.svg"
-width: 762
+width: 767
 height: 767
 scale: 1
 annotation: "/atlas-data/F012-camp.json"
