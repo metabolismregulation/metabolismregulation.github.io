@@ -106,12 +106,18 @@ def plain_name(s):  # inverse of cd_name: _space_, _alpha_ back to text
 
 def units_of_information(d):
     # the units of information other than the multimer count (that becomes homodimer N)
-    return [u for u in d.units if ':' in u and not re.fullmatch(r'N:\d+', u)]
+    return [u for u in d.units if not re.fullmatch(r'N:\d+', u)]
+
+
+def cd_info(u):
+    # a unit of information as CellDesigner's info (prefix, label): ct:gene as prefix ct, any other
+    # text as "free input", as CellDesigner saves a free-text unit (user's example, 2026-10-22)
+    return ('ct', u[3:]) if u.startswith('ct:') else ('free input', u)
 
 
 def cd_class(d):
     # a nucleic acid feature is an RNA when it carries ct:mRNA (or another ct:...RNA), else a gene
-    if d.kind == 'NucleicAcidFeature' and any(u.split(':', 1)[1].lower().endswith('rna') for u in units_of_information(d)):
+    if d.kind == 'NucleicAcidFeature' and any(u.startswith('ct:') and u.lower().endswith('rna') for u in units_of_information(d)):
         return 'RNA'
     return CLASS[d.kind]
 
@@ -319,9 +325,11 @@ def write(diagram, ann, layout='straight', move=True):
             # CellDesigner keeps this one width as a float (107.45129863291555 -> 107.45130157470703)
             sub(u, 'singleLine', width=unpack("f", pack("f", w))[0] if d.kind == 'Complex' and v == 'briefView' else '1.0')
             sub(u, 'paint', color='ff' + (d.fill or '#FFFFFF').lstrip('#').lower(), scheme='Color')
-        ct = [u for u in units_of_information(d) if u.startswith('ct:')]
-        if ct:  # the old files: <info state="open" prefix="ct" label="gene"/> (angle as there)
-            sub(a, 'info', state='open', prefix='ct', label=ct[0][3:], angle='-1.5707963267948966')
+        us = sorted(units_of_information(d), key=lambda u: not u.startswith('ct:'))  # ct: first
+        if us:  # one per alias: <info state="open" prefix="ct" label="gene"/> (angle as in the old files)
+            prefix, lab = cd_info(us[0])
+            sub(a, 'info', state='open', prefix=prefix, label=lab, angle='-1.5707963267948966')
+            if us[1:]: report.say('left out', '%s: units of information %s left out (CellDesigner keeps one)' % (label[i], ', '.join(us[1:])))
         else:
             sub(a, 'info', state='empty', angle='-1.5707963267948966')
     sub(ext, 'listOfGroups')
@@ -688,7 +696,8 @@ def read(path):
         if (f(a, 'cd:activity').text if f(a, 'cd:activity') is not None else '') == 'active':
             states.append(('active', 0.5, -0.5))  # user, Q10
         info = f(a, 'cd:info')
-        units = ['%s:%s' % (info.get('prefix'), info.get('label'))] if info is not None and info.get('state') != 'empty' else []
+        units = [info.get('label') if info.get('prefix') == 'free input' else '%s:%s' % (info.get('prefix'), info.get('label'))] \
+            if info is not None and info.get('state') != 'empty' else []
         if cls in UNIT and not any(u.startswith('ct:') for u in units):
             units.append(UNIT[cls])
         if n > 1:  # N:x as on every multimer of our yEd maps (N:2 included, user 2026-10-18)
