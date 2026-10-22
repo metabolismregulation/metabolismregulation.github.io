@@ -108,16 +108,17 @@
 
   // ---------- map rendering ----------
   function loadMap(src, done) {
-    fetch(src).then(function (r) { return r.text(); }).then(function (t) {
-      map.innerHTML = t;
-      svg = map.querySelector('svg');
-      svg.removeAttribute('width');
-      svg.removeAttribute('height');
-      mapW = svg.viewBox.baseVal.width;
-      mapH = svg.viewBox.baseVal.height;
-      done();
-      fit();
-    });
+    fetch(src).then(function (r) { return r.text(); }).then(function (t) { showMap(t, done); });
+  }
+  function showMap(t, done) {
+    map.innerHTML = t;
+    svg = map.querySelector('svg');
+    svg.removeAttribute('width');
+    svg.removeAttribute('height');
+    mapW = svg.viewBox.baseVal.width;
+    mapH = svg.viewBox.baseVal.height;
+    done();
+    fit();
   }
 
   // ---------- viewer ----------
@@ -742,9 +743,25 @@
     if (!on) return codes;
     return on.getAttribute('data-name').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + codes;
   }
+  function template(ext) {
+    if (!dropped) {
+      var v = document.querySelector('.c2-under').getAttribute('data-v');
+      return fetch(mapBase + '.template.' + ext + '?v=' + v).then(function (r) { return r.text(); });
+    }
+    if (ext === 'graphml') return Promise.resolve(dropped.graphml);
+    if (dropped.xml) return Promise.resolve(dropped.xml);
+    var mine = turn;
+    say('Making the CellDesigner file…');
+    return python().then(later).then(function (p) {
+      var out = call(p, 'cd_template', dropped.path);
+      if (mine !== turn) throw new Error('another map');
+      if (!out[0]) { say('CellDesigner file not made: ' + out[1], true); throw new Error(out[1]); }
+      say('');
+      return (dropped.xml = out[0]);
+    });
+  }
   function download(ext, name, lower) {
-    var v = document.querySelector('.c2-under').getAttribute('data-v');
-    fetch(mapBase + '.template.' + ext + '?v=' + v).then(function (r) { return r.text(); }).then(function (t) {
+    template(ext).then(function (t) {
       var c = shownColours();
       t = t.replace(/\{(\w+)\}/g, function (m, id) {
         return c[id] ? (lower ? c[id].toLowerCase() : c[id]) : m;
@@ -756,6 +773,115 @@
       a.click();
       a.remove();
       setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    }).catch(function () { /* said in the map window */ });
+  }
+
+  // ---------- a dropped map ----------
+  // A map file dropped on the map window (yEd GraphML, CellDesigner, SBGN-ML, Newt) is shown in
+  // the theme: the Converter's copy (converter/mapconv/) makes its GraphML when it is not one, and
+  // yrender/ draws it with a class for each role (yrender --roles). All in the browser (Python by
+  // Pyodide, loaded at the first drop). The yEd download is its GraphML's template; the
+  // CellDesigner one is made on click, from the dropped CellDesigner file itself or else from the
+  // converter's CellDesigner file.
+  var PYODIDE = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/';  // as on /converter/
+  var DRIVER = `
+import sys, json
+sys.path.insert(0, '/home/pyodide')
+import yrender, colours_templates
+from mapconv import routes
+
+def converted(path, ending):
+    # the converter's file with this ending, or why there is none
+    o = next(o for o in routes.outputs(path) if o.ending == ending)
+    text, said = routes.made(o)
+    if text is None:
+        raise ValueError('; '.join(m for k, m in said if k in ('left out', 'problem')) or 'not converted')
+    return text
+
+def show(path):
+    # [the map drawn with its roles, its yEd template], or [None, why not]
+    try:
+        ext, gml = path.rsplit('.', 1)[-1].lower(), path
+        if ext != 'graphml':
+            gml = path + '.graphml'
+            open(gml, 'w', encoding='utf-8').write(converted(path, '-advanced.graphml' if ext == 'xml' else '.graphml'))
+        yrender.render(gml, '/tmp/map.svg', roles=True)
+        out = [open('/tmp/map.svg', encoding='utf-8').read(), colours_templates.graphml(open(gml, encoding='utf-8').read())[0]]
+    except BaseException as e:
+        out = [None, str(e).replace(path + '.graphml: ', '').replace(path + ': ', '')]
+    return json.dumps(out)
+
+def cd_template(path):
+    # [the CellDesigner template], or [None, why not]
+    try:
+        text = open(path, encoding='utf-8').read() if path.lower().endswith('.xml') else converted(path, '-advanced.xml')
+        out = [colours_templates.celldesigner(text)[0]]
+    except BaseException as e:
+        out = [None, str(e)]
+    return json.dumps(out)
+`;
+  var py = null;       // a promise of Python, from the first drop
+  var dropped = null;  // the dropped map shown: {path, graphml (template), xml (template, once made)}
+  var turn = 0;        // the map last asked for: a later choice wins over a drop still drawing
+  var status = document.getElementById('c2-status');
+  function say(text, bad) {
+    status.textContent = text;
+    status.hidden = !text;
+    status.classList.toggle('c2-bad', !!bad);
+  }
+  // a moment for the browser to show the message before Python holds the page
+  function later(x) { return new Promise(function (ok) { setTimeout(function () { ok(x); }, 30); }); }
+  function call(p, name, path) {
+    var f = p.globals.get(name), out = JSON.parse(f(path));
+    f.destroy();
+    return out;
+  }
+  function python() {
+    if (py) return py;
+    var M = window.MAPCONV, v = map.getAttribute('data-v');
+    var files = M.modules.map(function (m) { return [M.base + m + '.py', 'mapconv/' + m + '.py']; })
+      .concat(M.data.map(function (f) { return [M.base + f, 'mapconv/' + f]; }))
+      .concat(['yrender.py', 'colours_templates.py'].map(function (f) { return ['/yrender/' + f, f]; }));
+    py = new Promise(function (ok, no) {
+      var s = document.createElement('script');
+      s.src = PYODIDE + 'pyodide.js';
+      s.onload = ok;
+      s.onerror = function () { no(new Error('Python could not be loaded.')); };
+      document.head.appendChild(s);
+    }).then(function () {
+      return loadPyodide({ indexURL: PYODIDE });
+    }).then(function (p) {
+      p.FS.mkdirTree('/home/pyodide/mapconv');
+      return Promise.all([p.loadPackage('lxml')].concat(files.map(function (f) {
+        return fetch(f[0] + '?v=' + v).then(function (r) {
+          if (!r.ok) throw new Error(f[0] + ' could not be loaded.');
+          return r.text();
+        }).then(function (t) { p.FS.writeFile('/home/pyodide/' + f[1], t); });
+      }))).then(function () { p.runPython(DRIVER); return p; });
+    });
+    py.catch(function () { py = null; });  // tried again at the next drop
+    return py;
+  }
+  function isDroppedMap(f) {
+    return /\.(xml|graphml|sbgn|sbgnml|nwt)$/i.test(f.name);
+  }
+  function showDropped(f) {
+    var mine = ++turn, name = f.name;
+    say((py ? 'Drawing ' : 'Loading the converter, then drawing ') + name + '…');
+    Promise.all([python(), f.arrayBuffer()]).then(later).then(function (r) {
+      var p = r[0], path = '/tmp/in/' + name;
+      p.FS.mkdirTree('/tmp/in');
+      p.FS.writeFile(path, new Uint8Array(r[1]));
+      var out = call(p, 'show', path);
+      if (mine !== turn) return;
+      if (!out[0]) { say('Not drawn: ' + out[1], true); return; }
+      dropped = { path: path, graphml: out[1], xml: null };
+      mapName = name.replace(/\.[^.]+$/, '');
+      document.getElementById('c2-mapname').textContent = name;
+      say('');
+      showMap(out[0], render);
+    }).catch(function (e) {
+      if (mine === turn) say('Not drawn: ' + e.message, true);
     });
   }
 
@@ -1464,6 +1590,9 @@
   var mapItems = Array.prototype.slice.call(mapMenu.querySelectorAll('a'));
   var mapBase, mapName;
   function chooseMap(a) {
+    turn++;
+    dropped = null;
+    say('');
     mapBase = a.getAttribute('data-map');
     mapName = mapBase.split('/').pop();
     document.getElementById('c2-mapname').textContent = a.textContent;
@@ -1522,7 +1651,7 @@
   drop.addEventListener('drop', function (e) {
     readDropped(e.dataTransfer.files[0]);
   });
-  // the map takes dropped files too (a hidden shortcut)
+  // the map takes dropped files too: a map file is shown (see a dropped map), an image read
   var mapCol = document.querySelector('.c2-mapcol');
   var hasFiles = function (e) {
     return Array.prototype.indexOf.call((e.dataTransfer || {}).types || [], 'Files') >= 0;
@@ -1533,7 +1662,9 @@
   mapCol.addEventListener('drop', function (e) {
     if (!hasFiles(e)) return;
     e.preventDefault();
-    readDropped(e.dataTransfer.files[0]);
+    var f = e.dataTransfer.files[0];
+    if (f && isDroppedMap(f)) showDropped(f);
+    else readDropped(f);
   });
   document.addEventListener('paste', function (e) {
     var items = (e.clipboardData || {}).items || [];

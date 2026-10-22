@@ -26,6 +26,9 @@ noindex: true
   #c2-out, #c2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; }
   #c2-fit { box-sizing: border-box; width: 44px; height: 21px; padding: 0; }
   #c2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
+  /* what a dropped map is waiting for, or why it is not drawn */
+  #c2-status { position: absolute; left: 8px; top: 8px; max-width: calc(100% - 200px); max-height: calc(100% - 16px); overflow: auto; box-sizing: border-box; padding: 3px 8px; font-size: 13px; color: #666; background: #fffffff0; border: 1px solid #ddd; border-radius: 4px; white-space: pre-wrap; cursor: auto; user-select: text; }
+  #c2-status.c2-bad { color: #c62828; }
   /* the map's roles, set by colours2.js */
   #c2-map svg { position: absolute; left: 0; top: 0; max-width: none; fill: var(--ink); stroke: var(--ink); }
   #c2-map .c-compartment { fill: var(--c-compartment); }
@@ -190,6 +193,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <div class="c2-mapcol">
 <div id="c2-view" tabindex="0">
 <div id="c2-map" data-v="{{ site.time | date: '%s' }}"></div>
+<div id="c2-status" hidden></div>
 <div class="c2-ctrl">
 <span id="c2-zoom"></span>
 <button type="button" id="c2-out" title="Zoom out">&minus;</button>
@@ -207,6 +211,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-add">Add to Presets</button>
 </div>
+<p class="c2-small" style="margin:6px 0 0">Drop a map file (yEd GraphML, CellDesigner or SBGN-ML) on the map to see it in these colours. It is converted and drawn in your browser.</p>
 <p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour; the text will remain black in CellDesigner. The yEd file keeps the current view.</p>
 </div>
 <div class="c2-panel c2-right">
@@ -227,5 +232,8 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </div>
 </div>
 
+<script>
+{% include mapconv.js %}
+</script>
 <script src="/images/colours2/presets.js?v={{ site.time | date: '%s' }}"></script>
 <script src="/images/colours2/colours2.js?v={{ site.time | date: '%s' }}"></script>

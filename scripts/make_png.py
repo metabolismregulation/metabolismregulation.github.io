@@ -1,5 +1,5 @@
 # The PNG of a map from its SVG (user, 2026-10-18, File pipeline in CLAUDE.md): cairosvg at 2x,
-# white background, the same renderer as the Atlas images (scripts/yrender/). yEd's SVG names
+# white background, the same renderer as the Atlas images (yrender/). yEd's SVG names
 # its font Dialog or sans-serif, which each system resolves to another font, so both are drawn in
 # Liberation Sans (Arial's metrics, as yEd's Dialog) and the PNG is the same everywhere. yEd's
 # text-rendering="geometricPrecision" is dropped: cairosvg draws the letters on top of each other.

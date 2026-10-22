@@ -3,7 +3,7 @@
 # workflow runs both). Needs: lxml, cairosvg, numpy, pillow.
 # For every map in atlas-downloads/ (a GraphML with an SVG or PNG there, or named by a page),
 # atlas-data/images.json keeps the GraphML and SVG as last seen. When a GraphML changes on its
-# own, scripts/yrender/ (a copy of the workbench's tools/yrender.py, commit in VERSION) draws
+# own, yrender/ (a copy of the workbench's tools/yrender.py, commit in VERSION) draws
 # its SVG, and for a published map its PNG; a draft carries no PNG, so a draft's old PNG is
 # removed. When the SVG changes too, or alone, it is a yEd export: it is kept, and how the
 # drawn version compares with it is written to the record ("check") and printed.
@@ -15,11 +15,11 @@ import os, re, glob, json, hashlib, sys, tempfile
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DL = os.path.join(ROOT, 'atlas-downloads')
 RECORD = os.path.join(ROOT, 'atlas-data', 'images.json')
-sys.path.insert(0, os.path.join(ROOT, 'scripts', 'yrender'))
+sys.path.insert(0, os.path.join(ROOT, 'yrender'))
 import yrender
 from yrender_check import compare
 
-VERSION = open(os.path.join(ROOT, 'scripts', 'yrender', 'VERSION')).read().split()[1]
+VERSION = open(os.path.join(ROOT, 'yrender', 'VERSION')).read().split()[1]
 
 
 def sha(path):

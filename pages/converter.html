@@ -81,10 +81,8 @@ noindex: true
 <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 <script>
 (() => {
-  const BASE = '{{ "/converter/mapconv/" | relative_url }}';
-  const MODULES = ['model', 'report', 'graphml', 'annotation', 'biology', 'celldesigner', 'cd_layout', 'layout', 'newt_layout',
-                   'cd_straighten', 'style', 'sbgnml', 'rules', 'routes'];
-  const DATA = ['yed.graphml', 'conjugates.json'];  // the yEd templates; ChEBI's conjugate acids and bases
+{% include mapconv.js %}
+  const BASE = MAPCONV.base, MODULES = MAPCONV.modules, DATA = MAPCONV.data;
   // the converter's own code (mapconv): which files each input gives and how each is made is the
   // converter's (mapconv/routes.py, the same as on the command line). A GraphML map is first checked
   // (mapconv.rules): the problem elements are left out of the converted files, and the map comes back
