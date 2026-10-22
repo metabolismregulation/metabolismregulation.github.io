@@ -377,8 +377,13 @@ there, copy them and update `VERSION`.
 `noindex: true`): to go through the official maps' CellDesigner files quickly, without opening each in
 CellDesigner. The Atlas's layout, lean: the official maps on the left (the CellDesigner files the pages in
 the Maps list link, in the Atlas's order and names), the chosen one in the middle as MINERVA draws it (the
-Colours page's lean viewer: fit, zoom, drag, −, + and Fit), the file and its map page linked under it. The up
-and down arrow keys go through the list, `?map=<name>` opens a map. The SVGs are made by
+Colours page's lean viewer: fit, zoom, drag, −, + and Fit, and the Atlas's full-screen button, user 2026-10-22),
+under it two buttons in the Atlas download row's style: CellDesigner (download icon) and Map page (a new tab). The
+up and down arrow keys go through the list, in full screen too, `?map=<name>` opens a map. An Update button
+(the browser's reload sign, turning while it works; user 2026-10-22) above the list reads the Maps page and each
+map page it lists, compares every CellDesigner file they link (sha1) with the one drawn, and has MINERVA draw the
+changed and new ones in the browser (MINERVA allows the site's origin); a new map goes under "New on the Maps
+page", the result is said under the button. Those drawings last until the page is reloaded. The SVGs are made by
 `python3 scripts/make_cdviewer.py` (MINERVA's conversion service, CellDesigner to SVG, Java's Dialog font
 given Arial's metrics) into `cdviewer/<base>.svg`, listed in `cdviewer/maps.json` with each file's sha1, so
 only a changed file is sent again (`--all` sends all); a file MINERVA cannot draw shows MINERVA's reason in

@@ -39,14 +39,32 @@ noindex: true
   #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; }
   #m2-fit { box-sizing: border-box; height: 21px; padding: 0 6px; }
   #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
-  /* under the map: the file shown, linked, and its map page */
-  #m2-file { margin: 8px 0 0; font-size: 14px; color: #777; }
+  /* full screen: the map alone, as on the Atlas; the arrow keys still go through the list */
+  #m2-view:fullscreen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
+  #m2-view:-webkit-full-screen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
+  #m2-full { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  #m2-full svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  /* the buttons of the Atlas download row: white, grey edge and text, filled blue on hover */
+  .m2-btn { display: inline-flex; align-items: center; font: inherit; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #777 !important; background: #fff; border: 1px solid #777; border-radius: 5px; text-decoration: none; cursor: pointer; }
+  .m2-btn:hover { background: #4183c4; border-color: #4183c4; color: #fff !important; }
+  .m2-btn:focus { outline: none; }
+  .m2-btn svg { width: 14px; height: 14px; margin-left: 5px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; }
+  /* Update: the browser's reload sign before the word, turning while the files are checked */
+  #m2-update { margin: 0 0 6px; }
+  #m2-update svg { margin: 0 6px 0 0; }
+  #m2-update.m2-busy svg { animation: m2-turn 1s linear infinite; }
+  @keyframes m2-turn { to { transform: rotate(360deg); } }
+  #m2-status { font-size: 13px; color: #777; margin: 0 0 12px; min-height: 18px; }
+  #m2-status.m2-bad { color: #c62828; }
   .m2 a { color: #1c47a9; }
   .m2 a:hover, .m2 a:active { color: #1c47a9; }
 </style>
 
 <div class="m2">
 <div class="m2-nav">
+<button type="button" class="m2-btn" id="m2-update" title="Check the official maps' CellDesigner files and draw the changed or new ones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg>Update</button>
+<div id="m2-status"></div>
 <div id="m2-list"></div>
 </div>
 <div class="m2-main">
@@ -58,9 +76,10 @@ noindex: true
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
 <button type="button" id="m2-in" title="Zoom in">+</button>
 <button type="button" id="m2-fit">Fit</button>
+<button type="button" id="m2-full" title="Full screen" aria-label="Full screen"></button>
 </div>
 </div>
-<div id="m2-file"></div>
+<div id="m2-downloads"></div>
 </div>
 </div>
 
@@ -160,19 +179,42 @@ noindex: true
   viewHeight();
   window.addEventListener('resize', viewHeight);
   if (window.ResizeObserver) new ResizeObserver(function () { if (moved) draw(); else fit(); }).observe(view);
+  // full screen: the map alone; Esc or the button returns to the page
+  var full = document.getElementById('m2-full');
+  var FULL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>';
+  var EXIT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>';
+  function isFull() { return (document.fullscreenElement || document.webkitFullscreenElement) === view; }
+  function showFull() {
+    var on = isFull();
+    full.innerHTML = on ? EXIT_ICON : FULL_ICON;
+    full.title = on ? 'Exit full screen (Esc)' : 'Full screen';
+    full.setAttribute('aria-label', full.title);
+  }
+  if (view.requestFullscreen || view.webkitRequestFullscreen) {
+    showFull();
+    full.addEventListener('click', function () {
+      if (isFull()) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      else (view.requestFullscreen || view.webkitRequestFullscreen).call(view);
+    });
+    var onFull = function () { showFull(); requestAnimationFrame(function () { if (moved) draw(); else fit(); }); };
+    document.addEventListener('fullscreenchange', onFull);
+    document.addEventListener('webkitfullscreenchange', onFull);
+  } else full.style.display = 'none'; // iPhone: no full screen for page elements
 
-  function svgOf(m) { return '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
-  function choose(i) {
-    if (i < 0 || i >= maps.length || i === cur) return;
-    if (cur >= 0) buttons[cur].classList.remove('m2-on');
+  // a map drawn by Update is shown from the browser's memory, the others from cdviewer/
+  function svgOf(m) { return m.src || '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
+  var DL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
+  function choose(i, again) {
+    if (i < 0 || i >= maps.length || (i === cur && !again)) return;
+    if (cur >= 0 && buttons[cur]) buttons[cur].classList.remove('m2-on');
     cur = i;
     var m = maps[i], b = buttons[i];
     b.classList.add('m2-on');
     b.scrollIntoView({ block: 'nearest' });
     history.replaceState(null, '', '?map=' + m.base.replace(/^F\d+-/, ''));
-    var name = m.base + '.xml';
-    document.getElementById('m2-file').innerHTML = '<a href="{{ site.baseurl }}' + m.file + '" download>' + name +
-      '</a> &nbsp; <a href="{{ site.baseurl }}' + m.page + '">Map page</a>';
+    document.getElementById('m2-downloads').innerHTML =
+      '<a class="m2-btn" href="{{ site.baseurl }}' + m.file + '" download title="' + m.base + '.xml">CellDesigner' + DL_ICON + '</a>' +
+      '<a class="m2-btn" href="{{ site.baseurl }}' + m.page + '" target="_blank" rel="noopener">Map page</a>';
     if (m.error) {
       shown = false;
       img.removeAttribute('src');
@@ -204,8 +246,9 @@ noindex: true
     e.preventDefault();
   });
 
-  fetch('{{ site.baseurl }}/cdviewer/maps.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
-    maps = data;
+  function buildList() {
+    list.innerHTML = '';
+    buttons = [];
     var group = null;
     maps.forEach(function (m, i) {
       if (m.group !== group) {
@@ -224,6 +267,100 @@ noindex: true
       buttons.push(b);
       list.appendChild(b);
     });
+  }
+
+  // Update: the official maps as the Maps page lists them now, each CellDesigner file their pages
+  // link (read from the pages, as the Maps page shows only their top) compared (sha1) with the one
+  // drawn, and the changed or new ones drawn by MINERVA's conversion service, in this browser. The drawings stay until the page is reloaded; the Atlas
+  // data workflow stores them in cdviewer/ after a push.
+  var MINERVA = 'https://minerva-service.lcsb.uni.lu/minerva/api/convert/image/CellDesigner_SBML:svg';
+  var upd = document.getElementById('m2-update'), status = document.getElementById('m2-status');
+  function say(t, bad) { status.textContent = t; status.classList.toggle('m2-bad', !!bad); }
+  function sha1(buf) {
+    return crypto.subtle.digest('SHA-1', buf).then(function (h) {
+      return Array.prototype.map.call(new Uint8Array(h), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+    });
+  }
+  function drawFile(m, buf, sha) {
+    return fetch(MINERVA, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: buf }).then(function (r) { return r.text(); }).then(function (t) {
+      if (t.indexOf('<svg') < 0) {
+        var why = t;
+        try { var j = JSON.parse(t); why = j.reason || j.error; } catch (e) {}
+        m.error = 'MINERVA: ' + why;
+        return;
+      }
+      // Java's Dialog font, which browsers lack: Arial's metrics, as in scripts/make_cdviewer.py
+      t = t.split('font-family="\'Dialog\'"').join('font-family="\'Dialog\', \'Liberation Sans\', Arial, sans-serif"');
+      var vb = /viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"/.exec(t);
+      m.width = +vb[1];
+      m.height = +vb[2];
+      if (m.src) URL.revokeObjectURL(m.src);
+      m.src = URL.createObjectURL(new Blob([t], { type: 'image/svg+xml' }));
+      m.error = '';
+      m.sha1 = sha;
+    }, function () { m.error = 'MINERVA could not be reached'; });
+  }
+  upd.addEventListener('click', function () {
+    if (upd.classList.contains('m2-busy')) return;
+    upd.classList.add('m2-busy');
+    say('Reading the Maps page');
+    var shown = cur >= 0 ? maps[cur].base : null;
+    function page(url) {
+      return fetch(url, { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (html) { return new DOMParser().parseFromString(html, 'text/html'); });
+    }
+    page('{{ site.baseurl }}/maps/').then(function (doc) {
+      var pages = Array.prototype.map.call(doc.querySelectorAll('article h1 a'), function (a) { return [a.getAttribute('href'), a.textContent.trim()]; });
+      return Promise.all(pages.map(function (pg) { return page(pg[0]).then(function (d) { return [pg, d]; }); }));
+    }).then(function (docs) {
+      var found = [];
+      docs.forEach(function (pd) {
+        pd[1].querySelectorAll('a[href*="/downloads/"]').forEach(function (a) {
+          var f = /\/downloads\/([^\/]+)\.xml$/.exec(a.getAttribute('href'));
+          if (f && !/-SBML$/.test(f[1]) && !found.some(function (x) { return x.base === f[1]; }))
+            found.push({ base: f[1], page: pd[0][0], title: pd[0][1] });
+        });
+      });
+      say('Checking ' + found.length + ' CellDesigner files');
+      return Promise.all(found.map(function (f) {
+        return fetch('{{ site.baseurl }}/downloads/' + f.base + '.xml', { cache: 'no-cache' }).then(function (r) { return r.arrayBuffer(); })
+          .then(function (buf) { return sha1(buf).then(function (h) { f.buf = buf; f.sha1 = h; return f; }); });
+      }));
+    }).then(function (found) {
+      var old = {}, changed = [];
+      maps.forEach(function (m) { old[m.base] = m; });
+      var next = found.map(function (f) {
+        var m = old[f.base];
+        if (!m) {
+          var t = f.title.replace(/^Regulation of (the )?/, '');
+          m = { base: f.base, name: /^[a-z][a-z]/.test(t) ? t.charAt(0).toUpperCase() + t.slice(1) : t, group: 'New on the Maps page', file: '/downloads/' + f.base + '.xml', sha1: '' };
+        }
+        m.page = f.page;
+        if (m.sha1 !== f.sha1) changed.push([m, f.buf, f.sha1]);
+        return m;
+      });
+      // the Atlas's order for the maps the viewer knew, new ones at the end
+      next.sort(function (a, b) { return (a.group === 'New on the Maps page') - (b.group === 'New on the Maps page') || maps.indexOf(a) - maps.indexOf(b); });
+      say(changed.length ? 'Drawing ' + changed.length + ' with MINERVA' : '');
+      return changed.reduce(function (p, c) { return p.then(function () { return drawFile(c[0], c[1], c[2]); }); }, Promise.resolve()).then(function () {
+        var gone = maps.filter(function (m) { return next.indexOf(m) < 0; }).length;
+        maps = next;
+        buildList();
+        var i = maps.findIndex(function (m) { return m.base === shown; });
+        cur = -1;
+        choose(i < 0 ? 0 : i, true);
+        var bad = changed.filter(function (c) { return c[0].error; }).length;
+        var parts = [];
+        if (changed.length > bad) parts.push((changed.length - bad) + ' drawn again: ' + changed.filter(function (c) { return !c[0].error; }).map(function (c) { return c[0].name; }).join(', '));
+        if (bad) parts.push(bad + ' not drawn (red in the list)');
+        if (gone) parts.push(gone + ' no longer on the Maps page');
+        say(parts.length ? parts.join('. ') + '.' : 'All ' + maps.length + ' up to date.', bad);
+      });
+    }).catch(function (e) { say('Update failed: ' + e.message, true); }).then(function () { upd.classList.remove('m2-busy'); });
+  });
+
+  fetch('{{ site.baseurl }}/cdviewer/maps.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+    maps = data;
+    buildList();
     var want = new URLSearchParams(location.search).get('map');
     var start = maps.findIndex(function (m) { return m.base.replace(/^F\d+-/, '') === want; });
     choose(start < 0 ? 0 : start);
