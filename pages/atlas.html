@@ -105,6 +105,7 @@ noindex: true
   #m2-downloads summary::-webkit-details-marker { display: none; }
   #m2-downloads .m2-caret { margin-left: 4px; font-size: 11px; }
   #m2-downloads .m2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
+  #m2-downloads .m2-up .m2-list { top: auto; bottom: 30px; }
   /* the menu items in the font of the button (Images) */
   #m2-downloads .m2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #777; text-decoration: none; }
   #m2-downloads .m2-list a:hover { background: #4183c4; color: #fff; }
@@ -231,6 +232,15 @@ noindex: true
       if (!d.contains(e.target) || e.target.closest('.m2-list a')) d.open = false;
     });
   });
+  // a menu opens upwards when there is no room for it below in the window
+  // (toggle does not bubble: caught on its way down)
+  document.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (!d.open || !d.closest || !d.closest('#m2-downloads')) return;
+    d.classList.remove('m2-up');
+    var r = d.querySelector('.m2-list').getBoundingClientRect();
+    if (r.bottom > window.innerHeight && d.getBoundingClientRect().top > r.height) d.classList.add('m2-up');
+  }, true);
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
