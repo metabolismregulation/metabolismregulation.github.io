@@ -378,7 +378,7 @@ there, copy them and update `VERSION`.
 CellDesigner. The Atlas's layout, lean: the official maps on the left (the CellDesigner files the pages in
 the Maps list link, in the Atlas's order and names), the chosen one in the middle as MINERVA draws it (the
 Colours page's lean viewer: fit, zoom, drag, −, + and Fit, and the Atlas's full-screen button, user 2026-10-22),
-under it two buttons in the Atlas download row's style: CellDesigner (download icon) and Map page (a new tab, the external-link icon, user 2026-10-22). The
+under it two buttons in the Atlas download row's style: CellDesigner (download icon) and Map page (a new tab, a plain up-right arrow after it, not the external-link box, user 2026-10-22). The
 up and down arrow keys go through the list, in full screen too, `?map=<name>` opens a map. An Update button
 (the browser's reload sign, turning while it works; user 2026-10-22) above the list reads the Maps page and each
 map page it lists, compares every CellDesigner file they link (sha1) with the one drawn, and has MINERVA draw the

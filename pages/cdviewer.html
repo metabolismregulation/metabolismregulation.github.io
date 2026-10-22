@@ -48,7 +48,6 @@ noindex: true
   .m2-btn { display: inline-flex; align-items: center; font: inherit; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #777 !important; background: #fff; border: 1px solid #777; border-radius: 5px; text-decoration: none; cursor: pointer; }
   .m2-btn:hover { background: #4183c4; border-color: #4183c4; color: #fff !important; }
   .m2-btn:focus { outline: none; }
-  .m2-btn svg.m2-ext { width: 13px; height: 13px; }
   .m2-btn svg { width: 14px; height: 14px; margin-left: 5px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
   #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; }
   /* Update: the browser's reload sign before the word, turning while the files are checked */
@@ -205,8 +204,8 @@ noindex: true
   // a map drawn by Update is shown from the browser's memory, the others from cdviewer/
   function svgOf(m) { return m.src || '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
   var DL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
-  // a new tab: the site's external-link sign (a box and an up-right arrow), as on the Atlas's Newt and MINERVA buttons
-  var EXT_ICON = '<svg viewBox="0 0 24 24" class="m2-ext" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>';
+  // a new tab: a plain up-right arrow, in the lines of the download sign (user, 2026-10-22: not the external-link box)
+  var EXT_ICON = '<svg viewBox="0 0 24 24" class="m2-ext" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
   function choose(i, again) {
     if (i < 0 || i >= maps.length || (i === cur && !again)) return;
     if (cur >= 0 && buttons[cur]) buttons[cur].classList.remove('m2-on');
