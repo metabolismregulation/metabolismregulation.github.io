@@ -199,7 +199,7 @@ def write(diagram, layout='advanced', newt=False):
             report.say('left out', 'node %s: no SBGN glyph for %s, left out' % (i, d.kind)); return
         g = etree.SubElement(parent, S + 'glyph', {'class': cls, 'id': ids[i]})
         q = compartment_of(N, i)
-        if q and d.kind != 'Compartment' and (d.parent is None or N[d.parent].kind != 'Complex'):
+        if q and (d.parent is None or N[d.parent].kind != 'Complex'):  # a compartment's: the one around it
             g.set('compartmentRef', ids[q])
         if i in ports:
             g.set('orientation', ports[i][0])
@@ -233,9 +233,10 @@ def write(diagram, layout='advanced', newt=False):
     kids = {}
     for i, d in N.items():
         kids.setdefault(d.parent if d.parent in N else None, []).append(i)
-    # compartments first (drawn under the rest), then every node outside a complex
+    # compartments first, outer before inner (drawn under the rest), then every node outside a complex
+    depth = lambda i: 0 if compartment_of(N, i) is None else 1 + depth(compartment_of(N, i))
     order = sorted((i for i, d in N.items() if d.parent is None or N[d.parent].kind != 'Complex'),
-                   key=lambda i: N[i].kind != 'Compartment')
+                   key=lambda i: (N[i].kind != 'Compartment', depth(i) if N[i].kind == 'Compartment' else 0))
     for i in order:
         glyph(m, i)
 

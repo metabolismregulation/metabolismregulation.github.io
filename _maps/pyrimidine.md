@@ -21,7 +21,6 @@ contributors:
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F020-pyrimidine.graphml"}
   - {label: "SVG", url: "/atlas-downloads/F020-pyrimidine.svg"}
-  - {label: "CellDesigner", url: "/atlas-downloads/F020-pyrimidine.xml"}
 ---
 ## Description
 
