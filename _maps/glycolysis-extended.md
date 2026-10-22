@@ -10,7 +10,7 @@ draft: true
 tag: "new"
 image: "/atlas-downloads/F001-glycolysis-extended.svg"
 width: 1904
-height: 1779
+height: 1787
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-extended.json"
 image_error: ""

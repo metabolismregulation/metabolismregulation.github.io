@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F005-srebp.svg"
 width: 766
-height: 1153
+height: 1149
 scale: 1
 annotation: "/atlas-data/F005-srebp.json"
 image_error: ""

@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F015-tag.svg"
-width: 825
+width: 841
 height: 745
 scale: 1
 annotation: "/atlas-data/F015-tag.json"

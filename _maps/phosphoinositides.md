@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F009-phosphoinositides.svg"
 width: 739
-height: 989
+height: 997
 scale: 1
 annotation: "/atlas-data/F009-phosphoinositides.json"
 image_error: ""
