@@ -349,8 +349,7 @@ export tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg>
 its role from the GraphML node it draws, each text the role of the fill under it, and the page sets one CSS
 variable per role. The yEd and CellDesigner downloads come from templates made by maps-workbench
 `tools/colours_templates.py <website>/downloads/<map> <website>/images/colours2/<map>`. Another map: both
-scripts, then `data-map` in the page. The hidden page /colours/check/ (`pages/colours-check.html`) shows the
-tagged map against the export, to be removed once the user has confirmed the Colours page.
+scripts, then `data-map` in the page. The check page /colours/check/ was removed after the user's look (2026-10-22).
 
 ## Home page
 
