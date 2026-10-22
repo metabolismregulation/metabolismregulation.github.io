@@ -386,7 +386,7 @@ up and down arrow keys go through the list, in full screen too, `?map=<name>` op
 (the browser's reload sign, turning while it works; user 2026-10-22) above the list reads the Maps page and each
 map page it lists, compares every CellDesigner file they link (sha1) with the one drawn, and has MINERVA draw the
 changed and new ones in the browser (MINERVA allows the site's origin); a new map goes under "New on the Maps
-page", the result is said under the button. Those drawings last until the page is reloaded. A switch at the top left of the map window (user, 2026-10-22), "MINERVA" and "CellDesigner"
+page", the result is said under the button. Those drawings last until the page is reloaded. A switch right of the Update button (user, 2026-10-22; at the top left of the map window until then), "MINERVA" and "CellDesigner"
 (blue the chosen one, `?view=celldesigner`, remembered in the browser), shows MINERVA's drawing or the
 file drawn as CellDesigner draws it: `scripts/cdrender.py` (user, 2026-10-22: drawn from the XML, not
 MINERVA's SVG restyled), run by `make_cdviewer.py` for every map into `cdviewer/drawn/<base>.svg`

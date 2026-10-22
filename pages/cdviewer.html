@@ -9,7 +9,7 @@ noindex: true
 <style>
   /* the Atlas's layout, lean: the official maps on the left, the CellDesigner file of the
      chosen one in the middle, as MINERVA draws it (scripts/make_cdviewer.py) or as CellDesigner
-     draws it (scripts/cdrender.py; the switch at the top left of the map window), and an empty
+     draws it (scripts/cdrender.py; the switch right of Update), and an empty
      column of the list's width on the right, so the middle stays centred under the header */
   .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
         width: min(100vw / var(--zoom, 1) - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }
@@ -42,11 +42,12 @@ noindex: true
   .m2-ctrl button:hover { border-color: #4183c4; color: #4183c4; }
   #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; }
   #m2-fit { box-sizing: border-box; height: 21px; padding: 0 6px; }
-  /* the switch between the two drawings, in the look of the zoom buttons, the chosen one blue */
-  .m2-mode { position: absolute; top: 8px; left: 8px; display: flex; }
-  .m2-mode button { box-sizing: border-box; height: 21px; font-size: 13px; padding: 0 8px; color: #222; background: #fffffff0; border: 1px solid #bbb; cursor: pointer; }
-  .m2-mode button:first-child { border-radius: 4px 0 0 4px; border-right: 0; }
-  .m2-mode button:last-child { border-radius: 0 4px 4px 0; }
+  /* the switch between the two drawings, right of Update, in the look of its button, the chosen one blue */
+  .m2-top { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; white-space: nowrap; }
+  .m2-mode { display: flex; flex: none; }
+  .m2-mode button { box-sizing: border-box; height: 30px; font: inherit; font-size: 14px; padding: 0 8px; color: #777; background: #fff; border: 1px solid #777; cursor: pointer; }
+  .m2-mode button:first-child { border-radius: 5px 0 0 5px; border-right: 0; }
+  .m2-mode button:last-child { border-radius: 0 5px 5px 0; }
   .m2-mode button:hover { color: #4183c4; }
   .m2-mode button.m2-on { background: #4183c4; border-color: #4183c4; color: #fff; }
   .m2-mode button:focus { outline: none; }
@@ -66,7 +67,7 @@ noindex: true
   .m2-btn svg { width: 14px; height: 14px; margin-left: 5px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
   #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; }
   /* Update: the browser's reload sign before the word, turning while the files are checked */
-  #m2-update { margin: 0 0 6px; }
+  #m2-update { margin: 0; padding: 4px 8px; flex: none; }
   #m2-update svg { margin: 0 6px 0 0; }
   #m2-update.m2-busy svg { animation: m2-turn 1s linear infinite; }
   @keyframes m2-turn { to { transform: rotate(360deg); } }
@@ -78,7 +79,13 @@ noindex: true
 
 <div class="m2">
 <div class="m2-nav">
+<div class="m2-top">
 <button type="button" class="m2-btn" id="m2-update" title="Check the official maps' CellDesigner files and draw the changed or new ones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg>Update</button>
+<div class="m2-mode" role="group" aria-label="Drawing">
+<button type="button" data-mode="minerva" title="As MINERVA draws the CellDesigner file">MINERVA</button>
+<button type="button" data-mode="cd" title="As CellDesigner draws the file">CellDesigner</button>
+</div>
+</div>
 <div id="m2-status"></div>
 <div id="m2-list"></div>
 </div>
@@ -87,10 +94,6 @@ noindex: true
 <img id="m2-img" alt="">
 <div id="m2-err"></div>
 <div id="m2-note"></div>
-<div class="m2-mode" role="group" aria-label="Drawing">
-<button type="button" data-mode="minerva" title="As MINERVA draws the CellDesigner file">MINERVA</button>
-<button type="button" data-mode="cd" title="As CellDesigner draws the file">CellDesigner</button>
-</div>
 <div class="m2-ctrl">
 <span id="m2-zoom"></span>
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
@@ -108,7 +111,7 @@ noindex: true
   // A lean copy of the Atlas viewer (as the Colours page's): the map fits the window when
   // chosen, never above the reading size (100%, 0.675 px per unit, as the map pages), the
   // wheel or a pinch zooms at the pointer, a drag moves it, Fit returns. The up and down
-  // arrow keys go through the list. The switch at the top left shows MINERVA's drawing or
+  // arrow keys go through the list. The switch right of Update shows MINERVA's drawing or
   // the drawing in CellDesigner's style (?view=celldesigner, remembered in this browser).
   var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
   var err = document.getElementById('m2-err'), list = document.getElementById('m2-list');
@@ -152,13 +155,13 @@ noindex: true
     zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   }, { passive: false });
   view.addEventListener('dblclick', function (e) {
-    if (e.target.closest('.m2-ctrl, .m2-mode')) return;
+    if (e.target.closest('.m2-ctrl')) return;
     var r = view.getBoundingClientRect();
     zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   });
   var pts = {}, last = null;
   view.addEventListener('pointerdown', function (e) {
-    if (e.target.closest('.m2-ctrl, .m2-mode')) return;
+    if (e.target.closest('.m2-ctrl')) return;
     var r = view.getBoundingClientRect();
     if (e.clientX > r.right - 18 && e.clientY > r.bottom - 18) return; // the resize handle
     view.setPointerCapture(e.pointerId);
