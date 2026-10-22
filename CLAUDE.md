@@ -352,7 +352,7 @@ GraphML the export was made from: each fill gets its role from the GraphML node 
 of the fill under it, and the page sets one CSS variable per role. The map's background is white
 whatever the theme (user, 2026-10-22). The map window is a lean copy of the Atlas viewer (user,
 2026-10-22): one height for every map (77% of the window, lower edge draggable), the map fitted when
-loaded (never above the reading size, 100% as on the Atlas; a free strip of 48 px on every side, the map centred, user 2026-10-22: iNOS at 69% in a 1440 x 800 window), wheel or pinch zoom, drag, double-click,
+loaded (never above the reading size, 100% as on the Atlas; a free strip of 10 px on every side, the map centred, user 2026-10-22), wheel or pinch zoom, drag, double-click,
 −, + and Fit; no Read mode, full screen or click panel. The yEd and CellDesigner downloads come
 from templates made by maps-workbench `tools/colours_templates.py <base> <website>/images/colours2/<map>`
 (`<base>.graphml` and `<base>.xml`, the CellDesigner file from map-converter, advanced layout). Another
