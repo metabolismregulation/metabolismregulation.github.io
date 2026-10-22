@@ -53,13 +53,48 @@ class Map:
 
 
 # The biology a map draws (biology.build): entities and what happens to them, each pointing
-# to the glyphs (Node and Arc ids above) that draw it.
+# to the glyphs (Node and Arc ids above) that draw it. An entity is a node with properties and
+# property records, as SBGN PD describes an entity pool and momapy models it (sbgn.pd.model: a
+# StateVariable(value, variable), a UnitOfInformation(prefix, value), subunits; annotations beside
+# the model as qualifier and resource): what a conversion must keep (check.content, user 2026-10-22).
+@dataclass(frozen=True, order=True)
+class StateVariable:
+    value: str                 # P, Ac, active, or '' for a site drawn unmodified
+    variable: str = None       # the site: S505 (a state variable P@S505, or the property PTM)
+
+
+@dataclass(frozen=True, order=True)
+class UnitOfInformation:
+    value: str                 # gene, mRNA, precursor; the multimer count N:x is the key's cardinality
+    prefix: str = None         # ct; None for free text
+
+
+@dataclass(frozen=True, order=True)
+class Annotation:
+    qualifier: str             # is (the entity's own identifier), hasVersion (a family member's)
+    database: str              # HGNC, HGNC symbol, UniProt, ChEBI
+    id: str
+
+
+@dataclass(frozen=True, order=True)
+class Member:                  # a family member: its name, identifiers and sites
+    label: str
+    annotations: tuple = ()
+    sites: tuple = ()
+
+
 @dataclass
 class Entity:
     id: str
     key: tuple         # (compartment, identity, class, state): two glyphs with one key draw one entity
     glyphs: list       # the nodes drawing it
     inside: str = None  # the complex entity it is a member of
+    names: frozenset = frozenset()          # its glyphs' labels
+    state_variables: tuple = ()              # StateVariable, sorted, as many as a glyph draws
+    units: frozenset = frozenset()           # UnitOfInformation
+    annotations: frozenset = frozenset()     # Annotation
+    family: str = None                       # a family's name (property Family)
+    members: frozenset = frozenset()         # Member, a family's members
 
 
 @dataclass
@@ -87,3 +122,4 @@ class Biology:
     influences: list
     glyph: dict        # node id -> entity id
     notes: list        # what the entity key could not settle (one label, two identifiers)
+    compartments: dict = None  # compartment name -> the compartment around it (SBML's outside; None: none)

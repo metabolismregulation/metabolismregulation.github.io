@@ -392,7 +392,8 @@ def read(path):
         lab = g.find(S + 'label')
         lb = lab.find(S + 'bbox') if lab is not None else None
         data = {}
-        for d in g.iter('{%s}Description' % RDF):
+        own = [c for c in g if etree.QName(c).localname in ('extension', 'annotation')]  # not a member's
+        for d in (x for c in own for x in c.iter('{%s}Description' % RDF)):
             for q in d:
                 urns = [u for u in (urn(li.get('{%s}resource' % RDF) or '') for li in q.iter('{%s}li' % RDF)) if u]
                 if urns and etree.QName(q).localname in ('is', 'hasVersion'):

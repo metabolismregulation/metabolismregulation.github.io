@@ -9,7 +9,7 @@
 import collections, json, os, re
 from .celldesigner import CLASS, MOD, cd_class, plain_name, is_structural
 from .graphml import EQUIV
-from .model import HEADS, Biology, Entity, Reaction, Influence
+from .model import HEADS, Annotation, Biology, Entity, Influence, Member, Reaction, StateVariable, UnitOfInformation
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
 # ChEBI IDs linked as conjugate acid and base, one group per molecule (tools/conjugates.py)
@@ -42,6 +42,42 @@ def own_identity(d):
         ms = [identifier(dict(m['props']), d.kind) for m in json.loads(d.data['Member annotation'])]
         return ('family', tuple(sorted(ms))) if ms and all(ms) else None
     return identifier(d.data, d.kind)
+
+
+# what a glyph states besides its entity key (user, 2026-10-22: a shape and its arcs are not all
+# the biology a map conveys), as records (model.StateVariable, ...); node properties that are not
+# biology: Orientation (yEd), notes
+IDS = ('HGNC', 'HGNC symbol', 'UniProt', 'ChEBI')
+
+
+def state_variables(d):
+    # the drawn state variables, each with its site: on the variable (P@S505), or from the property
+    # PTM (P@S505 per modified site, the Atlas maps), given to the unsited ones of that value in turn
+    svs = [StateVariable(*txt.split('@', 1)) if '@' in txt else StateVariable(txt) for txt, _, _ in d.states]
+    for s in (d.data.get('PTM') or '').split():
+        v, site = s.split('@', 1) if '@' in s else (s, None)
+        k = next((k for k, x in enumerate(svs) if x == StateVariable(v)), None)
+        if k is None:
+            svs.append(StateVariable(v, site))  # a site the drawing does not show
+        else:
+            svs[k] = StateVariable(v, site)
+    return svs
+
+
+def unit(u):
+    return UnitOfInformation(u.split(':', 1)[1], 'ct') if u.startswith('ct:') else UnitOfInformation(u)
+
+
+def annotations(p, qualifier='is'):
+    return {Annotation(qualifier, k, ' '.join(p[k].split())) for k in IDS if p.get(k)}
+
+
+def family_members(d):
+    recs = json.loads(d.data.get('Member annotation') or '[]')
+    if recs:
+        return {Member(m.get('symbol'), tuple(sorted(annotations(dict(m['props']), 'hasVersion'))),
+                       tuple(sorted((dict(m['props']).get('PTM') or '').split()))) for m in recs}
+    return {Member(x.strip()) for x in (d.data.get('Members') or '').split(';') if x.strip()}
 
 
 def build(m):
@@ -107,6 +143,14 @@ def build(m):
         if e is None:
             e = entities[key[i]] = Entity(id=i, key=key[i], glyphs=[])
         e.glyphs.append(i)
+        d = N[i]
+        svs = collections.Counter(state_variables(d))
+        e.state_variables = tuple(sorted((collections.Counter(e.state_variables) | svs).elements(), key=lambda s: (s.value, s.variable or '')))
+        e.names = e.names | ({label(d)} if label(d) else set())
+        e.units = e.units | {unit(u) for u in d.units if not re.fullmatch(r'N:\d+', u)}  # N:x: the count, in the key
+        e.annotations = e.annotations | annotations(d.data)
+        e.family = e.family or d.data.get('Family')
+        e.members = e.members | family_members(d)
         glyph[i] = e.id
     by_id = {e.id: e for e in entities.values()}
     for c, ms in members.items():
@@ -140,4 +184,10 @@ def build(m):
             ins = [other(b, a.source) for b in m.arcs if a.source in (b.source, b.target) and b.head is None]
             influences.append(Influence(id=a.id, sources=[glyph[i] if i in glyph else (label(N[i]).upper(),) for i in ins],
                                         target=glyph[a.target], head=a.head, gate=label(s).upper()))
-    return Biology(entities=by_id, reactions=reactions, influences=influences, glyph=glyph, notes=notes)
+    def around(c):
+        q = N[c].parent
+        while q is not None and q not in comps:
+            q = N[q].parent
+        return label(N[q]) if q else None
+    return Biology(entities=by_id, reactions=reactions, influences=influences, glyph=glyph, notes=notes,
+                   compartments={label(N[c]): around(c) for c in comps})
