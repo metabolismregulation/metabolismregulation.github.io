@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F004-glycogen-muscle.svg"
 width: 2190
-height: 1702
+height: 1698
 scale: 1
 annotation: "/atlas-data/F004-glycogen-muscle.json"
 image_error: ""

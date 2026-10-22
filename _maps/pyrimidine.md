@@ -10,7 +10,7 @@ draft: true
 tag: "draft"
 image: "/atlas-downloads/F020-pyrimidine.svg"
 width: 864
-height: 905
+height: 906
 scale: 1
 annotation: "/atlas-data/F020-pyrimidine.json"
 image_error: ""

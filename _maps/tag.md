@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F015-tag.svg"
 width: 840
-height: 745
+height: 747
 scale: 1
 annotation: "/atlas-data/F015-tag.json"
 image_error: ""
