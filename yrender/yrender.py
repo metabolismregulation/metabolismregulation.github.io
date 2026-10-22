@@ -268,7 +268,7 @@ def shape_svg(cmds, fill, stroke, rl='white'):
     return s
 
 
-def text_lines(lab, x, y, w, h, where, rl='page'):
+def text_lines(lab, x, y, w, h, where, rl='page', align=None):
     # the label's text in its box (x, y, w, h absolute)
     fam = lab.get('fontFamily'); size = float(lab.get('fontSize'))
     if fam not in FONTS:
@@ -277,7 +277,7 @@ def text_lines(lab, x, y, w, h, where, rl='page'):
         refuse(where, f'font style {lab.get("fontStyle")}'); return ''
     if lab.get('underlinedText') == 'true' or float(lab.get('rotationAngle') or 0):
         refuse(where, 'underlined or rotated label'); return ''
-    align = lab.get('alignment') or 'center'
+    align = align or lab.get('alignment') or 'center'
     if align not in ('center', 'left', 'right'):
         refuse(where, f'label alignment {align}'); return ''
     lines = ''.join(lab.itertext()).split('\n') if lab.text else []
@@ -303,13 +303,20 @@ def text_lines(lab, x, y, w, h, where, rl='page'):
 def label_place(lab, x, y, w, h):
     # the label's box (absolute). A smart label model places it as yEd does on loading (label
     # point on node point, plus offset), so a GraphML edited by a script draws as in yEd; a
-    # label without size is centred on that point, its height from the font. Other labels:
-    # the box yEd saved.
+    # label without size is centred on that point, its height from the font. An internal label
+    # (t, tr, bl, c ...) sits at its model position inside the node, as yEd puts it on loading, so
+    # a node resized by a script keeps its name inside. Other labels: the box yEd saved.
     p = lab.find(Y + 'ModelParameter/' + Y + 'SmartNodeLabelModelParameter')
     if p is None:
         if lab.get('x') is None:
             return None
-        return x + float(lab.get('x')), y + float(lab.get('y')), float(lab.get('width')), float(lab.get('height'))
+        lw, lh = float(lab.get('width')), float(lab.get('height'))
+        if lab.get('modelName') != 'internal':
+            return x + float(lab.get('x')), y + float(lab.get('y')), lw, lh
+        pos, bd = lab.get('modelPosition') or 'c', float(lab.get('borderDistance') or 0)
+        hz, vt = pos[-1] if pos[-1] in 'lr' else 'c', pos[0] if pos[0] in 'tb' else 'c'
+        return (x + {'l': bd, 'r': w - lw - bd, 'c': (w - lw) / 2}[hz],
+                y + {'t': bd, 'b': h - lh - bd, 'c': (h - lh) / 2}[vt], lw, lh)
     if lab.get('fontFamily') not in FONTS:
         return None
     f = lambda a: float(p.get(a))
@@ -348,10 +355,9 @@ def icon_svg(res, lab, x, y, w, h, where):
     for il in gn.findall(Y + 'NodeLabel'):
         if il.get('visible') == 'false' or il.get('hasText') == 'false':
             continue
-        box = label_place(il, ix, iy, iw, ih)
-        if box is None:
-            refuse(where, 'label without a position'); continue
-        s += label_box(il, *box) + text_lines(il, *box, where, 'white')
+        # the text centred in the icon, as yEd sizes the label to it: a stored box left wider
+        # than the text (P@T456 cut to P) cannot push it out
+        s += text_lines(il, ix, iy, iw, ih, where, 'white', 'center')
     return s
 
 
