@@ -265,7 +265,7 @@
                <ns1:style ns1:idList="arc3">
                   <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
                </ns1:style>
-               <ns1:style ns1:idList="re_n0_n1">
+               <ns1:style ns1:idList="re_n0_n4">
                   <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
                </ns1:style>
                <ns1:style ns1:idList="arc4">
@@ -289,13 +289,13 @@
                <ns1:style ns1:idList="arc10">
                   <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
                </ns1:style>
+               <ns1:style ns1:idList="re_n0_n1">
+                  <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
+               </ns1:style>
                <ns1:style ns1:idList="arc11">
                   <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
                </ns1:style>
                <ns1:style ns1:idList="arc12">
-                  <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
-               </ns1:style>
-               <ns1:style ns1:idList="re_n0_n4">
                   <ns1:g ns1:fill="#ffffff" ns1:stroke="#000000" ns1:stroke-width="1.0"/>
                </ns1:style>
                <ns1:style ns1:idList="arc13">
@@ -347,7 +347,7 @@
             </annotation>
          </ns2:extension>
          <ns2:label text="MITOCHONDRION">
-            <ns2:bbox h="527.5" w="445.30637" x="390.69363" y="52.5"/>
+            <ns2:bbox h="527.5" w="452.1162" x="383.8838" y="52.5"/>
          </ns2:label>
          <ns2:bbox h="540.0" w="796.0" x="40.0" y="40.0"/>
       </ns2:glyph>
@@ -963,7 +963,7 @@
                <head>
                   <title/>
                </head>
-               <body/>
+               <body>Family: Pyruvate dehydrogenase kinases</body>
             </html>
          </ns2:notes>
          <ns2:extension>
@@ -1051,7 +1051,7 @@
                <head>
                   <title/>
                </head>
-               <body/>
+               <body>Family: Pyruvate dehydrogenase phosphatases</body>
             </html>
          </ns2:notes>
          <ns2:extension>
@@ -1254,25 +1254,6 @@
          <ns2:port id="re_n0_n5.1" x="304.0" y="418.9745"/>
          <ns2:port id="re_n0_n5.2" x="324.0" y="418.9745"/>
       </ns2:glyph>
-      <ns2:glyph class="process" id="re_n0_n1" orientation="vertical">
-         <ns2:extension>
-            <annotation>
-               <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                        xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
-                        xmlns:bqmodel="http://biomodels.net/model-qualifiers/"
-                        xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:dcterms="http://purl.org/dc/terms/"
-                        xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#">
-                  <rdf:Description rdf:about="#re_n0_n1">
-                     <dcterms:modified rdf:parseType="Resource"/>
-                  </rdf:Description>
-               </rdf:RDF>
-            </annotation>
-         </ns2:extension>
-         <ns2:bbox h="10.0" w="10.0" x="697.0" y="380.9745"/>
-         <ns2:port id="re_n0_n1.1" x="702.0" y="375.9745"/>
-         <ns2:port id="re_n0_n1.2" x="702.0" y="395.9745"/>
-      </ns2:glyph>
       <ns2:glyph class="process" id="re_n0_n4" orientation="horizontal">
          <ns2:extension>
             <annotation>
@@ -1291,6 +1272,25 @@
          <ns2:bbox h="10.0" w="10.0" x="309.0" y="347.9745"/>
          <ns2:port id="re_n0_n4.1" x="324.0" y="352.9745"/>
          <ns2:port id="re_n0_n4.2" x="304.0" y="352.9745"/>
+      </ns2:glyph>
+      <ns2:glyph class="process" id="re_n0_n1" orientation="vertical">
+         <ns2:extension>
+            <annotation>
+               <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
+                        xmlns:bqmodel="http://biomodels.net/model-qualifiers/"
+                        xmlns:dc="http://purl.org/dc/elements/1.1/"
+                        xmlns:dcterms="http://purl.org/dc/terms/"
+                        xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#">
+                  <rdf:Description rdf:about="#re_n0_n1">
+                     <dcterms:modified rdf:parseType="Resource"/>
+                  </rdf:Description>
+               </rdf:RDF>
+            </annotation>
+         </ns2:extension>
+         <ns2:bbox h="10.0" w="10.0" x="697.0" y="380.9745"/>
+         <ns2:port id="re_n0_n1.1" x="702.0" y="375.9745"/>
+         <ns2:port id="re_n0_n1.2" x="702.0" y="395.9745"/>
       </ns2:glyph>
       <ns2:arc class="consumption"
                id="arc0"
@@ -1320,55 +1320,105 @@
       </ns2:arc>
       <ns2:arc class="consumption"
                id="arc4"
+               source="sa_n0_n11"
+               target="re_n0_n4.1">
+         <ns2:start x="363.0" y="352.9745"/>
+         <ns2:end x="324.0" y="352.9745"/>
+      </ns2:arc>
+      <ns2:arc class="production"
+               id="arc5"
+               source="re_n0_n4.2"
+               target="sa_n0_n12">
+         <ns2:start x="304.0" y="352.9745"/>
+         <ns2:end x="265.0" y="352.9745"/>
+      </ns2:arc>
+      <ns2:arc class="catalysis" id="arc6" source="sa_n0_n2" target="re_n0_n4">
+         <ns2:start x="309.0" y="113.97449"/>
+         <ns2:end x="309.0" y="347.9745"/>
+      </ns2:arc>
+      <ns2:arc class="inhibition"
+               id="arc7"
+               source="sa_n0_n0"
+               target="re_n0_n4">
+         <ns2:start x="685.3702" y="293.44052"/>
+         <ns2:next x="319.0" y="293.44052"/>
+         <ns2:end x="319.0" y="343.9745"/>
+      </ns2:arc>
+      <ns2:arc class="stimulation"
+               id="arc8"
+               source="sa_n0_n14"
+               target="re_n0_n4">
+         <ns2:start x="436.94745" y="169.8883"/>
+         <ns2:next x="314.0" y="169.8883"/>
+         <ns2:end x="314.0" y="347.9745"/>
+      </ns2:arc>
+      <ns2:arc class="stimulation"
+               id="arc9"
+               source="sa_n0_n15"
+               target="re_n0_n4">
+         <ns2:start x="436.94745" y="215.8883"/>
+         <ns2:next x="314.0" y="215.8883"/>
+         <ns2:end x="314.0" y="347.9745"/>
+      </ns2:arc>
+      <ns2:arc class="inhibition"
+               id="arc10"
+               source="sa_n0_n16"
+               target="re_n0_n4">
+         <ns2:start x="436.94745" y="261.8883"/>
+         <ns2:next x="319.0" y="261.8883"/>
+         <ns2:end x="319.0" y="343.9745"/>
+      </ns2:arc>
+      <ns2:arc class="consumption"
+               id="arc11"
                source="sa_n0_n0"
                target="re_n0_n1.1">
          <ns2:start x="702.0" y="304.55225"/>
          <ns2:end x="702.0" y="375.9745"/>
       </ns2:arc>
       <ns2:arc class="production"
-               id="arc5"
+               id="arc12"
                source="re_n0_n1.2"
                target="sa_n0_n10">
          <ns2:start x="702.0" y="395.9745"/>
          <ns2:end x="702.0" y="467.39673"/>
       </ns2:arc>
       <ns2:arc class="consumption"
-               id="arc6"
+               id="arc13"
                source="sa_n0_n6"
                target="re_n0_n1.1">
          <ns2:start x="649.8322" y="345.8523"/>
          <ns2:end x="702.0" y="375.9745"/>
       </ns2:arc>
       <ns2:arc class="consumption"
-               id="arc7"
+               id="arc14"
                source="sa_n0_n7"
                target="re_n0_n1.1">
          <ns2:start x="754.1678" y="345.8523"/>
          <ns2:end x="702.0" y="375.9745"/>
       </ns2:arc>
       <ns2:arc class="production"
-               id="arc8"
+               id="arc15"
                source="re_n0_n1.2"
                target="sa_n0_n8">
          <ns2:start x="702.0" y="395.9745"/>
          <ns2:end x="649.8322" y="426.09668"/>
       </ns2:arc>
       <ns2:arc class="production"
-               id="arc9"
+               id="arc16"
                source="re_n0_n1.2"
                target="sa_n0_n9">
          <ns2:start x="702.0" y="395.9745"/>
          <ns2:end x="754.1678" y="426.09668"/>
       </ns2:arc>
       <ns2:arc class="catalysis"
-               id="arc10"
+               id="arc17"
                source="sa_n0_n11"
                target="re_n0_n1">
          <ns2:start x="555.0" y="385.9745"/>
          <ns2:end x="697.0" y="385.9745"/>
       </ns2:arc>
       <ns2:arc class="inhibition"
-               id="arc11"
+               id="arc18"
                source="sa_n0_n14"
                target="re_n0_n1">
          <ns2:start x="470.2071" y="169.8883"/>
@@ -1377,66 +1427,13 @@
          <ns2:end x="693.0" y="380.9745"/>
       </ns2:arc>
       <ns2:arc class="inhibition"
-               id="arc12"
+               id="arc19"
                source="sa_n0_n15"
                target="re_n0_n1">
          <ns2:start x="470.2071" y="215.8883"/>
          <ns2:next x="581.99347" y="215.8883"/>
          <ns2:next x="581.99347" y="380.9745"/>
          <ns2:end x="693.0" y="380.9745"/>
-      </ns2:arc>
-      <ns2:arc class="consumption"
-               id="arc13"
-               source="sa_n0_n11"
-               target="re_n0_n4.1">
-         <ns2:start x="363.0" y="352.9745"/>
-         <ns2:end x="324.0" y="352.9745"/>
-      </ns2:arc>
-      <ns2:arc class="production"
-               id="arc14"
-               source="re_n0_n4.2"
-               target="sa_n0_n12">
-         <ns2:start x="304.0" y="352.9745"/>
-         <ns2:end x="265.0" y="352.9745"/>
-      </ns2:arc>
-      <ns2:arc class="catalysis"
-               id="arc15"
-               source="sa_n0_n2"
-               target="re_n0_n4">
-         <ns2:start x="309.0" y="113.97449"/>
-         <ns2:end x="309.0" y="347.9745"/>
-      </ns2:arc>
-      <ns2:arc class="inhibition"
-               id="arc16"
-               source="sa_n0_n0"
-               target="re_n0_n4">
-         <ns2:start x="685.3702" y="293.44052"/>
-         <ns2:next x="319.0" y="293.44052"/>
-         <ns2:end x="319.0" y="343.9745"/>
-      </ns2:arc>
-      <ns2:arc class="stimulation"
-               id="arc17"
-               source="sa_n0_n14"
-               target="re_n0_n4">
-         <ns2:start x="436.94745" y="169.8883"/>
-         <ns2:next x="314.0" y="169.8883"/>
-         <ns2:end x="314.0" y="347.9745"/>
-      </ns2:arc>
-      <ns2:arc class="stimulation"
-               id="arc18"
-               source="sa_n0_n15"
-               target="re_n0_n4">
-         <ns2:start x="436.94745" y="215.8883"/>
-         <ns2:next x="314.0" y="215.8883"/>
-         <ns2:end x="314.0" y="347.9745"/>
-      </ns2:arc>
-      <ns2:arc class="inhibition"
-               id="arc19"
-               source="sa_n0_n16"
-               target="re_n0_n4">
-         <ns2:start x="436.94745" y="261.8883"/>
-         <ns2:next x="319.0" y="261.8883"/>
-         <ns2:end x="319.0" y="343.9745"/>
       </ns2:arc>
    </ns2:map>
 </ns2:sbgn>
