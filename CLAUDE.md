@@ -417,7 +417,8 @@ it. In a protein family the sites belong to the members (ERK1 Thr202/Tyr204, ERK
 Thr185/Tyr187), the family node keeps only the P circles. The workbench checks the sites against
 UniProt (`tools/ptm_check.py`), which is a check, not the authority.
 All Atlas maps with sites moved to PTM on 2026-10-17 (GraphML and SVG in `atlas-downloads/`;
-the official files in `downloads/` keep their sites on the circles).
+the official files in `downloads/` keep their sites on the circles). The official pyrimidine and glutaminolysis maps (and their Atlas
+"copy" entries) keep their sites on the circles until their drafts are published (user, 2026-10-22).
 No state variable on the top side of a node (user, 2026-10-17): MINERVA draws N:x there. A
 protein's circles sit in the same place on every instance (eNOS: My left, Pa bottom left and
 right, P right; AKT1: P bottom left and right).
