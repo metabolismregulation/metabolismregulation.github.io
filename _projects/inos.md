@@ -17,7 +17,7 @@ project: true
 <a href="/downloads/F007-inos.csv" download>Annotation<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F007-inos.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F007-inos" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
-<p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.svg" width="1220"/></a></p>
+<p align="middle"><a href="/inos/"><img id="image" src="/downloads/F007-inos.svg" width="1217"/></a></p>
 
 ## References
 
