@@ -137,6 +137,7 @@ noindex: true
   .c2-menu summary::-webkit-details-marker { display: none; }
   .c2-caret { margin-left: 4px; font-size: 11px; }
   .c2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
+  .c2-up .c2-list { top: auto; bottom: 30px; }
   .c2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #777; text-decoration: none; white-space: nowrap; }
   .c2-list a:hover { background: #4183c4; color: #fff; }
   button.c2-act svg { width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; }

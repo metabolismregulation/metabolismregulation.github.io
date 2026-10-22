@@ -1482,6 +1482,14 @@
   document.addEventListener('click', function (e) {
     if (!mapMenu.contains(e.target)) mapMenu.open = false;
   });
+  // the list opens upwards when there is no room for it below in the window
+  mapMenu.addEventListener('toggle', function () {
+    if (!mapMenu.open) return;
+    var list = mapMenu.querySelector('.c2-list');
+    mapMenu.classList.remove('c2-up');
+    var r = list.getBoundingClientRect();
+    if (r.bottom > window.innerHeight && mapMenu.getBoundingClientRect().top > r.height) mapMenu.classList.add('c2-up');
+  });
 
   document.getElementById('c2-cvd').addEventListener('change', render);
   var hlBox = document.getElementById('c2-hl');
