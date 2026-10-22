@@ -168,10 +168,7 @@ on a 15-inch MacBook the download row shows and the text starts below the window
 it was the shape 738 x 504, at most 70% of the window), and its lower edge
 can be dragged down to the whole window without the header, no further: over the map the wheel
 zooms, so a taller window would trap the page (user, 2026-10-16). A full-screen button after
-Fit shows the map alone, with the annotation over its right side. The reading size (100%, Read mode, and the
-largest Fit) is 0.7425 px per yEd unit, 110% of the map pages' 0.675 (user, 2026-10-22: glycolysis at
-the former 110% looked right), shared with the Colours page (STANDARD in both scripts); the map pages
-keep their own size (Map image size).
+Fit shows the map alone, with the annotation over its right side.
 
 ## Atlas panel
 
@@ -355,7 +352,7 @@ GraphML the export was made from: each fill gets its role from the GraphML node 
 of the fill under it, and the page sets one CSS variable per role. The map's background is white
 whatever the theme (user, 2026-10-22). The map window is a lean copy of the Atlas viewer (user,
 2026-10-22): one height for every map (77% of the window, lower edge draggable), the map fitted when
-loaded (never above the reading size, 100%, the Atlas's), wheel or pinch zoom, drag, double-click,
+loaded (never above the reading size, 100% as on the Atlas), wheel or pinch zoom, drag, double-click,
 −, + and Fit; no Read mode, full screen or click panel. The yEd and CellDesigner downloads come
 from templates made by maps-workbench `tools/colours_templates.py <base> <website>/images/colours2/<map>`
 (`<base>.graphml` and `<base>.xml`, the CellDesigner file from map-converter, advanced layout). Another
