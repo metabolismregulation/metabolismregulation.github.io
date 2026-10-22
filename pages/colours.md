@@ -135,10 +135,14 @@ noindex: true
   button.c2-act:hover, summary.c2-act:hover, .c2-menu[open] summary.c2-act { background: #4183c4; border-color: #4183c4; color: #fff; }
   button.c2-act:disabled, button.c2-act:disabled:hover { color: #bbb; background: #fff; border-color: #ccc; cursor: default; }
   /* the map menu, as the Atlas's Images menu */
-  .c2-menu { display: inline-block; position: relative; }
+  .c2-menu { display: inline-block; position: relative; vertical-align: top; }
   .c2-menu summary { list-style: none; }
   .c2-menu summary::-webkit-details-marker { display: none; }
-  .c2-caret { margin-left: 4px; font-size: 11px; }
+  .c2-caret { margin-left: 4px; font-size: 11px; flex: none; }
+  /* one width for any map name, so the buttons after it never move: a long
+     name (a dropped file's) is cut with …, the full name on hover */
+  .c2-menu summary.c2-act { display: inline-flex; box-sizing: border-box; width: 140px; vertical-align: top; }
+  #c2-mapname { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .c2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
   .c2-up .c2-list { top: auto; bottom: 30px; }
   .c2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #777; text-decoration: none; white-space: nowrap; }

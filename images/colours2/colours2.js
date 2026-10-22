@@ -862,6 +862,11 @@ def cd_template(path):
     py.catch(function () { py = null; });  // tried again at the next drop
     return py;
   }
+  // the map's name on the menu button, cut by the page's CSS when long, whole on hover
+  function showMapName(name) {
+    document.getElementById('c2-mapname').textContent = name;
+    document.querySelector('#c2-maps summary').title = name;
+  }
   function isDroppedMap(f) {
     return /\.(xml|graphml|sbgn|sbgnml|nwt)$/i.test(f.name);
   }
@@ -877,7 +882,7 @@ def cd_template(path):
       if (!out[0]) { say('Not drawn: ' + out[1], true); return; }
       dropped = { path: path, graphml: out[1], xml: null };
       mapName = name.replace(/\.[^.]+$/, '');
-      document.getElementById('c2-mapname').textContent = name;
+      showMapName(name);
       say('');
       showMap(out[0], render);
     }).catch(function (e) {
@@ -1595,7 +1600,7 @@ def cd_template(path):
     say('');
     mapBase = a.getAttribute('data-map');
     mapName = mapBase.split('/').pop();
-    document.getElementById('c2-mapname').textContent = a.textContent;
+    showMapName(a.textContent);
     loadMap(mapBase + '.svg?v=' + map.getAttribute('data-v'), render);
   }
   var wanted = new URLSearchParams(location.search).get('map');
