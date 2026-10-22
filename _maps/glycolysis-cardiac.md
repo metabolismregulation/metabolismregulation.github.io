@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: "new"
 image: "/atlas-downloads/F001-glycolysis-cardiac.svg"
-width: 985
+width: 982
 height: 694
 scale: 1
 annotation: "/atlas-data/F001-glycolysis-cardiac.json"

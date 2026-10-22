@@ -9,7 +9,7 @@ project: true
 
 <a href="/atlas-downloads/F001-glycolysis-extended.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="/atlas-downloads/F001-glycolysis-extended.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
-<p align="middle"><a href="/glycolysis-extended/"><img id="image" src="/atlas-downloads/F001-glycolysis-extended.svg" width="1277"/></a></p>
+<p align="middle"><a href="/glycolysis-extended/"><img id="image" src="/atlas-downloads/F001-glycolysis-extended.svg" width="1275"/></a></p>
 
 ## Description
 
