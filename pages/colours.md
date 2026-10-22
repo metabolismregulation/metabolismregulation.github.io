@@ -210,10 +210,10 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <a href="?map=inos" data-key="inos" data-map="/images/colours2/F007-inos">iNOS</a>
 <a href="?map=glycolysis" data-key="glycolysis" data-map="/images/colours2/F001-glycolysis">Glycolysis</a>
 </div></details>
-<button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">GraphML<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-cd">CellDesigner<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-add">Add to Presets</button>
+<button type="button" class="c2-act" id="c2-link">Copy link</button>
 </div>
 <p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour; the text will remain black in CellDesigner. The yEd file keeps the current view.</p>
 </div>

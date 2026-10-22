@@ -345,7 +345,7 @@ suggested architecture. Update its figures and the commit line when the tool cha
 ## Colours page
 
 `/colours/` (`pages/colours.md`, `images/colours2/colours2.js`, hidden) recolours a map chosen in the menu
-before Copy link (user, 2026-10-22, the Atlas Images menu's look): iNOS (the first and the default, no
+at the start of the row under the map (then GraphML, CellDesigner, Add to Presets, Copy link last, user 2026-10-22) (user, 2026-10-22, the Atlas Images menu's look): iNOS (the first and the default, no
 address parameter, user 2026-10-22) and Glycolysis (`?map=glycolysis`, kept in the copied link). The menu button has one width (140 px) for any name, so the buttons after it never move; a long name (a dropped file's) is cut with …, the whole name on hover (user, 2026-10-22). iNOS was drawn from a PNG layer image until
 2026-10-22. Each map is the user's yEd SVG export of its Atlas GraphML (both updated 2026-10-22 from the user's
 exports of the current Atlas files; the CellDesigner templates from map-converter 12a6024, advanced layout) tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg> <out.svg>`, with the
