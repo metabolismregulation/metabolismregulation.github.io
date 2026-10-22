@@ -198,9 +198,9 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 </div>
 </div>
 <div class="c2-under" data-v="{{ site.time | date: '%s' }}">
-<details class="c2-menu" id="c2-maps"><summary class="c2-act"><span id="c2-mapname">Glycolysis</span><span class="c2-caret">▾</span></summary><div class="c2-list">
-<a href="?map=glycolysis" data-key="glycolysis" data-map="/images/colours2/F001-glycolysis">Glycolysis</a>
+<details class="c2-menu" id="c2-maps"><summary class="c2-act"><span id="c2-mapname">iNOS</span><span class="c2-caret">▾</span></summary><div class="c2-list">
 <a href="?map=inos" data-key="inos" data-map="/images/colours2/F007-inos">iNOS</a>
+<a href="?map=glycolysis" data-key="glycolysis" data-map="/images/colours2/F001-glycolysis">Glycolysis</a>
 </div></details>
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
