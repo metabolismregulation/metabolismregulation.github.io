@@ -341,6 +341,17 @@ converter's architecture page and drawn the same way: how the layout tool (the s
 repository `metabolismregulation/human-like-layout`, used by maps-workbench) is built today, and the
 suggested architecture. Update its figures and the commit line when the tool changes much.
 
+## Colours page
+
+`/colours/` (`pages/colours.md`, `images/colours2/colours2.js`, hidden) recolours one map, glycolysis since
+2026-10-22 (user; iNOS before, drawn from a PNG layer image, removed then). The map is the user's yEd SVG
+export tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg> <out.svg>`: each fill gets
+its role from the GraphML node it draws, each text the role of the fill under it, and the page sets one CSS
+variable per role. The yEd and CellDesigner downloads come from templates made by maps-workbench
+`tools/colours_templates.py <website>/downloads/<map> <website>/images/colours2/<map>`. Another map: both
+scripts, then `data-map` in the page. The hidden page /colours/check/ (`pages/colours-check.html`) shows the
+tagged map against the export, to be removed once the user has confirmed the Colours page.
+
 ## Home page
 
 The pathway highlight on the home page (`index.html`) is chosen by `highlight:` in its front

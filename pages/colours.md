@@ -16,7 +16,24 @@ noindex: true
   @media (max-width: 900px) { .c2-grid { grid-template-columns: 1fr; grid-template-areas: "left" "map" "right"; } }
   .c2-panel h3 { margin: 0 0 8px; font-size: 15px; }
   .c2-panel section { margin-bottom: 18px; }
-  #c2-map { width: 100%; height: auto; display: block; }
+  #c2-map { width: 100%; }
+  /* the map's roles, set by colours2.js */
+  #c2-map svg { display: block; width: 100%; height: auto; fill: var(--ink); stroke: var(--ink); }
+  #c2-map .c-compartment { fill: var(--c-compartment); }
+  #c2-map .t-compartment { fill: var(--t-compartment); font-weight: var(--w-compartment); }
+  #c2-map .c-complex { fill: var(--c-complex); }
+  #c2-map .t-complex { fill: var(--t-complex); font-weight: var(--w-complex); }
+  #c2-map .c-protein { fill: var(--c-protein); }
+  #c2-map .t-protein { fill: var(--t-protein); font-weight: var(--w-protein); }
+  #c2-map .c-hlProtein { fill: var(--c-hlProtein); }
+  #c2-map .t-hlProtein { fill: var(--t-hlProtein); font-weight: var(--w-hlProtein); }
+  #c2-map .c-metabolite { fill: var(--c-metabolite); }
+  #c2-map .t-metabolite { fill: var(--t-metabolite); font-weight: var(--w-metabolite); }
+  #c2-map .c-white { fill: var(--c-white); }
+  #c2-map .t-white { fill: var(--t-white); font-weight: var(--w-white); }
+  #c2-map .c-gene { fill: var(--c-gene); }
+  #c2-map .t-gene { fill: var(--t-gene); font-weight: var(--w-gene); }
+  #c2-map .t-page { fill: var(--t-page); }
   /* Roles in the presets style: no box until hovered, colour as a plain
      rectangle with the preset squares' border */
   #c2-roles { display: flex; flex-direction: column; gap: 1px; }
@@ -151,7 +168,7 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 
 </div>
 <div class="c2-mapcol">
-<canvas id="c2-map" data-layers="/images/colours2/F007-inos-layers.png?v={{ site.time | date: '%s' }}"></canvas>
+<div id="c2-map" data-map="/images/colours2/F001-glycolysis" data-v="{{ site.time | date: '%s' }}"></div>
 <p class="c2-under" data-v="{{ site.time | date: '%s' }}">
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>

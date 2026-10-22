@@ -1,0 +1,98 @@
+---
+layout: default
+title: Colours check
+permalink: /colours/check/
+sitemap: false
+noindex: true
+---
+
+<!-- temporary: checks the tagged map of /colours/ against the yEd export it was made from.
+     Removed once the Colours page is confirmed. -->
+<style>
+  .cc-map { position: relative; margin: 0 0 8px; border: 1px solid #eee; }
+  .cc-map img, .cc-map svg { display: block; width: 100%; height: auto; }
+  .cc-map svg { fill: var(--ink); stroke: var(--ink); }
+  .cc-map .c-compartment { fill: var(--c-compartment); }
+  .cc-map .c-complex { fill: var(--c-complex); }
+  .cc-map .c-protein { fill: var(--c-protein); }
+  .cc-map .c-hlProtein { fill: var(--c-hlProtein); }
+  .cc-map .c-metabolite { fill: var(--c-metabolite); }
+  .cc-map .c-white { fill: var(--c-white); }
+  .cc-map .c-gene { fill: var(--c-gene); }
+  .cc-map .t-compartment { fill: var(--t-compartment); }
+  .cc-map .t-complex { fill: var(--t-complex); }
+  .cc-map .t-protein { fill: var(--t-protein); }
+  .cc-map .t-hlProtein { fill: var(--t-hlProtein); }
+  .cc-map .t-metabolite { fill: var(--t-metabolite); }
+  .cc-map .t-white { fill: var(--t-white); }
+  .cc-map .t-gene { fill: var(--t-gene); }
+  .cc-map .t-page { fill: var(--t-page); }
+  /* the source's own colours: should look exactly like the original */
+  .cc-source { --ink: #000; --c-compartment: #FFF; --c-complex: #FFF; --c-protein: #C2D4ED;
+    --c-hlProtein: #E2ACA3; --c-metabolite: #DBEBDB; --c-white: #FFF; --c-gene: #FFF;
+    --t-compartment: #000; --t-complex: #000; --t-protein: #000; --t-hlProtein: #000;
+    --t-metabolite: #000; --t-white: #000; --t-gene: #000; --t-page: #000; }
+  /* difference: the original over the tagged map, inverted, so identical is white */
+  .cc-scroll { overflow-x: auto; margin: 0 0 8px; border: 1px solid #eee; }
+  .cc-scroll .cc-map { margin: 0; border: none; }
+  /* 1:1 on screen: the site is shown at 90% (--zoom in style.scss) */
+  .cc-diff { width: calc(var(--w) / var(--zoom, 1)); max-width: none; filter: invert(1); isolation: isolate; }
+  .cc-diff img, .cc-diff svg { width: calc(var(--w) / var(--zoom, 1)); max-width: none; }
+  .cc-diff img { position: absolute; left: 0; top: 0; mix-blend-mode: difference; }
+  /* one colour per role, each text in a darker shade of the fill it was given */
+  .cc-roles { --ink: #999; --c-compartment: #FFF3BF; --c-complex: #FFD8A8; --c-protein: #A5D8FF;
+    --c-hlProtein: #FFA8A8; --c-metabolite: #B2F2BB; --c-white: #EEBEFA; --c-gene: #96F2D7;
+    --t-compartment: #B08900; --t-complex: #D9480F; --t-protein: #1864AB; --t-hlProtein: #C92A2A;
+    --t-metabolite: #2B8A3E; --t-white: #9C36B5; --t-gene: #087F5B; --t-page: #F03E3E; }
+  .cc-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 24px; font-size: 13px; }
+  .cc-legend i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; vertical-align: -2px; border: 1px solid #0003; }
+  .cc-page h3 { margin: 24px 0 6px; font-size: 15px; }
+  .cc-page p { margin: 0 0 8px; font-size: 14px; color: #555; }
+</style>
+
+<div class="cc-page">
+<h2>Colours: map check</h2>
+<p>The map of the Colours page is the yEd export below, with a role on every fill and text. These views show that the roles leave the drawing unchanged and are given correctly.</p>
+
+<h3>Original</h3>
+<p>The yEd export as uploaded.</p>
+<div class="cc-map"><img src="/images/colours2/check/F001-glycolysis-original.svg?v={{ site.time | date: '%s' }}" alt="Glycolysis, yEd export"></div>
+
+<h3>Tagged, in the original colours</h3>
+<p>The Colours page's map with each role set to the colour it has in the original. It should look exactly the same.</p>
+<div class="cc-map cc-source" data-map></div>
+
+<h3>Difference</h3>
+<p>The two above laid over each other, at full size (shrunk, the browser draws an SVG image slightly differently from the same SVG in the page). White where they are identical, any difference in colour.</p>
+<div class="cc-scroll"><div class="cc-map cc-source cc-diff" data-map><img src="/images/colours2/check/F001-glycolysis-original.svg?v={{ site.time | date: '%s' }}" alt=""></div></div>
+
+<h3>Roles</h3>
+<p>One colour per role. Each text takes a darker shade of the role it was given, so a text in another hue than its fill sits on the wrong role.</p>
+<div class="cc-map cc-roles" data-map></div>
+<div class="cc-legend" id="cc-legend"></div>
+</div>
+
+<script>
+(function () {
+  var NAMES = { compartment: 'Background', complex: 'Complex', protein: 'Protein', hlProtein: 'Highlighted protein',
+    metabolite: 'Chemical', white: 'Process, labels', gene: 'Gene, mRNA', page: 'Text on the background' };
+  fetch('/images/colours2/F001-glycolysis.svg?v={{ site.time | date: "%s" }}').then(function (r) { return r.text(); }).then(function (t) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-map]'), function (box) {
+      box.insertAdjacentHTML('afterbegin', t);
+      var svg = box.querySelector('svg');
+      svg.removeAttribute('width');
+      svg.removeAttribute('height');
+      box.style.setProperty('--w', svg.viewBox.baseVal.width + 'px');
+    });
+    var svg = document.querySelector('.cc-roles svg'), roles = document.querySelector('.cc-roles');
+    var legend = document.getElementById('cc-legend');
+    Object.keys(NAMES).forEach(function (id) {
+      var fills = svg.querySelectorAll('.c-' + id).length, texts = svg.querySelectorAll('.t-' + id).length;
+      if (!fills && !texts) return;
+      var c = getComputedStyle(roles).getPropertyValue(id === 'page' ? '--t-page' : '--c-' + id);
+      legend.insertAdjacentHTML('beforeend', '<span><i style="background:' + c + '"></i>' + NAMES[id] +
+        ': ' + fills + ' fills, ' + texts + ' texts</span>');
+    });
+  });
+})();
+</script>

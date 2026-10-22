@@ -1,9 +1,8 @@
-// Colour theme playground for the iNOS map.
-// F007-inos-layers.png stores, per pixel of F007-inos.png:
-//   R = fill class * 24, G = fill share t (0..255); the rest is ink.
-//   B = 255 where that ink is text, 0 where it is a line or border.
-// A pixel is redrawn as t * fill[class] + (1 - t) * ink, ink being the
-// text or the line colour.
+// Colour theme playground for one map (the page's #c2-map data-map, now glycolysis).
+// The map is the yEd SVG export tagged by maps-workbench tools/colours_svg.py:
+// each fill has the class c-<role>, each text t-<role> of the fill under it
+// (t-page on the background), and lines and arrowheads take the root's colour.
+// A theme sets one CSS variable per role (the rules are in colours.md).
 (function () {
   'use strict';
 
@@ -37,10 +36,8 @@
 
   var theme = {};
   var armed = null; // swatch picked from an image, waiting to be assigned
-  var layers = null; // { w, h, cls: Uint8Array, t: Uint8Array }
-  var canvas = document.getElementById('c2-map');
-  var ctx = canvas.getContext('2d');
-  var out = null;
+  var map = document.getElementById('c2-map');
+  var svg = null; // the map, once loaded
 
   // ---------- colour maths ----------
   function hexToRgb(h) {
@@ -110,100 +107,35 @@
   }
 
   // ---------- map rendering ----------
-  function loadLayers(src, done) {
-    var img = new Image();
-    img.onload = function () {
-      var w = img.naturalWidth, h = img.naturalHeight;
-      var tmp = document.createElement('canvas');
-      tmp.width = w; tmp.height = h;
-      var tctx = tmp.getContext('2d');
-      tctx.drawImage(img, 0, 0);
-      var d = tctx.getImageData(0, 0, w, h).data;
-      // Crop the white page margin (class 7) so only the map is shown
-      var x0 = w, y0 = h, x1 = -1, y1 = -1, x, y, k;
-      for (y = 0; y < h; y++) {
-        for (x = 0; x < w; x++) {
-          k = (y * w + x) * 4;
-          // pure margin: page class with no ink in it
-          if (Math.round(d[k] / 24) === 7 && d[k + 1] > 250) continue;
-          if (x < x0) x0 = x;
-          if (x > x1) x1 = x;
-          if (y < y0) y0 = y;
-          if (y > y1) y1 = y;
-        }
-      }
-      var cw = x1 - x0 + 1, ch = y1 - y0 + 1;
-      var cls = new Uint8Array(cw * ch), t = new Uint8Array(cw * ch), txt = new Uint8Array(cw * ch);
-      for (y = 0; y < ch; y++) {
-        for (x = 0; x < cw; x++) {
-          k = ((y + y0) * w + x + x0) * 4;
-          cls[y * cw + x] = Math.round(d[k] / 24);
-          t[y * cw + x] = d[k + 1];
-          txt[y * cw + x] = d[k + 2] > 127 ? 1 : 0;
-        }
-      }
-      // Semibold text: half of the text ink spread one pixel left, right, up
-      // and down within the same fill (about half a pixel thicker on each
-      // side), used where the text is drawn white
-      var SPREAD = 0.5;
-      var bold = new Uint8Array(cw * ch), i, c, v;
-      for (y = 0; y < ch; y++) {
-        for (x = 0; x < cw; x++) {
-          i = y * cw + x; c = cls[i]; v = txt[i] ? 255 - t[i] : 0;
-          if (x > 0 && txt[i - 1] && cls[i - 1] === c) v = Math.max(v, SPREAD * (255 - t[i - 1]));
-          if (x < cw - 1 && txt[i + 1] && cls[i + 1] === c) v = Math.max(v, SPREAD * (255 - t[i + 1]));
-          if (y > 0 && txt[i - cw] && cls[i - cw] === c) v = Math.max(v, SPREAD * (255 - t[i - cw]));
-          if (y < ch - 1 && txt[i + cw] && cls[i + cw] === c) v = Math.max(v, SPREAD * (255 - t[i + cw]));
-          bold[i] = v;
-        }
-      }
-      layers = { w: cw, h: ch, cls: cls, t: t, txt: txt, bold: bold };
-      canvas.width = cw; canvas.height = ch;
-      out = ctx.createImageData(cw, ch);
+  function loadMap(src, done) {
+    fetch(src).then(function (r) { return r.text(); }).then(function (t) {
+      map.innerHTML = t;
+      svg = map.querySelector('svg');
+      svg.removeAttribute('width');
+      svg.removeAttribute('height');
       done();
-    };
-    img.src = src;
+    });
   }
 
   function render() {
-    if (!layers) return;
+    if (!svg) return;
     var mode = document.getElementById('c2-cvd').value;
-    var hex = [];
-    ROLES.forEach(function (r) { if (r.cls >= 0) hex[r.cls] = theme[r.id]; });
+    var hex = {};
+    ROLES.forEach(function (r) { if (r.cls >= 0 && theme[r.id]) hex[r.id] = theme[r.id]; });
     // Highlight off: highlighted elements are drawn like ordinary ones
-    if (!document.getElementById('c2-hl').checked) hex[6] = hex[2];
-    // "Complex transparent": complexes take the compartment colour;
-    // a highlighted complex is always drawn like any other complex
-    if (document.getElementById('c2-cxbg').checked) hex[3] = hex[0];
-    hex[5] = hex[3];
-    var fills = [], texts = [], whiteText = [];
-    hex.forEach(function (h, k) {
-      fills[k] = simulate(hexToRgb(h), mode);
-      texts[k] = simulate(hexToRgb(textOn(h)), mode);
-      whiteText[k] = textOn(h) === '#FFFFFF' && theme.text !== '#FFFFFF';
+    if (!document.getElementById('c2-hl').checked) hex.hlProtein = hex.protein;
+    // "Complex transparent": complexes take the compartment colour
+    if (document.getElementById('c2-cxbg').checked) hex.complex = hex.compartment;
+    function seen(h) { return rgbToHex(simulate(hexToRgb(h), mode)); }
+    var st = svg.style;
+    Object.keys(hex).forEach(function (id) {
+      st.setProperty('--c-' + id, seen(hex[id]));
+      st.setProperty('--t-' + id, seen(textOn(hex[id])));
+      // white text is drawn semibold
+      st.setProperty('--w-' + id, whiteOn(hex[id]) ? '600' : 'normal');
     });
-    var line = simulate(hexToRgb(theme.ink), mode), text = simulate(hexToRgb(theme.text), mode);
-    var d = out.data, cls = layers.cls, t = layers.t, txt = layers.txt, bold = layers.bold, n = layers.w * layers.h;
-    for (var i = 0, j = 0; i < n; i++, j += 4) {
-      var a = t[i] / 255, b = 1 - a;
-      var ink = !txt[i] ? line : cls[i] === 7 ? text : texts[cls[i]];
-      // white text is drawn semibold: thicker where the spread ink is stronger
-      if (whiteText[cls[i]] && bold[i] > 255 * b && (txt[i] || b < 0.05)) {
-        ink = texts[cls[i]]; b = bold[i] / 255; a = 1 - b;
-      }
-      if (cls[i] === 7) {
-        // margin left at the rounded outer corners: transparent, keeping the ink edge
-        d[j] = ink[0]; d[j + 1] = ink[1]; d[j + 2] = ink[2];
-        d[j + 3] = 255 * b;
-        continue;
-      }
-      var f = fills[cls[i]];
-      d[j] = f[0] * a + ink[0] * b;
-      d[j + 1] = f[1] * a + ink[1] * b;
-      d[j + 2] = f[2] * a + ink[2] * b;
-      d[j + 3] = 255;
-    }
-    ctx.putImageData(out, 0, 0);
+    st.setProperty('--ink', seen(theme.ink));
+    st.setProperty('--t-page', seen(theme.text));
   }
 
   // ---------- mixer ----------
@@ -698,7 +630,7 @@
   }
   function download(ext, name, lower) {
     var v = document.querySelector('.c2-under').getAttribute('data-v');
-    fetch('/images/colours2/F007-inos.template.' + ext + '?v=' + v).then(function (r) { return r.text(); }).then(function (t) {
+    fetch(mapBase + '.template.' + ext + '?v=' + v).then(function (r) { return r.text(); }).then(function (t) {
       var c = shownColours();
       t = t.replace(/\{(\w+)\}/g, function (m, id) {
         return c[id] ? (lower ? c[id].toLowerCase() : c[id]) : m;
@@ -1412,7 +1344,8 @@
   applyPreset(linked || PRESETS[0][1]);
   // once applied, the theme code leaves the address bar
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-  loadLayers(document.getElementById('c2-map').getAttribute('data-layers'), render);
+  var mapBase = map.getAttribute('data-map'), mapName = mapBase.split('/').pop();
+  loadMap(mapBase + '.svg?v=' + map.getAttribute('data-v'), render);
 
   document.getElementById('c2-cvd').addEventListener('change', render);
   var hlBox = document.getElementById('c2-hl');
@@ -1478,10 +1411,10 @@
   document.getElementById('c2-add').addEventListener('click', addPreset);
   document.getElementById('c2-link').addEventListener('click', copyLink);
   document.getElementById('c2-yed').addEventListener('click', function () {
-    download('graphml', 'F007-inos-{theme}.graphml', false);
+    download('graphml', mapName + '-{theme}.graphml', false);
   });
   document.getElementById('c2-cd').addEventListener('click', function () {
-    download('xml', 'F007-inos-{theme}.xml', true);
+    download('xml', mapName + '-{theme}.xml', true);
     document.getElementById('c2-cdnote').hidden = !anyWhiteText();
   });
   window.addEventListener('hashchange', function () {
