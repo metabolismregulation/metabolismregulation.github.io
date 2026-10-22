@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F003-mevalonate.svg"
-width: 1566
+width: 1572
 height: 782
 scale: 1
 annotation: "/atlas-data/F003-mevalonate.json"
