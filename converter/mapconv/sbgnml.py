@@ -6,7 +6,7 @@
 import collections, copy, os, re
 from lxml import etree
 from . import report
-from .annotation import from_graphml, to_properties
+from .annotation import from_graphml, from_notes, notes, to_properties
 from .layout import bends, centre, compartment_of, decorations, unbent
 from . import newt_layout
 from .graphml import DELAY, EQUIV, LINE, CHAR, without_delays
@@ -15,6 +15,7 @@ from .model import Map, Node, Arc
 NS = 'http://sbgn.org/libsbgn/0.3'
 RENDER = 'http://www.sbml.org/sbml/level3/version1/render/version1'
 RDF = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+XH = 'http://www.w3.org/1999/xhtml'
 BQBIOL = 'http://biomodels.net/biology-qualifiers/'
 S, R = '{%s}' % NS, '{%s}' % RENDER
 CLASS = {'Macromolecule': 'macromolecule', 'SimpleChemical': 'simple chemical', 'NucleicAcidFeature': 'nucleic acid feature',
@@ -167,8 +168,13 @@ def write(diagram, layout='advanced', newt=False):
             s.find(R + 'g').set('stroke-width', '1')
 
     def annotate(g, i, d):
+        if d.kind not in CLASS or d.kind in PROCESSES:
+            return
+        if notes(d.data):  # the family's name, its members' sites (user, 2026-10-22)
+            h = etree.SubElement(etree.SubElement(g, S + 'notes'), '{%s}html' % XH, nsmap={None: XH})
+            etree.SubElement(h, '{%s}body' % XH).text = '\n'.join(notes(d.data))
         lab = ' '.join(d.labels[0].split()) if d.labels else ''
-        if lab not in ann or d.kind not in CLASS or d.kind in PROCESSES:
+        if lab not in ann:
             return
         family, urns = ann[lab]
         uris = []
@@ -400,6 +406,7 @@ def read(path):
                 if urns and etree.QName(q).localname in ('is', 'hasVersion'):
                     data.update(to_properties(etree.QName(q).localname == 'hasVersion', urns))
             break  # the glyph's own description
+        data = from_notes(''.join(nt.itertext()) if (nt := g.find(S + 'notes')) is not None else '', data)
         nodes[i] = Node(id=i, kind=kind, box=(x, y, w, h), parent=parent,
                         labels=[OPERATORS[cls]] if kind == 'Operator' else [text(g)],
                         fill=colour(fill.get(i), defs), states=states, units=units,

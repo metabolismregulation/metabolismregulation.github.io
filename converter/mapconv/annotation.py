@@ -56,3 +56,30 @@ def to_properties(family, uris):
     return {'Members': '; '.join(m.get('HGNC symbol', m.get('ChEBI', '')) for m in members),
             'Member annotation': json.dumps([{'symbol': m.get('HGNC symbol', ''), 'props': [[k, m[k]] for k in order if k in m]}
                                              for m in members], ensure_ascii=False)}
+
+
+def notes(p):
+    # what MIRIAM cannot hold, as note lines (user, 2026-10-22): a family's name ("Family: ERK1/2")
+    # and its members' sites ("MAPK3: P@T202 P@Y204"); the entity's own sites stay in PTM
+    lines = ['Family: ' + ' '.join(p['Family'].split())] if p.get('Family') else []
+    for m in json.loads(p.get('Member annotation') or '[]'):
+        ptm = ' '.join((dict(m['props']).get('PTM') or '').split())
+        if ptm:
+            lines.append('%s: %s' % (m['symbol'], ptm))
+    return lines
+
+
+def from_notes(text, p):
+    # inverse of notes(): the properties with the family's name and its members' sites
+    members = json.loads(p.get('Member annotation') or '[]')
+    out = dict(p)
+    for line in (text or '').splitlines():
+        k, _, v = line.strip().partition(': ')
+        if k == 'Family' and v:
+            out['Family'] = v
+        for m in members:
+            if m['symbol'] == k and v:
+                m['props'] = [x for x in m['props'] if x[0] != 'PTM'] + [['PTM', v]]
+                out['Member annotation'] = json.dumps(members, ensure_ascii=False)
+    return out
+

@@ -47,7 +47,7 @@ from lxml import etree
 from . import cd_layout, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
 from .layout import exit_point, visible
-from .annotation import to_properties
+from .annotation import from_notes, notes, to_properties
 from .graphml import EQUIV, without_delays
 from .model import Map, Node, Arc
 
@@ -427,12 +427,18 @@ def write(diagram, ann, layout='straight', move=True):
             s = sub(inc, 'species', id=spec(i), name=cd_name(label[i]))
             h = etree.SubElement(sub(s, 'notes'), '{%s}html' % XH, nsmap={None: XH})
             etree.SubElement(etree.SubElement(h, '{%s}head' % XH), '{%s}title' % XH)
-            miriam(etree.SubElement(h, '{%s}body' % XH), spec(i), label[i], abc=True)
+            body = etree.SubElement(h, '{%s}body' % XH)
+            body.text = '\n'.join(notes(d.data)) or None  # the family's name, its members' sites
+            miriam(body, spec(i), label[i], abc=True)
             x = sub(s, 'annotation'); sub(x, 'complexSpecies', spec(d.parent))
             identity(x, i)
             continue
         s = etree.SubElement(lsp, 'species', metaid=spec(i), id=spec(i), name=name_of(i),
                              compartment='c_' + sid(comp_of(i)) if comp_of(i) else 'default', initialAmount='0')
+        if notes(d.data):  # the family's name, its members' sites (SBML notes, before the annotation)
+            h = etree.SubElement(etree.SubElement(s, 'notes'), '{%s}html' % XH, nsmap={None: XH})
+            etree.SubElement(etree.SubElement(h, '{%s}head' % XH), '{%s}title' % XH)
+            etree.SubElement(h, '{%s}body' % XH).text = '\n'.join(notes(d.data))
         an = etree.SubElement(s, 'annotation'); x = sub(an, 'extension')
         sub(x, 'positionToCompartment', 'inside')
         identity(x, i)
@@ -643,7 +649,8 @@ def read(path):
     # points as yEd ports, modifier arcs ending beside the square; user, 2026-10-16, PD02
     # eicosanoids); what does not convert is printed. The straight layout: layout.at_centres
     r = etree.parse(path).getroot()
-    ns = {'cd': CD, 's': SBML, 'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'bq': 'http://biomodels.net/biology-qualifiers/'}
+    ns = {'cd': CD, 's': SBML, 'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'bq': 'http://biomodels.net/biology-qualifiers/',
+          'xh': 'http://www.w3.org/1999/xhtml'}
     f = lambda x, q: x.find(q, ns)
     xs = lambda x, q: x.iterfind(q, ns)
     ext = f(r, 's:model/s:annotation/cd:extension')
@@ -667,6 +674,8 @@ def read(path):
                for s in xs(r, 's:model/s:listOfSpecies/s:species')}
     species.update({s.get('id'): (s, f(s, 'cd:annotation/cd:speciesIdentity'), f(s, 'cd:notes'))
                     for s in xs(ext, 'cd:listOfIncludedSpecies/cd:species')})
+    def note(s):  # the text of a species' notes, its RDF left aside
+        return ''.join(t for q in ('s:notes/xh:html/xh:body', 'cd:notes/xh:html/xh:body') for b in xs(s, q) for t in b.xpath('text()'))
     residues = {}
     for p in xs(ext, 'cd:listOfProteins/cd:protein'):
         for m in xs(p, 'cd:listOfModificationResidues/cd:modificationResidue'):
@@ -711,7 +720,7 @@ def read(path):
             id=a.get('id'), kind=kind, box=box, labels=[name(s.get('name')) if cls != 'DEGRADED' else ''],
             parent=a.get('complexSpeciesAlias') or a.get('compartmentAlias'),
             fill=None if cls == 'DRUG' or paint is None else '#' + paint.get('color')[2:].upper(),
-            states=states, units=units, count=n, data=to_properties(fam, uris) if uris else {},
+            states=states, units=units, count=n, data=from_notes(note(s), to_properties(fam, uris) if uris else {}),
             dashed=hyp is not None and hyp.text == 'true', species=a.get('species'),
             font=float(font.get('size')) if font is not None and font.get('size') else None)
     # an unlabelled complex in yEd is named after its members in CellDesigner: the name goes
