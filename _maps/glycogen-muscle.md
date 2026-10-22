@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F004-glycogen-muscle.svg"
-width: 2131
-height: 1751
+width: 2154
+height: 1686
 scale: 1
 annotation: "/atlas-data/F004-glycogen-muscle.json"
 image_error: ""

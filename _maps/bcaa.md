@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F022-bcaa.svg"
-width: 1357
-height: 971
+width: 1374
+height: 978
 scale: 1
 annotation: "/atlas-data/F022-bcaa.json"
 image_error: ""

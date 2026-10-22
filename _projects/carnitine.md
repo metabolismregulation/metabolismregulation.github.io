@@ -18,7 +18,7 @@ project: true
 <a href="/downloads/F014-carnitine.csv" download>Annotation<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F014-carnitine.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F014-carnitine" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
-<p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.svg" width="708"/></a></p>
+<p align="middle"><a href="/carnitine/"><img id="image" src="/downloads/F014-carnitine.svg" width="719"/></a></p>
 
 ## Description
 

@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F005-srebp.svg"
-width: 746
-height: 1166
+width: 770
+height: 1149
 scale: 1
 annotation: "/atlas-data/F005-srebp.json"
 image_error: ""

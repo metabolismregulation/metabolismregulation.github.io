@@ -10,7 +10,7 @@ project: true
 
 <a href="/atlas-downloads/F002-eicosanoids-platelet.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="/atlas-downloads/F002-eicosanoids-platelet.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
-<p align="middle"><a href="/eicosanoids-platelet/"><img id="image" src="/atlas-downloads/F002-eicosanoids-platelet.svg" width="905"/></a></p>
+<p align="middle"><a href="/eicosanoids-platelet/"><img id="image" src="/atlas-downloads/F002-eicosanoids-platelet.svg" width="899"/></a></p>
 
 ## Description
 

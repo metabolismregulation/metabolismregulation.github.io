@@ -16,7 +16,7 @@ project: true
 <a href="/downloads/F023-pdh.csv" download>Annotation<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
 <a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F023-pdh.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
 <a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F023-pdh" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
-<p align="middle"><a href="/pdh/"><img id="image" src="/downloads/F023-pdh.svg" width="563"/></a></p>
+<p align="middle"><a href="/pdh/"><img id="image" src="/downloads/F023-pdh.svg" width="554"/></a></p>
 
 ## Reactome-Recon connection
 

@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F025-nnos.svg"
-width: 881
-height: 756
+width: 898
+height: 755
 scale: 1
 annotation: "/atlas-data/F025-nnos.json"
 image_error: ""

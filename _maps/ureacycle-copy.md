@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "copy"
 image: "/atlas-downloads/copy/F021-ureacycle.svg"
-width: 1080
-height: 1061
+width: 1099
+height: 1068
 scale: 1
 annotation: "/atlas-data/F021-ureacycle-copy.json"
 image_error: ""

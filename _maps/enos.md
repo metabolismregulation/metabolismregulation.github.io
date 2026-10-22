@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F008-enos.svg"
-width: 1286
-height: 1833
+width: 1270
+height: 1838
 scale: 1
 annotation: "/atlas-data/F008-enos.json"
 image_error: ""

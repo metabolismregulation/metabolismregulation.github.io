@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 tag: "draft"
 image: "/atlas-downloads/F019-glutaminase.svg"
-width: 1172
-height: 937
+width: 1182
+height: 950
 scale: 1
 annotation: "/atlas-data/F019-glutaminase.json"
 image_error: ""

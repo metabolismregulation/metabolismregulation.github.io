@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F014-carnitine.svg"
-width: 1056
-height: 1236
+width: 1073
+height: 1266
 scale: 1
 annotation: "/atlas-data/F014-carnitine.json"
 image_error: ""

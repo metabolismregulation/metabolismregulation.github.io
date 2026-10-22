@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 tag: "new"
 image: "/atlas-downloads/F024-alox5.svg"
-width: 1159
-height: 764
+width: 1154
+height: 770
 scale: 1
 annotation: "/atlas-data/F024-alox5.json"
 image_error: ""
@@ -18,7 +18,6 @@ contributors:
   - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/F024-alox5.graphml"}
-  - {label: "PNG", url: "/atlas-downloads/F024-alox5.png"}
   - {label: "SVG", url: "/atlas-downloads/F024-alox5.svg"}
 ---
 ## Reactome-Recon connection

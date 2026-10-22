@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F018-estrogen.svg"
-width: 1233
-height: 1305
+width: 1278
+height: 1338
 scale: 1
 annotation: "/atlas-data/F018-estrogen.json"
 image_error: ""

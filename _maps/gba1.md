@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 tag: "new"
 image: "/atlas-downloads/F026-gba1.svg"
-width: 1143
-height: 553
+width: 1154
+height: 544
 scale: 1
 annotation: "/atlas-data/F026-gba1.json"
 image_error: ""

@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F004-glycogen-liver.svg"
-width: 2131
-height: 1751
+width: 2154
+height: 1686
 scale: 1
 annotation: "/atlas-data/F004-glycogen-liver.json"
 image_error: ""
