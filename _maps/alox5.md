@@ -26,7 +26,7 @@ The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-
 
 ## Description
 
-Arachidonate 5-lipoxygenase (ALOX5) converts arachidonate, through 5-hydroperoxyeicosatetraenoic acid, into leukotriene A4, the precursor of all leukotrienes. The reaction takes place at the nuclear envelope, where ALOX5 binds its partner ALOX5AP (FLAP), helped by Ca2+. Zileuton, an asthma drug, inhibits it. Two phosphorylations act in opposite directions and also decide where ALOX5 is. MAPKAP kinase 2, activated by p38α in stress signalling, phosphorylates ALOX5 at Ser272 in the nucleus, giving a form that stays there and is active without a Ca2+ signal. Protein kinase A, activated by cAMP, phosphorylates Ser524 in the cytosol, giving a form that cannot enter the nucleus and is inactive.
+Arachidonate 5-lipoxygenase (ALOX5) converts arachidonate, through 5-hydroperoxyeicosatetraenoic acid, into leukotriene A4, the precursor of all leukotrienes. The reaction takes place at the nuclear envelope, where ALOX5 binds its partner ALOX5AP (FLAP), helped by Ca2+. Zileuton, an asthma drug, inhibits it. Two phosphorylations act in opposite directions and also decide where ALOX5 is. MAPKAP kinase 2, activated by p38α (MAPK14) in stress signalling, phosphorylates ALOX5 at Ser272 in the nucleus, giving a form that stays there and is active without a Ca2+ signal. Protein kinase A, activated by cAMP, phosphorylates Ser524 in the cytosol, giving a form that cannot enter the nucleus and is inactive.
 
 ## References
 
