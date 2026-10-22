@@ -10,6 +10,8 @@ attached to the session, ask for it before saving any working files.
 
 When something cannot be done, say exactly what stops it (a blocked host, a missing file, no
 access), not as a task left to do (user, 2026-10-19; details in maps-workbench CLAUDE.md).
+At the end of a piece of work, list explicitly what needs the user: a decision, an action, an example
+file drawn in CellDesigner (or another program), anything left unsolved (user, 2026-10-22).
 
 Working rules for sessions (handover note, when to suggest a new chat,
 batching, when to take screenshots) are in the CLAUDE.md of
