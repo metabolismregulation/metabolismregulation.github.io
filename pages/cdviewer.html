@@ -67,8 +67,9 @@ noindex: true
   .m2-btn svg { width: 14px; height: 14px; margin-left: 5px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
   #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; }
   /* Update: the browser's reload sign before the word, turning while the files are checked */
-  #m2-update { margin: 0; padding: 4px 8px; flex: none; }
-  #m2-update svg { margin: 0 6px 0 0; }
+  /* Update: the reload sign alone in a square button (user, 2026-10-22) */
+  #m2-update { box-sizing: border-box; width: 30px; height: 30px; margin: 0; padding: 0; justify-content: center; flex: none; }
+  #m2-update svg { width: 16px; height: 16px; margin: 0; }
   #m2-update.m2-busy svg { animation: m2-turn 1s linear infinite; }
   @keyframes m2-turn { to { transform: rotate(360deg); } }
   #m2-status { font-size: 13px; color: #777; margin: 0 0 12px; min-height: 18px; }
@@ -80,7 +81,7 @@ noindex: true
 <div class="m2">
 <div class="m2-nav">
 <div class="m2-top">
-<button type="button" class="m2-btn" id="m2-update" title="Check the official maps' CellDesigner files and draw the changed or new ones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg>Update</button>
+<button type="button" class="m2-btn" id="m2-update" aria-label="Update" title="Update: check the official maps' CellDesigner files and draw the changed or new ones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg></button>
 <div class="m2-mode" role="group" aria-label="Drawing">
 <button type="button" data-mode="minerva" title="As MINERVA draws the CellDesigner file">MINERVA</button>
 <button type="button" data-mode="cd" title="As CellDesigner draws the file">CellDesigner</button>

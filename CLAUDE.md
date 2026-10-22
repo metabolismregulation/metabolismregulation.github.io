@@ -383,7 +383,7 @@ the Maps list link, in the Atlas's order and names), the chosen one in the middl
 Colours page's lean viewer: fit, zoom, drag, −, + and Fit, and the Atlas's full-screen button, user 2026-10-22),
 under it two buttons in the Atlas download row's style: CellDesigner (download icon) and Map page (a new tab, after it the arrow that goes up and then right, ↱, drawn as the Converter's ↳ turned upwards; not the external-link box or a diagonal arrow, user 2026-10-22). The
 up and down arrow keys go through the list, in full screen too, `?map=<name>` opens a map. An Update button
-(the browser's reload sign, turning while it works; user 2026-10-22) above the list reads the Maps page and each
+(the browser's reload sign alone in a square button, no word, "Update" on hover; turning while it works; user 2026-10-22) above the list reads the Maps page and each
 map page it lists, compares every CellDesigner file they link (sha1) with the one drawn, and has MINERVA draw the
 changed and new ones in the browser (MINERVA allows the site's origin); a new map goes under "New on the Maps
 page", the result is said under the button. Those drawings last until the page is reloaded. A switch right of the Update button (user, 2026-10-22; at the top left of the map window until then), "MINERVA" and "CellDesigner"
