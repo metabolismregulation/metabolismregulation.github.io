@@ -1,5 +1,5 @@
 # Read a yEd GraphML map drawn with the SBGN palette into the map model, and write one.
-import copy, os, re
+import copy, math, os, re
 from dataclasses import replace
 from lxml import etree
 from . import report
@@ -178,6 +178,7 @@ def without_delays(m, form):
 
 
 LINE, CHAR = 16.5, 9.5  # a label line's height and a character's width at font size 14 (our maps)
+ICON_CHAR = 5.4  # a character's width in a state variable or unit of information (Dialog 10)
 
 
 def _label(l, text, w, h, k=1.0):
@@ -212,14 +213,21 @@ def write(diagram):
         etree.SubElement(root, G + 'key', {'attr.name': name, 'attr.type': 'string', 'for': 'node', 'id': 'd%d' % k})
     for kid, f, y in (('ng', 'node', 'nodegraphics'), ('res', 'graphml', 'resources'), ('eg', 'edge', 'edgegraphics')):
         etree.SubElement(root, G + 'key', {'for': f, 'id': kid, 'yfiles.type': y})
-    resources, rid = [], {}
+    resources, rid, size = [], {}, {}
 
     def resource(kind, text):  # one icon per kind and text, shared as yEd shares them
         if (kind, text) not in rid:
             r = copy.deepcopy(res_tpl[kind]); rid[kind, text] = str(len(rid) + 1); r.set('id', rid[kind, text])
             gn = r.find('.//y:GenericNode', NS)
-            gn.find('y:Geometry', NS).set('width', '15.0' if len(text) <= 2 else '45.0')  # as in our maps
-            _label(gn.find('y:NodeLabel', NS), text, float(gn.find('y:Geometry', NS).get('width')), 15.0)
+            # as in our maps (user, 2026-10-22): a state variable of up to two letters an 18 x 18 circle,
+            # a longer one a capsule 18 high, a unit of information 16 high; text 10, centred
+            if kind == 'StateVariable':
+                w, h = (18.0, 18.0) if len(text) <= 2 else (float(math.ceil(len(text) * ICON_CHAR + 12)), 18.0)
+            else:
+                w, h = float(math.ceil(len(text) * ICON_CHAR + 8)), 16.0
+            gn.find('y:Geometry', NS).set('width', repr(w)); gn.find('y:Geometry', NS).set('height', repr(h))
+            _label(gn.find('y:NodeLabel', NS), text, w, h, 10 / 14)
+            size[rid[kind, text]] = w, h
             resources.append(r)
         return rid[kind, text]
 
@@ -270,6 +278,9 @@ def write(diagram):
             il = copy.deepcopy(icon); il.set('iconData', resource(kind, txt))
             p = il.find('.//y:SmartNodeLabelModelParameter', NS)
             p.set('nodeRatioX', repr(float(rx))); p.set('nodeRatioY', repr(float(ry)))
+            iw, ih = size[il.get('iconData')]  # the label is the icon, centred on its point of the border
+            for k, v in (('width', iw), ('height', ih), ('x', (0.5 + rx) * w - iw / 2), ('y', (0.5 + ry) * h - ih / 2)):
+                il.set(k, repr(float(v)))
             gn.findall('y:NodeLabel', NS)[-1].addnext(il)
         if group:
             sub = n.find('g:graph', NS); sub.set('id', i + ':')
