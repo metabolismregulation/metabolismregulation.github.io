@@ -165,16 +165,16 @@ def build(m):
         at = [a for a in m.arcs if p in (a.source, a.target)]
         cons = [glyph[other(a, p)] for a in at if a.head is None and other(a, p) in glyph]
         prod = [glyph[a.target] for a in at if a.source == p and a.head == 'production' and a.target in glyph]
-        mods = [(glyph[a.source], a.head) for a in at if a.target == p and a.head in MOD and a.source in glyph]
+        mods = [(glyph[a.source], a.head, a.dashed) for a in at if a.target == p and a.head in MOD and a.source in glyph]
         # a gate's inputs: the entities joined to it by plain arcs, either way
         gates = [(label(N[a.source]).upper(), [glyph[other(b, a.source)] for b in m.arcs if a.source in (b.source, b.target)
-                  and b.head is None and other(b, a.source) in glyph], a.head)
+                  and b.head is None and other(b, a.source) in glyph], a.head, a.dashed)
                  for a in at if a.target == p and N[a.source].kind == 'Operator']
         reactions.append(Reaction(id=p, reactants=cons, products=prod, modifiers=mods, gates=gates))
     for a in m.arcs:
         s = N[a.source]
         if a.source in glyph and a.target in glyph and a.head in HEADS:
-            influences.append(Influence(id=a.id, sources=[glyph[a.source]], target=glyph[a.target], head=a.head))
+            influences.append(Influence(id=a.id, sources=[glyph[a.source]], target=glyph[a.target], head=a.head, dashed=a.dashed))
         elif s.kind == 'Operator' and label(s) == EQUIV and a.target in glyph and a.head is None:
             # an equivalence: the members, the generic entity
             ins = [other(b, a.source) for b in m.arcs if a.source in (b.source, b.target) and b is not a]
@@ -183,7 +183,7 @@ def build(m):
         elif s.kind == 'Operator' and a.target in glyph and a.head in HEADS:  # a gate on arcs between entities
             ins = [other(b, a.source) for b in m.arcs if a.source in (b.source, b.target) and b.head is None]
             influences.append(Influence(id=a.id, sources=[glyph[i] if i in glyph else (label(N[i]).upper(),) for i in ins],
-                                        target=glyph[a.target], head=a.head, gate=label(s).upper()))
+                                        target=glyph[a.target], head=a.head, gate=label(s).upper(), dashed=a.dashed))
     def around(c):
         q = N[c].parent
         while q is not None and q not in comps:

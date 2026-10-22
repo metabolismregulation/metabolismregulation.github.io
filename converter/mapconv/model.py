@@ -102,8 +102,8 @@ class Reaction:
     id: str            # the process node
     reactants: list    # entity ids; a reversible process has none, its products are both sides
     products: list
-    modifiers: list    # (entity id, head)
-    gates: list        # (operator label, [entity ids], head): a logic gate on the process
+    modifiers: list    # (entity id, head, dashed): dashed, an unknown catalysis, inhibition, ... (CellDesigner)
+    gates: list        # (operator label, [entity ids], head, dashed): a logic gate on the process
 
 
 @dataclass
@@ -113,6 +113,7 @@ class Influence:       # an arc between entities, with or without a logic gate
     target: str
     head: str          # see HEADS; None for an equivalence
     gate: str = None   # operator label (AND, OR, NOT, ≡)
+    dashed: bool = False  # an unknown influence (CellDesigner)
 
 
 @dataclass

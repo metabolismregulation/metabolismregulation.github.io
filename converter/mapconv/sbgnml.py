@@ -78,6 +78,14 @@ def shifted(diagram, margin=20):
     return d
 
 
+UNKNOWN = 'Unknown (a dashed arc)'  # the note of an arc drawn dashed (CellDesigner's unknown catalysis, ...)
+
+
+def note(el, lines):  # lines as the element's notes (xhtml)
+    h = etree.SubElement(etree.SubElement(el, S + 'notes'), '{%s}html' % XH, nsmap={None: XH})
+    etree.SubElement(h, '{%s}body' % XH).text = '\n'.join(lines)
+
+
 def write(diagram, layout='advanced', newt=False):
     # layout 'straight' (user, 2026-10-18): every arc straight from centre to centre (no bends, no
     # yEd ports, no process ports), the necessary minimum, improved by hand in Newt; 'advanced':
@@ -171,8 +179,7 @@ def write(diagram, layout='advanced', newt=False):
         if d.kind not in CLASS or d.kind in PROCESSES:
             return
         if notes(d.data):  # the family's name, its members' sites (user, 2026-10-22)
-            h = etree.SubElement(etree.SubElement(g, S + 'notes'), '{%s}html' % XH, nsmap={None: XH})
-            etree.SubElement(h, '{%s}body' % XH).text = '\n'.join(notes(d.data))
+            note(g, notes(d.data))
         lab = ' '.join(d.labels[0].split()) if d.labels else ''
         if lab not in ann:
             return
@@ -294,11 +301,17 @@ def write(diagram, layout='advanced', newt=False):
         if newt:
             pts = newt_layout.unaimed(pts, p0 if s in ports else centre(N[s]), p1 if t in ports else centre(N[t]))
         e = etree.SubElement(m, S + 'arc', {'class': cls, 'id': xml_id(a.id), 'source': src, 'target': tgt})
+        if a.dashed:  # SBGN PD has no unknown arc: kept in its notes (user, 2026-10-22)
+            note(e, [UNKNOWN])
         etree.SubElement(e, S + 'start', x=repr(float(p0[0])), y=repr(float(p0[1])))
         for q in pts:
             etree.SubElement(e, S + 'next', x=repr(float(q[0])), y=repr(float(q[1])))
         etree.SubElement(e, S + 'end', x=repr(float(p1[0])), y=repr(float(p1[1])))
     return etree.tostring(root, pretty_print=True, xml_declaration=True, encoding='UTF-8').decode('utf-8')
+
+
+def text_of(el):  # an element's notes as plain text
+    return ''.join(nt.itertext()) if (nt := el.find(S + 'notes')) is not None else ''
 
 
 # --- reading SBGN-ML (and Newt's .nwt) into the map model (docs/SBGNML.md, "The way back")
@@ -406,7 +419,7 @@ def read(path):
                 if urns and etree.QName(q).localname in ('is', 'hasVersion'):
                     data.update(to_properties(etree.QName(q).localname == 'hasVersion', urns))
             break  # the glyph's own description
-        data = from_notes(''.join(nt.itertext()) if (nt := g.find(S + 'notes')) is not None else '', data)
+        data = from_notes(text_of(g), data)
         nodes[i] = Node(id=i, kind=kind, box=(x, y, w, h), parent=parent,
                         labels=[OPERATORS[cls]] if kind == 'Operator' else [text(g)],
                         fill=colour(fill.get(i), defs), states=states, units=units,
@@ -430,7 +443,7 @@ def read(path):
             performers.setdefault(t, []).append((s, a.get('id'))); continue
         if cls not in head or s not in nodes or t not in nodes:
             skipped.setdefault(cls + ' arc' if cls not in head else 'arc to a glyph left out', []).append(a.get('id')); continue
-        arcs.append(Arc(id=a.get('id'), source=s, target=t, head=head[cls],
+        arcs.append(Arc(id=a.get('id'), source=s, target=t, head=head[cls], dashed=UNKNOWN in text_of(a),
                         points=[(float(p.get('x')), float(p.get('y'))) for p in a.findall(S + 'next')]))
     for t, ps in performers.items():
         if len(ps) > 1:  # which entity it stands for is not guessed
