@@ -419,7 +419,10 @@ UniProt (`tools/ptm_check.py`), which is a check, not the authority.
 All Atlas maps with sites moved to PTM on 2026-10-17 (GraphML and SVG in `atlas-downloads/`;
 the official files in `downloads/` keep their sites on the circles). The official pyrimidine and glutaminolysis maps (and their Atlas
 "copy" entries) keep their sites on the circles until their drafts are published (user, 2026-10-22).
-No state variable on the top side of a node (user, 2026-10-17): MINERVA draws N:x there. A
+No state variable on the top side of a multimer (user, 2026-10-22; 2026-10-17 it was every node): MINERVA
+draws N:x there; with many state variables its top corners are allowed. Allowed places are almost any on
+the border; the preferred ones (centre, quarter points, a pair at 20 and 60 on an 80 px protein, corners
+kept) are what the layout skill draws (`icon_sizes.py`). A
 protein's circles sit in the same place on every instance (eNOS: My left, Pa bottom left and
 right, P right; AKT1: P bottom left and right).
 
