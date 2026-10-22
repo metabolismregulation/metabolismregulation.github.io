@@ -10,7 +10,7 @@ draft: false
 tag: "copy"
 image: "/atlas-downloads/copy/F002-eicosanoids.svg"
 width: 664
-height: 552
+height: 560
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids-copy.json"
 image_error: ""
