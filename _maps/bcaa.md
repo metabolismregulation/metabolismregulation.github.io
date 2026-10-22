@@ -20,6 +20,9 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F022-bcaa.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F022-bcaa.png"}
   - {label: "SVG", url: "/atlas-downloads/F022-bcaa.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F022-bcaa.sbgn"}
+  - {label: "CellDesigner", url: "/atlas-downloads/F022-bcaa.xml"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F022-bcaa.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F022-bcaa"}
 ---
 ## Reactome-Recon connection

@@ -20,7 +20,9 @@ downloads:
   - {label: "GraphML", url: "/atlas-downloads/F025-nnos.graphml"}
   - {label: "PNG", url: "/atlas-downloads/F025-nnos.png"}
   - {label: "SVG", url: "/atlas-downloads/F025-nnos.svg"}
+  - {label: "SBGN-ML", url: "/atlas-downloads/F025-nnos.sbgn"}
   - {label: "CellDesigner", url: "/atlas-downloads/F025-nnos.xml"}
+  - {label: "Newt", url: "http://web.newteditor.org/?URL=https://metabolismregulation.github.io/atlas-downloads/F025-nnos.sbgn"}
   - {label: "MINERVA", url: "https://mreg.elixir-luxembourg.org/minerva/index.html?id=F025-nnos"}
 ---
 ## Reactome-Recon connection
