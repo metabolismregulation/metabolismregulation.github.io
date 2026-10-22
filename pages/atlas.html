@@ -277,10 +277,10 @@ noindex: true
     moved = true;
     draw();
   }
-  // fits the map below the strip kept free for the zoom controls
+  // fits the map to the view, no space around it (user, 2026-10-22, as on the Colours page)
   function fitZoom() {
     var s = size(current);
-    return Math.min(view.clientWidth * 0.96 / s.w, (view.clientHeight - TOP - 12) / s.h);
+    return Math.min(view.clientWidth / s.w, view.clientHeight / s.h);
   }
   // the browser's own zoom (Cmd + / Cmd -). Browsers do not report it, but
   // the window's width in screen pixels over its width in page pixels gives
@@ -322,7 +322,7 @@ noindex: true
     var s = size(current);
     z = Math.min(fitZoom(), STANDARD * FIT_MAX / bz);
     tx = (view.clientWidth - s.w * z) / 2;
-    ty = TOP; // at the top, centred left to right, as in Read
+    ty = (view.clientHeight - s.h * z) / 2; // centred
     moved = false;
     draw();
   }

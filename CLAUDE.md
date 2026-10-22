@@ -168,7 +168,8 @@ on a 15-inch MacBook the download row shows and the text starts below the window
 it was the shape 738 x 504, at most 70% of the window), and its lower edge
 can be dragged down to the whole window without the header, no further: over the map the wheel
 zooms, so a taller window would trap the page (user, 2026-10-16). A full-screen button after
-Fit shows the map alone, with the annotation over its right side.
+Fit shows the map alone, with the annotation over its right side. Fit fits the map to the window with no space around it and centres it, never above the
+reading size (user, 2026-10-22, as on the Colours page); Read keeps the map at the top.
 
 ## Atlas panel
 
