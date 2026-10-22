@@ -22,6 +22,9 @@ noindex: true
   }
   .m2-group { font-size: 14px; line-height: 18px; color: #000; padding: 2px 5px 2px 0; margin-top: 6px; }
   .m2-group:first-child { margin-top: 0; }
+  /* flex: none: the list has a max-height, and an item with overflow hidden would otherwise
+     shrink to fit it, its highlight cutting the text */
+  .m2-group, .m2-item { flex: none; }
   .m2-item { display: block; width: calc(100% - 14px); margin-left: 14px; text-align: left; font-size: 14px; line-height: 18px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; color: #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .m2-item:hover { background: #f3f3f3; }
   .m2-item.m2-on { background: #4183c4; color: #fff; }
