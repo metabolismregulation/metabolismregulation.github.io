@@ -6,12 +6,14 @@
 # Atlas map whose GraphML changed without a new yEd SVG (atlas-data/images.json).
 # Liberation Sans (Arial's metrics) for the text of the drawn PNGs. Run by hand with
 # "refresh" ticked, it fetches every cached UniProt, HGNC and ChEBI entry again; an
-# identifier that no longer resolves shows as a warning on the run's page.
+# identifier that no longer resolves shows as a warning on the run's page. Last,
+# scripts/make_cdviewer.py has MINERVA draw every changed official CellDesigner file for the
+# CD viewer (/cdviewer/); a failure there does not stop the run.
 name: Atlas data
 on:
   push:
     branches: [master]
-    paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py', 'scripts/make_images.py', 'yrender/**']
+    paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py', 'scripts/make_images.py', 'scripts/make_cdviewer.py', 'pages/maps.html', 'yrender/**']
   workflow_dispatch:
     inputs:
       refresh:
@@ -32,8 +34,10 @@ jobs:
       - run: pip install pillow lxml cairosvg numpy
       - run: python3 scripts/make_images.py
       - run: python3 scripts/make_maps.py ${{ inputs.refresh && '--refresh' || '' }}
+      - run: python3 scripts/make_cdviewer.py
+        continue-on-error: true
       - run: |
-          git add -A _maps atlas-data atlas-downloads
+          git add -A _maps atlas-data atlas-downloads cdviewer
           git diff --cached --quiet && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898283+github-actions[bot]@users.noreply.github.com'

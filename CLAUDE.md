@@ -371,6 +371,20 @@ says it (user, 2026-10-22, the line under the buttons removed). The converter fi
 workbench copies of `yrender.py`, `yrender_check.py` and `colours_templates.py`, commit in `VERSION`; after a change
 there, copy them and update `VERSION`.
 
+## CD viewer
+
+`/cdviewer/` (`pages/cdviewer.html`, user 2026-10-22), hidden like the Atlas (not in the navigation,
+`noindex: true`): to go through the official maps' CellDesigner files quickly, without opening each in
+CellDesigner. The Atlas's layout, lean: the official maps on the left (the CellDesigner files the pages in
+the Maps list link, in the Atlas's order and names), the chosen one in the middle as MINERVA draws it (the
+Colours page's lean viewer: fit, zoom, drag, −, + and Fit), the file and its map page linked under it. The up
+and down arrow keys go through the list, `?map=<name>` opens a map. The SVGs are made by
+`python3 scripts/make_cdviewer.py` (MINERVA's conversion service, CellDesigner to SVG, Java's Dialog font
+given Arial's metrics) into `cdviewer/<base>.svg`, listed in `cdviewer/maps.json` with each file's sha1, so
+only a changed file is sent again (`--all` sends all); a file MINERVA cannot draw shows MINERVA's reason in
+red in the map window and in the list. The Atlas data workflow runs it on every push that touches
+`downloads/` or a map page.
+
 ## Home page
 
 The pathway highlight on the home page (`index.html`) is chosen by `highlight:` in its front

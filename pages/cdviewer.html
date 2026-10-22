@@ -1,0 +1,232 @@
+---
+layout: default
+title: CD viewer
+permalink: /cdviewer/
+sitemap: false
+noindex: true
+---
+
+<style>
+  /* the Atlas's layout, lean: the official maps on the left, the CellDesigner file of the
+     chosen one in the middle, as MINERVA draws it (scripts/make_cdviewer.py), and an empty
+     column of the list's width on the right, so the middle stays centred under the header */
+  .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
+        width: min(100vw / var(--zoom, 1) - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }
+  .m2-nav { grid-column: 1; }
+  .m2-main { grid-column: 2; min-width: 0; }
+  #m2-list { max-height: calc(100vh / var(--zoom, 1) - 140px); overflow-y: auto; display: flex; flex-direction: column; gap: 2px; }
+  @media (max-width: 940px) {
+    .m2 { display: block; width: auto; left: 0; transform: none; }
+    .m2-nav { margin-bottom: 12px; }
+    #m2-list { max-height: 127px; border-bottom: 1px solid #eee; }
+  }
+  .m2-group { font-size: 14px; line-height: 18px; color: #000; padding: 2px 5px 2px 0; margin-top: 6px; }
+  .m2-group:first-child { margin-top: 0; }
+  .m2-item { display: block; width: calc(100% - 14px); margin-left: 14px; text-align: left; font-size: 14px; line-height: 18px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; color: #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m2-item:hover { background: #f3f3f3; }
+  .m2-item.m2-on { background: #4183c4; color: #fff; }
+  .m2-item:focus { outline: none; }
+  .m2-item.m2-bad:not(.m2-on) { color: #c62828; }
+
+  #m2-view { position: relative; width: 100%; height: 504px; min-height: 300px; max-height: calc(100vh / var(--zoom, 1) - 70px); resize: vertical; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
+  #m2-view.m2-drag { cursor: grabbing; }
+  #m2-view:focus, .m2-ctrl button:focus { outline: none; }
+  #m2-img { position: absolute; left: 0; top: 0; max-width: none; pointer-events: none; }
+  #m2-err { position: absolute; left: 16px; top: 40px; right: 16px; font-size: 14px; color: #c62828; }
+  .m2-ctrl { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; align-items: center; }
+  .m2-ctrl button { font-size: 13px; min-width: 28px; padding: 2px 8px; color: #222; background: #fffffff0; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
+  .m2-ctrl button:hover { border-color: #4183c4; color: #4183c4; }
+  #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; }
+  #m2-fit { box-sizing: border-box; height: 21px; padding: 0 6px; }
+  #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
+  /* under the map: the file shown, linked, and its map page */
+  #m2-file { margin: 8px 0 0; font-size: 14px; color: #777; }
+  .m2 a { color: #1c47a9; }
+  .m2 a:hover, .m2 a:active { color: #1c47a9; }
+</style>
+
+<div class="m2">
+<div class="m2-nav">
+<div id="m2-list"></div>
+</div>
+<div class="m2-main">
+<div id="m2-view" tabindex="0">
+<img id="m2-img" alt="">
+<div id="m2-err"></div>
+<div class="m2-ctrl">
+<span id="m2-zoom"></span>
+<button type="button" id="m2-out" title="Zoom out">&minus;</button>
+<button type="button" id="m2-in" title="Zoom in">+</button>
+<button type="button" id="m2-fit">Fit</button>
+</div>
+</div>
+<div id="m2-file"></div>
+</div>
+</div>
+
+<script>
+(function () {
+  // A lean copy of the Atlas viewer (as the Colours page's): the map fits the window when
+  // chosen, never above the reading size (100%, 0.675 px per unit, as the map pages), the
+  // wheel or a pinch zooms at the pointer, a drag moves it, Fit returns. The up and down
+  // arrow keys go through the list.
+  var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
+  var err = document.getElementById('m2-err'), list = document.getElementById('m2-list');
+  var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80;
+  var z = STANDARD, tx = 0, ty = 0, moved = false, mapW = 0, mapH = 0, shown = false;
+  var maps = [], cur = -1, buttons = [];
+  function pz() { return view.currentCSSZoom || 1; }
+  function draw() {
+    if (!shown) return;
+    var w = mapW * z, h = mapH * z, vw = view.clientWidth, vh = view.clientHeight;
+    tx = Math.min(vw - Math.min(KEEP, w), Math.max(Math.min(KEEP, w) - w, tx));
+    ty = Math.min(vh - Math.min(KEEP, h), Math.max(Math.min(KEEP, h) - h, ty));
+    img.style.width = w + 'px';
+    img.style.height = h + 'px';
+    img.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    document.getElementById('m2-zoom').textContent = Math.round(z / STANDARD * 100) + '%';
+  }
+  function zoomAt(nz, cx, cy) {
+    nz = Math.max(MIN, Math.min(MAX, nz));
+    tx = cx - (cx - tx) * nz / z;
+    ty = cy - (cy - ty) * nz / z;
+    z = nz;
+    moved = true;
+    draw();
+  }
+  function fit() {
+    if (!shown) return;
+    z = Math.min(view.clientWidth / mapW, view.clientHeight / mapH, STANDARD);
+    tx = (view.clientWidth - mapW * z) / 2;
+    ty = (view.clientHeight - mapH * z) / 2;
+    moved = false;
+    draw();
+  }
+  function centre() { return [view.clientWidth / 2, view.clientHeight / 2]; }
+  document.getElementById('m2-in').addEventListener('click', function () { var c = centre(); zoomAt(z * 1.25, c[0], c[1]); });
+  document.getElementById('m2-out').addEventListener('click', function () { var c = centre(); zoomAt(z / 1.25, c[0], c[1]); });
+  document.getElementById('m2-fit').addEventListener('click', fit);
+  view.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    var r = view.getBoundingClientRect();
+    zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+  }, { passive: false });
+  view.addEventListener('dblclick', function (e) {
+    if (e.target.closest('.m2-ctrl')) return;
+    var r = view.getBoundingClientRect();
+    zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+  });
+  var pts = {}, last = null;
+  view.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.m2-ctrl')) return;
+    var r = view.getBoundingClientRect();
+    if (e.clientX > r.right - 18 && e.clientY > r.bottom - 18) return; // the resize handle
+    view.setPointerCapture(e.pointerId);
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    last = null;
+    view.classList.add('m2-drag');
+  });
+  view.addEventListener('pointermove', function (e) {
+    if (!pts[e.pointerId]) return;
+    var prev = pts[e.pointerId];
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    var ids = Object.keys(pts);
+    if (ids.length === 1) {
+      tx += (e.clientX - prev[0]) / pz();
+      ty += (e.clientY - prev[1]) / pz();
+      moved = true;
+      draw();
+    } else if (ids.length === 2) {
+      var a = pts[ids[0]], b = pts[ids[1]], r = view.getBoundingClientRect();
+      var d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      if (last) zoomAt(z * d / last, ((a[0] + b[0]) / 2 - r.left) / pz(), ((a[1] + b[1]) / 2 - r.top) / pz());
+      last = d;
+    }
+  });
+  function release(e) {
+    delete pts[e.pointerId];
+    last = null;
+    if (!Object.keys(pts).length) view.classList.remove('m2-drag');
+  }
+  view.addEventListener('pointerup', release);
+  view.addEventListener('pointercancel', release);
+  // the window's height: 77% of the browser window, as the Atlas's, until its lower edge is dragged
+  var autoH = null;
+  function viewHeight() {
+    if (autoH !== null && view.style.height !== autoH) return;
+    autoH = Math.round(Math.max(300, window.innerHeight / pz() * 0.77)) + 'px';
+    view.style.height = autoH;
+  }
+  viewHeight();
+  window.addEventListener('resize', viewHeight);
+  if (window.ResizeObserver) new ResizeObserver(function () { if (moved) draw(); else fit(); }).observe(view);
+
+  function svgOf(m) { return '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
+  function choose(i) {
+    if (i < 0 || i >= maps.length || i === cur) return;
+    if (cur >= 0) buttons[cur].classList.remove('m2-on');
+    cur = i;
+    var m = maps[i], b = buttons[i];
+    b.classList.add('m2-on');
+    b.scrollIntoView({ block: 'nearest' });
+    history.replaceState(null, '', '?map=' + m.base.replace(/^F\d+-/, ''));
+    var name = m.base + '.xml';
+    document.getElementById('m2-file').innerHTML = '<a href="{{ site.baseurl }}' + m.file + '" download>' + name +
+      '</a> &nbsp; <a href="{{ site.baseurl }}' + m.page + '">Map page</a>';
+    if (m.error) {
+      shown = false;
+      img.removeAttribute('src');
+      img.style.display = 'none';
+      err.textContent = m.error;
+      document.getElementById('m2-zoom').textContent = '';
+      return;
+    }
+    err.textContent = '';
+    img.style.display = '';
+    mapW = m.width;
+    mapH = m.height;
+    shown = true;
+    img.src = svgOf(m);
+    fit();
+    // the neighbours load in the background, so the arrow keys show them at once
+    [i - 1, i + 1].forEach(function (j) {
+      if (j >= 0 && j < maps.length && !maps[j].error) new Image().src = svgOf(maps[j]);
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === 'ArrowDown') choose(cur + 1);
+    else if (e.key === 'ArrowUp') choose(cur - 1);
+    else if (document.activeElement === view && (e.key === '+' || e.key === '=')) { var c = centre(); zoomAt(z * 1.25, c[0], c[1]); }
+    else if (document.activeElement === view && e.key === '-') { var c2 = centre(); zoomAt(z / 1.25, c2[0], c2[1]); }
+    else if (document.activeElement === view && e.key === '0') fit();
+    else return;
+    e.preventDefault();
+  });
+
+  fetch('{{ site.baseurl }}/cdviewer/maps.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+    maps = data;
+    var group = null;
+    maps.forEach(function (m, i) {
+      if (m.group !== group) {
+        group = m.group;
+        var g = document.createElement('div');
+        g.className = 'm2-group';
+        g.textContent = group;
+        list.appendChild(g);
+      }
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'm2-item' + (m.error ? ' m2-bad' : '');
+      b.textContent = m.name;
+      b.title = m.error ? m.name + ': ' + m.error : m.name;
+      b.addEventListener('click', function () { choose(i); });
+      buttons.push(b);
+      list.appendChild(b);
+    });
+    var want = new URLSearchParams(location.search).get('map');
+    var start = maps.findIndex(function (m) { return m.base.replace(/^F\d+-/, '') === want; });
+    choose(start < 0 ? 0 : start);
+  });
+})();
+</script>
