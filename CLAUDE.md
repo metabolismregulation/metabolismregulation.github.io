@@ -9,8 +9,6 @@ map versions) belongs in the private repository
 
 Repositories (user, 2026-10-22): attach any `metabolismregulation` repository the work needs yourself (add_repo, then clone), without asking or listing it as an action for the user. Only if attaching fails, say what failed.
 
-Paper notes (user, 2026-10-22): manuscripts (converter, layout algorithm, Atlas) are kept in the private repository `metabolismregulation/manuscripts`. When the user says "for the converter paper", "for the layout paper", "for the Atlas paper" (or "note for the paper"), attach it and save the note there as its CLAUDE.md says, pushed at once, before going on. If it cannot be attached, say what failed and give the note in the reply, so it is not lost.
-
 When something cannot be done, say exactly what stops it (a blocked host, a missing file, no
 access), not as a task left to do (user, 2026-10-19; details in maps-workbench CLAUDE.md).
 At the end of a piece of work, list explicitly what needs the user: a decision, an action, an example
