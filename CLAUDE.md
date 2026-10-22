@@ -350,7 +350,10 @@ parameter) and iNOS (`?map=inos`, kept in the copied link). iNOS was drawn from 
 official one) tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg> <out.svg>`, with the
 GraphML the export was made from: each fill gets its role from the GraphML node it draws, each text the role
 of the fill under it, and the page sets one CSS variable per role. The map's background is white
-whatever the theme (user, 2026-10-22). The yEd and CellDesigner downloads come
+whatever the theme (user, 2026-10-22). The map window is a lean copy of the Atlas viewer (user,
+2026-10-22): one height for every map (77% of the window, lower edge draggable), the map fitted when
+loaded (never above the reading size, 100% as on the Atlas), wheel or pinch zoom, drag, double-click,
+−, + and Fit; no Read mode, full screen or click panel. The yEd and CellDesigner downloads come
 from templates made by maps-workbench `tools/colours_templates.py <base> <website>/images/colours2/<map>`
 (`<base>.graphml` and `<base>.xml`, the CellDesigner file from map-converter, advanced layout). Another
 map: both scripts, then one more item in the menu (`#c2-maps`). The check page /colours/check/ was removed

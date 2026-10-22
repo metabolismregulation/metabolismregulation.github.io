@@ -16,9 +16,18 @@ noindex: true
   @media (max-width: 900px) { .c2-grid { grid-template-columns: 1fr; grid-template-areas: "left" "map" "right"; } }
   .c2-panel h3 { margin: 0 0 8px; font-size: 15px; }
   .c2-panel section { margin-bottom: 18px; }
-  #c2-map { width: 100%; }
+  /* the map window, as the Atlas's (#m2-view) */
+  #c2-view { position: relative; width: 100%; height: 504px; min-height: 300px; max-height: calc(100vh / var(--zoom, 1) - 70px); resize: vertical; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
+  #c2-view.c2-drag { cursor: grabbing; }
+  #c2-view:focus, .c2-ctrl button:focus { outline: none; }
+  .c2-ctrl { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; align-items: center; }
+  .c2-ctrl button { font-size: 13px; min-width: 28px; padding: 2px 8px; color: #222; background: #fffffff0; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
+  .c2-ctrl button:hover { border-color: #4183c4; color: #4183c4; }
+  #c2-out, #c2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; }
+  #c2-fit { box-sizing: border-box; width: 44px; height: 21px; padding: 0; }
+  #c2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
   /* the map's roles, set by colours2.js */
-  #c2-map svg { display: block; width: 100%; height: auto; fill: var(--ink); stroke: var(--ink); }
+  #c2-map svg { position: absolute; left: 0; top: 0; max-width: none; fill: var(--ink); stroke: var(--ink); }
   #c2-map .c-compartment { fill: var(--c-compartment); }
   #c2-map .t-compartment { fill: var(--t-compartment); font-weight: var(--w-compartment); }
   #c2-map .c-complex { fill: var(--c-complex); }
@@ -178,7 +187,15 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 
 </div>
 <div class="c2-mapcol">
+<div id="c2-view" tabindex="0">
 <div id="c2-map" data-v="{{ site.time | date: '%s' }}"></div>
+<div class="c2-ctrl">
+<span id="c2-zoom"></span>
+<button type="button" id="c2-out" title="Zoom out">&minus;</button>
+<button type="button" id="c2-in" title="Zoom in">+</button>
+<button type="button" id="c2-fit" title="Whole map">Fit</button>
+</div>
+</div>
 <div class="c2-under" data-v="{{ site.time | date: '%s' }}">
 <details class="c2-menu" id="c2-maps"><summary class="c2-act"><span id="c2-mapname">Glycolysis</span><span class="c2-caret">▾</span></summary><div class="c2-list">
 <a href="?map=glycolysis" data-key="glycolysis" data-map="/images/colours2/F001-glycolysis">Glycolysis</a>

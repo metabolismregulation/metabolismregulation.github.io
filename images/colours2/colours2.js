@@ -113,9 +113,122 @@
       svg = map.querySelector('svg');
       svg.removeAttribute('width');
       svg.removeAttribute('height');
+      mapW = svg.viewBox.baseVal.width;
+      mapH = svg.viewBox.baseVal.height;
       done();
+      fit();
     });
   }
+
+  // ---------- viewer ----------
+  // A window of one height for every map, as the Atlas's (a lean copy of its
+  // viewer): the map fits it when loaded, the wheel or a pinch zooms at the
+  // pointer, a drag moves it, Fit returns. The zoom is shown as on the Atlas:
+  // 100% is the reading size of the map pages (0.675 px per yEd unit).
+  var view = document.getElementById('c2-view');
+  var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80, TOP = 36; // KEEP: pixels of map kept in view
+  var z = STANDARD, tx = 0, ty = 0, moved = false, mapW = 0, mapH = 0;
+  // pointer positions come in screen pixels, the site is zoomed (style.scss)
+  function pz() { return view.currentCSSZoom || 1; }
+  function draw() {
+    if (!svg) return;
+    var w = mapW * z, h = mapH * z, vw = view.clientWidth, vh = view.clientHeight;
+    tx = Math.min(vw - Math.min(KEEP, w), Math.max(Math.min(KEEP, w) - w, tx));
+    ty = Math.min(vh - Math.min(KEEP, h), Math.max(Math.min(KEEP, h) - h, ty));
+    // sized by width and height, not a scale transform, so the map stays sharp
+    svg.style.width = w + 'px';
+    svg.style.height = h + 'px';
+    svg.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    document.getElementById('c2-zoom').textContent = Math.round(z / STANDARD * 100) + '%';
+  }
+  function zoomAt(nz, cx, cy) {
+    nz = Math.max(MIN, Math.min(MAX, nz));
+    tx = cx - (cx - tx) * nz / z;
+    ty = cy - (cy - ty) * nz / z;
+    z = nz;
+    moved = true;
+    draw();
+  }
+  // the whole map below the strip of the controls, never larger than the
+  // reading size, at the top and centred left to right, as on the Atlas
+  function fit() {
+    if (!svg) return;
+    z = Math.min(view.clientWidth * 0.96 / mapW, (view.clientHeight - TOP - 12) / mapH, STANDARD);
+    tx = (view.clientWidth - mapW * z) / 2;
+    ty = TOP;
+    moved = false;
+    draw();
+  }
+  function centre() { return [view.clientWidth / 2, view.clientHeight / 2]; }
+  document.getElementById('c2-in').addEventListener('click', function () { var c = centre(); zoomAt(z * 1.25, c[0], c[1]); });
+  document.getElementById('c2-out').addEventListener('click', function () { var c = centre(); zoomAt(z / 1.25, c[0], c[1]); });
+  document.getElementById('c2-fit').addEventListener('click', fit);
+  view.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    var r = view.getBoundingClientRect();
+    zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+  }, { passive: false });
+  view.addEventListener('dblclick', function (e) {
+    if (e.target.closest('.c2-ctrl')) return;
+    var r = view.getBoundingClientRect();
+    zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+  });
+  // drag with one pointer, pinch with two
+  var pts = {}, last = null;
+  view.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.c2-ctrl')) return;
+    // leave the lower right corner to the browser's resize handle
+    var r = view.getBoundingClientRect();
+    if (e.clientX > r.right - 18 && e.clientY > r.bottom - 18) return;
+    view.setPointerCapture(e.pointerId);
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    last = null;
+    view.classList.add('c2-drag');
+  });
+  view.addEventListener('pointermove', function (e) {
+    if (!pts[e.pointerId]) return;
+    var prev = pts[e.pointerId];
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    var ids = Object.keys(pts);
+    if (ids.length === 1) {
+      tx += (e.clientX - prev[0]) / pz();
+      ty += (e.clientY - prev[1]) / pz();
+      moved = true;
+      draw();
+    } else if (ids.length === 2) {
+      var a = pts[ids[0]], b = pts[ids[1]], r = view.getBoundingClientRect();
+      var d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      if (last) zoomAt(z * d / last, ((a[0] + b[0]) / 2 - r.left) / pz(), ((a[1] + b[1]) / 2 - r.top) / pz());
+      last = d;
+    }
+  });
+  function release(e) {
+    delete pts[e.pointerId];
+    last = null;
+    if (!Object.keys(pts).length) view.classList.remove('c2-drag');
+  }
+  view.addEventListener('pointerup', release);
+  view.addEventListener('pointercancel', release);
+  view.addEventListener('keydown', function (e) {
+    var c = centre();
+    if (e.key === '+' || e.key === '=') zoomAt(z * 1.25, c[0], c[1]);
+    else if (e.key === '-') zoomAt(z / 1.25, c[0], c[1]);
+    else if (e.key === '0') fit();
+    else return;
+    e.preventDefault();
+  });
+  // the window's height: 77% of the browser window, as the Atlas's, until
+  // the reader drags its lower edge (the browser then sets its own height)
+  var autoH = null;
+  function viewHeight() {
+    if (autoH !== null && view.style.height !== autoH) return;
+    autoH = Math.round(Math.max(300, window.innerHeight / pz() * 0.77)) + 'px';
+    view.style.height = autoH;
+  }
+  viewHeight();
+  window.addEventListener('resize', viewHeight);
+  // a new window size: the fitted map fits again, a moved one stays
+  if (window.ResizeObserver) new ResizeObserver(function () { if (moved) draw(); else fit(); }).observe(view);
 
   function render() {
     if (!svg) return;
