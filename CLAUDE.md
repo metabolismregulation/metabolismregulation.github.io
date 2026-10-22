@@ -343,13 +343,17 @@ suggested architecture. Update its figures and the commit line when the tool cha
 
 ## Colours page
 
-`/colours/` (`pages/colours.md`, `images/colours2/colours2.js`, hidden) recolours one map, glycolysis since
-2026-10-22 (user; iNOS before, drawn from a PNG layer image, removed then). The map is the user's yEd SVG
-export tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg> <out.svg>`: each fill gets
-its role from the GraphML node it draws, each text the role of the fill under it, and the page sets one CSS
-variable per role. The yEd and CellDesigner downloads come from templates made by maps-workbench
-`tools/colours_templates.py <website>/downloads/<map> <website>/images/colours2/<map>`. Another map: both
-scripts, then `data-map` in the page. The check page /colours/check/ was removed after the user's look (2026-10-22).
+`/colours/` (`pages/colours.md`, `images/colours2/colours2.js`, hidden) recolours a map chosen in the menu
+before Copy link (user, 2026-10-22, the Atlas Images menu's look): Glycolysis (the first, no address
+parameter) and iNOS (`?map=inos`, kept in the copied link). iNOS was drawn from a PNG layer image until
+2026-10-22. Each map is the user's yEd SVG export (iNOS: workbench v12, the Newt-ready layout, not the
+official one) tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg> <out.svg>`, with the
+GraphML the export was made from: each fill gets its role from the GraphML node it draws, each text the role
+of the fill under it, and the page sets one CSS variable per role. The yEd and CellDesigner downloads come
+from templates made by maps-workbench `tools/colours_templates.py <base> <website>/images/colours2/<map>`
+(`<base>.graphml` and `<base>.xml`, the CellDesigner file from map-converter, advanced layout). Another
+map: both scripts, then one more item in the menu (`#c2-maps`). The check page /colours/check/ was removed
+after the user's look (2026-10-22).
 
 ## Home page
 

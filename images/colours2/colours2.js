@@ -1,4 +1,4 @@
-// Colour theme playground for one map (the page's #c2-map data-map, now glycolysis).
+// Colour theme playground for the maps of the page's map menu (#c2-maps).
 // The map is the yEd SVG export tagged by maps-workbench tools/colours_svg.py:
 // each fill has the class c-<role>, each text t-<role> of the fill under it
 // (t-page on the background), and lines and arrowheads take the root's colour.
@@ -584,11 +584,12 @@
     lastChange = 0;
   }
 
-  // Theme link: Copy link copies the page address with the current theme
-  // code after # (e.g. /colours/#F7F6F3-FFFFFF-...); opening such a link
+  // Theme link: Copy link copies the page address (with ?map= for a map other
+  // than the first) and the current theme code after # (e.g.
+  // /colours/?map=inos#F7F6F3-FFFFFF-...); opening such a link
   // applies the theme. The address bar itself is left unchanged.
   function themeLink() {
-    return location.origin + location.pathname + '#' + exportText().replace(/ /g, '-');
+    return location.origin + location.pathname + location.search + '#' + exportText().replace(/ /g, '-');
   }
   function themeFromLink() {
     var v = decodeURIComponent(location.hash.slice(1)).replace(/[-\s,]+/g, ' ').trim();
@@ -1344,8 +1345,30 @@
   applyPreset(linked || PRESETS[0][1]);
   // once applied, the theme code leaves the address bar
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-  var mapBase = map.getAttribute('data-map'), mapName = mapBase.split('/').pop();
-  loadMap(mapBase + '.svg?v=' + map.getAttribute('data-v'), render);
+  // the map menu: each item names the map's files (data-map) and its key in
+  // the address (?map=), the first map has none
+  var mapMenu = document.getElementById('c2-maps');
+  var mapItems = Array.prototype.slice.call(mapMenu.querySelectorAll('a'));
+  var mapBase, mapName;
+  function chooseMap(a) {
+    mapBase = a.getAttribute('data-map');
+    mapName = mapBase.split('/').pop();
+    document.getElementById('c2-mapname').textContent = a.textContent;
+    loadMap(mapBase + '.svg?v=' + map.getAttribute('data-v'), render);
+  }
+  var wanted = new URLSearchParams(location.search).get('map');
+  chooseMap(mapItems.filter(function (a) { return a.getAttribute('data-key') === wanted; })[0] || mapItems[0]);
+  mapItems.forEach(function (a, i) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      mapMenu.open = false;
+      chooseMap(a);
+      history.replaceState(null, '', location.pathname + (i ? '?map=' + a.getAttribute('data-key') : ''));
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!mapMenu.contains(e.target)) mapMenu.open = false;
+  });
 
   document.getElementById('c2-cvd').addEventListener('change', render);
   var hlBox = document.getElementById('c2-hl');

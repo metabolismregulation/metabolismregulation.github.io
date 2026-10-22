@@ -34,6 +34,8 @@ noindex: true
   #c2-map .c-gene { fill: var(--c-gene); }
   #c2-map .t-gene { fill: var(--t-gene); font-weight: var(--w-gene); }
   #c2-map .t-page { fill: var(--t-page); }
+  /* the page around a map's compartments */
+  #c2-map .c-page { fill: none; }
   /* Roles in the presets style: no box until hovered, colour as a plain
      rectangle with the preset squares' border */
   #c2-roles { display: flex; flex-direction: column; gap: 1px; }
@@ -117,9 +119,17 @@ noindex: true
   .c2-small { font-size: 12px; color: #666; }
   .c2-panel select { font-size: 13px; }
   /* the Atlas download buttons: white, grey edge and text, filled blue on hover */
-  button.c2-act { font-family: inherit; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; color: #777; background: #fff; border: 1px solid #777; border-radius: 5px; }
-  button.c2-act:hover { background: #4183c4; border-color: #4183c4; color: #fff; }
+  button.c2-act, summary.c2-act { display: inline-block; font-family: inherit; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; cursor: pointer; color: #777; background: #fff; border: 1px solid #777; border-radius: 5px; }
+  button.c2-act:hover, summary.c2-act:hover, .c2-menu[open] summary.c2-act { background: #4183c4; border-color: #4183c4; color: #fff; }
   button.c2-act:disabled, button.c2-act:disabled:hover { color: #bbb; background: #fff; border-color: #ccc; cursor: default; }
+  /* the map menu, as the Atlas's Images menu */
+  .c2-menu { display: inline-block; position: relative; }
+  .c2-menu summary { list-style: none; }
+  .c2-menu summary::-webkit-details-marker { display: none; }
+  .c2-caret { margin-left: 4px; font-size: 11px; }
+  .c2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
+  .c2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #777; text-decoration: none; white-space: nowrap; }
+  .c2-list a:hover { background: #4183c4; color: #fff; }
   button.c2-act svg { width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; }
 </style>
 
@@ -168,13 +178,17 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 
 </div>
 <div class="c2-mapcol">
-<div id="c2-map" data-map="/images/colours2/F001-glycolysis" data-v="{{ site.time | date: '%s' }}"></div>
-<p class="c2-under" data-v="{{ site.time | date: '%s' }}">
+<div id="c2-map" data-v="{{ site.time | date: '%s' }}"></div>
+<div class="c2-under" data-v="{{ site.time | date: '%s' }}">
+<details class="c2-menu" id="c2-maps"><summary class="c2-act"><span id="c2-mapname">Glycolysis</span><span class="c2-caret">▾</span></summary><div class="c2-list">
+<a href="?map=glycolysis" data-key="glycolysis" data-map="/images/colours2/F001-glycolysis">Glycolysis</a>
+<a href="?map=inos" data-key="inos" data-map="/images/colours2/F007-inos">iNOS</a>
+</div></details>
 <button type="button" class="c2-act" id="c2-link">Copy link</button>
 <button type="button" class="c2-act" id="c2-yed">Download yEd file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-add">Add to Presets</button>
-</p>
+</div>
 <p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour; the text will remain black in CellDesigner. The yEd file keeps the current view.</p>
 </div>
 <div class="c2-panel c2-right">
