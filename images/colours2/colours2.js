@@ -126,7 +126,7 @@
   // pointer, a drag moves it, Fit returns. The zoom is shown as on the Atlas:
   // 100% is the reading size of the map pages (0.675 px per yEd unit).
   var view = document.getElementById('c2-view');
-  var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80, TOP = 36; // KEEP: pixels of map kept in view
+  var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80, EDGE = 48; // KEEP: pixels of map kept in view
   var z = STANDARD, tx = 0, ty = 0, moved = false, mapW = 0, mapH = 0;
   // pointer positions come in screen pixels, the site is zoomed (style.scss)
   function pz() { return view.currentCSSZoom || 1; }
@@ -149,13 +149,13 @@
     moved = true;
     draw();
   }
-  // the whole map below the strip of the controls, never larger than the
-  // reading size, at the top and centred left to right, as on the Atlas
+  // the whole map with a free strip of EDGE pixels on every side (above it
+  // the controls), never larger than the reading size, centred (user, 2026-10-22)
   function fit() {
     if (!svg) return;
-    z = Math.min(view.clientWidth * 0.96 / mapW, (view.clientHeight - TOP - 12) / mapH, STANDARD);
+    z = Math.min((view.clientWidth - 2 * EDGE) / mapW, (view.clientHeight - 2 * EDGE) / mapH, STANDARD);
     tx = (view.clientWidth - mapW * z) / 2;
-    ty = TOP;
+    ty = (view.clientHeight - mapH * z) / 2;
     moved = false;
     draw();
   }
