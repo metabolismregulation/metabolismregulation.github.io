@@ -531,6 +531,9 @@ There are two websites in this repository (user, 2026-10-13):
   SBGN-ML (no SBML, see File pipeline). It is checked on the Atlas.
 
 Files move from `atlas-downloads/` to `downloads/` only when the user says so.
+Fixed set for the paper (user, 2026-10-22): the official maps and their files are the set the paper is
+published with. They are changed only for a good reason (an error in the biology, a broken file), not to
+bring Atlas improvements (sizes, layout, converter output) over: those stay on the Atlas.
 Clean separation, no shared files (user, 2026-10-16): the Atlas is the sandbox and changes
 all the time; the official site is stable for its viewers. So each keeps its own copy of
 every file, even when the two copies are identical (no saving by keeping one file in one
