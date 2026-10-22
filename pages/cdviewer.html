@@ -8,7 +8,8 @@ noindex: true
 
 <style>
   /* the Atlas's layout, lean: the official maps on the left, the CellDesigner file of the
-     chosen one in the middle, as MINERVA draws it (scripts/make_cdviewer.py), and an empty
+     chosen one in the middle, as MINERVA draws it (scripts/make_cdviewer.py) or as CellDesigner
+     exports it (the switch at the top left of the map window), and an empty
      column of the list's width on the right, so the middle stays centred under the header */
   .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
         width: min(100vw / var(--zoom, 1) - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }
@@ -41,6 +42,17 @@ noindex: true
   .m2-ctrl button:hover { border-color: #4183c4; color: #4183c4; }
   #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; }
   #m2-fit { box-sizing: border-box; height: 21px; padding: 0 6px; }
+  /* the switch between the two drawings, in the look of the zoom buttons, the chosen one blue */
+  .m2-mode { position: absolute; top: 8px; left: 8px; display: flex; }
+  .m2-mode button { box-sizing: border-box; height: 21px; font-size: 13px; padding: 0 8px; color: #222; background: #fffffff0; border: 1px solid #bbb; cursor: pointer; }
+  .m2-mode button:first-child { border-radius: 4px 0 0 4px; border-right: 0; }
+  .m2-mode button:last-child { border-radius: 0 4px 4px 0; }
+  .m2-mode button:hover { color: #4183c4; }
+  .m2-mode button.m2-on { background: #4183c4; border-color: #4183c4; color: #fff; }
+  .m2-mode button:focus { outline: none; }
+  #m2-err.m2-quiet { color: #777; }
+  #m2-note { position: absolute; left: 8px; bottom: 8px; font-size: 12px; color: #777; background: #ffffffe0; padding: 0 4px; pointer-events: none; }
+  #m2-note:empty { display: none; }
   #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
   /* full screen: the map alone, as on the Atlas; the arrow keys still go through the list */
   #m2-view:fullscreen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
@@ -74,6 +86,11 @@ noindex: true
 <div id="m2-view" tabindex="0">
 <img id="m2-img" alt="">
 <div id="m2-err"></div>
+<div id="m2-note"></div>
+<div class="m2-mode" role="group" aria-label="Drawing">
+<button type="button" data-mode="minerva" title="As MINERVA draws the CellDesigner file">MINERVA</button>
+<button type="button" data-mode="cd" title="As CellDesigner exports it (SVG)">CellDesigner</button>
+</div>
 <div class="m2-ctrl">
 <span id="m2-zoom"></span>
 <button type="button" id="m2-out" title="Zoom out">&minus;</button>
@@ -91,7 +108,8 @@ noindex: true
   // A lean copy of the Atlas viewer (as the Colours page's): the map fits the window when
   // chosen, never above the reading size (100%, 0.675 px per unit, as the map pages), the
   // wheel or a pinch zooms at the pointer, a drag moves it, Fit returns. The up and down
-  // arrow keys go through the list.
+  // arrow keys go through the list. The switch at the top left shows MINERVA's drawing or
+  // CellDesigner's own SVG export (?view=celldesigner, remembered in this browser).
   var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
   var err = document.getElementById('m2-err'), list = document.getElementById('m2-list');
   var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80;
@@ -134,13 +152,13 @@ noindex: true
     zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   }, { passive: false });
   view.addEventListener('dblclick', function (e) {
-    if (e.target.closest('.m2-ctrl')) return;
+    if (e.target.closest('.m2-ctrl, .m2-mode')) return;
     var r = view.getBoundingClientRect();
     zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
   });
   var pts = {}, last = null;
   view.addEventListener('pointerdown', function (e) {
-    if (e.target.closest('.m2-ctrl')) return;
+    if (e.target.closest('.m2-ctrl, .m2-mode')) return;
     var r = view.getBoundingClientRect();
     if (e.clientX > r.right - 18 && e.clientY > r.bottom - 18) return; // the resize handle
     view.setPointerCapture(e.pointerId);
@@ -206,6 +224,55 @@ noindex: true
 
   // a map drawn by Update is shown from the browser's memory, the others from cdviewer/
   function svgOf(m) { return m.src || '{{ site.baseurl }}/cdviewer/' + m.base + '.svg?' + m.sha1.slice(0, 8); }
+  function cdOf(m) { return '{{ site.baseurl }}/cdviewer/celldesigner/' + m.base + '.svg?' + m.cd.svg.slice(0, 8); }
+  var note = document.getElementById('m2-note'), modes = document.querySelectorAll('.m2-mode button');
+  var mode = new URLSearchParams(location.search).get('view') === 'celldesigner' ? 'cd' : null;
+  if (!mode) try { mode = localStorage.getItem('cdviewer-mode'); } catch (e) {}
+  if (mode !== 'cd') mode = 'minerva';
+  function address() {
+    if (cur >= 0) history.replaceState(null, '', '?map=' + maps[cur].base.replace(/^F\d+-/, '') + (mode === 'cd' ? '&view=celldesigner' : ''));
+  }
+  // the chosen map in the chosen drawing; a map with no CellDesigner export says so
+  function show() {
+    var m = maps[cur], cd = mode === 'cd';
+    Array.prototype.forEach.call(modes, function (b) { b.classList.toggle('m2-on', b.getAttribute('data-mode') === mode); });
+    note.textContent = '';
+    err.className = '';
+    var why = cd ? (m.cd ? '' : 'No CellDesigner export of this map yet.') : m.error;
+    if (why) {
+      shown = false;
+      img.removeAttribute('src');
+      img.style.display = 'none';
+      err.textContent = why;
+      if (cd) err.className = 'm2-quiet';
+      document.getElementById('m2-zoom').textContent = '';
+      return;
+    }
+    if (cd && m.cd.sha1 !== m.sha1) note.textContent = 'Exported from an earlier version of the CellDesigner file.';
+    err.textContent = '';
+    img.style.display = '';
+    mapW = cd ? m.cd.width : m.width;
+    mapH = cd ? m.cd.height : m.height;
+    shown = true;
+    img.src = cd ? cdOf(m) : svgOf(m);
+    fit();
+    // the neighbours load in the background, so the arrow keys show them at once
+    [cur - 1, cur + 1].forEach(function (j) {
+      var n = maps[j];
+      if (!n) return;
+      if (cd && n.cd) new Image().src = cdOf(n);
+      else if (!cd && !n.error) new Image().src = svgOf(n);
+    });
+  }
+  Array.prototype.forEach.call(modes, function (b) {
+    b.addEventListener('click', function () {
+      if (mode === b.getAttribute('data-mode')) return;
+      mode = b.getAttribute('data-mode');
+      try { localStorage.setItem('cdviewer-mode', mode); } catch (e) {}
+      address();
+      if (cur >= 0) show();
+    });
+  });
   var DL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
   // a new tab: the arrow that goes up and then right (↱), the Converter's navigation arrow (↳) turned upwards (user, 2026-10-22)
   var EXT_ICON = '<svg viewBox="0 0 24 24" class="m2-ext" aria-hidden="true"><path d="M6 20v-8a3 3 0 0 1 3-3h11M15 4l5 5-5 5"/></svg>';
@@ -216,29 +283,11 @@ noindex: true
     var m = maps[i], b = buttons[i];
     b.classList.add('m2-on');
     b.scrollIntoView({ block: 'nearest' });
-    history.replaceState(null, '', '?map=' + m.base.replace(/^F\d+-/, ''));
+    address();
     document.getElementById('m2-downloads').innerHTML =
       '<a class="m2-btn" href="{{ site.baseurl }}' + m.file + '" download title="' + m.base + '.xml">CellDesigner' + DL_ICON + '</a>' +
       '<a class="m2-btn" href="{{ site.baseurl }}' + m.page + '" target="_blank" rel="noopener">Map page' + EXT_ICON + '</a>';
-    if (m.error) {
-      shown = false;
-      img.removeAttribute('src');
-      img.style.display = 'none';
-      err.textContent = m.error;
-      document.getElementById('m2-zoom').textContent = '';
-      return;
-    }
-    err.textContent = '';
-    img.style.display = '';
-    mapW = m.width;
-    mapH = m.height;
-    shown = true;
-    img.src = svgOf(m);
-    fit();
-    // the neighbours load in the background, so the arrow keys show them at once
-    [i - 1, i + 1].forEach(function (j) {
-      if (j >= 0 && j < maps.length && !maps[j].error) new Image().src = svgOf(maps[j]);
-    });
+    show();
   }
   document.addEventListener('keydown', function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;

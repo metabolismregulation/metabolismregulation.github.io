@@ -4,11 +4,18 @@
 # list cdviewer/maps.json (name, group, page, file, sha1, error). A file whose sha1 is unchanged
 # is not sent again (--all sends every file). A file MINERVA cannot draw keeps no image: its
 # entry carries MINERVA's reason, shown in the map window. Run by the Atlas data workflow.
+# CellDesigner's own drawing (user, 2026-10-22): the user's SVG export from CellDesigner (File,
+# Export Image, SVG) uploaded as cdviewer/celldesigner/<base>.svg (a copy suffix such as _1 is
+# dropped), shown by the viewer's MINERVA / CellDesigner switch. The export has no size and asks
+# for Java's Dialog font: both are added here, in place. Its entry "cd" keeps the sha1 of the
+# CellDesigner file it was exported from (the one in downloads/ when the export first came), so
+# the viewer says when the file changed after the export.
 #   python3 scripts/make_cdviewer.py [--all]
 import hashlib, json, os, re, sys, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'cdviewer')
+CD = os.path.join(OUT, 'celldesigner')
 URL = 'https://minerva-service.lcsb.uni.lu/minerva/api/convert/image/CellDesigner_SBML:svg'
 
 
@@ -70,13 +77,47 @@ def draw(xml):
     return svg, ''
 
 
+def tidy(svg):
+    """A CellDesigner SVG export as the browser needs it: its size (the first clip path, the
+    whole map) as width, height and viewBox, and Arial's metrics after Java's Dialog font."""
+    head = re.search(r'<svg\b[^>]*>', svg).group(0)
+    if 'viewBox=' not in head:
+        w, h = re.search(r'<path d="M0 0 L([\d.]+) 0 L[\d.]+ ([\d.]+) ', svg).groups()
+        svg = svg.replace(head, head[:-1] + ' width="%s" height="%s" viewBox="0 0 %s %s">' % (w, h, w, h), 1)
+    for q in ('&apos;', "'"):
+        svg = svg.replace('font-family:%sDialog%s;' % (q, q), 'font-family:%sDialog%s, %sLiberation Sans%s, Arial, sans-serif;' % (q, q, q, q))
+    return svg
+
+
+def exports(bases):
+    """base -> path of its CellDesigner export; a copy suffix (_1, (1), -1) is dropped from the name."""
+    os.makedirs(CD, exist_ok=True)
+    out = {}
+    for f in sorted(os.listdir(CD)):
+        if not f.endswith('.svg'):
+            continue
+        base = f[:-4]
+        if base not in bases:
+            base = re.sub(r'(_\d+| ?\(\d+\)|-\d+)$', '', base)
+        if base not in bases:
+            print('cdviewer/celldesigner/%s: no official map of that name' % f)
+            continue
+        path = os.path.join(CD, base + '.svg')
+        if f != base + '.svg':
+            os.replace(os.path.join(CD, f), path)
+        out[base] = path
+    return out
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     listing = os.path.join(OUT, 'maps.json')
     old = {m['base']: m for m in json.load(open(listing))} if os.path.exists(listing) else {}
     names = atlas_names()
     maps = []
-    for base, slug in official():
+    listed = official()
+    cds = exports({b for b, _ in listed})
+    for base, slug in listed:
         xml = open(os.path.join(ROOT, 'downloads', base + '.xml'), 'rb').read()
         sha = hashlib.sha1(xml).hexdigest()
         name, group, rank = names.get(base, ('', '', 99))
@@ -101,6 +142,16 @@ def main():
             head = re.search(r'<svg\b[^>]*>', open(svg_path, encoding='utf-8').read()).group(0)
             vb = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', head)
             entry['width'], entry['height'] = float(vb.group(1)), float(vb.group(2))
+        if base in cds:
+            svg = open(cds[base], encoding='utf-8').read()
+            fixed = tidy(svg)
+            if fixed != svg:
+                open(cds[base], 'w', encoding='utf-8').write(fixed)
+            vb = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', fixed)
+            svg_sha = hashlib.sha1(fixed.encode('utf-8')).hexdigest()
+            was = (prev or {}).get('cd')
+            entry['cd'] = {'svg': svg_sha, 'sha1': was['sha1'] if was and was['svg'] == svg_sha else sha,
+                           'width': float(vb.group(1)), 'height': float(vb.group(2))}
         maps.append(entry)
     maps.sort(key=lambda m: m.pop('order'))  # the Atlas's order
     for f in os.listdir(OUT):

@@ -8,12 +8,13 @@
 # "refresh" ticked, it fetches every cached UniProt, HGNC and ChEBI entry again; an
 # identifier that no longer resolves shows as a warning on the run's page. Last,
 # scripts/make_cdviewer.py has MINERVA draw every changed official CellDesigner file for the
-# CD viewer (/cdviewer/); a failure there does not stop the run.
+# CD viewer (/cdviewer/) and readies the CellDesigner exports uploaded to cdviewer/celldesigner/;
+# a failure there does not stop the run.
 name: Atlas data
 on:
   push:
     branches: [master]
-    paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py', 'scripts/make_images.py', 'scripts/make_cdviewer.py', 'pages/maps.html', 'yrender/**']
+    paths: ['atlas-downloads/**', 'downloads/**', '_projects/**', 'draftpages/**', 'scripts/make_maps.py', 'scripts/make_images.py', 'scripts/make_cdviewer.py', 'cdviewer/celldesigner/**', 'pages/maps.html', 'yrender/**']
   workflow_dispatch:
     inputs:
       refresh:
