@@ -660,7 +660,6 @@
         (white ? ' w: this fill is dark, so its text is drawn white.' : '');
     }); });
     document.getElementById('c2-export').value = exportText();
-    document.getElementById('c2-cdnote').hidden = true;
     syncMixer();
     syncPresets();
     noteChange();
@@ -710,9 +709,9 @@
     return /^([0-9a-fA-F]{6} ){6,8}[0-9a-fA-F]{6}$/.test(v) ? v.toUpperCase() : null;
   }
   // ---------- downloads ----------
-  // The yEd and CellDesigner files are built from templates made once by
-  // make_exports.py: each colour there is a role placeholder such as
-  // {protein}, filled here with the colours shown on the map.
+  // The yEd file is built from a template (maps-workbench tools/colours_templates.py,
+  // or made in the browser for a dropped map): each colour there is a role
+  // placeholder such as {protein}, filled here with the colours shown on the map.
   function shownColours() {
     var c = {};
     ROLES.forEach(function (r) { c[r.id] = theme[r.id].slice(1).toUpperCase(); });
@@ -730,11 +729,6 @@
   function whiteOn(fill) {
     return textOn(fill) === '#FFFFFF' && theme.text !== '#FFFFFF';
   }
-  // the CellDesigner note shows after that download while some fill has white text
-  function anyWhiteText() {
-    var c = shownColours();
-    return ROLES.some(function (r) { return r.cls >= 0 && c['f_' + r.id] === 'bold'; });
-  }
   // File name: the preset's name if the map shows one, then the
   // background, protein and chemical colours
   function themeSlug() {
@@ -743,29 +737,15 @@
     if (!on) return codes;
     return on.getAttribute('data-name').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + codes;
   }
-  function template(ext) {
-    if (!dropped) {
-      var v = document.querySelector('.c2-under').getAttribute('data-v');
-      return fetch(mapBase + '.template.' + ext + '?v=' + v).then(function (r) { return r.text(); });
-    }
-    if (ext === 'graphml') return Promise.resolve(dropped.graphml);
-    if (dropped.xml) return Promise.resolve(dropped.xml);
-    var mine = turn;
-    say('Making the CellDesigner file…');
-    return python().then(later).then(function (p) {
-      var out = call(p, 'cd_template', dropped.path);
-      if (mine !== turn) throw new Error('another map');
-      if (!out[0]) { say('CellDesigner file not made: ' + out[1], true); throw new Error(out[1]); }
-      say('');
-      return (dropped.xml = out[0]);
-    });
+  function template() {
+    if (dropped) return Promise.resolve(dropped.graphml);
+    var v = document.querySelector('.c2-under').getAttribute('data-v');
+    return fetch(mapBase + '.template.graphml?v=' + v).then(function (r) { return r.text(); });
   }
-  function download(ext, name, lower) {
-    template(ext).then(function (t) {
+  function download(name) {
+    template().then(function (t) {
       var c = shownColours();
-      t = t.replace(/\{(\w+)\}/g, function (m, id) {
-        return c[id] ? (lower ? c[id].toLowerCase() : c[id]) : m;
-      });
+      t = t.replace(/\{(\w+)\}/g, function (m, id) { return c[id] || m; });
       var a = document.createElement('a');
       a.href = URL.createObjectURL(new Blob([t], { type: 'application/xml' }));
       a.download = name.replace('{theme}', themeSlug());
@@ -780,9 +760,7 @@
   // A map file dropped on the map window (yEd GraphML, CellDesigner, SBGN-ML, Newt) is shown in
   // the theme: the Converter's copy (converter/mapconv/) makes its GraphML when it is not one, and
   // yrender/ draws it with a class for each role (yrender --roles). All in the browser (Python by
-  // Pyodide, loaded at the first drop). The yEd download is its GraphML's template; the
-  // CellDesigner one is made on click, from the dropped CellDesigner file itself or else from the
-  // converter's CellDesigner file.
+  // Pyodide, loaded at the first drop). The yEd download is its GraphML's template.
   var PYODIDE = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/';  // as on /converter/
   var DRIVER = `
 import sys, json
@@ -810,18 +788,9 @@ def show(path):
     except BaseException as e:
         out = [None, str(e).replace(path + '.graphml: ', '').replace(path + ': ', '')]
     return json.dumps(out)
-
-def cd_template(path):
-    # [the CellDesigner template], or [None, why not]
-    try:
-        text = open(path, encoding='utf-8').read() if path.lower().endswith('.xml') else converted(path, '-advanced.xml')
-        out = [colours_templates.celldesigner(text)[0]]
-    except BaseException as e:
-        out = [None, str(e)]
-    return json.dumps(out)
 `;
   var py = null;       // a promise of Python, from the first drop
-  var dropped = null;  // the dropped map shown: {path, graphml (template), xml (template, once made)}
+  var dropped = null;  // the dropped map shown: {graphml (its yEd template)}
   var turn = 0;        // the map last asked for: a later choice wins over a drop still drawing
   var status = document.getElementById('c2-status');
   function say(text, bad) {
@@ -880,7 +849,7 @@ def cd_template(path):
       var out = call(p, 'show', path);
       if (mine !== turn) return;
       if (!out[0]) { say('Not drawn: ' + out[1], true); return; }
-      dropped = { path: path, graphml: out[1], xml: null };
+      dropped = { graphml: out[1] };
       mapName = name.replace(/\.[^.]+$/, '');
       showMapName(name);
       say('');
@@ -1691,11 +1660,7 @@ def cd_template(path):
   document.getElementById('c2-add').addEventListener('click', addPreset);
   document.getElementById('c2-link').addEventListener('click', copyLink);
   document.getElementById('c2-yed').addEventListener('click', function () {
-    download('graphml', mapName + '-{theme}.graphml', false);
-  });
-  document.getElementById('c2-cd').addEventListener('click', function () {
-    download('xml', mapName + '-{theme}.xml', true);
-    document.getElementById('c2-cdnote').hidden = !anyWhiteText();
+    download(mapName + '-{theme}.graphml');
   });
   window.addEventListener('hashchange', function () {
     var v = themeFromLink();
