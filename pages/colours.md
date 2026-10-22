@@ -215,7 +215,6 @@ Drop, paste or <label style="text-decoration:underline;cursor:pointer">choose<in
 <button type="button" class="c2-act" id="c2-cd">Download CellDesigner file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></button>
 <button type="button" class="c2-act" id="c2-add">Add to Presets</button>
 </div>
-<p class="c2-small" style="margin:6px 0 0">Drop a map file (yEd GraphML, CellDesigner or SBGN-ML) on the map to see it in these colours. It is converted and drawn in your browser.</p>
 <p class="c2-small" id="c2-cdnote" style="margin:6px 0 0" hidden>The CellDesigner file does not store text colour; the text will remain black in CellDesigner. The yEd file keeps the current view.</p>
 </div>
 <div class="c2-panel c2-right">

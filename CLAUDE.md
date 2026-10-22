@@ -366,8 +366,8 @@ theme, all in the browser: Python (Pyodide, as on the Converter) loads at the fi
 The yEd download is the template of that GraphML (`yrender/colours_templates.py`, the workbench's tool), the CellDesigner
 download is made on click (the dropped CellDesigner file, else the converter's CellDesigner file) and templated. A map
 yrender cannot draw (an unknown shape or style) gets the reason in red in the map window. Glycogen liver about 3 s at the
-first drop (mostly loading Python), then under half a second; a 25 times larger test map about 7 s. One line under the
-buttons says it. The converter files both pages load are listed once, `_includes/mapconv.js`. `yrender/` holds the
+first drop (mostly loading Python), then under half a second; a 25 times larger test map about 7 s. Hidden: no text on the page
+says it (user, 2026-10-22, the line under the buttons removed). The converter files both pages load are listed once, `_includes/mapconv.js`. `yrender/` holds the
 workbench copies of `yrender.py`, `yrender_check.py` and `colours_templates.py`, commit in `VERSION`; after a change
 there, copy them and update `VERSION`.
 
