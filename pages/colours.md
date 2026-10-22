@@ -34,8 +34,8 @@ noindex: true
   #c2-map .c-gene { fill: var(--c-gene); }
   #c2-map .t-gene { fill: var(--t-gene); font-weight: var(--w-gene); }
   #c2-map .t-page { fill: var(--t-page); }
-  /* the page around a map's compartments */
-  #c2-map .c-page { fill: none; }
+  /* the map's background: white, whatever the theme (user, 2026-10-22) */
+  #c2-map .c-page { fill: #fff; }
   /* Roles in the presets style: no box until hovered, colour as a plain
      rectangle with the preset squares' border */
   #c2-roles { display: flex; flex-direction: column; gap: 1px; }

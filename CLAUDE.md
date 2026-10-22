@@ -349,7 +349,8 @@ parameter) and iNOS (`?map=inos`, kept in the copied link). iNOS was drawn from 
 2026-10-22. Each map is the user's yEd SVG export (iNOS: workbench v12, the Newt-ready layout, not the
 official one) tagged by maps-workbench `tools/colours_svg.py <map.graphml> <export.svg> <out.svg>`, with the
 GraphML the export was made from: each fill gets its role from the GraphML node it draws, each text the role
-of the fill under it, and the page sets one CSS variable per role. The yEd and CellDesigner downloads come
+of the fill under it, and the page sets one CSS variable per role. The map's background is white
+whatever the theme (user, 2026-10-22). The yEd and CellDesigner downloads come
 from templates made by maps-workbench `tools/colours_templates.py <base> <website>/images/colours2/<map>`
 (`<base>.graphml` and `<base>.xml`, the CellDesigner file from map-converter, advanced layout). Another
 map: both scripts, then one more item in the menu (`#c2-maps`). The check page /colours/check/ was removed
