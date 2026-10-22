@@ -373,7 +373,7 @@ there, copy them and update `VERSION`.
 
 ## CD viewer
 
-`/cdviewer/` (`pages/cdviewer.html`, user 2026-10-22), hidden like the Atlas (not in the navigation,
+`/cdviewer/` (`pages/cdviewer.html`, user 2026-10-22; title "CellDesigner Viewer", the name in the browser tab), hidden like the Atlas (not in the navigation,
 `noindex: true`): to go through the official maps' CellDesigner files quickly, without opening each in
 CellDesigner. The Atlas's layout, lean: the official maps on the left (the CellDesigner files the pages in
 the Maps list link, in the Atlas's order and names), the chosen one in the middle as MINERVA draws it (the
