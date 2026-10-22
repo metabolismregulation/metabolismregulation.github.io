@@ -49,8 +49,10 @@ def placed(diagram):
 
 
 # Newt (sbgnml-to-cytoscape bboxProp): a compartment's padding, 24 (its 14 and the compound 10),
-# with half a border and 1, 30 to be safe; a complex inside it stands out by its own padding
-NEWT_PAD, COMPLEX_PAD = 30, 20
+# with half a border and 1, 30 to be safe. Measured in Newt (2026-10-22, docs/QUALITY.md): it keeps a
+# compartment from 28 px around a node or a complex (no padding of the complex's own), 28 around a
+# process without ports and about 40 with them (PORTS), and never grows one for a compartment inside it
+NEWT_PAD, PORTS = 30, 12
 
 
 def for_newt(diagram, ports=True):
@@ -83,10 +85,9 @@ def for_newt(diagram, ports=True):
             c = covered.get(i, compartment_of(N, i))
             if c is None or d.parent is not None and N[d.parent].kind == 'Complex':  # a member: inside its complex
                 continue
-            # a complex with its padding, a process or gate as Newt draws it (18 px: 51 with its
-            # ports, 27 without)
-            e = COMPLEX_PAD if d.kind == 'Complex' else NEWT_PAD - 4 if d.kind == 'Compartment' else \
-                (17 if ports else 5) if d.kind in ('Operator',) + PROCESSES else 0
+            # a process or gate with its ports; an inner compartment only inside the outer one
+            e = -NEWT_PAD if d.kind == 'Compartment' else \
+                PORTS * ports if d.kind in ('Operator',) + PROCESSES else 0
             states, units = decorations(d)
             for (x, y, w, h), e in [(d.box, e)] + [(b, 0) for b in states + [b for _, b in units]]:
                 for k, v in enumerate((x - e, y - e, x + w + e, y + h + e)):
