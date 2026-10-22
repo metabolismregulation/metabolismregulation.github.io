@@ -69,7 +69,7 @@ not in Maps or Gallery), "draft" for a map whose biology differs from the offici
 (none at the moment). A map whose GraphML equals the official one has no tag. "copy" (the style of the white
 draft) marks the official copy of a draft map (see Official copies in the Atlas). Every tag, used or not
 (draft, draft white, new, copy, image error), is in the palette page /atlas/tags/ (`pages/atlas-tags.html`, hidden);
-the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Plain CSS
+the styles are in `_includes/atlas-tags.css`, shared by the Atlas and the palette. Every tag is white with an edge, the word and edge in its colour: draft dark grey (#555), new blue, image error red, copy and draft white light grey; on the chosen map clear with a white edge (user, 2026-10-22). Plain CSS
 only (user, 2026-10-16): the tag's line height equals its height, the browser centres the word,
 no text-box trimming or per-word, per-font tuning.
 

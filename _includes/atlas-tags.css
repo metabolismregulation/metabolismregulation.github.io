@@ -2,17 +2,17 @@
      line is as high as the tag, so the browser centres the word in it; the tag is centred on
      the list item's line (align-items in .m2-map). No text-box trimming, no per-word or
      per-font tuning (removed 2026-10-16: text-box is not in every browser). */
-  .m2-draft { display: inline-block; box-sizing: border-box; height: 16px; line-height: 16px; padding: 0 5px; margin-left: 6px; font-size: 11px; color: #fff; background: #888; border-radius: 2px; }
-  .m2-on .m2-draft { color: #4183c4; background: #fff; }
+  /* every tag white with an edge, the word and edge in the tag's colour (user, 2026-10-22):
+     draft dark grey, new blue, image error red, copy (and the white draft) light grey with a
+     lighter edge. On the chosen map (blue) every tag is clear with a white edge and word. */
+  .m2-draft { display: inline-block; box-sizing: border-box; height: 16px; line-height: 14px; padding: 0 5px; margin-left: 6px; font-size: 11px; color: #555; background: #fff; border: 1px solid #555; border-radius: 2px; }
+  .m2-on .m2-draft, .m2-on .m2-draft.m2-new, .m2-on .m2-draft.m2-white, .m2-on .m2-draft.m2-copy, .m2-on .m2-draft.m2-error { color: #fff; background: transparent; border-color: #fff; }
   /* set by hand (TAGS in make_maps.py, user 2026-10-18): new in blue, a map not on the official
      site; draft in white, the same biology as the official map with small changes to its file */
-  .m2-draft.m2-new { background: #4183c4; }
-  .m2-on .m2-draft.m2-new { color: #4183c4; background: #fff; }
+  .m2-draft.m2-new { color: #4183c4; border-color: #4183c4; }
   /* copy: the official version kept in the Atlas for comparison (user, 2026-10-18), the same
-     style as the white draft (the grey draft reversed) */
-  .m2-draft.m2-white, .m2-draft.m2-copy { line-height: 14px; color: #888; background: #fff; border: 1px solid #bbb; }
-  .m2-on .m2-draft.m2-white, .m2-on .m2-draft.m2-copy { color: #fff; background: transparent; border-color: #fff; }
+     style as the white draft */
+  .m2-draft.m2-white, .m2-draft.m2-copy { color: #888; border-color: #bbb; }
   /* image error: red, the map's images could not be drawn from its current GraphML
      (scripts/make_images.py, user 2026-10-17) */
-  .m2-draft.m2-error { background: #c62828; }
-  .m2-on .m2-draft.m2-error { color: #c62828; background: #fff; }
+  .m2-draft.m2-error { color: #c62828; border-color: #c62828; }
