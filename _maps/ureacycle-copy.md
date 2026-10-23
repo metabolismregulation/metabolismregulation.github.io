@@ -16,6 +16,7 @@ annotation: "/atlas-data/F021-ureacycle-copy.json"
 image_error: ""
 contributors:
   - marcio-luis-acencio
+  - alexander-mazein: [lih-cancer]
 downloads:
   - {label: "GraphML", url: "/atlas-downloads/copy/F021-ureacycle.graphml"}
   - {label: "PNG", url: "/atlas-downloads/copy/F021-ureacycle.png"}
