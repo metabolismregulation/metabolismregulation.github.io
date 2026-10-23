@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F023-pdh.svg"
-width: 826
+width: 818
 height: 570
 scale: 1
 annotation: "/atlas-data/F023-pdh.json"

@@ -9,8 +9,8 @@ kind: "drug"
 draft: false
 tag: ""
 image: "/atlas-downloads/F100-aspirin.svg"
-width: 943
-height: 290
+width: 924
+height: 298
 scale: 1
 annotation: "/atlas-data/F100-aspirin.json"
 image_error: ""

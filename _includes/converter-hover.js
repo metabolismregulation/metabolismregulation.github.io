@@ -13,7 +13,7 @@
     'plain': 'plain: compartments as drawn, not adjusted for any tool.',
     'straight line': 'straight line: every arc a straight line between node centres.',
     'positions kept': 'positions kept: every node at its position in the input map, without the small moves that straighten lines.',
-    'standard sizes': 'standard sizes: proteins 80 x 40, metabolites 36 x 36 or sized to the name, the map rescaled to match.',
+    'standard sizes': 'standard sizes: proteins 80 x 40, metabolites 40 x 40, the map rescaled to match.',
     'corrected': 'corrected: the map redrawn in the SBGN palette, its shapes recognised by their outline.',
     'marked': 'marked: the elements that break the SBGN rules drawn red. yEd shows the reason on hover.',
   };

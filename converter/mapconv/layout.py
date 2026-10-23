@@ -4,7 +4,7 @@
 import math, re
 from dataclasses import replace
 from .model import HEADS
-from .style import chemical
+from .style import SIZE
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
 MODIFIERS = HEADS[1:]
@@ -239,10 +239,10 @@ def corner(a, b, way):
 
 def at_centres(m):
     # the straight layout of a map read from a file with its own geometry (CellDesigner): every arc
-    # at its nodes' centres, metabolites at our yEd size (a circle, or a stadium for its name), centre kept
+    # at its nodes' centres, metabolites at our yEd size (a 40 x 40 circle), centre kept
     for d in m.nodes.values():
         if d.kind == 'SimpleChemical':
-            W, H = chemical(d)
+            W, H = SIZE['SimpleChemical']
             d.box = (d.box[0] + d.box[2] / 2 - W / 2, d.box[1] + d.box[3] / 2 - H / 2, W, H)
     for a in m.arcs:
         a.source_at = a.target_at = (0.0, 0.0)

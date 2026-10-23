@@ -9,7 +9,7 @@ from .layout import main_lines
 
 MARGIN = 40
 NAME_ROOM = 14.0  # below the members' outline in a complex, for its name (as the yEd packing rule)
-CHEMICAL = 36.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
+CHEMICAL = 40.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
 ALIGN = 15.0  # largest move of a modifier onto its square (px)
 # the points of the process square a modifier can end at (targetLineIndex -1,i): (along the flow,
 # to its right) in half square sizes (MINERVA's getAnchorPointOnReactionRect; the user's PDH edit

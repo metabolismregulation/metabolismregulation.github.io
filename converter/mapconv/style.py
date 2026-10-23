@@ -1,8 +1,7 @@
 # Standard sizes (user, 2026-10-16), for a map from another drawing (CellDesigner -> GraphML):
-# proteins, genes and RNAs 80 x 40; metabolites (chemical()) 36 x 36 circles where the map
-# draws them as circles, else stadiums 32 high, as wide as the name needs in steps of 10; centres
-# kept. A map whose objects are clearly larger or smaller than
-# ours (median protein height off 40 by more than 20%, e.g. a large font) is first scaled as a
+# proteins, genes and RNAs 80 x 40; metabolites 40 x 40 circles, the name may run past the circle
+# (user, 2026-10-23, iNOS; stadiums sized to the name until then); centres kept. A map whose
+# objects are clearly larger or smaller than ours (median protein height off 40 by more than 20%, e.g. a large font) is first scaled as a
 # whole, distances included. Collisions that follow are the user's to look at.
 # The file with standard sizes is made when asked (the page's tick box, to harmonise a map) or when
 # the map is drawn at another scale than usual (user, 2026-10-20): the median protein height off our 40, the median
@@ -12,25 +11,14 @@ import math, statistics
 from dataclasses import replace
 
 PROTEIN = (80.0, 40.0)
-SIZE = {'Macromolecule': PROTEIN, 'NucleicAcidFeature': PROTEIN}
-CIRCLE = (36.0, 36.0)  # the yEd metabolite glyph is a circle when square, else a stadium
+SIZE = {'Macromolecule': PROTEIN, 'NucleicAcidFeature': PROTEIN,
+        'SimpleChemical': (40.0, 40.0)}  # every metabolite a circle (the yEd glyph is one when square)
 NOTICED = 1.2  # a scale this far from 1 (either way) is rescaled
 # the program's default label font: CellDesigner (all 926 labels of the website's CellDesigner
 # files), Newt (its sample files)
 FONT = {'CellDesigner': 12.0, 'Newt': 11.0}
-CHEMICAL = (25.0, 40.0)  # usual metabolite heights: CellDesigner's 70 x 25 to Newt's 40 (ours 32 to 36; user, 2026-10-20)
+CHEMICAL = (25.0, 40.0)  # usual metabolite heights: CellDesigner's 70 x 25 to Newt's 40 (ours 40; user, 2026-10-20)
 ENTITY = ('Macromolecule', 'NucleicAcidFeature', 'SimpleChemical', 'Complex', 'UnspecifiedEntity', 'Perturbation', 'Phenotype')
-
-
-def chemical(d):
-    # a metabolite's size: a circle stays a circle; a stadium is 32 high and 60, 70, 80, ... wide,
-    # about 7 px per character of its longest name line plus 14 (the user's maps: 60 for Pi,
-    # 80 glutamate, 90 citrulline, 100 oxaloacetate, 180 alpha-keto-beta-methylvalerate)
-    w, h = d.box[2:]
-    if abs(w - h) <= 0.1 * max(w, h):
-        return CIRCLE
-    name = max((d.labels[0] if d.labels else '').split('\n'), key=len)
-    return (max(60.0, 10.0 * math.ceil((7 * len(name) + 14) / 10)), 32.0)
 
 
 def scale_of(m):
@@ -73,7 +61,7 @@ def standardise(m):
     nodes, ratio = {}, {}
     for i, d in m.nodes.items():
         x, y, w, h = (v / s for v in d.box)
-        W, H = chemical(d) if d.kind == 'SimpleChemical' else SIZE.get(d.kind, (w, h))
+        W, H = SIZE.get(d.kind, (w, h))
         if d.kind.endswith('Process') or d.kind == 'Operator':
             W, H = d.box[2], d.box[3]  # glyphs of their own fixed size
         ratio[i] = (W / w if w else 1, H / h if h else 1)

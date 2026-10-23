@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F007-inos.svg"
-width: 1626
-height: 1198
+width: 1643
+height: 1202
 scale: 1
 annotation: "/atlas-data/F007-inos.json"
 image_error: ""

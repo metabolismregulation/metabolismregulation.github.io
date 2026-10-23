@@ -236,8 +236,8 @@ advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "Grap
 Standard node sizes (user, 2026-10-20): a CellDesigner, SBGN-ML or Newt map gives a second GraphML file with them,
 for every map when the tick box "Standard node sizes" is ticked (user, 2026-10-22: a GraphML map gets it too then, and only then) (to harmonise how a
 map looks), otherwise only for a map drawn at a different scale: button "GraphML (standard sizes)", `<map>-standard.graphml` (grey, as GraphML (corrected)), from the
-drawing kept, with map-converter's `style.py`: proteins 80 x 40, metabolite circles 36 x 36, metabolite stadiums sized
-to the name (a metabolite keeps its shape), the map rescaled if its proteins are much larger or smaller. Made when one
+drawing kept, with map-converter's `style.py`: proteins 80 x 40, metabolites 40 x 40 circles (user,
+2026-10-23; circles 36 x 36 and stadiums sized to the name until then), the map rescaled if its proteins are much larger or smaller. Made when one
 is more than 20% off: the median protein height against 40, the median label font against the program's default
 (CellDesigner 12, Newt 11), or, without proteins, the median metabolite height against 25 to 40 (`style.reasons`).
 No note under the map: the description page says what the file holds (user, 2026-10-20). The converter's notes under a map are grouped by the files they come from, the files named over each group as on their buttons ("SBGN-ML and SBGN-ML straight line:"), the notes of several files first, then those of each file alone (user, 2026-10-20).
@@ -435,6 +435,10 @@ session that is mainly biology research (user, 2026-10-19; details in maps-workb
 
 A change to how an entity is drawn applies to every instance of it on the map, including
 empty state variables (user, 2026-10-17).
+
+Metabolites (user, 2026-10-23, their iNOS edit): every metabolite a 40 x 40 circle, a long name
+running past it, on every Atlas map, in the layout skill and in the converter (stadiums 32 high and
+36 x 36 circles until then). The official files in `downloads/` keep their sizes (fixed set).
 
 A transport (the same species moved between compartments) is not catalysed: a transporter or
 channel acts on it by stimulation (white arrow), not catalysis (user, 2026-10-19; Atlas

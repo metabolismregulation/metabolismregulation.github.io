@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F006-acly.svg"
-width: 892
+width: 862
 height: 690
 scale: 1
 annotation: "/atlas-data/F006-acly.json"

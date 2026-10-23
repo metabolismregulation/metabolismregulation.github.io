@@ -10,7 +10,7 @@ draft: true
 tag: "draft"
 image: "/atlas-downloads/F021-ureacycle.svg"
 width: 1102
-height: 1067
+height: 1070
 scale: 1
 annotation: "/atlas-data/F021-ureacycle.json"
 image_error: ""

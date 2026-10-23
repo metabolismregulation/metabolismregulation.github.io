@@ -10,7 +10,7 @@ draft: true
 tag: "new"
 image: "/atlas-downloads/F026-gba1.svg"
 width: 1154
-height: 544
+height: 548
 scale: 1
 annotation: "/atlas-data/F026-gba1.json"
 image_error: ""
