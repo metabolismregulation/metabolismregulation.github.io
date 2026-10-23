@@ -18,6 +18,7 @@ In platelets, thrombin releases arachidonate for thromboxane and prostaglandin s
 
 ## References
 
+1. Adler DH, Cogan JD, Phillips JA 3rd, Schnetz-Boutaud N, Milne GL, Iverson T, Stein JA, Brenner DA, Morrow JD, Boutaud O, Oates JA. Inherited human cPLA(2alpha) deficiency is associated with impaired eicosanoid biosynthesis, small intestinal ulceration, and platelet dysfunction. J Clin Invest. 2008 Jun;118(6):2121-31. doi: 10.1172/JCI30473. PMID: 18451993.
 1. Bezprozvanny I, Watras J, Ehrlich BE. Bell-shaped calcium-response curves of Ins(1,4,5)P3- and calcium-gated channels from endoplasmic reticulum of cerebellum. Nature. 1991 Jun 27;351(6329):751-4. doi: 10.1038/351751a0. PMID: 1648178.
 1. Börsch-Haubold AG, Bartoli F, Asselin J, Dudler T, Kramer RM, Apitz-Castro R, Watson SP, Gelb MH. Identification of the phosphorylation sites of cytosolic phospholipase A2 in agonist-stimulated human platelets and HeLa cells. J Biol Chem. 1998 Feb 20;273(8):4449-58. doi: 10.1074/jbc.273.8.4449. PMID: 9468497.
 1. Clark JD, Lin LL, Kriz RW, Ramesha CS, Sultzman LA, Lin AY, Milona N, Knopf JL. A novel arachidonic acid-selective cytosolic PLA2 contains a Ca(2+)-dependent translocation domain with homology to PKC and GAP. Cell. 1991 Jun 14;65(6):1043-51. doi: 10.1016/0092-8674(91)90556-e. PMID: 1904318.

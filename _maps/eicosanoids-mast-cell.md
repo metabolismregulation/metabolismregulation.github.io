@@ -27,6 +27,7 @@ In mast cells, antigen that cross-links IgE bound to the high-affinity IgE recep
 
 ## References
 
+1. Adler DH, Cogan JD, Phillips JA 3rd, Schnetz-Boutaud N, Milne GL, Iverson T, Stein JA, Brenner DA, Morrow JD, Boutaud O, Oates JA. Inherited human cPLA(2alpha) deficiency is associated with impaired eicosanoid biosynthesis, small intestinal ulceration, and platelet dysfunction. J Clin Invest. 2008 Jun;118(6):2121-31. doi: 10.1172/JCI30473. PMID: 18451993.
 1. Baba Y, Nishida K, Fujii Y, Hirano T, Hikida M, Kurosaki T. Essential function for the calcium sensor STIM1 in mast cell activation and anaphylactic responses. Nat Immunol. 2008;9(1):81-8. doi: 10.1038/ni1546. PMID: 18059272.
 1. Bezprozvanny I, Watras J, Ehrlich BE. Bell-shaped calcium-response curves of Ins(1,4,5)P3- and calcium-gated channels from endoplasmic reticulum of cerebellum. Nature. 1991 Jun 27;351(6329):751-4. doi: 10.1038/351751a0. PMID: 1648178.
 1. Börsch-Haubold AG, Bartoli F, Asselin J, Dudler T, Kramer RM, Apitz-Castro R, Watson SP, Gelb MH. Identification of the phosphorylation sites of cytosolic phospholipase A2 in agonist-stimulated human platelets and HeLa cells. J Biol Chem. 1998 Feb 20;273(8):4449-58. doi: 10.1074/jbc.273.8.4449. PMID: 9468497.
