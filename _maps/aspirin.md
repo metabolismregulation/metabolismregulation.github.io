@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F100-aspirin.svg"
 width: 924
-height: 298
+height: 308
 scale: 1
 annotation: "/atlas-data/F100-aspirin.json"
 image_error: ""
