@@ -125,7 +125,7 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-sub" x="780" y="124" text-anchor="middle">yEd: standard sizes</text>
   <rect class="ca-box" x="710" y="165" width="140" height="50" rx="7"/>
   <text class="ca-name" x="780" y="186" text-anchor="middle">cd_layout.py</text>
-  <text class="ca-sub" x="780" y="204" text-anchor="middle">CellDesigner</text>
+  <text class="ca-sub" x="780" y="204" text-anchor="middle">CellDesigner, + cd_tidy</text>
   <rect class="ca-box" x="710" y="245" width="140" height="50" rx="7"/>
   <text class="ca-name" x="780" y="266" text-anchor="middle">newt_layout.py</text>
   <text class="ca-sub" x="780" y="284" text-anchor="middle">Newt: compartments, arcs</text>
@@ -213,7 +213,8 @@ corrects them by a few pixels at most. The layout is the routing of the arcs and
 <table class="ca-table">
   <tr><th>Module</th><th>What it does</th></tr>
   <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, and the straight layout of a map read from CellDesigner (arcs at the centres, metabolites at the yEd size).</td></tr>
-  <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers, room for a complex's name), the process glyph, anchors and edit points, and the small moves that make lines meet straight (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph). The moves are listed under the map and are left out of the Converter page's CellDesigner (positions kept) file.</td></tr>
+  <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers, room for a complex's name), the process glyph, anchors and edit points. It moves no node but for the room of a complex's name.</td></tr>
+  <tr><td><code>cd_tidy.py</code></td><td>An add-on after <code>cd_layout.py</code>: the small moves that make lines meet straight in CellDesigner (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph). The moves are listed under the map and are left out of the Converter page's CellDesigner (positions kept) file.</td></tr>
   <tr><td><code>newt_layout.py</code></td><td>Newt, only for the files for Newt (the SBGN-ML files keep the drawing of the input map): every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart, and an arc that leaves a node off centre bent just outside it, as Newt aims every arc at the node's centre.</td></tr>
   <tr><td><code>style.py</code></td><td>yEd: standard node sizes and rescaling, for a map drawn at another scale.</td></tr>
 </table>

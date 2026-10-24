@@ -1,7 +1,7 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
 # from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
-# Where lines, squares and points go, and the tidy moves: cd_layout.py (the CellDesigner adapter);
-# this module writes them.
+# Where lines, squares and points go: cd_layout.py (the CellDesigner adapter); the tidy moves:
+# cd_tidy.py (an add-on); this module writes them.
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -21,7 +21,7 @@
 #   (HMGCR <-> HMGCR-P), each line uses the quarter points on the facing sides.
 # - Bend points only for long connectors that yEd draws as one L (layout.py);
 #   others the user adds by hand. Lines end at node centres. Main lines a few px off the vertical or
-#   horizontal are straightened (cd_straighten.py); modifiers up to 15 px off
+#   horizontal are straightened (cd_tidy.py); modifiers up to 15 px off
 #   their square are moved onto it, if nothing overlaps after the move.
 # - MIRIAM annotation from the map's node properties (annotation.py):
 #   bqbiol:is for one entity, bqbiol:hasVersion for a family.
@@ -44,7 +44,7 @@ import math, os, re, sys
 from dataclasses import replace
 from struct import pack, unpack
 from lxml import etree
-from . import cd_layout, report
+from . import cd_layout, cd_tidy, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
 from .layout import exit_point, visible
 from .annotation import from_notes, notes, to_properties
@@ -205,8 +205,10 @@ def write(diagram, ann, layout='straight', move=True):
         return label[c]
     for c in members:
         name_complex(c)
-    # where every line, square and point goes, the tidy moves included (cd_layout.py)
-    drawing = cd_layout.draw(diagram, ents, members, label, advanced, move)
+    # where every line, square and point goes (cd_layout.py), after the tidy moves (cd_tidy.py)
+    drawing = cd_layout.draw(diagram, ents, members, label, advanced)
+    if move:
+        cd_tidy.tidy(diagram, drawing, ents, members, label)
     box, cen = drawing.box, drawing.cen
     W, H = drawing.size
 

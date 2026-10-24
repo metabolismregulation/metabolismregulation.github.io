@@ -1,16 +1,15 @@
 # The CellDesigner adapter (restructuring step 4, 2026-10-19): where every line, square and point
 # goes as CellDesigner draws it, before the file is written. The boxes in CellDesigner's frame and
-# sizes, the tidy moves (on unless the user forbids moving nodes), each reaction's main line and
-# each modifier arc's end, anchor and edit points.
+# sizes, each reaction's main line and each modifier arc's end, anchor and edit points. It moves no
+# node but for the room of a complex's name; the tidy moves are cd_tidy.py (user, 2026-10-24).
 import math
 from dataclasses import dataclass
-from . import cd_straighten, layout, report
+from . import layout, report
 from .layout import main_lines
 
 MARGIN = 40
 NAME_ROOM = 14.0  # below the members' outline in a complex, for its name (as the yEd packing rule)
 CHEMICAL = 40.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
-ALIGN = 15.0  # largest move of a modifier onto its square (px)
 # the points of the process square a modifier can end at (targetLineIndex -1,i): (along the flow,
 # to its right) in half square sizes (MINERVA's getAnchorPointOnReactionRect; the user's PDH edit
 # has 6 and 7)
@@ -94,8 +93,8 @@ def boxes(N, ents, members):
         x, y, w, h = box[j]
         n = N[j].count if j in ents else 1
         return y + h + max([0.0] + [8.5 for s in N[j].states if s[2] > 0.45] + [6.0 * (3 - n)] * (n > 1))
-    for c in sorted(members, key=lambda c: len(cd_straighten.descendants(c, members))):
-        inner = cd_straighten.descendants(c, members)
+    for c in sorted(members, key=lambda c: len(descendants(c, members))):
+        inner = descendants(c, members)
         x, y, w, h = box[c]
         need = max(low(j) for j in inner) + NAME_ROOM - (y + h)
         if need > 0:
@@ -116,32 +115,19 @@ class Drawing:
     geometry: object  # (process, its lines) -> its main line: ends, anchors, edit points, square
     modifier: object  # (process, main line, arc, several regulators) -> (square point, M, T, anchor, bends)
     side: object    # (main line, point) -> the side of the square facing the point
+    end: object     # (main line, arc, its start, several regulators) -> the point of the square it ends at
+    yed: object     # yEd points -> the same points in this frame
 
 
-def draw(diagram, ents, members, label, advanced, move):
+def draw(diagram, ents, members, label, advanced):
     # ents the entity ids, members complex -> members, label entity -> name (for the messages);
-    # advanced: the advanced layout; move: the tidy moves allowed
+    # advanced: the advanced layout
     N = diagram.nodes
-    comps = {i for i, d in N.items() if d.kind == 'Compartment'}
-    def comp_of(i):
-        q = N[i].parent
-        while q is not None and q not in comps:
-            q = N[q].parent
-        return q
     box, (x0, y0), size = boxes(N, ents, members)
     cen = lambda i: (box[i][0] + box[i][2] / 2, box[i][1] + box[i][3] / 2)
     # each process's arcs, the main reactant and product first (layout.py), on the boxes as they are
     lines = lambda: main_lines(diagram, box, ents, (x0, y0))
 
-    # straighten main lines a few pixels off the vertical or horizontal (cd_straighten.py)
-    def said_move(j, dx, dy, why):  # every tidy move in the messages (user, 2026-10-19)
-        way = ' and '.join('%.0f px %s' % (abs(v), w[v > 0]) for v, w in ((dx, ('left', 'right')), (dy, ('up', 'down'))) if abs(v) >= 0.05)
-        if way:
-            report.say('changed', '%s moved %s: %s' % (label[j] or j, way, why))
-    if move:
-        for j, (dx, dy) in cd_straighten.straighten(box, [(f[0][0].source, f[1][0].target) for f in lines().values() if f], members).items():
-            if N[j].parent not in ents:  # a member moves with its complex
-                said_move(j, dx, dy, 'its main line straightened')
     # anchor points sit on the front shape of a multimer: CellDesigner draws it 6 smaller in
     # width and height (the user's glycolysis file: PFKFB2 dimer)
     front = {}
@@ -300,69 +286,6 @@ def draw(diagram, ents, members, label, advanced, move):
     def attach(g, i):  # the square's point i (targetLineIndex -1,i)
         return square_point(g['sq'], g['f'], *SQUARE[i])
 
-    def overlap(a, b):
-        return a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3]
-
-    def shift(m, ax, d, ends, why):
-        # move entity m by d along axis ax, with the entities joined to it by main lines straight
-        # on that axis (and their complex members), if all stay in their compartments and overlap
-        # nothing (user's pyrimidine v08 edit: ERK1/2 and its phosphorylation moved together)
-        if not move:
-            return
-        group = [m]
-        for j in group:
-            group += [b if a == j else a for a, b in ends if j in (a, b) and abs(cen(a)[ax] - cen(b)[ax]) < 1
-                      and (b if a == j else a) not in group]
-        moved = group + [i for j in group for i in cd_straighten.descendants(j, members)]
-        new = {j: tuple(v + (d if k == ax else 0) for k, v in enumerate(box[j])) for j in moved}
-        inside = lambda j, cm: box[cm][0] <= new[j][0] and new[j][0] + new[j][2] <= box[cm][0] + box[cm][2] \
-            and box[cm][1] <= new[j][1] and new[j][1] + new[j][3] <= box[cm][1] + box[cm][3]
-        if any(comp_of(j) and not inside(j, comp_of(j)) for j in group):
-            return
-        if any(overlap(new[g_], box[j]) for g_ in group for j in ents if j not in moved and N[j].parent not in moved
-               and g_ not in cd_straighten.descendants(j, members)):
-            return
-        box.update(new)
-        for j in moved:
-            front[j] = (box[j][0], box[j][1]) + front[j][2:]
-        for j in group:
-            said_move(j, d * (ax == 0), d * (ax == 1), why)
-
-    # a main line yEd draws level into a larger node off its centre (an end point beside the
-    # centre): CellDesigner aims at the centre, so the other end moves onto its centre line
-    # (user's iNOS v07 and v08 edits: CaM moved 25 px for CaM -> CaM:iNOS)
-    fls = {p: fl for p, fl in lines().items() if fl}
-    ends = [(fl[0][0].source, fl[1][0].target) for fl in fls.values()]
-    for p, (ins, outs, mods, gates, reversible, c) in fls.items():
-        r_, q_ = ins[0].source, outs[0].target
-        pts = [(cen(r_)[0] + ins[0].source_at[0], cen(r_)[1] + ins[0].source_at[1])] + \
-            yed(ins[0].points + outs[0].points) + [c] + \
-            [(cen(q_)[0] + outs[0].target_at[0], cen(q_)[1] + outs[0].target_at[1])]
-        for ax in (0, 1):
-            if max(q[ax] for q in pts) - min(q[ax] for q in pts) < 1 and abs(cen(r_)[ax] - cen(q_)[ax]) > 0.5:
-                if abs(ins[0].source_at[ax]) < 0.5 <= abs(outs[0].target_at[ax]):
-                    shift(r_, ax, cen(q_)[ax] - cen(r_)[ax], ends, 'onto the centre line of %s' % (label[q_] or q_))
-                elif abs(outs[0].target_at[ax]) < 0.5 <= abs(ins[0].source_at[ax]):
-                    shift(q_, ax, cen(r_)[ax] - cen(q_)[ax], ends, 'onto the centre line of %s' % (label[r_] or r_))
-
-    # modifiers onto their (midway) square: a small move so the arc meets the square straight
-    # (the user's edits of the full set: 23 such moves). Only a move of at most ALIGN px along
-    # one axis, the same for every reaction the modifier acts on (shift above)
-    geo = {p: geometry(p, fl, False) for p, fl in fls.items()}
-    want = {}
-    for p, g in geo.items():
-        for e in fls[p][2]:
-            m = e.source
-            if N[m].parent in ents or layout.turn([cen(m)] + route(p, e.points) + [cen(p)]):
-                continue  # complex members move with their complex; an L arc is straight already
-            M = cen(m)
-            T = attach(g, target(g, e, M, len(fls[p][2]) + len(fls[p][3]) > 1))
-            ax = 0 if abs(M[0] - T[0]) < abs(M[1] - T[1]) else 1  # the axis with the small offset
-            want.setdefault((m, ax), []).append(T[ax] - M[ax])
-    for (m, ax), ds in sorted(want.items()):
-        if 0.5 < abs(ds[0]) <= ALIGN and max(ds) - min(ds) <= 1:
-            shift(m, ax, ds[0], ends, 'onto its process glyph')
-
     def modifier(p, g, e, many):
         # a modifier arc of process p (main line g): the point of the square it ends at, its start M,
         # its end T, the anchor on the modifier and its edit points; many: several arcs regulate p
@@ -387,7 +310,7 @@ def draw(diagram, ents, members, label, advanced, move):
         if pts:
             run = [M] + pts + [T]
             for j in ents:
-                if j != m and N[j].parent not in ents and m not in cd_straighten.descendants(j, members) and \
+                if j != m and N[j].parent not in ents and m not in descendants(j, members) and \
                         any(crosses(a, b, box[j]) for a, b in zip(run, run[1:])):
                     report.say('warning', '%s: the arc from %s runs through %s' % (p, label[m] or m, label[j] or j))
         else:
@@ -399,4 +322,12 @@ def draw(diagram, ents, members, label, advanced, move):
             pts = [bend] if bend else []
         return i, M, T, at, pts
 
-    return Drawing(box, front, size, cen, lines, geometry, modifier, side)
+    end = lambda g, e, M, many: attach(g, target(g, e, M, many))
+    return Drawing(box, front, size, cen, lines, geometry, modifier, side, end, yed)
+
+
+def descendants(i, members):
+    out = []
+    for m in members.get(i, []):
+        out += [m] + descendants(m, members)
+    return out
