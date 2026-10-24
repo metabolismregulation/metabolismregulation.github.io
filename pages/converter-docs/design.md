@@ -169,7 +169,10 @@ held by edit points).
 way, round trips, edit points; QUALITY.md). **Decision**: four CellDesigner files from a GraphML or
 SBGN-ML map, all kept: straight (lines between node centres), straight & bends (the input's key bends,
 anchors and modifier routes), advanced (moved nodes: the tidy moves, the blue button), as drawn
-(multi-bends: process glyphs and ports held by edit points). Only advanced moves entity nodes.
+(multi-bends: process glyphs and ports held by edit points). Only advanced moves entity nodes. Roles
+(user, 2026-10-24): advanced is the main file, for a one-time conversion and as the base a CellDesigner
+user keeps working on (a map developed in yEd, then edited in CellDesigner); straight & bends the fallback,
+straight the simplest fallback; as drawn only for going back and forth between editors repeatedly.
 **Consequences**: straight & bends comes back as a button. As drawn writes about 450 more edit points on
 the Atlas maps than the others (555 against 196-248, visible bends about the same), which a CellDesigner
 user has to clean when changing a reaction, so its development is weighed against that.
