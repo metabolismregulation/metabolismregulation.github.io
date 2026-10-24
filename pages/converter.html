@@ -200,7 +200,8 @@ def convert(name, data, standard=False, skipped=()):
     box.append(all);
   }
 
-  async function convert(files) {
+  // old: a map's buttons already on the page, replaced in place when a tick box changes (user, 2026-10-24)
+  async function convert(files, old) {
     if (!py) {
       waiting.push(...files);
       status.textContent = waiting.map(f => f.name).join(', ') + ': converted once the converter has loaded…';
@@ -225,7 +226,7 @@ def convert(name, data, standard=False, skipped=()):
       r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || plain(a[1]) - plain(b[1]) || rank(variant(a[1])) - rank(variant(b[1])));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
-      box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
+      box.file = f; box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
       // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
       const notes = new Map(), errors = new Map();
       const problems = [];
@@ -273,13 +274,18 @@ def convert(name, data, standard=False, skipped=()):
           box.querySelector('.cv-left').append(d);
         }
       }
-      out.insertBefore(box, top);
+      if (old) old.replaceWith(box); else out.insertBefore(box, top);
     }
     status.textContent = '';
   }
 
   drop.addEventListener('click', () => input.click());
   drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+  // a tick box changed: every map on the page converted again with the ticks as they are now, one
+  // change after the other
+  let again = Promise.resolve();
+  for (const box of document.querySelectorAll('#cv-standard, .cv-modes input'))
+    box.addEventListener('change', () => { again = again.then(async () => { for (const m of [...out.querySelectorAll('.cv-map')]) await convert([m.file], m); }); });
   input.addEventListener('change', () => { convert([...input.files]); input.value = ''; });
   drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('cv-over'); });
   drop.addEventListener('dragleave', () => drop.classList.remove('cv-over'));
