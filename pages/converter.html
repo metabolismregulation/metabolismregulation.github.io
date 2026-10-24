@@ -49,6 +49,9 @@ noindex: true
   /* the box scaled with the text, as on the ysbgn.js page */
   label.cv-hint input { width: 15px; height: 15px; vertical-align: -2px; margin: 0 5px 0 0; }
   .cv-top p.cv-routes { margin-bottom: 12px; }
+  /* the CellDesigner fallbacks, made only when ticked (user, 2026-10-24: tick boxes, not a drop-down) */
+  .cv-top p.cv-modes { margin-top: 10px; line-height: 1.7; }
+  .cv-modes label { margin-left: 20px; }
   /* the subpages, each with an arrow down and right before it, grey, blue on hover, above the tick box,
      which comes last (user, 2026-10-20,
      variant 4 of the former test page /converter/links/, in git history) */
@@ -71,6 +74,10 @@ noindex: true
     <p class="cv-hint">The blue button gives the recommended file of each format. The white buttons are fallback versions. The conversion runs in the browser, and the files never leave the computer.</p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label></p>
+    <p class="cv-hint cv-modes">Additional CellDesigner layouts<br>
+    <label class="cv-hint"><input type="checkbox" value="-bends.xml"> straight &amp; bends</label><br>
+    <label class="cv-hint"><input type="checkbox" value="-straight.xml"> straight line</label><br>
+    <label class="cv-hint"><input type="checkbox" value="-drawn.xml"> as drawn</label></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>
@@ -93,13 +100,15 @@ import os, sys
 sys.path.insert(0, '/home/pyodide')
 from mapconv import routes
 
-def convert(name, data, standard=False):
+def convert(name, data, standard=False, skipped=()):
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
     files = []
     for o in routes.outputs(p, standard):
+        if o.ending in skipped:
+            continue  # a CellDesigner layout not ticked
         text, said = routes.made(o)
         if o.ending in ('-corrected.graphml', '-standard.graphml') and text is None and not said:
             continue  # only for a map drawn with other shapes than the SBGN palette, or at another scale
@@ -203,7 +212,8 @@ def convert(name, data, standard=False):
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
       let r;
       try {
-        r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked).toJs();
+        r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked,
+                                    [...document.querySelectorAll('.cv-modes input:not(:checked)')].map(i => i.value)).toJs();
       } catch (e) {  // said under the drop area, not left at "Converting"
         status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
       }
