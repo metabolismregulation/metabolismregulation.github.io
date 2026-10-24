@@ -595,20 +595,23 @@ Geometry of a main line:
 - The process glyph where yEd has the process (user, 2026-10-24: no node moved), when that is more
   than 3 px from midway on its segment (`SHIFT`; also on a bent line), within 12 px of the line (a
   metabolite's line leaves 10 px off its centre, under its name) and between 0.1 and 0.9 of it: two edit
-  points half way from the process glyph to the nearer end on either side, so the arcs keep visible
-  antennas (8 px beside the process glyph looked as if the arcs ran into it; the user's CAD edit: about
+  points half way from the process glyph to the nearer end on either side, at least 3 px outside the end
+  nodes and at the same distance from the process glyph (user, 2026-10-24: 90 points inside a node before),
+  so the arcs keep visible antennas (8 px beside the process glyph looked as if the arcs ran into it; the user's CAD edit: about
   0.6 of that way). On the line, so CellDesigner draws nothing more. Else midway (CellDesigner's own
   rule). 3 px: the yEd offsets run on without a gap (0-5 px 23 processes, 5-10 px 39, of 168 placed on
   the 28 Atlas maps), and below 3 px two points per reaction would add clutter for nothing seen.
 - A main line yEd draws level into a larger node through an end point beside its centre (more than 3 px):
-  one edit point under that node, level with the line and across from its centre, the line's end at the
-  centre (no anchor). CellDesigner draws nodes over lines, so the line seems to enter level (user,
-  2026-10-24, as their eicosanoid map's hub metabolites; iNOS CaM -> CaM:iNOS 23.6 px, mevalonate
+  one edit point on the line, 3 px outside that node (`EDGE`), the line on to the centre from there (no
+  anchor). Under the node (first try, 2026-10-24) it showed: CellDesigner draws lines over nodes, so the
+  line ran to the centre (user, 2026-10-24; iNOS CaM -> CaM:iNOS 23.6 px, mevalonate
   AMPK 14.4 px, glycolysis extended IRS1 22 px, SREBP 4.5 px, cAMP 3.7 px). Until 2026-10-24 the other end
   was moved onto the centre line.
 
 No node is moved before writing (user, 2026-10-24; until then the tidy moves: main lines up to 10 px
-off straightened, the move above, a modifier up to 15 px onto its process glyph).
+off straightened, the move above, a modifier up to 15 px onto its process glyph). They are kept as an
+option to compare, `cd_tidy.py`, CellDesigner (tidy): the drawing of before that day (process glyph placed
+only for a modifier straight across, no added point at a node) with the moves.
 
 Modifier arcs: the end on the process glyph. A process with several modifier arcs, one of which yEd
 ends off the process's centre (more than 2 px): that arc ends at the process glyph's point nearest its yEd

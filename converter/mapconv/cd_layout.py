@@ -1,7 +1,8 @@
 # The CellDesigner adapter (restructuring step 4, 2026-10-19): where every line, square and point
 # goes as CellDesigner draws it, before the file is written. The boxes in CellDesigner's frame and
 # sizes, each reaction's main line and each modifier arc's end, anchor and edit points. It moves no
-# node but for the room of a complex's name (user, 2026-10-24: no node moved in conversion).
+# node but for the room of a complex's name (user, 2026-10-24: no node moved in conversion); with
+# tidy, the drawing of before that day, for cd_tidy.py, which moves nodes (an option to compare).
 import math
 from dataclasses import dataclass
 from . import layout, report
@@ -10,6 +11,7 @@ from .layout import main_lines
 MARGIN = 40
 NAME_ROOM = 14.0  # below the members' outline in a complex, for its name (as the yEd packing rule)
 SHIFT = 3.0  # the process glyph placed by edit points only when yEd has it further from midway (px)
+EDGE = 3.0  # an added edit point stays this far outside a node, as CellDesigner draws lines over nodes (px)
 CHEMICAL = 40.0  # metabolites are drawn as circles of this diameter, centred on the yEd node
 # the points of the process square a modifier can end at (targetLineIndex -1,i): (along the flow,
 # to its right) in half square sizes (MINERVA's getAnchorPointOnReactionRect; the user's PDH edit
@@ -115,9 +117,9 @@ class Drawing:
     yed: object     # yEd points -> the same points in this frame
 
 
-def draw(diagram, ents, members, label, advanced):
+def draw(diagram, ents, members, label, advanced, tidy=False):
     # ents the entity ids, members complex -> members, label entity -> name (for the messages);
-    # advanced: the advanced layout
+    # advanced: the advanced layout; tidy: the drawing cd_tidy.py moves nodes for (before 2026-10-24)
     N = diagram.nodes
     box, (x0, y0), size = boxes(N, ents, members)
     cen = lambda i: (box[i][0] + box[i][2] / 2, box[i][1] + box[i][3] / 2)
@@ -150,8 +152,28 @@ def draw(diagram, ents, members, label, advanced):
             return None
         return {'E': 'ESE', 'W': 'WSW'}.get(a, a) if N[i].kind == 'SimpleChemical' else a
 
-    def geometry(p, fl):
-        # the main line of process p: its ends, anchors, bend, the square and the flow direction
+    def level(e, c):
+        # a modifier arc that reaches the process at c straight across in yEd (5 px), in line with
+        # its port or its centre (PD02 eicosanoids: an arc from above the process to a corner)
+        q = yed(e.points)[-1] if e.points else \
+            (cen(e.source)[0] + e.source_at[0], cen(e.source)[1] + e.source_at[1])
+        return any(min(abs(q[0] - c[0] - t[0]), abs(q[1] - c[1] - t[1])) <= 5 for t in (e.target_at, (0, 0)))
+
+    def reach(s, v, b):
+        # how far from s along the unit vector v the box b, grown by EDGE, begins (inf: never)
+        t0, t1 = 0.0, math.inf
+        for a in (0, 1):
+            lo, hi = b[a] - EDGE, b[a] + b[a + 2] + EDGE
+            if abs(v[a]) < 1e-12:
+                if not lo <= s[a] <= hi: return math.inf
+            else:
+                ta, tb = sorted(((lo - s[a]) / v[a], (hi - s[a]) / v[a]))
+                t0, t1 = max(t0, ta), min(t1, tb)
+        return t0 if t0 <= t1 else math.inf
+
+    def geometry(p, fl, place=True):
+        # the main line of process p: its ends, anchors, bend, the square and the flow direction;
+        # place (tidy only): the square where yEd has it, where a modifier needs it (else midway)
         ins, outs, mods, gates, reversible, c = fl
         r_, q_ = ins[0].source, outs[0].target
         ra = qa = None  # line ends at the centres
@@ -191,18 +213,20 @@ def draw(diagram, ents, members, label, advanced):
             ra = ra if ra and off_line(r_, ra, (rb + [c])[0]) else None
             qa = qa if qa and off_line(q_, qa, (qb[::-1] + [c])[0]) else None
         # advanced: a main line yEd draws level into a larger node beside its centre (iNOS: CaM ->
-        # CaM:iNOS, 25 px off): CellDesigner aims at the centre, so an edit point under that node,
-        # level with the line and below the centre; CellDesigner draws nodes over lines, so the
-        # rest is hidden (user, 2026-10-24, in place of moving the other end; as their eicosanoid
-        # map's hub metabolites). The way back drops it (layout.visible)
+        # CaM:iNOS, 25 px off): CellDesigner aims at the centre, so an edit point on the line just
+        # outside that node (EDGE), the line on to the centre from there (user, 2026-10-24, in place
+        # of moving the other end: a point under the node showed the line running to its centre).
+        # The way back drops it (layout.visible)
         under = None
-        if advanced and not twin and not rb + qb:
+        if advanced and not tidy and not twin and not rb + qb:
             ps = [(cen(r_)[0] + ins[0].source_at[0], cen(r_)[1] + ins[0].source_at[1])] + yed(ins[0].points + outs[0].points) + \
                 [c, (cen(q_)[0] + outs[0].target_at[0], cen(q_)[1] + outs[0].target_at[1])]
             for ax in (0, 1):
                 if max(q[ax] for q in ps) - min(q[ax] for q in ps) < 1 and abs(cen(r_)[ax] - cen(q_)[ax]) > 0.5:
                     for i, at, o, other in ((q_, outs[0].target_at, ins[0].source_at, r_), (r_, ins[0].source_at, outs[0].target_at, q_)):
-                        H = tuple(cen(other)[ax] if a == ax else cen(i)[a] for a in (0, 1))
+                        v = cen(other)[1 - ax]  # the line runs along the other axis, from that side
+                        x, w = box[i][1 - ax], box[i][3 - ax]
+                        H = tuple(cen(other)[ax] if a == ax else (x - EDGE if v < x else x + w + EDGE) for a in (0, 1))
                         if abs(o[ax]) < 0.5 and abs(at[ax]) > SHIFT and box[i][ax] < H[ax] < box[i][ax] + box[i][ax + 2]:
                             under = (i, H)
             if under:
@@ -225,15 +249,26 @@ def draw(diagram, ents, members, label, advanced):
         L = math.hypot(Q[0] - P[0], Q[1] - P[1])
         f = ((Q[0] - P[0]) / L, (Q[1] - P[1]) / L)
         ep = [to_frame(A, B, q) for q in pts]
-        if advanced:
+        u = ((c[0] - P[0]) * f[0] + (c[1] - P[1]) * f[1]) / L
+        across = abs((c[0] - P[0]) * f[1] - (c[1] - P[1]) * f[0])
+        if advanced and not tidy and across < 12 and abs(u - 0.5) * L > SHIFT and 0.1 < u < 0.9:
             # the square where yEd has the process, if that is on its segment and more than SHIFT px
             # from midway (user, 2026-10-24: no node moved; first only for a modifier straight
             # across, the user's pyrimidine v07 edit, CAD). Two edit points half way to the nearer
-            # end on either side, on the line, so CellDesigner draws nothing more (hidden), the arcs
-            # keep their antennas, and the way back drops them (layout.visible)
-            u = ((c[0] - P[0]) * f[0] + (c[1] - P[1]) * f[1]) / L
-            across = abs((c[0] - P[0]) * f[1] - (c[1] - P[1]) * f[0])
-            if across < 12 and abs(u - 0.5) * L > SHIFT and 0.1 < u < 0.9:
+            # end on either side, on the line, so CellDesigner draws nothing more, the arcs keep
+            # their antennas, and the way back drops them (layout.visible); both outside the end
+            # nodes (EDGE), at the same distance, or the process glyph stays midway
+            at = (P[0] + u * L * f[0], P[1] + u * L * f[1])
+            ds = [min(min(u, 1 - u) / 2 * L, *(reach(at, (w * f[0], w * f[1]), box[i]) for i in (r_, q_))) for w in (-1, 1)]
+            if min(ds) >= 1:
+                sq = at
+                split = [to_frame(A, B, (sq[0] + d * f[0], sq[1] + d * f[1])) for d in (-min(ds), min(ds))]  # equal: the square midway between them
+                ep, k = ep[:k] + split + ep[k:], k + 1
+        off = lambda m: min(abs(cen(m)[0] - sq[0]), abs(cen(m)[1] - sq[1]))  # a modifier off its square
+        if advanced and tidy and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods + gates):
+            # tidy (before 2026-10-24): only for a modifier (or logic gate) straight across in yEd
+            # that cd_tidy could not move onto the midway square
+            if across < 3 and abs(u - 0.5) * L > 3 and 0.1 < u < 0.9:
                 sq = (P[0] + u * L * f[0], P[1] + u * L * f[1])
                 h = min(u, 1 - u) / 2
                 split = [(u - h, 0.0), (u + h, 0.0)] if not pts else \

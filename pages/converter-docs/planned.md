@@ -134,12 +134,12 @@ then removed (user, 2026-10-24; DESIGN.md D14, D15):
 - Adapters change sizes, ports, bends and arc ends, never a node's centre. Exceptions, each in the
   messages: CellDesigner's room for a complex's name (members moved up; see above), Newt's padding (the
   file for Newt only).
-- No tidy moves: `cd_tidy.py` and `move` removed. Straightening a line a few px off level, if wanted, belongs
-  to the layout skill (`standardise.py`, on the source map).
+- No tidy moves by default. `cd_tidy.py` removed, then back the same day as an option to compare (D16).
+  Straightening a line a few px off level, if wanted, belongs to the layout skill (`standardise.py`).
 - CellDesigner, advanced layout: the process glyph where yEd has the process by two edit points on the main
-  line (more than `SHIFT` = 3 px from midway, also on a bent line), and a point under a larger node where yEd
-  draws a level main line into it beside its centre. Hidden: CellDesigner draws nodes over lines, and points on
-  a straight line change nothing. The way back drops them (`layout.visible`).
+  line (more than `SHIFT` = 3 px from midway, also on a bent line), and a point just outside a larger node
+  where yEd draws a level main line into it beside its centre. Every added point 3 px outside the nodes
+  (`EDGE`): CellDesigner draws lines over nodes. The way back drops them (`layout.visible`).
 - Multimers: dimers at yEd's size, the count beyond 2 as the unit N:x (SBGN's way).
 - Next (user, 2026-10-24, "moving ports within large complexes"): the same point under the node for a
   modifier arc that yEd starts beside a large node's centre, and for slanting main lines. Not built.

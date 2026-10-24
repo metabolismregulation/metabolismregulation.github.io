@@ -114,5 +114,6 @@ building a check follows PLANNED.md and CLAUDE.md, Code.
 | 2026-10-24 | (D14, this commit) | reference inputs (tools/roundtrip_*.py) | G->CD->G and CD->G->CD, both layouts: nodes > 1 px on trip 1 / trip 2 | | G->CD->G straight 58 / 13 before, 5 / 0 after (max 24 -> 3 px); advanced 54 / 12, 5 / 0; CD->G->CD straight 16 / 1, 2 / 0; advanced 10 / 2, 2 / 0 | 0 on trip 2 |
 | 2026-10-24 | (D14, this commit) | 28 reference GraphML inputs | GraphML to CellDesigner, advanced | process glyphs placed by edit points / under 3 px left midway / points under a node | 168 / 34 / 10 of 353 reactions (iNOS 14, glycogen 12 each, glycolysis extended 12) | |
 | 2026-10-24 | (D14, D15, this commit) | 610 reference files | before against after | files that differ | 129 CellDesigner (66 advanced, 63 straight: no moves, multimers as dimers, hidden points) and 56 message files (the moves no longer listed); GraphML and SBGN-ML none | |
+| 2026-10-24 | (D14 EDGE, D16, this commit) | 28 reference GraphML inputs | GraphML to CellDesigner, advanced | edit points of main lines (without anchors) inside a node | 90 of 385 before, 0 of 387 after; processes off yEd's > 3 px unchanged (87 of 350); tidy option = files before D14 byte for byte on 21 of 24 test maps (3: multimers) | 0 |
 
 {% endraw %}

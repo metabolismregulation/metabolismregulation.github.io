@@ -123,12 +123,14 @@ cases have nothing left to do, and straightening a line a few px off level chang
 is the layout skill's work. **Decision**: the converter moves no node (the add-on `cd_tidy.py` and the
 option to forbid moves removed). In the advanced layout CellDesigner gets edit points it draws over or
 along, so nothing more shows: two points on the main line around the process glyph, where yEd has the
-process further than 3 px from midway (`cd_layout.SHIFT`); one point under a larger node, level with a
-main line yEd draws into it beside its centre, also more than 3 px off. **Consequences**: a line a few px
+process further than 3 px from midway (`cd_layout.SHIFT`); one point level with a main line that yEd
+draws into a larger node beside its centre, also more than 3 px off. Every added point lies at least 3 px
+outside the nodes (`EDGE`; user, 2026-10-24: a point under a node showed the line running to its centre,
+as CellDesigner draws lines over nodes), and the two around a process glyph at the same distance from it. **Consequences**: a line a few px
 off level in yEd stays so in CellDesigner. GraphML -> CellDesigner -> GraphML moves 5 nodes of 438 by more
 than 1 px (58 before, at most 3 px), and a second trip none (13 before). The way back drops the points
 (`layout.visible`). The straight layout stays without them (D7). Room for a complex's name stays the one
-exception in CellDesigner.
+exception in CellDesigner. The tidy moves stay as an option to compare ([D16](#d16-tidy-moves-as-an-option-to-compare)).
 
 ## D15. Multimers drawn as dimers, the count as a unit
 
@@ -138,5 +140,14 @@ every multimer is drawn as a dimer at yEd's size (homodimer 2), and a count beyo
 information N:x on the alias (prefix N, label 3: AsthmaMap's form, never "free input"). The reader takes
 N:x on a dimer as its count. **Consequences**: no node grows. MINERVA reads homodimer 2, and its drawing
 of the unit is to be seen on upload.
+
+## D16. Tidy moves as an option to compare
+
+**2026-10-24, accepted.** **Context**: the user found the advanced CellDesigner file with the tidy moves
+close to what they do by hand, and wants to compare it with the files that move no node. **Decision**:
+`cd_tidy.py` is back as an option, "CellDesigner (tidy)" (`-advanced-tidy.xml`, `--tidy`): the advanced
+drawing as it was before D14 (the process glyph placed only for a modifier straight across, no added point
+at a node) with the tidy moves. The default moves no node. **Consequences**: the option gives the files of
+before D14 byte for byte, apart from multimers (D15). One more output per GraphML and SBGN-ML input.
 
 {% endraw %}

@@ -75,7 +75,9 @@ public here (user's choice). The page's copy is `converter/mapconv/` with the co
 map-converter and push here (`VERSION`: date and commit, not shown on the page). Since 2026-10-19 (user) the
 page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`. No node is moved in
 conversion (user, 2026-10-24), so the button "CellDesigner (positions kept)" (`<map>-kept.xml`, 2026-10-20 to
-2026-10-24, the file without map-converter's tidy moves) is gone with them. The layout that keeps the
+2026-10-24, the file without map-converter's tidy moves) is gone with them. The tidy moves are back as an
+option to compare (user, 2026-10-24): "CellDesigner (tidy)", `<map>-tidy.xml`, white like straight, the
+advanced file with the moves, under the CellDesigner buttons. The layout that keeps the
 drawing has no variant on its button and in its file name (user, 2026-10-19): "CellDesigner", "SBGN-ML",
 "GraphML", `<map>.xml`, `<map>.sbgn`, `<map>.graphml`, renamed by the page's driver from the converter's
 "(advanced)" and `-advanced`; straight keeps its variant. The pages

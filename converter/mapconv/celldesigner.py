@@ -1,7 +1,8 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
 # from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
 # Where lines, squares and points go: cd_layout.py (the CellDesigner adapter); this module writes
-# them. No node is moved (user, 2026-10-24) but for the room of a complex's name.
+# them. No node is moved (user, 2026-10-24) but for the room of a complex's name; with tidy, the
+# tidy moves of cd_tidy.py (an option, to compare).
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -42,7 +43,7 @@ import math, os, re, sys
 from dataclasses import replace
 from struct import pack, unpack
 from lxml import etree
-from . import cd_layout, report
+from . import cd_layout, cd_tidy, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
 from .layout import exit_point, visible
 from .annotation import from_notes, notes, to_properties
@@ -161,11 +162,13 @@ def opened_ors(m):
     return replace(m, nodes={i: d for i, d in m.nodes.items() if i not in opened}, arcs=arcs)
 
 
-def write(diagram, ann, layout='straight'):
+def write(diagram, ann, layout='straight', tidy=False):
     # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
     # layout 'straight' (straight lines, as yEd calls them): the necessary minimum, simple and reliable, improved by hand in CellDesigner
     # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
     # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16).
+    # tidy: the tidy moves (main lines straightened, an end onto a larger node's centre line, a
+    # modifier onto its process glyph; cd_tidy.py), as before 2026-10-24, an option to compare
     advanced = layout == 'advanced'
     diagram = opened_ors(without_delays(diagram, 'CellDesigner'))
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
@@ -201,8 +204,10 @@ def write(diagram, ann, layout='straight'):
         return label[c]
     for c in members:
         name_complex(c)
-    # where every line, square and point goes (cd_layout.py)
-    drawing = cd_layout.draw(diagram, ents, members, label, advanced)
+    # where every line, square and point goes (cd_layout.py), after the tidy moves when asked
+    drawing = cd_layout.draw(diagram, ents, members, label, advanced, tidy)
+    if tidy:
+        cd_tidy.tidy(diagram, drawing, ents, members, label)
     box, cen = drawing.box, drawing.cen
     W, H = drawing.size
 

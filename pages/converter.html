@@ -114,7 +114,7 @@ def convert(name, data, standard=False):
         # line", on a third line of the button (user, 2026-10-21)
         label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (Newt, straight line)',
                  'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
-                o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
+                o.label.replace(' (advanced, tidy)', ' (tidy)').replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
         files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
     return files
 `;
@@ -226,7 +226,7 @@ def convert(name, data, standard=False):
         if (xml) {
           const b = button(xml, base + end, label, red, f.name);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
-          if (end.startsWith('-straight') || end === '.sbgn') b.classList.add('cv-alt');
+          if (end.startsWith('-straight') || end === '.sbgn' || end === '-tidy.xml') b.classList.add('cv-alt');
           box.append(b);
         }
         if (red) { problems.push(log); continue; }
