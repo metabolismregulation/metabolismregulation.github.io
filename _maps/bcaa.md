@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F022-bcaa.svg"
 width: 1358
-height: 998
+height: 1030
 scale: 1
 annotation: "/atlas-data/F022-bcaa.json"
 image_error: ""
