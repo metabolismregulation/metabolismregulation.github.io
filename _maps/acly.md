@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: ""
 image: "/atlas-downloads/F006-acly.svg"
-width: 862
-height: 690
+width: 855
+height: 657
 scale: 1
 annotation: "/atlas-data/F006-acly.json"
 image_error: ""
