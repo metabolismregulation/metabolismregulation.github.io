@@ -66,7 +66,7 @@ is converted with the map. In GraphML it is read from the node properties, or fr
 <p><b>Layouts</b>: the files without a variant keep the layout of the input map as closely as possible:
 node positions, process ports and the key bends. Straight line is the simpler fallback, for a map whose drawing does not convert
 well: every arc a straight line between node centres, for laying out by hand. In CellDesigner each process
-glyph sits midway between its main reactant and product. No node is moved in conversion (<a href="#move">CellDesigner drawing</a>).
+glyph sits midway between its main reactant and product. In CellDesigner a few nodes move a little so that lines meet straight, CellDesigner (no move) keeps every node in place (<a href="#move">CellDesigner drawing</a>).
 SBGN-ML comes adjusted for Newt, the recommended file for now, and plain, with the compartments as drawn (<a href="#newt">SBGN-ML and SBGN-ML for Newt</a>), each also in straight line.</p>
 
 <h2 id="graphml">From GraphML</h2>
@@ -80,7 +80,7 @@ converted files.</p>
   <tr><th>Button</th><th>File</th><th>Content</th></tr>
   <tr><td><span class="cv-btn"><span class="cv-lines">CellDesigner</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Process glyphs, bends and modifier arcs where the GraphML has them.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Each reaction a straight line between the centres of its main reactant and product, the process glyph midway.</td></tr>
-  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">tidy</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>As CellDesigner, with nodes moved a few px so that lines meet straight (<a href="#move">CellDesigner drawing</a>), to compare.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">no move</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>As CellDesigner, with every node where the input map has it (<a href="#move">CellDesigner drawing</a>). In development.</td></tr>
   <tr><td><span class="cv-btn"><span class="cv-lines">SBGN-ML<span class="cv-variant">Newt</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The yEd drawing kept, adjusted for <a href="#newt">Newt</a>. The Open in Newt button opens it.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">Newt</span><span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>Each arc a straight line from centre to centre, without bends or ports, adjusted for <a href="#newt">Newt</a>, for improving by hand there. The Open in Newt (straight line) button opens it.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">SBGN-ML<span class="cv-variant">plain</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>SBGN-ML 0.3 (<code>.sbgn</code>)</span><span>Process Description</span></td><td>The yEd drawing kept: process ports, and the bends that change the course of a line by more than 20 px or keep it off a node. Arcs of logic gates straight. The compartments as drawn.</td></tr>
@@ -152,7 +152,7 @@ dropped, so "SHC activity" becomes SHC.</p>
   <tr><td><span class="cv-btn cv-grey"><span class="cv-lines">GraphML<span class="cv-variant">standard sizes</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>yEd GraphML (<code>.graphml</code>)</span></td><td>The GraphML with <a href="#sizes">standard node sizes</a>. Given when the box is ticked, or when the map is drawn at a different scale.</td></tr>
   <tr><td><span class="cv-btn"><span class="cv-lines">CellDesigner</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Process glyphs, bends and modifier arcs where the SBGN-ML has them.</td></tr>
   <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">straight line</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>Each reaction a straight line between the centres of its main reactant and product, the process glyph midway.</td></tr>
-  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">tidy</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>As CellDesigner, with nodes moved a few px so that lines meet straight (<a href="#move">CellDesigner drawing</a>), to compare.</td></tr>
+  <tr><td><span class="cv-btn cv-alt"><span class="cv-lines">CellDesigner<span class="cv-variant">no move</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></span></td><td><span>CellDesigner 4.x (<code>.xml</code>)</span></td><td>As CellDesigner, with every node where the input map has it (<a href="#move">CellDesigner drawing</a>). In development.</td></tr>
 </table>
 <p>The CellDesigner files are converted from the SBGN-ML, not from the GraphML. CellDesigner has no
 logic gate feeding another gate. When the second gate is OR, it is dropped and each of its inputs points
@@ -183,20 +183,20 @@ different scale, when one of these is more than 20% off (a GraphML map gets it o
 smaller.</p>
 
 <h2 id="move">CellDesigner drawing</h2>
-<p><b>Nodes</b>: every node keeps its centre, in CellDesigner and CellDesigner (straight line). The one exception is the room for a
-complex's name: CellDesigner writes it at the bottom inside the complex, so its members move up, as far as
-the space above them allows, and the complex grows down for the rest.</p>
-<p><b>Process glyphs and ports</b>: CellDesigner draws a reaction from the centre of a node, or one of its fixed
-anchor points, and puts the process glyph midway on its line. In CellDesigner (without a variant) a process
+<p><b>Small moves</b>: CellDesigner draws a reaction from the centre of a node or one of its fixed anchor points,
+and puts the process glyph midway on its line. In CellDesigner a few nodes move a little so that lines meet
+straight: a main line up to 10 px off the horizontal or vertical is straightened, an end that meets a larger node
+beside its centre moves onto that node's centre line, and a modifier up to 15 px off its process glyph moves onto
+it. Each move is listed under the map with the node and the distance. CellDesigner (straight line) moves no
+node.</p>
+<p><b>No move</b>: CellDesigner (no move), in development, keeps every node where the input map has it. A process
 glyph more than 3 px from midway is held where the input map has it by two edit points on the line, and a line
 that the input map draws level into a large node beside its centre gets one edit point just outside that node.
-They are left out when the file is converted back. CellDesigner (straight line) has none: each process glyph midway. Every added edit
-point lies at least 3 px outside the nodes, as CellDesigner draws lines over nodes.</p>
-<p><b>Tidy</b>: CellDesigner (tidy) is the CellDesigner file with small moves that make lines meet straight, for
-comparison: a main line up to 10 px off the horizontal or vertical is straightened, an end that meets a larger
-node beside its centre moves onto that node's centre line, and a modifier up to 15 px off its process glyph
-moves onto it. Each move is listed under the map with the node and the distance.</p>
-<p><b>Multimers</b>: drawn as dimers at the size of the input map, as in SBGN. A count above 2 is the unit of
+Every added edit point lies at least 3 px outside the nodes, as CellDesigner draws lines over nodes. They are
+left out when the file is converted back.</p>
+<p><b>In every CellDesigner file</b>: the room for a complex's name, which CellDesigner writes at the bottom inside
+the complex: its members move up, as far as the space above them allows, and the complex grows down for the
+rest. Multimers are drawn as dimers at the size of the input map, as in SBGN, a count above 2 being the unit of
 information N:3, N:4 on the node, so a tetramer does not grow and reach its neighbours.</p>
 
 <h2 id="loading">Loading</h2>

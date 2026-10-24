@@ -1,8 +1,8 @@
 # The tidy moves (user, 2026-10-19): nodes moved a few px so that CellDesigner's lines come out
 # straight, on the drawing of the CellDesigner adapter (cd_layout.draw) before anything is written.
-# An add-on, not part of the adapter, and since 2026-10-24 an option (user: no node moved by default;
-# kept to compare, as it is close to what the user does by hand): celldesigner.write runs it with
-# tidy, on the adapter's drawing made with tidy (the process glyph rules of before that day). Every
+# An add-on, not part of the adapter: celldesigner.write runs it with tidy (the advanced file; user,
+# 2026-10-24: close to what the user does by hand, good for the Metabolism Regulation maps), on the
+# adapter's drawing made with tidy (process glyph placed only for a modifier straight across). Every
 # move is in the messages; a node moves only if it stays in its compartment and overlaps nothing.
 from . import layout, report
 from .cd_layout import descendants

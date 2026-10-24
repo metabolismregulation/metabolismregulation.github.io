@@ -12,8 +12,10 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-24
 
-- CellDesigner (tidy): the advanced file with the small moves that straighten lines, as before this day,
-  to compare ([D16](/converter/docs/design/#d16-tidy-moves-as-an-option-to-compare)).
+- CellDesigner: the small moves that straighten lines are back in the advanced file, as before this day.
+  CellDesigner (no move) is the advanced file that moves no node, in development
+  ([D17](/converter/docs/design/#d17-tidy-moves-the-default-again-no-move-in-development)). Straight line
+  moves no node.
 - CellDesigner: the added edit points stay 3 px outside the nodes, so no line runs to a node's centre.
 - Multimers: the count as the unit N:3 with CellDesigner's prefix N (no "free input").
 - No node is moved in conversion ([D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points)):

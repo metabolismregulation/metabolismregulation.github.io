@@ -12,7 +12,7 @@
     'Newt': 'Newt: compartments enlarged and moved apart, so that Newt keeps them as drawn.',
     'plain': 'plain: compartments as drawn, not adjusted for any tool.',
     'straight line': 'straight line: every arc a straight line between node centres.',
-    'tidy': 'tidy: nodes moved a few px so that lines meet straight.',
+    'no move': 'no move: every node at its position in the input map, process glyphs and ports held by edit points.',
     'standard sizes': 'standard sizes: proteins 80 x 40, metabolites 40 x 40, the map rescaled to match.',
     'corrected': 'corrected: the map redrawn in the SBGN palette, its shapes recognised by their outline.',
     'marked': 'marked: the elements that break the SBGN rules drawn red. yEd shows the reason on hover.',

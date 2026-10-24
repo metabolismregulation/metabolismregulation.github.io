@@ -1,8 +1,8 @@
 # The CellDesigner adapter (restructuring step 4, 2026-10-19): where every line, square and point
 # goes as CellDesigner draws it, before the file is written. The boxes in CellDesigner's frame and
 # sizes, each reaction's main line and each modifier arc's end, anchor and edit points. It moves no
-# node but for the room of a complex's name (user, 2026-10-24: no node moved in conversion); with
-# tidy, the drawing of before that day, for cd_tidy.py, which moves nodes (an option to compare).
+# node but for the room of a complex's name; with tidy (the advanced default) the drawing cd_tidy.py
+# moves nodes on; without (no move, user 2026-10-24) process glyphs and ports held by edit points.
 import math
 from dataclasses import dataclass
 from . import layout, report

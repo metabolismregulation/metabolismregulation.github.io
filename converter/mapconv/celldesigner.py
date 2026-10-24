@@ -1,8 +1,8 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
 # from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
 # Where lines, squares and points go: cd_layout.py (the CellDesigner adapter); this module writes
-# them. No node is moved (user, 2026-10-24) but for the room of a complex's name; with tidy, the
-# tidy moves of cd_tidy.py (an option, to compare).
+# them. With tidy (the advanced default) the tidy moves of cd_tidy.py; else no node is moved but for
+# the room of a complex's name (straight, and advanced "no move", in development; user, 2026-10-24).
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -168,7 +168,7 @@ def write(diagram, ann, layout='straight', tidy=False):
     # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
     # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16).
     # tidy: the tidy moves (main lines straightened, an end onto a larger node's centre line, a
-    # modifier onto its process glyph; cd_tidy.py), as before 2026-10-24, an option to compare
+    # modifier onto its process glyph; cd_tidy.py); routes asks for them in the advanced file
     advanced = layout == 'advanced'
     diagram = opened_ors(without_delays(diagram, 'CellDesigner'))
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]

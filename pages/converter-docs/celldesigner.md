@@ -608,10 +608,12 @@ Geometry of a main line:
   AMPK 14.4 px, glycolysis extended IRS1 22 px, SREBP 4.5 px, cAMP 3.7 px). Until 2026-10-24 the other end
   was moved onto the centre line.
 
-No node is moved before writing (user, 2026-10-24; until then the tidy moves: main lines up to 10 px
-off straightened, the move above, a modifier up to 15 px onto its process glyph). They are kept as an
-option to compare, `cd_tidy.py`, CellDesigner (tidy): the drawing of before that day (process glyph placed
-only for a modifier straight across, no added point at a node) with the moves.
+The rules above are for CellDesigner (no move), `-advanced-nomove.xml` (user, 2026-10-24: in development).
+CellDesigner (advanced) keeps the tidy moves (`cd_tidy.py`; D17): main lines up to 10 px off straightened,
+the end of a level line into a larger node beside its centre moved onto that node's centre line (iNOS CaM
+23.6 px; the user moved it 25 px twice), a modifier up to 15 px onto its process glyph, on a drawing with the
+process glyph placed only for a modifier straight across that could not be moved. Straight line moves no
+node.
 
 Modifier arcs: the end on the process glyph. A process with several modifier arcs, one of which yEd
 ends off the process's centre (more than 2 px): that arc ends at the process glyph's point nearest its yEd

@@ -134,9 +134,10 @@ then removed (user, 2026-10-24; DESIGN.md D14, D15):
 - Adapters change sizes, ports, bends and arc ends, never a node's centre. Exceptions, each in the
   messages: CellDesigner's room for a complex's name (members moved up; see above), Newt's padding (the
   file for Newt only).
-- No tidy moves by default. `cd_tidy.py` removed, then back the same day as an option to compare (D16).
-  Straightening a line a few px off level, if wanted, belongs to the layout skill (`standardise.py`).
-- CellDesigner, advanced layout: the process glyph where yEd has the process by two edit points on the main
+- The tidy moves stay the advanced default for now (D17: good for the Metabolism Regulation maps); "no move"
+  (`-advanced-nomove.xml`) is developed until it can take over. Straightening a line a few px off level, if
+  wanted, belongs to the layout skill (`standardise.py`).
+- CellDesigner, no move: the process glyph where yEd has the process by two edit points on the main
   line (more than `SHIFT` = 3 px from midway, also on a bent line), and a point just outside a larger node
   where yEd draws a level main line into it beside its centre. Every added point 3 px outside the nodes
   (`EDGE`): CellDesigner draws lines over nodes. The way back drops them (`layout.visible`).

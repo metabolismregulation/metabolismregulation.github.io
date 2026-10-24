@@ -117,7 +117,7 @@ input is left out, with a message.
 
 ## D14. No node moved: the process glyph and ports by hidden edit points
 
-**2026-10-24, accepted.** **Context**: D6 kept the tidy moves as an add-on. Once the process glyph sits
+**2026-10-24, accepted; as the default replaced by [D17](#d17-tidy-moves-the-default-again-no-move-in-development) the same day, the rules kept for "no move".** **Context**: D6 kept the tidy moves as an add-on. Once the process glyph sits
 where yEd has the process and a line can reach a large node beside its centre, the two moves for those
 cases have nothing left to do, and straightening a line a few px off level changes the source map, which
 is the layout skill's work. **Decision**: the converter moves no node (the add-on `cd_tidy.py` and the
@@ -143,11 +143,24 @@ of the unit is to be seen on upload.
 
 ## D16. Tidy moves as an option to compare
 
-**2026-10-24, accepted.** **Context**: the user found the advanced CellDesigner file with the tidy moves
+**2026-10-24, accepted; replaced by [D17](#d17-tidy-moves-the-default-again-no-move-in-development) the same day.** **Context**: the user found the advanced CellDesigner file with the tidy moves
 close to what they do by hand, and wants to compare it with the files that move no node. **Decision**:
 `cd_tidy.py` is back as an option, "CellDesigner (tidy)" (`-advanced-tidy.xml`, `--tidy`): the advanced
 drawing as it was before D14 (the process glyph placed only for a modifier straight across, no added point
 at a node) with the tidy moves. The default moves no node. **Consequences**: the option gives the files of
 before D14 byte for byte, apart from multimers (D15). One more output per GraphML and SBGN-ML input.
+
+## D17. Tidy moves the default again, no move in development
+
+**2026-10-24, accepted.** **Context**: the advanced file with the tidy moves gives the Metabolism Regulation
+maps the look the user wants in CellDesigner and MINERVA, though the moves add up over round trips. Moving
+no node is the aim, still being developed. **Decision**: CellDesigner (advanced) has the tidy moves again,
+as before D14. "CellDesigner (no move)" (`-advanced-nomove.xml`, `--no-move`) is the advanced file that
+moves no node (D14's rules), worked on until it can take over. Straight line moves no node either.
+Multimers stay dimers with N:x (D15) in every file. **Consequences**: the advanced files are those of before
+D14 byte for byte, apart from multimers. The no-move steps, each a file to compare: straight (no bends),
+the advanced drawing without the moves (yEd's key bends, anchors, modifier routes; the "positions kept"
+file of 2026-10-20 to 2026-10-24, not offered now), and no move (that drawing with process glyphs and ports
+held by edit points).
 
 {% endraw %}
