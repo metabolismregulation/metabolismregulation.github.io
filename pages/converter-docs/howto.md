@@ -14,9 +14,8 @@ Short recipes, one task each. They assume the [Converter page](/converter/) and 
 
 To edit a yEd map in CellDesigner and take it back to yEd.
 
-1. Drop the GraphML on the Converter page. Take **CellDesigner (positions kept)** if it is offered: it
-   is the CellDesigner file without the small moves that tidy lines, so nothing is moved that would
-   add up over several trips. The button is there only when the moves changed the map.
+1. Drop the GraphML on the Converter page and take **CellDesigner**. No node is moved in
+   conversion, so nothing adds up over several trips.
 2. Edit the file in CellDesigner 4.4 and save it.
 3. Drop the saved file on the page and take **GraphML**: the CellDesigner drawing kept, as yEd draws
    it. **GraphML (straight line)** gives the same map with the yEd conventions and every arc straight.

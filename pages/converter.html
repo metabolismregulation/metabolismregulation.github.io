@@ -98,11 +98,8 @@ def convert(name, data, standard=False):
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
-    # CellDesigner (positions kept): the CellDesigner file without the small moves that straighten lines,
-    # given only when the converter moved nodes (user, 2026-10-20, in place of a tick box)
-    kept = {o.ending: o for o in routes.outputs(p, False, standard) if o.ending == '-advanced.xml'}
     files = []
-    for o in routes.outputs(p, True, standard):
+    for o in routes.outputs(p, standard):
         text, said = routes.made(o)
         if o.ending in ('-corrected.graphml', '-standard.graphml') and text is None and not said:
             continue  # only for a map drawn with other shapes than the SBGN palette, or at another scale
@@ -119,10 +116,6 @@ def convert(name, data, standard=False):
                  'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
                 o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
         files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
-        if o.ending in kept and text is not None:
-            k, k_said = routes.made(kept[o.ending])
-            if k is not None and k != text:
-                files.append(['-kept.xml', 'CellDesigner (positions kept)', k, ''.join(m + '\\n' for c, m in k_said if c != 'summary'), False])
     return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
@@ -233,7 +226,7 @@ def convert(name, data, standard=False):
         if (xml) {
           const b = button(xml, base + end, label, red, f.name);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
-          if (end.startsWith('-straight') || end === '.sbgn' || end === '-kept.xml') b.classList.add('cv-alt');
+          if (end.startsWith('-straight') || end === '.sbgn') b.classList.add('cv-alt');
           box.append(b);
         }
         if (red) { problems.push(log); continue; }

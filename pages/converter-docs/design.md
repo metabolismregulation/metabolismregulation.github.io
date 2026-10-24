@@ -57,7 +57,7 @@ or for one target. A new target is one more adapter and writer.
 
 ## D6. Conversion translates, tidying is an add-on
 
-**2026-10-24, accepted.** **Context**: moves made during conversion do not last over trips between yEd,
+**2026-10-24, accepted; the add-on replaced by [D14](#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points) the same day.** **Context**: moves made during conversion do not last over trips between yEd,
 CellDesigner and Newt: the process glyph rule moved the iNOS receptor complexes 5 px on every pass.
 **Decision**: adapters change sizes, ports, bends and arc ends, never a node's centre. Two exceptions,
 each in the messages: the room for a complex's name in CellDesigner and Newt's margin (files for Newt
@@ -114,5 +114,28 @@ A change meant to alter output remakes them in the same commit and names what ch
 the tools that show a map add clone markers themselves. **Decision**: the converter does not write them.
 If it ever does, it does so always, never as an option. **Consequences**: a clone marker in an SBGN-ML
 input is left out, with a message.
+
+## D14. No node moved: the process glyph and ports by hidden edit points
+
+**2026-10-24, accepted.** **Context**: D6 kept the tidy moves as an add-on. Once the process glyph sits
+where yEd has the process and a line can reach a large node beside its centre, the two moves for those
+cases have nothing left to do, and straightening a line a few px off level changes the source map, which
+is the layout skill's work. **Decision**: the converter moves no node (the add-on `cd_tidy.py` and the
+option to forbid moves removed). In the advanced layout CellDesigner gets edit points it draws over or
+along, so nothing more shows: two points on the main line around the process glyph, where yEd has the
+process further than 3 px from midway (`cd_layout.SHIFT`); one point under a larger node, level with a
+main line yEd draws into it beside its centre, also more than 3 px off. **Consequences**: a line a few px
+off level in yEd stays so in CellDesigner. GraphML -> CellDesigner -> GraphML moves 5 nodes of 438 by more
+than 1 px (58 before, at most 3 px), and a second trip none (13 before). The way back drops the points
+(`layout.visible`). The straight layout stays without them (D7). Room for a complex's name stays the one
+exception in CellDesigner.
+
+## D15. Multimers drawn as dimers, the count as a unit
+
+**2026-10-24, accepted.** **Context**: CellDesigner draws a multimer as one shape per unit, the box 6 px
+larger per unit beyond 2, so a tetramer grew and could reach its neighbours. **Decision**: the SBGN way:
+every multimer is drawn as a dimer at yEd's size (homodimer 2), and a count beyond 2 is the free-text
+unit of information N:x on the alias. The reader takes N:x on a dimer as its count. **Consequences**: no
+node grows. MINERVA reads homodimer 2, and its drawing of the unit is to be seen on upload.
 
 {% endraw %}

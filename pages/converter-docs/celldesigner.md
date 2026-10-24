@@ -124,13 +124,15 @@ MINERVA (glycolysis v01).
   species go into `listOfIncludedSpecies` (`celldesigner:species`, MIRIAM RDF
   in `celldesigner:notes/html/body`, `celldesigner:annotation` with
   `complexSpecies` and `speciesIdentity`), not into the SBML species list.
-- Multimers: `<celldesigner:homodimer>N` first in `state` (2, 3, 4 used in
-  the old files); N from the yEd N:x unit of information (an icon, or a
-  second boxed label as iNOS ASL "N:4"); yEd's `mcount` is only the number of
-  shapes drawn (always 2), used only when there is no N:x. Until 2026-10-13
-  the converter took `mcount`: NOSTRIN N:3, HMGCR and ACAT2 N:4, ASL N:4 came
-  out as 2. The box grows 6 per unit beyond 2 (yEd draws every multimer at
-  the N:2 size). MINERVA draws N:x at the top middle: keep it free; state
+- Multimers: `<celldesigner:homodimer>` first in `state`; the count from the yEd N:x unit of
+  information (an icon, or a second boxed label as iNOS ASL "N:4"); yEd's `mcount` is only the number of
+  shapes drawn (always 2), used only when there is no N:x. Until 2026-10-13 the converter took `mcount`:
+  NOSTRIN N:3, HMGCR and ACAT2 N:4, ASL N:4 came out as 2. Since 2026-10-24 (user, the SBGN way) every
+  multimer is written as homodimer 2 at the yEd size, and a count beyond 2 as the free-text unit
+  `<celldesigner:info prefix="free input" label="N:3">` (after a ct: unit, before other free text; one info
+  per alias), so a tetramer does not grow 18 px and reach its neighbours. The reader takes N:x on a dimer
+  as its count; a file with homodimer 3 or more (CellDesigner's own, the box grown 6 per unit) is read as
+  before. MINERVA draws N:x at the top middle: keep it free; state
   variables go on the sides (lower half) or at the corners (user's rule).
   The converter warns when a residue of a multimer sits there (none in the
   current maps).
@@ -370,13 +372,11 @@ From the user's edit of mevalonate v03 without the twin rule
 ## Straightening slightly-off main lines (user's glycolysis edit, 2026-10-13)
 
 `F001-glycolysis/sources/F001-glycolysis-v08-cd442-edited-orthogonal.xml`: the
-PKA complexes and PKA cat put on one vertical line by hand. `mapconv/cd_tidy.py`
-does it before anything is written: nodes joined by a main line that is at most
-10 px off the vertical get one common x (the median of their centres); off the
-horizontal, one common y. Complex members move with their complex. Across all
-maps such lines are 0-5 px off and the next ones 20+ px (intended diagonals).
-No node leaves its compartment (checked over the full set). `--keep-positions` (the Converter page: a tick box, once the restructured converter is there)
-keeps the yEd positions.
+PKA complexes and PKA cat put on one vertical line by hand. Until 2026-10-24 the converter did it
+(`cd_tidy.py`): nodes joined by a main line at most 10 px off the vertical got one common x, off the
+horizontal one common y. Across all maps such lines are 0-5 px off and the next ones 20+ px (intended
+diagonals). Removed (user, 2026-10-24: no node moved in conversion): it belongs to the source map, the
+layout skill's `standardise.py`, if wanted.
 
 ## Significant bends (in the converter since 2026-10-13, `mapconv/layout.py`, bends)
 
@@ -590,20 +590,23 @@ Geometry of a main line:
   metabolite E and W become ESE and WSW), else on a metabolite where its name is not (section
   above). Kept only if it moves the line more than 2 px from the line to the centre.
 - Two processes on the same two species, both drawn straight: quarter points.
-- The process glyph midway on its segment (CellDesigner's own rule). It goes where yEd has the process
-  only if a modifier or logic gate reaches it straight across in yEd (5 px) and is still off the
-  process glyph after the moves below (more than 15 px, or one enzyme with lanes to several process glyphs:
-  BCAA, CAD in pyrimidine, the AND gates in iNOS). Then two edit points half way from the process glyph
-  to the nearer end on either side, so the arcs keep visible antennas (8 px beside the process glyph
-  looked as if the arcs ran into it; the user's CAD edit: about 0.6 of that way).
+- The process glyph where yEd has the process (user, 2026-10-24: no node moved), when that is more
+  than 3 px from midway on its segment (`SHIFT`; also on a bent line), within 12 px of the line (a
+  metabolite's line leaves 10 px off its centre, under its name) and between 0.1 and 0.9 of it: two edit
+  points half way from the process glyph to the nearer end on either side, so the arcs keep visible
+  antennas (8 px beside the process glyph looked as if the arcs ran into it; the user's CAD edit: about
+  0.6 of that way). On the line, so CellDesigner draws nothing more. Else midway (CellDesigner's own
+  rule). 3 px: the yEd offsets run on without a gap (0-5 px 23 processes, 5-10 px 39, of 168 placed on
+  the 28 Atlas maps), and below 3 px two points per reaction would add clutter for nothing seen.
+- A main line yEd draws level into a larger node through an end point beside its centre (more than 3 px):
+  one edit point under that node, level with the line and across from its centre, the line's end at the
+  centre (no anchor). CellDesigner draws nodes over lines, so the line seems to enter level (user,
+  2026-10-24, as their eicosanoid map's hub metabolites; iNOS CaM -> CaM:iNOS 23.6 px, mevalonate
+  AMPK 14.4 px, glycolysis extended IRS1 22 px, SREBP 4.5 px, cAMP 3.7 px). Until 2026-10-24 the other end
+  was moved onto the centre line.
 
-Moves before writing (both layouts; `shift`: the node stays in its compartment, overlaps nothing,
-and the entities joined to it by main lines straight on that axis move with it):
-- A main line yEd draws level into a larger node through an end point beside its centre: the end
-  at its own centre moves onto the larger node's centre line (iNOS CaM 23.6 px; the user moved it
-  25 px twice; mevalonate AMPKbeta 14 px).
-- A modifier onto its midway process glyph, at most 15 px, the same move for every reaction it acts on
-  (pyrimidine ERK1/2 with its phosphorylation).
+No node is moved before writing (user, 2026-10-24; until then the tidy moves: main lines up to 10 px
+off straightened, the move above, a modifier up to 15 px onto its process glyph).
 
 Modifier arcs: the end on the process glyph. A process with several modifier arcs, one of which yEd
 ends off the process's centre (more than 2 px): that arc ends at the process glyph's point nearest its yEd

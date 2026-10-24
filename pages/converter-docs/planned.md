@@ -129,25 +129,25 @@ website's `cdviewer/celldesigner/` and the `downloads/` files (QUALITY.md, 2026-
 ## Conversion translates, tidying is an add-on (user, 2026-10-24)
 
 Moving nodes during conversion does not last over trips between yEd, CellDesigner and Newt (QUALITY.md,
-drift over round trips: iNOS 5 px every pass by the process glyph rule). Agreed: all below but the
-default.
-- Adapters change sizes, ports, bends and arc ends, never a node's centre. Known exceptions, each in the
+drift over round trips: iNOS 5 px every pass by the process glyph rule). Built the same day, the add-on
+then removed (user, 2026-10-24; DESIGN.md D14, D15):
+- Adapters change sizes, ports, bends and arc ends, never a node's centre. Exceptions, each in the
   messages: CellDesigner's room for a complex's name (members moved up; see above), Newt's padding (the
-  file for Newt only). Measured once with the tidy moves off: centres moved per route, 28 Atlas maps.
-- The tidy moves leave the adapter: done 2026-10-24, `cd_tidy.py` (with `cd_straighten.py` folded in),
-  run after `cd_layout.draw`, which moves no node but for the room of a complex's name. On by default for now (the
-  look at the end of a conversion is what people want); the default is not decided.
-- CellDesigner: not adapting the map to CellDesigner. The process glyph goes where yEd has the process by
-  edit points on the straight main line (hidden: they change nothing CellDesigner draws), and the way
-  back drops them (`layout.visible`: points on the straight line between their neighbours). Then the
-  modifier move onto the midway process glyph has nothing to do. Today this is done only in the
-  advanced layout, when a modifier could not be moved (cd_layout, "the square where yEd has the process").
+  file for Newt only).
+- No tidy moves: `cd_tidy.py` and `move` removed. Straightening a line a few px off level, if wanted, belongs
+  to the layout skill (`standardise.py`, on the source map).
+- CellDesigner, advanced layout: the process glyph where yEd has the process by two edit points on the main
+  line (more than `SHIFT` = 3 px from midway, also on a bent line), and a point under a larger node where yEd
+  draws a level main line into it beside its centre. Hidden: CellDesigner draws nodes over lines, and points on
+  a straight line change nothing. The way back drops them (`layout.visible`).
+- Multimers: dimers at yEd's size, the count beyond 2 as the unit N:x (SBGN's way).
+- Next (user, 2026-10-24, "moving ports within large complexes"): the same point under the node for a
+  modifier arc that yEd starts beside a large node's centre, and for slanting main lines. Not built.
 - Newt (user, 2026-10-24): no recovery of the original on the way back. A file saved by Newt is read as
   any SBGN-ML file, whatever made it: what Newt changed stays changed (the readers read only what the
   file says). The file for Newt stays made so Newt has little to move. A measurement only, of the loop (GraphML -> for Newt -> saved in Newt -> read back: nodes moved, expected 0).
-- Order (agreed, 2026-10-24): the split (end of step 4); the process glyph by hidden points, in the advanced
-  layout only (the straight layout stays the simple fallback, no tricks); the adapter rule and its
-  measurement; step 5 built to the rule (agreed; later). After the restructuring: the drift fixed inside
-  the tidy module (each rule settles after one trip), the default. Open points: docs/DECISIONS.md.
+- Order (agreed, 2026-10-24): the split, the process glyph by hidden points (advanced layout only: the
+  straight layout stays the simple fallback, no tricks) and the adapter rule with its measurement, done;
+  step 5 built to the rule.
 
 {% endraw %}

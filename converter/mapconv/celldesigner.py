@@ -1,7 +1,7 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
 # from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
-# Where lines, squares and points go: cd_layout.py (the CellDesigner adapter); the tidy moves:
-# cd_tidy.py (an add-on); this module writes them.
+# Where lines, squares and points go: cd_layout.py (the CellDesigner adapter); this module writes
+# them. No node is moved (user, 2026-10-24) but for the room of a complex's name.
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -20,9 +20,7 @@
 #   products are added links. Where two processes join the same two species
 #   (HMGCR <-> HMGCR-P), each line uses the quarter points on the facing sides.
 # - Bend points only for long connectors that yEd draws as one L (layout.py);
-#   others the user adds by hand. Lines end at node centres. Main lines a few px off the vertical or
-#   horizontal are straightened (cd_tidy.py); modifiers up to 15 px off
-#   their square are moved onto it, if nothing overlaps after the move.
+#   others the user adds by hand. Lines end at node centres.
 # - MIRIAM annotation from the map's node properties (annotation.py):
 #   bqbiol:is for one entity, bqbiol:hasVersion for a family.
 # - Metabolites become circles of cd_layout.CHEMICAL diameter on the yEd centre.
@@ -30,10 +28,10 @@
 #   with complexSpeciesAlias, RDF in their notes). An unlabelled complex is
 #   named after its members (A:B).
 # - Multimers: the count in the N:x unit of information becomes homodimer N
-#   (yEd's mcount is only the number of shapes drawn, always 2); the unit
-#   itself is not copied (MINERVA draws N:x at the top middle). The box grows
-#   6 per unit beyond 2, top left kept (user's ASL tetramer, iNOS): 80x40 for
-#   N:2, 92x52 for N:4.
+#   (yEd's mcount is only the number of shapes drawn, always 2). Beyond 2 the
+#   SBGN way (user, 2026-10-24): homodimer 2, drawn as a dimer at yEd's size,
+#   and the count as the free-text unit N:x, so a tetramer does not grow and
+#   push its neighbours (CellDesigner grows the box 6 per unit).
 # - A state variable without a modification state (cAMP) is a bound ligand:
 #   one structural state per species, the same text twice written once.
 # - A process with production arcs on both sides and no consumption arc is a
@@ -44,7 +42,7 @@ import math, os, re, sys
 from dataclasses import replace
 from struct import pack, unpack
 from lxml import etree
-from . import cd_layout, cd_tidy, report
+from . import cd_layout, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
 from .layout import exit_point, visible
 from .annotation import from_notes, notes, to_properties
@@ -162,14 +160,11 @@ def opened_ors(m):
     return replace(m, nodes={i: d for i, d in m.nodes.items() if i not in opened}, arcs=arcs)
 
 
-def write(diagram, ann, layout='straight', move=True):
+def write(diagram, ann, layout='straight'):
     # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
     # layout 'straight' (straight lines, as yEd calls them): the necessary minimum, simple and reliable, improved by hand in CellDesigner
     # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
     # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16).
-    # move: the tidy moves (main lines straightened, an end onto a larger node's centre line, a
-    # modifier onto its square), on unless the user forbids moving nodes (user, 2026-10-19); what
-    # CellDesigner itself needs (circles, multimers, the complex name's room) is done either way
     advanced = layout == 'advanced'
     diagram = opened_ors(without_delays(diagram, 'CellDesigner'))
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
@@ -205,10 +200,8 @@ def write(diagram, ann, layout='straight', move=True):
         return label[c]
     for c in members:
         name_complex(c)
-    # where every line, square and point goes (cd_layout.py), after the tidy moves (cd_tidy.py)
+    # where every line, square and point goes (cd_layout.py)
     drawing = cd_layout.draw(diagram, ents, members, label, advanced)
-    if move:
-        cd_tidy.tidy(diagram, drawing, ents, members, label)
     box, cen = drawing.box, drawing.cen
     W, H = drawing.size
 
@@ -327,7 +320,10 @@ def write(diagram, ann, layout='straight', move=True):
             # CellDesigner keeps this one width as a float (107.45129863291555 -> 107.45130157470703)
             sub(u, 'singleLine', width=unpack("f", pack("f", w))[0] if d.kind == 'Complex' and v == 'briefView' else '1.0')
             sub(u, 'paint', color='ff' + (d.fill or '#FFFFFF').lstrip('#').lower(), scheme='Color')
-        us = sorted(units_of_information(d), key=lambda u: not u.startswith('ct:'))  # ct: first
+        # ct: first, then a multimer's count beyond 2 (drawn as a dimer, as SBGN does)
+        us = sorted(units_of_information(d), key=lambda u: not u.startswith('ct:'))
+        if mult[i] > 2:
+            us.insert(sum(u.startswith('ct:') for u in us), 'N:%d' % mult[i])
         if us:  # one per alias: <info state="open" prefix="ct" label="gene"/> (angle as in the old files)
             prefix, lab = cd_info(us[0])
             sub(a, 'info', state='open', prefix=prefix, label=lab, angle='-1.5707963267948966')
@@ -406,7 +402,7 @@ def write(diagram, ann, layout='straight', move=True):
         n = mult[i]
         if n > 1 or sv.get(i) or i in struct:
             st = sub(si, 'state')
-            if n > 1: sub(st, 'homodimer', str(n))
+            if n > 1: sub(st, 'homodimer', '2')  # beyond 2 the count is the unit N:x (above)
             if sv.get(i):
                 lm = sub(st, 'listOfModifications')
                 for txt, rid in sv[i]:
@@ -693,7 +689,7 @@ def read(path):
         kind = KIND[cls]
         b = f(a, 'cd:bounds'); box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
         n = int(f(si, 'cd:state/cd:homodimer').text) if f(si, 'cd:state/cd:homodimer') is not None else 1
-        if n > 2:  # the box grew 6 per unit beyond 2 (forward rule), top left kept
+        if n > 2:  # CellDesigner grew the box 6 per unit beyond 2, top left kept
             box = box[:2] + (box[2] - 6 * (n - 2), box[3] - 6 * (n - 2))
         states = []
         pref = f(si, 'cd:proteinReference')
@@ -711,7 +707,10 @@ def read(path):
             if info is not None and info.get('state') != 'empty' else []
         if cls in UNIT and not any(u.startswith('ct:') for u in units):
             units.append(UNIT[cls])
-        if n > 1:  # N:x as on every multimer of our yEd maps (N:2 included, user 2026-10-18)
+        cnt = [int(u[2:]) for u in units if re.fullmatch(r'N:\d+', u)]
+        if n == 2 and cnt:  # a dimer with its count as a unit (the writer, beyond 2)
+            n = cnt[0]
+        elif n > 1:  # N:x as on every multimer of our yEd maps (N:2 included, user 2026-10-18)
             units.append('N:%d' % n)
         paint = f(a, 'cd:usualView/cd:paint')
         uris = [li.get('{%s}resource' % ns['rdf']) for li in xs(an, './/rdf:Description/*/rdf:Bag/rdf:li')] if an is not None else []

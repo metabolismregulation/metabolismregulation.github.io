@@ -8,8 +8,6 @@
 #   CellDesigner, SBGN-ML, Newt: also GraphML (standard sizes) for a map drawn at another scale,
 #            or for every map when standard (style.standard; user, 2026-10-20)
 #   GraphML: GraphML (standard sizes) only when standard (user, 2026-10-22)
-# move: the CellDesigner outputs with the tidy moves (celldesigner.write), unless the user forbids
-# moving nodes.
 import contextlib, io
 from dataclasses import dataclass
 from . import annotation, celldesigner, graphml, report, rules, sbgnml, style
@@ -49,13 +47,13 @@ def standardised(read, program, asked):
     return graphml.write(t) if t else None
 
 
-def outputs(path, move=True, standard=False):
+def outputs(path, standard=False):
     ext = path.lower().rsplit('.', 1)[-1]
     # SBGN-ML straight and advanced, then each for Newt (user, 2026-10-21); read(layout) -> the map
     sbgn = lambda read: [Output('-%s%s.sbgn' % (l, '-newt' * n), 'SBGN-ML (%s%s)' % (l, ', for Newt' * n),
                                 lambda l=l, n=n: sbgnml.write(read(l), l, n)) for n in (False, True) for l in LAYOUTS]
     std = lambda read, program: Output('-standard.graphml', 'GraphML (standard sizes)', lambda: standardised(read, program, standard))
-    to_cd = lambda m, layout: celldesigner.write(m, annotation.from_graphml(m), layout, move)
+    to_cd = lambda m, layout: celldesigner.write(m, annotation.from_graphml(m), layout)
     if ext == 'graphml':
         try:
             with report.collect():

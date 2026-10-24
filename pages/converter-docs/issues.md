@@ -22,16 +22,13 @@ each has been open. An issue leaves the list when it is decided, built or droppe
 | 2026-10-22 | GraphML icons to the layout skill's standard (label model, places, packing) in the GraphML the converter writes. | [Planned](/converter/docs/planned/#graphml-icons-to-the-layout-skills-standard-from-a-layout-session-2026-10-22-not-discussed-yet) |
 | 2026-10-22 | Room for a complex's name in CellDesigner: 14 px lets the name touch the lowest member. Grow the complex or move its members, and remake the official files? | [Planned](/converter/docs/planned/#room-for-a-complexs-name-in-celldesigner-found-2026-10-22-not-decided) |
 | 2026-10-24 | Criteria for judging a decision (draft list of ten). | [Open questions](/converter/docs/decisions/) |
-| 2026-10-24 | Tidy module: what it holds, and whether the straightening goes to the layout skill instead. | [Open questions](/converter/docs/decisions/), point 1 |
-| 2026-10-24 | Hidden edit points for the process glyph: the threshold, how many reactions, the test in CellDesigner. | [Open questions](/converter/docs/decisions/), point 2 |
-| 2026-10-24 | "Adapters never move a node's centre": the wording, multimers, the exceptions. | [Open questions](/converter/docs/decisions/), point 3 |
-| 2026-10-24 | The centre-line move (iNOS CaM 25 px): keep it, an anchor, a hidden point, or the slanted line reported? | [Open questions](/converter/docs/decisions/), point 4 |
-| 2026-10-24 | The tidy moves on or off by default. | [Open questions](/converter/docs/decisions/), point 5 |
 
 ## Waiting on an example file
 
 | Since | Issue | Record |
 |---|---|---|
+| 2026-10-24 | Hidden edit points (process glyph, under a node): a file opened in CellDesigner 4.4, a reactant dragged, and the arrowhead where a line ends under its product, would confirm they stay hidden. | [D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points) |
+| 2026-10-24 | Multimers beyond 2 as a dimer with the unit N:x: how MINERVA draws them on upload. | [D15](/converter/docs/design/#d15-multimers-drawn-as-dimers-the-count-as-a-unit) |
 | 2026-10-17 | A trigger out of a logic gate in CellDesigner: a file saved by CellDesigner with one would settle how it converts. | [CellDesigner to SBGN](/converter/docs/cd-to-sbgn/) |
 
 ## Known faults
@@ -48,10 +45,7 @@ each has been open. An issue leaves the list when it is decided, built or droppe
 |---|---|---|
 | 2026-10-18 | A count check after every conversion: input against output, per kind, anything unexplained in red. | [Planned](/converter/docs/planned/#a-count-check-after-every-conversion-user-2026-10-18) |
 | 2026-10-19 | Arcs at a complex member go to the complex, with a message. | [Planned](/converter/docs/planned/#arcs-at-a-complex-member-go-to-the-complex-user-2026-10-19) |
-| 2026-10-19 | An angle limit for straightening, a smaller process glyph move. | [Architecture](/converter/architecture/) |
+| 2026-10-24 | Ports moved within large nodes by a hidden point for modifier arcs and slanting main lines too (user: ports within large complexes; now only level main lines). | [D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points) |
 | 2026-10-19 | SBML with layout read and written, SBML without layout and BioPAX written (steps 5 and 6). | [Architecture](/converter/architecture/) |
-| 2026-10-24 | The CellDesigner process glyph held where yEd has the process by hidden edit points (advanced layout). Next. | [D6](/converter/docs/design/#d6-conversion-translates-tidying-is-an-add-on) |
-| 2026-10-24 | The rule that adapters keep node centres, measured on the Atlas maps. Next. | [D6](/converter/docs/design/#d6-conversion-translates-tidying-is-an-add-on) |
-| 2026-10-24 | Each tidy move made to settle after one trip, so round trips stop moving nodes. | [D6](/converter/docs/design/#d6-conversion-translates-tidying-is-an-add-on) |
 
 {% endraw %}

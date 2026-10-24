@@ -28,20 +28,11 @@ rigid to develop. Draft list, each as a question:
 
 ## Points to discuss, one per session
 
-1. Tidy module: what stays in the CellDesigner adapter, what goes into the tidy module, and whether the
-   tidy is for CellDesigner only or generic (the straightening could also go to human-like-layout's
-   `standardise.py`, in the source map). Split agreed (PLANNED.md, "Conversion translates").
-2. Process glyph by hidden edit points (advanced only; agreed in principle): when to add them (a
-   threshold, so reactions are not shifted 1-2 px with extra points), how many reactions per Atlas map
-   would get them, and the test in CellDesigner (drag a reactant). In the straight layout the process
-   stays midway and nothing is moved for a modifier: its arc may slant.
-3. Adapters never move a node's centre (agreed): wording. Multimers grow from the top left in
-   CellDesigner (the front shape stays, the centre moves 3 px per unit over 2), so the rule is about
-   where the target draws the node's main shape. The exceptions (complex name room, Newt's padding).
-4. The centre-line move: a line yEd draws level from an off-centre port of a large node; CellDesigner
-   draws from the centre or one of 16 anchors, so the converter moves the other end (iNOS CaM 25 px).
-   Options: keep the move (tidy), an anchor, a hidden point under the node, or the slanted line reported.
-5. The tidy default (on or off).
+Settled 2026-10-24 (user): 1. the tidy module removed, 2. the process glyph by hidden edit points,
+over 3 px, 3. no node moved, multimers as dimers with N:x, 4. a hidden point under the node, 5. no
+default left to choose ([D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points),
+[D15](/converter/docs/design/#d15-multimers-drawn-as-dimers-the-count-as-a-unit)).
+
 6. Complex name room (PLANNED.md): grow the complex, or move its members.
 
 {% endraw %}

@@ -12,6 +12,12 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-24
 
+- No node is moved in conversion ([D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points)):
+  the small moves that straightened lines for CellDesigner are gone, and with them the button CellDesigner
+  (positions kept). CellDesigner (advanced) holds the process glyph where yEd has the process, and lets a
+  line reach a large node beside its centre, by edit points CellDesigner draws over or along.
+- Multimers beyond 2 in CellDesigner: drawn as dimers at the yEd size, the count as the unit of
+  information N:x ([D15](/converter/docs/design/#d15-multimers-drawn-as-dimers-the-count-as-a-unit)).
 - Design: the tidy moves are an add-on of their own (`cd_tidy.py`) after the CellDesigner adapter, which
   moves no node but for the room of a complex's name. Every file the same ([D6](/converter/docs/design/#d6-conversion-translates-tidying-is-an-add-on)).
 - Documentation: these pages.
