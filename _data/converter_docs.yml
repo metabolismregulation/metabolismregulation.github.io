@@ -1,0 +1,30 @@
+# The menu of the converter's documentation on the website (/converter/docs/), copied there by
+# tools/to_website.sh as _data/converter_docs.yml. Sections as in Diátaxis (tutorial, how-to guides,
+# reference, explanation), then the development record. A page is its file name in docs/, lower case;
+# an entry with url links a page outside docs/.
+- section: Start
+  pages:
+    - {page: index, title: Overview}
+    - {page: start, title: Convert a first map}
+- section: How-to guides
+  pages:
+    - {page: howto, title: All guides}
+- section: Reference
+  pages:
+    - {url: /converter/description/, title: Inputs and outputs}
+    - {page: messages, title: Messages}
+    - {page: celldesigner, title: CellDesigner files}
+    - {page: sbgnml, title: SBGN-ML files}
+    - {page: cd-to-sbgn, title: CellDesigner to SBGN}
+    - {page: annotation, title: Annotation}
+- section: Explanation
+  pages:
+    - {url: /converter/architecture/, title: Architecture}
+    - {page: design, title: Design principles}
+- section: Development
+  pages:
+    - {page: issues, title: Issues}
+    - {page: decisions, title: Open questions}
+    - {page: planned, title: Planned}
+    - {page: quality, title: Quality}
+    - {page: changes, title: Changes}

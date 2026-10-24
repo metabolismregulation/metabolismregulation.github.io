@@ -1,0 +1,96 @@
+---
+layout: default
+---
+<!-- the converter's documentation (/converter/docs/, user 2026-10-24): pages copied from map-converter's
+     docs/ by its tools/to_website.sh, the menu from _data/converter_docs.yml (its docs/nav.yml). Hidden
+     like the Converter's pages and not linked from them yet. Edit the text in map-converter, not here. -->
+<style>
+  #main a, #main a:hover, #main a:active { color: #1c47a9; }
+  #main p.cv-back { margin: 0 0 12px; }
+  #main p.cv-back a { color: #777; text-decoration: none; }
+  #main p.cv-back a:hover { color: #1c47a9; }
+  .cdoc { display: flex; gap: 32px; align-items: flex-start; }
+  .cdoc-nav { flex: 0 0 180px; position: sticky; top: 12px; font-size: 14px; }
+  .cdoc-nav .sec { color: #888; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin: 16px 0 4px; }
+  .cdoc-nav .sec:first-child { margin-top: 4px; }
+  .cdoc-nav ul { list-style: none; margin: 0; padding: 0; }
+  .cdoc-nav li { margin: 0; }
+  .cdoc-nav summary { display: none; }
+  .cdoc-nav a { display: block; text-align: left; letter-spacing: normal; float: none; margin: 0; font-size: 14px; padding: 3px 8px; border-left: 2px solid transparent; text-decoration: none; }
+  #main .cdoc-nav a { color: #555; }
+  #main .cdoc-nav a:hover { color: #1c47a9; }
+  #main .cdoc-nav a.here { color: #1c47a9; border-left-color: #1c47a9; background: #f5f7fa; }
+  .cdoc-body { flex: 1; min-width: 0; }
+  .cdoc-body h1 { margin-top: 0; }
+  .cdoc-body table { border-collapse: collapse; font-size: 14px; width: 100%; margin: 8px 0 16px; display: block; overflow-x: auto; }
+  .cdoc-body th { text-align: left; font-weight: normal; color: #888; font-size: 13px; padding: 4px 14px 4px 0; border-bottom: 1px solid #ddd; }
+  .cdoc-body td { padding: 6px 14px 6px 0; vertical-align: top; border-bottom: 1px solid #eee; }
+  .cdoc-body code { font-size: 90%; }
+  .cdoc-body pre { overflow-x: auto; }
+  .cdoc-toc { font-size: 14px; border-left: 3px solid #ddd; padding: 4px 0 4px 14px; margin: 0 0 20px; }
+  .cdoc-toc .sec { color: #888; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+  .cdoc-toc ul { margin: 0; padding-left: 18px; }
+  /* Issues: how long each has been open; past two weeks marked */
+  .cdoc-age { display: block; color: #888; font-size: 12px; white-space: nowrap; }
+  .cdoc-old .cdoc-age { color: #c47a12; font-weight: 600; }
+  .cdoc-body td:first-child { white-space: nowrap; }
+  @media (max-width: 700px) {
+    .cdoc { display: block; }
+    .cdoc-nav { position: static; margin-bottom: 20px; }
+    .cdoc-nav summary { display: list-item; cursor: pointer; color: #777; }
+  }
+</style>
+
+<p class="cv-back"><a href="{{ '/converter/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M18 20v-8a3 3 0 0 0-3-3H4M9 4L4 9l5 5"/></svg>Converter</a></p>
+
+<div class="cdoc">
+  <details class="cdoc-nav" open>
+    <summary>Contents</summary>
+    {% for s in site.data.converter_docs %}
+    <div class="sec">{{ s.section }}</div>
+    <ul>
+      {% for p in s.pages %}
+        {% if p.url %}{% assign u = p.url %}{% elsif p.page == 'index' %}{% assign u = '/converter/docs/' %}{% else %}{% capture u %}/converter/docs/{{ p.page }}/{% endcapture %}{% endif %}
+        <li><a href="{{ u | relative_url }}"{% if page.url == u %} class="here"{% endif %}>{{ p.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </details>
+  <article class="cdoc-body">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </article>
+</div>
+
+<script>
+(function () {
+  // the menu folded on a phone
+  if (window.matchMedia('(max-width: 700px)').matches) document.querySelector('.cdoc-nav').open = false;
+  var body = document.querySelector('.cdoc-body');
+  // "On this page" on long pages: a link to every section
+  var hs = body.querySelectorAll('h2[id]');
+  if (hs.length >= 4) {
+    var t = document.createElement('div'); t.className = 'cdoc-toc';
+    t.innerHTML = '<div class="sec">On this page</div><ul></ul>';
+    hs.forEach(function (h) {
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = '#' + h.id; a.textContent = h.textContent; li.appendChild(a); t.lastChild.appendChild(li);
+    });
+    body.querySelector('h1').after(t);
+  }
+  // a table whose first column is Since: how long each row has been open
+  var day = 864e5, now = Date.now();
+  body.querySelectorAll('table').forEach(function (tb) {
+    var th = tb.querySelector('th');
+    if (!th || th.textContent.trim() !== 'Since') return;
+    tb.querySelectorAll('tbody tr').forEach(function (tr) {
+      var td = tr.cells[0], d = Date.parse(td.textContent.trim());
+      if (isNaN(d)) return;
+      var n = Math.floor((now - d) / day), s = document.createElement('span');
+      s.className = 'cdoc-age'; s.textContent = n === 1 ? '1 day' : n + ' days';
+      td.appendChild(s);
+      if (n > 14) tr.classList.add('cdoc-old');
+    });
+  });
+})();
+</script>

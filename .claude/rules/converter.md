@@ -1,5 +1,8 @@
 ---
 paths:
+  - "pages/converter-docs/**"
+  - "_layouts/converter-docs.html"
+  - "_data/converter_docs.yml"
   - "pages/converter*.html"
   - "converter/**"
   - "_includes/converter-buttons.css"
@@ -94,3 +97,13 @@ edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added 
 ysbgn.js is a completed experiment (what a JavaScript port can do and at what effort), on hold until
 the user takes it up again (user, 2026-10-21). Work on the Converter (map-converter, `converter/mapconv/`)
 does not mention it, propose matching changes to it, or ask for its repository.
+
+## Converter documentation
+
+`/converter/docs/` (user, 2026-10-24): the converter's documentation, hidden like the Converter pages
+(`noindex`, out of the sitemap) and not linked from them yet. Its pages (`pages/converter-docs/`) and
+menu (`_data/converter_docs.yml`) are copies made by map-converter's `tools/to_website.sh` from its
+`docs/`: edit the text there, never here. The layout is `_layouts/converter-docs.html`: the menu on the
+left (folded on a phone), "On this page" on pages with four sections or more, and on a table whose first
+column is Since the days each row has been open, rows past two weeks marked. The description and
+architecture pages are in the menu but keep their own layout.

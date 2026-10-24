@@ -1,0 +1,118 @@
+---
+layout: converter-docs
+title: "Design principles"
+permalink: /converter/docs/design/
+sitemap: false
+noindex: true
+---
+{% raw %}
+
+The decisions that shape the converter, one record each: when it was taken, why, what follows from it.
+A record is never deleted. When a later decision replaces one, its status says so and names the new
+record. Questions still open are in [Open questions](/converter/docs/decisions/), the criteria for
+judging a decision there too.
+
+## D1. Maps only
+
+**2026-10-19, accepted.** **Context**: some formats carry a drawing (yEd, CellDesigner, SBGN-ML, SBML
+with layout), some only the biology (BioPAX, SBML without layout). **Decision**: every route starts from
+a map. Formats without a drawing are written, never read. Making a map from them is the work of the
+human-like layout project. **Consequences**: no layout algorithm in the converter. SBML with layout is
+read and written, SBML without layout and BioPAX are export only.
+
+## D2. Biology and drawing apart
+
+**2026-10-19, accepted.** **Context**: v1 had only the drawing, one node per alias, joined again by label
+when CellDesigner was written, so a molecule drawn twice came back as two species. CellDesigner, SBML
+layout and BioPAX all keep biology and drawing apart. **Decision**: the model holds the biology
+(entities, reactions, annotation) and the drawing (boxes, arcs, bends), each glyph pointing to what it
+draws. **Consequences**: one CellDesigner species per entity, each drawn box an alias of it. The biology
+alone is what a BioPAX or SBML export writes.
+
+## D3. The entity key
+
+**2026-10-19, accepted.** **Context**: yEd and SBGN-ML hold only a drawing, so the entities must be
+found in it. **Decision**: two boxes are one entity when they share identity, state, compartment and
+glyph class, the principle of SBGN's clone markers. Identity is the identifier where there is one (HGNC,
+UniProt, ChEBI), else the label. ChEBI's conjugate acids and bases are joined from a table kept in the
+repository. **Consequences**: identifiers take over from labels (ERK1 and MAPK3 with one UniProt are one
+entity). A substance under two unlinked identifiers stays two (an open issue).
+
+## D4. Readers read only what the file says
+
+**2026-10-19, accepted; extended 2026-10-24.** **Context**: a reader that guesses what the file meant,
+or recovers what a program changed, ties the converter to one program's behaviour. **Decision**: a reader
+reads the file as it is. A file saved by Newt, CellDesigner or yEd is read as any file of its format,
+whatever made it, and what the program changed stays changed (2026-10-24, for Newt). **Consequences**: no
+recovery of the original map on the way back. The files for Newt are made so that Newt has little to
+move, and that loop is measured.
+
+## D5. Layout in one place, an adapter per target, writers that only write
+
+**2026-10-19, accepted.** **Context**: in v1 the layout rules sat inside the CellDesigner writer, so
+nothing could be reused or tested on its own. **Decision**: what every format shares is in
+`layout.py`, what one target needs in its adapter (`style.py` for yEd, `cd_layout.py` for CellDesigner,
+`newt_layout.py` for Newt), and the writers only write. **Consequences**: each rule is sorted as generic
+or for one target. A new target is one more adapter and writer.
+
+## D6. Conversion translates, tidying is an add-on
+
+**2026-10-24, accepted.** **Context**: moves made during conversion do not last over trips between yEd,
+CellDesigner and Newt: the process glyph rule moved the iNOS receptor complexes 5 px on every pass.
+**Decision**: adapters change sizes, ports, bends and arc ends, never a node's centre. Two exceptions,
+each in the messages: the room for a complex's name in CellDesigner and Newt's margin (files for Newt
+only). The moves that tidy lines are an add-on after the adapter (`cd_tidy.py`), CellDesigner only.
+**Consequences**: the CellDesigner process glyph is to be held where yEd has the process by hidden edit
+points (advanced layout). The tidy moves are to settle after one trip. Their default is open.
+
+## D7. Two layouts: advanced and straight line
+
+**2026-10-18, accepted; names 2026-10-19.** **Context**: one file that keeps the drawing, one that is
+easy to lay out by hand. **Decision**: advanced keeps the input's drawing (ports and the bends that
+matter) and is the recommended file. Straight line draws every arc from centre to centre. SBGN-ML
+straight line from yEd keeps yEd's process positions (placing each process midway turned 50 of 350
+Atlas processes, drawn as Ls in yEd, into diagonals). **Consequences**: the straight layout stays the
+simple fallback, with no tricks: a modifier's arc may slant.
+
+## D8. Plain SBGN-ML and SBGN-ML for Newt
+
+**2026-10-21, accepted.** **Context**: Newt redraws compartments and aims every arc at a node's centre,
+so a plain file changes when Newt opens it. **Decision**: the plain SBGN-ML is the SBGN-ML of the source,
+compartments as drawn. Everything Newt needs is in the files for Newt only (`newt_layout.py`).
+**Consequences**: two SBGN-ML files per layout. The file for Newt is the recommended one for now.
+
+## D9. One report of messages
+
+**2026-10-19, accepted.** **Context**: messages were printed by each writer in its own way. **Decision**:
+every message has a kind (problem, left out, changed, warning, summary) and goes into one report per
+file, read by the page, the command line and the tests. **Consequences**: a loss that is not in the
+messages is a bug. Which kinds the page shows is open.
+
+## D10. Offline and in the browser
+
+**2026-10-16, accepted.** **Decision**: the converter runs in the browser (Pyodide) on the Converter
+page, from a copy of the code, and needs no network: tables it needs (ChEBI conjugates, yEd templates)
+are kept in the repository. **Consequences**: no web service is called during conversion. A table is
+remade by hand when maps with new identifiers come in.
+
+## D11. Rules from files the programs saved
+
+**2026-10-13, accepted.** **Decision**: no file format is guessed. A convention comes from a small file
+saved by the program itself (CellDesigner, Newt, yEd), and a rule is preferably read from a file drawn
+by hand. **Consequences**: some issues wait on an example file.
+
+## D12. Every change checked against the reference files
+
+**2026-10-19, accepted.** **Decision**: every Atlas map, every official CellDesigner and SBGN-ML file and
+every test file went through every route with v1 and is kept with its messages. A change compares them.
+A change meant to alter output remakes them in the same commit and names what changed and why.
+**Consequences**: the restructuring kept every file the same apart from changes named one by one.
+
+## D13. Clone markers not written
+
+**2026-10-22, accepted.** **Context**: 287 entities are drawn more than once on the 28 Atlas maps, and
+the tools that show a map add clone markers themselves. **Decision**: the converter does not write them.
+If it ever does, it does so always, never as an option. **Consequences**: a clone marker in an SBGN-ML
+input is left out, with a message.
+
+{% endraw %}
