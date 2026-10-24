@@ -3,7 +3,7 @@
 # (cdviewer/celldesigner/: iNOS, eNOS, ACLY, mevalonate, SREBP, estrogen), the geometry of lines
 # as map-converter reads it (anchors, edit points in the frame of their two ends, added links
 # joining the main line at 3/8 and 5/8).
-#   python3 scripts/cdrender.py <map.xml> <out.svg>
+#   python3 converter/cdrender.py <map.xml> <out.svg>
 import math, os, sys
 from xml.sax.saxutils import escape
 from lxml import etree

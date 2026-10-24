@@ -9,7 +9,7 @@ noindex: true
 <style>
   /* the Atlas's layout, lean: the official maps on the left, the CellDesigner file of the
      chosen one in the middle, as MINERVA draws it (scripts/make_cdviewer.py) or as CellDesigner
-     draws it (scripts/cdrender.py; the switch right of Update), and an empty
+     draws it (converter/cdrender.py; the switch right of Update), and an empty
      column of the list's width on the right, so the middle stays centred under the header */
   .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
         width: min(100vw / var(--zoom, 1) - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }

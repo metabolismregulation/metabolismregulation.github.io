@@ -2,7 +2,7 @@
 paths:
   - "pages/cdviewer.html"
   - "cdviewer/**"
-  - "scripts/cdrender.py"
+  - "converter/cdrender.py"
   - "scripts/make_cdviewer.py"
 ---
 
@@ -20,7 +20,7 @@ map page it lists, compares every CellDesigner file they link (sha1) with the on
 changed and new ones in the browser (MINERVA allows the site's origin); a new map goes under "New on the Maps
 page", the result is said under the button. Those drawings last until the page is reloaded. A switch right of the Update button (user, 2026-10-22; at the top left of the map window until then), "MINERVA" and "CellDesigner"
 (blue the chosen one, `?view=celldesigner`, remembered in the browser), shows MINERVA's drawing or the
-file drawn as CellDesigner draws it: `scripts/cdrender.py` (user, 2026-10-22: drawn from the XML, not
+file drawn as CellDesigner draws it: `converter/cdrender.py` (user, 2026-10-22: drawn from the XML, not
 MINERVA's SVG restyled), run by `make_cdviewer.py` for every map into `cdviewer/drawn/<base>.svg`
 (maps.json `drawn`). Its rules are read off the user's SVG exports from CellDesigner, kept as its
 reference in `cdviewer/celldesigner/<base>.svg` (iNOS, eNOS, ACLY, mevalonate, SREBP, estrogen,

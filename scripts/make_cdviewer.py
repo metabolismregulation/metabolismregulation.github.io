@@ -5,14 +5,15 @@
 # is not sent again (--all sends every file). A file MINERVA cannot draw keeps no image: its
 # entry carries MINERVA's reason, shown in the map window. Run by the Atlas data workflow.
 # The CellDesigner view (the viewer's MINERVA / CellDesigner switch, user 2026-10-22): every file
-# drawn as CellDesigner draws it by scripts/cdrender.py into cdviewer/drawn/<base>.svg, entry
+# drawn as CellDesigner draws it by converter/cdrender.py into cdviewer/drawn/<base>.svg, entry
 # "drawn". Its reference, the user's SVG exports from CellDesigner (File, Export Image, SVG), are
 # kept as cdviewer/celldesigner/<base>.svg (a copy suffix such as _1 is dropped), not shown: the
 # export has no size and asks for Java's Dialog font, both added here in place, and its entry "cd"
 # keeps the sha1 of the CellDesigner file it was exported from.
 #   python3 scripts/make_cdviewer.py [--all]
 import hashlib, json, os, re, sys, urllib.request
-import cdrender
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'converter'))
+import cdrender  # converter/cdrender.py, also run by the Converter page
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'cdviewer')

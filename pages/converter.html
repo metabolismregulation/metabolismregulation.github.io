@@ -100,6 +100,19 @@ noindex: true
 import os, sys
 sys.path.insert(0, '/home/pyodide')
 from mapconv import routes
+import cdrender
+
+def preview(ending, text):
+    # a CellDesigner file drawn as CellDesigner draws it (converter/cdrender.py, the CD viewer's), the page
+    # its button opens in a new tab (user, 2026-10-24); none when it cannot be drawn
+    if not ending.endswith('.xml') or text is None:
+        return None
+    with open('/tmp/preview.xml', 'w', encoding='utf-8') as f:
+        f.write(text)
+    try:
+        return cdrender.render('/tmp/preview.xml')
+    except Exception:
+        return None
 
 def convert(name, data, standard=False, skipped=()):
     os.makedirs('/tmp/in', exist_ok=True)
@@ -125,7 +138,7 @@ def convert(name, data, standard=False, skipped=()):
         label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (newt-adjusted)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (newt-adjusted, straight line)',
                  'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
                 o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
-        files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
+        files.append([o.ending.replace('-advanced', ''), label, text, log, o.red, preview(o.ending, text)])
     return files
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
@@ -140,6 +153,7 @@ def convert(name, data, standard=False, skipped=()):
     p.FS.mkdirTree('/home/pyodide/mapconv');
     for (const f of MODULES.map(m => m + '.py').concat(DATA))
       p.FS.writeFile('/home/pyodide/mapconv/' + f, await (await fetch(BASE + f, { cache: 'no-cache' })).text());  // the converter as now, not a cached older copy
+    p.FS.writeFile('/home/pyodide/cdrender.py', await (await fetch(BASE + '../cdrender.py', { cache: 'no-cache' })).text());
     p.runPython(DRIVER);
     return p;
   }
@@ -160,11 +174,23 @@ def convert(name, data, standard=False, skipped=()):
     return a;
   }
 
-  function button(text, name, label, red, input) {
-    const a = document.createElement('a');
-    a.className = red ? 'cv-btn cv-bad' : 'cv-btn'; a.href = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
+  // a CellDesigner file with a preview: a click saves the file, a new tab (right click, middle click,
+  // Ctrl or Cmd click) shows the drawing (user, 2026-10-24)
+  function button(text, name, label, red, input, preview) {
+    const a = document.createElement('a'), file = URL.createObjectURL(new Blob([text], { type: 'application/xml' }));
+    a.className = red ? 'cv-btn cv-bad' : 'cv-btn';
     const [, format, variant] = label.match(/^(.*?)(?: \((.*)\))?$/);
-    a.download = name; a.title = hover(format, variant, input, name);
+    a.title = hover(format, variant, input, name);
+    if (preview) {
+      const title = name.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      a.href = URL.createObjectURL(new Blob(['<!doctype html><meta charset="utf-8"><title>' + title + '</title>' +
+        '<style>body{margin:0;background:#fff}svg{display:block}</style>' + preview.replace(/^<\?xml[^>]*>\s*/, '')], { type: 'text/html' }));
+      a.addEventListener('click', e => {
+        if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+        e.preventDefault();
+        const d = document.createElement('a'); d.href = file; d.download = name; d.click();
+      });
+    } else { a.href = file; a.download = name; }
     return labelled(a, label, ICON);
   }
 
@@ -232,12 +258,12 @@ def convert(name, data, standard=False, skipped=()):
       const problems = [];
       // Newt: each SBGN-ML file, or an SBGN-ML or Newt input itself
       const newt = /\.(sbgn|nwt)$/i.test(f.name) ? [{ text: await f.text(), name: f.name }] : [];
-      for (const [end, label, xml, log, red] of r) {
+      for (const [end, label, xml, log, red, preview] of r) {
         // every SBGN-ML file, the plain ones too, to see what Newt makes of them (user, 2026-10-21)
         if (xml && end.endsWith('.sbgn')) newt.push({ text: xml, name: base + end,
           variant: [end.endsWith('-newt.sbgn') ? '' : 'plain', end.startsWith('-straight') ? 'straight line' : ''].filter(Boolean).join(', ') || undefined });
         if (xml) {
-          const b = button(xml, base + end, label, red, f.name);
+          const b = button(xml, base + end, label, red, f.name, preview);
           if (end === '-corrected.graphml' || end === '-standard.graphml') b.classList.add('cv-grey');
           if (end.startsWith('-straight') || end === '.sbgn' || end === '-bends.xml' || end === '-drawn.xml') b.classList.add('cv-alt');
           box.append(b);
