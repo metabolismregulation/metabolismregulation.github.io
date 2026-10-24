@@ -3,7 +3,7 @@
   // line per word ("plain: ..."), then the file's name
   const HOVER_MAIN = {
     'CellDesigner': 'Process glyphs, bends and modifier arcs where the input map has them. A few nodes moved slightly so that lines meet straight, listed under the map.',
-    'GraphML from CellDesigner': 'Node sizes as in CellDesigner, arcs at its anchor points, modifier arcs ending beside the process glyph.',
+    'GraphML from CellDesigner': 'Node sizes as in CellDesigner, arcs at its connection points, modifier arcs ending beside the process glyph.',
     'GraphML from SBGN-ML': 'Node positions, sizes and bends as in the SBGN-ML file.',
     'SBGN-ML': 'Compartments enlarged and moved apart, so that Newt keeps them as drawn.',
     'Open in Newt': 'Opens the file in Newt, in a new tab.',

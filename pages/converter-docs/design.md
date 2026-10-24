@@ -159,7 +159,7 @@ as before D14. "CellDesigner (no move)" (`-advanced-nomove.xml`, `--no-move`) is
 moves no node (D14's rules), worked on until it can take over. Straight line moves no node either.
 Multimers stay dimers with N:x (D15) in every file. **Consequences**: the advanced files are those of before
 D14 byte for byte, apart from multimers. The no-move steps, each a file to compare: straight (no bends),
-the advanced drawing without the moves (yEd's key bends, anchors, modifier routes; the "positions kept"
+the advanced drawing without the moves (yEd's key bends, connection points, modifier routes; the "positions kept"
 file of 2026-10-20 to 2026-10-24, not offered now), and no move (that drawing with process glyphs and ports
 held by edit points).
 
@@ -168,7 +168,7 @@ held by edit points).
 **2026-10-24, accepted, built.** **Context**: the modes compared on the 28 Atlas maps (orthogonal look one
 way, round trips, edit points; QUALITY.md). **Decision**: four CellDesigner files from a GraphML or
 SBGN-ML map, all kept: straight (lines between node centres), straight & bends (the input's key bends,
-anchors and modifier routes), advanced (moved nodes: the tidy moves, the blue button), as drawn
+connection points and modifier routes), advanced (moved nodes: the tidy moves, the blue button), as drawn
 (multi-bends: process glyphs and ports held by edit points). Only advanced moves entity nodes. Roles
 (user, 2026-10-24): advanced is the main file, for a one-time conversion and as the base a CellDesigner
 user keeps working on (a map developed in yEd, then edited in CellDesigner); straight & bends the fallback,

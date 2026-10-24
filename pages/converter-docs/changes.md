@@ -18,7 +18,7 @@ Changes inside the code that leave every file the same are listed only when they
   CellDesigner (advanced, the small moves that straighten lines, as before this day), straight line,
   straight & bends (the input's key bends, no node moved) and as drawn (process glyphs and ports held by
   edit points, for round trips between editors). Only advanced moves nodes.
-- CellDesigner to GraphML and SBGN-ML: a line anchored on a multimer ends on its front shape, as
+- CellDesigner to GraphML and SBGN-ML: a line attached to a multimer ends on its front shape, as
   CellDesigner draws it (5 official maps changed: glycolysis cardiac, mevalonate, glycogen liver and muscle, BCAA);
   a bend at most 3.5 px outside a node reads as the line's port.
 - CellDesigner: the added edit points stay 3 px outside the nodes, so no line runs to a node's centre.

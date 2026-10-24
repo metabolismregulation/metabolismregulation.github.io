@@ -140,7 +140,7 @@ a yEd stimulation arc between two entities becomes PHYSICAL_STIMULATION in reduc
 | alias bounds | node box (metabolite circles back to the yEd size 60 x 32, centre kept; multimers shrink 6 per unit beyond 2: inverse of the forward rules) |
 | reaction | Process 18 x 18 (our maps' size) where CellDesigner draws the process glyph: midway on the main line's segment `rectangleIndex` |
 | edit points of a reaction or modifier | yEd bends (soft), from the edit point frame (inverse of `cd_layout.to_frame`); a modifier's frame ends at the point of the process glyph `targetLineIndex` names (side middle, 5 px beside the centre, or corner) |
-| arc ends | node centres (ports 0,0; CellDesigner's quarter anchors only place the process glyph); advanced: anchors as ports, a modifier at the point of the 18 px process `targetLineIndex` names (corners at 9, 9, side middles at 0, 9 across the flow) |
+| arc ends | node centres (ports 0,0; CellDesigner's quarter connection points only place the process glyph); advanced: connection points as ports, a modifier at the point of the 18 px process `targetLineIndex` names (corners at 9, 9, side middles at 0, 9 across the flow) |
 | MIRIAM annotation | node properties as `mapconv.annotate` writes them (HGNC symbol, HGNC, UniProt, ChEBI; a family's Members and Member annotation) |
 
 ## Not converted
