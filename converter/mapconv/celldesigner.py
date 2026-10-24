@@ -1,8 +1,8 @@
 # Write a CellDesigner 4.0 file (SBML L2V4 with the CellDesigner extension)
 # from a map (model.py) read from a yEd SBGN map; read() at the end goes the other way.
 # Where lines, squares and points go: cd_layout.py (the CellDesigner adapter); this module writes
-# them. With tidy (the advanced default) the tidy moves of cd_tidy.py; else no node is moved but for
-# the room of a complex's name (straight, and advanced "no move", in development; user, 2026-10-24).
+# them. Four layouts (user, 2026-10-24): straight, straight & bends, advanced (the tidy moves of
+# cd_tidy.py) and as drawn; only advanced moves nodes (all keep the room of a complex's name).
 # - Every yEd entity node is a species with one alias at the yEd position
 #   (all coordinates shifted so the map starts at MARGIN).
 # - Proteins with the same label share one CellDesigner protein; its residues
@@ -162,14 +162,18 @@ def opened_ors(m):
     return replace(m, nodes={i: d for i, d in m.nodes.items() if i not in opened}, arcs=arcs)
 
 
-def write(diagram, ann, layout='straight', tidy=False):
-    # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py).
-    # layout 'straight' (straight lines, as yEd calls them): the necessary minimum, simple and reliable, improved by hand in CellDesigner
-    # (straight lines, squares midway); 'advanced': a layout that already looks good, squares and
-    # modifier arcs where yEd draws them (F022 BCAA v04; names by the user, 2026-10-16).
-    # tidy: the tidy moves (main lines straightened, an end onto a larger node's centre line, a
-    # modifier onto its process glyph; cd_tidy.py); routes asks for them in the advanced file
-    advanced = layout == 'advanced'
+LAYOUTS = ('straight', 'bends', 'advanced', 'drawn')
+
+
+def write(diagram, ann, layout='straight'):
+    # the CellDesigner file of a map (model.Map), with ann the MIRIAM annotation (annotation.py), in
+    # one of LAYOUTS (user, 2026-10-24): 'straight', the simplest fallback (straight lines between
+    # centres, process glyphs midway); 'bends' (straight & bends), the fallback: also the input's key
+    # bends, anchors and modifier routes (F022 BCAA v04); 'advanced', the main file: that, with the
+    # tidy moves (main lines straightened, an end onto a larger node's centre line, a modifier onto
+    # its process glyph; cd_tidy.py); 'drawn' (as drawn): no node moved, process glyphs and ports held
+    # where the input has them by edit points, for round trips between editors
+    advanced = layout != 'straight'
     diagram = opened_ors(without_delays(diagram, 'CellDesigner'))
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
     if eq:  # CellDesigner has no equivalence operator
@@ -204,9 +208,9 @@ def write(diagram, ann, layout='straight', tidy=False):
         return label[c]
     for c in members:
         name_complex(c)
-    # where every line, square and point goes (cd_layout.py), after the tidy moves when asked
-    drawing = cd_layout.draw(diagram, ents, members, label, advanced, tidy)
-    if tidy:
+    # where every line, square and point goes (cd_layout.py), after the tidy moves (advanced)
+    drawing = cd_layout.draw(diagram, ents, members, label, advanced, layout == 'drawn')
+    if layout == 'advanced':
         cd_tidy.tidy(diagram, drawing, ents, members, label)
     box, cen = drawing.box, drawing.cen
     W, H = drawing.size
@@ -744,7 +748,10 @@ def read(path):
         d = nodes[alias_of(e)]
         if b is None or b.get('position') not in ANCHOR:
             return cen(d.id)
-        return anchor_point(d.box, b.get('position'), d.kind in ('SimpleChemical', 'UnspecifiedEntity'))
+        circle = d.kind in ('SimpleChemical', 'UnspecifiedEntity')
+        x_, y_, w_, h_ = d.box  # a multimer's anchors on its front shape, 6 smaller (cd_layout.draw)
+        k = 6 if d.count > 1 and not circle else 0
+        return anchor_point((x_, y_, w_ - k, h_ - k), b.get('position'), circle)
     # an arc's port: where it meets its node, from the node's centre
     port = lambda i, P: (P[0] - cen(i)[0], P[1] - cen(i)[1])
 

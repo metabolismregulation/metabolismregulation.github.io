@@ -12,10 +12,13 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-24
 
-- CellDesigner: the small moves that straighten lines are back in the advanced file, as before this day.
-  CellDesigner (no move) is the advanced file that moves no node, in development
-  ([D17](/converter/docs/design/#d17-tidy-moves-the-default-again-no-move-in-development)). Straight line
-  moves no node.
+- Four CellDesigner files ([D18](/converter/docs/design/#d18-four-celldesigner-modes-named-for-what-they-do)):
+  CellDesigner (advanced, the small moves that straighten lines, as before this day), straight line,
+  straight & bends (the input's key bends, no node moved) and as drawn (process glyphs and ports held by
+  edit points, for round trips between editors). Only advanced moves nodes.
+- CellDesigner to GraphML and SBGN-ML: a line anchored on a multimer ends on its front shape, as
+  CellDesigner draws it (5 official maps changed: glycolysis cardiac, mevalonate, glycogen liver and muscle, BCAA);
+  a bend at most 3.5 px outside a node reads as the line's port.
 - CellDesigner: the added edit points stay 3 px outside the nodes, so no line runs to a node's centre.
 - Multimers: the count as the unit N:3 with CellDesigner's prefix N (no "free input").
 - No node is moved in conversion ([D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points)):

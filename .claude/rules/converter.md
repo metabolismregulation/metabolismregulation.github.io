@@ -76,8 +76,9 @@ map-converter and push here (`VERSION`: date and commit, not shown on the page).
 page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`. No node is moved in
 conversion (user, 2026-10-24), so the button "CellDesigner (positions kept)" (`<map>-kept.xml`, 2026-10-20 to
 2026-10-24, the file without map-converter's tidy moves) is gone with them. The tidy moves are back in the
-advanced file (user, 2026-10-24: the look wanted for the Atlas maps), and "CellDesigner (no move)",
-`<map>-nomove.xml`, white like straight, under the CellDesigner buttons, is the file moving no node, in development. The layout that keeps the
+advanced file (user, 2026-10-24: the look wanted for the Atlas maps). Four CellDesigner buttons (user, 2026-10-24): "CellDesigner"
+(blue, advanced, the small moves), then "straight & bends" (`<map>-bends.xml`, the fallback), "straight line" (the simplest
+fallback) and "as drawn" (`<map>-drawn.xml`, for going back and forth between editors), all white. The layout that keeps the
 drawing has no variant on its button and in its file name (user, 2026-10-19): "CellDesigner", "SBGN-ML",
 "GraphML", `<map>.xml`, `<map>.sbgn`, `<map>.graphml`, renamed by the page's driver from the converter's
 "(advanced)" and `-advanced`; straight keeps its variant. The pages

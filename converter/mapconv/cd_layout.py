@@ -1,8 +1,8 @@
 # The CellDesigner adapter (restructuring step 4, 2026-10-19): where every line, square and point
 # goes as CellDesigner draws it, before the file is written. The boxes in CellDesigner's frame and
 # sizes, each reaction's main line and each modifier arc's end, anchor and edit points. It moves no
-# node but for the room of a complex's name; with tidy (the advanced default) the drawing cd_tidy.py
-# moves nodes on; without (no move, user 2026-10-24) process glyphs and ports held by edit points.
+# node but for the room of a complex's name (cd_tidy.py moves some for the advanced file); held (as
+# drawn, user 2026-10-24): process glyphs and ports held by edit points.
 import math
 from dataclasses import dataclass
 from . import layout, report
@@ -117,9 +117,10 @@ class Drawing:
     yed: object     # yEd points -> the same points in this frame
 
 
-def draw(diagram, ents, members, label, advanced, tidy=False):
+def draw(diagram, ents, members, label, advanced, held=False):
     # ents the entity ids, members complex -> members, label entity -> name (for the messages);
-    # advanced: the advanced layout; tidy: the drawing cd_tidy.py moves nodes for (before 2026-10-24)
+    # advanced: the input's bends, anchors and modifier routes (else straight lines); held: also the
+    # process glyphs and ports where the input has them, by edit points (as drawn)
     N = diagram.nodes
     box, (x0, y0), size = boxes(N, ents, members)
     cen = lambda i: (box[i][0] + box[i][2] / 2, box[i][1] + box[i][3] / 2)
@@ -173,7 +174,7 @@ def draw(diagram, ents, members, label, advanced, tidy=False):
 
     def geometry(p, fl, place=True):
         # the main line of process p: its ends, anchors, bend, the square and the flow direction;
-        # place (tidy only): the square where yEd has it, where a modifier needs it (else midway)
+        # place (not held): the square where yEd has it, where a modifier needs it (else midway)
         ins, outs, mods, gates, reversible, c = fl
         r_, q_ = ins[0].source, outs[0].target
         ra = qa = None  # line ends at the centres
@@ -218,7 +219,7 @@ def draw(diagram, ents, members, label, advanced, tidy=False):
         # of moving the other end: a point under the node showed the line running to its centre).
         # The way back drops it (layout.visible)
         under = None
-        if advanced and not tidy and not twin and not rb + qb:
+        if held and not twin and not rb + qb:
             ps = [(cen(r_)[0] + ins[0].source_at[0], cen(r_)[1] + ins[0].source_at[1])] + yed(ins[0].points + outs[0].points) + \
                 [c, (cen(q_)[0] + outs[0].target_at[0], cen(q_)[1] + outs[0].target_at[1])]
             for ax in (0, 1):
@@ -251,7 +252,7 @@ def draw(diagram, ents, members, label, advanced, tidy=False):
         ep = [to_frame(A, B, q) for q in pts]
         u = ((c[0] - P[0]) * f[0] + (c[1] - P[1]) * f[1]) / L
         across = abs((c[0] - P[0]) * f[1] - (c[1] - P[1]) * f[0])
-        if advanced and not tidy and across < 12 and abs(u - 0.5) * L > SHIFT and 0.1 < u < 0.9:
+        if held and across < 12 and abs(u - 0.5) * L > SHIFT and 0.1 < u < 0.9:
             # the square where yEd has the process, if that is on its segment and more than SHIFT px
             # from midway (user, 2026-10-24: no node moved; first only for a modifier straight
             # across, the user's pyrimidine v07 edit, CAD). Two edit points half way to the nearer
@@ -265,9 +266,9 @@ def draw(diagram, ents, members, label, advanced, tidy=False):
                 split = [to_frame(A, B, (sq[0] + d * f[0], sq[1] + d * f[1])) for d in (-min(ds), min(ds))]  # equal: the square midway between them
                 ep, k = ep[:k] + split + ep[k:], k + 1
         off = lambda m: min(abs(cen(m)[0] - sq[0]), abs(cen(m)[1] - sq[1]))  # a modifier off its square
-        if advanced and tidy and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods + gates):
-            # tidy (before 2026-10-24): only for a modifier (or logic gate) straight across in yEd
-            # that cd_tidy could not move onto the midway square
+        if advanced and not held and place and not corner and any(level(e, c) and off(e.source) > 0.5 for e in mods + gates):
+            # not held: only for a modifier (or logic gate) straight across in yEd that cd_tidy could
+            # not move onto the midway square (straight & bends and advanced alike)
             if across < 3 and abs(u - 0.5) * L > 3 and 0.1 < u < 0.9:
                 sq = (P[0] + u * L * f[0], P[1] + u * L * f[1])
                 h = min(u, 1 - u) / 2

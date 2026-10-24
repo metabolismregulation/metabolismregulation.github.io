@@ -191,36 +191,42 @@ def exit_point(b, p, q):
     return p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1])
 
 
+NEAR = 3.5  # a bend this close outside an entity's border reads as its port (visible)
+fixed = PROCESSES + ('Operator',)
+
+
 def visible(m):
     # the bends a map read from CellDesigner shows (user, 2026-10-19: CellDesigner files hold many
     # hidden bends). CellDesigner draws its nodes over the arcs, so the bends at the start of an arc
     # inside its source, and at its end inside its target, are not seen: left out, the arc's port
     # where the line leaves or enters the node when the line from the port would differ (a process
-    # or operator keeps its port). Then the bends on the straight line between their neighbours,
-    # from the ports
-    inside = lambda q, b: b[0] < q[0] < b[0] + b[2] and b[1] < q[1] < b[1] + b[3]
+    # or operator keeps its port). A bend at most NEAR px outside an entity counts as under it: where
+    # the line meets the border, as the converter's no-move file writes a port (cd_layout.EDGE).
+    # Then the bends on the straight line between their neighbours, from the ports
+    def inside(q, d):
+        b, e = d.box, 0.0 if d.kind in fixed else NEAR
+        return b[0] - e < q[0] < b[0] + b[2] + e and b[1] - e < q[1] < b[1] + b[3] + e
     at = lambda d, p: (p[0] - centre(d)[0], p[1] - centre(d)[1])
-    fixed = PROCESSES + ('Operator',)
     for a in m.arcs:
         S, T = m.nodes[a.source], m.nodes[a.target]
         s = (centre(S)[0] + a.source_at[0], centre(S)[1] + a.source_at[1])
         t = (centre(T)[0] + a.target_at[0], centre(T)[1] + a.target_at[1])
         pts = list(a.points)
         k = 0
-        while k < len(pts) and inside(pts[k], S.box):
+        while k < len(pts) and inside(pts[k], S):
             k += 1
         if k:
             nxt = pts[k] if k < len(pts) else t
-            if S.kind not in fixed and not inside(nxt, S.box) and off(exit_point(S.box, pts[k - 1], nxt), s, nxt) >= 1:
+            if S.kind not in fixed and not inside(nxt, S) and off(exit_point(S.box, pts[k - 1], nxt), s, nxt) >= 1:
                 s = exit_point(S.box, pts[k - 1], nxt)
                 a.source_at = at(S, s)
             pts = pts[k:]
         k = len(pts)
-        while k and inside(pts[k - 1], T.box):
+        while k and inside(pts[k - 1], T):
             k -= 1
         if k < len(pts):
             prev = pts[k - 1] if k else s
-            if T.kind not in fixed and not inside(prev, T.box) and off(exit_point(T.box, pts[k], prev), t, prev) >= 1:
+            if T.kind not in fixed and not inside(prev, T) and off(exit_point(T.box, pts[k], prev), t, prev) >= 1:
                 t = exit_point(T.box, pts[k], prev)
                 a.target_at = at(T, t)
             pts = pts[:k]

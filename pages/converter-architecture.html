@@ -211,9 +211,10 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
 <p>There is no layout algorithm: no route places nodes. A conversion translates the map: the adapters change
 sizes, ports, bends and arc ends, never a node's centre. Two exceptions, each listed under the map: the room for a
 complex's name in CellDesigner (its members move up) and Newt's margin (in the files for Newt only). The advanced
-CellDesigner file still moves a few nodes so that lines meet straight (<code>cd_tidy.py</code>), the look wanted for
-the Atlas maps, though such moves add up a little on every trip between yEd, CellDesigner and Newt. CellDesigner (no
-move), in development, moves none: where CellDesigner would draw a line otherwise than the input map, it gets edit points that
+CellDesigner file moves a few nodes so that lines meet straight (<code>cd_tidy.py</code>): the main file, for a one-time
+conversion and for continuing in CellDesigner, though such moves add up a little on every trip between editors. Two
+fallbacks move none: straight &amp; bends (the same drawing without the moves) and straight line. CellDesigner (as
+drawn), for going back and forth between editors, moves none either: where CellDesigner would draw a line otherwise than the input map, it gets edit points that
 CellDesigner draws over or along: two around a process glyph more than 3 px from midway, one under a large node
 that a level line enters beside its centre, each at least 3 px outside the nodes. A line a few px off level stays so. A multimer is drawn as a dimer,
 its count above 2 a unit of information, so no node grows. To CellDesigner and back, 5 of 438 nodes move by
@@ -222,7 +223,7 @@ more than 1 px (at most 3 px), and a second trip moves none.</p>
   <tr><th>Module</th><th>What it does</th></tr>
   <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, and the straight layout of a map read from CellDesigner (arcs at the centres, metabolites at the yEd size).</td></tr>
   <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers as dimers, room for a complex's name), the process glyph, anchors and edit points, the hidden ones included (the process glyph where the input has the process, a line into a large node beside its centre). It moves no node but for the room of a complex's name.</td></tr>
-  <tr><td><code>cd_tidy.py</code></td><td>For CellDesigner (advanced): small moves that make lines meet straight (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph), listed under the map. CellDesigner (straight line) and CellDesigner (no move) go without.</td></tr>
+  <tr><td><code>cd_tidy.py</code></td><td>For CellDesigner (advanced): small moves that make lines meet straight (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph), listed under the map. The three other CellDesigner files go without.</td></tr>
   <tr><td><code>newt_layout.py</code></td><td>Newt, only for the files for Newt (the SBGN-ML files keep the drawing of the input map): every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart, and an arc that leaves a node off centre bent just outside it, as Newt aims every arc at the node's centre.</td></tr>
   <tr><td><code>style.py</code></td><td>yEd: standard node sizes and rescaling, for a map drawn at another scale.</td></tr>
 </table>
@@ -269,11 +270,11 @@ only, the fallback if the page has to go back to it.</p>
   <li>Done. The model (biology and drawing), the readers and writers adapted to it.</li>
   <li>Done. Report and routes.</li>
   <li>Done. The layout out of the readers and writers into <code>layout.py</code> and the three adapters, checked against the reference files after each move.</li>
-  <li>Built, in development as CellDesigner (no move): no node moved, the process glyph where yEd has the process and a line into a large node beside its centre, held by edit points that change nothing CellDesigner draws and are left out on the way back. The straight layout stays the simple fallback: each process midway, a modifier's arc may slant.</li>
-  <li>Next. The same edit point under the node for modifier arcs and slanting lines that yEd starts beside a large node's centre.</li>
+  <li>Done. Four CellDesigner files: advanced (the small moves), straight &amp; bends, straight line, and as drawn: no node moved, the process glyph where yEd has the process and a line into a large node beside its centre, held by edit points that change nothing CellDesigner draws and are left out on the way back. The straight layout stays the simple fallback: each process midway, a modifier's arc may slant.</li>
+  <li>As drawn is kept as it is: more edit points only when a real exchange between editors needs them.</li>
   <li>SBML with layout, read and written, and SBML without layout written, built to that rule. Later.</li>
   <li>BioPAX written. Later.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-24, for map-converter commit c5dfae1 (2026-10-24). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-24, for map-converter commit 559a200 (2026-10-24). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
 The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>

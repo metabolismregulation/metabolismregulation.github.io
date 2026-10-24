@@ -608,8 +608,9 @@ Geometry of a main line:
   AMPK 14.4 px, glycolysis extended IRS1 22 px, SREBP 4.5 px, cAMP 3.7 px). Until 2026-10-24 the other end
   was moved onto the centre line.
 
-The rules above are for CellDesigner (no move), `-advanced-nomove.xml` (user, 2026-10-24: in development).
-CellDesigner (advanced) keeps the tidy moves (`cd_tidy.py`; D17): main lines up to 10 px off straightened,
+The rules above are for CellDesigner (as drawn), `-drawn.xml` (user, 2026-10-24; D18). CellDesigner
+(straight & bends), `-bends.xml`, has the drawing below without the moves. CellDesigner (advanced) keeps the
+tidy moves (`cd_tidy.py`; D17, D18): main lines up to 10 px off straightened,
 the end of a level line into a larger node beside its centre moved onto that node's centre line (iNOS CaM
 23.6 px; the user moved it 25 px twice), a modifier up to 15 px onto its process glyph, on a drawing with the
 process glyph placed only for a modifier straight across that could not be moved. Straight line moves no

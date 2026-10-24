@@ -134,18 +134,18 @@ then removed (user, 2026-10-24; DESIGN.md D14, D15):
 - Adapters change sizes, ports, bends and arc ends, never a node's centre. Exceptions, each in the
   messages: CellDesigner's room for a complex's name (members moved up; see above), Newt's padding (the
   file for Newt only).
-- The tidy moves stay the advanced default for now (D17: good for the Metabolism Regulation maps); "no move"
-  (`-advanced-nomove.xml`) is developed until it can take over. The tidy moves suit maps drawn orthogonally
+- Four CellDesigner files (D18): advanced with the tidy moves (the main file), straight & bends and straight
+  (fallbacks), as drawn (round trips, frozen after its drift fix). The tidy moves suit maps drawn orthogonally
   with care; on maps drawn loosely by others they change almost nothing, as their lines are far from level
-  (user, 2026-10-24): "no move" has to serve both kinds. Straightening a line a few px off level, if
-  wanted, belongs to the layout skill (`standardise.py`).
-- CellDesigner, no move: the process glyph where yEd has the process by two edit points on the main
+  (user, 2026-10-24). Straightening a line a few px off level, if wanted, belongs to the layout skill
+  (`standardise.py`).
+- CellDesigner, as drawn: the process glyph where yEd has the process by two edit points on the main
   line (more than `SHIFT` = 3 px from midway, also on a bent line), and a point just outside a larger node
   where yEd draws a level main line into it beside its centre. Every added point 3 px outside the nodes
   (`EDGE`): CellDesigner draws lines over nodes. The way back drops them (`layout.visible`).
 - Multimers: dimers at yEd's size, the count beyond 2 as the unit N:x (SBGN's way).
-- Next (user, 2026-10-24, "moving ports within large complexes"): the same point under the node for a
-  modifier arc that yEd starts beside a large node's centre, and for slanting main lines. Not built.
+- Frozen (user, 2026-10-24, "moving ports within large complexes"): the same point for a modifier arc that
+  yEd starts beside a large node's centre, and for slanting main lines; until a real exchange needs it.
 - Newt (user, 2026-10-24): no recovery of the original on the way back. A file saved by Newt is read as
   any SBGN-ML file, whatever made it: what Newt changed stays changed (the readers read only what the
   file says). The file for Newt stays made so Newt has little to move. A measurement only, of the loop (GraphML -> for Newt -> saved in Newt -> read back: nodes moved, expected 0).

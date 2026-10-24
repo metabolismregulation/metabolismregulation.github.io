@@ -152,7 +152,7 @@ before D14 byte for byte, apart from multimers (D15). One more output per GraphM
 
 ## D17. Tidy moves the default again, no move in development
 
-**2026-10-24, accepted.** **Context**: the advanced file with the tidy moves gives the Metabolism Regulation
+**2026-10-24, accepted; the modes and their names replaced by [D18](#d18-four-celldesigner-modes-named-for-what-they-do) the same day.** **Context**: the advanced file with the tidy moves gives the Metabolism Regulation
 maps the look the user wants in CellDesigner and MINERVA, though the moves add up over round trips. Moving
 no node is the aim, still being developed. **Decision**: CellDesigner (advanced) has the tidy moves again,
 as before D14. "CellDesigner (no move)" (`-advanced-nomove.xml`, `--no-move`) is the advanced file that
@@ -165,7 +165,7 @@ held by edit points).
 
 ## D18. Four CellDesigner modes, named for what they do
 
-**2026-10-24, agreed, not built.** **Context**: the modes compared on the 28 Atlas maps (orthogonal look one
+**2026-10-24, accepted, built.** **Context**: the modes compared on the 28 Atlas maps (orthogonal look one
 way, round trips, edit points; QUALITY.md). **Decision**: four CellDesigner files from a GraphML or
 SBGN-ML map, all kept: straight (lines between node centres), straight & bends (the input's key bends,
 anchors and modifier routes), advanced (moved nodes: the tidy moves, the blue button), as drawn
@@ -173,8 +173,13 @@ anchors and modifier routes), advanced (moved nodes: the tidy moves, the blue bu
 (user, 2026-10-24): advanced is the main file, for a one-time conversion and as the base a CellDesigner
 user keeps working on (a map developed in yEd, then edited in CellDesigner); straight & bends the fallback,
 straight the simplest fallback; as drawn only for going back and forth between editors repeatedly.
-**Consequences**: straight & bends comes back as a button. As drawn writes about 450 more edit points on
-the Atlas maps than the others (555 against 196-248, visible bends about the same), which a CellDesigner
-user has to clean when changing a reaction, so its development is weighed against that.
+**Consequences**: four buttons and `--layout straight|bends|advanced|drawn` (CellDesigner only for bends
+and drawn). As drawn writes about 450 more edit points on the Atlas maps than the others (555 against
+196-248, visible bends about the same), which a CellDesigner user has to clean when changing a reaction.
+Developed only as far as its purpose needs (user, 2026-10-24: one person keeps one editor, so round trips
+matter for two people in two editors, or a map returned to its CellDesigner owners): its process glyph
+drift over round trips fixed (trip 2: 17 process glyphs on 10 maps, up to 27 px, then 6 on 6 maps, up to 10
+px), then frozen. Not built until a real exchange shows the need: the points at large complexes for modifier
+arcs and slanting lines. Advanced is where one-way quality is improved.
 
 {% endraw %}
