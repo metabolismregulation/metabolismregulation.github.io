@@ -128,9 +128,11 @@ MINERVA (glycolysis v01).
   information (an icon, or a second boxed label as iNOS ASL "N:4"); yEd's `mcount` is only the number of
   shapes drawn (always 2), used only when there is no N:x. Until 2026-10-13 the converter took `mcount`:
   NOSTRIN N:3, HMGCR and ACAT2 N:4, ASL N:4 came out as 2. Since 2026-10-24 (user, the SBGN way) every
-  multimer is written as homodimer 2 at the yEd size, and a count beyond 2 as the free-text unit
-  `<celldesigner:info prefix="free input" label="N:3">` (after a ct: unit, before other free text; one info
-  per alias), so a tetramer does not grow 18 px and reach its neighbours. The reader takes N:x on a dimer
+  multimer is written as homodimer 2 at the yEd size, and a count beyond 2 as the unit
+  `<celldesigner:info state="open" prefix="N" label="3"/>` (after a ct: unit, before other free text; one info
+  per alias), so a tetramer does not grow 18 px and reach its neighbours. The form is AsthmaMap's
+  (PD01 Mast Cell: N:4 and N:3 on homodimer 2), shown as "N:3"; free input would add "free input:" in
+  MINERVA (user, 2026-10-24: not that). The reader takes N:x on a dimer
   as its count; a file with homodimer 3 or more (CellDesigner's own, the box grown 6 per unit) is read as
   before. MINERVA draws N:x at the top middle: keep it free; state
   variables go on the sides (lower half) or at the corners (user's rule).

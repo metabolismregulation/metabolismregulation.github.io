@@ -28,7 +28,7 @@ each has been open. An issue leaves the list when it is decided, built or droppe
 | Since | Issue | Record |
 |---|---|---|
 | 2026-10-24 | Hidden edit points (process glyph, under a node): a file opened in CellDesigner 4.4, a reactant dragged, and the arrowhead where a line ends under its product, would confirm they stay hidden. | [D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points) |
-| 2026-10-24 | Multimers beyond 2 as a dimer with the unit N:x: how MINERVA draws them on upload. | [D15](/converter/docs/design/#d15-multimers-drawn-as-dimers-the-count-as-a-unit) |
+| 2026-10-24 | Multimers beyond 2 as a dimer with the unit N:x (prefix N, as AsthmaMap, which MINERVA hosts): how MINERVA draws them on upload. | [D15](/converter/docs/design/#d15-multimers-drawn-as-dimers-the-count-as-a-unit) |
 | 2026-10-17 | A trigger out of a logic gate in CellDesigner: a file saved by CellDesigner with one would settle how it converts. | [CellDesigner to SBGN](/converter/docs/cd-to-sbgn/) |
 
 ## Known faults

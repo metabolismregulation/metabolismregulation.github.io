@@ -134,8 +134,9 @@ exception in CellDesigner.
 
 **2026-10-24, accepted.** **Context**: CellDesigner draws a multimer as one shape per unit, the box 6 px
 larger per unit beyond 2, so a tetramer grew and could reach its neighbours. **Decision**: the SBGN way:
-every multimer is drawn as a dimer at yEd's size (homodimer 2), and a count beyond 2 is the free-text
-unit of information N:x on the alias. The reader takes N:x on a dimer as its count. **Consequences**: no
-node grows. MINERVA reads homodimer 2, and its drawing of the unit is to be seen on upload.
+every multimer is drawn as a dimer at yEd's size (homodimer 2), and a count beyond 2 is the unit of
+information N:x on the alias (prefix N, label 3: AsthmaMap's form, never "free input"). The reader takes
+N:x on a dimer as its count. **Consequences**: no node grows. MINERVA reads homodimer 2, and its drawing
+of the unit is to be seen on upload.
 
 {% endraw %}

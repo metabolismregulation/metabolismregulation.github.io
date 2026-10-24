@@ -30,7 +30,7 @@
 # - Multimers: the count in the N:x unit of information becomes homodimer N
 #   (yEd's mcount is only the number of shapes drawn, always 2). Beyond 2 the
 #   SBGN way (user, 2026-10-24): homodimer 2, drawn as a dimer at yEd's size,
-#   and the count as the free-text unit N:x, so a tetramer does not grow and
+#   and the count as the unit N:x (prefix N, as AsthmaMap), so a tetramer does not grow and
 #   push its neighbours (CellDesigner grows the box 6 per unit).
 # - A state variable without a modification state (cAMP) is a bound ligand:
 #   one structural state per species, the same text twice written once.
@@ -108,9 +108,10 @@ def units_of_information(d):
 
 
 def cd_info(u):
-    # a unit of information as CellDesigner's info (prefix, label): ct:gene as prefix ct, any other
-    # text as "free input", as CellDesigner saves a free-text unit (user's example, 2026-10-22)
-    return ('ct', u[3:]) if u.startswith('ct:') else ('free input', u)
+    # a unit of information as CellDesigner's info (prefix, label): ct:gene as prefix ct, a multimer's
+    # N:4 as prefix N (AsthmaMap's files: homodimer 2 with N:4), any other text as "free input", as
+    # CellDesigner saves a free-text unit (user's example, 2026-10-22)
+    return ('ct', u[3:]) if u.startswith('ct:') else ('N', u[2:]) if re.fullmatch(r'N:\d+', u) else ('free input', u)
 
 
 def cd_class(d):
@@ -708,7 +709,7 @@ def read(path):
         if cls in UNIT and not any(u.startswith('ct:') for u in units):
             units.append(UNIT[cls])
         cnt = [int(u[2:]) for u in units if re.fullmatch(r'N:\d+', u)]
-        if n == 2 and cnt:  # a dimer with its count as a unit (the writer, beyond 2)
+        if n == 2 and cnt:  # a dimer with its count as a unit (the writer beyond 2, AsthmaMap)
             n = cnt[0]
         elif n > 1:  # N:x as on every multimer of our yEd maps (N:2 included, user 2026-10-18)
             units.append('N:%d' % n)
