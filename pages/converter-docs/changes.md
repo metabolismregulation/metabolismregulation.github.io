@@ -12,7 +12,7 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-24
 
-- Converter page: the three CellDesigner fallbacks (straight & bends, straight line, as drawn) are made only
+- Converter page: the three CellDesigner fallbacks (straight line, straight & bends, as drawn) are made only
   when ticked under "Additional CellDesigner layouts". CellDesigner (advanced) and the SBGN-ML files are always made.
 - Four CellDesigner files ([D18](/converter/docs/design/#d18-four-celldesigner-modes-named-for-what-they-do)):
   CellDesigner (advanced, the small moves that straighten lines, as before this day), straight line,

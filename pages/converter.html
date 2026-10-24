@@ -76,8 +76,8 @@ noindex: true
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label></p>
     <p class="cv-hint cv-modes">Additional CellDesigner layouts<br>
-    <label class="cv-hint" title="Straight lines with the key bends of the input map. No node moved."><input type="checkbox" value="-bends.xml"> straight &amp; bends</label>
     <label class="cv-hint" title="Every arc a straight line between node centres, each process glyph midway."><input type="checkbox" value="-straight.xml"> straight line</label>
+    <label class="cv-hint" title="Straight lines with the key bends of the input map. No node moved."><input type="checkbox" value="-bends.xml"> straight &amp; bends</label>
     <label class="cv-hint" title="Every node and process glyph where the input map has it, held by extra bend points."><input type="checkbox" value="-drawn.xml"> as drawn</label></p>
   </div>
 </div>
@@ -175,8 +175,8 @@ def convert(name, data, standard=False, skipped=()):
   // under it, the others below (user, 2026-10-20); SBGN-ML plain in a column of its own, right of
   // SBGN-ML Newt (user, 2026-10-21: four in a column are too many); the Open in Newt buttons at the
   // end of their SBGN-ML files' column (user, 2026-10-21)
-  // CellDesigner: the blue one, then straight & bends, straight line, as drawn (user, 2026-10-24)
-  const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : variant === 'straight & bends' ? 1 : /straight line$/.test(variant) ? 2 : 3;
+  // CellDesigner: the blue one, then straight line, straight & bends, as drawn (user, 2026-10-24)
+  const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : /straight line$/.test(variant) ? 1 : variant === 'straight & bends' ? 2 : 3;
   const column = (format, variant) => (format === 'Open in Newt' ? 'SBGN-ML' : format) + (/^plain/.test(variant || '') ? ' plain' : '');
   const variantOf = b => [...b.querySelectorAll('.cv-variant')].map(v => v.textContent).join(', ');
 
