@@ -120,9 +120,9 @@ def convert(name, data, standard=False, skipped=()):
             log = ''.join(m + '\\n' for k, m in said if k != 'summary')
         # the layout that keeps the drawing is the plain file, "CellDesigner", <map>.xml; straight the
         # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names
-        # stay). SBGN-ML: "Newt" (blue, <map>-newt.sbgn) and "plain" (<map>.sbgn), each also with "straight
+        # stay). SBGN-ML: "newt-adjusted" (blue, <map>-newt.sbgn) and "plain" (<map>.sbgn), each also with "straight
         # line", on a third line of the button (user, 2026-10-21)
-        label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (Newt, straight line)',
+        label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (newt-adjusted)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (newt-adjusted, straight line)',
                  'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
                 o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
         files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
@@ -152,7 +152,7 @@ def convert(name, data, standard=False, skipped=()):
     const [, format, variant] = label.match(/^(.*?)(?: \((.*)\))?$/);
     const lines = document.createElement('span'); lines.className = 'cv-lines';
     lines.append(format);
-    for (const t of variant ? variant.split(', ') : []) {  // "Newt, straight line": a line each
+    for (const t of variant ? variant.split(', ') : []) {  // "newt-adjusted, straight line": a line each
       const v = document.createElement('span'); v.className = 'cv-variant'; v.textContent = t; lines.append(v);
     }
     a.append(lines);
@@ -171,12 +171,12 @@ def convert(name, data, standard=False, skipped=()):
 {% include converter-hover.js %}
 {% include newt-open.js %}
 
-  // a column's buttons: the blue one on top (no variant, or SBGN-ML Newt), its straight line file
+  // a column's buttons: the blue one on top (no variant, or SBGN-ML newt-adjusted), its straight line file
   // under it, the others below (user, 2026-10-20); SBGN-ML plain in a column of its own, right of
-  // SBGN-ML Newt (user, 2026-10-21: four in a column are too many); the Open in Newt buttons at the
+  // SBGN-ML newt-adjusted (user, 2026-10-21: four in a column are too many); the Open in Newt buttons at the
   // end of their SBGN-ML files' column (user, 2026-10-21)
   // CellDesigner: the blue one, then straight line, straight & bends, as drawn (user, 2026-10-24)
-  const rank = variant => !variant || variant === 'Newt' || variant === 'plain' ? 0 : /straight line$/.test(variant) ? 1 : variant === 'straight & bends' ? 2 : 3;
+  const rank = variant => !variant || variant === 'newt-adjusted' || variant === 'plain' ? 0 : /straight line$/.test(variant) ? 1 : variant === 'straight & bends' ? 2 : 3;
   const column = (format, variant) => (format === 'Open in Newt' ? 'SBGN-ML' : format) + (/^plain/.test(variant || '') ? ' plain' : '');
   const variantOf = b => [...b.querySelectorAll('.cv-variant')].map(v => v.textContent).join(', ');
 

@@ -9,7 +9,7 @@
     'Open in Newt': 'Opens the file in Newt, in a new tab.',
   };
   const HOVER_WORD = {
-    'Newt': 'Newt: compartments enlarged and moved apart, so that Newt keeps them as drawn.',
+    'newt-adjusted': 'newt-adjusted: compartments enlarged and moved apart, so that Newt keeps them as drawn.',
     'plain': 'plain: compartments as drawn, not adjusted for any tool.',
     'straight line': 'straight line: every arc a straight line between node centres.',
     'straight & bends': 'straight & bends: straight lines with the key bends of the input map, no node moved.',

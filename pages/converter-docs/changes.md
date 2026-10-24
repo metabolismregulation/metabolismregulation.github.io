@@ -12,6 +12,8 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-24
 
+- Converter page: the SBGN-ML button made for Newt reads "newt-adjusted" under SBGN-ML (was "Newt"), so it is not
+  taken for the Open in Newt button. Files and their names unchanged.
 - Converter page: ticking or unticking a CellDesigner layout or Standard node sizes converts the maps
   already on the page again, so their buttons follow the boxes without dropping the maps again.
 - Converter page: the three CellDesigner fallbacks (straight line, straight & bends, as drawn) are made only
