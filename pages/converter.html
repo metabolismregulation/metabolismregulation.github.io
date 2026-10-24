@@ -122,7 +122,9 @@ def convert(name, data, standard=False, skipped=()):
         # variant, "straight line" on its button (user, 2026-10-19, 2026-10-20; the converter's own names
         # stay). SBGN-ML: "Newt" (blue, <map>-newt.sbgn) and "plain" (<map>.sbgn), each also with "straight
         # line", on a third line of the button (user, 2026-10-21)
-        label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (Newt, straight line)',
+        # CellDesigner as drawn: "multi-bend" on a third line (user, 2026-10-24)
+        label = {'CellDesigner (as drawn)': 'CellDesigner (as drawn, multi-bend)',
+                 'SBGN-ML (advanced, for Newt)': 'SBGN-ML (Newt)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (Newt, straight line)',
                  'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
                 o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
         files.append([o.ending.replace('-advanced', ''), label, text, log, o.red])
