@@ -208,13 +208,16 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
 </div>
 
 <h3>Layout</h3>
-<p>There is no layout algorithm: no route places nodes. Every route keeps the positions of the input map and
-corrects them by a few pixels at most. The layout is the routing of the arcs and these corrections.</p>
+<p>There is no layout algorithm: no route places nodes. A conversion translates the map: the adapters change
+sizes, ports, bends and arc ends, never a node's centre. Two exceptions, each listed under the map: the room for a
+complex's name in CellDesigner (its members move up) and Newt's margin (in the files for Newt only). Moves that
+tidy lines are an add-on after the adapter, not part of the translation, as moves made during conversion do not
+last over trips between yEd, CellDesigner and Newt: they add up a little on every pass.</p>
 <table class="ca-table">
   <tr><th>Module</th><th>What it does</th></tr>
   <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, and the straight layout of a map read from CellDesigner (arcs at the centres, metabolites at the yEd size).</td></tr>
   <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers, room for a complex's name), the process glyph, anchors and edit points. It moves no node but for the room of a complex's name.</td></tr>
-  <tr><td><code>cd_tidy.py</code></td><td>An add-on after <code>cd_layout.py</code>: the small moves that make lines meet straight in CellDesigner (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph). The moves are listed under the map and are left out of the Converter page's CellDesigner (positions kept) file.</td></tr>
+  <tr><td><code>cd_tidy.py</code></td><td>An add-on after <code>cd_layout.py</code>: the small moves that make lines meet straight in CellDesigner (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph). The moves are listed under the map and are left out of the Converter page's CellDesigner (positions kept) file. On by default for now. The default is not decided.</td></tr>
   <tr><td><code>newt_layout.py</code></td><td>Newt, only for the files for Newt (the SBGN-ML files keep the drawing of the input map): every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart, and an arc that leaves a node off centre bent just outside it, as Newt aims every arc at the node's centre.</td></tr>
   <tr><td><code>style.py</code></td><td>yEd: standard node sizes and rescaling, for a map drawn at another scale.</td></tr>
 </table>
@@ -247,6 +250,11 @@ layout and BioPAX are written from a map but not read: making a map from a file 
 without layout, a table) is the work of the <a href="{{ '/human-like-layout/architecture/' | relative_url }}">human-like layout</a> project, not of the converter. Its maps can then
 come here.</p>
 
+<h3>Files edited in another program</h3>
+<p>A file saved by Newt, CellDesigner or yEd is read as any file of its format, whatever made it. The readers read
+only what the file says, so what the other program changed stays changed: there is no recovery of the original
+map on the way back. The files for Newt are made so that Newt has little to move.</p>
+
 <h3>Order of work</h3>
 <p>In a new repository <code>map-converter</code>, started from a copy of v1 with its history. v1 is kept,
 unchanged, as <code>map-converter-v1</code>, the reference. A branch <code>v1-fixed</code> holds v1 with bug fixes
@@ -255,10 +263,14 @@ only, the fallback if the page has to go back to it.</p>
   <li>Done. Every Atlas map, every official CellDesigner and SBGN-ML file and the test files converted with v1 and kept as reference files.</li>
   <li>Done. The model (biology and drawing), the readers and writers adapted to it.</li>
   <li>Done. Report and routes.</li>
-  <li>Done. The layout out of the readers and writers into <code>layout.py</code> and the three adapters, checked against the reference files after each move.</li>
-  <li>SBML with layout, read and written, and SBML without layout written. Later.</li>
+  <li>Done. The layout out of the readers and writers into <code>layout.py</code> and the three adapters, checked against the reference files after each move. Then the tidy moves out of the CellDesigner adapter into the add-on <code>cd_tidy.py</code>.</li>
+  <li>Next. In the advanced CellDesigner file, the process glyph where yEd has the process, held there by edit points on the straight main line, which change nothing CellDesigner draws and are left out on the way back. A modifier then needs no move onto a midway process glyph. The straight layout stays the simple fallback: each process midway, a modifier's arc may slant.</li>
+  <li>Next. The rule that adapters never move a node's centre, measured on the Atlas maps (centres moved per route, with the tidy moves off).</li>
+  <li>SBML with layout, read and written, and SBML without layout written, built to that rule. Later.</li>
   <li>BioPAX written. Later.</li>
 </ol>
+<p>After the restructuring: each tidy move made to settle after one trip, so a round trip moves nothing more, and
+then the default of the tidy moves.</p>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-21, for map-converter commit 084501d (2026-10-21). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-24, for map-converter commit cf54a4b (2026-10-24). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
 The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>
