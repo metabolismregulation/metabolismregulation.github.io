@@ -135,7 +135,9 @@ then removed (user, 2026-10-24; DESIGN.md D14, D15):
   messages: CellDesigner's room for a complex's name (members moved up; see above), Newt's padding (the
   file for Newt only).
 - The tidy moves stay the advanced default for now (D17: good for the Metabolism Regulation maps); "no move"
-  (`-advanced-nomove.xml`) is developed until it can take over. Straightening a line a few px off level, if
+  (`-advanced-nomove.xml`) is developed until it can take over. The tidy moves suit maps drawn orthogonally
+  with care; on maps drawn loosely by others they change almost nothing, as their lines are far from level
+  (user, 2026-10-24): "no move" has to serve both kinds. Straightening a line a few px off level, if
   wanted, belongs to the layout skill (`standardise.py`).
 - CellDesigner, no move: the process glyph where yEd has the process by two edit points on the main
   line (more than `SHIFT` = 3 px from midway, also on a bent line), and a point just outside a larger node
