@@ -43,6 +43,19 @@ first and family name, lowercase, hyphens, no accents; a key never changes
 once used. Contributions are not recorded separately: the map pages are the
 record. Add an ORCID only after checking it on orcid.org.
 
+Updated maps (user, 2026-10-24): once the current official version is published and archived on
+Zenodo, maps will be updated on top of what earlier contributors drew. When not all earlier
+contributors take part in the new version, the page of the new version (official page, draft page
+or Atlas entry) lists as contributors only those who made or approved it, and credits the earlier
+version with one standard line at the end of the Contributors section:
+
+> Earlier version by <names, as on the earlier page> (<year>), archived on Zenodo: <DOI link>.
+
+So earlier contributors are neither kept under a version they did not approve nor removed without
+trace. The link is the version DOI of the earlier record, not the concept DOI, which always
+resolves to the latest version. When all earlier contributors took part, no line is needed. The
+wording is fixed with the user before the first updated map goes out.
+
 ## Map image size on the pages
 
 Every map page shows its map at the same zoom, so a protein node (80 x 40 yEd units) looks
