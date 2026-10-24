@@ -43,6 +43,7 @@ each has been open. An issue leaves the list when it is decided, built or droppe
 
 | Since | Issue | Record |
 |---|---|---|
+| 2026-10-24 | Four CellDesigner buttons: straight, straight & bends, advanced (moved nodes), as drawn (multi-bends). | [D18](/converter/docs/design/#d18-four-celldesigner-modes-named-for-what-they-do) |
 | 2026-10-24 | CellDesigner (no move) to take over as the advanced file once it looks as good as the tidy moves on the Metabolism Regulation maps. | [D17](/converter/docs/design/#d17-tidy-moves-the-default-again-no-move-in-development) |
 | 2026-10-18 | A count check after every conversion: input against output, per kind, anything unexplained in red. | [Planned](/converter/docs/planned/#a-count-check-after-every-conversion-user-2026-10-18) |
 | 2026-10-19 | Arcs at a complex member go to the complex, with a message. | [Planned](/converter/docs/planned/#arcs-at-a-complex-member-go-to-the-complex-user-2026-10-19) |
