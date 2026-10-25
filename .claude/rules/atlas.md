@@ -20,7 +20,8 @@ reading size (user, 2026-10-22, as on the Colours page); Read keeps the map at t
 ## Atlas icon
 
 The Atlas has its own browser-tab icon (user, 2026-10-25), drawn as the Osteoarthritis working site's: "Mr" over
-"atlas" in white Bitter 600 on slate #4a5d73, corners r18 (`images/atlas-icon/`: SVG, 32 px and 180 px PNG). The
+"atlas" in white Bitter 600 on slate #4a5d73, corners r18, the middle of the r at the tile's middle and "atlas" in the middle of the room below (`images/atlas-icon/`: SVG,
+32 px and 180 px PNG, made by maps-workbench `tools/atlas_icon.py`). The
 page's front matter `icon: atlas-icon` adds the links (`_includes/meta.html`); every other page keeps the site's
 `favicon.ico`.
 
