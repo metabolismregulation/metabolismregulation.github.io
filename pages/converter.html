@@ -49,6 +49,9 @@ noindex: true
      only the ticked routes are converted, all three ticked at first (user, 2026-10-25) */
   /* the box scaled with the text, as on the ysbgn.js page */
   label.cv-hint input { width: 15px; height: 15px; vertical-align: -2px; margin: 0 5px 0 0; }
+  /* ticked boxes grey as Chrome draws them in a private window, in every browser (user, 2026-10-25: the browser's
+     own colour otherwise, blue or its theme's) */
+  label.cv-hint input { accent-color: #626262; }
   .cv-top p.cv-routes { margin-bottom: 12px; }
   /* the CellDesigner fallbacks, made only when ticked (user, 2026-10-24: tick boxes, not a drop-down) */
   /* the three in one line (user, 2026-10-24), each kept whole when the line wraps */
