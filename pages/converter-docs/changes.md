@@ -12,6 +12,10 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-25
 
+- CellDesigner's unknown logic gate (the question mark) is a logic operator labelled ? in the GraphML (was UNKNOWN)
+  and goes back to CellDesigner as the same gate; before, it was left out there. GraphML and SBGN-ML to CellDesigner:
+  an equivalence operator becomes the unknown gate, its line to the generic entity a dashed stimulation; before, it
+  was left out. Reference files: the test map of an equivalence operator (its CellDesigner files gain the gate).
 - CellDesigner to GraphML and SBGN-ML: a logic gate (AND, OR, NOT) on a reaction's modifiers, as CellDesigner saves
   it with bends, sits where CellDesigner draws it; before, it was placed at the map's top left corner, its lines
   drawn across the whole map. The line from the gate to the process and the lines from its inputs keep their bends

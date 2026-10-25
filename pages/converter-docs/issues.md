@@ -15,6 +15,7 @@ each has been open. An issue leaves the list when it is decided, built or droppe
 
 | Since | Issue | Record |
 |---|---|---|
+| 2026-10-25 | CellDesigner's unknown gate ? to SBGN-ML: SBGN has no such gate, so it is left out with its arcs (pd65: ten opioids lose their link to Opioid peptide). Keep that, write an OR, or join each input straight to the target? | [D19](/converter/docs/design/#d19-celldesigners-unknown-gate-as--and-the-equivalence-operator-written-as-it) |
 | 2026-10-18 | Angle check for the advanced layout: lines level in yEd come out 0.5 to 10 degrees off. Fix them automatically, or only report in a first round? | [Planned](/converter/docs/planned/#an-angle-check-for-the-advanced-layout-user-2026-10-18-not-decided) |
 | 2026-10-19 | One substance under two unlinked identifiers (calcium atom, Ca2+ ion) stays two entities. Join them, or report only? | [D3](/converter/docs/design/#d3-the-entity-key) |
 | 2026-10-19 | Older CellDesigner files (36 of the 65 ACSN 2.0 files) are not read. Read them, or say what the file is? | [Planned](/converter/docs/planned/#older-celldesigner-files-found-2026-10-19-not-discussed-yet) |

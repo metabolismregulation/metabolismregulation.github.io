@@ -182,4 +182,17 @@ drift over round trips fixed (trip 2: 17 process glyphs on 10 maps, up to 27 px,
 px), then frozen. Not built until a real exchange shows the need: the points at large complexes for modifier
 arcs and slanting lines. Advanced is where one-way quality is improved.
 
+## D19. CellDesigner's unknown gate as ?, and the equivalence operator written as it
+
+**2026-10-25, accepted, built.** **Context**: CellDesigner has a fourth logic gate, `BOOLEAN_LOGIC_GATE_UNKNOWN`,
+drawn with a question mark (Osteoarthritis pd65: ten opioids into Opioid peptide, twice); the reader labelled its
+yEd operator UNKNOWN, which no writer took back. SBGN and yEd's SBGN palette have no such gate; CellDesigner has
+no equivalence operator, so that was left out of CellDesigner files. **Decision** (user, 2026-10-25): the unknown
+gate is a yEd Operator labelled **?**, read and written both ways with CellDesigner (on a reaction's modifiers and
+between entities). An equivalence operator (≡) is written to CellDesigner as the unknown gate, the best fit, its
+line to the generic entity a dashed stimulation (`UNKNOWN_REDUCED_PHYSICAL_STIMULATION`, as for every dashed
+stimulation out of a gate). **Consequences**: a ≡ that goes to CellDesigner comes back as ?, not ≡ (the file keeps
+no mark of it). SBGN-ML has no glyph for ?: the gate and its arcs are left out with a message (an open question,
+[Issues](/converter/docs/issues/)).
+
 {% endraw %}

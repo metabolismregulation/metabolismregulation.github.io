@@ -161,7 +161,8 @@ Activity labels (AF and hybrid; user, 2026-10-19): "activity" at the end of an a
 yEd's SBGN palette draws it as an Operator labelled ≡ (Monospaced 18; the user's file
 `tests/yed/equivalence-operator.graphml`), the members joined to it by plain lines, one plain line
 drawn from it to the generic entity. SBGN-ML: class `equivalence`, logic arcs in and one out, no label.
-CellDesigner has no equivalence: left out there, with a message, the entities kept.
+CellDesigner has no equivalence: written there as its unknown gate **?**, the line to the generic entity a
+dashed stimulation (D19).
 
 ## Checks
 

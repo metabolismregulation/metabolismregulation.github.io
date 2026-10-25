@@ -108,8 +108,8 @@ covered whole, so no edge runs through it. Newt also aims every arc at the centr
 leaves a node off centre gets a bend just outside it, to keep its course.</p>
 <p><b>Not converted</b>: the elements that break the rules, listed under the map in red, one per line
 with the element's id, label (an arc by its ends) and reason. Arcs leaving a phenotype, left out of the
-SBGN-ML, are listed under the map with the phenotype's id and label. Equivalence operators are left out of the
-CellDesigner files, which have no such element, and kept in the SBGN-ML.</p>
+SBGN-ML, are listed under the map with the phenotype's id and label. CellDesigner has no equivalence operator: it becomes CellDesigner's unknown gate, drawn with a question mark,
+its line to the generic entity a dashed stimulation. The SBGN-ML keeps the equivalence operator.</p>
 
 <h2 id="celldesigner">From CellDesigner</h2>
 <p><b>Input</b>: CellDesigner 4.x (<code>.xml</code>), SBML Level 2 Version 4 with the CellDesigner
@@ -134,6 +134,8 @@ end node, or on the straight line between two others. These are left out of the 
 an arc starts where its line crosses the node's border in CellDesigner.</p>
 <p>All SBGN-ML files give a homodimer its N:x unit, N:2 included. Since CellDesigner files carry no site
 names, their state variables have none.</p>
+<p>CellDesigner's unknown logic gate, drawn with a question mark, becomes a logic operator labelled ? in the
+GraphML. SBGN has no such gate, so the SBGN-ML files leave it out with its arcs, listed under the map.</p>
 <p><b>Not converted</b>: text and shapes drawn on layers, groups, compartments drawn as an edge line,
 and state variables on a complex, listed under the map.</p>
 
@@ -166,8 +168,8 @@ of all three files and listed under the map with their class and ids. A perturbi
 phenotype in all three files. CellDesigner, like the maps of this site, has one glyph for both. An
 Activity Flow delay is kept in the GraphML as a logic operator labelled τ. The CellDesigner files have no
 delay, so there its input is joined to its target. An Activity Flow submap becomes a phenotype with its name,
-without its terminals and tags. Its equivalence arcs become plain lines to that phenotype in the GraphML. Equivalence operators are left out of the
-CellDesigner files, which have no such element, and kept in the GraphML.</p>
+without its terminals and tags. Its equivalence arcs become plain lines to that phenotype in the GraphML. Equivalence operators become CellDesigner's unknown gate (a question mark) in the CellDesigner files and stay
+equivalence operators in the GraphML.</p>
 
 <h2 id="sizes">Standard node sizes</h2>
 <p><b>Purpose</b>: for maps drawn with a font that is too large or too small for their shapes, so the
@@ -203,7 +205,7 @@ rest. Multimers are drawn as dimers at the size of the input map, as in SBGN, a 
 information N:3, N:4 on the node, so a tetramer does not grow and reach its neighbours.</p>
 
 <h2 id="loading">Loading</h2>
-<p><b>Updated</b>: 19 October 2026, Pyodide 0.26.4.</p>
+<p><b>Updated</b>: 25 October 2026, Pyodide 0.26.4.</p>
 <p><b>Size</b>: about 7 MB compressed (about 20 MB unpacked), downloaded on the first visit, then taken
 from the browser cache. Almost all of it is
 Python running in the browser (Pyodide): the Python engine 3.0 MB, its standard library 2.3 MB and

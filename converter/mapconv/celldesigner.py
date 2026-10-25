@@ -72,7 +72,9 @@ UNKNOWN = {'CATALYSIS': 'UNKNOWN_CATALYSIS', 'INHIBITION': 'UNKNOWN_INHIBITION'}
 UNKNOWN.update({t: 'UNKNOWN_' + t for t in ('NEGATIVE_INFLUENCE', 'REDUCED_PHYSICAL_STIMULATION',
                                              'REDUCED_MODULATION', 'REDUCED_TRIGGER')})
 REACTION = {'Process': 'STATE_TRANSITION', 'OmittedProcess': 'KNOWN_TRANSITION_OMITTED', 'UncertainProcess': 'UNKNOWN_TRANSITION'}
-GATE = {'AND': 'BOOLEAN_LOGIC_GATE_AND', 'OR': 'BOOLEAN_LOGIC_GATE_OR', 'NOT': 'BOOLEAN_LOGIC_GATE_NOT'}
+GATE = {'AND': 'BOOLEAN_LOGIC_GATE_AND', 'OR': 'BOOLEAN_LOGIC_GATE_OR', 'NOT': 'BOOLEAN_LOGIC_GATE_NOT',
+        '?': 'BOOLEAN_LOGIC_GATE_UNKNOWN'}  # CellDesigner's unknown gate, a ? in yEd (user, 2026-10-25; no SBGN glyph)
+GATE_LABEL = {v: k for k, v in GATE.items()}
 # glyph at the end of an arc into a process -> CellDesigner modification type
 MOD = {'catalysis': 'CATALYSIS', 'inhibition': 'INHIBITION', 'modulation': 'MODULATION',
        'stimulation': 'PHYSICAL_STIMULATION', 'trigger': 'TRIGGER'}
@@ -176,10 +178,10 @@ def write(diagram, ann, layout='straight'):
     advanced = layout != 'straight'
     diagram = opened_ors(without_delays(diagram, 'CellDesigner'))
     eq = [i for i, d in diagram.nodes.items() if d.kind == 'Operator' and d.labels[:1] == [EQUIV]]
-    if eq:  # CellDesigner has no equivalence operator
-        report.say('left out', 'equivalence operator: no CellDesigner form, left out (%s), its entities kept' % ', '.join(eq))
-        diagram = replace(diagram, nodes={i: d for i, d in diagram.nodes.items() if i not in eq},
-                          arcs=[a for a in diagram.arcs if a.source not in eq and a.target not in eq])
+    if eq:  # CellDesigner has no equivalence operator: its unknown gate, the line out a dashed stimulation (user, 2026-10-25)
+        report.say('changed', 'equivalence operator written as CellDesigner\'s unknown gate ? (%s)' % ', '.join(eq))
+        diagram = replace(diagram, nodes={i: replace(d, labels=['?']) if i in eq else d for i, d in diagram.nodes.items()},
+                          arcs=[replace(a, head='stimulation', dashed=True) if a.source in eq else a for a in diagram.arcs])
     N, E = diagram.nodes, diagram.arcs
     ents = {i: d for i, d in N.items() if d.kind in CLASS}
     procs = {i: d for i, d in N.items() if d.kind in ('Process', 'OmittedProcess', 'UncertainProcess')}
@@ -787,7 +789,7 @@ def read(path):
             if mt not in HEAD or not pts:
                 report.say('left out', 'reaction %s: logic gate with %s, not converted' % (rid, mt)); continue
             (gx, gy), op = pts[-1], rid + '_gate'
-            nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[g.get('type').rsplit('_', 1)[1]])
+            nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[GATE_LABEL[g.get('type')]])
             for e in br:
                 arcs.append(Arc(id='%s_%s' % (op, alias_of(e)), source=alias_of(e), target=op))
             arcs.append(Arc(id=op + '_out', source=op, target=alias_of(bp[0]), head=HEAD[mt], dashed=mt.startswith('UNKNOWN_')))
@@ -862,9 +864,7 @@ def read(path):
                 # the gate at the last edit point (absolute), the bends of its line before it, in the
                 # frame gate -> process (CellDesigner's save, pd65 of the Osteoarthritis map)
                 *bends, (gx, gy) = points(m.get('editPoints'))
-                nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[t.rsplit('_', 1)[1]])
-                if t.endswith('UNKNOWN'):
-                    report.say('changed', 'reaction %s: logic gate of unknown type kept as an operator "UNKNOWN"' % rid)
+                nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[GATE_LABEL[t]])
                 for a_ in m.get('aliases').split(','):
                     if a_ in nodes:
                         arcs.append(Arc(id='%s_%s' % (op, a_), source=a_, target=op)); gate_inputs[(a_, m.get('modificationType'))] = arcs[-1]

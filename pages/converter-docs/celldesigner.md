@@ -322,6 +322,9 @@ the user (HSP90 + CAV1:CaM:eNOS -> CaM:HSP90:CAV1:eNOS + CaM).
   (REDUCED_TRIGGER, REDUCED_MODULATION; REDUCED_PHYSICAL_STIMULATION for a
   stimulation, NEGATIVE_INFLUENCE for inhibition; the PD map's POSITIVE_INFLUENCE is read), then one GateMember per input of
   that type. All four are written and read.
+- Unknown gate (`BOOLEAN_LOGIC_GATE_UNKNOWN`, the question mark; pd65 of the Osteoarthritis map, 2026-10-25): the
+  yEd Operator **?**, both ways, as a modification gate and between entities; an equivalence operator is written as
+  it (D19).
 - Unknown (dashed) reduced arcs (the user's file `tests/celldesigner/unknown-reduced.xml`,
   2026-10-20): UNKNOWN_ before the type, between entities (UNKNOWN_POSITIVE_INFLUENCE,
   UNKNOWN_NEGATIVE_INFLUENCE, UNKNOWN_REDUCED_PHYSICAL_STIMULATION, UNKNOWN_REDUCED_MODULATION,

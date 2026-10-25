@@ -110,7 +110,7 @@ are those of the yEd SBGN palette (`model.py` kinds).
 | TRANSCRIPTIONAL_ACTIVATION, TRANSLATIONAL_ACTIVATION | production (marked TODO in cd2sbgnml) | **stimulation** (user, Q7) | |
 | TRANSCRIPTIONAL_INHIBITION, TRANSLATIONAL_INHIBITION | production (TODO) | **inhibition** (user, Q7) | |
 | BOOLEAN_LOGIC_GATE_AND, _OR, _NOT | logic operator + logic arcs | Operator AND/OR/NOT + logic arcs (our forward rule, inverted) | |
-| BOOLEAN_LOGIC_GATE_UNKNOWN | gate dropped, its inputs go straight to the process (Limitations page) | the same, with a warning | |
+| BOOLEAN_LOGIC_GATE_UNKNOWN | gate dropped, its inputs go straight to the process (Limitations page) | GraphML: Operator **?** (D19); SBGN-ML: the gate and its arcs left out, with a message (no SBGN glyph) | |
 
 ## Reduced notation (arcs between entities, no process)
 
