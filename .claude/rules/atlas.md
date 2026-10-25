@@ -17,6 +17,13 @@ zooms, so a taller window would trap the page (user, 2026-10-16). A full-screen 
 Fit shows the map alone, with the annotation over its right side. Fit fits the map to the window with no space around it and centres it, never above the
 reading size (user, 2026-10-22, as on the Colours page); Read keeps the map at the top.
 
+## Atlas icon
+
+The Atlas has its own browser-tab icon (user, 2026-10-25), drawn as the Osteoarthritis working site's: "Mr" over
+"atlas" in white Bitter 600 on slate #4a5d73, corners r18 (`images/atlas-icon/`: SVG, 32 px and 180 px PNG). The
+page's front matter `icon: atlas-icon` adds the links (`_includes/meta.html`); every other page keeps the site's
+`favicon.ico`.
+
 ## Atlas download row
 
 Atlas download row: one colour for all buttons (no quieter SBML, no filled MINERVA), in the style of the Converter's grey button (user, 2026-10-20): white, grey edge and text (#777), on hover filled in the blue of the chosen map in the map list (#4183c4, white text), the Images menu items in the font and colours of the button, the menu opening upwards when there is no room below in the window (user, 2026-10-22, as the Colours map menu). Ordered by use: GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and MINERVA, all in one row at the same spacing.
