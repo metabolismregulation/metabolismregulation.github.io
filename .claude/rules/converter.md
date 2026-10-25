@@ -56,11 +56,14 @@ page /converter/routes/, in git history): "GraphML ⭤ CellDesigner", "GraphML �
 ticked routes are converted, all three ticked by default (user, 2026-10-25, first GraphML ⭤ CellDesigner only); a file is made when its format is the
 input's or a ticked route joins the two, and a file no ticked route takes gets a note in red naming the boxes to tick, under its name. Next to the drop area
 (user, 2026-10-25, variant 1 of the former test page /converter/options/ with the note as in its variant 4): on the right
-the choices, each group named in grey: "Convert" (the routes), "Additional CellDesigner layouts", "Options" (Standard
-node sizes), then the links ↳ Description ↳ Architecture; the right column aligned to the top (user, 2026-10-25); ticked boxes grey #626262 (`accent-color`, as Chrome's private
+the choices, each group named in grey: "Convert" (the routes), "Additional CellDesigner layouts", "Options" (standard
+node sizes, lower case as the other boxes; user, 2026-10-25), then the links ↳ Description ↳ Architecture; the right column aligned to the top (user, 2026-10-25); ticked boxes grey #626262 (`accent-color`, as Chrome's private
 window draws them; user, 2026-10-25); under the drop area the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
 description page says it).
-No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept minimal).
+No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept minimal). An ⓘ after "Additional
+CellDesigner layouts" and after "Options" (user, 2026-10-25, variant 2 of the former test page /converter/info/; not
+after each box, not on the download buttons, which keep their hover texts): a click or tap opens the group's text in a
+grey box under its name, one line per box, a second click or a click elsewhere closes it; the boxes' hover texts are gone.
 The page keeps each map's files (by ending): a tick box change makes only the missing ones, unticking hides
 buttons, Standard node sizes makes the standard sizes file again. Every tick box (routes, Standard node sizes,
 the CellDesigner layouts) is kept in the browser (localStorage `converter-ticks`), the defaults when it keeps

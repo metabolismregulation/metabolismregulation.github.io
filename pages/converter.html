@@ -62,6 +62,13 @@ noindex: true
   .cv-top p.cv-group { margin: 0 0 2px; }
   .cv-top p.cv-std { margin: 0 0 12px; }
   .cv-top p.cv-text { margin: 12px 0 0; }
+  /* ⓘ after a group name: a click or tap opens its text in a grey box under it, a second click or a click
+     elsewhere closes it (user, 2026-10-25, variant 2 of the former test page /converter/info/, in git history;
+     in place of the hover texts on the boxes, which a phone cannot show) */
+  button.cv-i { border: 0; background: none; padding: 0; margin: 0 0 0 4px; color: #777; cursor: pointer; vertical-align: -2px; line-height: 0; }
+  button.cv-i:hover, button.cv-i[aria-expanded="true"] { color: #1c47a9; }
+  .cv-info { display: block; font-size: 13px; line-height: 1.5; color: #555; background: #f6f6f6; border-radius: 4px; padding: 6px 8px; margin: 4px 0 6px; }
+  .cv-info[hidden] { display: none; }
   .cv-modes label { white-space: nowrap; margin-right: 14px; }
   /* the subpages, each with an arrow down and right before it, grey, blue on hover (user, 2026-10-20,
      variant 4 of the former test page /converter/links/, in git history), last on the right (user, 2026-10-25) */
@@ -83,12 +90,14 @@ noindex: true
     <p class="cv-routes cv-hint"><label class="cv-hint"><input type="checkbox" value="graphml xml" checked> GraphML ⭤ CellDesigner</label><br>
     <label class="cv-hint"><input type="checkbox" value="graphml sbgn" checked> GraphML ⭤ SBGN-ML</label><br>
     <label class="cv-hint"><input type="checkbox" value="sbgn xml" checked> SBGN-ML ⭤ CellDesigner</label></p>
-    <p class="cv-hint cv-modes">Additional CellDesigner layouts<br>
-    <label class="cv-hint" title="Every arc a straight line between node centres, each process glyph midway."><input type="checkbox" value="-straight.xml"> straight</label>
-    <label class="cv-hint" title="Straight lines with the key bends of the input map. No node moved."><input type="checkbox" value="-bends.xml"> straight &amp; bends</label>
-    <label class="cv-hint" title="Every node and process glyph where the input map has it, held by extra bend points."><input type="checkbox" value="-drawn.xml"> as drawn</label></p>
-    <p class="cv-hint cv-group">Options</p>
-    <p class="cv-std"><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label></p>
+    <p class="cv-hint cv-modes">Additional CellDesigner layouts <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button><br>
+    <span class="cv-info" hidden>straight: every arc a straight line between node centres, each process glyph midway.<br>straight &amp; bends: straight lines with the key bends of the input map. No node moved.<br>as drawn: every node and process glyph where the input map has it, held by extra bend points.</span>
+    <label class="cv-hint"><input type="checkbox" value="-straight.xml"> straight</label>
+    <label class="cv-hint"><input type="checkbox" value="-bends.xml"> straight &amp; bends</label>
+    <label class="cv-hint"><input type="checkbox" value="-drawn.xml"> as drawn</label></p>
+    <p class="cv-hint cv-group">Options <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
+    <span class="cv-info" hidden>standard node sizes: proteins 80 x 40, metabolites 40 x 40 circles, names in font size 14. The map is rescaled if its proteins are much larger or smaller.</span>
+    <p class="cv-std"><label class="cv-hint"><input type="checkbox" id="cv-standard"> standard node sizes</label></p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
   </div>
 </div>
@@ -346,6 +355,15 @@ def convert(name, data, standard=False, skipped=()):
     status.textContent = '';
   }
 
+  // each ⓘ opens the text that follows it (in page order), closing any other
+  const infos = [...document.querySelectorAll('.cv-top .cv-info')], is = [...document.querySelectorAll('.cv-top button.cv-i')];
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button.cv-i');
+    for (const o of is) if (o !== b && o.getAttribute('aria-expanded') === 'true') { o.setAttribute('aria-expanded', 'false'); infos[is.indexOf(o)].hidden = true; }
+    if (!b) return;
+    const open = b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', open); infos[is.indexOf(b)].hidden = !open;
+  });
   drop.addEventListener('click', () => input.click());
   drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
   // the tick boxes as last left in this browser (user, 2026-10-25); the defaults when it keeps nothing
@@ -355,7 +373,7 @@ def convert(name, data, standard=False, skipped=()):
     for (const b of ticks) if (key(b) in saved) b.checked = saved[key(b)];
   } catch (e) {}
   // a tick box changed: every map on the page shown again with the ticks as they are now, one change
-  // after the other; Standard node sizes changes the standard sizes file, so it is made again
+  // after the other; standard node sizes changes the standard sizes file, so it is made again
   let again = Promise.resolve();
   for (const box of ticks)
     box.addEventListener('change', () => {
