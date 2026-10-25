@@ -12,6 +12,10 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-25
 
+- CellDesigner to GraphML and SBGN-ML: a species annotated in another order than our files (MINERVA lists
+  RefSeq or Entrez first) keeps its HGNC ID, HGNC symbol and UniProt; before, only the identifiers before the
+  first HGNC symbol were read. Official files: PD02 Eicosanoids (AsthmaMap) gains 64 HGNC symbols and 17 HGNC IDs,
+  histamine signalling (PD map) one HGNC symbol; nothing else changed.
 - Converter page: the three routes are tick boxes, GraphML ⭤ CellDesigner ticked at first. Only the files of the
   ticked routes are made (a large CellDesigner map gives its GraphML files without waiting for SBGN-ML). A file
   no ticked route takes says which box to tick.

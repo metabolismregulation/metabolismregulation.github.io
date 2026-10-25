@@ -150,6 +150,10 @@ a yEd stimulation arc between two entities becomes PHYSICAL_STIMULATION in reduc
 | layers (free text, lines, shapes, layer comments) | left out, with a warning listing them |
 | style variation (gradient fill, line width) | left out: our yEd style |
 | colours of species | kept as fill (as the forward direction) |
+| references on reactions (MIRIAM isDescribedBy: PubMed, PMC, Reactome) | left out, no message yet ([Issues](/converter/docs/issues/), 2026-10-25) |
+| species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, PubChem, GO) | left out, no message yet (as above) |
+| species notes (MINERVA's Name, Synonyms, Charge text) | left out but for a family's lines (`annotation.from_notes`) |
+| line colours, font sizes (a 30 pt title on a 12 pt map) | left out: our yEd style, the map's one font size |
 
 ## The forward direction (GraphML -> CellDesigner) stays with our symbols
 

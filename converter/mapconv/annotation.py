@@ -50,8 +50,8 @@ def to_properties(family, uris):
         k = {'urn:miriam:hgnc.symbol': 'HGNC symbol', 'urn:miriam:hgnc': 'HGNC', 'urn:miriam:uniprot': 'UniProt',
              'urn:miriam:obo.chebi': 'ChEBI'}.get(db)
         if k: members[-1][k] = 'HGNC:' + x if k == 'HGNC' else x.replace('%3A', ':')
-    if not family:
-        return members[0] if members else {}
+    if not family:  # one entity: every URN its own, whatever their order (MINERVA lists RefSeq first)
+        return {k: v for m in reversed(members) for k, v in m.items()}
     order = ['HGNC', 'HGNC symbol', 'UniProt', 'ChEBI']  # as annotate.py lists them
     return {'Members': '; '.join(m.get('HGNC symbol', m.get('ChEBI', '')) for m in members),
             'Member annotation': json.dumps([{'symbol': m.get('HGNC symbol', ''), 'props': [[k, m[k]] for k in order if k in m]}
