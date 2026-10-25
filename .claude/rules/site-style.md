@@ -29,3 +29,8 @@ line above (#eee); no grey band. Icons: the theme's round dark GitHub icon and i
 
 Every page is 960 px wide (`.container` in `style.scss`, 16 px padding: header, page and footer, user 2026-10-19; it was 840 px). Wide pages (Atlas, Colours) set their own width from the window.
 
+
+## Tab icon candidate
+
+`images/favicon-next/` (user, 2026-10-25): a candidate tab icon, m with reg turned upwards over atlas and 2.0 in the
+corner, kept for later and linked from no page. The site keeps `favicon.ico` until the user says otherwise.
