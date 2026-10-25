@@ -14,6 +14,8 @@ Changes inside the code that leave every file the same are listed only when they
 
 - Every GraphML file (from CellDesigner, SBGN-ML and Newt, corrected, standard sizes): a complex's name at the bottom
   inside it, as in CellDesigner; before, at the top. Reference files: every GraphML with a named complex (75 files).
+  Where the name touches the lowest member (from SBGN-ML and Newt) the complex is left as drawn; the layout skill's
+  complex packing gives it room.
 - CellDesigner's unknown logic gate (the question mark) is a logic operator labelled ? in the GraphML (was UNKNOWN)
   and goes back to CellDesigner as the same gate; before, it was left out there. GraphML and SBGN-ML to CellDesigner:
   an equivalence operator becomes the unknown gate, its line to the generic entity a dashed stimulation; before, it

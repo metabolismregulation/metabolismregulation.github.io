@@ -203,8 +203,10 @@ GraphML the converter writes, a complex with members has its name at the bottom 
 model, position bottom, no border distance, as close to the border as CellDesigner draws it). A complex without
 members keeps its name in the middle. **Consequences**: CellDesigner files keep about 20 px under the lowest member,
 enough for the name (82 of 88 named complexes in the reference files). SBGN-ML and Newt files keep 12 to 15 px
-there, so the name touches the lowest member in 155 of 269 (it touched the top member before too):
-[Issues](/converter/docs/issues/).
+there, so the name touches the lowest member in 155 of 269 (it touched the top member before too). The
+conversion leaves that as it is (user, 2026-10-25: a conversion changes as little as possible; the one deliberate
+exception is the small moves of the advanced CellDesigner file, which save fixing by hand): the layout skill's
+complex packing (`standardise.py`) gives the name its room at the bottom.
 
 
 {% endraw %}
