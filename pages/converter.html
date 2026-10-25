@@ -64,8 +64,8 @@ noindex: true
   .cv-top p.cv-text { margin: 12px 0 0; }
   /* ⓘ after a group name: a click or tap opens its text in a grey box under it, a second click or a click
      elsewhere closes it (user, 2026-10-25, variant 2 of the former test page /converter/info/, in git history;
-     in place of the hover texts on the boxes, which a phone cannot show; 17 px, 1 px smaller, user 2026-10-25) */
-  button.cv-i { border: 0; background: none; padding: 0; margin: 0 0 0 4px; color: #777; cursor: pointer; vertical-align: -3px; line-height: 0; }
+     in place of the hover texts on the boxes, which a phone cannot show; 16 px, user 2026-10-25) */
+  button.cv-i { border: 0; background: none; padding: 0; margin: 0 0 0 4px; color: #777; cursor: pointer; vertical-align: -2px; line-height: 0; }
   /* on hover and while open the colours reversed: a filled grey circle, the i white (user, 2026-10-25; it turned blue) */
   button.cv-i:hover circle, button.cv-i[aria-expanded="true"] circle { fill: currentColor; }
   button.cv-i:hover path, button.cv-i[aria-expanded="true"] path { stroke: #fff; }
@@ -88,17 +88,17 @@ noindex: true
     <p class="cv-hint cv-text">The blue button gives the recommended file of each format. The white buttons are fallback versions or other layouts.</p>
   </div>
   <div>
-    <p class="cv-hint cv-group">Convert <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
+    <p class="cv-hint cv-group">Convert <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
     <span class="cv-info" hidden>GraphML ⭤ CellDesigner: to CellDesigner a few nodes move up to 15 px so that lines meet straight, each move listed under the map. Complexes grow to fit their names, multimers are drawn as dimers with N:x. Back to GraphML the CellDesigner drawing is kept.<br>GraphML ⭤ SBGN-ML: the blue file is adjusted for Newt: compartments enlarged to Newt's margin, nodes too close for it moved apart and listed. The plain file keeps the compartments as drawn.<br>SBGN-ML ⭤ CellDesigner: the same adjustments as above, each way.<br>A GraphML map is checked first: elements that break the SBGN rules are left out, listed in red under the map and drawn red in GraphML (marked).</span>
     <p class="cv-routes cv-hint"><label class="cv-hint"><input type="checkbox" value="graphml xml" checked> GraphML ⭤ CellDesigner</label><br>
     <label class="cv-hint"><input type="checkbox" value="graphml sbgn" checked> GraphML ⭤ SBGN-ML</label><br>
     <label class="cv-hint"><input type="checkbox" value="sbgn xml" checked> SBGN-ML ⭤ CellDesigner</label></p>
-    <p class="cv-hint cv-modes">Additional CellDesigner layouts <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button><br>
+    <p class="cv-hint cv-modes">Additional CellDesigner layouts <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button><br>
     <span class="cv-info" hidden>straight: every arc a straight line between node centres, each process glyph midway.<br>straight &amp; bends: straight lines with the key bends of the input map. No node moved.<br>as drawn: every node and process glyph where the input map has it, held by extra bend points.</span>
     <label class="cv-hint"><input type="checkbox" value="-straight.xml"> straight</label>
     <label class="cv-hint"><input type="checkbox" value="-bends.xml"> straight &amp; bends</label>
     <label class="cv-hint"><input type="checkbox" value="-drawn.xml"> as drawn</label></p>
-    <p class="cv-hint cv-group">Options <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
+    <p class="cv-hint cv-group">Options <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
     <span class="cv-info" hidden>standard node sizes: proteins 80 x 40, metabolites 40 x 40 circles, names in font size 14. The map is rescaled if its proteins are much larger or smaller.</span>
     <p class="cv-std"><label class="cv-hint"><input type="checkbox" id="cv-standard"> standard node sizes</label></p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
