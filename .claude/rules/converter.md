@@ -64,8 +64,8 @@ No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept
 CellDesigner layouts" and after "Options" (user, 2026-10-25, variant 2 of the former test page /converter/info/; not
 after each box, not on the download buttons, which keep their hover texts): a click or tap opens the group's text in a
 grey box under its name, one line per box, a second click or a click elsewhere closes it; the boxes' hover texts are gone. An ⓘ after "Convert" too (user, 2026-10-25): what the default conversion of each route does beyond converting (the
-small moves, Newt's adjustments, what is left out), one line per route, not "this converts to that". The ⓘ 18 px (its
-circle about 14 px, level with the 15 px text; 15 px until 2026-10-25, user: too small), grey, on hover and while
+small moves, Newt's adjustments, what is left out), one line per route, not "this converts to that". The ⓘ 16 px (its
+circle about 13 px, level with the 15 px text; user 2026-10-25: 15 px too small, 18 px too large), grey, on hover and while
 open the colours reversed: a filled grey circle with a white i (user, 2026-10-25; it turned blue).
 The page keeps each map's files (by ending): a tick box change makes only the missing ones, unticking hides
 buttons, Standard node sizes makes the standard sizes file again. Every tick box (routes, Standard node sizes,
