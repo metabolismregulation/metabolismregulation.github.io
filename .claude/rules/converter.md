@@ -57,7 +57,7 @@ ticked routes are converted, all three ticked by default (user, 2026-10-25, firs
 input's or a ticked route joins the two, and a file no ticked route takes gets a note in red naming the boxes to tick, under its name. Next to the drop area
 (user, 2026-10-25, variant 1 of the former test page /converter/options/ with the note as in its variant 4): on the right
 the choices, each group named in grey: "Convert" (the routes), "Additional CellDesigner layouts", "Options" (Standard
-node sizes), then the links ↳ Description ↳ Architecture; under the drop area the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
+node sizes), then the links ↳ Description ↳ Architecture; the right column aligned to the top (user, 2026-10-25); under the drop area the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
 description page says it).
 No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept minimal).
 The page keeps each map's files (by ending): a tick box change makes only the missing ones, unticking hides
