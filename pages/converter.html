@@ -46,17 +46,22 @@ noindex: true
   /* the text next to the drop area in the page's regular size, in grey (user, 2026-10-20, as ysbgn.js) */
   .cv-top p.cv-hint, .cv-hint { color: #777; }
   /* the routes, one line each, with the font's arrow, so they can be copied (user, 2026-10-17), each a tick box:
-     only the ticked routes are converted, GraphML ⭤ CellDesigner ticked at first (user, 2026-10-25) */
+     only the ticked routes are converted, all three ticked at first (user, 2026-10-25) */
   /* the box scaled with the text, as on the ysbgn.js page */
   label.cv-hint input { width: 15px; height: 15px; vertical-align: -2px; margin: 0 5px 0 0; }
   .cv-top p.cv-routes { margin-bottom: 12px; }
   /* the CellDesigner fallbacks, made only when ticked (user, 2026-10-24: tick boxes, not a drop-down) */
   /* the three in one line (user, 2026-10-24), each kept whole when the line wraps */
-  .cv-top p.cv-modes { margin-top: 10px; line-height: 1.7; }
+  .cv-top p.cv-modes { margin: 0 0 12px; line-height: 1.7; }
+  /* the choices together on the right, each group named: Convert, Additional CellDesigner layouts, Options, then
+     the links; the note on the buttons under the drop area (user, 2026-10-25, variant 1 of the former test page
+     /converter/options/ with the note as in variant 4, in git history) */
+  .cv-top p.cv-group { margin: 0 0 2px; }
+  .cv-top p.cv-std { margin: 0 0 12px; }
+  .cv-top p.cv-text { margin: 12px 0 0; }
   .cv-modes label { white-space: nowrap; margin-right: 14px; }
-  /* the subpages, each with an arrow down and right before it, grey, blue on hover, above the tick box,
-     which comes last (user, 2026-10-20,
-     variant 4 of the former test page /converter/links/, in git history) */
+  /* the subpages, each with an arrow down and right before it, grey, blue on hover (user, 2026-10-20,
+     variant 4 of the former test page /converter/links/, in git history), last on the right (user, 2026-10-25) */
   .cv-top p.cv-links { margin: 8px 0 10px; color: #777; }
   .cv-top p.cv-links a { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
   .cv-top p.cv-links a:hover { color: #1c47a9; }
@@ -68,18 +73,20 @@ noindex: true
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/></svg>
       <span id="cv-drop-text">Loading the converter…</span>
     </div>
+    <p class="cv-hint cv-text">The blue button gives the recommended file of each format. The white buttons are fallback versions.</p>
   </div>
   <div>
+    <p class="cv-hint cv-group">Convert</p>
     <p class="cv-routes cv-hint"><label class="cv-hint"><input type="checkbox" value="graphml xml" checked> GraphML ⭤ CellDesigner</label><br>
-    <label class="cv-hint"><input type="checkbox" value="graphml sbgn"> GraphML ⭤ SBGN-ML</label><br>
-    <label class="cv-hint"><input type="checkbox" value="sbgn xml"> SBGN-ML ⭤ CellDesigner</label></p>
-    <p class="cv-hint">The blue button gives the recommended file of each format. The white buttons are fallback versions. The conversion runs in the browser, and the files never leave the computer.</p>
-    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
-    <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label></p>
+    <label class="cv-hint"><input type="checkbox" value="graphml sbgn" checked> GraphML ⭤ SBGN-ML</label><br>
+    <label class="cv-hint"><input type="checkbox" value="sbgn xml" checked> SBGN-ML ⭤ CellDesigner</label></p>
     <p class="cv-hint cv-modes">Additional CellDesigner layouts<br>
     <label class="cv-hint" title="Every arc a straight line between node centres, each process glyph midway."><input type="checkbox" value="-straight.xml"> straight line</label>
     <label class="cv-hint" title="Straight lines with the key bends of the input map. No node moved."><input type="checkbox" value="-bends.xml"> straight &amp; bends</label>
     <label class="cv-hint" title="Every node and process glyph where the input map has it, held by extra bend points."><input type="checkbox" value="-drawn.xml"> as drawn</label></p>
+    <p class="cv-hint cv-group">Options</p>
+    <p class="cv-std"><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label></p>
+    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>
@@ -279,8 +286,8 @@ def convert(name, data, standard=False, skipped=()):
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
       box.file = f; box.made = made; box.all = all;
       box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
-      if (!routed.some(i => i.checked)) {  // no ticked route takes this file: which would (user, 2026-10-25)
-        const d = document.createElement('div'); d.className = 'cv-log';
+      if (!routed.some(i => i.checked)) {  // no ticked route takes this file: which would, in red (user, 2026-10-25)
+        const d = document.createElement('div'); d.className = 'cv-log cv-error';
         d.textContent = 'Tick ' + routed.map(i => i.parentNode.textContent.trim()).join(' or ') + ' to convert this file.';
         box.querySelector('.cv-left').append(d);
       }

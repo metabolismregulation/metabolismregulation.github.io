@@ -53,8 +53,13 @@ browser, and the files never leave the computer." ("Straight lines layout is a f
 CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the former test
 page /converter/routes/, in git history): "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
 "SBGN-ML ⭤ CellDesigner", each a tick box (user, 2026-10-25: a large map waited for every route): only the
-ticked routes are converted, GraphML ⭤ CellDesigner ticked by default; a file is made when its format is the
-input's or a ticked route joins the two, and a file no ticked route takes gets a note naming the boxes to tick.
+ticked routes are converted, all three ticked by default (user, 2026-10-25, first GraphML ⭤ CellDesigner only); a file is made when its format is the
+input's or a ticked route joins the two, and a file no ticked route takes gets a note in red naming the boxes to tick, under its name. Next to the drop area
+(user, 2026-10-25, variant 1 of the former test page /converter/options/ with the note as in its variant 4): on the right
+the choices, each group named in grey: "Convert" (the routes), "Additional CellDesigner layouts", "Options" (Standard
+node sizes), then the links ↳ Description ↳ Architecture; under the drop area the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
+description page says it).
+No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept minimal).
 The page keeps each map's files (by ending): a tick box change makes only the missing ones, unticking hides
 buttons, Standard node sizes makes the standard sizes file again. Every tick box (routes, Standard node sizes,
 the CellDesigner layouts) is kept in the browser (localStorage `converter-ticks`), the defaults when it keeps

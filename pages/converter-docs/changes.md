@@ -16,9 +16,10 @@ Changes inside the code that leave every file the same are listed only when they
   RefSeq or Entrez first) keeps its HGNC ID, HGNC symbol and UniProt; before, only the identifiers before the
   first HGNC symbol were read. Official files: PD02 Eicosanoids (AsthmaMap) gains 64 HGNC symbols and 17 HGNC IDs,
   histamine signalling (PD map) one HGNC symbol; nothing else changed.
-- Converter page: the three routes are tick boxes, GraphML ⭤ CellDesigner ticked at first. Only the files of the
-  ticked routes are made (a large CellDesigner map gives its GraphML files without waiting for SBGN-ML). A file
-  no ticked route takes says which box to tick.
+- Converter page: the three routes are tick boxes, all ticked at first. Only the files of the ticked routes are
+  made (a large CellDesigner map gives its GraphML files without waiting for SBGN-ML). A file no ticked route
+  takes says in red which box to tick. The tick boxes are together on the right, the note on the buttons under
+  the drop area.
 - Converter page: ticking a box makes only the files the maps on the page do not have yet; unticking one hides
   its buttons. The browser keeps the tick boxes as last left.
 - SBGN-ML written about three times faster on large maps (the test for nodes a straightened line would cross).

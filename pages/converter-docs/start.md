@@ -20,9 +20,9 @@ Open the [Converter page](/converter/) and drop the file on the drop area, or cl
 file. The converter loads once (a few seconds the first time), then converts in the browser. A file
 dropped while it loads waits and is converted once it has loaded.
 
-The tick boxes next to the drop area choose the routes: only GraphML ⭤ CellDesigner at first. Tick
-GraphML ⭤ SBGN-ML for the SBGN-ML files too. Ticking a box later adds its files to the maps already on
-the page. The browser keeps the boxes as you left them.
+The tick boxes under Convert choose the routes, all three at first. Untick the ones you do not need: a
+large map converts faster. Ticking a box later adds its files to the maps already on the page. The
+browser keeps the boxes as you left them.
 
 ## 3. Check what the converter said
 
@@ -39,7 +39,7 @@ Under the buttons are the messages of each file: what was moved, written another
 The blue button of each format is the recommended file. For a yEd map:
 
 - **CellDesigner**: the drawing kept. Open it in CellDesigner 4.4.
-- **SBGN-ML (newt-adjusted)**, with GraphML ⭤ SBGN-ML ticked: adjusted so that Newt keeps it as drawn.
+- **SBGN-ML (newt-adjusted)**: adjusted so that Newt keeps it as drawn.
   **Open in Newt** opens it there directly.
 - The white buttons are fallback versions: straight line, plain SBGN-ML.
 
@@ -47,8 +47,7 @@ The blue button of each format is the recommended file. For a yEd map:
 
 ## 5. Back to yEd
 
-Drop the CellDesigner or SBGN-ML file on the page again: it gives a GraphML (for SBGN-ML, with
-GraphML ⭤ SBGN-ML ticked). Compare it with the map
+Drop the CellDesigner or SBGN-ML file on the page again: it gives a GraphML. Compare it with the map
 you started from. Differences beyond a few pixels are worth reporting.
 
 {% endraw %}
