@@ -9,7 +9,8 @@ paths:
 ## Map drawing
 
 How biology becomes glyphs (complexes, state variables, arcs): the representation rules, `REPRESENTATION.md`
-in the layout skill (user, 2026-10-25).
+in the skill map-development (private repository `amazein/map-development-skill`; user, 2026-10-25). The layout
+skill only lays out.
 
 A change to how an entity is drawn applies to every instance of it on the map, including
 empty state variables (user, 2026-10-17).
