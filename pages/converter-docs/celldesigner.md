@@ -307,7 +307,10 @@ the user (HSP90 + CAV1:CaM:eNOS -> CaM:HSP90:CAV1:eNOS + CaM).
   from the gate to the process (CATALYSIS, TRIGGER, ...), `targetLineIndex`,
   and `editPoints="x,y"` = the gate's absolute position (MINERVA puts the gate
   there). The gate can sit anywhere (user): the converter uses the yEd
-  operator's position. Then one `modification` per input, of the
+  operator's position. A gate CellDesigner saved with bends (PD map histamine signalling,
+  Osteoarthritis pd65; read since 2026-10-25): the gate is the last point of `editPoints`, the points
+  before it the bends of the line gate -> process, in the frame gate -> process; each input's
+  modification carries its connection point (`linkTarget`) and its bends in the frame input -> gate. Then one `modification` per input, of the
   modificationType, with `linkTarget` connection point INACTIVE and no targetLineIndex.
   Every input is a modifierSpeciesReference and lists the reaction in its
   listOfCatalyzedReactions. yEd: Operator node, inputs joined by plain arcs

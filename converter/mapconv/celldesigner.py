@@ -852,28 +852,36 @@ def read(path):
                     flow(alias_of(l), into, [from_frame(O, J, p) if into else from_frame(J, O, p) for p in q], port(alias_of(l), O))
         # modifiers: the arc ends at the point of the square targetLineIndex names (a side middle or a
         # corner); in yEd at that point of the 18 px process (corners at 9, 9)
-        gate_inputs, gates = set(), 0
+        gate_inputs, gates = {}, 0  # (input, type) -> its arc into the gate
         for m in xs(x, 'cd:listOfModification/cd:modification'):
             t = m.get('type')
             spot = SQUARE.get(int(m.get('targetLineIndex', '-1,2').split(',')[1]), SQUARE[3])
             T = square_point(sq, fl, *spot)
             if t.startswith('BOOLEAN_LOGIC_GATE'):
                 op = '%s_gate%d' % (rid, gates); gates += 1
-                gx, gy = points(m.get('editPoints'))[0]
+                # the gate at the last edit point (absolute), the bends of its line before it, in the
+                # frame gate -> process (CellDesigner's save, pd65 of the Osteoarthritis map)
+                *bends, (gx, gy) = points(m.get('editPoints'))
                 nodes[op] = Node(id=op, kind='Operator', box=(gx - 15, gy - 15, 30, 30), labels=[t.rsplit('_', 1)[1]])
                 if t.endswith('UNKNOWN'):
                     report.say('changed', 'reaction %s: logic gate of unknown type kept as an operator "UNKNOWN"' % rid)
                 for a_ in m.get('aliases').split(','):
                     if a_ in nodes:
-                        arcs.append(Arc(id='%s_%s' % (op, a_), source=a_, target=op)); gate_inputs.add((a_, m.get('modificationType')))
-                arcs.append(Arc(id=op + '_out', source=op, target=rid, head=HEAD.get(m.get('modificationType'), 'stimulation')))
+                        arcs.append(Arc(id='%s_%s' % (op, a_), source=a_, target=op)); gate_inputs[(a_, m.get('modificationType'))] = arcs[-1]
+                arcs.append(Arc(id=op + '_out', source=op, target=rid, head=HEAD.get(m.get('modificationType'), 'stimulation'),
+                                points=[from_frame((gx, gy), T, q) for q in bends]))
                 continue
             a_ = m.get('aliases')
-            if (a_, t) in gate_inputs or a_ not in nodes:
-                continue  # an input of a gate (listed once more by CellDesigner), or not converted
+            lt = f(m, 'cd:linkTarget')
+            if (a_, t) in gate_inputs:  # an input of a gate, listed once more by CellDesigner: its anchor,
+                g = gate_inputs[(a_, t)]  # its bends in the frame input -> gate
+                M = end(lt) if lt is not None else cen(a_)
+                g.source_at, g.points = port(a_, M), [from_frame(M, cen(g.target), q) for q in points(m.get('editPoints'))]
+                continue
+            if a_ not in nodes:
+                continue  # not converted
             if t not in HEAD:
                 report.say('left out', 'reaction %s: modifier type %s, not converted' % (rid, t)); continue
-            lt = f(m, 'cd:linkTarget')
             M = end(lt) if lt is not None else cen(a_)  # its anchor on the modifier, else the centre
             arcs.append(Arc(id='%s_%s_%s' % (rid, a_, t.lower()), source=a_, target=rid, head=HEAD[t],
                             points=[from_frame(M, T, q) for q in points(m.get('editPoints'))],

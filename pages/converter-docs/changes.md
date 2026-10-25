@@ -12,6 +12,11 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-25
 
+- CellDesigner to GraphML and SBGN-ML: a logic gate (AND, OR, NOT) on a reaction's modifiers, as CellDesigner saves
+  it with bends, sits where CellDesigner draws it; before, it was placed at the map's top left corner, its lines
+  drawn across the whole map. The line from the gate to the process and the lines from its inputs keep their bends
+  and connection points. Official files: histamine signalling (PD map), its AND gate (the map no longer reaches
+  out to that corner, so every coordinate of its SBGN-ML moves by the same amount).
 - CellDesigner to GraphML and SBGN-ML: a species annotated in another order than our files (MINERVA lists
   RefSeq or Entrez first) keeps its HGNC ID, HGNC symbol and UniProt; before, only the identifiers before the
   first HGNC symbol were read. Official files: PD02 Eicosanoids (AsthmaMap) gains 64 HGNC symbols and 17 HGNC IDs,

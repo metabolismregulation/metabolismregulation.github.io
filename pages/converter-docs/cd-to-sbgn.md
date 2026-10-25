@@ -203,14 +203,6 @@ Found 2026-10-18 by the routing experiment (maps-workbench `experiments/routing/
 `routing-experiment`), on the PD map submaps in `tests/external/pd-map/submaps/` and AsthmaMap's PD02 in
 `tests/external/asthmap/submaps/`:
 
-- **Modification gate at (0, 0)** (pd-histamine-signalling, reaction hib4, AND gate on hi9, hia,
-  hid): `read()` places a gate of a modification (`BOOLEAN_LOGIC_GATE_*`) at the first point of its
-  `editPoints` (`points(m.get('editPoints'))[0]`), here `0.0,4.44E-16`. CellDesigner keeps the
-  gate's absolute position in the last point (`520.0,985.0`), as the reaction-gate branch already
-  reads it (`pts[-1]`). Fix: `[0]` -> `[-1]`.
-- **Gate inputs lose their bends**: the other points of that modification's `editPoints` (and of
-  the per-input modifications CellDesigner lists again) are the inputs' bends; they are dropped,
-  so the inputs are drawn straight.
 - **Added links lose their bends**: "edit points of an added link left out" (pd-autophagy 16
   links, pd-histamine-signalling 2). Needs a small CellDesigner file with an added reactant or
   product link drawn with bends, saved by CellDesigner, before the format is read.
