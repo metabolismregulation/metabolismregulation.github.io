@@ -632,14 +632,15 @@ def main():
     print(len(written), 'maps:', ', '.join(written))
 
 
-if '--copy-official' in sys.argv:
-    copy_official()
-elif '--check-official' in sys.argv:
-    check_official()
-elif '--official-csv' in sys.argv:
-    base, pathway = sys.argv[sys.argv.index('--official-csv') + 1:][:2]
-    rows = table_rows(base, pathway, 'downloads')
-    write_table(os.path.join(ROOT, 'downloads', base + '.csv'), rows)
-    print('downloads/%s.csv: %d rows' % (base, len(rows)))
-else:
-    main()
+if __name__ == '__main__':  # run as a script; imported, only its functions
+    if '--copy-official' in sys.argv:
+        copy_official()
+    elif '--check-official' in sys.argv:
+        check_official()
+    elif '--official-csv' in sys.argv:
+        base, pathway = sys.argv[sys.argv.index('--official-csv') + 1:][:2]
+        rows = table_rows(base, pathway, 'downloads')
+        write_table(os.path.join(ROOT, 'downloads', base + '.csv'), rows)
+        print('downloads/%s.csv: %d rows' % (base, len(rows)))
+    else:
+        main()
