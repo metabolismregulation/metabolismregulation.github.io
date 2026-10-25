@@ -195,4 +195,16 @@ stimulation out of a gate). **Consequences**: a ≡ that goes to CellDesigner co
 no mark of it). SBGN-ML has no glyph for ?: the gate and its arcs are left out with a message (an open question,
 [Issues](/converter/docs/issues/)).
 
+## D20. A complex's name at the bottom in GraphML
+
+**2026-10-25, accepted, built.** **Context**: the GraphML writer copied yEd's complex template, which puts the name
+at the top inside the complex, while CellDesigner writes it at the bottom. **Decision** (user, 2026-10-25): in every
+GraphML the converter writes, a complex with members has its name at the bottom inside it (yEd's internal label
+model, position bottom, no border distance, as close to the border as CellDesigner draws it). A complex without
+members keeps its name in the middle. **Consequences**: CellDesigner files keep about 20 px under the lowest member,
+enough for the name (82 of 88 named complexes in the reference files). SBGN-ML and Newt files keep 12 to 15 px
+there, so the name touches the lowest member in 155 of 269 (it touched the top member before too):
+[Issues](/converter/docs/issues/).
+
+
 {% endraw %}

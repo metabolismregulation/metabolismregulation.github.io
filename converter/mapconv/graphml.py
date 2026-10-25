@@ -266,6 +266,8 @@ def write(diagram):
         if d.kind == 'Compartment':  # its name where the source has it, else centred at the top (the template's place)
             lx, ly = d.label_at or (float(l.get('x')), 0.0)
             l.set('x', repr(float(lx))); l.set('y', repr(float(ly)))
+        if group and d.kind == 'Complex':  # a complex's name at the bottom, as CellDesigner draws it (user, 2026-10-25)
+            l.set('modelPosition', 'b'); l.set('borderDistance', '0.0'); l.set('y', repr(h - float(l.get('height'))))
         if d.count > 1:  # yEd draws a multimer as two shapes; N:x says how many
             sp = gn.find('y:StyleProperties', NS)
             if sp is None:  # the simple chemical template has none (a multimer Ca2+, O2)
