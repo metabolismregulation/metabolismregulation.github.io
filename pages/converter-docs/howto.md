@@ -18,7 +18,7 @@ To edit a yEd map in CellDesigner and take it back to yEd.
    conversion, so nothing adds up over several trips.
 2. Edit the file in CellDesigner 4.4 and save it.
 3. Drop the saved file on the page and take **GraphML**: the CellDesigner drawing kept, as yEd draws
-   it. **GraphML (straight line)** gives the same map with the yEd conventions and every arc straight.
+   it. **GraphML (straight)** gives the same map with the yEd conventions and every arc straight.
 
 What CellDesigner changed stays changed: the file is read as CellDesigner saved it.
 

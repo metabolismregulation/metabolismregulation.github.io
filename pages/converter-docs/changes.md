@@ -22,6 +22,7 @@ Changes inside the code that leave every file the same are listed only when they
   the drop area.
 - Converter page: ticking a box makes only the files the maps on the page do not have yet; unticking one hides
   its buttons. The browser keeps the tick boxes as last left.
+- Converter page: "straight line" on the buttons and the tick box reads "straight". Files and their names unchanged.
 - SBGN-ML written about three times faster on large maps (the test for nodes a straightened line would cross).
   Every file the same.
 

@@ -41,7 +41,7 @@ The blue button of each format is the recommended file. For a yEd map:
 - **CellDesigner**: the drawing kept. Open it in CellDesigner 4.4.
 - **SBGN-ML (newt-adjusted)**: adjusted so that Newt keeps it as drawn.
   **Open in Newt** opens it there directly.
-- The white buttons are fallback versions or other layouts: straight line, plain SBGN-ML, and the additional
+- The white buttons are fallback versions or other layouts: straight, plain SBGN-ML, and the additional
   CellDesigner layouts when ticked.
 
 [Inputs and outputs](/converter/description/) says what each button's file holds.
