@@ -45,7 +45,8 @@ noindex: true
   .cv-top a, .cv-top a:hover, .cv-top a:active { color: #1c47a9; }
   /* the text next to the drop area in the page's regular size, in grey (user, 2026-10-20, as ysbgn.js) */
   .cv-top p.cv-hint, .cv-hint { color: #777; }
-  /* the routes, one line each, as plain text with the font's arrow, so it can be copied (user, 2026-10-17) */
+  /* the routes, one line each, with the font's arrow, so they can be copied (user, 2026-10-17), each a tick box:
+     only the ticked routes are converted, GraphML ⭤ CellDesigner ticked at first (user, 2026-10-25) */
   /* the box scaled with the text, as on the ysbgn.js page */
   label.cv-hint input { width: 15px; height: 15px; vertical-align: -2px; margin: 0 5px 0 0; }
   .cv-top p.cv-routes { margin-bottom: 12px; }
@@ -69,9 +70,9 @@ noindex: true
     </div>
   </div>
   <div>
-    <p class="cv-routes cv-hint">GraphML ⭤ CellDesigner<br>
-    GraphML ⭤ SBGN-ML<br>
-    SBGN-ML ⭤ CellDesigner</p>
+    <p class="cv-routes cv-hint"><label class="cv-hint"><input type="checkbox" value="graphml xml" checked> GraphML ⭤ CellDesigner</label><br>
+    <label class="cv-hint"><input type="checkbox" value="graphml sbgn"> GraphML ⭤ SBGN-ML</label><br>
+    <label class="cv-hint"><input type="checkbox" value="sbgn xml"> SBGN-ML ⭤ CellDesigner</label></p>
     <p class="cv-hint">The blue button gives the recommended file of each format. The white buttons are fallback versions. The conversion runs in the browser, and the files never leave the computer.</p>
     <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a></p>
     <p><label class="cv-hint"><input type="checkbox" id="cv-standard"> Standard node sizes</label></p>
@@ -115,17 +116,20 @@ def preview(ending, text):
         return None
 
 def convert(name, data, standard=False, skipped=()):
+    # skipped: the endings and formats (xml, sbgn, graphml) not to make: a route or CellDesigner layout not
+    # ticked, or a file the page already has. Returns the files made and the endings of all the input gives
     os.makedirs('/tmp/in', exist_ok=True)
     p = '/tmp/in/' + name
     with open(p, 'wb') as f:
         f.write(data.to_bytes())
-    files = []
-    for o in routes.outputs(p, standard):
-        if o.ending in skipped:
-            continue  # a CellDesigner layout not ticked
+    files, endings = [], []
+    for i, o in enumerate(routes.outputs(p, standard)):
+        end = o.ending.replace('-advanced', '')
+        endings.append(end)
+        if end in skipped or end.rsplit('.', 1)[-1] in skipped:
+            continue
+        # text None and no messages: GraphML (corrected) or (standard sizes) not given for this map
         text, said = routes.made(o)
-        if o.ending in ('-corrected.graphml', '-standard.graphml') and text is None and not said:
-            continue  # only for a map drawn with other shapes than the SBGN palette, or at another scale
         if o.red:
             found = [m for k, m in said if k == 'problem']
             log = '%s: %d problem%s, left out of the converted files\\n' % (name, len(found), '' if len(found) == 1 else 's') + '\\n'.join(found)
@@ -138,8 +142,8 @@ def convert(name, data, standard=False, skipped=()):
         label = {'SBGN-ML (advanced, for Newt)': 'SBGN-ML (newt-adjusted)', 'SBGN-ML (straight, for Newt)': 'SBGN-ML (newt-adjusted, straight line)',
                  'SBGN-ML (advanced)': 'SBGN-ML (plain)', 'SBGN-ML (straight)': 'SBGN-ML (plain, straight line)'}.get(o.label) or \
                 o.label.replace(' (advanced)', '').replace(' (straight)', ' (straight line)')
-        files.append([o.ending.replace('-advanced', ''), label, text, log, o.red, preview(o.ending, text)])
-    return files
+        files.append([end, label, text, log, o.red, preview(o.ending, text), i])
+    return [files, endings]
 `;
   const drop = document.getElementById('cv-drop'), input = document.getElementById('cv-file');
   const dropText = document.getElementById('cv-drop-text');
@@ -226,7 +230,19 @@ def convert(name, data, standard=False, skipped=()):
     box.append(all);
   }
 
-  // old: a map's buttons already on the page, replaced in place when a tick box changes (user, 2026-10-24)
+  // the routes (user, 2026-10-25): a file is made when its format is the input's, or a ticked route joins
+  // the two; a CellDesigner layout also when its box is ticked
+  const routeBoxes = [...document.querySelectorAll('.cv-routes input')];
+  const joined = (a, b) => routeBoxes.some(i => i.checked && i.value.split(' ').includes(a) && i.value.split(' ').includes(b));
+  const formatOf = end => end.split('.').pop();
+  function wanted(end, src) {
+    const to = formatOf(end), mode = document.querySelector('.cv-modes input[value="' + end + '"]');
+    return (!to || to === src || joined(src, to)) && (!mode || mode.checked);
+  }
+
+  // old: a map already on the page, replaced in place when a tick box changes (user, 2026-10-24). Its
+  // files are kept (box.made, by ending): a change makes only the files it does not have yet, an unticked
+  // route or layout only hides its buttons (user, 2026-10-25)
   async function convert(files, old) {
     if (!py) {
       waiting.push(...files);
@@ -236,15 +252,24 @@ def convert(name, data, standard=False, skipped=()):
     const top = out.firstChild;  // a new drop goes above the earlier ones, its maps in order
     for (const f of files) {
       if (!/\.(graphml|xml|sbgn|nwt)$/i.test(f.name)) { status.textContent = f.name + ': not a GraphML, CellDesigner or SBGN-ML file'; continue; }
-      status.textContent = 'Converting ' + f.name + '…';
       const base = f.name.replace(/\.(graphml|xml|sbgn|nwt)$/i, '');
-      let r;
-      try {
-        r = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked,
-                                    [...document.querySelectorAll('.cv-modes input:not(:checked)')].map(i => i.value)).toJs();
-      } catch (e) {  // said under the drop area, not left at "Converting"
-        status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
+      const src = f.name.split('.').pop().toLowerCase().replace('nwt', 'sbgn');
+      const made = old ? old.made : new Map();
+      let all = old ? old.all : null;  // the endings of every file the input gives, once known
+      const routed = routeBoxes.filter(i => i.value.split(' ').includes(src));
+      if (routed.some(i => i.checked) && (!all || all.some(e => wanted(e, src) && !made.has(e)))) {
+        status.textContent = 'Converting ' + f.name + '…';
+        const skipped = [...made.keys(), ...[...document.querySelectorAll('.cv-modes input:not(:checked)')].map(i => i.value),
+                         ...['graphml', 'xml', 'sbgn'].filter(t => t !== src && !joined(src, t))];
+        try {
+          const [r, ends] = py.globals.get('convert')(f.name, new Uint8Array(await f.arrayBuffer()), document.getElementById('cv-standard').checked, skipped).toJs();
+          for (const x of r) made.set(x[0], x);
+          all = ends;
+        } catch (e) {  // said under the drop area, not left at "Converting"
+          status.textContent = f.name + ': not converted: ' + String(e.message || e).trim().split('\n').pop(); return;
+        }
       }
+      const r = [...made.values()].filter(x => wanted(x[0], src)).sort((a, b) => a[6] - b[6]);
       // each format's buttons together, in their columns, ranked (the blue one first; user, 2026-10-20)
       const format = label => label.split(' (')[0], order = [...new Set(r.map(x => format(x[1])))];
       const variant = label => (label.match(/\((.*)\)$/) || [])[1];
@@ -252,7 +277,13 @@ def convert(name, data, standard=False, skipped=()):
       r.sort((a, b) => order.indexOf(format(a[1])) - order.indexOf(format(b[1])) || plain(a[1]) - plain(b[1]) || rank(variant(a[1])) - rank(variant(b[1])));
       const box = document.createElement('div'); box.className = 'cv-map';
       box.insertAdjacentHTML('beforeend', '<div class="cv-left"><div class="cv-name"></div></div>');
-      box.file = f; box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
+      box.file = f; box.made = made; box.all = all;
+      box.querySelector('.cv-name').textContent = f.name;  // the dropped file's name with its extension (user, 2026-10-20)
+      if (!routed.some(i => i.checked)) {  // no ticked route takes this file: which would (user, 2026-10-25)
+        const d = document.createElement('div'); d.className = 'cv-log';
+        d.textContent = 'Tick ' + routed.map(i => i.parentNode.textContent.trim()).join(' or ') + ' to convert this file.';
+        box.querySelector('.cv-left').append(d);
+      }
       // the converter's messages, each once, under the files it comes from (user, 2026-10-20)
       const notes = new Map(), errors = new Map();
       const problems = [];
@@ -307,11 +338,26 @@ def convert(name, data, standard=False, skipped=()):
 
   drop.addEventListener('click', () => input.click());
   drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
-  // a tick box changed: every map on the page converted again with the ticks as they are now, one
-  // change after the other
+  // the tick boxes as last left in this browser (user, 2026-10-25); the defaults when it keeps nothing
+  const ticks = [...document.querySelectorAll('.cv-top input[type=checkbox]')], key = b => b.id || b.value;
+  try {
+    const saved = JSON.parse(localStorage.getItem('converter-ticks') || '{}');
+    for (const b of ticks) if (key(b) in saved) b.checked = saved[key(b)];
+  } catch (e) {}
+  // a tick box changed: every map on the page shown again with the ticks as they are now, one change
+  // after the other; Standard node sizes changes the standard sizes file, so it is made again
   let again = Promise.resolve();
-  for (const box of document.querySelectorAll('#cv-standard, .cv-modes input'))
-    box.addEventListener('change', () => { again = again.then(async () => { for (const m of [...out.querySelectorAll('.cv-map')]) await convert([m.file], m); }); });
+  for (const box of ticks)
+    box.addEventListener('change', () => {
+      try { localStorage.setItem('converter-ticks', JSON.stringify(Object.fromEntries(ticks.map(b => [key(b), b.checked])))); } catch (e) {}
+      const standard = box.id === 'cv-standard';
+      again = again.then(async () => {
+        for (const m of [...out.querySelectorAll('.cv-map')]) {
+          if (standard) { m.made.delete('-standard.graphml'); m.all = null; }
+          await convert([m.file], m);
+        }
+      });
+    });
   input.addEventListener('change', () => { convert([...input.files]); input.value = ''; });
   drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('cv-over'); });
   drop.addEventListener('dragleave', () => drop.classList.remove('cv-over'));

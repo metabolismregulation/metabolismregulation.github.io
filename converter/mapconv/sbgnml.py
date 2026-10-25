@@ -255,12 +255,15 @@ def write(diagram, layout='advanced', newt=False):
 
     made = {g.get('id') for g in m.iter(S + 'glyph')}
     def crossed(line, s, t):
-        # the nodes a line runs through, besides its own ends and what holds them
+        # the nodes a line runs through, besides its own ends and what holds them; a node outside the
+        # rectangle the line spans is left out before the exact test (the same result, faster on large maps)
         ends = {s, t}
         for i in (s, t):
             while N[i].parent is not None:
                 i = N[i].parent; ends.add(i)
+        xs, ys = [p[0] for p in line], [p[1] for p in line]
         return {i for i, d in N.items() if d.kind != 'Compartment' and i not in ends and (d.parent is None or N[d.parent].kind == 'Compartment')
+                and d.box[0] < max(xs) and min(xs) < d.box[0] + d.box[2] and d.box[1] < max(ys) and min(ys) < d.box[1] + d.box[3]
                 and any(cuts(p, q, d.box) for p, q in zip(line, line[1:]))}
     for a, cls, s, t, pts, s_at, t_at in arcs:
         if ids[s] not in made or ids[t] not in made:

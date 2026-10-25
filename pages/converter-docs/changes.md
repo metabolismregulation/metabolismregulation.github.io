@@ -10,6 +10,16 @@ noindex: true
 What changed for people who use the converter, newest first, by the date it went to the Converter page.
 Changes inside the code that leave every file the same are listed only when they change the design.
 
+## 2026-10-25
+
+- Converter page: the three routes are tick boxes, GraphML ⭤ CellDesigner ticked at first. Only the files of the
+  ticked routes are made (a large CellDesigner map gives its GraphML files without waiting for SBGN-ML). A file
+  no ticked route takes says which box to tick.
+- Converter page: ticking a box makes only the files the maps on the page do not have yet; unticking one hides
+  its buttons. The browser keeps the tick boxes as last left.
+- SBGN-ML written about three times faster on large maps (the test for nodes a straightened line would cross).
+  Every file the same.
+
 ## 2026-10-24
 
 - Converter page: the SBGN-ML button made for Newt reads "newt-adjusted" under SBGN-ML (was "Newt"), so it is not

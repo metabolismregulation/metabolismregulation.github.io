@@ -52,7 +52,13 @@ browser, and the files never leave the computer." ("Straight lines layout is a f
 (`pages/converter-sbgn.html`, map-converter `tools/sbgn_test.sh`) lists every Atlas map and official
 CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the former test
 page /converter/routes/, in git history): "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
-"SBGN-ML ⭤ CellDesigner" (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
+"SBGN-ML ⭤ CellDesigner", each a tick box (user, 2026-10-25: a large map waited for every route): only the
+ticked routes are converted, GraphML ⭤ CellDesigner ticked by default; a file is made when its format is the
+input's or a ticked route joins the two, and a file no ticked route takes gets a note naming the boxes to tick.
+The page keeps each map's files (by ending): a tick box change makes only the missing ones, unticking hides
+buttons, Standard node sizes makes the standard sizes file again. Every tick box (routes, Standard node sizes,
+the CellDesigner layouts) is kept in the browser (localStorage `converter-ticks`), the defaults when it keeps
+nothing (user, 2026-10-25) (one way ⭢, U+2B62, both ways one line with ⭤, U+2B64, one design (⇄ tried and dropped), user 2026-10-17) (user, 2026-10-17: SBGN-ML gives each
 directly, not CellDesigner through the GraphML), as plain text so it can be copied (user, 2026-10-17). "GraphML ⭢ GraphML corrected to the SBGN palette" removed (user, 2026-10-21): useful but additional, described on the description and architecture pages. All the text next to the drop area
 (routes, the note on the browser, the links, the tick box) is in the page's regular size (15 px, the tick box scaled with it as on ysbgn.js) and grey #777 (user, 2026-10-20; it was 13 px, user 2026-10-17), and so is "↰ Converter" on the subpages
 (user, 2026-10-17: text until it is clear what information to show). If one day

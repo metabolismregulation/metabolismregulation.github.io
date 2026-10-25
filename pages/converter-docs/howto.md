@@ -24,7 +24,8 @@ What CellDesigner changed stays changed: the file is read as CellDesigner saved 
 
 ## Open a map in Newt
 
-1. Drop the GraphML, CellDesigner or SBGN-ML file on the page.
+1. Tick the route to SBGN-ML: GraphML ⭤ SBGN-ML for a GraphML map, SBGN-ML ⭤ CellDesigner for a
+   CellDesigner file. Drop the file on the page.
 2. Click **Open in Newt** under the SBGN-ML files: Newt opens the file for Newt, in which every process
    sits in a compartment and each compartment has the room Newt's margin needs, so Newt keeps the
    map as drawn.
