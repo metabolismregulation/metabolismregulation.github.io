@@ -10,6 +10,12 @@ noindex: true
 What changed for people who use the converter, newest first, by the date it went to the Converter page.
 Changes inside the code that leave every file the same are listed only when they change the design.
 
+## 2026-10-26
+
+- Logic gates with more than two inputs: a CellDesigner test file (an OR of five), read and written on every route;
+  no file changed. In CellDesigner every gate, NOT included, is drawn from two inputs, more added with the
+  add-reactant tool (the user's check), so the open point on a one-input NOT there is closed.
+
 ## 2026-10-25
 
 - Every GraphML file (from CellDesigner, SBGN-ML and Newt, corrected, standard sizes): a complex's name at the bottom
