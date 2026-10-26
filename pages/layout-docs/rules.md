@@ -47,7 +47,8 @@ name running past the node as a box. Two nodes are too close when any of their s
 - **Two antennas, for a reversible process only**: its two ends attach on opposite sides and modulation arcs on the
   other two, since arrows at both ends do not tell input from output. Other processes and logic gates do without
   the rule.
-- Any number of modulation arcs per process, each aimed at the process centre.
+- Any number of modulation arcs per process, each aimed at the process centre or its nearest corner, never a far
+  one (user, 2026-10-26: safer, no hand work after).
 - **No crossings** in a layout drawn here (our own blocks and maps up to about 30 processes): no arc crosses
   another, runs through a node or lies on another arc's line. A short diagonal arc is better than a crossing.
 - **Room between lines**: an arc keeps 30 px from every node it passes and from another arc running beside it.
