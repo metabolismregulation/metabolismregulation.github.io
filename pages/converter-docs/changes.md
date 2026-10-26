@@ -14,7 +14,8 @@ Changes inside the code that leave every file the same are listed only when they
 
 - Logic gates with more than two inputs: a CellDesigner test file (an OR of five), read and written on every route;
   no file changed. In CellDesigner every gate, NOT included, is drawn from two inputs, more added with the
-  add-reactant tool (the user's check), so the open point on a one-input NOT there is closed.
+  add-reactant tool (the user's check). A NOT with one input, as SBGN draws it, goes to CellDesigner as written:
+  CellDesigner opens and saves it (a second test file, saved by CellDesigner); no file changed.
 
 ## 2026-10-25
 

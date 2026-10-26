@@ -317,6 +317,9 @@ the user (HSP90 + CAV1:CaM:eNOS -> CaM:HSP90:CAV1:eNOS + CaM).
   one modification each; AND, NOT and the unknown gate ? are read and written the same way (user, 2026-10-26:
   every gate works the same in CellDesigner, NOT included). Drawn as the user does it: the gate made the usual way (two inputs, then the target),
   further inputs with the add-reactant tool; CellDesigner saves an added input as one of the first two.
+  A NOT with one input (SBGN's NOT), as the converter writes it, opens in CellDesigner and is saved as written:
+  the gate's modification and the input's with `targetLineIndex="-1,0"`, no `linkTarget` (the user's save,
+  `tests/celldesigner/gate-not-one-input.xml`, 2026-10-26).
   Every input is a modifierSpeciesReference and lists the reaction in its
   listOfCatalyzedReactions. yEd: Operator node, inputs joined by plain arcs
   in either direction.
