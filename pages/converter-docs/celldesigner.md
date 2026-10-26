@@ -314,7 +314,9 @@ the user (HSP90 + CAV1:CaM:eNOS -> CaM:HSP90:CAV1:eNOS + CaM).
   modificationType, with `linkTarget` connection point INACTIVE and no targetLineIndex.
   Any number of inputs (the user's file `tests/celldesigner/gate-or-multiple.xml`, 2026-10-26: an OR of
   five on a catalysis, the gate's line at targetLineIndex -1,2): every input in `modifiers` and `aliases`,
-  one modification each; AND and the unknown gate ? are read and written the same way.
+  one modification each; AND and the unknown gate ? are read and written the same way (user: they work the
+  same in CellDesigner). Drawn as the user does it: the gate made the usual way (two inputs, then the target),
+  further inputs with the add-reactant tool; CellDesigner saves an added input as one of the first two.
   Every input is a modifierSpeciesReference and lists the reaction in its
   listOfCatalyzedReactions. yEd: Operator node, inputs joined by plain arcs
   in either direction.
