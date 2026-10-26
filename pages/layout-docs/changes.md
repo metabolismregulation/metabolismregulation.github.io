@@ -11,6 +11,9 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-26
 
+- Names of proteins, metabolites and the like always inside their shape, centred (strict); the check lists any
+  that is not, and no longer counts arcs through a centred name.
+
 - Two antennas only for reversible processes: elsewhere inputs, outputs and modulation may attach on any side, logic
   gates included. The check reports only reversible processes without them.
 

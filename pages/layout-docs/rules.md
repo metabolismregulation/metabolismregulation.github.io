@@ -69,8 +69,8 @@ name running past the node as a box. Two nodes are too close when any of their s
 - Every bend is soft (rounded corners). Hard corners only where the curator drew them.
 - No bend points that do nothing. An arc bends only to go around something, and nodes are aligned so arcs run
   straight.
-- An arc into a metabolite does not run through its name. The name goes under the circle, else above, else
-  beside it, where none of its arcs run; only when all are taken, the metabolite or the arc's port moves 10 px.
+- **Names inside, centred** (strict): the name of every protein, metabolite and the like sits inside its shape,
+  centred, on every map. A long metabolite name runs past its circle. No pass moves a name out.
 
 ## Placement (options)
 
