@@ -57,7 +57,7 @@ ticked routes are converted, all three ticked by default (user, 2026-10-25, firs
 input's or a ticked route joins the two, and a file no ticked route takes gets a note in red naming the boxes to tick, under its name. Next to the drop area
 (user, 2026-10-25, variant 1 of the former test page /converter/options/ with the note as in its variant 4): on the right
 the choices, each group named in grey: "Convert" (the routes), "Additional CellDesigner layouts", "Options" (standard
-node sizes, lower case as the other boxes; user, 2026-10-25), then the links ↳ Description ↳ Architecture; the right column aligned to the top (user, 2026-10-25); ticked boxes grey #626262 (`accent-color`, as Chrome's private
+node sizes, lower case as the other boxes; user, 2026-10-25), then the links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-26: Documentation added); the right column aligned to the top (user, 2026-10-25); ticked boxes grey #626262 (`accent-color`, as Chrome's private
 window draws them; user, 2026-10-25); under the drop area the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
 description page says it).
 No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept minimal). An ⓘ after "Additional
@@ -120,7 +120,7 @@ does not mention it, propose matching changes to it, or ask for its repository.
 ## Converter documentation
 
 `/converter/docs/` (user, 2026-10-24): the converter's documentation, hidden like the Converter pages
-(`noindex`, out of the sitemap) and not linked from them yet. Its pages (`pages/converter-docs/`) and
+(`noindex`, out of the sitemap), linked from the Converter page (↳ Documentation, user, 2026-10-26). Its pages (`pages/converter-docs/`) and
 menu (`_data/converter_docs.yml`) are copies made by map-converter's `tools/to_website.sh` from its
 `docs/`: edit the text there, never here. The layout is `_layouts/converter-docs.html`: the menu on the
 left (folded on a phone), "On this page" on pages with four sections or more, and on a table whose first
