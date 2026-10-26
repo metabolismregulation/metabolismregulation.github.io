@@ -16,6 +16,9 @@ Everything unresolved, by what it waits on, with the date it was found.
 | 2026-10-26 | Whether the router or the path runner is built first. |
 | 2026-10-26 | The large grid for placing blocks (64 and 16 px) and the spacing of `kit.py` on 16 px, which changes the output of every build that uses it. |
 | 2026-10-26 | Which Atlas map serves as the test for a new layout from content alone. |
+| 2026-10-26 | Where an enzyme of two steps on one column sits: between them, level with one, or beside the first. |
+| 2026-10-26 | Whether the order for colliding rules (Drawing rules) is the curator's. |
+| 2026-10-26 | Almost straight segments: off by under 12 px, or under 10 degrees, or both. |
 
 ## A known fault
 
@@ -23,7 +26,6 @@ Everything unresolved, by what it waits on, with the date it was found.
 |---|---|
 | 2026-10-26 | `snap_grid.py` has no guard: on a map of about 80 reactions it sent 14 more arcs through their own metabolite's name. |
 | 2026-10-26 | `standardise.py` is slow on large maps: over 10 minutes on a map of about 80 reactions. |
-| 2026-10-26 | One rule out of date in the skill's text: lanes 14 px apart in one place, 12 px in the script and elsewhere. |
 
 ## To be sorted out
 

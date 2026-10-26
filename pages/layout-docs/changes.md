@@ -11,6 +11,11 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-26
 
+- One order for rules that collide (Drawing rules), and a point where work stops: when the check shows nothing new
+  on the story, overlaps, crossings and room. Contradictions between pages removed: lanes 12 px, complex margins
+  16 px, metabolites 40 x 40 circles, a metabolite's name placed before its arcs are moved, catalysts on the line
+  through their process, previews no longer delivered with a layout.
+
 - A new map from its content is drawn first and fast, by the moves a person makes (`tree_layout.py`, under a
   second on 81 reactions): main story down the left column, branches in columns to the right, catalysts beside
   their process, branches as blocks on shelves, gates by their inputs. The other rules are checks for the
