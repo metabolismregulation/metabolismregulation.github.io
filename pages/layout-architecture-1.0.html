@@ -6,8 +6,7 @@ sitemap: false
 noindex: true
 ---
 
-<!-- how the human-like layout tool (the skill sbgn-human-like-layout, private repository
-     amazein/human-like-layout-skill, used by maps-workbench) is built, and the architecture
+<!-- how the human-like layout tool (the skill sbgn-human-like-layout) is built, and the architecture
      suggested for it (user, 2026-10-19). Kept as it was on 2026-10-26, as earlier architecture 1.0 at /human-like-layout/architecture/1.0/ (user, 2026-10-26: a later
      page kept the same way becomes 1.1, 1.2, ...)
      (the current page is /human-like-layout/architecture/). Hidden like /converter/architecture/, same drawing grammar:
@@ -54,8 +53,8 @@ noindex: true
 
 <p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
 draws them: story first, then blocks, straight arcs, compact complexes. It is the Claude skill
-<code>sbgn-human-like-layout</code> (private repository <code>amazein/human-like-layout-skill</code>),
-and the map builds in <code>maps-workbench</code> use it as a submodule. This page shows how it is built today,
+<code>sbgn-human-like-layout</code>,
+and the map builds use it. This page shows how it is built today,
 what is left for later and what comes next.</p>
 
 <h2>Today</h2>
@@ -96,20 +95,20 @@ what is left for later and what comes next.</p>
   <text class="ca-sub" x="255" y="243" text-anchor="middle">its own node list</text>
   <rect class="ca-lay" x="170" y="268" width="170" height="50" rx="7"/>
   <text class="ca-name" x="255" y="289" text-anchor="middle">yedit.py</text>
-  <text class="ca-sub" x="255" y="307" text-anchor="middle">workbench, 247 lines</text>
+  <text class="ca-sub" x="255" y="307" text-anchor="middle">map project, 247 lines</text>
   <rect class="ca-lay" x="170" y="332" width="170" height="50" rx="7"/>
   <text class="ca-name" x="255" y="353" text-anchor="middle">ygml.py</text>
-  <text class="ca-sub" x="255" y="371" text-anchor="middle">workbench, 55 lines</text>
+  <text class="ca-sub" x="255" y="371" text-anchor="middle">map project, 55 lines</text>
 
   <rect class="ca-box" x="370" y="76" width="190" height="50" rx="7"/>
   <text class="ca-name" x="465" y="97" text-anchor="middle">kit.Layout</text>
   <text class="ca-sub" x="465" y="115" text-anchor="middle">put, route, fork, blocks</text>
   <rect class="ca-box" x="370" y="140" width="190" height="50" rx="7"/>
   <text class="ca-name" x="465" y="161" text-anchor="middle">F022-bcaa/kit.py</text>
-  <text class="ca-sub" x="465" y="179" text-anchor="middle">node, arc: workbench builds</text>
+  <text class="ca-sub" x="465" y="179" text-anchor="middle">node, arc: map project builds</text>
   <rect class="ca-box" x="370" y="204" width="190" height="50" rx="7"/>
   <text class="ca-name" x="465" y="225" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="243" text-anchor="middle">82 map scripts, workbench</text>
+  <text class="ca-sub" x="465" y="243" text-anchor="middle">82 map scripts, map project</text>
 
   <rect class="ca-box" x="590" y="76" width="170" height="50" rx="7"/>
   <text class="ca-name" x="675" y="97" text-anchor="middle">complex_pack</text>
@@ -135,7 +134,7 @@ what is left for later and what comes next.</p>
   <text class="ca-sub" x="875" y="243" text-anchor="middle">two antennas</text>
   <rect class="ca-box" x="790" y="268" width="170" height="50" rx="7"/>
   <text class="ca-name" x="875" y="289" text-anchor="middle">tools/check.py</text>
-  <text class="ca-sub" x="875" y="307" text-anchor="middle">workbench: runs the skill's</text>
+  <text class="ca-sub" x="875" y="307" text-anchor="middle">map project: runs the skill's</text>
 
   <rect class="ca-fmt" x="1010" y="100" width="160" height="40" rx="5"/>
   <text class="ca-fmtt" x="1090" y="125" text-anchor="middle">GraphML</text>
@@ -165,10 +164,10 @@ what is left for later and what comes next.</p>
   <text class="ca-sub" x="32" y="581">the network as a list, the house style measured</text>
   <rect class="ca-lay" x="411" y="540" width="377" height="52" rx="7"/>
   <text class="ca-name" x="423" y="562">ygml.render_svg, yrender.py</text>
-  <text class="ca-sub" x="423" y="581">two renderers: the skill's preview, the workbench's Atlas images</text>
+  <text class="ca-sub" x="423" y="581">two renderers: the skill's preview, the map project's Atlas images</text>
   <rect class="ca-box" x="802" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="814" y="562">skill zip, submodule</text>
-  <text class="ca-sub" x="814" y="581">to claude.ai on every push, to maps-workbench by hand</text>
+  <text class="ca-name" x="814" y="562">skill zip, copies</text>
+  <text class="ca-sub" x="814" y="581">to claude.ai on every push, to the map builds by hand</text>
 </svg>
 </div>
 <div class="ca-legend">
@@ -185,8 +184,8 @@ since the input file.</p>
 
 <table class="ca-table">
   <tr><th>Still written more than once</th><th>Where</th></tr>
-  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code> (used by <code>snap_grid</code>), <code>hub_grid.load</code>, and in the workbench <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
-  <tr><td>Render</td><td><code>ygml.render_svg</code> (the skill's preview) and the workbench's <code>yrender.py</code> (the Atlas images, copied to this website).</td></tr>
+  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code> (used by <code>snap_grid</code>), <code>hub_grid.load</code>, and in the map project <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
+  <tr><td>Render</td><td><code>ygml.render_svg</code> (the skill's preview) and the map project's <code>yrender.py</code> (the Atlas images, copied to this website).</td></tr>
 </table>
 
 <h2>Left for later</h2>
@@ -196,7 +195,7 @@ since the input file.</p>
   <li><b>One pipeline in a fixed order</b>: worth it once the finishing passes run together in map builds. Today
     snap runs in none and the hubs in three.</li>
   <li><b>One renderer</b>: <code>ygml.render_svg</code> is a rough preview Claude looks at while it lays out a map.
-    <code>yrender</code> (workbench, 542 lines) draws a map as yEd exports it and makes the Atlas images, and this
+    <code>yrender</code> (map project, 542 lines) draws a map as yEd exports it and makes the Atlas images, and this
     website keeps a copy. Using <code>yrender</code> for the preview too would mean that what Claude checks is what
     the Atlas shows. For that it has to move into the skill folder, as the skill zip in claude.ai holds only that
     folder. Kept as it is: the preview is good enough for laying out, and the user judges the result in yEd.</li>
@@ -224,7 +223,7 @@ since the input file.</p>
 its place: one check, the arc fixes in the skill, the F001 scripts in <code>examples/</code>, snap and hubs for
 different maps. The rest costs more than it gains today.</p>
 
-<p>One reader and writer of yEd GraphML that every script uses, the skill's and the workbench's. On it, one file of
+<p>One reader and writer of yEd GraphML that every script uses, the skill's and the map project's. On it, one file of
 placement helpers for the map builds, and one finishing pipeline that runs the passes in a fixed order. One check
 that covers layout, the strict rules and the content. The story stays with the person and the map build, as now.
 What belongs to one map (the F001 blocks, the harmonisation round) moves to <code>examples/</code>. Later, maps from
@@ -278,7 +277,7 @@ map-converter's model and from files without a drawing (dashed).</p>
   <text class="ca-sub" x="465" y="232" text-anchor="middle">node, arc, fit_label</text>
   <rect class="ca-box" x="370" y="272" width="190" height="64" rx="7"/>
   <text class="ca-name" x="465" y="294" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="312" text-anchor="middle">per map, in the workbench:</text>
+  <text class="ca-sub" x="465" y="312" text-anchor="middle">per map, in the map project:</text>
   <text class="ca-sub" x="465" y="328" text-anchor="middle">the story as positions</text>
 
   <rect class="ca-lay" x="595" y="80" width="190" height="300" rx="10"/>
@@ -365,7 +364,7 @@ map-converter's model and from files without a drawing (dashed).</p>
 to move a group with everything in it, where an arc ends. Five readers give five answers that can drift apart.
 <code>complex_pack</code> already holds the definition of the bounds yEd computes that <code>check.py</code> and
 <code>snap_grid</code> use, so that part exists. <code>hub_grid</code> keeps its own list only because it was written
-first. The workbench's <code>yedit.py</code> and <code>ygml.py</code> then import from the skill.</p>
+first. The map project's <code>yedit.py</code> and <code>ygml.py</code> then import from the skill.</p>
 
 <h3>Why a fixed order</h3>
 <p>Each pass changes what the next one sees. A complex packed after a snap leaves the grid, insets fitted before the
@@ -375,7 +374,7 @@ packing are stale, and the two grids above undo each other. One pipeline with on
 
 <h3>What changes</h3>
 <ul>
-  <li><b>yfile.py</b>: one reader and writer, from <code>complex_pack</code>'s helpers and <code>ygml.Model</code>. <code>hub_grid</code>, <code>snap_grid</code>, <code>kit</code> and the workbench's <code>yedit</code> use it.</li>
+  <li><b>yfile.py</b>: one reader and writer, from <code>complex_pack</code>'s helpers and <code>ygml.Model</code>. <code>hub_grid</code>, <code>snap_grid</code>, <code>kit</code> and the map project's <code>yedit</code> use it.</li>
   <li><b>build.py</b>: the generic part of <code>kit.Layout</code> and of <code>F022-bcaa/kit.py</code> (node and arc from a template, fit_label), so map builds no longer import from the BCAA folder.</li>
   <li><b>finish.py</b>: the passes in one order, the grid decided once. <code>centre_ports</code> and <code>smooth_bends</code>, today in the BCAA kit, become passes.</li>
   <li><b>check.py</b>: the two merged, the content identity added, siblings inside groups checked too (SKILL.md section 9: today only top-level nodes are compared).</li>
@@ -396,6 +395,5 @@ packing are stale, and the two grids above undo each other. One pipeline with on
   <li>F001 scripts to <code>examples/</code>, <code>ygml.render_svg</code> removed.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for human-like-layout commit 26cb621 and maps-workbench 7576925.
-The skill is in the private repository <code>amazein/human-like-layout-skill</code>.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19.
 The current page: <a href="{{ '/human-like-layout/architecture/' | relative_url }}">Architecture</a>.</p>

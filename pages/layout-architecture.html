@@ -6,8 +6,7 @@ sitemap: false
 noindex: true
 ---
 
-<!-- how the human-like layout tool (the skill sbgn-human-like-layout, private repository
-     amazein/human-like-layout-skill, used by maps-workbench) is built, and the architecture
+<!-- how the human-like layout tool (the skill sbgn-human-like-layout) is built, and the architecture
      suggested for it (user, 2026-10-19). Since 2026-10-26 (user): the state, how it is built
      today and the order of work. The page of 2026-10-19 is /human-like-layout/architecture/1.0/. Hidden like /converter/architecture/, same drawing grammar:
      a column per stage, left to right. -->
@@ -91,17 +90,17 @@ noindex: true
   <text class="ca-sub" x="255" y="233" text-anchor="middle">its own node list</text>
   <rect class="ca-lay" x="170" y="256" width="170" height="48" rx="7"/>
   <text class="ca-name" x="255" y="276" text-anchor="middle">yedit.py</text>
-  <text class="ca-sub" x="255" y="293" text-anchor="middle">workbench, 247 lines</text>
+  <text class="ca-sub" x="255" y="293" text-anchor="middle">map project, 247 lines</text>
   <rect class="ca-lay" x="170" y="316" width="170" height="48" rx="7"/>
   <text class="ca-name" x="255" y="336" text-anchor="middle">ygml.py</text>
-  <text class="ca-sub" x="255" y="353" text-anchor="middle">workbench, 55 lines</text>
+  <text class="ca-sub" x="255" y="353" text-anchor="middle">map project, 55 lines</text>
 
   <rect class="ca-box" x="370" y="76" width="190" height="48" rx="7"/>
   <text class="ca-name" x="465" y="96" text-anchor="middle">kit.Layout</text>
   <text class="ca-sub" x="465" y="113" text-anchor="middle">blocks: put, route, fork</text>
   <rect class="ca-box" x="370" y="136" width="190" height="48" rx="7"/>
   <text class="ca-name" x="465" y="156" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="173" text-anchor="middle">89 map scripts, workbench</text>
+  <text class="ca-sub" x="465" y="173" text-anchor="middle">89 map scripts, map project</text>
   <rect class="ca-box" x="370" y="196" width="190" height="48" rx="7"/>
   <text class="ca-name" x="465" y="216" text-anchor="middle">transfer_layout</text>
   <text class="ca-sub" x="465" y="233" text-anchor="middle">a layout onto its twin map</text>
@@ -150,7 +149,7 @@ noindex: true
   <text class="ca-sub" x="875" y="233" text-anchor="middle">two antennas</text>
   <rect class="ca-box" x="790" y="256" width="170" height="48" rx="7"/>
   <text class="ca-name" x="875" y="276" text-anchor="middle">tools/check.py</text>
-  <text class="ca-sub" x="875" y="293" text-anchor="middle">workbench: runs the skill's</text>
+  <text class="ca-sub" x="875" y="293" text-anchor="middle">map project: runs the skill's</text>
   <rect class="ca-plan" x="790" y="316" width="170" height="48" rx="7"/>
   <text class="ca-name ca-pt" x="875" y="336" text-anchor="middle">strategies.py</text>
   <text class="ca-sub" x="875" y="353" text-anchor="middle">orders of steps timed</text>
@@ -184,13 +183,13 @@ noindex: true
   <text class="ca-sub" x="32" y="711">2 approved layouts, 22 reference maps:</text>
   <text class="ca-sub" x="32" y="725">the house style and the test set</text>
   <rect class="ca-lay" x="411" y="670" width="377" height="64" rx="7"/>
-  <text class="ca-name" x="423" y="692">layout scripts in the workbench</text>
+  <text class="ca-name" x="423" y="692">layout scripts in the map project</text>
   <text class="ca-sub" x="423" y="711">module_room, name_room, like_steps,</text>
   <text class="ca-sub" x="423" y="725">standard_size, metabolite_size</text>
   <rect class="ca-lay" x="802" y="670" width="377" height="64" rx="7"/>
   <text class="ca-name" x="814" y="692">ygml.render_svg, yrender.py</text>
   <text class="ca-sub" x="814" y="711">two renderers: the skill's preview,</text>
-  <text class="ca-sub" x="814" y="725">the workbench's Atlas images</text>
+  <text class="ca-sub" x="814" y="725">the map project's Atlas images</text>
 </svg>
 </div>
 <div class="ca-legend">
@@ -201,16 +200,14 @@ noindex: true
 
 <p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
 draws them: story first, then blocks, straight arcs, compact complexes. It is not a program with a layout engine.
-It is the Claude skill <code>sbgn-human-like-layout</code> (private repository
-<code>amazein/human-like-layout-skill</code>): written rules that Claude follows, and scripts that each do one
-fixed job on a map. The story decisions stay with the person. The map builds in <code>maps-workbench</code> use the
-skill as a submodule. This page shows where the tool stands, how it is built and what comes next.</p>
+It is the Claude skill <code>sbgn-human-like-layout</code>: written rules that Claude follows, and scripts that each do one
+fixed job on a map. The story decisions stay with the person. The map builds use the skill. This page shows where the tool stands, how it is built and what comes next.</p>
 
 <h2>State</h2>
 
 <table class="ca-table">
   <tr><th>Part</th><th>State on 2026-10-26</th></tr>
-  <tr><td>Story and blocks</td><td>By hand. The person decides the main story, the substories and the hubs. A build script per map writes them down as positions and routes (89 build scripts in <code>maps-workbench</code>).</td></tr>
+  <tr><td>Story and blocks</td><td>By hand. The person decides the main story, the substories and the hubs. A build script per map writes them down as positions and routes (89 build scripts).</td></tr>
   <tr><td>Standardising pass</td><td>Built, run on every Atlas map after a change: state variables and units of information, complexes packed, room at arrowheads and bends, compartments safe for Newt. Slow on a large map: over 10 minutes on one of about 80 reactions.</td></tr>
   <tr><td>Finishing passes</td><td>Built: lanes for parallel and opposite pairs, snap to grid, regular hubs, centre ports and soft bends. Snap to grid has no guard yet: on the 80-reaction test map it put 14 more arcs through their own metabolite's name.</td></tr>
   <tr><td>Check</td><td>Built, one <code>check.py</code>: faults, the preferences for maps drawn in yEd, measures, and every change of content since the input file.</td></tr>
@@ -282,9 +279,9 @@ when a rule already covers it. Suggested on 2026-10-26, to keep the rules from p
 
 <table class="ca-table">
   <tr><th>To be sorted out</th><th>Where</th></tr>
-  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code>, <code>hub_grid.load</code>, and in the workbench <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
-  <tr><td>Render</td><td><code>ygml.render_svg</code> (the skill's preview) and the workbench's <code>yrender.py</code> (the Atlas images, copied to this website).</td></tr>
-  <tr><td>Layout outside the skill</td><td>Five scripts in the workbench do layout jobs: room by moving blocks (<code>module_room</code>), arcs off a metabolite's name (<code>name_room</code>), like steps at one spacing (<code>like_steps</code>), standard protein and metabolite sizes (<code>standard_size</code>, <code>metabolite_size</code>). The skill zip in claude.ai does not hold them.</td></tr>
+  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code>, <code>hub_grid.load</code>, and in the map project <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
+  <tr><td>Render</td><td><code>ygml.render_svg</code> (the skill's preview) and the map project's <code>yrender.py</code> (the Atlas images, copied to this website).</td></tr>
+  <tr><td>Layout outside the skill</td><td>Five scripts in the map project do layout jobs: room by moving blocks (<code>module_room</code>), arcs off a metabolite's name (<code>name_room</code>), like steps at one spacing (<code>like_steps</code>), standard protein and metabolite sizes (<code>standard_size</code>, <code>metabolite_size</code>). The skill zip in claude.ai does not hold them.</td></tr>
   <tr><td>Rules</td><td>20 lessons not yet sorted into <code>SKILL.md</code>. Section 10 says lanes 14 px apart, <code>lanes.py</code> 12. Two rules are written in both section 9 and section 10.</td></tr>
   <tr><td>Guards</td><td>Every step should keep a change only if it adds no fault. <code>standardise.py</code> does, <code>snap_grid</code> does not.</td></tr>
 </table>
@@ -296,7 +293,7 @@ when a rule already covers it. Suggested on 2026-10-26, to keep the rules from p
   <li><b>One pipeline for every pass</b>: the standardising pass already runs four passes in a fixed order. Lanes,
     snap and hubs stay outside it until the strategies above show where they belong.</li>
   <li><b>One renderer</b>: <code>ygml.render_svg</code> is a rough preview Claude looks at while it lays out a map.
-    <code>yrender</code> (workbench, 598 lines) draws a map as yEd exports it and makes the Atlas images, and this
+    <code>yrender</code> (map project, 598 lines) draws a map as yEd exports it and makes the Atlas images, and this
     website keeps a copy. Using <code>yrender</code> for the preview too would mean that what Claude checks is what
     the Atlas shows. For that it has to move into the skill folder, as the skill zip in claude.ai holds only that
     folder. Kept as it is: the preview is good enough for laying out, and the user judges the result in yEd.</li>
@@ -312,9 +309,8 @@ when a rule already covers it. Suggested on 2026-10-26, to keep the rules from p
   <li>A guard for snap to grid, and <code>standardise.py</code> made fast on large maps.</li>
   <li>The strategy runner (<code>strategies.py</code>, about 80 lines) or the router first: the user decides.</li>
   <li>More approved examples, so the checks have more of the user's taste to be tested against.</li>
-  <li>The layout scripts of the workbench moved into the skill, where they apply to every map.</li>
+  <li>The layout scripts of the map project moved into the skill, where they apply to every map.</li>
 </ul>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-26, for human-like-layout-skill commit 689b64d and maps-workbench 9e714df.
-The page of 2026-10-19, with the first suggested architecture: <a href="{{ '/human-like-layout/architecture/1.0/' | relative_url }}">Earlier architecture 1.0</a>. The <a href="{{ '/human-like-layout/documentation/' | relative_url }}">documentation</a>.
-The skill is in the private repository <code>amazein/human-like-layout-skill</code>.</p>
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-26.
+The page of 2026-10-19, with the first suggested architecture: <a href="{{ '/human-like-layout/architecture/1.0/' | relative_url }}">Earlier architecture 1.0</a>. The <a href="{{ '/human-like-layout/documentation/' | relative_url }}">documentation</a>.</p>
