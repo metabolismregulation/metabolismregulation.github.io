@@ -81,8 +81,8 @@ name running past the node as a box. Two nodes are too close when any of their s
 - A side substrate or product: beside the stem at the height of its junction, entering or leaving horizontally.
   Two side substrates: one on each side of the stem. Outputs mirror inputs about the process.
 - A catalyst: on a free side of its process, on the line through its centre, a straight arc. Catalysts of the
-  steps of one reaction row form one row beside it. A catalyst of two processes: level with one, one bend to
-  the other. A catalyst of several processes: one target in line with it, the others' processes on one column
+  steps of one reaction row form one row beside it. A catalyst of two processes, also two consecutive steps:
+  level with one, one bend to the other. A catalyst of several processes: one target in line with it, the others' processes on one column
   beside it, reached by one line that forks.
 - One catalyst for parallel columns: the processes staggered in height so each catalysis arc is one straight
   line between the columns' nodes.

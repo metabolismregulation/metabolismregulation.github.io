@@ -14,10 +14,8 @@ Everything unresolved, by what it waits on, with the date it was found.
 | Since | Issue |
 |---|---|
 | 2026-10-26 | Whether the router or the path runner is built first. |
-| 2026-10-26 | The large grid for placing blocks (64 and 16 px) and the spacing of `kit.py` on 16 px, which changes the output of every build that uses it. |
+| 2026-10-26 | The large grid for placing blocks (64 and 16 px). |
 | 2026-10-26 | Which Atlas map serves as the test for a new layout from content alone. |
-| 2026-10-26 | Where an enzyme of two steps on one column sits: between them, level with one, or beside the first. |
-| 2026-10-26 | Whether the order for colliding rules (Drawing rules) is the curator's. |
 | 2026-10-26 | Almost straight segments: off by under 12 px, or under 10 degrees, or both. |
 
 ## A known fault

@@ -15,6 +15,9 @@ What changed for maps laid out with the tool, by date.
   on the story, overlaps, crossings and room. Contradictions between pages removed: lanes 12 px, complex margins
   16 px, metabolites 40 x 40 circles, a metabolite's name placed before its arcs are moved, catalysts on the line
   through their process, previews no longer delivered with a layout.
+- The skill's instructions halved (rules only, each marked strict, preference or option). Spacing of scripted
+  builds 56 px from a node to its process and 24 px to a junction (was 50 and 29), side inputs 80 px from the stem
+  (was 110): arrows and lines keep 30 px. An enzyme of two steps sits level with one of them, one bend to the other.
 
 - A new map from its content is drawn first and fast, by the moves a person makes (`tree_layout.py`, under a
   second on 81 reactions): main story down the left column, branches in columns to the right, catalysts beside
