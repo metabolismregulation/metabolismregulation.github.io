@@ -1,0 +1,11 @@
+<!-- the human-like layout pages, linked from each other (user, 2026-10-26): Documentation, Architecture and the
+     first architecture, the page shown in dark grey and not linked. Grey #777, blue on hover, the arrow as on the
+     Converter's links. -->
+<style>
+  #main p.hl-nav { margin: 0 0 14px; color: #777; }
+  #main p.hl-nav a, #main p.hl-nav span { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
+  #main p.hl-nav a:hover { color: #1c47a9; }
+  #main p.hl-nav span { color: #222; }
+</style>
+{% assign hl_links = "/human-like-layout/documentation/|Documentation,/human-like-layout/architecture/|Architecture,/human-like-layout/architecture1/|First architecture" | split: "," %}
+<p class="hl-nav">{% for l in hl_links %}{% assign hl = l | split: "|" %}{% assign hl_here = false %}{% if page.url == hl[0] %}{% assign hl_here = true %}{% elsif hl[0] == '/human-like-layout/documentation/' and page.url contains '/human-like-layout/documentation/' %}{% assign hl_here = true %}{% endif %}{% capture hl_arrow %}<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>{% endcapture %}{% if hl_here %}<span>{{ hl_arrow }}{{ hl[1] }}</span>{% else %}<a href="{{ hl[0] | relative_url }}">{{ hl_arrow }}{{ hl[1] }}</a>{% endif %}{% endfor %}</p>

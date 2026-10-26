@@ -8,7 +8,8 @@ noindex: true
 
 <!-- how the human-like layout tool (the skill sbgn-human-like-layout, private repository
      amazein/human-like-layout-skill, used by maps-workbench) is built, and the architecture
-     suggested for it (user, 2026-10-19). Hidden like /converter/architecture/, same drawing grammar:
+     suggested for it (user, 2026-10-19). Since 2026-10-26 (user): the state, how it is built
+     today and the order of work. The page of 2026-10-19 is /human-like-layout/architecture1/. Hidden like /converter/architecture/, same drawing grammar:
      a column per stage, left to right. -->
 <style>
   #main a, #main a:hover, #main a:active { color: #1c47a9; }
@@ -48,16 +49,32 @@ noindex: true
   @media (max-width: 600px) { .ca-table td:first-child { white-space: normal; } }
 </style>
 
-<p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
-draws them: story first, then blocks, straight arcs, compact complexes. It is the Claude skill
-<code>sbgn-human-like-layout</code> (private repository <code>amazein/human-like-layout-skill</code>),
-and the map builds in <code>maps-workbench</code> use it as a submodule. This page shows how it is built today,
-what is left for later and what comes next.</p>
+{% include layout-nav.html %}
 
-<h2>Today</h2>
+<p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
+draws them: story first, then blocks, straight arcs, compact complexes. It is not a program with a layout engine.
+It is the Claude skill <code>sbgn-human-like-layout</code> (private repository
+<code>amazein/human-like-layout-skill</code>): written rules that Claude follows, and scripts that each do one
+fixed job on a map. The story decisions stay with the person. The map builds in <code>maps-workbench</code> use the
+skill as a submodule. This page shows where the tool stands, how it is built and what comes next.</p>
+
+<h2>State</h2>
+
+<table class="ca-table">
+  <tr><th>Part</th><th>State on 2026-10-26</th></tr>
+  <tr><td>Story and blocks</td><td>By hand. The person decides the main story, the substories and the hubs. A build script per map writes them down as positions and routes (89 build scripts in <code>maps-workbench</code>).</td></tr>
+  <tr><td>Standardising pass</td><td>Built, run on every Atlas map after a change: state variables and units of information, complexes packed, room at arrowheads and bends, compartments safe for Newt. Slow on a large map: over 10 minutes on one of about 80 reactions.</td></tr>
+  <tr><td>Finishing passes</td><td>Built: lanes for parallel and opposite pairs, snap to grid, regular hubs, centre ports and soft bends. Snap to grid has no guard yet: on the 80-reaction test map it put 14 more arcs through their own metabolite's name.</td></tr>
+  <tr><td>Check</td><td>Built, one <code>check.py</code>: faults, the preferences for maps drawn in yEd, measures, and every change of content since the input file.</td></tr>
+  <tr><td>Large maps</td><td>A guide in nine steps, coarse to fine (below). Blocks, hubs, the small grid, local passes and the check have scripts. Placing blocks and routing between them are by hand, a placer and a router planned. Different orders of the steps are to be timed against each other on test maps.</td></tr>
+  <tr><td>Rules</td><td><code>SKILL.md</code> has 523 lines, about 190 of them rules from the user's edits (section 10). 20 lessons since 2026-10-17 wait to be sorted into it. One rule is out of date: section 10 still says lanes 14 px apart, <code>lanes.py</code> and section 9 say 12.</td></tr>
+  <tr><td>Approved examples</td><td>Two layouts the user approved (glycolysis, the cPLA2 switch of the eicosanoids map) and 22 reference maps in the house style.</td></tr>
+</table>
+
+<h2>How it is built</h2>
 
 <div class="ca-fig">
-<svg viewBox="0 0 1200 620" role="img" aria-label="The layout tool today: five readers, placement helpers, three finishing passes and the arc fixes, one check">
+<svg viewBox="0 0 1200 760" role="img" aria-label="The layout tool: readers, arrangement by hand and by map builds, the standardising pass and other finishing passes, one check, and around them the rules, examples and the scripts kept elsewhere">
   <defs>
     <marker id="la-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
@@ -65,332 +82,239 @@ what is left for later and what comes next.</p>
   </defs>
   <text class="ca-head" x="80" y="44" text-anchor="middle">Input</text>
   <text class="ca-head" x="255" y="44" text-anchor="middle">Readers</text>
-  <text class="ca-head" x="465" y="44" text-anchor="middle">Placement</text>
-  <text class="ca-head" x="675" y="44" text-anchor="middle">Finishing passes</text>
+  <text class="ca-head" x="465" y="44" text-anchor="middle">Arrangement</text>
+  <text class="ca-head" x="675" y="44" text-anchor="middle">Passes</text>
   <text class="ca-head" x="875" y="44" text-anchor="middle">Checks</text>
   <text class="ca-head" x="1090" y="44" text-anchor="middle">Output</text>
 
-  <rect class="ca-col" x="160" y="62" width="190" height="346" rx="10"/>
-  <rect class="ca-col" x="360" y="62" width="210" height="346" rx="10"/>
-  <rect class="ca-col" x="580" y="62" width="190" height="346" rx="10"/>
-  <rect class="ca-col" x="780" y="62" width="190" height="346" rx="10"/>
+  <rect class="ca-col" x="160" y="62" width="190" height="470" rx="10"/>
+  <rect class="ca-col" x="360" y="62" width="210" height="470" rx="10"/>
+  <rect class="ca-col" x="580" y="62" width="190" height="470" rx="10"/>
+  <rect class="ca-col" x="780" y="62" width="190" height="470" rx="10"/>
 
   <rect class="ca-fmt" x="20" y="100" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="80" y="125" text-anchor="middle">GraphML (yEd)</text>
   <text class="ca-sub" x="80" y="158" text-anchor="middle">drawn by the user,</text>
   <text class="ca-sub" x="80" y="174" text-anchor="middle">or converted from</text>
   <text class="ca-sub" x="80" y="190" text-anchor="middle">CellDesigner</text>
+  <rect class="ca-fmt" x="20" y="230" width="120" height="40" rx="5"/>
+  <text class="ca-fmtt" x="80" y="255" text-anchor="middle">the story</text>
+  <text class="ca-sub" x="80" y="288" text-anchor="middle">main story, substories,</text>
+  <text class="ca-sub" x="80" y="304" text-anchor="middle">hubs: by the person</text>
 
-  <rect class="ca-lay" x="170" y="76" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="97" text-anchor="middle">ygml.Model</text>
-  <text class="ca-sub" x="255" y="115" text-anchor="middle">288 lines, with preview</text>
-  <rect class="ca-lay" x="170" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="161" text-anchor="middle">complex_pack</text>
-  <text class="ca-sub" x="255" y="179" text-anchor="middle">realizer, box, shift</text>
-  <rect class="ca-lay" x="170" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="225" text-anchor="middle">hub_grid.load</text>
-  <text class="ca-sub" x="255" y="243" text-anchor="middle">its own node list</text>
-  <rect class="ca-lay" x="170" y="268" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="289" text-anchor="middle">yedit.py</text>
-  <text class="ca-sub" x="255" y="307" text-anchor="middle">workbench, 247 lines</text>
-  <rect class="ca-lay" x="170" y="332" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="255" y="353" text-anchor="middle">ygml.py</text>
-  <text class="ca-sub" x="255" y="371" text-anchor="middle">workbench, 55 lines</text>
+  <rect class="ca-lay" x="170" y="76" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="255" y="96" text-anchor="middle">ygml.Model</text>
+  <text class="ca-sub" x="255" y="113" text-anchor="middle">288 lines, with preview</text>
+  <rect class="ca-lay" x="170" y="136" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="255" y="156" text-anchor="middle">complex_pack</text>
+  <text class="ca-sub" x="255" y="173" text-anchor="middle">realizer, box, shift</text>
+  <rect class="ca-lay" x="170" y="196" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="255" y="216" text-anchor="middle">hub_grid.load</text>
+  <text class="ca-sub" x="255" y="233" text-anchor="middle">its own node list</text>
+  <rect class="ca-lay" x="170" y="256" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="255" y="276" text-anchor="middle">yedit.py</text>
+  <text class="ca-sub" x="255" y="293" text-anchor="middle">workbench, 247 lines</text>
+  <rect class="ca-lay" x="170" y="316" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="255" y="336" text-anchor="middle">ygml.py</text>
+  <text class="ca-sub" x="255" y="353" text-anchor="middle">workbench, 55 lines</text>
 
-  <rect class="ca-box" x="370" y="76" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="97" text-anchor="middle">kit.Layout</text>
-  <text class="ca-sub" x="465" y="115" text-anchor="middle">put, route, fork, blocks</text>
-  <rect class="ca-box" x="370" y="140" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="161" text-anchor="middle">F022-bcaa/kit.py</text>
-  <text class="ca-sub" x="465" y="179" text-anchor="middle">node, arc: workbench builds</text>
-  <rect class="ca-box" x="370" y="204" width="190" height="50" rx="7"/>
-  <text class="ca-name" x="465" y="225" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="243" text-anchor="middle">82 map scripts, workbench</text>
+  <rect class="ca-box" x="370" y="76" width="190" height="48" rx="7"/>
+  <text class="ca-name" x="465" y="96" text-anchor="middle">kit.Layout</text>
+  <text class="ca-sub" x="465" y="113" text-anchor="middle">blocks: put, route, fork</text>
+  <rect class="ca-box" x="370" y="136" width="190" height="48" rx="7"/>
+  <text class="ca-name" x="465" y="156" text-anchor="middle">build_vN.py</text>
+  <text class="ca-sub" x="465" y="173" text-anchor="middle">89 map scripts, workbench</text>
+  <rect class="ca-box" x="370" y="196" width="190" height="48" rx="7"/>
+  <text class="ca-name" x="465" y="216" text-anchor="middle">transfer_layout</text>
+  <text class="ca-sub" x="465" y="233" text-anchor="middle">a layout onto its twin map</text>
+  <rect class="ca-box" x="370" y="256" width="190" height="48" rx="7"/>
+  <text class="ca-name" x="465" y="276" text-anchor="middle">move_node</text>
+  <text class="ca-sub" x="465" y="293" text-anchor="middle">whole steps, arcs kept</text>
+  <rect class="ca-plan" x="370" y="316" width="190" height="48" rx="7"/>
+  <text class="ca-name ca-pt" x="465" y="336" text-anchor="middle">placer</text>
+  <text class="ca-sub" x="465" y="353" text-anchor="middle">blocks on the large grid</text>
+  <rect class="ca-plan" x="370" y="376" width="190" height="48" rx="7"/>
+  <text class="ca-name ca-pt" x="465" y="396" text-anchor="middle">router</text>
+  <text class="ca-sub" x="465" y="413" text-anchor="middle">arcs between blocks</text>
 
-  <rect class="ca-box" x="590" y="76" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="97" text-anchor="middle">complex_pack</text>
-  <text class="ca-sub" x="675" y="115" text-anchor="middle">pack, fit_insets</text>
-  <rect class="ca-box" x="590" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="161" text-anchor="middle">arcs.py</text>
-  <text class="ca-sub" x="675" y="179" text-anchor="middle">centre ports, soft bends</text>
-  <rect class="ca-box" x="590" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="225" text-anchor="middle">snap_grid</text>
-  <text class="ca-sub" x="675" y="243" text-anchor="middle">maps drawn in yEd</text>
-  <rect class="ca-box" x="590" y="268" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="675" y="289" text-anchor="middle">hub_grid</text>
-  <text class="ca-sub" x="675" y="307" text-anchor="middle">maps from CellDesigner</text>
+  <rect class="ca-hub" x="590" y="76" width="170" height="196" rx="10"/>
+  <text class="ca-name" x="675" y="98" text-anchor="middle">standardise.py</text>
+  <text class="ca-sub" x="675" y="115" text-anchor="middle">in this order:</text>
+  <rect class="ca-inner" x="602" y="126" width="146" height="30" rx="5"/>
+  <text class="ca-sub" x="675" y="145" text-anchor="middle">icon_sizes</text>
+  <rect class="ca-inner" x="602" y="160" width="146" height="30" rx="5"/>
+  <text class="ca-sub" x="675" y="179" text-anchor="middle">complex_pack</text>
+  <rect class="ca-inner" x="602" y="194" width="146" height="30" rx="5"/>
+  <text class="ca-sub" x="675" y="213" text-anchor="middle">arrow_room</text>
+  <rect class="ca-inner" x="602" y="228" width="146" height="30" rx="5"/>
+  <text class="ca-sub" x="675" y="247" text-anchor="middle">newt_ready</text>
+  <rect class="ca-box" x="590" y="286" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="675" y="306" text-anchor="middle">lanes</text>
+  <text class="ca-sub" x="675" y="323" text-anchor="middle">parallel, opposite pairs</text>
+  <rect class="ca-box" x="590" y="346" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="675" y="366" text-anchor="middle">snap_grid</text>
+  <text class="ca-sub" x="675" y="383" text-anchor="middle">maps drawn in yEd</text>
+  <rect class="ca-box" x="590" y="406" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="675" y="426" text-anchor="middle">hub_grid</text>
+  <text class="ca-sub" x="675" y="443" text-anchor="middle">maps from CellDesigner</text>
+  <rect class="ca-box" x="590" y="466" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="675" y="486" text-anchor="middle">arcs.py</text>
+  <text class="ca-sub" x="675" y="503" text-anchor="middle">centre ports, soft bends</text>
 
-  <rect class="ca-box" x="790" y="76" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="97" text-anchor="middle">check.py</text>
-  <text class="ca-sub" x="875" y="115" text-anchor="middle">layout, preferences</text>
-  <rect class="ca-box" x="790" y="140" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="161" text-anchor="middle">check.py --input</text>
-  <text class="ca-sub" x="875" y="179" text-anchor="middle">content unchanged</text>
-  <rect class="ca-box" x="790" y="204" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="225" text-anchor="middle">sides.py</text>
-  <text class="ca-sub" x="875" y="243" text-anchor="middle">two antennas</text>
-  <rect class="ca-box" x="790" y="268" width="170" height="50" rx="7"/>
-  <text class="ca-name" x="875" y="289" text-anchor="middle">tools/check.py</text>
-  <text class="ca-sub" x="875" y="307" text-anchor="middle">workbench: runs the skill's</text>
+  <rect class="ca-box" x="790" y="76" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="875" y="96" text-anchor="middle">check.py</text>
+  <text class="ca-sub" x="875" y="113" text-anchor="middle">faults, measures</text>
+  <rect class="ca-box" x="790" y="136" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="875" y="156" text-anchor="middle">check.py --input</text>
+  <text class="ca-sub" x="875" y="173" text-anchor="middle">content unchanged</text>
+  <rect class="ca-box" x="790" y="196" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="875" y="216" text-anchor="middle">sides.py</text>
+  <text class="ca-sub" x="875" y="233" text-anchor="middle">two antennas</text>
+  <rect class="ca-box" x="790" y="256" width="170" height="48" rx="7"/>
+  <text class="ca-name" x="875" y="276" text-anchor="middle">tools/check.py</text>
+  <text class="ca-sub" x="875" y="293" text-anchor="middle">workbench: runs the skill's</text>
+  <rect class="ca-plan" x="790" y="316" width="170" height="48" rx="7"/>
+  <text class="ca-name ca-pt" x="875" y="336" text-anchor="middle">strategies.py</text>
+  <text class="ca-sub" x="875" y="353" text-anchor="middle">orders of steps timed</text>
 
   <rect class="ca-fmt" x="1010" y="100" width="160" height="40" rx="5"/>
   <text class="ca-fmtt" x="1090" y="125" text-anchor="middle">GraphML</text>
-  <rect class="ca-fmt" x="1010" y="164" width="160" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1090" y="189" text-anchor="middle">preview PNG</text>
-  <text class="ca-sub" x="1090" y="232" text-anchor="middle">the user finishes</text>
-  <text class="ca-sub" x="1090" y="248" text-anchor="middle">the map in yEd</text>
+  <text class="ca-sub" x="1090" y="168" text-anchor="middle">the user finishes</text>
+  <text class="ca-sub" x="1090" y="184" text-anchor="middle">the map in yEd</text>
 
   <g class="ca-arr" marker-end="url(#la-tip)">
-    <path d="M140,120 H158"/><path d="M350,235 H358"/><path d="M570,235 H578"/><path d="M770,235 H778"/>
-    <path d="M970,120 H1008"/><path d="M970,184 H1008"/>
+    <path d="M140,120 H158"/><path d="M140,250 H358"/><path d="M350,235 H358"/><path d="M570,235 H578"/>
+    <path d="M770,235 H778"/><path d="M970,120 H1008"/>
   </g>
 
-  <rect class="ca-band" x="10" y="430" width="1180" height="180" rx="10"/>
-  <text class="ca-head" x="26" y="453">Around it</text>
-  <rect class="ca-box" x="20" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="488">SKILL.md, METHOD.md</text>
-  <text class="ca-sub" x="32" y="507">the procedure, its reasoning, section 10 the rules from the user's edits</text>
-  <rect class="ca-box" x="411" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="423" y="488">archive/</text>
-  <text class="ca-sub" x="423" y="507">22 reference maps: the house style, the test set</text>
-  <rect class="ca-box" x="802" y="466" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="814" y="488">examples/ (repository)</text>
-  <text class="ca-sub" x="814" y="507">approved layouts, the F001 v8 and v9 scripts with run_all.sh</text>
-  <rect class="ca-box" x="20" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="562">inspect_graphml, stats</text>
-  <text class="ca-sub" x="32" y="581">the network as a list, the house style measured</text>
-  <rect class="ca-lay" x="411" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="423" y="562">ygml.render_svg, yrender.py</text>
-  <text class="ca-sub" x="423" y="581">two renderers: the skill's preview, the workbench's Atlas images</text>
-  <rect class="ca-box" x="802" y="540" width="377" height="52" rx="7"/>
-  <text class="ca-name" x="814" y="562">skill zip, submodule</text>
-  <text class="ca-sub" x="814" y="581">to claude.ai on every push, to maps-workbench by hand</text>
+  <rect class="ca-band" x="10" y="556" width="1180" height="194" rx="10"/>
+  <text class="ca-head" x="26" y="579">Around it</text>
+  <rect class="ca-box" x="20" y="592" width="377" height="64" rx="7"/>
+  <text class="ca-name" x="32" y="614">SKILL.md, METHOD.md</text>
+  <text class="ca-sub" x="32" y="633">the procedure and its reasoning, section 10 the</text>
+  <text class="ca-sub" x="32" y="647">rules from the user's edits</text>
+  <rect class="ca-box" x="411" y="592" width="377" height="64" rx="7"/>
+  <text class="ca-name" x="423" y="614">LARGE_MAPS.md</text>
+  <text class="ca-sub" x="423" y="633">large or confusing maps: nine steps, the approaches</text>
+  <text class="ca-sub" x="423" y="647">L1-L18, strategies to compare</text>
+  <rect class="ca-lay" x="802" y="592" width="377" height="64" rx="7"/>
+  <text class="ca-name" x="814" y="614">notes/lessons.md</text>
+  <text class="ca-sub" x="814" y="633">where each rule came from, and the lessons</text>
+  <text class="ca-sub" x="814" y="647">not yet sorted into the rules (20)</text>
+  <rect class="ca-box" x="20" y="670" width="377" height="64" rx="7"/>
+  <text class="ca-name" x="32" y="692">examples/, archive/</text>
+  <text class="ca-sub" x="32" y="711">2 approved layouts, 22 reference maps:</text>
+  <text class="ca-sub" x="32" y="725">the house style and the test set</text>
+  <rect class="ca-lay" x="411" y="670" width="377" height="64" rx="7"/>
+  <text class="ca-name" x="423" y="692">layout scripts in the workbench</text>
+  <text class="ca-sub" x="423" y="711">module_room, name_room, like_steps,</text>
+  <text class="ca-sub" x="423" y="725">standard_size, metabolite_size</text>
+  <rect class="ca-lay" x="802" y="670" width="377" height="64" rx="7"/>
+  <text class="ca-name" x="814" y="692">ygml.render_svg, yrender.py</text>
+  <text class="ca-sub" x="814" y="711">two renderers: the skill's preview,</text>
+  <text class="ca-sub" x="814" y="725">the workbench's Atlas images</text>
 </svg>
 </div>
 <div class="ca-legend">
-  <span><i class="ca-sw lay"></i>the same job written more than once</span>
+  <span><i class="ca-sw hub"></i>steps run in a fixed order</span>
+  <span><i class="ca-sw lay"></i>to be sorted out: written more than once, or not in its place</span>
+  <span><i class="ca-sw" style="background:#fff;border:1px dashed #bbb"></i>planned</span>
 </div>
 
-<p>There is no layout engine. The story decisions (the anchor, the side each branch enters from, the blocks) are
-made by the person, and a build script per map writes them down as positions and routes. The tool is what these
-scripts share: placement helpers, finishing passes and one check. Snap to grid is for maps drawn in yEd,
-<code>hub_grid</code> for maps converted from CellDesigner. The check reports faults (overlaps, also inside
-compartments and complexes, arcs through nodes, crossings, two antennas, groups yEd redraws), the two preferences
-for maps drawn in yEd (arcs at node centres, soft bends) and, with <code>--input</code>, every change of content
-since the input file.</p>
+<p>There is no layout engine. Claude reads the rules, the person decides the story, and the scripts do the jobs
+that are the same on every map. A map build places the blocks with <code>kit.Layout</code>, then the passes clean
+up: the standardising pass on every Atlas map, the others where they fit (snap to grid for maps drawn in yEd,
+<code>hub_grid</code> for maps converted from CellDesigner). No script changes content: <code>check.py --input</code>
+lists every change of a node, label or arc since the input file. The user finishes the map in yEd, and the edits
+the user makes there are where the rules come from.</p>
 
 <table class="ca-table">
-  <tr><th>Still written more than once</th><th>Where</th></tr>
-  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code> (used by <code>snap_grid</code>), <code>hub_grid.load</code>, and in the workbench <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
+  <tr><th>Script</th><th>What it does</th></tr>
+  <tr><td><code>kit.py</code></td><td>One style (spacing, ports, junctions). Blocks are laid out in their own coordinates, and a build only moves whole blocks and routes the arcs between them.</td></tr>
+  <tr><td><code>transfer_layout.py</code></td><td>The user's layout of one map onto its twin (same node and arc ids), each map keeping its own content.</td></tr>
+  <tr><td><code>move_node.py</code></td><td>Moves nodes by whole steps. A bend on a moved node's centre line moves with it, so its arcs stay straight.</td></tr>
+  <tr><td><code>standardise.py</code></td><td>Runs four passes in this order, each on the sizes the one before leaves, and keeps nothing <code>check.py</code> finds worse: <code>icon_sizes</code> (state variables and units of information: sizes, places, text), <code>complex_pack</code> (members at fixed margins and gaps, the arrangement and the centre kept), <code>arrow_room</code> (30 px at arrowheads and bends, made by moving a node or its block), <code>newt_ready</code> (compartments Newt keeps as drawn).</td></tr>
+  <tr><td><code>lanes.py</code></td><td>Two processes on one pair of nodes, opposite or parallel, in two lanes 12 px either side of the line between the nodes.</td></tr>
+  <tr><td><code>snap_grid.py</code></td><td>Node centres on an 8 px grid, bends on 4 px, points that belong on one line grouped first, so lines become straight.</td></tr>
+  <tr><td><code>hub_grid.py</code></td><td>Arcs leaving one side of a metabolite hub at regular intervals, processes off neighbouring lines.</td></tr>
+  <tr><td><code>arcs.py</code></td><td>Arcs at node centres and soft bends.</td></tr>
+  <tr><td><code>check.py</code>, <code>sides.py</code></td><td>Faults: overlaps, arcs through nodes or their own metabolite's name, crossings, arcs too close, two antennas broken, bends near arrowheads, pairs not in lanes, icons off the standard, groups yEd redraws, what Newt would still move. Measures: orthogonal and almost straight segments, extent. With <code>--input</code>, content changes.</td></tr>
+  <tr><td><code>inspect_graphml.py</code>, <code>stats.py</code></td><td>The network as a list before a layout is planned, the house style measured.</td></tr>
+</table>
+
+<h3>The order for large maps</h3>
+<p>Coarse to fine: the decisions with the largest effect first, the cheap local fixes last, so a late fix never
+undoes an early one. For a map that already has a layout, that layout is kept as the reader's mental map: good
+blocks stay, crowded ones get room.</p>
+<table class="ca-table">
+  <tr><th>Step</th><th>Unit</th><th>How</th></tr>
+  <tr><td>1. The story: main story, substories, hubs</td><td>the map</td><td>by hand</td></tr>
+  <tr><td>2. Blocks laid out on their own</td><td>about 20 processes</td><td><code>kit.py</code></td></tr>
+  <tr><td>3. Blocks placed, from the hubs outward</td><td>10 to 30 blocks</td><td>by hand, placer planned</td></tr>
+  <tr><td>4. Ports, then routing between blocks</td><td>arcs between blocks</td><td>ports built, router planned</td></tr>
+  <tr><td>5. Hubs: ports spread, then flows merged</td><td>a hub's arcs</td><td><code>hub_grid.py</code>, merges by hand</td></tr>
+  <tr><td>6. Small grid</td><td>nodes, bends</td><td><code>snap_grid.py</code></td></tr>
+  <tr><td>7. Local passes</td><td>a node, a pair, a complex</td><td><code>lanes.py</code>, <code>standardise.py</code></td></tr>
+  <tr><td>8. Labels</td><td>an arc end</td><td>rule in SKILL.md</td></tr>
+  <tr><td>9. Check</td><td>the map</td><td><code>check.py</code></td></tr>
+</table>
+<p>This order is a first strategy. Others are to be timed against it: cleaning first (sizes, spacing, grid, ports,
+lanes) for a map that already has a layout, and the hub first, then outward process by process. A strategy wins
+when it is fastest without being worse on any count or in the user's judgement in yEd.</p>
+
+<h3>How the rules grow</h3>
+<p>Every map the user corrects teaches something. A lesson goes first into <code>notes/lessons.md</code>, with the
+map, the date and what the user changed. At the end of the session it goes to one of three places: a rule in
+<code>SKILL.md</code> when it applies across maps, the map's README when it is a choice for that map, or nowhere
+when a rule already covers it. Suggested on 2026-10-26, to keep the rules from piling up:</p>
+<ul>
+  <li>A lesson improves a rule in place, covers a situation no rule covers yet, or goes to the map's README. Nothing
+    restates, patches or contradicts a rule already there.</li>
+  <li>Each rule in one place, in one or two sentences, marked strict, preference or option, with its scope (maps
+    drawn here, maps converted from CellDesigner). Where it came from stays in <code>lessons.md</code>.</li>
+  <li>A fixed order when rules collide: content unchanged, the user's own geometry, the story, strict rules,
+    preferences, options.</li>
+  <li>A rule about geometry gets a check, and every check runs on the approved examples: a check that flags an
+    approved layout means the rule contradicts the user's taste.</li>
+  <li>The measure is the user's work: how many nodes and arcs the user changes in a version the tool drew. Rules may
+    grow as long as that falls.</li>
+</ul>
+
+<table class="ca-table">
+  <tr><th>To be sorted out</th><th>Where</th></tr>
+  <tr><td>Read and write yEd GraphML</td><td>Five times: <code>ygml.Model</code>, the helpers in <code>complex_pack</code>, <code>hub_grid.load</code>, and in the workbench <code>yedit.py</code> and its own <code>ygml.py</code> (same name, other API). None has drifted so far.</td></tr>
   <tr><td>Render</td><td><code>ygml.render_svg</code> (the skill's preview) and the workbench's <code>yrender.py</code> (the Atlas images, copied to this website).</td></tr>
+  <tr><td>Layout outside the skill</td><td>Five scripts in the workbench do layout jobs: room by moving blocks (<code>module_room</code>), arcs off a metabolite's name (<code>name_room</code>), like steps at one spacing (<code>like_steps</code>), standard protein and metabolite sizes (<code>standard_size</code>, <code>metabolite_size</code>). The skill zip in claude.ai does not hold them.</td></tr>
+  <tr><td>Rules</td><td>20 lessons not yet sorted into <code>SKILL.md</code>. Section 10 says lanes 14 px apart, <code>lanes.py</code> 12. Two rules are written in both section 9 and section 10.</td></tr>
+  <tr><td>Guards</td><td>Every step should keep a change only if it adds no fault. <code>standardise.py</code> does, <code>snap_grid</code> does not.</td></tr>
 </table>
 
 <h2>Left for later</h2>
 <ul>
   <li><b>One reader</b>: five readers could drift apart, but none has so far. The definition that matters most, the
     bounds yEd computes for a group, is already in one place (<code>complex_pack</code>).</li>
-  <li><b>One pipeline in a fixed order</b>: worth it once the finishing passes run together in map builds. Today
-    snap runs in none and the hubs in three.</li>
+  <li><b>One pipeline for every pass</b>: the standardising pass already runs four passes in a fixed order. Lanes,
+    snap and hubs stay outside it until the strategies above show where they belong.</li>
   <li><b>One renderer</b>: <code>ygml.render_svg</code> is a rough preview Claude looks at while it lays out a map.
-    <code>yrender</code> (workbench, 542 lines) draws a map as yEd exports it and makes the Atlas images, and this
+    <code>yrender</code> (workbench, 598 lines) draws a map as yEd exports it and makes the Atlas images, and this
     website keeps a copy. Using <code>yrender</code> for the preview too would mean that what Claude checks is what
     the Atlas shows. For that it has to move into the skill folder, as the skill zip in claude.ai holds only that
     folder. Kept as it is: the preview is good enough for laying out, and the user judges the result in yEd.</li>
-  <li><b>map-converter's model</b>: map-converter is being rebuilt around a model that holds a map's biology and
-    its drawing apart. The layout tool reads and writes only yEd GraphML. A CellDesigner map goes to GraphML through
-    the converter, is laid out, and goes back through the converter, which works today. Laying out the converter's
+  <li><b>map-converter's model</b>: the layout tool reads and writes only yEd GraphML. A CellDesigner map goes to
+    GraphML through the converter, is laid out, and goes back through the converter. Laying out the converter's
     drawing directly would save those two conversions and would let a file without any drawing (BioPAX, SBML
-    without layout) get its first drawing here. That has to wait until the new model exists.</li>
+    without layout) get its first drawing here.</li>
 </ul>
 
 <h2>Next</h2>
 <ul>
-  <li>The processes that break the two-antennas rule on Atlas maps (mevalonate, eNOS, both glycogen maps, SREBP,
-    phosphoinositides, TAG), listed for the user to judge.</li>
-  <li>The overlaps inside compartments and complexes on the Atlas maps: 49 pairs on 12 maps, many of them intended
-    closeness (two lane processes, a side substrate by its stem), the same way.</li>
-  <li><code>hub_grid</code> on a second map converted from CellDesigner.</li>
-  <li>Modular and step-by-step drawing, combined: pieces that each tell the story of a subpathway, kept as yEd
-    GraphML, one file per piece with its interface nodes.</li>
+  <li>The 20 lessons sorted into the rules, the lanes rule brought to 12 px.</li>
+  <li>A guard for snap to grid, and <code>standardise.py</code> made fast on large maps.</li>
+  <li>The strategy runner (<code>strategies.py</code>, about 80 lines) or the router first: the user decides.</li>
+  <li>More approved examples, so the checks have more of the user's taste to be tested against.</li>
+  <li>The layout scripts of the workbench moved into the skill, where they apply to every map.</li>
 </ul>
 
-<h2>First suggestion (outdated)</h2>
-
-<p class="ca-sub" style="font-size: 13px; color: #777;">Kept for comparison (2026-10-19). A smaller plan was done in
-its place: one check, the arc fixes in the skill, the F001 scripts in <code>examples/</code>, snap and hubs for
-different maps. The rest costs more than it gains today.</p>
-
-<p>One reader and writer of yEd GraphML that every script uses, the skill's and the workbench's. On it, one file of
-placement helpers for the map builds, and one finishing pipeline that runs the passes in a fixed order. One check
-that covers layout, the strict rules and the content. The story stays with the person and the map build, as now.
-What belongs to one map (the F001 blocks, the harmonisation round) moves to <code>examples/</code>. Later, maps from
-map-converter's model and from files without a drawing (dashed).</p>
-
-<div class="ca-fig">
-<svg viewBox="0 0 1200 640" role="img" aria-label="The suggested architecture: one reader and writer, placement helpers and map builds, a finishing pipeline, one check, shared report, reference files and renderer">
-  <defs>
-    <marker id="la-tip2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path class="ca-tip" d="M0,0 L10,5 L0,10 z"/>
-    </marker>
-  </defs>
-  <text class="ca-head" x="80" y="44" text-anchor="middle">Input</text>
-  <text class="ca-head" x="255" y="44" text-anchor="middle">Map</text>
-  <text class="ca-head" x="465" y="44" text-anchor="middle">Placement</text>
-  <text class="ca-head" x="690" y="44" text-anchor="middle">Finishing</text>
-  <text class="ca-head" x="905" y="44" text-anchor="middle">Check</text>
-  <text class="ca-head" x="1105" y="44" text-anchor="middle">Output</text>
-
-  <rect class="ca-fmt" x="20" y="100" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt" x="80" y="125" text-anchor="middle">GraphML (yEd)</text>
-  <rect class="ca-plan" x="20" y="250" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="80" y="275" text-anchor="middle">map-converter</text>
-  <text class="ca-sub ca-pt" x="80" y="308" text-anchor="middle">its model: CellDesigner,</text>
-  <text class="ca-sub ca-pt" x="80" y="324" text-anchor="middle">SBGN-ML, and files</text>
-  <text class="ca-sub ca-pt" x="80" y="340" text-anchor="middle">without a drawing</text>
-
-  <rect class="ca-hub" x="175" y="80" width="160" height="300" rx="10"/>
-  <text class="ca-big" x="255" y="108" text-anchor="middle">yfile.py</text>
-  <text class="ca-sub" x="255" y="127" text-anchor="middle">read and write, once</text>
-  <rect class="ca-inner" x="187" y="142" width="136" height="104" rx="7"/>
-  <text class="ca-name" x="199" y="164">Map</text>
-  <text class="ca-sub" x="199" y="184">nodes, groups, labels,</text>
-  <text class="ca-sub" x="199" y="200">state variables, arcs,</text>
-  <text class="ca-sub" x="199" y="216">ports, bends</text>
-  <text class="ca-sub" x="199" y="234">absolute coordinates</text>
-  <rect class="ca-inner" x="187" y="258" width="136" height="104" rx="7"/>
-  <text class="ca-name" x="199" y="280">geometry</text>
-  <text class="ca-sub" x="199" y="300">box, move a group,</text>
-  <text class="ca-sub" x="199" y="316">arc end points, the</text>
-  <text class="ca-sub" x="199" y="332">bounds yEd computes</text>
-  <text class="ca-sub" x="199" y="350">CDATA kept</text>
-
-  <rect class="ca-inner" x="370" y="80" width="190" height="64" rx="7"/>
-  <text class="ca-title" x="465" y="102" text-anchor="middle">story (the person)</text>
-  <text class="ca-sub" x="465" y="120" text-anchor="middle">anchor, sides, blocks,</text>
-  <text class="ca-sub" x="465" y="136" text-anchor="middle">inside-out or modular</text>
-  <rect class="ca-box" x="370" y="176" width="190" height="64" rx="7"/>
-  <text class="ca-name" x="465" y="198" text-anchor="middle">build.py</text>
-  <text class="ca-sub" x="465" y="216" text-anchor="middle">put, move, route, fork,</text>
-  <text class="ca-sub" x="465" y="232" text-anchor="middle">node, arc, fit_label</text>
-  <rect class="ca-box" x="370" y="272" width="190" height="64" rx="7"/>
-  <text class="ca-name" x="465" y="294" text-anchor="middle">build_vN.py</text>
-  <text class="ca-sub" x="465" y="312" text-anchor="middle">per map, in the workbench:</text>
-  <text class="ca-sub" x="465" y="328" text-anchor="middle">the story as positions</text>
-
-  <rect class="ca-lay" x="595" y="80" width="190" height="300" rx="10"/>
-  <text class="ca-big" x="690" y="108" text-anchor="middle">finish.py</text>
-  <text class="ca-sub" x="690" y="127" text-anchor="middle">passes in a fixed order</text>
-  <text class="ca-name" x="609" y="160">1 clean</text>
-  <text class="ca-sub" x="609" y="176">bends that do nothing</text>
-  <text class="ca-name" x="609" y="202">2 pack</text>
-  <text class="ca-sub" x="609" y="218">complexes</text>
-  <text class="ca-name" x="609" y="244">3 snap, 4 hubs</text>
-  <text class="ca-sub" x="609" y="260">options, on one grid</text>
-  <text class="ca-name" x="609" y="286">5 ports, bends</text>
-  <text class="ca-sub" x="609" y="302">centre ports, soft bends</text>
-  <text class="ca-name" x="609" y="328">6 fit</text>
-  <text class="ca-sub" x="609" y="344">group insets, last</text>
-  <text class="ca-sub" x="690" y="368" text-anchor="middle">same for every map</text>
-
-  <rect class="ca-box" x="820" y="80" width="170" height="300" rx="10"/>
-  <text class="ca-big" x="905" y="108" text-anchor="middle">check.py</text>
-  <text class="ca-sub" x="905" y="127" text-anchor="middle">one, for every map</text>
-  <rect class="ca-fmt" x="832" y="142" width="146" height="70" rx="7"/>
-  <text class="ca-name" x="844" y="164">layout</text>
-  <text class="ca-sub" x="844" y="182">overlaps, crossings,</text>
-  <text class="ca-sub" x="844" y="198">groups, near straight</text>
-  <rect class="ca-fmt" x="832" y="222" width="146" height="70" rx="7"/>
-  <text class="ca-name" x="844" y="244">rules</text>
-  <text class="ca-sub" x="844" y="262">centre ports, soft</text>
-  <text class="ca-sub" x="844" y="278">bends, two antennas</text>
-  <rect class="ca-fmt" x="832" y="302" width="146" height="66" rx="7"/>
-  <text class="ca-name" x="844" y="324">content</text>
-  <text class="ca-sub" x="844" y="342">same ids, labels, arcs</text>
-  <text class="ca-sub" x="844" y="358">as the input</text>
-
-  <rect class="ca-fmt" x="1030" y="100" width="150" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1105" y="125" text-anchor="middle">GraphML</text>
-  <rect class="ca-fmt" x="1030" y="164" width="150" height="40" rx="5"/>
-  <text class="ca-fmtt" x="1105" y="189" text-anchor="middle">report</text>
-  <text class="ca-sub" x="1105" y="232" text-anchor="middle">the user finishes</text>
-  <text class="ca-sub" x="1105" y="248" text-anchor="middle">the map in yEd</text>
-
-  <g class="ca-arr" marker-end="url(#la-tip2)">
-    <path d="M140,120 H173"/>
-    <path d="M465,144 V174"/><path d="M465,240 V270"/>
-    <path d="M335,208 H368"/>
-    <path d="M560,304 H577 V230 H593"/>
-    <path d="M785,230 H818"/>
-    <path d="M990,120 H1028"/><path d="M990,184 H1028"/>
-  </g>
-  <path class="ca-arr ca-dash" d="M140,270 H173" marker-end="url(#la-tip2)"/>
-
-  <rect class="ca-band" x="10" y="410" width="1180" height="100" rx="10"/>
-  <text class="ca-head" x="26" y="433">Shared by every step</text>
-  <rect class="ca-box" x="20" y="445" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="467">report</text>
-  <text class="ca-sub" x="32" y="486">every moved object and every fault in one list</text>
-  <rect class="ca-box" x="413" y="445" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="425" y="467">reference.py</text>
-  <text class="ca-sub" x="425" y="486">archive, examples, Atlas maps through finish.py, compared</text>
-  <rect class="ca-box" x="806" y="445" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="818" y="467">yrender</text>
-  <text class="ca-sub" x="818" y="486">one renderer: previews and the Atlas images</text>
-
-  <rect class="ca-band" x="10" y="525" width="1180" height="100" rx="10"/>
-  <text class="ca-head" x="26" y="548">Kept apart</text>
-  <rect class="ca-box" x="20" y="560" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="32" y="582">SKILL.md, METHOD.md</text>
-  <text class="ca-sub" x="32" y="601">the procedure and its reasoning, as now</text>
-  <rect class="ca-box" x="413" y="560" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="425" y="582">examples/F001-glycolysis-v8-v9</text>
-  <text class="ca-sub" x="425" y="601">layout.py, the OR scripts, A and B, kit's blocks</text>
-  <rect class="ca-box" x="806" y="560" width="373" height="52" rx="7"/>
-  <text class="ca-name" x="818" y="582">examples/harmonised</text>
-  <text class="ca-sub" x="818" y="601">cAMP, carnitine, mevalonate, 2026-10-13</text>
-</svg>
-</div>
-<div class="ca-legend">
-  <span><i class="ca-sw lay"></i>the finishing passes, in one place</span>
-  <span><i class="ca-sw hub"></i>the map every script reads and writes</span>
-  <span><i class="ca-sw" style="background:#fff;border:1px dashed #bbb"></i>planned</span>
-</div>
-
-<h3>Why one reader</h3>
-<p>Every script needs the same facts about a yEd file: which realizer is active, where a group's box is, how
-to move a group with everything in it, where an arc ends. Five readers give five answers that can drift apart.
-<code>complex_pack</code> already holds the definition of the bounds yEd computes that <code>check.py</code> and
-<code>snap_grid</code> use, so that part exists. <code>hub_grid</code> keeps its own list only because it was written
-first. The workbench's <code>yedit.py</code> and <code>ygml.py</code> then import from the skill.</p>
-
-<h3>Why a fixed order</h3>
-<p>Each pass changes what the next one sees. A complex packed after a snap leaves the grid, insets fitted before the
-packing are stale, and the two grids above undo each other. One pipeline with one order, and one grid both
-<code>snap</code> and <code>hubs</code> respect, removes these cases for every map at once. A build calls
-<code>finish(map, snap=True, hubs=True)</code> and nothing else at its end.</p>
-
-<h3>What changes</h3>
-<ul>
-  <li><b>yfile.py</b>: one reader and writer, from <code>complex_pack</code>'s helpers and <code>ygml.Model</code>. <code>hub_grid</code>, <code>snap_grid</code>, <code>kit</code> and the workbench's <code>yedit</code> use it.</li>
-  <li><b>build.py</b>: the generic part of <code>kit.Layout</code> and of <code>F022-bcaa/kit.py</code> (node and arc from a template, fit_label), so map builds no longer import from the BCAA folder.</li>
-  <li><b>finish.py</b>: the passes in one order, the grid decided once. <code>centre_ports</code> and <code>smooth_bends</code>, today in the BCAA kit, become passes.</li>
-  <li><b>check.py</b>: the two merged, the content identity added, siblings inside groups checked too (SKILL.md section 9: today only top-level nodes are compared).</li>
-  <li><b>Renderer</b>: <code>yrender</code> only. <code>ygml.render_svg</code> goes.</li>
-  <li><b>F001 scripts</b>: <code>layout.py</code>, <code>or_variant.py</code>, <code>make_v7or.py</code>, <code>A_inside_out.py</code>, <code>B_modular.py</code>, the blocks of <code>kit.py</code> and <code>run_all.sh</code> move to <code>examples/</code> as a worked example. <code>or_variant.py</code> and <code>make_v7or.py</code> differ in two lines.</li>
-</ul>
-
-<h3>Open questions</h3>
-<p>Answered since: the grid (snap and hubs for different maps), the renderer and map-converter's model (Left for later).</p>
-
-<h3>Order of work</h3>
-<ol>
-  <li>Reference files: every finishing pass on the 22 archive maps, the examples and the 28 Atlas maps, and the 82 map builds run once, kept with their outputs.</li>
-  <li><code>yfile.py</code>, with the readers moved onto it one at a time. The files stay as they are.</li>
-  <li><code>check.py</code> merged. Its report on the reference maps is the sum of the two today.</li>
-  <li><code>build.py</code>, map builds moved from the BCAA kit. The files stay as they are.</li>
-  <li><code>finish.py</code> and the grid decision, the one intended change in the files.</li>
-  <li>F001 scripts to <code>examples/</code>, <code>ygml.render_svg</code> removed.</li>
-</ol>
-
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for human-like-layout commit 26cb621 and maps-workbench 7576925.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-26, for human-like-layout-skill commit 689b64d and maps-workbench 9e714df.
+The page of 2026-10-19, with the first suggested architecture: <a href="{{ '/human-like-layout/architecture1/' | relative_url }}">First architecture</a>. The <a href="{{ '/human-like-layout/documentation/' | relative_url }}">documentation</a>.
 The skill is in the private repository <code>amazein/human-like-layout-skill</code>.</p>

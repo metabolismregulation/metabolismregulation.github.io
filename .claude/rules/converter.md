@@ -122,7 +122,8 @@ does not mention it, propose matching changes to it, or ask for its repository.
 `/converter/docs/` (user, 2026-10-24): the converter's documentation, hidden like the Converter pages
 (`noindex`, out of the sitemap), linked from the Converter page (↳ Documentation, user, 2026-10-26). Its pages (`pages/converter-docs/`) and
 menu (`_data/converter_docs.yml`) are copies made by map-converter's `tools/to_website.sh` from its
-`docs/`: edit the text there, never here. The layout is `_layouts/converter-docs.html`: the menu on the
+`docs/`: edit the text there, never here. The layout is `_layouts/converter-docs.html` (the page itself `_includes/docs.html`, shared with the
+human-like layout documentation since 2026-10-26): the menu on the
 left (folded on a phone), "On this page" on pages with four sections or more, and on a table whose first
 column is Since the days each row has been open, rows past two weeks marked. The description and
 architecture pages are in the menu but keep their own layout.
