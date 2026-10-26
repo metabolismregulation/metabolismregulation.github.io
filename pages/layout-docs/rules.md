@@ -42,6 +42,8 @@ name running past the node as a box. Two nodes are too close when any of their s
   than 30 px to an arrow's tip or to the node an arc leaves. A junction next to a process does not count.
 - **Lanes**: two processes on one pair of nodes, opposite reactions or the same step by two enzymes, run in two
   lanes 12 px either side of the line between the nodes, their catalysts mirrored, never a V.
+- **A protein with one connection** sits beside the process it modulates, on a free side, level with it; several
+  of one process are stacked 70 px apart along the flow. With one connection there is no conflict to weigh.
 
 ## Arcs (preferences for maps drawn in yEd)
 
