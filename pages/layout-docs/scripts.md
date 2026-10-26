@@ -21,6 +21,7 @@ Scripts that change a map read one GraphML and write another.
 | `arrow_room.py` | `arrow_room.py in out` | room at arrowheads and bends, made by moving a node, its block or everything past a line |
 | `newt_ready.py` | `newt_ready.py in out` | processes into compartments, compartment edges at standard distances and aligned |
 | `lanes.py` | `lanes.py in out` | two processes on one pair of nodes into two lanes 12 px either side |
+| `series.py` | `series.py in out [--story "A;B;C" [--step 272]]` | equal steps along a story, a fan's outputs on one row, processes midway; each move kept only when nothing gets worse |
 | `catalysts.py` | `catalysts.py in out` | a protein with one arc moved beside the process it modulates, where a place is free |
 | `breathe.py` | `breathe.py in out --story "A;B;C" [--gap 192]` or `[--f 1.25]` | room from the hub outward, along one story or over the whole map; nodes keep their size, tied lines move as one |
 | `snap_grid.py` | `snap_grid.py in out` | node centres on 8 px, bends on 4 px, lines grouped first (maps drawn in yEd) |

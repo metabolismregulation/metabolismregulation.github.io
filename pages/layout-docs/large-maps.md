@@ -22,7 +22,7 @@ first step that is not settled.
 | 3. Blocks placed, from the hubs outward | 10 to 30 blocks | by hand, `breathe.py` for room, placer planned |
 | 4. Ports, then routing between blocks | arcs between blocks | ports built, router planned |
 | 5. Hubs: ports spread, then flows merged | a hub's arcs | `hub_grid.py`, merges by hand |
-| 6. Small grid | nodes, bends | `snap_grid.py` |
+| 6. Small grid, regular series | nodes, bends | `snap_grid.py`, `series.py` |
 | 7. Local passes | a node, a pair, a complex | `lanes.py`, `standardise.py` |
 | 8. Labels | an arc end | by rule |
 | 9. Check | the map | `check.py` |

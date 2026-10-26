@@ -42,6 +42,9 @@ name running past the node as a box. Two nodes are too close when any of their s
   than 30 px to an arrow's tip or to the node an arc leaves. A junction next to a process does not count.
 - **Lanes**: two processes on one pair of nodes, opposite reactions or the same step by two enzymes, run in two
   lanes 12 px either side of the line between the nodes, their catalysts mirrored, never a V.
+- **Regular series**: metabolites in a straight series at equal steps where possible, each process midway between
+  its input and output, the outputs of one fan on one row. From scratch: a large grid first for the main story,
+  then a smaller one for the rest.
 - **A protein with one connection** sits beside the process it modulates, on a free side, level with it; several
   of one process are stacked 70 px apart along the flow. With one connection there is no conflict to weigh.
 

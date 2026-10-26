@@ -20,6 +20,7 @@ What changed for maps laid out with the tool, by date.
 - Breathing (`breathe.py`): room for a packed map from its hub outward, story by story or over the whole map,
   each node keeping its size; level and vertical arcs stay straight.
 - A protein with one connection sits beside the process it modulates (`catalysts.py`).
+- Regular series (`series.py`): equal steps along a story, processes midway between their input and output.
 
 ## 2026-10-25
 
