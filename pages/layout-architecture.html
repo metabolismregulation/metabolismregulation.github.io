@@ -51,28 +51,6 @@ noindex: true
 
 {% include layout-nav.html %}
 
-<p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
-draws them: story first, then blocks, straight arcs, compact complexes. It is not a program with a layout engine.
-It is the Claude skill <code>sbgn-human-like-layout</code> (private repository
-<code>amazein/human-like-layout-skill</code>): written rules that Claude follows, and scripts that each do one
-fixed job on a map. The story decisions stay with the person. The map builds in <code>maps-workbench</code> use the
-skill as a submodule. This page shows where the tool stands, how it is built and what comes next.</p>
-
-<h2>State</h2>
-
-<table class="ca-table">
-  <tr><th>Part</th><th>State on 2026-10-26</th></tr>
-  <tr><td>Story and blocks</td><td>By hand. The person decides the main story, the substories and the hubs. A build script per map writes them down as positions and routes (89 build scripts in <code>maps-workbench</code>).</td></tr>
-  <tr><td>Standardising pass</td><td>Built, run on every Atlas map after a change: state variables and units of information, complexes packed, room at arrowheads and bends, compartments safe for Newt. Slow on a large map: over 10 minutes on one of about 80 reactions.</td></tr>
-  <tr><td>Finishing passes</td><td>Built: lanes for parallel and opposite pairs, snap to grid, regular hubs, centre ports and soft bends. Snap to grid has no guard yet: on the 80-reaction test map it put 14 more arcs through their own metabolite's name.</td></tr>
-  <tr><td>Check</td><td>Built, one <code>check.py</code>: faults, the preferences for maps drawn in yEd, measures, and every change of content since the input file.</td></tr>
-  <tr><td>Large maps</td><td>A guide in nine steps, coarse to fine (below). Blocks, hubs, the small grid, local passes and the check have scripts. Placing blocks and routing between them are by hand, a placer and a router planned. Different orders of the steps are to be timed against each other on test maps.</td></tr>
-  <tr><td>Rules</td><td><code>SKILL.md</code> has 523 lines, about 190 of them rules from the user's edits (section 10). 20 lessons since 2026-10-17 wait to be sorted into it. One rule is out of date: section 10 still says lanes 14 px apart, <code>lanes.py</code> and section 9 say 12.</td></tr>
-  <tr><td>Approved examples</td><td>Two layouts the user approved (glycolysis, the cPLA2 switch of the eicosanoids map) and 22 reference maps in the house style.</td></tr>
-</table>
-
-<h2>How it is built</h2>
-
 <div class="ca-fig">
 <svg viewBox="0 0 1200 760" role="img" aria-label="The layout tool: readers, arrangement by hand and by map builds, the standardising pass and other finishing passes, one check, and around them the rules, examples and the scripts kept elsewhere">
   <defs>
@@ -220,6 +198,28 @@ skill as a submodule. This page shows where the tool stands, how it is built and
   <span><i class="ca-sw lay"></i>to be sorted out: written more than once, or not in its place</span>
   <span><i class="ca-sw" style="background:#fff;border:1px dashed #bbb"></i>planned</span>
 </div>
+
+<p>The human-like layout tool lays out SBGN Process Description maps in yEd GraphML the way a curator
+draws them: story first, then blocks, straight arcs, compact complexes. It is not a program with a layout engine.
+It is the Claude skill <code>sbgn-human-like-layout</code> (private repository
+<code>amazein/human-like-layout-skill</code>): written rules that Claude follows, and scripts that each do one
+fixed job on a map. The story decisions stay with the person. The map builds in <code>maps-workbench</code> use the
+skill as a submodule. This page shows where the tool stands, how it is built and what comes next.</p>
+
+<h2>State</h2>
+
+<table class="ca-table">
+  <tr><th>Part</th><th>State on 2026-10-26</th></tr>
+  <tr><td>Story and blocks</td><td>By hand. The person decides the main story, the substories and the hubs. A build script per map writes them down as positions and routes (89 build scripts in <code>maps-workbench</code>).</td></tr>
+  <tr><td>Standardising pass</td><td>Built, run on every Atlas map after a change: state variables and units of information, complexes packed, room at arrowheads and bends, compartments safe for Newt. Slow on a large map: over 10 minutes on one of about 80 reactions.</td></tr>
+  <tr><td>Finishing passes</td><td>Built: lanes for parallel and opposite pairs, snap to grid, regular hubs, centre ports and soft bends. Snap to grid has no guard yet: on the 80-reaction test map it put 14 more arcs through their own metabolite's name.</td></tr>
+  <tr><td>Check</td><td>Built, one <code>check.py</code>: faults, the preferences for maps drawn in yEd, measures, and every change of content since the input file.</td></tr>
+  <tr><td>Large maps</td><td>A guide in nine steps, coarse to fine (below). Blocks, hubs, the small grid, local passes and the check have scripts. Placing blocks and routing between them are by hand, a placer and a router planned. Different orders of the steps are to be timed against each other on test maps.</td></tr>
+  <tr><td>Rules</td><td><code>SKILL.md</code> has 523 lines, about 190 of them rules from the user's edits (section 10). 20 lessons since 2026-10-17 wait to be sorted into it. One rule is out of date: section 10 still says lanes 14 px apart, <code>lanes.py</code> and section 9 say 12.</td></tr>
+  <tr><td>Approved examples</td><td>Two layouts the user approved (glycolysis, the cPLA2 switch of the eicosanoids map) and 22 reference maps in the house style.</td></tr>
+</table>
+
+<h2>How it is built</h2>
 
 <p>There is no layout engine. Claude reads the rules, the person decides the story, and the scripts do the jobs
 that are the same on every map. A map build places the blocks with <code>kit.Layout</code>, then the passes clean
