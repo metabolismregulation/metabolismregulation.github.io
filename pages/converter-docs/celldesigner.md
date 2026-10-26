@@ -312,6 +312,9 @@ the user (HSP90 + CAV1:CaM:eNOS -> CaM:HSP90:CAV1:eNOS + CaM).
   before it the bends of the line gate -> process, in the frame gate -> process; each input's
   modification carries its connection point (`linkTarget`) and its bends in the frame input -> gate. Then one `modification` per input, of the
   modificationType, with `linkTarget` connection point INACTIVE and no targetLineIndex.
+  Any number of inputs (the user's file `tests/celldesigner/gate-or-multiple.xml`, 2026-10-26: an OR of
+  five on a catalysis, the gate's line at targetLineIndex -1,2): every input in `modifiers` and `aliases`,
+  one modification each; AND and the unknown gate ? are read and written the same way.
   Every input is a modifierSpeciesReference and lists the reaction in its
   listOfCatalyzedReactions. yEd: Operator node, inputs joined by plain arcs
   in either direction.
