@@ -15,7 +15,6 @@ Scripts that change a map read one GraphML and write another.
 | `inspect_graphml.py` | `inspect_graphml.py map.graphml` | the map as text: nodes, complexes, arcs with their SBGN meaning, processes with several modulators |
 | `stats.py` | `stats.py maps/*.graphml` | the house style measured on reference maps: sizes, fills, distances, share of orthogonal segments |
 | `kit.py` | imported by a map build | one style (spacing, ports, junctions) and the `Layout` class: blocks in their own coordinates, put, route, fork, move a block |
-| `tree_layout.py` | `tree_layout.py in out --main "A;B;C" [--both]` | a first layout from content alone: main story down the left column (`--both`: in the middle, branches both sides), branches in columns, catalysts beside their process, blocks on shelves, gates by their inputs |
 | `standardise.py` | `standardise.py in out` | the four passes below in this order, nothing kept that the check finds worse |
 | `icon_sizes.py` | `icon_sizes.py in out` | state variables and units of information: sizes, places, text centred, one shape per place |
 | `complex_pack.py` | `complex_pack.py in out` | every complex packed to its margins and gaps, then every group fitted so yEd keeps its box |

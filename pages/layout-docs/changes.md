@@ -11,6 +11,9 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-26
 
+- A first layout grown from a map's content alone (`tree_layout.py`) is now a skill of its own, growing-layout,
+  built on how plants grow. This tool finishes its drafts.
+
 - One order for rules that collide (Drawing rules), and a point where work stops: when the check shows nothing new
   on the story, overlaps, crossings and room. Contradictions between pages removed: lanes 12 px, complex margins
   16 px, metabolites 40 x 40 circles, a metabolite's name placed before its arcs are moved, catalysts on the line
