@@ -54,12 +54,25 @@ redraws only crowded ones, and step 3 gives room instead of rearranging.
 - **One guard for every step**: a step keeps a change only when the check finds no new fault. Steps can then run
   in any order without undoing each other.
 
-## Strategies
+## Paths
 
-The order above is a first strategy. Others are to be timed against it on the same test maps: cleaning first
-(sizes, spacing, grid, ports, lanes) for a map that already has a layout, and the hub first, then outward process
-by process. Each is measured after every step (time, the check's counts, the largest move, content unchanged)
-and judged by the curator in yEd. A strategy wins when it is fastest without being worse on any count or in that
-judgement.
+A path is one order of the same steps: the tool can be applied in different ways, some steps done first and
+others later. Which path is more efficient is found by trying, not assumed. A step that waits costs nothing
+while earlier steps move nodes, and a step done early may be undone by them.
+
+| Path | Order | What it tests |
+|---|---|---|
+| P1 | the order above | coarse to fine |
+| P2 | sizes, spacing, small grid, ports, almost straight segments, lanes | cleaning first, for a map that already has a layout |
+| P3 | the hub first, then outward process by process, cleaning at the end | hub first |
+| P4 | P1 with the small grid before routing | grid early or late |
+| P5 | P1 with standard sizes before placement | sizes early or late |
+| P6 | P1 with blocks assembled inside-out or modular | assembly |
+| P7 | P1 with every arc at node centres and arcs through metabolite names left alone until the end, then ports and names together | ports and names last |
+| P8 | arcs off metabolite names first, then P1 | the opposite of P7 |
+
+Each path is measured after every step (time, the check's counts, the largest move, content unchanged) and judged
+by the curator in yEd. A path wins when it is fastest without being worse on any count or in that judgement. A
+path that loses keeps its row with its results.
 
 {% endraw %}

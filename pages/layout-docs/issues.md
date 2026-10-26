@@ -13,7 +13,7 @@ Everything unresolved, by what it waits on, with the date it was found.
 
 | Since | Issue |
 |---|---|
-| 2026-10-26 | Whether the router or the strategy runner is built first. |
+| 2026-10-26 | Whether the router or the path runner is built first. |
 | 2026-10-26 | The large grid for placing blocks (64 and 16 px) and the spacing of `kit.py` on 16 px, which changes the output of every build that uses it. |
 | 2026-10-26 | Which Atlas map serves as the test for a new layout from content alone. |
 

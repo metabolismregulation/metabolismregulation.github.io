@@ -151,7 +151,7 @@ noindex: true
   <text class="ca-name" x="875" y="276" text-anchor="middle">tools/check.py</text>
   <text class="ca-sub" x="875" y="293" text-anchor="middle">map project: runs the skill's</text>
   <rect class="ca-plan" x="790" y="316" width="170" height="48" rx="7"/>
-  <text class="ca-name ca-pt" x="875" y="336" text-anchor="middle">strategies.py</text>
+  <text class="ca-name ca-pt" x="875" y="336" text-anchor="middle">paths.py</text>
   <text class="ca-sub" x="875" y="353" text-anchor="middle">orders of steps timed</text>
 
   <rect class="ca-fmt" x="1010" y="100" width="160" height="40" rx="5"/>
@@ -173,7 +173,7 @@ noindex: true
   <rect class="ca-box" x="411" y="592" width="377" height="64" rx="7"/>
   <text class="ca-name" x="423" y="614">LARGE_MAPS.md</text>
   <text class="ca-sub" x="423" y="633">large or confusing maps: nine steps, the approaches</text>
-  <text class="ca-sub" x="423" y="647">L1-L18, strategies to compare</text>
+  <text class="ca-sub" x="423" y="647">L1-L19, paths to compare</text>
   <rect class="ca-lay" x="802" y="592" width="377" height="64" rx="7"/>
   <text class="ca-name" x="814" y="614">notes/lessons.md</text>
   <text class="ca-sub" x="814" y="633">where each rule came from, and the lessons</text>
@@ -255,9 +255,11 @@ blocks stay, crowded ones get room.</p>
   <tr><td>8. Labels</td><td>an arc end</td><td>rule in SKILL.md</td></tr>
   <tr><td>9. Check</td><td>the map</td><td><code>check.py</code></td></tr>
 </table>
-<p>This order is a first strategy. Others are to be timed against it: cleaning first (sizes, spacing, grid, ports,
-lanes) for a map that already has a layout, and the hub first, then outward process by process. A strategy wins
-when it is fastest without being worse on any count or in the user's judgement in yEd.</p>
+<p>This order is a first path (P1). A path is one order of the same steps, and others are to be timed against it:
+cleaning first (sizes, spacing, grid, ports, lanes) for a map that already has a layout, the hub first, then
+outward process by process, and every arc at node centres until the end, with metabolite names cleared last. A
+path wins when it is fastest without being worse on any count or in the user's judgement in yEd. The terms are
+defined in the <a href="/human-like-layout/documentation/vocabulary/">vocabulary</a>.</p>
 
 <h3>How the rules grow</h3>
 <p>Every map the user corrects teaches something. A lesson goes first into <code>notes/lessons.md</code>, with the
@@ -291,7 +293,7 @@ when a rule already covers it. Suggested on 2026-10-26, to keep the rules from p
   <li><b>One reader</b>: five readers could drift apart, but none has so far. The definition that matters most, the
     bounds yEd computes for a group, is already in one place (<code>complex_pack</code>).</li>
   <li><b>One pipeline for every pass</b>: the standardising pass already runs four passes in a fixed order. Lanes,
-    snap and hubs stay outside it until the strategies above show where they belong.</li>
+    snap and hubs stay outside it until the paths above show where they belong.</li>
   <li><b>One renderer</b>: <code>ygml.render_svg</code> is a rough preview Claude looks at while it lays out a map.
     <code>yrender</code> (map project, 598 lines) draws a map as yEd exports it and makes the Atlas images, and this
     website keeps a copy. Using <code>yrender</code> for the preview too would mean that what Claude checks is what
@@ -307,7 +309,7 @@ when a rule already covers it. Suggested on 2026-10-26, to keep the rules from p
 <ul>
   <li>The 20 lessons sorted into the rules, the lanes rule brought to 12 px.</li>
   <li>A guard for snap to grid, and <code>standardise.py</code> made fast on large maps.</li>
-  <li>The strategy runner (<code>strategies.py</code>, about 80 lines) or the router first: the user decides.</li>
+  <li>The path runner (<code>paths.py</code>, about 80 lines) or the router first: the user decides.</li>
   <li>More approved examples, so the checks have more of the user's taste to be tested against.</li>
   <li>The layout scripts of the map project moved into the skill, where they apply to every map.</li>
 </ul>

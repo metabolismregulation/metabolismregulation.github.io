@@ -26,7 +26,7 @@ variables and arcs stay as the map holds them, and the check lists every change 
 - **How-to guides**: [short recipes](/human-like-layout/documentation/howto/) for one task each (tidy a map after a
   change, two processes in lanes, make room, carry a layout to a twin map, a large map).
 - **Reference**: the [drawing rules](/human-like-layout/documentation/rules/), what the
-  [checks](/human-like-layout/documentation/checks/) report, and the [scripts](/human-like-layout/documentation/scripts/).
+  [checks](/human-like-layout/documentation/checks/) report, and the [scripts](/human-like-layout/documentation/scripts/), and the [vocabulary](/human-like-layout/documentation/vocabulary/).
 - **Explanation**: how the tool is built ([Architecture](/human-like-layout/architecture/)), the
   [principles](/human-like-layout/documentation/principles/) it follows and how it handles
   [large maps](/human-like-layout/documentation/large-maps/).

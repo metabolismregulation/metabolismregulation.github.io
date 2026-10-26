@@ -11,6 +11,9 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-26
 
+- Paths: the steps of a layout can run in other orders, each a numbered path (P1 the order of the large-maps
+  guide, P7 every arc at node centres until the end, metabolite names cleared last). Which is faster is tried on
+  real maps. A vocabulary page defines the terms (story, block, module, push-out, breathing, ...).
 - Two processes for the same step by two enzymes go into lanes like opposite reactions, never a V. The check
   reports pairs not in lanes.
 - A guide for large maps and for confusing or slow tasks: nine steps coarse to fine.
