@@ -11,6 +11,9 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-26
 
+- Two antennas only for reversible processes: elsewhere inputs, outputs and modulation may attach on any side, logic
+  gates included. The check reports only reversible processes without them.
+
 - A first layout grown from a map's content alone (`tree_layout.py`) is now a skill of its own, growing-layout,
   built on how plants grow. This tool finishes its drafts.
 

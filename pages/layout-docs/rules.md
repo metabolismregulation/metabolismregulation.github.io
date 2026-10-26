@@ -15,7 +15,7 @@ When two rules collide, the higher one wins:
 
 1. Content unchanged.
 2. The curator's own geometry on this map: no pass undoes what they drew.
-3. The story reads: the main story and its substories straight and regular, two antennas.
+3. The story reads: the main story and its substories straight and regular.
 4. No overlap, no arc through a node.
 5. No crossing, on our own blocks and maps up to about 30 processes. On large maps and maps drawn by someone
    else crossings are counted, at 90 degrees where they stay. A short diagonal beats a crossing.
@@ -44,9 +44,9 @@ name running past the node as a box. Two nodes are too close when any of their s
 
 ## Processes and arcs (strict)
 
-- **Two antennas**: every input of a process attaches on one side, every output on the opposite side. The two
-  other sides take only modulation arcs. A second input joins the stem before the process, never on a free
-  side, where it would read as a regulator. A modulation arc never enters from the input or output side.
+- **Two antennas, for a reversible process only**: its two ends attach on opposite sides and modulation arcs on the
+  other two, since arrows at both ends do not tell input from output. Other processes and logic gates do without
+  the rule.
 - Any number of modulation arcs per process, each aimed at the process centre.
 - **No crossings** in a layout drawn here (our own blocks and maps up to about 30 processes): no arc crosses
   another, runs through a node or lies on another arc's line. A short diagonal arc is better than a crossing.

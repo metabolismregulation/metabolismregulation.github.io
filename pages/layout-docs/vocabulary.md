@@ -56,7 +56,7 @@ listed with the term they mean; a word that looks alike but means something else
 
 | Term | Meaning | Synonyms | Not |
 |---|---|---|---|
-| Two antennas | every input of a process on one side, every output on the opposite side, the two other sides for modulation | | |
+| Two antennas | the two ends of a process on opposite sides, the two other sides for modulation; used for reversible processes only | | |
 | Stem | the line from a process to its main input or output | | |
 | Junction | where a side substrate or product joins the stem, 29 px from the process centre | | |
 | Side substrate, side product | a second input or output (ATP, NADH), beside the stem at the junction | secondary substrate | |
