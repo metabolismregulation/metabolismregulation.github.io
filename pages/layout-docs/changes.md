@@ -14,6 +14,8 @@ What changed for maps laid out with the tool, by date.
 - Two processes for the same step by two enzymes go into lanes like opposite reactions, never a V. The check
   reports pairs not in lanes.
 - A guide for large maps and for confusing or slow tasks: nine steps coarse to fine.
+- Breathing (`breathe.py`): room for a packed map from its hub outward, story by story or over the whole map,
+  each node keeping its size; level and vertical arcs stay straight.
 
 ## 2026-10-25
 

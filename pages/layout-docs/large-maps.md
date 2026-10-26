@@ -19,7 +19,7 @@ first step that is not settled.
 |---|---|---|
 | 1. The story: main story, substories, hubs | the map | by hand |
 | 2. Blocks laid out on their own | about 20 processes | `kit.py` |
-| 3. Blocks placed, from the hubs outward | 10 to 30 blocks | by hand, placer planned |
+| 3. Blocks placed, from the hubs outward | 10 to 30 blocks | by hand, `breathe.py` for room, placer planned |
 | 4. Ports, then routing between blocks | arcs between blocks | ports built, router planned |
 | 5. Hubs: ports spread, then flows merged | a hub's arcs | `hub_grid.py`, merges by hand |
 | 6. Small grid | nodes, bends | `snap_grid.py` |
