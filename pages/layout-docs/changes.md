@@ -14,7 +14,8 @@ What changed for maps laid out with the tool, by date.
 - A new map from its content is drawn first and fast, by the moves a person makes (`tree_layout.py`, under a
   second on 81 reactions): main story down the left column, branches in columns to the right, catalysts beside
   their process, branches as blocks on shelves, gates by their inputs. The other rules are checks for the
-  finishing step.
+  finishing step. With `--both` the main story stays in the middle and the branches go to both sides, for a
+  busy, large map.
 
 - Paths: the steps of a layout can run in other orders, each a numbered path (P1 the order of the large-maps
   guide, P7 every arc at node centres until the end, metabolite names cleared last). Which is faster is tried on
