@@ -11,6 +11,9 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-26
 
+- The finishing pass (`standardise.py`) runs again: its room-at-arrowheads step had stopped on the check's renamed
+  line for reversible processes.
+
 - Names of proteins, metabolites and the like always inside their shape, centred (strict); the check lists any
   that is not, and no longer counts arcs through a centred name.
 
