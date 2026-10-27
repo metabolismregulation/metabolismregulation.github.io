@@ -208,5 +208,23 @@ conversion leaves that as it is (user, 2026-10-25: a conversion changes as littl
 exception is the small moves of the advanced CellDesigner file, which save fixing by hand): the layout skill's
 complex packing (`standardise.py`) gives the name its room at the bottom.
 
+## D21. References on a process as the node property References
+
+**2026-10-27, accepted, built (GraphML and CellDesigner, both ways).** **Context**: maps hosted on MINERVA keep
+their literature on the reaction, as MIRIAM `isDescribedBy` URNs in its annotation (the PD map 3,888 of 4,191
+reactions, the Osteoarthritis map's Process Description 239 of 274),
+and MINERVA shows them in the reaction's panel. The converter left them out, so a map converted to GraphML,
+worked on and sent back lost them. **Decision** (user, 2026-10-27): a process glyph in GraphML holds its references
+in one node property, References: `prefix:id` separated by spaces, the prefixes of MIRIAM (`pubmed:27260166
+doi:10.1016/j.jaci.2020.12.155`); a bare number is read as a PMID, a bare `10.` as a DOI, `PMID:` as `pubmed:`.
+The PMID is the reference to give; a DOI only for a paper PubMed does not hold (user, 2026-10-27: that is the
+curation rule, the converter carries what it is given). To CellDesigner: `bqmodel:isDescribedBy`, one bag per
+reference, as CellDesigner's own files and other MINERVA maps hold them. From CellDesigner: `isDescribedBy`
+in either qualifier set (the PD map and the Osteoarthritis map mostly write `bqbiol`). **Consequences**: references
+come back unchanged in a round trip (tests/test_roundtrip.py, References: the PD map's histamine submap). Not by
+reaction id: the converter writes its own ids (`re_` + the process glyph's id), so nothing outside the file (an
+overlay keyed on reaction ids) can rely on them. A reaction drawn as an arc (reduced notation, influences) keeps
+no references: an arc holds no properties in our model; said in the messages (Activity Flow maps would need them
+on arcs, not built). SBGN-ML: not yet written.
 
 {% endraw %}

@@ -10,6 +10,14 @@ noindex: true
 What changed for people who use the converter, newest first, by the date it went to the Converter page.
 Changes inside the code that leave every file the same are listed only when they change the design.
 
+## 2026-10-27
+
+- References on reactions (PubMed, DOI, PMC, Reactome): CellDesigner to GraphML puts them on the process glyph as
+  the node property References (`pubmed:27260166 doi:10.1016/...`), GraphML to CellDesigner writes that property
+  as `bqmodel:isDescribedBy`, one bag per reference, as MINERVA maps hold them. Before, they were left out. A
+  reaction drawn as an arc keeps none, said in the messages. Reference files: the GraphML of the PD map's
+  autophagy and histamine submaps and their messages.
+
 ## 2026-10-26
 
 - Logic gates with more than two inputs: a CellDesigner test file (an OR of five), read and written on every route;

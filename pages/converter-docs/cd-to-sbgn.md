@@ -142,6 +142,7 @@ a yEd stimulation arc between two entities becomes PHYSICAL_STIMULATION in reduc
 | edit points of a reaction or modifier | yEd bends (soft), from the edit point frame (inverse of `cd_layout.to_frame`); a modifier's frame ends at the point of the process glyph `targetLineIndex` names (side middle, 5 px beside the centre, or corner) |
 | arc ends | node centres (ports 0,0; CellDesigner's quarter connection points only place the process glyph); advanced: connection points as ports, a modifier at the point of the 18 px process `targetLineIndex` names (corners at 9, 9, side middles at 0, 9 across the flow) |
 | MIRIAM annotation | node properties as `mapconv.annotate` writes them (HGNC symbol, HGNC, UniProt, ChEBI; a family's Members and Member annotation) |
+| references on a reaction (`isDescribedBy`, bqbiol or bqmodel: PubMed, DOI, PMC, Reactome) | the process glyph's node property References, `prefix:id` separated by spaces (`pubmed:27260166 doi:10.1016/j.jaci.2020.12.155`); back to CellDesigner as `bqmodel:isDescribedBy`, one bag each ([D21](/converter/docs/design/#d21-references-on-a-process-as-the-node-property-references)) |
 
 ## Not converted
 
@@ -150,7 +151,8 @@ a yEd stimulation arc between two entities becomes PHYSICAL_STIMULATION in reduc
 | layers (free text, lines, shapes, layer comments) | left out, with a warning listing them |
 | style variation (gradient fill, line width) | left out: our yEd style |
 | colours of species | kept as fill (as the forward direction) |
-| references on reactions (MIRIAM isDescribedBy: PubMed, PMC, Reactome) | left out, no message yet ([Issues](/converter/docs/issues/), 2026-10-25) |
+| references on a reaction drawn as an arc (reduced notation, influences, a logic gate between entities) | left out, with a message naming the reactions: an arc holds no properties ([Issues](/converter/docs/issues/)) |
+| reaction annotation other than `isDescribedBy` (`bqmodel:is` with a PMID, Reactome `hasVersion`) | left out, no message yet |
 | species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, PubChem, GO) | left out, no message yet (as above) |
 | species notes (MINERVA's Name, Synonyms, Charge text) | left out but for a family's lines (`annotation.from_notes`) |
 | line colours, font sizes (a 30 pt title on a 12 pt map) | left out: our yEd style, the map's one font size |

@@ -3,7 +3,7 @@
 # Read from the GraphML's node properties as annotate.py writes them (HGNC symbol, HGNC,
 # UniProt, ChEBI; Member annotation for a family). A map without them (not annotated):
 # from the node links to ChEBI and UniProt.
-import json, re
+import json, re, urllib.parse
 
 LINK = [(r'chebiId=(CHEBI:\d+)', lambda x: ['urn:miriam:obo.chebi:' + x.replace(':', '%3A')]),
         (r'uniprot(?:kb)?/(\w+)', lambda x: ['urn:miriam:uniprot:' + x])]
@@ -83,3 +83,21 @@ def from_notes(text, p):
                 out['Member annotation'] = json.dumps(members, ensure_ascii=False)
     return out
 
+
+
+# References on a process (user, 2026-10-27): the node property References, prefix:id separated by spaces
+# (pubmed:12456591 doi:10.1016/j.jaci.2020.12.155), as MINERVA maps hold them on the reaction (MIRIAM
+# isDescribedBy, one bag each); a bare number is a PMID, a bare 10.x a DOI.
+def references(text):
+    out = []
+    for x in re.split(r'[\s,;]+', text or ''):
+        db, _, i = ('doi', '', x) if x.lower().startswith('10.') else x.partition(':') if ':' in x else ('', '', x)
+        db = {'pmid': 'pubmed', '': 'pubmed' if i.isdigit() else ''}.get(db.lower(), db.lower())
+        if db and i:
+            out.append('urn:miriam:%s:%s' % (db, urllib.parse.quote(i, safe='')))
+    return out
+
+
+def from_references(urns):  # inverse of references(): the property's text
+    return ' '.join('%s:%s' % (db, urllib.parse.unquote(i)) for db, _, i in
+                    (u[len('urn:miriam:'):].partition(':') for u in urns if u.startswith('urn:miriam:')))

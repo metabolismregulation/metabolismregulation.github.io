@@ -66,7 +66,11 @@ CellDesigner, so `diff` against a returned file shows only real changes.
 - Metabolites: `urn:miriam:obo.chebi:CHEBI%3A12345`. Other forms are dropped
   by CellDesigner on saving, without a message.
 - References on a reaction: `bqmodel:isDescribedBy` with
-  `urn:miriam:pubmed:N` in the reaction's annotation (F021 has three).
+  `urn:miriam:pubmed:N` in the reaction's annotation (F021 has three), one bag per
+  reference, as MINERVA maps hold them (some in `bqmodel`; the PD map and the
+  Osteoarthritis map mostly `bqbiol`, and MINERVA shows both). Written from the process
+  glyph's property References and read back into it (D21); a DOI as
+  `urn:miriam:doi:10.1016%2Fj.jaci.2020.12.155`.
 - Species inside a complex (`listOfIncludedSpecies` in the model extension)
   carry their MIRIAM RDF inside `celldesigner:notes/html/body`, not in an
   annotation element: CellDesigner's own convention for included species.

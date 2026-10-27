@@ -46,7 +46,7 @@ from lxml import etree
 from . import cd_layout, cd_tidy, report
 from .cd_layout import ANCHOR, SQUARE, anchor_point, from_frame, square_point, to_frame
 from .layout import exit_point, visible
-from .annotation import from_notes, notes, to_properties
+from .annotation import from_notes, from_references, notes, references, to_properties
 from .graphml import EQUIV, without_delays
 from .model import Map, Node, Arc
 
@@ -373,19 +373,29 @@ def write(diagram, ann, layout='straight'):
 
     RDF = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
     BQ = 'http://biomodels.net/biology-qualifiers/'
-    def miriam(parent, about, lab, abc=False):
-        if lab not in ann: return
-        fam, uris = ann[lab]
+    BQM = 'http://biomodels.net/model-qualifiers/'
+    def description(parent, about, abc=False):
         # the namespaces CellDesigner declares, so its save changes nothing;
         # in the notes of included species it writes them in alphabetical order
         ns = {'rdf': RDF, 'dc': 'http://purl.org/dc/elements/1.1/', 'dcterms': 'http://purl.org/dc/terms/',
-              'vCard': 'http://www.w3.org/2001/vcard-rdf/3.0#', 'bqbiol': BQ, 'bqmodel': 'http://biomodels.net/model-qualifiers/'}
+              'vCard': 'http://www.w3.org/2001/vcard-rdf/3.0#', 'bqbiol': BQ, 'bqmodel': BQM}
         if abc: ns = dict(sorted(ns.items()))
         rdf = etree.SubElement(parent, '{%s}RDF' % RDF, nsmap=ns)
-        d = etree.SubElement(rdf, '{%s}Description' % RDF, {'{%s}about' % RDF: '#' + about})
-        bag = etree.SubElement(etree.SubElement(d, '{%s}%s' % (BQ, 'hasVersion' if fam else 'is')), '{%s}Bag' % RDF)
+        return etree.SubElement(rdf, '{%s}Description' % RDF, {'{%s}about' % RDF: '#' + about})
+    def bag(d, qualifier, uris):
+        b = etree.SubElement(etree.SubElement(d, qualifier), '{%s}Bag' % RDF)
         for u in uris:
-            etree.SubElement(bag, '{%s}li' % RDF, {'{%s}resource' % RDF: u})
+            etree.SubElement(b, '{%s}li' % RDF, {'{%s}resource' % RDF: u})
+    def miriam(parent, about, lab, abc=False):
+        if lab not in ann: return
+        fam, uris = ann[lab]
+        bag(description(parent, about, abc), '{%s}%s' % (BQ, 'hasVersion' if fam else 'is'), uris)
+    def described(parent, about, d):  # a process's references: one isDescribedBy bag each, as MINERVA maps hold them
+        uris = references(d.data.get('References'))
+        if uris:
+            desc = description(parent, about)
+            for u in uris:
+                bag(desc, '{%s}isDescribedBy' % BQM, [u])
 
     catalysed = {}
     for e in E:
@@ -480,7 +490,9 @@ def write(diagram, ann, layout='straight'):
         side_of = lambda pt: drawing.side(g, pt)
         rx = etree.SubElement(lr, 'reaction', metaid='re_' + sid(p), id='re_' + sid(p))
         if not reversible: rx.set('reversible', 'false')  # true is the SBML default; CellDesigner then leaves it out
-        x = sub(etree.SubElement(rx, 'annotation'), 'extension')
+        an = etree.SubElement(rx, 'annotation')
+        x = sub(an, 'extension')
+        described(an, 're_' + sid(p), N[p])
         sub(x, 'reactionType', REACTION.get(N[p].kind, 'STATE_TRANSITION'))
         br = sub(sub(x, 'baseReactants'), 'baseReactant', species=spec(r_), alias='sa_' + sid(r_)); ra and sub(br, 'linkAnchor', position=ra)
         bp = sub(sub(x, 'baseProducts'), 'baseProduct', species=spec(q_), alias='sa_' + sid(q_)); qa and sub(bp, 'linkAnchor', position=qa)
@@ -660,7 +672,7 @@ def read(path):
     # eicosanoids); what does not convert is printed. The straight layout: layout.at_centres
     r = etree.parse(path).getroot()
     ns = {'cd': CD, 's': SBML, 'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'bq': 'http://biomodels.net/biology-qualifiers/',
-          'xh': 'http://www.w3.org/1999/xhtml'}
+          'bqm': 'http://biomodels.net/model-qualifiers/', 'xh': 'http://www.w3.org/1999/xhtml'}
     f = lambda x, q: x.find(q, ns)
     xs = lambda x, q: x.iterfind(q, ns)
     ext = f(r, 's:model/s:annotation/cd:extension')
@@ -767,10 +779,16 @@ def read(path):
         dx, dy = Q[0] - P[0], Q[1] - P[1]
         t = min(1.0, 1 / (math.hypot(dx / (d.box[2] / 2), dy / (d.box[3] / 2)) or 1))
         return (P[0] + t * dx, P[1] + t * dy)
+    # a reaction's references (isDescribedBy, either qualifier set; MINERVA reads both): the process's property References
+    refs = lambda rx: from_references([li.get('{%s}resource' % ns['rdf']) for q in ('bq', 'bqm')
+                                       for li in xs(rx, 's:annotation/rdf:RDF/rdf:Description/%s:isDescribedBy/rdf:Bag/rdf:li' % q)])
+    unplaced = []  # references on a reaction drawn as an arc (no process to hold them)
     for rx in xs(r, 's:model/s:listOfReactions/s:reaction'):
         x = f(rx, 's:annotation/cd:extension')
         typ = f(x, 'cd:reactionType').text
         rid = rx.get('id')
+        if typ in REDUCED_TYPES or typ == 'BOOLEAN_LOGIC_GATE':
+            refs(rx) and unplaced.append(rid)
         br, bp = list(xs(x, 'cd:baseReactants/cd:baseReactant')), list(xs(x, 'cd:baseProducts/cd:baseProduct'))
         if any(alias_of(e) not in nodes for e in br + bp):
             report.say('left out', 'reaction %s: an end is not converted, left out' % rid); continue
@@ -834,7 +852,8 @@ def read(path):
         else:
             report.say('left out', 'reaction %s (%s): %d base reactants, %d base products, left out' % (rid, typ, len(br), len(bp))); continue
         S = 18.0  # the process size in our yEd maps
-        nodes[rid] = Node(id=rid, kind=PROCESS.get(typ, 'Process'), box=(sq[0] - S / 2, sq[1] - S / 2, S, S), labels=[''])
+        nodes[rid] = Node(id=rid, kind=PROCESS.get(typ, 'Process'), box=(sq[0] - S / 2, sq[1] - S / 2, S, S), labels=[''],
+                          data={'References': refs(rx)} if refs(rx) else {})
         reversible = rx.get('reversible') != 'false'
         def flow(alias, into, pts=(), at=(0.0, 0.0)):  # a consumption arc into the process, or a production arc out of it
             if into and not reversible:
@@ -887,6 +906,8 @@ def read(path):
                             points=[from_frame(M, T, q) for q in points(m.get('editPoints'))],
                             source_at=port(a_, M), target_at=square_point((0, 0), fl, *spot, S / 2),
                             dashed=t.startswith('UNKNOWN_')))
+    if unplaced:
+        report.say('left out', 'references of %d reactions drawn as arcs (no process glyph to hold them): %s' % (len(unplaced), ', '.join(unplaced)))
     for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
         k = sum(1 for _ in xs(ext, tag))
         if k: report.say('left out', '%d %s left out' % (k, tag.split(':')[-1] + 's'))
