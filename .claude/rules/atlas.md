@@ -70,4 +70,6 @@ is clickable too (its box widened to 24 px around the glyph): the panel's title 
 the reaction in one line ("PGE2 + PTGER4 → PGE2:PTGER4"), its modifiers, and References: one line per
 reference, first author, year, title and journal from PubMed, then its link "PUBMED: 32441256" (a DOI only as its
 link). The citations are fetched once per PMID by `scripts/make_maps.py` and kept in `atlas-data/pubmed.json`, as
-the other sources. A process without references is not clickable. Processes are not in the search.
+the other sources. Where a map's curation gives them (a build adds `role` and `note` to a reference), each
+reference starts with its role in a small framed word (the disease, "OA", in red; "Step", the step itself, in blue)
+and ends with a grey line on what it shows (user, 2026-10-27). A process without references is not clickable. Processes are not in the search.

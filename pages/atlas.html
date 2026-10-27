@@ -155,6 +155,12 @@ noindex: true
   .m2-fold.m2-shut .m2-bar { display: inline; }
   .m2-fold.m2-shut + p { display: none; }
   .m2-info li { margin: 0 0 3px; }
+  /* a reference's role and what it shows, where the map's curation gives them */
+  .m2-info .m2-role { display: inline-block; font-size: 11px; line-height: 15px; padding: 0 4px; border: 1px solid; border-radius: 3px; margin-right: 4px; }
+  .m2-info .m2-role-context { color: #b03a2e; }
+  .m2-info .m2-role-step { color: #2e6db0; }
+  .m2-info .m2-note { color: #666; font-size: 0.9em; }
+  .m2-info .m2-refs li { margin: 0 0 8px; }
   /* a protein family: one card per member, or one member's record under a
      row of member buttons (the undo button returns to the cards) */
   .m2-card { display: block; box-sizing: border-box; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
@@ -609,13 +615,16 @@ noindex: true
     }
     if (!n.references.length) return;
     info.appendChild(el('h4', null, 'References'));
-    var ul = el('ul');
+    var ul = el('ul', 'm2-refs');
     n.references.forEach(function (c) {
       var li = el('li'), a = el('a', null, c.db.toUpperCase() + ': ' + c.id);
+      // the reference's role (the disease context, or the step itself) and what it shows, where given
+      if (c.role) li.appendChild(el('span', 'm2-role m2-role-' + (c.role === 'step' ? 'step' : 'context'), c.role === 'step' ? 'Step' : c.role));
       if (c.title) li.appendChild(document.createTextNode([c.authors, c.year].filter(Boolean).join(' ') + '. ' + c.title + ' ' + c.journal + '. '));
       a.href = (c.db === 'pubmed' ? 'https://pubmed.ncbi.nlm.nih.gov/' : c.db === 'doi' ? 'https://doi.org/' : 'https://identifiers.org/' + c.db + ':') + c.id;
       a.target = '_blank'; a.rel = 'noopener';
       li.appendChild(a);
+      if (c.note) li.appendChild(el('div', 'm2-note', c.note));
       ul.appendChild(li);
     });
     info.appendChild(ul);

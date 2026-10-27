@@ -371,7 +371,7 @@ def annotation(base, folder=DL):
                 nid, geo = n.get('id'), gn.find(YN + 'Geometry')
                 x, y, w, h = (float(geo.get(a)) for a in ('x', 'y', 'width', 'height'))
                 pad = max(0, 24 - w) / 2  # a process glyph is small: a click a little outside it still finds it
-                nodes.append({'label': '', 'class': kind, 'box': [round(x + tx - pad, 1), round(y + ty - pad, 1), round(w + 2 * pad, 1), round(h + 2 * pad, 1)], 'props': [],
+                nodes.append({'id': nid, 'label': '', 'class': kind, 'box': [round(x + tx - pad, 1), round(y + ty - pad, 1), round(w + 2 * pad, 1), round(h + 2 * pad, 1)], 'props': [],
                               'reaction': {'in': [label[s] for s, t, a in arcs if t == nid and a == 'none'],
                                            'out': [label[t] for s, t, a in arcs if s == nid],
                                            'by': [label[s] for s, t, a in arcs if t == nid and a != 'none']},
