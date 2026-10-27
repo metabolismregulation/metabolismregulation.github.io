@@ -1,0 +1,40 @@
+name: branch-cleanup
+
+# Deletes leftover session branches (claude/...) whose every commit is already on the default branch.
+# A branch holding its own work is left alone. Run by hand; dry_run lists without deleting.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'List only, delete nothing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Delete merged session branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          DEFAULT: ${{ github.event.repository.default_branch }}
+        run: |
+          git fetch -q origin '+refs/heads/*:refs/remotes/origin/*'
+          for ref in $(git for-each-ref --format='%(refname:strip=3)' 'refs/remotes/origin/claude/'); do
+            ahead=$(git rev-list --count "origin/$DEFAULT..origin/$ref")
+            if [ "$ahead" != "0" ]; then
+              echo "keep    $ref ($ahead commit(s) not on $DEFAULT)"
+            elif [ "$DRY_RUN" = "true" ]; then
+              echo "would delete $ref"
+            else
+              gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$ref" && echo "deleted $ref"
+            fi
+          done
