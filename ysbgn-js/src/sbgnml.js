@@ -328,7 +328,7 @@ export function write(diagram, layout = 'advanced') {
 }
 
 
-// --- reading SBGN-ML (and Newt's .nwt) into the map model (map-converter docs/SBGNML.md, "The way back")
+// --- reading SBGN-ML (and Newt's .nwt) into the map model (the converter's docs, SBGN-ML, "The way back")
 const KIND = {};
 for (const [k, v] of Object.entries(CLASS)) if (k !== 'SourceAndSink') KIND[v] = k;  // source and sink: yEd's EmptySet
 Object.assign(KIND, { association: 'Process', dissociation: 'Process' });  // read as the generic process (MINERVA, Newt)

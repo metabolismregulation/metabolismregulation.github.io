@@ -20,17 +20,17 @@ advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "Grap
 Standard node sizes (user, 2026-10-20): a CellDesigner, SBGN-ML or Newt map gives a second GraphML file with them,
 for every map when the tick box "Standard node sizes" is ticked (user, 2026-10-22: a GraphML map gets it too then, and only then) (to harmonise how a
 map looks), otherwise only for a map drawn at a different scale: button "GraphML (standard sizes)", `<map>-standard.graphml` (grey, as GraphML (corrected)), from the
-drawing kept, with map-converter's `style.py`: proteins 80 x 40, metabolites 40 x 40 circles (user,
+drawing kept, with the converter's `style.py`: proteins 80 x 40, metabolites 40 x 40 circles (user,
 2026-10-23; circles 36 x 36 and stadiums sized to the name until then), the map rescaled if its proteins are much larger or smaller. Made when one
 is more than 20% off: the median protein height against 40, the median label font against the program's default
 (CellDesigner 12, Newt 11), or, without proteins, the median metabolite height against 25 to 40 (`style.reasons`).
 No note under the map: the description page says what the file holds (user, 2026-10-20). The converter's notes under a map are grouped by the files they come from, the files named over each group as on their buttons ("SBGN-ML and SBGN-ML straight line:"), the notes of several files first, then those of each file alone (user, 2026-10-20).
-Test files: map-converter `tests/celldesigner/scale-*.xml`. The thresholds and sizes are on the description page. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
+Test files: the converter's `tests/celldesigner/scale-*.xml`. The thresholds and sizes are on the description page. A GraphML map that looks like SBGN but is drawn with other shapes (read by their outline) also gives
 "GraphML (corrected)", `<map>-corrected.graphml`, the same map in the SBGN palette (user,
 2026-10-17); other styles are added case by case. A GraphML map also gives two SBGN-ML files, and an
 SBGN-ML or Newt file (.sbgn, .nwt) gives "GraphML" (`<map>.graphml`) and the two CellDesigner files (user, 2026-10-17:
 SBGN-ML converts better than CellDesigner, so it is on the page while it is improved). A GraphML map is first
-checked by map-converter's `rules.py`, as on the command line (user, 2026-10-17): the problem elements are left out of the
+checked by the converter's `rules.py`, as on the command line (user, 2026-10-17): the problem elements are left out of the
 converted files, a red "GraphML (marked)" button (the red of the Atlas's image error) gives `<map>-marked.graphml`, the
 map with them drawn red (the reason on hover in yEd), and the problems are listed under the map as red text, one per
 line with the element's id, label (an arc by its ends) and reason, plain text so it can be copied into the chat.
@@ -43,14 +43,14 @@ Newt's padding needs so Newt keeps it as drawn, aligned edges kept aligned, and 
 moved apart (noted under the map). A CellDesigner homodimer gets N:2.
 SBGN-ML and SBGN-ML for Newt (user, 2026-10-21): the SBGN-ML files are the SBGN-ML of the source, compartments as
 drawn; the Newt adjustments (compartments, processes into compartments, arc ends as Newt aims them) are only in
-the files for Newt, map-converter's `newt_layout.py`. Buttons (user, 2026-10-21), the target named on each: "SBGN-ML
+the files for Newt, the converter's `newt_layout.py`. Buttons (user, 2026-10-21), the target named on each: "SBGN-ML
 (newt-adjusted)" (user, 2026-10-24: lower case, it was "Newt"), `<map>-newt.sbgn`, blue as the recommended file for now, with "SBGN-ML / newt-adjusted / straight line",
 `<map>-straight-newt.sbgn`, under it; to its right a column "SBGN-ML (plain)", `<map>.sbgn`, and "SBGN-ML / plain /
 straight line", `<map>-straight.sbgn`, all white but the newt-adjusted one (four in one column were too many). The Newt buttons, "Open in Newt" (user, 2026-10-21; it was "Newt"), white with the blue edge (it was grey; Newt's orange #d67614 tried and dropped, user 2026-10-21: messy), with the external-link icon, open the two Newt files, and "Open in Newt / plain" and "/ plain / straight line" open the plain files, to see what Newt makes of them (user, 2026-10-21); the Open in Newt buttons at the end of their SBGN-ML files' column, in the same order (user, 2026-10-21), 14 px above them instead of 6 (user, 2026-10-21, on trial). Next to the drop area (user, 2026-10-21, their words): "The blue button
 gives the recommended file of each format. The white buttons are fallback versions or other layouts (user, 2026-10-25: as drawn is no fallback)." Until 2026-10-25: "The white buttons are fallback versions. The conversion runs in the
 browser, and the files never leave the computer." ("Straight lines layout is a fallback option." went into it.) "The files keep the layout of the input map." removed before it (user, 2026-10-21: it says nothing).Checked by loading the files in Newt
 (headless) and comparing its compartments with the file's; the hidden page /converter/sbgn/
-(`pages/converter-sbgn.html`, map-converter `tools/sbgn_test.sh`) lists every Atlas map and official
+(`pages/converter-sbgn.html`, the converter's `tools/sbgn_test.sh`) lists every Atlas map and official
 CellDesigner file in both layouts next to MINERVA's export, opened in Newt. Next to the drop area the routes, one line each (user, 2026-10-17, variant 2 of the former test
 page /converter/routes/, in git history): "GraphML ⭤ CellDesigner", "GraphML ⭤ SBGN-ML",
 "SBGN-ML ⭤ CellDesigner", each a tick box (user, 2026-10-25: a large map waited for every route): only the
@@ -87,14 +87,14 @@ is one more line there (user, 2026-10-17). One straight line per pair of formats
 with a head at each end, one way green (#3a9a4a) (user, 2026-10-17); the GraphML correction is not in the chart (user, 2026-10-19). The description page ends with "Loading" (size, time), dated "Updated" with the
 Pyodide version (user, 2026-10-17): update the figures and the date when Pyodide, lxml or the converter changes much. Newt files (.nwt) are accepted: not mentioned on the Converter
 page, as Newt is not widely used, but described under "From SBGN-ML" on the description page (user, 2026-10-17). "Process glyph", never "process square", in the Converter's pages and messages (user, 2026-10-21). "Connection point", never "anchor", for the 16 points around a node where a line attaches; bends are "bend points" (user, 2026-10-24: one word, one meaning). No "our" or "we" in page text ("our conventions", "our converter"): the pages are not internal notes (user, 2026-10-21). After a style choice on a test page, the page is removed in the same commit and its removal confirmed (user, 2026-10-21). Hover texts (user, 2026-10-21, `_includes/converter-hover.js`, shared with the ysbgn.js page): a button with only its main word says what its file holds, one with more words says what each word adds, one line per word ("plain: compartments as drawn, not adjusted for any tool."), then the file name. No claims about other tools, nothing on what the file is for. Files dropped or chosen while the converter loads wait and are converted once it has loaded, said under the drop area (user, 2026-10-21). Hidden like the Atlas: not in the navigation,
-out of the sitemap and search engines (`noindex: true`). It runs the converter of the private
-repository `metabolismregulation/map-converter` in the browser (Pyodide), so that code is
+out of the sitemap and search engines (`noindex: true`). It runs the converter, from its private
+repository, in the browser (Pyodide), so that code is
 public here (user's choice). The page's copy is `converter/mapconv/` with the commit in
 `VERSION`: after a converter change, run `sh tools/to_website.sh <this repository>` in
-map-converter and push here (`VERSION`: date and commit, not shown on the page). Since 2026-10-19 (user) the
-page runs the restructured converter (map-converter e278d35): its driver calls the converter's `routes`. No node is moved in
+the converter's repository and push here (`VERSION`: date and commit, not shown on the page). Since 2026-10-19 (user) the
+page runs the restructured converter (converter e278d35): its driver calls the converter's `routes`. No node is moved in
 conversion (user, 2026-10-24), so the button "CellDesigner (positions kept)" (`<map>-kept.xml`, 2026-10-20 to
-2026-10-24, the file without map-converter's tidy moves) is gone with them. The tidy moves are back in the
+2026-10-24, the file without the converter's tidy moves) is gone with them. The tidy moves are back in the
 advanced file (user, 2026-10-24: the look wanted for the Atlas maps). Four CellDesigner buttons (user, 2026-10-24): "CellDesigner"
 (blue, advanced, the small moves), then "straight line" (the simplest fallback), "straight & bends" (`<map>-bends.xml`,
 the fallback) and "as drawn" (`<map>-drawn.xml`, for going back and forth between editors), all white. The three white ones are made only when ticked (user, 2026-10-24: tick boxes, not a drop-down with "+1"; CellDesigner only, the SBGN-ML buttons always shown): "Additional CellDesigner layouts" under the Standard node sizes tick box, then in one line "straight line", "straight & bends", "as drawn" (user, 2026-10-24, by detail as in the other columns; "multi-bend" tried on the tick box and the button and dropped; the button's hover keeping "edit points"; each with a short hover text, what the file holds as on its button, "bend points" for as drawn), none ticked by default; the driver skips the unticked endings, read at drop time like the Standard node sizes box; a change to either box converts every map on the page again and replaces its buttons and notes in place (user, 2026-10-24). Preview (user, 2026-10-24): a CellDesigner button opened in a new tab (right click, middle click, Ctrl or Cmd click) shows its file drawn by `converter/cdrender.py` (the CD viewer's CellDesigner view, run in the page's Pyodide), an HTML page titled with the file name; a plain click saves the file. Right click, Save link as saves the preview, not the file. Said on the description page. The layout that keeps the
@@ -115,14 +115,14 @@ edge routing, yEd's name; "direct" dropped, user 2026-10-17; "(straight)" added 
 ## ysbgn.js
 
 ysbgn.js is a completed experiment (what a JavaScript port can do and at what effort), on hold until
-the user takes it up again (user, 2026-10-21). Work on the Converter (map-converter, `converter/mapconv/`)
+the user takes it up again (user, 2026-10-21). Work on the Converter (`converter/mapconv/` and its source)
 does not mention it, propose matching changes to it, or ask for its repository.
 
 ## Converter documentation
 
 `/converter/docs/` (user, 2026-10-24): the converter's documentation, hidden like the Converter pages
 (`noindex`, out of the sitemap), linked from the Converter page (↳ Documentation, user, 2026-10-26). Its pages (`pages/converter-docs/`) and
-menu (`_data/converter_docs.yml`) are copies made by map-converter's `tools/to_website.sh` from its
+menu (`_data/converter_docs.yml`) are copies made by the converter's `tools/to_website.sh` from its
 `docs/`: edit the text there, never here. The layout is `_layouts/converter-docs.html` (the page itself `_includes/docs.html`, shared with the
 human-like layout documentation since 2026-10-26): the menu on the
 left (folded on a phone), "On this page" on pages with four sections or more, and on a table whose first

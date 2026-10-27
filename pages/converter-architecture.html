@@ -6,7 +6,7 @@ sitemap: false
 noindex: true
 ---
 
-<!-- how the converter (map-converter, its copy in converter/mapconv/) is built since the
+<!-- how the converter (its copy in converter/mapconv/) is built since the
      restructuring (user, 2026-10-19); the page before it, with v1 and the plan, is
      /converter/architecture-v1-backup/. Hidden like /converter/description/. The diagram: a row per
      format, kept from input to output. -->
@@ -226,7 +226,7 @@ more than 1 px (at most 3 px), and a second trip moves none.</p>
 
 <h3>Checked against v1</h3>
 <p>The same inputs through every route with v1 and with the restructured converter. The tests are in
-<code>map-converter</code> (<code>tools/reference.py</code>, <code>tools/roundtrip_*.py</code>).</p>
+the converter's repository (<code>tools/reference.py</code>, <code>tools/roundtrip_*.py</code>).</p>
 <table class="ca-table">
   <tr><th>Test</th><th>Result</th></tr>
   <tr><td>610 reference files</td><td>The same apart from three intended changes: the moves listed under the map (57 message files), one CellDesigner species per molecule (96 files: 3462 species became 2972, aliases, reactions and drawing identical), and the straight GraphML from CellDesigner read without layout (10 files, process glyphs up to 3.2 px).</td></tr>
@@ -258,8 +258,8 @@ only what the file says, so what the other program changed stays changed: there 
 map on the way back. The files for Newt are made so that Newt has little to move.</p>
 
 <h3>Order of work</h3>
-<p>In a new repository <code>map-converter</code>, started from a copy of v1 with its history. v1 is kept,
-unchanged, as <code>map-converter-v1</code>, the reference. A branch <code>v1-fixed</code> holds v1 with bug fixes
+<p>In a new repository, started from a copy of v1 with its history. v1 is kept,
+unchanged, in its own archived repository, the reference. A branch <code>v1-fixed</code> holds v1 with bug fixes
 only, the fallback if the page has to go back to it.</p>
 <ol>
   <li>Done. Every Atlas map, every official CellDesigner and SBGN-ML file and the test files converted with v1 and kept as reference files.</li>
@@ -272,5 +272,5 @@ only, the fallback if the page has to go back to it.</p>
   <li>BioPAX written. Later.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-24, for map-converter commit 559a200 (2026-10-24). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
-The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-24, for converter commit 559a200 (2026-10-24). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
+The code in <code>converter/mapconv/</code> is a copy of the converter's code, kept in a private repository.</p>

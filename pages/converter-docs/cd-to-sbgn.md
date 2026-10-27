@@ -199,9 +199,8 @@ All answered 2026-10-16 (in the rows above): the table is settled.
 
 ## Known faults, not fixed yet
 
-Found 2026-10-18 by the routing experiment (maps-workbench `experiments/routing/cases.csv`, branch
-`routing-experiment`), on the PD map submaps in `tests/external/pd-map/submaps/` and AsthmaMap's PD02 in
-`tests/external/asthmap/submaps/`:
+Found 2026-10-18 by the routing experiment (in the working repository of the maps), on the PD map
+submaps in `tests/external/pd-map/submaps/` and AsthmaMap's PD02 in `tests/external/asthmap/submaps/`:
 
 - **Added links lose their bends**: "edit points of an added link left out" (pd-autophagy 16
   links, pd-histamine-signalling 2). Needs a small CellDesigner file with an added reactant or

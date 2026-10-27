@@ -7,12 +7,12 @@ paths:
 ## ysbgn.js page
 
 ysbgn.js is a completed experiment (what a JavaScript port can do and at what effort), on hold until
-the user takes it up again (user, 2026-10-21). Work on the Converter (map-converter, `converter/mapconv/`)
+the user takes it up again (user, 2026-10-21). Work on the Converter (`converter/mapconv/` and its source)
 does not mention it, propose matching changes to it, or ask for its repository.
 
 `/ysbgn-js/` (`pages/ysbgn-js.html`, user 2026-10-20; the name in lowercase everywhere), hidden like the Converter (not in the navigation,
-`noindex: true`): the GraphML and SBGN-ML routes in JavaScript (private repository
-`metabolismregulation/ysbgn-js`, a port of map-converter giving the same files), no Pyodide. The
+`noindex: true`): the GraphML and SBGN-ML routes in JavaScript (its own private
+repository, a port of the converter giving the same files), no Pyodide. The
 Converter page's look (drop area, buttons from `_includes/converter-buttons.css`, the standard sizes tick
 box), no list of routes, no description or architecture pages, a brief text next to the drop area,
 in the page's regular font size (15 px) and the Converter's grey (#777) (user 2026-10-20), the tick box scaled with it

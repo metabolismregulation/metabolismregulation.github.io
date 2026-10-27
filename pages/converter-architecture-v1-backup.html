@@ -8,7 +8,7 @@ noindex: true
 {% include converter-nav.html %}
 <p style="font-size: 13px; color: #777;">This page as it was before the Converter switched from v1 to the restructured converter (19 October 2026).</p>
 
-<!-- how the converter (map-converter, its copy in converter/mapconv/) is built, and the
+<!-- how the converter (its copy in converter/mapconv/) is built, and the
      architecture suggested for it (user, 2026-10-19). Hidden like /converter/description/. Both
      diagrams in one drawing grammar: a row per format, kept from input to output. -->
 <style>
@@ -350,8 +350,8 @@ come here.</p>
 </ul>
 
 <h3>Order of work</h3>
-<p>In a new repository <code>map-converter</code>, started from a copy of the current one with its history. The
-current one is kept, unchanged, as <code>map-converter-v1</code>, the reference.</p>
+<p>In a new repository, started from a copy of the current one with its history. The
+current one is kept, unchanged, in its own archived repository, the reference.</p>
 <ol>
   <li>Convert every Atlas map and every official CellDesigner file with the current converter and keep the results as reference files.</li>
   <li>The new model (biology and drawing), with the current readers and writers adapted to it. The files stay as they are.</li>
@@ -362,5 +362,5 @@ current one is kept, unchanged, as <code>map-converter-v1</code>, the reference.
   <li>BioPAX written.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for map-converter commit ba08e72 (2026-10-18).
-The code in <code>converter/mapconv/</code> is a copy of the private repository <code>metabolismregulation/map-converter</code>.</p>
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-19, for converter commit ba08e72 (2026-10-18).
+The code in <code>converter/mapconv/</code> is a copy of the converter's code, kept in a private repository.</p>

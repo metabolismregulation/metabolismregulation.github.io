@@ -7,8 +7,8 @@ noindex: true
 ---
 {% raw %}
 
-Moved from `maps-workbench/tools/CELLDESIGNER.md` (2026-10-16). Paths below are those of
-the workbench at the time. Here the converter is `mapconv/graphml.py` (reader), `model.py`
+Moved here on 2026-10-16. Paths below are those of the
+working repository of the maps at the time. Here the converter is `mapconv/graphml.py` (reader), `model.py`
 and `celldesigner.py` (writer), and the symbol sheet is `docs/components44-overview.png`.
 
 Removed 2026-10-13 (user: only efficient and elegant code): the side connection point

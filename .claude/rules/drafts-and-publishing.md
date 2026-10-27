@@ -27,7 +27,7 @@ A published map has the complete set of files in `downloads/`, each linked from 
 File pipeline. The CSV is made from the official GraphML with `python3 scripts/make_maps.py --official-csv <base> "<pathway>"`
 (e.g. `F021-ureacycle "Urea cycle"`, the pathway as in the Atlas topic). `make_maps.py` warns
 for every official page that lacks a file of the set (COMPLETE in the script).
-No "new" tag for a newly published map, and no daily run of the Atlas data workflow (both removed, user 2026-10-18). Working files stay in `maps-workbench`.
+No "new" tag for a newly published map, and no daily run of the Atlas data workflow (both removed, user 2026-10-18). Working files stay in the workbench.
 
 A new version of a published map is a draft page with the same file name and the permalink
 `/<name>/draft/` (e.g. `draftpages/glutaminase.md`, /glutaminase/draft/): it replaces the
@@ -48,8 +48,8 @@ TAG, estrogen, BCAA, PDH, nNOS): their GraphML and annotation CSV are the lean A
 (user, 2026-10-18). ACLY, aspirin, phosphoinositides, iNOS and cAMP hydrolysis were published from the Atlas the same way (2026-10-18;
 ACLY: the user's yEd files, state variables off the top side; aspirin: the Atlas SVG, its PNG
 rendered from it at 2x; phosphoinositides: the EGF:EGFR dimer as a complex of EGF N:2 and EGFR N:2,
-the user's yEd SVG; iNOS: the Atlas GraphML with the user's yEd SVG; cAMP hydrolysis: the Atlas GraphML and the SVG drawn from it by yrender, PKA as PKA-R N:2 with PKA-C; MINERVA upload by the user). For all ten the CellDesigner file is regenerated from that GraphML (map-converter, advanced
-layout) and SBML and SBGN-ML are made from it by MINERVA's conversion service (maps-workbench
+the user's yEd SVG; iNOS: the Atlas GraphML with the user's yEd SVG; cAMP hydrolysis: the Atlas GraphML and the SVG drawn from it by yrender, PKA as PKA-R N:2 with PKA-C; MINERVA upload by the user). For all ten the CellDesigner file is regenerated from that GraphML (the converter, advanced
+layout) and SBML and SBGN-ML are made from it by MINERVA's conversion service (the workbench's
 `tools/minerva_exports.py`); the MINERVA projects stay as they are for now (user, 2026-10-18).
 
 ## Official copies in the Atlas

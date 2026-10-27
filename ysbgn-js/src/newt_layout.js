@@ -1,6 +1,6 @@
 // Port of newt_layout.py, the Newt adapter: what an SBGN-ML map needs so Newt draws it as the
 // source does. Every process and gate in a compartment, each compartment as large as Newt's
-// padding needs, neighbours too close for it moved apart (map-converter docs/SBGNML.md).
+// padding needs, neighbours too close for it moved apart (the converter's docs, SBGN-ML).
 import { Dict, formatD, min, sorted } from './py.js';
 import * as report from './report.js';
 import { PROCESSES, centre, compartment_of, decorations } from './layout.js';

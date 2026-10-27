@@ -4,19 +4,25 @@ This repository is public and builds metabolismregulation.github.io. It holds on
 finished maps and site files.
 
 Intermediate work (drafts, uploaded sources, curation tables, build scripts,
-map versions) belongs in the private repository
-`metabolismregulation/maps-workbench`, never here.
+map versions) belongs in the private repository of the maps (the workbench), never here.
 
 Repositories (user, 2026-10-22): attach any `metabolismregulation` repository the work needs yourself (add_repo, then clone), without asking or listing it as an action for the user. Only if attaching fails, say what failed.
 
+Names (user, 2026-10-27): this repository is public and names no private repository, in files, pages, code
+comments or commit messages. These instructions say "the workbench" (the private repository of the maps: drafts,
+sources, build scripts, the handover), "the converter's repository" (the converter's source and its docs), "the
+JavaScript port's repository" (ysbgn.js, on hold) and "the layout skill", "the skill map-development" by their
+skill names. A session that needs one and has not got it attached finds it with list_repos among the
+organisation's private repositories, or asks the user.
+
 When something cannot be done, say exactly what stops it (a blocked host, a missing file, no
-access), not as a task left to do (user, 2026-10-19; details in maps-workbench CLAUDE.md).
+access), not as a task left to do (user, 2026-10-19; details in the workbench's CLAUDE.md).
 At the end of a piece of work, list explicitly what needs the user: a decision, an action, an example
 file drawn in CellDesigner (or another program), anything left unsolved (user, 2026-10-22).
 
 Working rules for sessions (handover note, when to suggest a new chat,
 batching, when to take screenshots) are in the CLAUDE.md of
-`metabolismregulation/maps-workbench`; follow them here too. Start a session
+the workbench; follow them here too. Start a session
 by reading `notes/handover.md` there.
 
 ## Rules by page
@@ -40,7 +46,7 @@ site and can be checked there. A change pushed only to a session branch is
 not visible and does not count as done, even when the session was started
 on such a branch. The only exception is internal work that is not yet meant
 for the website; that stays off `master` (and its working files belong in
-`maps-workbench`, see above).
+the workbench, see above).
 
 ## Two websites: official and Atlas
 
@@ -78,8 +84,8 @@ touches them (so a file uploaded by hand needs no further step).
 ## Public copies of private code
 
 Copies of private code are public here, the user's choice: the Converter's `converter/mapconv/`
-(from the private repository `metabolismregulation/map-converter`, run in the browser by Pyodide),
-`ysbgn-js/src/` (from `metabolismregulation/ysbgn-js`) and `yrender/` (from maps-workbench), each
+(from the converter's private repository, run in the browser by Pyodide),
+`ysbgn-js/src/` (from the JavaScript port's private repository) and `yrender/` (from the workbench), each
 with its commit in its `VERSION`. A copy takes the code only, never the CLAUDE.md of its repository.
 
 ## File pipeline
@@ -93,8 +99,8 @@ Official site (`downloads/`), when a map is published:
 | GraphML | the user's final yEd file, or the Atlas GraphML the user approved |
 | SVG | the user's yEd export, 1:1 |
 | PNG | rendered from the SVG at 2x: `python3 scripts/make_png.py <map.svg>` (cairosvg, Liberation Sans for yEd's Dialog, the renderer of the Atlas images), not a separate yEd PNG export (user, 2026-10-18) |
-| CellDesigner | map-converter, advanced layout: `python3 -m mapconv <map.graphml> <map.xml> --layout advanced` (repository `metabolismregulation/map-converter`), then `python3 -m mapconv.check <map.graphml> <map.xml>`: the same entities and reactions on both sides |
-| SBML, SBGN-ML | MINERVA's conversion service from that CellDesigner file (maps-workbench `tools/minerva_exports.py <folder> <base>`), not our converter yet |
+| CellDesigner | the converter, advanced layout: `python3 -m mapconv <map.graphml> <map.xml> --layout advanced` (in the converter's repository), then `python3 -m mapconv.check <map.graphml> <map.xml>`: the same entities and reactions on both sides |
+| SBML, SBGN-ML | MINERVA's conversion service from that CellDesigner file (the workbench's `tools/minerva_exports.py <folder> <base>`), not our converter yet |
 | Annotation CSV | `python3 scripts/make_maps.py --official-csv <base> "<pathway>"` |
 | MINERVA project | the user uploads the CellDesigner file |
 
@@ -111,7 +117,7 @@ Atlas (`atlas-downloads/`):
 | Annotation CSV | rebuilt from the GraphML by `make_maps.py` on every run |
 
 A draft carries only GraphML and SVG (Draft maps). Nothing about how a file was made goes into the
-map files themselves (user, 2026-10-18). The record is in maps-workbench `notes/published-files.csv`,
+map files themselves (user, 2026-10-18). The record is in the workbench's `notes/published-files.csv`,
 one row per file in `downloads/` (file, sha1, made by, date), written at publishing by
 `tools/published_files.py record`; `tools/published_files.py check` (by hand) reports a file in
 `downloads/` without a row or changed since its row. `make_maps.py` warns when an
@@ -147,6 +153,6 @@ Markdown (user, 2026-10-17), no script for it.
 ## Map drawing
 
 Before drawing or changing any map, load the layout skill (sbgn-human-like-layout), also in a
-session that is mainly biology research (user, 2026-10-19; details in maps-workbench CLAUDE.md).
+session that is mainly biology research (user, 2026-10-19; details in the workbench's CLAUDE.md).
 
 The rest of the drawing rules are in `.claude/rules/map-drawing.md`.

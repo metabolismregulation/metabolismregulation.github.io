@@ -199,7 +199,7 @@ since the input file.</p>
     website keeps a copy. Using <code>yrender</code> for the preview too would mean that what Claude checks is what
     the Atlas shows. For that it has to move into the skill folder, as the skill zip in claude.ai holds only that
     folder. Kept as it is: the preview is good enough for laying out, and the user judges the result in yEd.</li>
-  <li><b>map-converter's model</b>: map-converter is being rebuilt around a model that holds a map's biology and
+  <li><b>The converter's model</b>: the converter is being rebuilt around a model that holds a map's biology and
     its drawing apart. The layout tool reads and writes only yEd GraphML. A CellDesigner map goes to GraphML through
     the converter, is laid out, and goes back through the converter, which works today. Laying out the converter's
     drawing directly would save those two conversions and would let a file without any drawing (BioPAX, SBML
@@ -227,7 +227,7 @@ different maps. The rest costs more than it gains today.</p>
 placement helpers for the map builds, and one finishing pipeline that runs the passes in a fixed order. One check
 that covers layout, the strict rules and the content. The story stays with the person and the map build, as now.
 What belongs to one map (the F001 blocks, the harmonisation round) moves to <code>examples/</code>. Later, maps from
-map-converter's model and from files without a drawing (dashed).</p>
+the converter's model and from files without a drawing (dashed).</p>
 
 <div class="ca-fig">
 <svg viewBox="0 0 1200 640" role="img" aria-label="The suggested architecture: one reader and writer, placement helpers and map builds, a finishing pipeline, one check, shared report, reference files and renderer">
@@ -246,7 +246,7 @@ map-converter's model and from files without a drawing (dashed).</p>
   <rect class="ca-fmt" x="20" y="100" width="120" height="40" rx="5"/>
   <text class="ca-fmtt" x="80" y="125" text-anchor="middle">GraphML (yEd)</text>
   <rect class="ca-plan" x="20" y="250" width="120" height="40" rx="5"/>
-  <text class="ca-fmtt ca-pt" x="80" y="275" text-anchor="middle">map-converter</text>
+  <text class="ca-fmtt ca-pt" x="80" y="275" text-anchor="middle">converter</text>
   <text class="ca-sub ca-pt" x="80" y="308" text-anchor="middle">its model: CellDesigner,</text>
   <text class="ca-sub ca-pt" x="80" y="324" text-anchor="middle">SBGN-ML, and files</text>
   <text class="ca-sub ca-pt" x="80" y="340" text-anchor="middle">without a drawing</text>
@@ -383,7 +383,7 @@ packing are stale, and the two grids above undo each other. One pipeline with on
 </ul>
 
 <h3>Open questions</h3>
-<p>Answered since: the grid (snap and hubs for different maps), the renderer and map-converter's model (Left for later).</p>
+<p>Answered since: the grid (snap and hubs for different maps), the renderer and the converter's model (Left for later).</p>
 
 <h3>Order of work</h3>
 <ol>

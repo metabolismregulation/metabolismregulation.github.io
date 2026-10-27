@@ -27,7 +27,7 @@ reference in `cdviewer/celldesigner/<base>.svg` (iNOS, eNOS, ACLY, mevalonate, S
 which cover every CellDesigner feature of the official files; not shown on the page; a copy suffix
 such as _1 is dropped, and `make_cdviewer.py` adds the size the export lacks and Arial's metrics
 after Dialog; maps.json `cd`). More exports from the user improve the rules. Line geometry as
-map-converter reads CellDesigner (`converter/mapconv/cd_layout.py`). A map MINERVA redraws by
+the converter reads CellDesigner (`converter/mapconv/cd_layout.py`). A map MINERVA redraws by
 Update keeps its CellDesigner-style drawing of the earlier file until the site's data is rebuilt,
 said under the map. The SVGs are made by
 `python3 scripts/make_cdviewer.py` (MINERVA's conversion service, CellDesigner to SVG, Java's Dialog font

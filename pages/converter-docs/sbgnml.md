@@ -130,8 +130,7 @@ then write it. Examples: our own SBGN-ML of every test map, and files saved by N
 
 ### Activity Flow (read only, user 2026-10-17)
 
-SBGN AF Level 1 Version 1.2 (Mi et al. 2015, doi:10.1515/jib-2015-265; copy in maps-workbench
-`notes/activity-flow/`). An activity is drawn as the entity it comes from, CellDesigner's way: its
+SBGN AF Level 1 Version 1.2 (Mi et al. 2015, doi:10.1515/jib-2015-265). An activity is drawn as the entity it comes from, CellDesigner's way: its
 unit of information's shape gives the glyph (macromolecule, nucleic acid feature, simple chemical,
 unspecified entity, complex; perturbation as a phenotype, as in CellDesigner; no unit: a protein), the
 unit's label (the molecule's name) stays a unit of information. Positive, negative and unknown influence

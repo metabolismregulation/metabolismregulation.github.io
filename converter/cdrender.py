@@ -1,7 +1,7 @@
 # A CellDesigner file drawn as CellDesigner draws it (user, 2026-10-22): the CD viewer's
 # CellDesigner view. The rules are read off the user's SVG exports from CellDesigner
 # (cdviewer/celldesigner/: iNOS, eNOS, ACLY, mevalonate, SREBP, estrogen), the geometry of lines
-# as map-converter reads it (anchors, edit points in the frame of their two ends, added links
+# as the converter reads it (anchors, edit points in the frame of their two ends, added links
 # joining the main line at 3/8 and 5/8).
 #   python3 converter/cdrender.py <map.xml> <out.svg>
 import math, os, sys

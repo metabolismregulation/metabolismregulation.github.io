@@ -4,7 +4,7 @@
 //            shapes; GraphML (marked) when it breaks a rule (the problems left out)
 //   SBGN-ML, Newt: GraphML; GraphML (standard sizes) for a map drawn at another scale, or for
 //            every map when standard (style.standard; user, 2026-10-20)
-// (CellDesigner, both ways, is map-converter's.)
+// (CellDesigner, both ways, is the Python converter's.)
 import * as graphml from './graphml.js';
 import * as report from './report.js';
 import * as rules from './rules.js';

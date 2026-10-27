@@ -59,7 +59,7 @@ annotation and a plain label, not clickable (2026-10-18). GO is left out for now
 2026-10-18): it would come only as a general approach, for compartments too, not for single
 nodes. The four such nodes on the Atlas (26S proteasome, RTK, Histone acetylation,
 pyrrophenone) are plain labels.
-The Atlas GraphMLs are lean (2026-10-18, maps-workbench `tools/lean_migration.py`; map-converter's
+The Atlas GraphMLs are lean (2026-10-18, the workbench's `tools/lean_migration.py`; the converter's
 `annotate` writes only these): HGNC, HGNC symbol, UniProt, ChEBI, PTM, Family, Members and Member
 annotation (each member's HGNC, HGNC symbol, UniProt and PTM). The Atlas annotation CSV is the
 GraphML as a table, rebuilt by `scripts/make_maps.py` for every Atlas CSV a map page links:

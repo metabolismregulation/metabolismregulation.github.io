@@ -1,6 +1,6 @@
 // ysbgn.js: yEd GraphML (SBGN palette) to SBGN-ML and back, in the browser or in Node, with no
 // dependencies. A port of the GraphML and SBGN-ML routes of metabolismregulation's map converter
-// (map-converter, Python), file for file the same output; upstream/VERSION names the commit.
+// (Python), file for file the same output; upstream/VERSION names the commit.
 //   outputs(path, text, standard) -> the files an input gives (Output: ending, label, make, red)
 //   made(output) -> [text or null, messages], every message as Python says it (the tests compare them)
 //   reported(messages) -> the problems and losses only, what a user needs to know (user, 2026-10-20)

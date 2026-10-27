@@ -1,5 +1,5 @@
 // Colour theme playground for the maps of the page's map menu (#c2-maps).
-// The map is the yEd SVG export tagged by maps-workbench tools/colours_svg.py:
+// The map is the yEd SVG export tagged by our colours_svg.py:
 // each fill has the class c-<role>, each text t-<role> of the fill under it
 // (t-page on the background), and lines and arrowheads take the root's colour.
 // A theme sets one CSS variable per role (the rules are in colours.md).
