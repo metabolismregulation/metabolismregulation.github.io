@@ -135,5 +135,5 @@ At the top of every Converter page but the Converter itself (user, 2026-10-27, a
 row, `_includes/converter-nav.html` on `_includes/top-nav.html`: ↰ Converter (the way back to the tool, its
 arrow kept and set apart from the rest; user, 2026-10-27, on trial), then Documentation, Description, Architecture
 (not the v1 backups, user 2026-10-27, which carry the row), the page shown in dark grey and not linked, the others grey #777, blue
-on hover, no arrows (2026-10-27, on trial; ↱ before each link tried first, an underline under the page shown dropped, user). It replaced "↰ Converter". The Converter page keeps its
+on hover, no arrows (2026-10-27, on trial; ↱ before each link tried first, an underline under the page shown dropped, user). It took the place of the lone "↰ Converter" link. The Converter page keeps its
 links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).
