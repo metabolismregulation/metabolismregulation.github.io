@@ -1,7 +1,7 @@
 <!-- one row of links at the top of a tool's pages (user, 2026-10-26, human-like layout; 2026-10-27, converter): include
      with links="url|name,url|name,...", a url ending in * standing for its pages below too, and up="url|name" for the
      tool's own page, first, set apart from the rest by a vertical line, lighter than the words, darker than #ccc (user, 2026-10-27: no arrow;
-     1 px #ccc too pale, 2 px #777 too strong, buttons and ↰ tried first). The page shown in dark grey
+     1 px #ccc too pale, 2 px #777 too strong, 1 px #999 darker than the words, which are antialiased, buttons and ↰ tried first). The page shown in dark grey
      and not linked (an underline tried and dropped, user 2026-10-27), the others grey #777, blue on hover; no arrows (2026-10-27, Claude's
      suggestion on trial: the row reads as tabs, an arrow on each link was noise). -->
 <style>
@@ -9,7 +9,7 @@
   #main p.top-nav a, #main p.top-nav span { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
   #main p.top-nav a:hover { color: #1c47a9; }
   #main p.top-nav span { color: #222; }
-  #main p.top-nav a.up { padding-right: 16px; border-right: 1px solid #999; }
+  #main p.top-nav a.up { padding-right: 16px; border-right: 1px solid #bbb; }
 </style>
 {% assign tn_links = include.links | split: "," %}
 <p class="top-nav">{% if include.up %}{% assign tn = include.up | split: "|" %}<a class="up" href="{{ tn[0] | relative_url }}">{{ tn[1] }}</a>{% endif %}{% for l in tn_links %}{% assign tn = l | split: "|" %}{% assign tn_url = tn[0] | remove: "*" %}{% assign tn_here = false %}{% if page.url == tn_url %}{% assign tn_here = true %}{% elsif tn[0] contains "*" and page.url contains tn_url %}{% assign tn_here = true %}{% endif %}{% if tn_here %}<span>{{ tn[1] }}</span>{% else %}<a href="{{ tn_url | relative_url }}">{{ tn[1] }}</a>{% endif %}{% endfor %}</p>
