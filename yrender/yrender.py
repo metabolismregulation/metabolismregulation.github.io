@@ -14,6 +14,8 @@
 #  - edges: from port to port through the bends, cut at the node outlines; soft bends are
 #    quadratic curves cutting 10 px (at most half a segment) on each side of the bend
 #  - arrows: tip on the outline; the line stops where the arrow head covers it
+#  - UnspecifiedEntity drawn as an ellipse, dashed lines as dashes 6 and gaps 2 times the line width
+#    (2026-10-27; not yet compared with a yEd export)
 #  - edge labels: placed from the edge's first point (anchor and up vector when rotated,
 #    turned half round when upside down)
 #  - the image spans the nodes and their labels; edges are painted after the top-level
@@ -31,7 +33,8 @@ Y = '{http://www.yworks.com/xml/graphml}'
 MARGIN = 15
 SBGN = 'com.yworks.sbgn.'
 NODE_STYLES = {'Macromolecule', 'SimpleChemical', 'Complex', 'Process', 'EmptySet', 'Operator',
-               'Phenotype', 'Submap', 'NucleicAcidFeature', 'StateVariable', 'UnitOfInformation'}
+               'Phenotype', 'Submap', 'NucleicAcidFeature', 'StateVariable', 'UnitOfInformation',
+               'UnspecifiedEntity'}
 SHAPES = {'rectangle', 'roundrectangle'}
 STYLE_PROPS = {'radius', 'radiusX', 'radiusY', 'mcount'}
 ARROWS = {'none', 'delta', 'white_delta', 'white_circle', 'white_delta_bar', 't_shape'}
@@ -127,6 +130,15 @@ def ellipse(x, y, w, h):
     return round_rect(x, y, w, h, max(w, h), quad=False)
 
 
+def oval(x, y, w, h):
+    # an ellipse of any proportions, four cubic curves
+    a, b, cx, cy = w / 2, h / 2, x + w / 2, y + h / 2
+    return [('M', cx, y), ('C', cx + a * K, y, x + w, cy - b * K, x + w, cy),
+            ('C', x + w, cy + b * K, cx + a * K, y + h, cx, y + h),
+            ('C', cx - a * K, y + h, x, cy + b * K, x, cy),
+            ('C', x, cy - b * K, cx - a * K, y, cx, y), ('Z',)]
+
+
 def octagon(x, y, w, h, rx, ry):
     rx, ry = min(rx, w / 2), min(ry, h / 2)
     pts = [(x + rx, y), (x + w - rx, y), (x + w, y + ry), (x + w, y + h - ry),
@@ -216,6 +228,7 @@ def outline(kind, x, y, w, h, props):
     if kind == 'Complex': return octagon(x, y, w, h, float(props.get('radiusX', 15)), float(props.get('radiusY', 15)))
     if kind == 'NucleicAcidFeature': return nucleic(x, y, w, h, float(props.get('radius', 12)))
     if kind in ('EmptySet', 'Operator'): return ellipse(x, y, w, h)
+    if kind == 'UnspecifiedEntity': return oval(x, y, w, h)
     if kind == 'Phenotype': return hexagon(x, y, w, h)
     if kind == 'roundrectangle': return round_rect(x, y, w, h, 4, quad=False)
     return rect(x, y, w, h)  # Process, Submap, UnitOfInformation, rectangle
@@ -468,9 +481,10 @@ class Map:
         pts[0] = clip(pts[1], pts[0], S['polys'])
         pts[-1] = clip(pts[-2], pts[-1], T['polys'])
         ls = pl.find(Y + 'LineStyle')
-        if ls.get('type') != 'line':
+        if ls.get('type') not in ('line', 'dashed'):
             refuse(where, f'line type {ls.get("type")}')
         col, width = ls.get('color'), float(ls.get('width'))
+        dash = f' stroke-dasharray="{num(6 * width)} {num(2 * width)}"' if ls.get('type') == 'dashed' else ''
         ar = pl.find(Y + 'Arrows')
         heads, line = '', list(pts)
         for end, kind in (('target', ar.get('target')), ('source', ar.get('source'))):
@@ -501,7 +515,7 @@ class Map:
             dd += f' L{num(b[0])} {num(b[1])}'
         dd += f' L{num(line[-1][0])} {num(line[-1][1])}'
         wa = f' stroke-width="{num(width)}"' if width != 1 else ''
-        s = f'<path d="{dd}" fill="none"{ink("stroke", col)}{wa}/>' + heads
+        s = f'<path d="{dd}" fill="none"{ink("stroke", col)}{wa}{dash}/>' + heads
         for lab in pl.findall(Y + 'EdgeLabel'):
             if lab.get('visible') == 'false' or not (lab.text or '').strip():
                 continue
