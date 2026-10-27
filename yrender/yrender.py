@@ -15,7 +15,7 @@
 #    quadratic curves cutting 10 px (at most half a segment) on each side of the bend
 #  - arrows: tip on the outline; the line stops where the arrow head covers it
 #  - UnspecifiedEntity drawn as an ellipse, dashed lines as dashes 6 and gaps 2 times the line width
-#    (2026-10-27; not yet compared with a yEd export)
+#    (2026-10-27; checked against a yEd export: same shapes)
 #  - edge labels: placed from the edge's first point (anchor and up vector when rotated,
 #    turned half round when upside down)
 #  - the image spans the nodes and their labels; edges are painted after the top-level
