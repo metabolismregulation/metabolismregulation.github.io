@@ -19,7 +19,7 @@ reading size (user, 2026-10-22, as on the Colours page); Read keeps the map at t
 
 ## Atlas download row
 
-Atlas download row: one colour for all buttons (no quieter SBML, no filled MINERVA), in the style of the Converter's grey button (user, 2026-10-20): white, grey edge and text (#777), on hover filled in the blue of the chosen map in the map list (#4183c4, white text), the Images menu items in the font and colours of the button, the menu opening upwards when there is no room below in the window (user, 2026-10-22, as the Colours map menu). Ordered by use: GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), then Newt and MINERVA, all in one row at the same spacing.
+Atlas download row: one colour for all buttons (no quieter SBML, no filled MINERVA), in the style of the Converter's grey button (user, 2026-10-20): white, grey edge and text (#777), on hover filled in the blue of the chosen map in the map list (#4183c4, white text), the Images menu items in the font and colours of the button, the menu opening upwards when there is no room below in the window (user, 2026-10-22, as the Colours map menu). Ordered by use: GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG and SVG in a menu), Data (the annotation table), References (where a build gives a map its table of references per process, one row per paper: user, 2026-10-27), then Newt and MINERVA, all in one row at the same spacing.
 
 ## Atlas panel
 

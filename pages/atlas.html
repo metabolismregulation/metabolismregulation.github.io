@@ -910,6 +910,7 @@ noindex: true
       menu.appendChild(sum); menu.appendChild(list); dl.appendChild(menu);
     }
     if (url.Annotation) dl.appendChild(file('Data', url.Annotation, null, 'Annotation table (CSV)'));
+    if (url.References) dl.appendChild(file('References', url.References, null, 'References per process (CSV)'));
     ['Newt', 'MINERVA'].forEach(function (l) {
       if (!url[l]) return;
       var a = el('a', 'm2-ext', l);
