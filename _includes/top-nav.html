@@ -1,12 +1,12 @@
 <!-- one row of links at the top of a tool's pages (user, 2026-10-26, human-like layout; 2026-10-27, converter): include
      with links="url|name,url|name,...", a url ending in * standing for its pages below too. The page shown in dark grey
-     and not linked, the others grey #777, blue on hover, each after an arrow up and right (user, 2026-10-27: a row at the top). -->
+     and not linked, underlined as a tab, the others grey #777, blue on hover; no arrows (2026-10-27, Claude's
+     suggestion on trial: the row reads as tabs, an arrow on each link was noise). -->
 <style>
   #main p.top-nav { margin: 0 0 14px; color: #777; }
   #main p.top-nav a, #main p.top-nav span { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
   #main p.top-nav a:hover { color: #1c47a9; }
-  #main p.top-nav span { color: #222; }
+  #main p.top-nav span { color: #222; border-bottom: 2px solid #222; padding-bottom: 2px; }
 </style>
 {% assign tn_links = include.links | split: "," %}
-{% capture tn_arrow %}<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 20v-8a3 3 0 0 1 3-3h11M15 4l5 5-5 5"/></svg>{% endcapture %}
-<p class="top-nav">{% for l in tn_links %}{% assign tn = l | split: "|" %}{% assign tn_url = tn[0] | remove: "*" %}{% assign tn_here = false %}{% if page.url == tn_url %}{% assign tn_here = true %}{% elsif tn[0] contains "*" and page.url contains tn_url %}{% assign tn_here = true %}{% endif %}{% if tn_here %}<span>{{ tn_arrow }}{{ tn[1] }}</span>{% else %}<a href="{{ tn_url | relative_url }}">{{ tn_arrow }}{{ tn[1] }}</a>{% endif %}{% endfor %}</p>
+<p class="top-nav">{% for l in tn_links %}{% assign tn = l | split: "|" %}{% assign tn_url = tn[0] | remove: "*" %}{% assign tn_here = false %}{% if page.url == tn_url %}{% assign tn_here = true %}{% elsif tn[0] contains "*" and page.url contains tn_url %}{% assign tn_here = true %}{% endif %}{% if tn_here %}<span>{{ tn[1] }}</span>{% else %}<a href="{{ tn_url | relative_url }}">{{ tn[1] }}</a>{% endif %}{% endfor %}</p>

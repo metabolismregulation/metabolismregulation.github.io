@@ -134,5 +134,5 @@ architecture pages are in the menu but keep their own layout.
 At the top of every Converter page but the Converter itself (user, 2026-10-27, as the human-like layout pages): one
 row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter, Documentation, Description, Architecture
 (not the v1 backups, user 2026-10-27, which carry the row), the page shown in dark grey and not linked, the others grey #777, blue
-on hover, each after an arrow up and right (↱, a row at the top). It replaced "↰ Converter". The Converter page keeps its
+on hover, the shown one underlined as a tab, no arrows (2026-10-27, on trial; ↱ before each link tried first). It replaced "↰ Converter". The Converter page keeps its
 links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).

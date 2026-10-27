@@ -13,7 +13,7 @@ paths:
 
 Three hidden pages (`noindex`, out of the sitemap, not in the navigation), linked from each other by one row at the
 top, `_includes/layout-nav.html` (user, 2026-10-26): Documentation, Architecture, Earlier architecture 1.0, the page shown
-in dark grey and not linked, the others grey #777 after an arrow up and right (↱, user 2026-10-27: the row is at the top), blue on hover; on
+in dark grey, underlined as a tab and not linked, the others grey #777, blue on hover, no arrows (2026-10-27, on trial; ↱ tried first); on
 `_includes/top-nav.html`, shared with the Converter pages' row.
 
 - `/human-like-layout/architecture/` (`pages/layout-architecture.html`, user 2026-10-26; drawn as the converter's
