@@ -370,7 +370,7 @@ class Map:
         self.url = {k for k, v in keys.items() if v[1] == 'url'}
         self.nodes = {}   # id -> dict(geo, polys, svg)
         self.order = []   # paint order: ('n', id), ('e', element), ('block',)
-        self.boxes = []   # nodes and node labels: the image spans them
+        self.boxes = []   # nodes, node labels and edge bends: the image spans them
         self.read_graph(self.root.find(G + 'graph'), top=True)
 
     def link(self, el):
@@ -388,6 +388,8 @@ class Map:
                     self.order.append(('block',))
             elif el.tag == G + 'edge':
                 self.order.append(('e', (el, parent)))
+                # bends outside every node (links routed in lanes below a cell) were cut off (2026-10-27)
+                self.boxes += [(float(q.get('x')), float(q.get('y')), 0, 0) for q in el.iter(Y + 'Point')]
 
     def read_node(self, node, parent):
         nid = node.get('id'); where = 'node ' + nid
