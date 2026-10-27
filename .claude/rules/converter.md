@@ -134,7 +134,7 @@ architecture pages are in the menu but keep their own layout.
 At the top of every Converter page but the Converter itself (user, 2026-10-27, as the human-like layout pages): one
 row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter (the way back to the tool), set apart by a
 vertical line, 2 px #ccc, then Documentation, Description, Architecture (not the v1 backups, which carry the row); the
-page shown in dark grey and not linked, the others grey #777, blue on hover, no arrows. Tried and dropped the same day
+page shown in dark grey and not linked, the others grey #777, on hover the site's text colour #333 (not blue), no arrows. Tried and dropped the same day
 (user): ↱ before each link, an underline under the page shown, buttons, ↰ and ← before Converter, the line 1 px in
 #ccc, #999, #aaa, #bbb and 2 px in #777 and #bbb. It took the place of the lone "↰ Converter" link. The Converter
 page keeps its links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).
