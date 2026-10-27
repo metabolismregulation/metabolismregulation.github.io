@@ -20,7 +20,7 @@ first step that is not settled.
 | 1. The story: main story, substories, hubs | the map | by hand |
 | 2. Blocks laid out on their own | about 20 processes | `kit.py` |
 | 3. Blocks placed, from the hubs outward | 10 to 30 blocks | by hand, `breathe.py` for room, placer planned |
-| 4. Ports, then routing between blocks | arcs between blocks | ports built, router planned |
+| 4. Ports, then routing between blocks | arcs between blocks | ports built, nested buses by rule, router planned |
 | 5. Hubs: ports spread, then flows merged | a hub's arcs | `hub_grid.py`, merges by hand |
 | 6. Small grid, regular series | nodes, bends | `snap_grid.py`, `series.py` |
 | 7. Local passes | a node, a pair, a complex | `lanes.py`, `standardise.py` |
@@ -45,6 +45,13 @@ redraws only crowded ones, and step 3 gives room instead of rearranging.
   strips between the blocks they join, so the cost does not grow with the map.
 - **Hubs**: a hub's ports spread over its sides first. When that is not enough, flows merge: arcs of one kind
   into one line with one merge point and one branch per target.
+- **Nested buses**: many sources in a row or a column (blocks, receptors) feeding a few targets beyond its end get
+  one bus per target. Each source's line goes straight onto its target's bus. The buses run parallel to the line of
+  sources at growing distance from it, and the bus closest to the sources goes to the target the buses reach first:
+  under a row of sources the nearest target's bus is the highest, beside a column the buses run vertical and the
+  nearest target's bus is nearest the column. No bus crosses another; what remains are source lines passing the
+  buses of closer targets. The order comes from positions alone, no search: on a large assembled map (16 blocks, 6
+  targets) it took the crossings among the links from 33 to 18, where the best of all 720 orders gives 17.
 - **Lanes** for parallel and opposite pairs, **room in three steps** (locally, the block, everything past a
   line), **labels last**.
 - **Crossings avoided by construction**: the story, the blocks and the strips keep arcs apart. Crossings are

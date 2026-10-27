@@ -11,6 +11,12 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-27
 
+- Nested buses for large maps: many sources feeding a few targets get one bus per target, the bus closest to the
+  sources going to the target reached first, in whichever direction the layout runs. No bus crosses another.
+
+- The check reports arcs ending off their node: an end set beyond the node's box, which yEd draws stopping in empty
+  space. An arc into a step whose four sides are taken enters a corner.
+
 - A binding takes every partner on the side opposite the complex (strict): a partner beside the step sits a little
   above it, its line turning once into the step. The check reports bindings that do not, on the line "process sides".
 

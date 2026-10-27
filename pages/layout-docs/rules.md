@@ -94,6 +94,10 @@ name running past the node as a box. Two nodes are too close when any of their s
 - A kinase and phosphatase switch can stand vertically, the active form nearest the reactions it catalyses.
 - Transport across the plasma membrane: a thin membrane strip above the cytosol, the transport process on it,
   the outside species above it.
+- Nested buses: many sources in a row or column feeding a few targets beyond its end: one bus per target, the
+  buses parallel to the sources at growing distance, the bus closest to the sources going to the target reached
+  first (under a row the nearest target's bus is the highest, beside a column the nearest to it), each source's line
+  straight onto its bus.
 - Logic gates sit by their inputs, not by their target: each input joins the gate directly, the distance is
   carried by the one output line.
 
