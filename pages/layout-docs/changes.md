@@ -9,6 +9,11 @@ noindex: true
 
 What changed for maps laid out with the tool, by date.
 
+## 2026-10-27
+
+- Lanes 10 to 12 px either side of the line count as lanes: the check no longer reports narrower lanes set by hand,
+  and `lanes.py` leaves them as they are (new lanes still 12 px).
+
 ## 2026-10-26
 
 - The finishing pass (`standardise.py`) runs again: its room-at-arrowheads step had stopped on the check's renamed

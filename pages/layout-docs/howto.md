@@ -25,7 +25,8 @@ worse. What could not be done is printed ("not done"): that part is left to the 
 ## Put two processes on one pair of nodes into lanes
 
 Two processes between the same two nodes, opposite (a kinase and a phosphatase) or parallel (the same step by two
-enzymes), are drawn as two lanes 12 px either side of the line between the nodes, never as a V:
+enzymes), are drawn as two lanes 12 px either side of the line between the nodes, never as a V. Lanes drawn
+10 or 11 px either side are kept as they are, and the check accepts them:
 
 ```
 python3 lanes.py map.graphml map-lanes.graphml
