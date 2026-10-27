@@ -1,6 +1,7 @@
 <!-- one row of links at the top of a tool's pages (user, 2026-10-26, human-like layout; 2026-10-27, converter): include
      with links="url|name,url|name,...", a url ending in * standing for its pages below too, and up="url|name" for the
-     tool's own page, first, after the arrow up and left (↰) and set apart from the rest by a thin vertical line (user, 2026-10-27). The page shown in dark grey
+     tool's own page, first, set apart from the rest by a vertical line in the links' grey (user, 2026-10-27: no arrow;
+     a thin light line, buttons and ↰ tried first). The page shown in dark grey
      and not linked (an underline tried and dropped, user 2026-10-27), the others grey #777, blue on hover; no arrows (2026-10-27, Claude's
      suggestion on trial: the row reads as tabs, an arrow on each link was noise). -->
 <style>
@@ -8,7 +9,7 @@
   #main p.top-nav a, #main p.top-nav span { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
   #main p.top-nav a:hover { color: #1c47a9; }
   #main p.top-nav span { color: #222; }
-  #main p.top-nav a.up { padding-right: 16px; border-right: 1px solid #ccc; }
+  #main p.top-nav a.up { padding-right: 16px; border-right: 2px solid #777; }
 </style>
 {% assign tn_links = include.links | split: "," %}
-<p class="top-nav">{% if include.up %}{% assign tn = include.up | split: "|" %}<a class="up" href="{{ tn[0] | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M18 20v-8a3 3 0 0 0-3-3H4M9 4L4 9l5 5"/></svg>{{ tn[1] }}</a>{% endif %}{% for l in tn_links %}{% assign tn = l | split: "|" %}{% assign tn_url = tn[0] | remove: "*" %}{% assign tn_here = false %}{% if page.url == tn_url %}{% assign tn_here = true %}{% elsif tn[0] contains "*" and page.url contains tn_url %}{% assign tn_here = true %}{% endif %}{% if tn_here %}<span>{{ tn[1] }}</span>{% else %}<a href="{{ tn_url | relative_url }}">{{ tn[1] }}</a>{% endif %}{% endfor %}</p>
+<p class="top-nav">{% if include.up %}{% assign tn = include.up | split: "|" %}<a class="up" href="{{ tn[0] | relative_url }}">{{ tn[1] }}</a>{% endif %}{% for l in tn_links %}{% assign tn = l | split: "|" %}{% assign tn_url = tn[0] | remove: "*" %}{% assign tn_here = false %}{% if page.url == tn_url %}{% assign tn_here = true %}{% elsif tn[0] contains "*" and page.url contains tn_url %}{% assign tn_here = true %}{% endif %}{% if tn_here %}<span>{{ tn[1] }}</span>{% else %}<a href="{{ tn_url | relative_url }}">{{ tn[1] }}</a>{% endif %}{% endfor %}</p>
