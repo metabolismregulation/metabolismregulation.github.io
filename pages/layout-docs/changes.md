@@ -11,6 +11,9 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-27
 
+- A binding takes every partner on the side opposite the complex (strict): a partner beside the step sits a little
+  above it, its line turning once into the step. The check reports bindings that do not, on the line "process sides".
+
 - Lanes 10 to 12 px either side of the line count as lanes: the check no longer reports narrower lanes set by hand,
   and `lanes.py` leaves them as they are (new lanes still 12 px).
 

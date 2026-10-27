@@ -30,7 +30,7 @@ ends or arrowheads. Nodes and arcs are matched by id. After a layout this list i
 | arcs too close | an arc closer than 30 px to a node it passes or to an arc running beside it |
 | room at arrowheads and bends | an arrow shorter than 30 px, or a bend nearer than 30 px to an arrow's tip or to the node an arc leaves |
 | names not inside, centred | a protein, metabolite or the like whose name is not centred in its shape (strict) |
-| reversible processes without two antennas | a reversible process whose two ends are not on opposite sides, or with a modulator on one of them |
+| process sides | a reversible process whose two ends are not on opposite sides, or with a modulator on one of them; a binding with a partner off the side opposite the complex |
 | pairs of processes not in lanes | two processes on one pair of nodes not drawn as two lanes |
 | icons off the standard | a state variable or unit of information off its size or place |
 | complexes not as packed | a complex larger than its packing |
