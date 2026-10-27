@@ -1,7 +1,7 @@
 name: branch-cleanup
 
 # Deletes leftover session branches (claude/...) whose every commit is already on the default branch.
-# A branch holding its own work is left alone. Run by hand; dry_run lists without deleting.
+# A branch holding its own work is left alone, unless named in `also`. Run by hand; dry_run lists without deleting.
 
 on:
   workflow_dispatch:
@@ -10,6 +10,10 @@ on:
         description: 'List only, delete nothing'
         type: boolean
         default: true
+      also:
+        description: 'Session branches to delete even with their own commits (space-separated)'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -25,12 +29,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           DRY_RUN: ${{ inputs.dry_run }}
+          ALSO: ${{ inputs.also }}
           DEFAULT: ${{ github.event.repository.default_branch }}
         run: |
           git fetch -q origin '+refs/heads/*:refs/remotes/origin/*'
           for ref in $(git for-each-ref --format='%(refname:strip=3)' 'refs/remotes/origin/claude/'); do
             ahead=$(git rev-list --count "origin/$DEFAULT..origin/$ref")
-            if [ "$ahead" != "0" ]; then
+            named=no
+            for a in $ALSO; do [ "$a" = "$ref" ] && named=yes; done
+            if [ "$ahead" != "0" ] && [ "$named" = no ]; then
               echo "keep    $ref ($ahead commit(s) not on $DEFAULT)"
             elif [ "$DRY_RUN" = "true" ]; then
               echo "would delete $ref"
