@@ -132,8 +132,9 @@ architecture pages are in the menu but keep their own layout.
 ## Converter pages row
 
 At the top of every Converter page but the Converter itself (user, 2026-10-27, as the human-like layout pages): one
-row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter (the way back to the tool, after an
-arrow pointing left ←, on trial, set apart from the rest by a vertical line, 2 px #ccc (2 px #bbb tried, back to #ccc with the arrow, user 2026-10-27); user, 2026-10-27; ↰, 1 px #ccc (too pale) , 2 px #777 (too strong) , 1 px #999 (looked darker than the words) , 1 px #bbb (too pale) , 1 px #aaa (too thin) tried first), then Documentation, Description, Architecture
-(not the v1 backups, user 2026-10-27, which carry the row), the page shown in dark grey and not linked, the others grey #777, blue
-on hover, no arrows (2026-10-27, on trial; ↱ before each link tried first, an underline under the page shown dropped, user). It took the place of the lone "↰ Converter" link. The Converter page keeps its
-links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).
+row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter (the way back to the tool), set apart by a
+vertical line, 2 px #ccc, then Documentation, Description, Architecture (not the v1 backups, which carry the row); the
+page shown in dark grey and not linked, the others grey #777, blue on hover, no arrows. Tried and dropped the same day
+(user): ↱ before each link, an underline under the page shown, buttons, ↰ and ← before Converter, the line 1 px in
+#ccc, #999, #aaa, #bbb and 2 px in #777 and #bbb. It took the place of the lone "↰ Converter" link. The Converter
+page keeps its links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).
