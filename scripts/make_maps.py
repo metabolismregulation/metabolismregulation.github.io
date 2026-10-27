@@ -29,7 +29,7 @@
 # annotation CSV of a published map, downloads/<base>.csv, from downloads/<base>.graphml
 # (the same table as the Atlas one), and nothing else. Every official page is checked for the
 # complete set of files (COMPLETE), and a missing one is a warning.
-import os, re, sys, csv, glob, json, collections, urllib.request, urllib.parse
+import os, re, sys, csv, glob, json, time, collections, urllib.request, urllib.parse
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -142,8 +142,9 @@ REFRESH = '--refresh' in sys.argv
 SOURCE = {'uniprot': 'https://rest.uniprot.org/uniprotkb/%s.json?fields=protein_name,cc_function,cc_subcellular_location,ft_mod_res',
           'hgnc': 'https://rest.genenames.org/fetch/hgnc_id/%s',
           'hgnc-symbol': 'https://rest.genenames.org/fetch/symbol/%s',
-          'chebi': 'https://www.ebi.ac.uk/chebi/backend/api/public/compound/%s/'}
-CACHE = {n: os.path.join(ROOT, 'atlas-data', n + '.json') for n in ('uniprot', 'hgnc', 'chebi')}
+          'chebi': 'https://www.ebi.ac.uk/chebi/backend/api/public/compound/%s/',
+          'pubmed': 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=%s'}
+CACHE = {n: os.path.join(ROOT, 'atlas-data', n + '.json') for n in ('uniprot', 'hgnc', 'chebi', 'pubmed')}
 cache = {n: json.load(open(f, encoding='utf-8')) if os.path.exists(f) else {} for n, f in CACHE.items()}
 fetched = set()  # what this run has fetched (with --refresh, each entry once)
 OVERRIDES = json.load(open(os.path.join(ROOT, 'atlas-data', 'overrides.json'), encoding='utf-8'))
@@ -167,6 +168,8 @@ def gone(src, key, d):
         return 'now ' + d['primaryAccession'] if d['primaryAccession'] != key else ''
     if src == 'chebi':
         return 'now ' + d['chebi_accession'] if d['chebi_accession'] != key else ''
+    if src == 'pubmed':
+        return 'not found' if 'error' in d['result'].get(key, {'error': 1}) else ''
     docs = d['response']['docs']
     return 'not found' if not docs else docs[0]['status'].lower() if docs[0]['status'] != 'Approved' else ''
 
@@ -240,6 +243,31 @@ def parse_chebi(d):
             'InChI': st.get('standard_inchi') or '', 'InChIKey': st.get('standard_inchi_key') or ''}
 
 
+# A process's references (user, 2026-10-27): the node property References, prefix:id separated by
+# spaces (pubmed:32441256 doi:10.1016/...), as the converter reads and writes them. The panel lists each
+# as a citation, first author, year, title and journal from PubMed (atlas-data/pubmed.json, fetched
+# once per PMID as the other sources), with its PUBMED link; a DOI only as its link.
+def parse_pubmed(d):
+    r = next(v for k, v in d['result'].items() if k != 'uids')
+    names = [a['name'] for a in r.get('authors', []) if a.get('authtype') == 'Author']
+    return {'authors': (names[0] + (' et al.' if len(names) > 1 else '')) if names else '',
+            'year': r.get('pubdate', '')[:4], 'title': r.get('title', ''), 'journal': r.get('source', '')}
+
+
+def references(text):
+    out = []
+    for x in (text or '').split():
+        db, _, i = x.partition(':') if ':' in x else ('pubmed', '', x)
+        db = 'pubmed' if db.lower() in ('pubmed', 'pmid') else db.lower()
+        if db == 'pubmed' and (i not in cache['pubmed'] or REFRESH):
+            time.sleep(0.4)  # PubMed answers at most three requests a second
+        out.append(dict(cached('pubmed', i, SOURCE['pubmed'] % i, parse_pubmed), db=db, id=i) if db == 'pubmed' else {'db': db, 'id': i})
+    return out
+
+
+PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess', 'Association', 'Dissociation')
+
+
 def uniprot(acc):
     return cached('uniprot', acc, SOURCE['uniprot'] % acc, parse_uniprot)
 
@@ -297,6 +325,18 @@ def record(data):
     return [[f, ptm_text(rec[f], rec.get('UniProt', '')) if f == 'PTM' else rec[f]] for f in ANN_FIELDS if rec.get(f)]
 
 
+def realizer(n):
+    gn = n.find(GN + 'data/' + YN + 'GenericNode')
+    if gn is None:  # a group node: its open realizer
+        gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
+    return gn
+
+
+def first_label(gn):
+    labels = [] if gn is None else [l.text.strip() for l in gn.findall(YN + 'NodeLabel') if l.text and l.text.strip() and not l.get('iconData')]
+    return ' '.join(labels[0].split()) if labels else ''
+
+
 def annotation(base, folder=DL):
     """Annotated nodes of a map: box in SVG pixels, label, class, properties.
     None when the GraphML has no custom node properties."""
@@ -310,15 +350,33 @@ def annotation(base, folder=DL):
     keys = {k.get('id'): k.get('attr.name') for k in root.findall(GN + 'key')
             if k.get('for') == 'node' and k.get('attr.name')}
     custom = sorted((k for k, n in keys.items() if n in ANN_FIELDS), key=lambda k: ANN_FIELDS.index(keys[k]))
-    if not custom:
+    if not custom and 'References' not in keys.values():
         return None
     # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty), the drawn one
     # (scripts/make_images.py) under translate(tx,ty): svg = yEd + (tx, ty)
     c = collections.Counter(re.findall(r'(?:matrix\(1,0,0,1,|translate\()(-?[\d.]+),(-?[\d.]+)\)', open(svg, encoding='utf-8').read()))
     tx, ty = (float(v) for v in c.most_common(1)[0][0])
     nodes = []
+    label = {n.get('id'): first_label(realizer(n)) for n in root.iter(GN + 'node')}  # for a process's participants
+    arrow = lambda e: next((a.get('target', 'none') for a in e.iter(YN + 'Arrows')), 'none')
+    arcs = [(e.get('source'), e.get('target'), arrow(e)) for e in root.iter(GN + 'edge')]
     for n in root.iter(GN + 'node'):
         data = {keys.get(d.get('key')): (d.text or '').strip() for d in n.findall(GN + 'data') if d.get('key') in keys}
+        gn = realizer(n)
+        kind = (gn.get('configuration') or '').replace('com.yworks.sbgn.', '') if gn is not None else ''
+        if kind in PROCESSES:
+            # a process with references: its reaction (consumption arcs end without an arrow, modulations
+            # with one, production arcs leave it) and the references
+            if data.get('References'):
+                nid, geo = n.get('id'), gn.find(YN + 'Geometry')
+                x, y, w, h = (float(geo.get(a)) for a in ('x', 'y', 'width', 'height'))
+                pad = max(0, 24 - w) / 2  # a process glyph is small: a click a little outside it still finds it
+                nodes.append({'label': '', 'class': kind, 'box': [round(x + tx - pad, 1), round(y + ty - pad, 1), round(w + 2 * pad, 1), round(h + 2 * pad, 1)], 'props': [],
+                              'reaction': {'in': [label[s] for s, t, a in arcs if t == nid and a == 'none'],
+                                           'out': [label[t] for s, t, a in arcs if s == nid],
+                                           'by': [label[s] for s, t, a in arcs if t == nid and a != 'none']},
+                              'references': references(data['References'])})
+            continue
         data = {k: v for k, v in data.items() if v and k in ANN_FIELDS + [MEMBERS_FIELD]}
         if not any(k in data for k in ANN_FIELDS):
             continue
@@ -329,13 +387,8 @@ def annotation(base, folder=DL):
         symbols = [x.strip() for x in data.get('Members', '').split(';') if x.strip()] or list(old)
         members = [{'symbol': sym, 'props': record(dict({k: v for k, v in old.get(sym, {}).items() if k in ANN_FIELDS}, **{'HGNC symbol': sym}))}
                    for sym in symbols] or None
-        gn = n.find(GN + 'data/' + YN + 'GenericNode')
-        if gn is None:  # a group node: its open realizer
-            gn = n.find(GN + 'data/' + YN + 'ProxyAutoBoundsNode/' + YN + 'Realizers/*')
         geo = gn.find(YN + 'Geometry')
-        labels = [l.text.strip() for l in gn.findall(YN + 'NodeLabel') if l.text and l.text.strip() and not l.get('iconData')]
-        nodes.append({'label': ' '.join(labels[0].split()) if labels else '',
-                      'class': (gn.get('configuration') or '').replace('com.yworks.sbgn.', ''),
+        nodes.append({'label': first_label(gn), 'class': kind,
                       'box': [round(float(geo.get('x')) + tx, 1), round(float(geo.get('y')) + ty, 1),
                               round(float(geo.get('width')), 1), round(float(geo.get('height')), 1)],
                       'props': props})
@@ -378,6 +431,8 @@ def search_entries(mid, nodes):
     a: label and symbols, b: other names, i: database IDs (exact match only)."""
     out = collections.OrderedDict()
     for idx, n in enumerate(nodes):
+        if 'reaction' in n:  # processes are not searched
+            continue
         p = dict(n['props'])
         members = n.get('members') or []
         if members:

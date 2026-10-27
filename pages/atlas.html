@@ -464,7 +464,8 @@ noindex: true
   // smallest box under the pointer (a protein rather than its complex).
   var info = document.getElementById('m2-info'), pin = document.getElementById('m2-pin');
   var annCache = {}, nodes = null, sel = null, member = -1; // member: the family member shown, -1 for the cards
-  var KIND = { Macromolecule: 'Protein', SimpleChemical: 'Simple molecule', NucleicAcidFeature: 'Gene', Complex: 'Complex' };
+  var KIND = { Macromolecule: 'Protein', SimpleChemical: 'Simple molecule', NucleicAcidFeature: 'Gene', Complex: 'Complex',
+    Process: 'Process', OmittedProcess: 'Omitted process', UncertainProcess: 'Uncertain process', Association: 'Association', Dissociation: 'Dissociation' };
   var LINK = {
     'HGNC': 'https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/',
     'HGNC symbol': 'https://www.genenames.org/data/gene-symbol-report/#!/symbol/',
@@ -539,12 +540,13 @@ noindex: true
     if (!nodes || !sel) return;
     var p = props(sel.props);
     var family = !!sel.members;
-    var head = el('div', 'm2-info-head'), h = el('h3', null, (family ? 'Protein family' : (KIND[sel['class']] || sel['class'])) + ': ' + sel.label);
+    var head = el('div', 'm2-info-head'), h = el('h3', null, (family ? 'Protein family' : (KIND[sel['class']] || sel['class'])) + (sel.label ? ': ' + sel.label : ''));
     var x = el('button', 'm2-info-close');
     x.type = 'button'; x.title = 'Close'; x.setAttribute('aria-label', 'Close');
     x.innerHTML = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>';
     x.addEventListener('click', closeInfo);
     head.appendChild(h); head.appendChild(x); info.appendChild(head);
+    if (sel.reaction) { reaction(sel); return; }
     if (!family) {
       // the symbol also where the title is the symbol (AKT1), so the line always looks the same
       // (user, 2026-10-18)
@@ -593,6 +595,30 @@ noindex: true
     identity(mp['HGNC symbol'] || m.symbol, mp['Full name']);
     ptm(mp);
     record(mp);
+  }
+  // a process: its reaction in one line, its modifiers, then its references, each a citation with its
+  // PUBMED link (user, 2026-10-27; node property References, scripts/make_maps.py)
+  function reaction(n) {
+    var r = n.reaction;
+    info.appendChild(el('p', null, r['in'].join(' + ') + ' \u2192 ' + r.out.join(' + ')));
+    if (r.by.length) {
+      var q = el('p');
+      q.appendChild(el('span', 'm2-k', 'Modifiers: '));
+      q.appendChild(el('span', null, r.by.join(', ')));
+      info.appendChild(q);
+    }
+    if (!n.references.length) return;
+    info.appendChild(el('h4', null, 'References'));
+    var ul = el('ul');
+    n.references.forEach(function (c) {
+      var li = el('li'), a = el('a', null, c.db.toUpperCase() + ': ' + c.id);
+      if (c.title) li.appendChild(document.createTextNode([c.authors, c.year].filter(Boolean).join(' ') + '. ' + c.title + ' ' + c.journal + '. '));
+      a.href = (c.db === 'pubmed' ? 'https://pubmed.ncbi.nlm.nih.gov/' : c.db === 'doi' ? 'https://doi.org/' : 'https://identifiers.org/' + c.db + ':') + c.id;
+      a.target = '_blank'; a.rel = 'noopener';
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    info.appendChild(ul);
   }
   function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
   // under the title, one line: gene symbol (HGNC, bold) and full name (UniProt), "PLA2G4A, cytosolic

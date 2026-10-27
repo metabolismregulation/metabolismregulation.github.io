@@ -65,3 +65,9 @@ annotation (each member's HGNC, HGNC symbol, UniProt and PTM). The Atlas annotat
 GraphML as a table, rebuilt by `scripts/make_maps.py` for every Atlas CSV a map page links:
 Pathway, Entity type, Name, HGNC symbol, HGNC ID, UniProt ID, ChEBI ID, PTM, one row per protein,
 family member or metabolite (and state), nothing the panel fetches (user, 2026-10-18).
+A process glyph with references (node property References, `pubmed:<PMID>` separated by spaces, user 2026-10-27)
+is clickable too (its box widened to 24 px around the glyph): the panel's title is its kind ("Process"), then
+the reaction in one line ("PGE2 + PTGER4 → PGE2:PTGER4"), its modifiers, and References: one line per
+reference, first author, year, title and journal from PubMed, then its link "PUBMED: 32441256" (a DOI only as its
+link). The citations are fetched once per PMID by `scripts/make_maps.py` and kept in `atlas-data/pubmed.json`, as
+the other sources. A process without references is not clickable. Processes are not in the search.
