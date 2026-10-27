@@ -6,13 +6,15 @@ paths:
   - "_layouts/layout-docs.html"
   - "_includes/layout-nav.html"
   - "_includes/docs.html"
+  - "_includes/top-nav.html"
 ---
 
 ## Human-like layout pages
 
 Three hidden pages (`noindex`, out of the sitemap, not in the navigation), linked from each other by one row at the
 top, `_includes/layout-nav.html` (user, 2026-10-26): Documentation, Architecture, Earlier architecture 1.0, the page shown
-in dark grey and not linked, the others grey #777 with the Converter's arrow, blue on hover.
+in dark grey and not linked, the others grey #777 after an arrow up and right (↱, user 2026-10-27: the row is at the top), blue on hover; on
+`_includes/top-nav.html`, shared with the Converter pages' row.
 
 - `/human-like-layout/architecture/` (`pages/layout-architecture.html`, user 2026-10-26; drawn as the converter's
   architecture page): the tool as it stands: the state, how it is built (figure and a table of the scripts), the

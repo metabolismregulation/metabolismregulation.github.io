@@ -4,6 +4,6 @@ layout: default
 <!-- the converter's documentation (/converter/docs/, user 2026-10-24): pages copied from map-converter's
      docs/ by its tools/to_website.sh, the menu from _data/converter_docs.yml (its docs/nav.yml). Hidden
      like the Converter's pages. Edit the text in map-converter, not here. The page itself: _includes/docs.html. -->
-<p class="cv-back"><a href="{{ '/converter/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M18 20v-8a3 3 0 0 0-3-3H4M9 4L4 9l5 5"/></svg>Converter</a></p>
+{% include converter-nav.html %}
 
 {% include docs.html data=site.data.converter_docs base='/converter/docs/' %}

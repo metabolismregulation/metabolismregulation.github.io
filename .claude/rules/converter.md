@@ -8,6 +8,7 @@ paths:
   - "_includes/converter-buttons.css"
   - "_includes/converter-hover.js"
   - "_includes/mapconv.js"
+  - "_includes/converter-nav.html"
 ---
 
 ## Converter page
@@ -75,7 +76,7 @@ directly, not CellDesigner through the GraphML), as plain text so it can be copi
 (routes, the note on the browser, the links, the tick box) is in the page's regular size (15 px, the tick box scaled with it as on ysbgn.js) and grey #777 (user, 2026-10-20; it was 13 px, user 2026-10-17), and so is "↰ Converter" on the subpages
 (user, 2026-10-17: text until it is clear what information to show). If one day
 any format converts into any other, a list of the formats replaces the lines. The page keeps only minimal
-text (the routes, the layout note, the browser note, then "See also the description and the architecture of the converter", user 2026-10-19, linking `/converter/description/` and `/converter/architecture/`). Layouts (user, 2026-10-19): advanced is recommended (the drawing kept), straight a simpler fallback for laying out by hand, said next to the drop area in one paragraph with the browser note (user, 2026-10-19); a quiet row "↳ Description ↳ Architecture" (grey #777, blue #1c47a9 on hover, the arrows drawn as inline SVG, user 2026-10-20; it was "Description · Architecture") under that text and above the tick box, which comes last (user, 2026-10-20), and "↰ Converter" in the same style at the top of the description and architecture pages (user, 2026-10-20); the user is open to these links becoming words in that brief text later. The layouts are also said in a "Layouts" paragraph above the sections of the description page. Links on both pages in the
+text (the routes, the layout note, the browser note, then "See also the description and the architecture of the converter", user 2026-10-19, linking `/converter/description/` and `/converter/architecture/`). Layouts (user, 2026-10-19): advanced is recommended (the drawing kept), straight a simpler fallback for laying out by hand, said next to the drop area in one paragraph with the browser note (user, 2026-10-19); a quiet row "↳ Description ↳ Architecture" (grey #777, blue #1c47a9 on hover, the arrows drawn as inline SVG, user 2026-10-20; it was "Description · Architecture") under that text and above the tick box, which comes last (user, 2026-10-20), and at the top of the description and architecture pages "↰ Converter" in the same style (user, 2026-10-20), since 2026-10-27 the row of links below (Converter pages row); the user is open to these links becoming words in that brief text later. The layouts are also said in a "Layouts" paragraph above the sections of the description page. Links on both pages in the
 Atlas's link blue #1c47a9, the same on hover (user, 2026-10-17); the details
 are on `/converter/description/` (`pages/converter-description.html`, hidden the same way), brief, in one pattern
 (user, 2026-10-17): a section per input format with Input (format, version, extensions), Check, Output (a table, one row
@@ -127,3 +128,11 @@ human-like layout documentation since 2026-10-26): the menu on the
 left (folded on a phone), "On this page" on pages with four sections or more, and on a table whose first
 column is Since the days each row has been open, rows past two weeks marked. The description and
 architecture pages are in the menu but keep their own layout.
+
+## Converter pages row
+
+At the top of every Converter page but the Converter itself (user, 2026-10-27, as the human-like layout pages): one
+row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter, Documentation, Description, Architecture,
+Earlier description v1, Earlier architecture v1, the page shown in dark grey and not linked, the others grey #777, blue
+on hover, each after an arrow up and right (↱, a row at the top). It replaced "↰ Converter". The Converter page keeps its
+links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).

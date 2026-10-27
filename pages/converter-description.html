@@ -43,13 +43,9 @@ noindex: true
     .cv-out td:nth-child(2) > * + *::before { content: ', '; }
   }
 {% include converter-buttons.css %}
-  /* back to the Converter, an arrow up and left before it, grey, blue on hover (user, 2026-10-20) */
-  #main p.cv-back { margin: 0 0 12px; }
-  #main p.cv-back a { color: #777; text-decoration: none; }
-  #main p.cv-back a:hover { color: #1c47a9; }
 </style>
 
-<p class="cv-back"><a href="{{ '/converter/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M18 20v-8a3 3 0 0 0-3-3H4M9 4L4 9l5 5"/></svg>Converter</a></p>
+{% include converter-nav.html %}
 
 <p class="cv-text">The converter turns a map from one format into another.
 It does not hold a map strictly to the standards. Common deviations are accepted where their meaning
