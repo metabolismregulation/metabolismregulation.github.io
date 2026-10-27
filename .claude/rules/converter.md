@@ -132,7 +132,7 @@ architecture pages are in the menu but keep their own layout.
 ## Converter pages row
 
 At the top of every Converter page but the Converter itself (user, 2026-10-27, as the human-like layout pages): one
-row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter, Documentation, Description, Architecture,
-Earlier description v1, Earlier architecture v1, the page shown in dark grey and not linked, the others grey #777, blue
+row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter, Documentation, Description, Architecture
+(not the v1 backups, user 2026-10-27, which carry the row), the page shown in dark grey and not linked, the others grey #777, blue
 on hover, each after an arrow up and right (↱, a row at the top). It replaced "↰ Converter". The Converter page keeps its
 links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).
