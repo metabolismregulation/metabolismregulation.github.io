@@ -12,7 +12,8 @@ What changed for maps laid out with the tool, by date.
 ## 2026-10-28
 
 - A map can be mirrored top to bottom (`mirror.py`), so a story read from the top reads from the bottom: glyphs,
-  compartments and arcs take the mirrored place, each complex moves whole with its members and name as they were.
+  compartments and arcs take the mirrored place, state variables and units go to the glyph's other side, each complex
+  moves whole with its members and name as they were.
 
 ## 2026-10-27
 
