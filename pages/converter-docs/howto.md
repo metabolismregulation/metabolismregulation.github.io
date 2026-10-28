@@ -36,9 +36,10 @@ A file saved in Newt can come back the same way: drop the `.sbgn` or `.nwt` file
 
 ## Harmonise node sizes
 
-To give a map the standard sizes (proteins 80 x 40, metabolites 40 x 40 circles, names in font size 14):
+To give a map the standard sizes (proteins 80 x 40, metabolites 40 x 40 circles, names in font size 14, state
+variables and units 10). Without it every conversion keeps the font sizes of the input map.
 
-1. Tick **standard node sizes** under Options on the Converter page.
+1. Tick **standard node and font sizes** under Options on the Converter page.
 2. Drop the map. The button **GraphML (standard sizes)** gives the map with them, rescaled if its
    proteins are much larger or smaller.
 

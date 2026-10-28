@@ -12,6 +12,11 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-28
 
+- Font sizes kept on every conversion ([D23](/converter/docs/design/#d23-font-sizes-kept-on-conversion)): names,
+  state variables and units at the input map's sizes (CellDesigner, yEd, SBGN-ML and Newt), where before the map
+  got one size (CellDesigner files 12, GraphML 14 or the glyph's template). The tick box is now **standard node
+  and font sizes**: its GraphML has names 14, state variables and units 10. Reference files: every CellDesigner
+  file from GraphML (14), GraphML from CellDesigner and Newt, SBGN-ML (font sizes in the render styles).
 - CellDesigner to GraphML: an unknown species has no outline, as CellDesigner draws it, and a transparent colour
   (six digits, or alpha 00) gives no fill; before, a black outline and an invalid colour (`#FFFF`), so name tags
   drawn as bare text in CellDesigner came out as boxes. No reference file changed.

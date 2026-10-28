@@ -316,7 +316,7 @@ def write(diagram, ann, layout='straight'):
         if cx: a.set('complexSpeciesAlias', 'sa_' + sid(cx))  # members carry no compartment (CellDesigner's files)
         elif comp_of(i): a.set('compartmentAlias', 'ca_' + sid(comp_of(i)))
         sub(a, 'activity', 'inactive'); sub(a, 'bounds', x=x, y=y, w=w, h=h)
-        sub(a, 'font', size=12); sub(a, 'view', state='usual')
+        sub(a, 'font', size='%g' % (d.font or 12)); sub(a, 'view', state='usual')  # the source's size, else CellDesigner's
         if d.kind == 'Complex':
             sub(a, 'backupSize', w='0.0', h='0.0'); sub(a, 'backupView', state='none')
         if i in struct:

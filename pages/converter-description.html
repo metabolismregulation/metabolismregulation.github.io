@@ -167,7 +167,7 @@ delay, so there its input is joined to its target. An Activity Flow submap becom
 without its terminals and tags. Its equivalence arcs become plain lines to that phenotype in the GraphML. Equivalence operators become CellDesigner's unknown gate (a question mark) in the CellDesigner files and stay
 equivalence operators in the GraphML.</p>
 
-<h2 id="sizes">Standard node sizes</h2>
+<h2 id="sizes">Standard node and font sizes</h2>
 <p><b>Purpose</b>: for maps drawn with a font that is too large or too small for their shapes, so the
 shapes do not look as they should, for example rounded corners that cannot be told from sharp ones, or arrowheads too small to
 see.</p>
@@ -180,8 +180,10 @@ different scale, when one of these is more than 20% off (a GraphML map gets it o
   <li>the median font size of the names, against the program's default, 12 in CellDesigner and 11 in Newt,</li>
   <li>on a map without proteins, the median metabolite height, against the usual 25 to 40.</li>
 </ul>
-<p><b>Sizes</b>: proteins 80&nbsp;x&nbsp;40, metabolites 40&nbsp;x&nbsp;40 circles, names in font size 14. The map is rescaled if its proteins are much larger or
-smaller.</p>
+<p><b>Sizes</b>: proteins 80&nbsp;x&nbsp;40, metabolites 40&nbsp;x&nbsp;40 circles, names in font size 14, state variables and units
+10. The map is rescaled if its proteins are much larger or smaller.</p>
+<p><b>Font sizes</b>: every other file keeps the font sizes of the input map, the names and the state variables and
+units, as it keeps the sizes of the nodes. CellDesigner holds no font size for state variables and units.</p>
 
 <h2 id="move">CellDesigner drawing</h2>
 <p><b>Small moves</b>: CellDesigner draws a reaction from the centre of a node or one of its fixed connection points,

@@ -158,22 +158,30 @@ def write(diagram, layout='advanced', newt=False):
     # language, not version: libsbgn's schema lists no PD version after 1.3
     m = etree.SubElement(root, S + 'map', id=xml_id(diagram.name.replace('-', '_')), language='process description')
 
-    # colours: one render style per fill
+    # colours and font sizes: one render style per fill and size (user, 2026-10-28: the source's sizes kept)
     fills = {}
     for i, d in N.items():
-        if d.fill:
-            fills.setdefault(d.fill.lower(), []).append(ids[i])
+        if d.fill or d.font:
+            fills.setdefault((d.fill.lower() if d.fill else None, d.font), []).append(ids[i])
+        if d.small:
+            n = len(decorations(d)[1])
+            fills.setdefault((None, d.small), []).extend(['%s_sv%d' % (ids[i], k) for k in range(len(d.states))] +
+                                                         ['%s_ui%d' % (ids[i], k) for k in range(n)])
     if fills:
         ri = etree.SubElement(etree.SubElement(m, S + 'extension'), R + 'renderInformation', nsmap={None: RENDER},
                               id='renderInformation')
         cd = etree.SubElement(ri, R + 'listOfColorDefinitions')
         etree.SubElement(cd, R + 'colorDefinition', id='black', value='#000000')
         st = etree.SubElement(ri, R + 'listOfStyles')
-        for k, (f, members) in enumerate(fills.items()):
-            etree.SubElement(cd, R + 'colorDefinition', id='color_%d' % k, value=f)
+        for k, ((f, size), members) in enumerate(fills.items()):
             s = etree.SubElement(st, R + 'style', id='style_%d' % k, idList=' '.join(members))
-            etree.SubElement(s, R + 'g', stroke='black', fill='color_%d' % k)
-            s.find(R + 'g').set('stroke-width', '1')
+            g = etree.SubElement(s, R + 'g', stroke='black')
+            if f:
+                etree.SubElement(cd, R + 'colorDefinition', id='color_%d' % k, value=f)
+                g.set('fill', 'color_%d' % k)
+            g.set('stroke-width', '1')
+            if size:
+                g.set('font-size', '%g' % size)
 
     def annotate(g, i, d):
         if d.kind not in CLASS or d.kind in PROCESSES:
@@ -428,7 +436,9 @@ def read(path):
                         fill=colour(fill.get(i), defs), states=states, units=units,
                         count=(n[0] if n else 2) if cls.endswith(' multimer') else 1,
                         label_at=(float(lb.get('x')) - x, float(lb.get('y')) - y) if kind == 'Compartment' and lb is not None else None,
-                        data=data, font=font.get(i))
+                        data=data, font=font.get(i),
+                        small=next((font[c.get('id')] for c in g.findall(S + 'glyph') if c.get('id') in font and
+                                    c.get('class') in ('state variable', 'unit of information')), None))
         if g.find(S + 'clone') is not None:
             skipped.setdefault('clone marker', []).append(i)
         for c in g.findall(S + 'glyph'):

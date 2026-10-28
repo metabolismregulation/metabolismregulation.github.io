@@ -51,8 +51,8 @@ cd2sbgnml read. First direction (user, 2026-10-17): from yEd GraphML; then the w
   (user, 2026-10-18; found by comparing CellDesigner -> SBGN-ML with GraphML -> SBGN-ML of the
   same map). It goes into the GraphML from CellDesigner too.
 - The map is moved to start at (20, 20): SBGN-ML's origin is the top left corner.
-- Colours: the SBML render extension on the map (the spec's Appendix B), one colour
-  definition and style per fill.
+- Colours and font sizes: the SBML render extension on the map (the spec's Appendix B), one style per fill and
+  font size, state variables and units by their glyph ids (D23).
 - Annotation: RDF in each glyph's extension, `bqbiol:is` (a family: `bqbiol:hasVersion`),
   identifiers.org links in Newt's form (`http://identifiers.org/uniprot:P53396`, `CHEBI:16947`,
   `hgnc:115`, `hgnc.symbol:ACLY`), from the same annotation as the CellDesigner writer.
@@ -110,7 +110,8 @@ then write it. Examples: our own SBGN-ML of every test map, and files saved by N
   a multimer gets count N from its N:x unit, else 2; a gate keeps AND, OR, NOT as its label.
 - Parents: a complex's child glyphs; else `compartmentRef`.
 - State variables: value and variable back to `P@S455`, placed by the centre of their bbox.
-- Colours from the render extension (a colour id or the value itself; MINERVA writes the value).
+- Colours from the render extension (a colour id or the value itself; MINERVA writes the value); font sizes
+  from it too, names and state variables and units (D23).
 - Annotation: `bqbiol:is` (one entity) and `bqbiol:hasVersion` (a family) from identifiers.org
   links (db:id, the older db/id) or MIRIAM URNs, into the node properties `annotation.py` reads.
 - Arcs: ports back to their glyph, bends from `next` points; the ends at the centres (ports

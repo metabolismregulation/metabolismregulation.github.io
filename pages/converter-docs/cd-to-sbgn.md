@@ -161,7 +161,8 @@ segments level or upright, now 280, as CellDesigner draws them).
 | reaction annotation other than `isDescribedBy` (`bqmodel:is` with a PMID, Reactome `hasVersion`) | left out, no message yet |
 | species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, InChI, PubChem, GO) | left out, with one message naming each database and the number of species (2026-10-28) |
 | species notes (MINERVA's Name, Synonyms, Charge text) | left out but for a family's lines (`annotation.from_notes`) |
-| line colours, font sizes (a 30 pt title on a 12 pt map) | left out: our yEd style, the map's one font size |
+| line colours | left out: our yEd style |
+| font sizes (a 30 pt title on a 12 pt map) | kept, each species' own ([D23](/converter/docs/design/#d23-font-sizes-kept-on-conversion)); CellDesigner has none for state variables and units, which get ours (10) |
 
 ## The forward direction (GraphML -> CellDesigner) stays with our symbols
 

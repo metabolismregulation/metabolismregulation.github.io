@@ -244,5 +244,24 @@ by under 3 px (glycogen, BCAA, PDH, glycolysis, mevalonate, phosphoinositides). 
 cannot be drawn so from CellDesigner; nobody draws that by hand. SBGN-ML to GraphML is not aligned (Newt keeps
 exact coordinates).
 
+## D23. Font sizes kept on conversion
+
+**2026-10-28, accepted, built (every direction).** **Context**: the converter kept every node's size and place
+but wrote one font size per map (14 at our scale), and CellDesigner files always at 12; where the map's size was
+14, each glyph kept its yEd template's size (an unknown entity 12). ExposomeMap-PM's names at 14 and its AOP
+headings at 20 all came out 12 or 14. A map drawn with large nodes for a large font would get our small font in
+its large boxes. **Decision** (user, 2026-10-28): a conversion keeps the source's font sizes, as it keeps node
+sizes; harmonising them is the standard sizes file's job (names 14, state variables and units 10, its tick box
+now "standard node and font sizes"). Read: CellDesigner each species' `font`; yEd each node's name label and
+its state variables' and units' labels (the icon's text, or the label's own over a blank icon); SBGN-ML the
+render extension's `font-size` per glyph (Newt: names 11, state variables and units 9, compartments 14 or 18).
+Written: yEd the name label's size, the icons' size with the icon grown or shrunk with it; CellDesigner the
+species' `font` (12, CellDesigner's own, where the source gives none); SBGN-ML `font-size` in the render styles,
+one style per colour and size. Node.font, Node.small (state variables and units, one size per node).
+**Consequences**: CellDesigner files from our maps carry 14 (was 12); GraphML from CellDesigner and Newt has the
+source's sizes; SBGN-ML from our maps carries 14 and 10 for Newt to show. CellDesigner has no font size for
+state variables and units: from it they get ours, to it they are left out. A node whose state variables have
+different sizes keeps the first's.
+
 
 {% endraw %}

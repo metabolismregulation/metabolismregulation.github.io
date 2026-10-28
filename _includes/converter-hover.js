@@ -14,7 +14,7 @@
     'straight': 'straight: every arc a straight line between node centres.',
     'straight & bends': 'straight & bends: straight lines with the key bends of the input map, no node moved.',
     'as drawn': 'as drawn: every node and process glyph where the input map has it, held by extra edit points.',
-    'standard sizes': 'standard sizes: proteins 80 x 40, metabolites 40 x 40, the map rescaled to match.',
+    'standard sizes': 'standard sizes: proteins 80 x 40, metabolites 40 x 40, names in font size 14, the map rescaled to match.',
     'corrected': 'corrected: the map redrawn in the SBGN palette, its shapes recognised by their outline.',
     'marked': 'marked: the elements that break the SBGN rules drawn red. yEd shows the reason on hover.',
   };

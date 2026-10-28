@@ -25,7 +25,8 @@ class Node:
     border: bool = True  # its outline drawn (CellDesigner draws none round an unknown species; user, 2026-10-28)
     outline: str = None  # the plain yEd shape it was read from by its outline (not the SBGN palette)
     species: str = None  # the entity the file says the glyph draws (CellDesigner species), if it says one
-    font: float = None  # its label's font size, where the file gives one (CellDesigner, Newt): style.reasons
+    font: float = None  # its label's font size, where the file gives one (yEd, CellDesigner, Newt), kept on conversion
+    small: float = None  # its state variables' and units' font size, where the file gives one (yEd, Newt)
 
 
 @dataclass

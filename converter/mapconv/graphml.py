@@ -116,6 +116,12 @@ def read(path):
         # a compartment's name: the first label with text
         l = next((l for l in labs if (l.text or '').strip()), None)
         border = gn.find('y:BorderStyle', NS)
+
+        def small(q):  # a state variable's or unit's font size: its label's own text, else its icon's
+            if (q.text or '').strip():
+                return q.get('fontSize')
+            return next((x.get('fontSize') for x in (res[q.get('iconData')].iter(Y + 'NodeLabel') if q.get('iconData') in res else ())
+                         if (x.text or '').strip()), None)
         if kind == 'Process' and l is not None:
             kind = PROCESS_LABEL.get(l.text.strip(), kind)
         if kind == 'Submap':  # our maps' phenotype, as in CellDesigner (user, 2026-10-21: SREBP's two submap glyphs)
@@ -132,7 +138,9 @@ def read(path):
             label_at=(float(l.get('x')), float(l.get('y'))) if (kind == 'Compartment' or outline) and l is not None else None,
             data={names[x.get('key')]: x.text.strip() for x in n.findall('g:data', NS)
                   if x.get('key') in names and (x.text or '').strip()},
-            dashed=border is not None and border.get('type') != 'line')
+            dashed=border is not None and border.get('type') != 'line',
+            font=float(l.get('fontSize')) if l is not None and l.get('fontSize') else None,  # kept on conversion (user, 2026-10-28)
+            small=next((float(f) for f in map(small, labs[1:]) if f), None))
     ovals(nodes)
     for d in nodes.values():
         if d.kind != 'Compartment':
@@ -215,21 +223,25 @@ def write(diagram, soft=False):
         etree.SubElement(root, G + 'key', {'for': f, 'id': kid, 'yfiles.type': y})
     resources, rid, size = [], {}, {}
 
-    def resource(kind, text):  # one icon per kind and text, shared as yEd shares them
-        if (kind, text) not in rid:
-            r = copy.deepcopy(res_tpl[kind]); rid[kind, text] = str(len(rid) + 1); r.set('id', rid[kind, text])
+    def resource(kind, text, small=None):  # one icon per kind, text and font size, shared as yEd shares them
+        if (kind, text, small) not in rid:
+            r = copy.deepcopy(res_tpl[kind]); rid[kind, text, small] = str(len(rid) + 1); r.set('id', rid[kind, text, small])
             gn = r.find('.//y:GenericNode', NS)
             # as in our maps (user, 2026-10-22): a state variable of up to two letters an 18 x 18 circle,
-            # a longer one a capsule 18 high, a unit of information 16 high; text 10, centred
+            # a longer one a capsule 18 high, a unit of information 16 high; text 10, centred. Another
+            # size from the source (user, 2026-10-28) kept, the icon grown or shrunk with it
+            k = (small or 10) / 10
             if kind == 'StateVariable':
-                w, h = (18.0, 18.0) if len(text) <= 2 else (float(math.ceil(len(text) * ICON_CHAR + 12)), 18.0)
+                w, h = (18.0 * k, 18.0 * k) if len(text) <= 2 else (float(math.ceil(len(text) * ICON_CHAR * k + 12 * k)), 18.0 * k)
             else:
-                w, h = float(math.ceil(len(text) * ICON_CHAR + 8)), 16.0
+                w, h = float(math.ceil(len(text) * ICON_CHAR * k + 8 * k)), 16.0 * k
             gn.find('y:Geometry', NS).set('width', repr(w)); gn.find('y:Geometry', NS).set('height', repr(h))
-            _label(gn.find('y:NodeLabel', NS), text, w, h, 10 / 14)
-            size[rid[kind, text]] = w, h
+            if small:
+                gn.find('y:NodeLabel', NS).set('fontSize', '%g' % small)
+            _label(gn.find('y:NodeLabel', NS), text, w, h, k * 10 / 14)
+            size[rid[kind, text, small]] = w, h
             resources.append(r)
-        return rid[kind, text]
+        return rid[kind, text, small]
 
     kids = {}
     for i, d in N.items():
@@ -259,9 +271,10 @@ def write(diagram, soft=False):
         if not d.border: gn.find('y:BorderStyle', NS).set('hasColor', 'false')
         l = gn.find('y:NodeLabel', NS)
         sign = {v: k for k, v in PROCESS_LABEL.items()}.get(d.kind)
-        if not sign and font != 14:
-            l.set('fontSize', str(font))
-        _label(l, sign or next((x for x in d.labels if x), ''), w, h, font / 14)  # the name; a second label is a unit (N:4)
+        fs = d.font or font  # the source's own size (CellDesigner, Newt; user, 2026-10-28), else the map's
+        if not sign and (d.font or font != 14):
+            l.set('fontSize', '%g' % fs)
+        _label(l, sign or next((x for x in d.labels if x), ''), w, h, fs / 14)  # the name; a second label is a unit (N:4)
         if d.kind == 'Operator' and l.text in (EQUIV, DELAY):  # as yEd's palette draws the equivalence
             l.set('fontFamily', 'Monospaced'); l.set('fontSize', '18')
         if d.kind == 'Compartment':  # its name where the source has it, else centred at the top (the template's place)
@@ -280,7 +293,7 @@ def write(diagram, soft=False):
         icons = [('StateVariable', txt, rx, ry) for txt, rx, ry in d.states]
         icons += [('UnitOfInformation', u, (k + 1) / (len(units) + 1) - 0.5, -0.5) for k, u in enumerate(units)]
         for kind, txt, rx, ry in icons:
-            il = copy.deepcopy(icon); il.set('iconData', resource(kind, txt))
+            il = copy.deepcopy(icon); il.set('iconData', resource(kind, txt, d.small))
             p = il.find('.//y:SmartNodeLabelModelParameter', NS)
             p.set('nodeRatioX', repr(float(rx))); p.set('nodeRatioY', repr(float(ry)))
             iw, ih = size[il.get('iconData')]  # the label is the icon, centred on its point of the border

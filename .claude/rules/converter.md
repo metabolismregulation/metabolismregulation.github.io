@@ -17,7 +17,7 @@ paths:
 or click to choose"): a yEd GraphML map (.graphml) gives two CellDesigner files, straight and
 advanced edge routing; a CellDesigner file (.xml) gives two GraphML files, "GraphML (straight)" (our yEd conventions) and
 "GraphML (advanced)" (the CellDesigner drawing kept), and two SBGN-ML files straight from the CellDesigner file (user, 2026-10-17); the page loads `yed.graphml`, the templates.
-Standard node sizes (user, 2026-10-20): a CellDesigner, SBGN-ML or Newt map gives a second GraphML file with them,
+Standard node and font sizes (user, 2026-10-20; fonts and the tick box's words "standard node and font sizes" 2026-10-28: names 14, state variables and units 10; every other file keeps the input's font sizes): a CellDesigner, SBGN-ML or Newt map gives a second GraphML file with them,
 for every map when the tick box "Standard node sizes" is ticked (user, 2026-10-22: a GraphML map gets it too then, and only then) (to harmonise how a
 map looks), otherwise only for a map drawn at a different scale: button "GraphML (standard sizes)", `<map>-standard.graphml` (grey, as GraphML (corrected)), from the
 drawing kept, with the converter's `style.py`: proteins 80 x 40, metabolites 40 x 40 circles (user,
