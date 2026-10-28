@@ -28,6 +28,7 @@ Scripts that change a map read one GraphML and write another.
 | `hub_grid.py` | `hub_grid.py in out [hub ...]` | regular arcs at metabolite hubs (maps converted from CellDesigner) |
 | `arcs.py` | `arcs.py in out` | arcs at node centres, then soft bends |
 | `move_node.py` | `move_node.py in out id dx dy ...` | moves nodes by whole steps with the bends on their centre lines |
+| `mirror.py` | `mirror.py in out` | the map mirrored top to bottom, a story read from the bottom; complexes and names as they were |
 | `transfer_layout.py` | `transfer_layout.py edited twin out` | one map's layout onto its twin, each keeping its content |
 | `check.py`, `sides.py` | `check.py map [--input old]` | content changes, faults, preferences, measures ([Checks](/human-like-layout/documentation/checks/)) |
 | `ygml.py` | imported | reads a yEd GraphML and draws a rough SVG preview |

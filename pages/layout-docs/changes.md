@@ -9,6 +9,11 @@ noindex: true
 
 What changed for maps laid out with the tool, by date.
 
+## 2026-10-28
+
+- A map can be mirrored top to bottom (`mirror.py`), so a story read from the top reads from the bottom: glyphs,
+  compartments and arcs take the mirrored place, each complex moves whole with its members and name as they were.
+
 ## 2026-10-27
 
 - Nested buses for large maps: many sources feeding a few targets get one bus per target, the bus closest to the
