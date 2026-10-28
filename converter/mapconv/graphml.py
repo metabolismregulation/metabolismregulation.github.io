@@ -116,6 +116,7 @@ def read(path):
         # a compartment's name: the first label with text
         l = next((l for l in labs if (l.text or '').strip()), None)
         border = gn.find('y:BorderStyle', NS)
+        line = ((border.get('color') if border is not None else None) or '#000000').upper()[:7]  # a compartment's outline
 
         def small(q):  # a state variable's or unit's font size: its label's own text, else its icon's
             if (q.text or '').strip():
@@ -134,6 +135,7 @@ def read(path):
             labels=[(l.text or '').strip() for l in labs if not l.get('iconData')],
             parent=p.get('id') if p.tag.endswith('node') else None,
             fill=fill.get('color') if fill is not None else None,
+            line=line if kind == 'Compartment' and line != '#000000' else None,
             states=states(gn, res), units=us, count=count(gn, us),
             label_at=(float(l.get('x')), float(l.get('y'))) if (kind == 'Compartment' or outline) and l is not None else None,
             data={names[x.get('key')]: x.text.strip() for x in n.findall('g:data', NS)
@@ -267,6 +269,7 @@ def write(diagram, soft=False):
         fill = gn.find('y:Fill', NS)
         if d.fill: fill.set('color', d.fill)
         else: del fill.attrib['color']; fill.set('hasColor', 'false')  # no fill (aspirin's drugs)
+        if d.line: gn.find('y:BorderStyle', NS).set('color', d.line)
         if d.dashed: gn.find('y:BorderStyle', NS).set('type', 'dashed')
         if not d.border: gn.find('y:BorderStyle', NS).set('hasColor', 'false')
         l = gn.find('y:NodeLabel', NS)

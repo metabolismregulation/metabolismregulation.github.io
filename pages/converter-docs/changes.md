@@ -12,6 +12,11 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-28
 
+- Compartment colours as CellDesigner draws them ([D24](/converter/docs/design/#d24-a-compartments-colour-as-celldesigner-draws-it)):
+  from CellDesigner the outline takes the compartment's colour and the fill the light band CellDesigner shows (a
+  quarter of the colour over white), where before the whole box had the colour, the dark one of its lines; to
+  CellDesigner the colour is chosen so that its band shows the yEd fill. Newt and SBGN-ML compartments keep their
+  outline colour. Reference files: every file with a compartment.
 - Font sizes kept on every conversion ([D23](/converter/docs/design/#d23-font-sizes-kept-on-conversion)): names,
   state variables and units at the input map's sizes (CellDesigner, yEd, SBGN-ML and Newt), where before the map
   got one size (CellDesigner files 12, GraphML 14 or the glyph's template). The tick box is now **standard node

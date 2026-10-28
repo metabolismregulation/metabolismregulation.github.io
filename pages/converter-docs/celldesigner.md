@@ -231,8 +231,9 @@ Our yEd SBGN is mostly a subset of it. Scan of all 14 annotated maps:
 - Compartments: yEd group nodes without an SBGN class. `compartmentAlias`
   class SQUARE at the yEd box, `namePoint` at the top left of the yEd label,
   `doubleLine thickness="12.0" outerWidth="2.0" innerWidth="1.0"` (as F021,
-  made in CellDesigner), colour: the yEd fill blended over white (yEd fills
-  are transparent). SBML `compartment` with `outside` = the enclosing
+  made in CellDesigner), colour: the paint whose band shows the yEd fill
+  blended over white (yEd fills are transparent); CellDesigner draws the
+  two lines in the paint and the band at alpha 63 of 255 (D24). SBML `compartment` with `outside` = the enclosing
   compartment or `default` (nesting: F018 nucleus and mitochondria in the
   cytoplasm). Outer compartments first in both lists. Species and complex
   aliases carry `compartmentAlias`, species `compartment`; complex members

@@ -158,14 +158,14 @@ def write(diagram, layout='advanced', newt=False):
     # language, not version: libsbgn's schema lists no PD version after 1.3
     m = etree.SubElement(root, S + 'map', id=xml_id(diagram.name.replace('-', '_')), language='process description')
 
-    # colours and font sizes: one render style per fill and size (user, 2026-10-28: the source's sizes kept)
+    # colours and font sizes: one render style per fill, outline and size (user, 2026-10-28: the source's sizes kept)
     fills = {}
     for i, d in N.items():
-        if d.fill or d.font:
-            fills.setdefault((d.fill.lower() if d.fill else None, d.font), []).append(ids[i])
+        if d.fill or d.line or d.font:
+            fills.setdefault((d.fill.lower() if d.fill else None, d.line and d.line.lower(), d.font), []).append(ids[i])
         if d.small:
             n = len(decorations(d)[1])
-            fills.setdefault((None, d.small), []).extend(['%s_sv%d' % (ids[i], k) for k in range(len(d.states))] +
+            fills.setdefault((None, None, d.small), []).extend(['%s_sv%d' % (ids[i], k) for k in range(len(d.states))] +
                                                          ['%s_ui%d' % (ids[i], k) for k in range(n)])
     if fills:
         ri = etree.SubElement(etree.SubElement(m, S + 'extension'), R + 'renderInformation', nsmap={None: RENDER},
@@ -173,12 +173,15 @@ def write(diagram, layout='advanced', newt=False):
         cd = etree.SubElement(ri, R + 'listOfColorDefinitions')
         etree.SubElement(cd, R + 'colorDefinition', id='black', value='#000000')
         st = etree.SubElement(ri, R + 'listOfStyles')
-        for k, ((f, size), members) in enumerate(fills.items()):
+        for k, ((f, line, size), members) in enumerate(fills.items()):
             s = etree.SubElement(st, R + 'style', id='style_%d' % k, idList=' '.join(members))
             g = etree.SubElement(s, R + 'g', stroke='black')
             if f:
                 etree.SubElement(cd, R + 'colorDefinition', id='color_%d' % k, value=f)
                 g.set('fill', 'color_%d' % k)
+            if line:
+                etree.SubElement(cd, R + 'colorDefinition', id='line_%d' % k, value=line)
+                g.set('stroke', 'line_%d' % k)
             g.set('stroke-width', '1')
             if size:
                 g.set('font-size', '%g' % size)
@@ -376,8 +379,9 @@ def read(path):
     m = root.find(S + 'map')
     af = m.get('language') == 'activity flow'
     defs = {c.get('id'): c.get('value') for c in m.iter(R + 'colorDefinition')}
-    fill = {i: st.find(R + 'g').get('fill') for st in m.iter(R + 'style') if st.find(R + 'g') is not None
-            for i in (st.get('idList') or '').split()}
+    fill, line = ({i: st.find(R + 'g').get(a) for st in m.iter(R + 'style') if st.find(R + 'g') is not None
+                   for i in (st.get('idList') or '').split()} for a in ('fill', 'stroke'))
+    line = {i: c for i, c in line.items() if colour(c, defs) != '#000000'}  # black: the default outline
     font = {i: float(st.find(R + 'g').get('font-size')) for st in m.iter(R + 'style')
             if st.find(R + 'g') is not None and st.find(R + 'g').get('font-size')
             for i in (st.get('idList') or '').split()}
@@ -433,7 +437,8 @@ def read(path):
         data = from_notes(text_of(g), data)
         nodes[i] = Node(id=i, kind=kind, box=(x, y, w, h), parent=parent,
                         labels=[OPERATORS[cls]] if kind == 'Operator' else [text(g)],
-                        fill=colour(fill.get(i), defs), states=states, units=units,
+                        fill=colour(fill.get(i), defs), line=colour(line.get(i), defs) if kind == 'Compartment' else None,
+                        states=states, units=units,
                         count=(n[0] if n else 2) if cls.endswith(' multimer') else 1,
                         label_at=(float(lb.get('x')) - x, float(lb.get('y')) - y) if kind == 'Compartment' and lb is not None else None,
                         data=data, font=font.get(i),

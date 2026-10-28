@@ -286,10 +286,13 @@ def write(diagram, ann, layout='straight'):
         # CellDesigner's name point is the text baseline: 12.5 below the label top (its save of estrogen v01)
         lx, ly = d.label_at or (6, 0)
         sub(a, 'namePoint', x=x + lx, y=y + ly + 12.5)
-        # as CellDesigner's own files (F021); colour: the yEd fill over white (yEd uses transparency)
+        # as CellDesigner's own files (F021); colour: the paint whose band shows the yEd fill over white (yEd
+        # uses transparency), the inverse of band(); the outline's colour when that is the paint (a round trip)
         sub(a, 'doubleLine', thickness='12.0', outerWidth='2.0', innerWidth='1.0')
         fc = (d.fill or '#FFFFFF').lstrip('#'); al = int(fc[6:8], 16) / 255 if len(fc) == 8 else 1
-        rgb = ''.join('%02x' % round(255 - al * (255 - int(fc[k:k + 2], 16))) for k in (0, 2, 4))
+        seen = [round(255 - al * (255 - int(fc[k:k + 2], 16))) for k in (0, 2, 4)]
+        rgb = (d.line[1:].lower() if d.line and band(d.line) == '#%02X%02X%02X' % tuple(seen) else
+               ''.join('%02x' % max(0, round(255 - (255 - c) / BAND)) for c in seen))
         sub(a, 'paint', color='ff' + rgb, scheme='Color'); sub(a, 'info', state='empty', angle='-1.5707963267948966')
     # one species per entity, each glyph an alias of it, as CellDesigner saves a molecule drawn
     # twice (the user's pyrimidine: ATP is species s11 with aliases n3 and n12; user, 2026-10-19);
@@ -626,6 +629,16 @@ HEAD.update({'UNKNOWN_' + k: v for k, v in list(HEAD.items()) if k.startswith(('
 REDUCED_TYPES = {k for k in HEAD if 'INFLUENCE' in k or 'REDUCED' in k} | {'PHYSICAL_STIMULATION'}  # between entities in older files (SREBP, ACLY)
 
 
+# a compartment's one paint colour: its two lines in it, the band between them in it at alpha 63 (the user's
+# ExposomeMap-PM, CellDesigner's screen and PDF export, 2026-10-28), the inside not filled
+BAND = 63 / 255
+
+
+def band(c):
+    # the band's colour over white, as #RRGGBB: the compartment's fill on other targets
+    return c and '#' + ''.join('%02X' % round(255 - BAND * (255 - int(c[k:k + 2], 16))) for k in (1, 3, 5))
+
+
 def paint(c):
     # a CellDesigner colour AARRGGBB as #RRGGBB; None when transparent (alpha 00, or six digits, which
     # CellDesigner reads as alpha 00: ExposomeMap-PM's name tags, drawn as bare text; user's PDF, 2026-10-28)
@@ -693,9 +706,9 @@ def read(path):
         if b is None:  # closeup compartments: a line, no box
             report.say('left out', 'compartment %s: %s, not converted' % (cname.get(a.get('compartment')), f(a, 'cd:class').text)); continue
         box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
-        np_ = f(a, 'cd:namePoint')
+        np_, c = f(a, 'cd:namePoint'), paint(f(a, 'cd:paint').get('color'))
         nodes[a.get('id')] = Node(id=a.get('id'), kind='Compartment', box=box, labels=[name(cname.get(a.get('compartment')))],
-                                  parent=calias.get(comps[a.get('compartment')].get('outside')), fill=paint(f(a, 'cd:paint').get('color')),
+                                  parent=calias.get(comps[a.get('compartment')].get('outside')), fill=band(c), line=c,
                                   label_at=(float(np_.get('x')) - box[0], float(np_.get('y')) - box[1] - 12.5) if np_ is not None else None)
     # species: one node per alias; included species (complex members) as top-level ones
     species = {s.get('id'): (s, f(s, 's:annotation/cd:extension/cd:speciesIdentity'), f(s, 's:annotation'))

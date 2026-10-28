@@ -263,5 +263,27 @@ source's sizes; SBGN-ML from our maps carries 14 and 10 for Newt to show. CellDe
 state variables and units: from it they get ours, to it they are left out. A node whose state variables have
 different sizes keeps the first's.
 
+## D24. A compartment's colour as CellDesigner draws it
+
+**2026-10-28, accepted, built (every direction).** **Context**: a CellDesigner compartment has one colour, its
+`paint`, which CellDesigner uses three ways (the user's ExposomeMap-PM: CellDesigner's screen and its PDF export of
+the endoplasmic reticulum, paint C4BEA0): its two lines in the paint, the band between them filled with the paint
+at alpha 63 of 255 (F0EFE8 over white), the inside not filled. The converter gave the whole compartment the paint
+as an opaque fill, the colour of the lines, so ExposomeMap-PM's endoplasmic reticulum came out dark beige where
+CellDesigner shows a light band. The other way it wrote the yEd colour as the paint, which CellDesigner then drew
+at a quarter in the band only: our compartments (F7F6F3 in yEd) were near white in CellDesigner, lines included.
+MINERVA draws the same paint as a band at alpha 127 and the inside at alpha 8, darker than CellDesigner.
+**Decision** (user, 2026-10-28): read as CellDesigner draws it. A compartment's outline takes the paint, its fill
+the band's colour over white (`celldesigner.band`, alpha 63); yEd cannot draw a band, so the fill covers the
+whole box. To CellDesigner the paint is the colour whose band shows the yEd fill over white (the inverse), or the
+outline's colour when its band is that fill, so a round trip gives the paint back exactly. Node.line, a
+compartment's outline colour: read and written in yEd (BorderStyle) and SBGN-ML (the render style's `stroke`),
+for compartments only; other glyphs keep black outlines. **Consequences**: GraphML and SBGN-ML from CellDesigner
+have the light band colour and the paint as outline (ExposomeMap-PM's endoplasmic reticulum F0EFE8 with a C4BEA0
+line); CellDesigner files from our maps have a darker paint (F7F6F3 in yEd gives DFDBCE), so CellDesigner's band
+shows the yEd colour and its lines a soft beige. Our official CellDesigner files, written before, read back
+near white (FDFDFC with an F7F6F3 line), as CellDesigner shows them. A yEd fill darker than about 75% grey cannot
+be reached (the paint stops at black). The inside of a CellDesigner compartment is white; in yEd it has the band's
+colour.
 
 {% endraw %}

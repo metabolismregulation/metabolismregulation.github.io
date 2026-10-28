@@ -141,7 +141,7 @@ segments level or upright, now 280, as CellDesigner draws them).
 
 | CellDesigner | proposal |
 |---|---|
-| compartment alias (SQUARE, OVAL) | yEd group node with the name, fill as in CellDesigner |
+| compartment alias (SQUARE, OVAL) | yEd group node with the name; outline in the paint, fill the band's colour, the paint at alpha 63 over white (D24) |
 | closeup compartments (SQUARE_CLOSEUP_*: a border line, no box) | a warning; drawn as a box to the map's edge | 
 | alias bounds | node box (metabolite circles back to the yEd size 60 x 32, centre kept; multimers shrink 6 per unit beyond 2: inverse of the forward rules) |
 | reaction | Process 18 x 18 (our maps' size) where CellDesigner draws the process glyph: midway on the main line's segment `rectangleIndex` |
@@ -161,7 +161,7 @@ segments level or upright, now 280, as CellDesigner draws them).
 | reaction annotation other than `isDescribedBy` (`bqmodel:is` with a PMID, Reactome `hasVersion`) | left out, no message yet |
 | species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, InChI, PubChem, GO) | left out, with one message naming each database and the number of species (2026-10-28) |
 | species notes (MINERVA's Name, Synonyms, Charge text) | left out but for a family's lines (`annotation.from_notes`) |
-| line colours | left out: our yEd style |
+| line colours | left out: our yEd style; a compartment's outline in its paint (D24) |
 | font sizes (a 30 pt title on a 12 pt map) | kept, each species' own ([D23](/converter/docs/design/#d23-font-sizes-kept-on-conversion)); CellDesigner has none for state variables and units, which get ours (10) |
 
 ## The forward direction (GraphML -> CellDesigner) stays with our symbols
