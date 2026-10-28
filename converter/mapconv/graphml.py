@@ -256,6 +256,7 @@ def write(diagram, soft=False):
         if d.fill: fill.set('color', d.fill)
         else: del fill.attrib['color']; fill.set('hasColor', 'false')  # no fill (aspirin's drugs)
         if d.dashed: gn.find('y:BorderStyle', NS).set('type', 'dashed')
+        if not d.border: gn.find('y:BorderStyle', NS).set('hasColor', 'false')
         l = gn.find('y:NodeLabel', NS)
         sign = {v: k for k, v in PROCESS_LABEL.items()}.get(d.kind)
         if not sign and font != 14:

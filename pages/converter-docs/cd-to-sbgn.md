@@ -156,7 +156,7 @@ segments level or upright, now 280, as CellDesigner draws them).
 |---|---|
 | layers (free text, lines, shapes, layer comments) | left out, with a warning listing them; empty layers (CellDesigner's default two) say nothing |
 | style variation (gradient fill, line width) | left out: our yEd style |
-| colours of species | kept as fill (as the forward direction) |
+| colours of species | kept as fill (as the forward direction); a transparent one (alpha 00, or six digits, which CellDesigner reads as alpha 00) as no fill; an unknown species without an outline, as CellDesigner draws it (2026-10-28) |
 | references on a reaction drawn as an arc (reduced notation, influences, a logic gate between entities) | left out, with a message naming the reactions: an arc holds no properties ([Issues](/converter/docs/issues/)) |
 | reaction annotation other than `isDescribedBy` (`bqmodel:is` with a PMID, Reactome `hasVersion`) | left out, no message yet |
 | species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, InChI, PubChem, GO) | left out, with one message naming each database and the number of species (2026-10-28) |

@@ -12,6 +12,9 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-28
 
+- CellDesigner to GraphML: an unknown species has no outline, as CellDesigner draws it, and a transparent colour
+  (six digits, or alpha 00) gives no fill; before, a black outline and an invalid colour (`#FFFF`), so name tags
+  drawn as bare text in CellDesigner came out as boxes. No reference file changed.
 - CellDesigner to GraphML and SBGN-ML: bends within 3 px of one line are aligned on it (lanes of arcs, segments
   meant level), and GraphML made from CellDesigner or Newt has sharp bends, as those programs draw them
   ([D22](/converter/docs/design/#d22-bends-from-celldesigner-aligned-within-3-px-drawn-sharp)). Lines at a

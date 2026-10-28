@@ -101,6 +101,9 @@ CellDesigner, so `diff` against a returned file shows only real changes.
   glyph's side (process glyph 10 wide: centre +- 5 across the flow), y axis = x
   axis turned 90 degrees. Found from the user's bends in glycolysis v01 and
   MINERVA's SBGN-ML (match to 1e-7).
+- Unknown species (class UNKNOWN): drawn without an outline. A colour of six hex digits (`ffffff`) is read as
+  alpha 00, transparent: ExposomeMap-PM's name tags beside proteins (ERK1 beside MAPK3) and its AOP headings
+  are bare text in the user's PDF (CellDesigner 4.4, 2026-10-28).
 - Phenotypes: the connection points lie on the hexagon, not on its box (the user's PDF of ExposomeMap-PM from
   CellDesigner 4.4, 2026-10-28, 190 x 40 boxes, every point that map uses found as a line end in the PDF): the
   tips E and W at the box's middle height, the corners NE, SE, SW, NW h/2 in from the sides, N and S in the middle

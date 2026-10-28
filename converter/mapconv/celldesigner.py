@@ -626,6 +626,12 @@ HEAD.update({'UNKNOWN_' + k: v for k, v in list(HEAD.items()) if k.startswith(('
 REDUCED_TYPES = {k for k in HEAD if 'INFLUENCE' in k or 'REDUCED' in k} | {'PHYSICAL_STIMULATION'}  # between entities in older files (SREBP, ACLY)
 
 
+def paint(c):
+    # a CellDesigner colour AARRGGBB as #RRGGBB; None when transparent (alpha 00, or six digits, which
+    # CellDesigner reads as alpha 00: ExposomeMap-PM's name tags, drawn as bare text; user's PDF, 2026-10-28)
+    return None if len(c) < 8 or c[:2] == '00' else '#' + c[2:].upper()
+
+
 def border_point(a):
     # inverse of border_angle: the point on the border at residue angle a, as offsets from
     # the centre in node widths and heights (y down)
@@ -689,7 +695,7 @@ def read(path):
         box = tuple(float(b.get(k)) for k in ('x', 'y', 'w', 'h'))
         np_ = f(a, 'cd:namePoint')
         nodes[a.get('id')] = Node(id=a.get('id'), kind='Compartment', box=box, labels=[name(cname.get(a.get('compartment')))],
-                                  parent=calias.get(comps[a.get('compartment')].get('outside')), fill='#' + f(a, 'cd:paint').get('color')[2:].upper(),
+                                  parent=calias.get(comps[a.get('compartment')].get('outside')), fill=paint(f(a, 'cd:paint').get('color')),
                                   label_at=(float(np_.get('x')) - box[0], float(np_.get('y')) - box[1] - 12.5) if np_ is not None else None)
     # species: one node per alias; included species (complex members) as top-level ones
     species = {s.get('id'): (s, f(s, 's:annotation/cd:extension/cd:speciesIdentity'), f(s, 's:annotation'))
@@ -737,7 +743,7 @@ def read(path):
             n = cnt[0]
         elif n > 1:  # N:x as on every multimer of our yEd maps (N:2 included, user 2026-10-18)
             units.append('N:%d' % n)
-        paint = f(a, 'cd:usualView/cd:paint')
+        pv = f(a, 'cd:usualView/cd:paint')
         uris = [li.get('{%s}resource' % ns['rdf']) for li in xs(an, './/rdf:Description/*/rdf:Bag/rdf:li')] if an is not None else []
         for u in uris:
             db = u.rpartition(':')[0][len('urn:miriam:'):]
@@ -748,7 +754,7 @@ def read(path):
         nodes[a.get('id')] = Node(
             id=a.get('id'), kind=kind, box=box, labels=[name(s.get('name')) if cls != 'DEGRADED' else ''],
             parent=a.get('complexSpeciesAlias') or a.get('compartmentAlias'),
-            fill=None if cls == 'DRUG' or paint is None else '#' + paint.get('color')[2:].upper(),
+            fill=None if cls == 'DRUG' or pv is None else paint(pv.get('color')), border=cls != 'UNKNOWN',
             states=states, units=units, count=n, data=from_notes(note(s), to_properties(fam, uris) if uris else {}),
             dashed=hyp is not None and hyp.text == 'true', species=a.get('species'),
             font=float(font.get('size')) if font is not None and font.get('size') else None)
