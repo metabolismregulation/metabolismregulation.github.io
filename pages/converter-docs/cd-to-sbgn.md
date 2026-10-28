@@ -120,6 +120,12 @@ to entity: not a one-language map, but nothing is lost and the way back is possi
 a yEd stimulation arc between two entities becomes PHYSICAL_STIMULATION in reduced notation
 (SREBP, ACLY).
 
+Geometry (2026-10-28): such an arc starts and ends at the connection points CellDesigner names (`linkAnchor` of its
+base reactant and product) and its bends come from its edit points in the frame between those two points, as a
+reaction's main line ([CellDesigner files](/converter/docs/celldesigner/)). Before, the frame ran between the node
+centres, which shifted every bend and broke the shared lanes of a map drawn with them (ExposomeMap-PM: 15 of 492
+segments level or upright, now 280, as CellDesigner draws them).
+
 | CellDesigner | cd2sbgnml | proposal | ? |
 |---|---|---|---|
 | POSITIVE_INFLUENCE, UNKNOWN_POSITIVE_INFLUENCE | stimulation, entity to entity | stimulation arc, entity to entity (UNKNOWN_: dashed, as Q6) |  |

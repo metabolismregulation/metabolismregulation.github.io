@@ -12,6 +12,10 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-28
 
+- CellDesigner to GraphML: an arc between two entities (reduced notation, influences) keeps its CellDesigner
+  drawing: its ends at the connection points, its bends where CellDesigner shows them. Before, the bends were
+  read from the node centres and came out shifted, so lines drawn level in CellDesigner came out slanted.
+  Reference files: the PD map's autophagy and histamine submaps (GraphML and SBGN-ML).
 - CellDesigner to GraphML: identifiers the GraphML has no property for (MINERVA's Ensembl, NCBI Gene, RefSeq, InChI,
   STITCH; GO, PubChem) are named in the messages, per database with the number of species; before, they went
   without a word. Empty layers (CellDesigner's default two) are no longer reported as left out.
