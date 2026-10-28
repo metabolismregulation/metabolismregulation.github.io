@@ -148,12 +148,12 @@ a yEd stimulation arc between two entities becomes PHYSICAL_STIMULATION in reduc
 
 | CellDesigner | proposal |
 |---|---|
-| layers (free text, lines, shapes, layer comments) | left out, with a warning listing them |
+| layers (free text, lines, shapes, layer comments) | left out, with a warning listing them; empty layers (CellDesigner's default two) say nothing |
 | style variation (gradient fill, line width) | left out: our yEd style |
 | colours of species | kept as fill (as the forward direction) |
 | references on a reaction drawn as an arc (reduced notation, influences, a logic gate between entities) | left out, with a message naming the reactions: an arc holds no properties ([Issues](/converter/docs/issues/)) |
 | reaction annotation other than `isDescribedBy` (`bqmodel:is` with a PMID, Reactome `hasVersion`) | left out, no message yet |
-| species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, PubChem, GO) | left out, no message yet (as above) |
+| species identifiers other than HGNC, HGNC symbol, UniProt, ChEBI (Entrez, Ensembl, RefSeq, InChI, PubChem, GO) | left out, with one message naming each database and the number of species (2026-10-28) |
 | species notes (MINERVA's Name, Synonyms, Charge text) | left out but for a family's lines (`annotation.from_notes`) |
 | line colours, font sizes (a 30 pt title on a 12 pt map) | left out: our yEd style, the map's one font size |
 

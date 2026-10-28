@@ -35,4 +35,13 @@ default left to choose ([D14](/converter/docs/design/#d14-no-node-moved-the-proc
 
 6. Complex name room (PLANNED.md): grow the complex, or move its members.
 
+7. Species on a compartment's edge (2026-10-28, ExposomeMap-PM; ISSUES.md, Known faults). CellDesigner draws a
+   membrane protein across its compartment's border, a member of the compartment; yEd draws a group round all its
+   members, and the GraphML check refuses a member outside its group, so the trip CellDesigner > GraphML >
+   CellDesigner loses it and its reactions. Options: (a) the check accepts a member whose box overlaps its
+   compartment (on the membrane), yEd's group grows a little on opening; (b) CellDesigner to GraphML makes such a
+   species a top-level node and keeps the compartment as a node property, read back to CellDesigner; (c) the
+   species moved inside, against "no node moved". Proposed: (a), the smallest; it keeps membership and
+   position, and the growth is the known fault already listed.
+
 {% endraw %}

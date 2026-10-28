@@ -703,6 +703,7 @@ def read(path):
         for m in xs(p, 'cd:listOfModificationResidues/cd:modificationResidue'):
             residues[p.get('id'), m.get('id')] = (float(m.get('angle', 0)), m.get('name'))
     INV = {v: k for k, v in STATE.items()}
+    other = {}  # database -> species whose identifiers in it are left out
     aliases = list(xs(ext, 'cd:listOfComplexSpeciesAliases/cd:complexSpeciesAlias')) + \
         list(xs(ext, 'cd:listOfSpeciesAliases/cd:speciesAlias'))
     for a in aliases:
@@ -738,6 +739,9 @@ def read(path):
             units.append('N:%d' % n)
         paint = f(a, 'cd:usualView/cd:paint')
         uris = [li.get('{%s}resource' % ns['rdf']) for li in xs(an, './/rdf:Description/*/rdf:Bag/rdf:li')] if an is not None else []
+        for u in uris:
+            db = u.rpartition(':')[0][len('urn:miriam:'):]
+            if db not in ('hgnc', 'hgnc.symbol', 'uniprot', 'obo.chebi'): other.setdefault(db, set()).add(a.get('species'))
         fam = an is not None and f(an, './/rdf:Description/bq:hasVersion') is not None
         hyp = f(si, 'cd:hypothetical')
         font = f(a, 'cd:font')
@@ -908,9 +912,12 @@ def read(path):
                             dashed=t.startswith('UNKNOWN_')))
     if unplaced:
         report.say('left out', 'references of %d reactions drawn as arcs (no process glyph to hold them): %s' % (len(unplaced), ', '.join(unplaced)))
-    for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):
-        k = sum(1 for _ in xs(ext, tag))
+    for tag in ('cd:listOfLayers/cd:layer', 'cd:listOfGroups/cd:group'):  # an empty layer (CellDesigner's default two) says nothing
+        k = sum(1 for x in xs(ext, tag) if x.tag.endswith('group') or any(len(c) for c in x))
         if k: report.say('left out', '%d %s left out' % (k, tag.split(':')[-1] + 's'))
+    if other:  # identifiers the GraphML has no property for (MINERVA adds them; the Atlas fetches them from HGNC and ChEBI)
+        report.say('left out', 'identifiers other than HGNC, UniProt and ChEBI: %s' % ', '.join(
+            '%s on %d species' % (db, len(sp)) for db, sp in sorted(other.items(), key=lambda x: (-len(x[1]), x[0]))))
     # only the bends CellDesigner shows (none hidden under a node or on the straight line between
     # their neighbours, as the advanced layout's two points beside the square)
     return visible(Map(name=os.path.basename(path).rsplit('.', 1)[0], nodes=nodes, arcs=arcs))

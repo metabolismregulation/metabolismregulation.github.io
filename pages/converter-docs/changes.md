@@ -10,6 +10,15 @@ noindex: true
 What changed for people who use the converter, newest first, by the date it went to the Converter page.
 Changes inside the code that leave every file the same are listed only when they change the design.
 
+## 2026-10-28
+
+- CellDesigner to GraphML: identifiers the GraphML has no property for (MINERVA's Ensembl, NCBI Gene, RefSeq, InChI,
+  STITCH; GO, PubChem) are named in the messages, per database with the number of species; before, they went
+  without a word. Empty layers (CellDesigner's default two) are no longer reported as left out.
+- GraphML: a compartment or complex folded in yEd shows its own name; before, the template's (CYTOSOL, LABEL).
+  Reference files: every GraphML with a compartment or complex (the folded name only), and the messages of
+  PD02 eicosanoids and the PD map's autophagy and histamine submaps.
+
 ## 2026-10-27
 
 - References on reactions (PubMed, DOI, PMC, Reactome): CellDesigner to GraphML puts them on the process glyph as
