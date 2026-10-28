@@ -227,4 +227,22 @@ overlay keyed on reaction ids) can rely on them. A reaction drawn as an arc (red
 no references: an arc holds no properties in our model; said in the messages (Activity Flow maps would need them
 on arcs, not built). SBGN-ML: not yet written.
 
+## D22. Bends from CellDesigner aligned within 3 px, drawn sharp
+
+**2026-10-28, accepted, built (CellDesigner to GraphML and SBGN-ML).** **Context**: in CellDesigner bends are
+placed by hand, and placing one precisely is hard; ExposomeMap-PM draws lanes of arcs between phenotypes and
+diseases whose bends sit 1 to 3 px apart, and segments meant level come out 1 to 3 px off. CellDesigner and Newt
+draw bends as sharp corners, while the GraphML writer made every bend soft (user, 2026-10-14, for maps drawn in
+yEd). **Decision** (user, 2026-10-28): bends 1 to 3 px off one line were meant to be on it. `layout.aligned`, run on
+every map read from CellDesigner: each bend coordinate within 3 px of an arc's end goes onto it (its own arc's end
+first), then bends within 3 px of each other onto one line (an end within 3 px of all of them, else their median),
+and bends left in the middle of a level or upright run are dropped. No node and no arc end moves. GraphML made
+from CellDesigner or Newt has sharp bends, as they draw them; soft bends stay for GraphML made from GraphML
+(corrected, standard sizes). **Consequences**: ExposomeMap-PM 448 segments level or upright of 515 longer than
+20 px (419 without the pass), none left 1 to 4 px off; the Atlas maps' CellDesigner files move a few bends
+by under 3 px (glycogen, BCAA, PDH, glycolysis, mevalonate, phosphoinositides). A bend meant 2 px from another
+cannot be drawn so from CellDesigner; nobody draws that by hand. SBGN-ML to GraphML is not aligned (Newt keeps
+exact coordinates).
+
+
 {% endraw %}

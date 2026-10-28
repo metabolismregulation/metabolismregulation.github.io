@@ -101,6 +101,11 @@ CellDesigner, so `diff` against a returned file shows only real changes.
   glyph's side (process glyph 10 wide: centre +- 5 across the flow), y axis = x
   axis turned 90 degrees. Found from the user's bends in glycolysis v01 and
   MINERVA's SBGN-ML (match to 1e-7).
+- Phenotypes: the connection points lie on the hexagon, not on its box (the user's PDF of ExposomeMap-PM from
+  CellDesigner 4.4, 2026-10-28, 190 x 40 boxes, every point that map uses found as a line end in the PDF): the
+  tips E and W at the box's middle height, the corners NE, SE, SW, NW h/2 in from the sides, N and S in the middle
+  of the flat edges, NNE, SSE, SSW, NNW halfway between the middle and the corner, ENE, ESE, WSW, WNW halfway along
+  the slanted edges. Read and written so (`anchor_point`, hexagon). Inset h/2 measured on one box size only.
 - Multimers: lines attach to the front shape, the box 6 smaller in width and
   height per unit beyond 1. Confirmed for N:4 by the user's ASL edit (iNOS,
   `F007-inos/sources/F007-inos-asl-tetramer-cd442-edited.xml`): homodimer

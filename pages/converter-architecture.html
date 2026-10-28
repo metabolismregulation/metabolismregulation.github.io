@@ -116,6 +116,9 @@ both directions, SBML without layout and BioPAX as an export only (dashed). The 
   <text class="ca-sub" x="544" y="276">two processes apart</text>
   <text class="ca-name" x="544" y="314">at_centres</text>
   <text class="ca-sub" x="544" y="332">straight, after reading</text>
+  <text class="ca-name" x="544" y="370">aligned</text>
+  <text class="ca-sub" x="544" y="388">CellDesigner's bends</text>
+  <text class="ca-sub" x="544" y="404">within 3 px on one line</text>
     <rect class="ca-box" x="710" y="85" width="140" height="50" rx="7"/>
   <text class="ca-name" x="780" y="106" text-anchor="middle">style.py</text>
   <text class="ca-sub" x="780" y="124" text-anchor="middle">yEd: standard sizes</text>
@@ -217,7 +220,7 @@ its count above 2 a unit of information, so no node grows. To CellDesigner and b
 more than 1 px (at most 3 px), and a second trip moves none.</p>
 <table class="ca-table">
   <tr><th>Module</th><th>What it does</th></tr>
-  <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, and the straight layout of a map read from CellDesigner (arcs at the centres, metabolites at the yEd size).</td></tr>
+  <tr><td><code>layout.py</code></td><td>For every format: the main reactant and product of each process, the bends that matter (the long L, bends that move a line by more than 20 px), two processes on the same species kept apart, an arc's route without the process ports, the bends of a map read from CellDesigner aligned where they lie within 3 px of one line (D22), and the straight layout of such a map (arcs at the centres, metabolites at the yEd size).</td></tr>
   <tr><td><code>cd_layout.py</code></td><td>CellDesigner: the boxes as it draws them (metabolite circles, multimers as dimers, room for a complex's name), the process glyph, connection points and edit points, the hidden ones included (the process glyph where the input has the process, a line into a large node beside its centre). It moves no node but for the room of a complex's name.</td></tr>
   <tr><td><code>cd_tidy.py</code></td><td>For CellDesigner (advanced): small moves that make lines meet straight (main lines up to 10 px, an end onto a larger node's centre line, a modifier up to 15 px onto its process glyph), listed under the map. The three other CellDesigner files go without.</td></tr>
   <tr><td><code>newt_layout.py</code></td><td>Newt, only for the files for Newt (the SBGN-ML files keep the drawing of the input map): every process and gate in a compartment, each compartment as large as Newt's margin needs, neighbours too close for it moved apart, and an arc that leaves a node off centre bent just outside it, as Newt aims every arc at the node's centre.</td></tr>
@@ -272,5 +275,5 @@ only, the fallback if the page has to go back to it.</p>
   <li>BioPAX written. Later.</li>
 </ol>
 
-<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-24, for converter commit 559a200 (2026-10-24). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
+<p class="ca-sub" style="font-size: 13px; color: #777;">Updated 2026-10-28 (D22, the bends from CellDesigner aligned). Before the switch: <a href="{{ '/converter/architecture-v1-backup/' | relative_url }}">v1 backup</a>, with v1's structure and the plan.
 The code in <code>converter/mapconv/</code> is a copy of the converter's code, kept in a private repository.</p>

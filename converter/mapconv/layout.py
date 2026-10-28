@@ -243,6 +243,46 @@ def corner(a, b, way):
     return (b[0], a[1]) if way == 'h' else (a[0], b[1])
 
 
+TOL = 3  # px: bends this close to one line were meant to be on it (user, 2026-10-28)
+
+
+def aligned(m, tol=TOL):
+    # a map read from CellDesigner, whose bends are placed by hand (user, 2026-10-28, ExposomeMap-PM: lanes
+    # of arcs 1 to 3 px apart): each bend coordinate within tol of an arc's end goes onto it, its own arc's
+    # end first, then bends within tol of each other onto one line (their median); bends left in the middle
+    # of a level or upright run are dropped. No node and no arc end moves.
+    end = lambda i, at: (centre(m.nodes[i])[0] + at[0], centre(m.nodes[i])[1] + at[1])
+    lines = [[end(a.source, a.source_at)] + [list(p) for p in a.points] + [end(a.target, a.target_at)] for a in m.arcs]
+    for ax in (0, 1):
+        ends = sorted({P[k][ax] for P in lines for k in (0, -1)})
+        free = []
+        for P in lines:
+            for k in range(1, len(P) - 1):
+                near = [P[j][ax] for j in (k - 1, k + 1) if j in (0, len(P) - 1) and abs(P[j][ax] - P[k][ax]) <= tol]
+                if near:
+                    P[k][ax] = min(near, key=lambda v: abs(v - P[k][ax]))
+                else:
+                    free.append(P[k])
+        free.sort(key=lambda p: p[ax])
+        i = 0
+        while i < len(free):  # runs of bends no more than tol apart from the first
+            j = i
+            while j + 1 < len(free) and free[j + 1][ax] - free[i][ax] <= tol:
+                j += 1
+            run = free[i:j + 1]
+            mid = run[len(run) // 2][ax]
+            e = min(ends, key=lambda v: abs(v - mid), default=None)
+            v = e if e is not None and all(abs(e - p[ax]) <= tol for p in run) else mid
+            for p in run:
+                p[ax] = v
+            i = j + 1
+    for a, P in zip(m.arcs, lines):
+        keep = [P[k] for k in range(1, len(P) - 1)
+                if not any(P[k - 1][x] == P[k][x] == P[k + 1][x] for x in (0, 1))]
+        a.points = [tuple(p) for p in keep]
+    return m
+
+
 def at_centres(m):
     # the straight layout of a map read from a file with its own geometry (CellDesigner): every arc
     # at its nodes' centres, metabolites at our yEd size (a 40 x 40 circle), centre kept

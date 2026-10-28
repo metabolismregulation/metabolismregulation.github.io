@@ -12,6 +12,12 @@ Changes inside the code that leave every file the same are listed only when they
 
 ## 2026-10-28
 
+- CellDesigner to GraphML and SBGN-ML: bends within 3 px of one line are aligned on it (lanes of arcs, segments
+  meant level), and GraphML made from CellDesigner or Newt has sharp bends, as those programs draw them
+  ([D22](/converter/docs/design/#d22-bends-from-celldesigner-aligned-within-3-px-drawn-sharp)). Lines at a
+  phenotype attach to its hexagon, where CellDesigner draws them, not to its box corners (both ways). Reference
+  files: every GraphML from CellDesigner, SBGN-ML or Newt (sharp bends), and bends under 3 px in the GraphML and
+  SBGN-ML from the Atlas CellDesigner files, PD02 eicosanoids and the PD map's autophagy and histamine submaps.
 - CellDesigner to GraphML: an arc between two entities (reduced notation, influences) keeps its CellDesigner
   drawing: its ends at the connection points, its bends where CellDesigner shows them. Before, the bends were
   read from the node centres and came out shifted, so lines drawn level in CellDesigner came out slanted.

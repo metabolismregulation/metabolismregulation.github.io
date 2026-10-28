@@ -195,10 +195,10 @@ def _label(l, text, w, h, k=1.0):
 def corrected(m):
     # a map that looks like SBGN but is drawn with other shapes (read by their outline), redrawn
     # with the SBGN palette (user, 2026-10-17: <map>-corrected.graphml); None for a map already in it
-    return write(m) if any(d.outline for d in m.nodes.values()) else None
+    return write(m, soft=True) if any(d.outline for d in m.nodes.values()) else None
 
 
-def write(diagram):
+def write(diagram, soft=False):
     # the font follows the map's scale: 14 on our protein height (40), so Newt's 30 high gives 11
     font = round(14 * scale_of(diagram) + 0.01)
     t = etree.parse(os.path.join(os.path.dirname(__file__), 'yed.graphml')).getroot()
@@ -311,7 +311,8 @@ def write(diagram):
         if a.dashed: pl.find('y:LineStyle', NS).set('type', 'dashed')
         pl.find('y:Arrows', NS).set('target', ARROW[a.head] if a.head else 'none')
         pl.find('y:Arrows', NS).set('source', 'delta' if a.tail else 'none')
-        pl.find('y:BendStyle', NS).set('smoothed', 'true')  # soft bends on every arc (user, 2026-10-14)
+        if soft:  # soft bends on a map from yEd (user, 2026-10-14); from CellDesigner or Newt as they draw them, sharp (user, 2026-10-28)
+            pl.find('y:BendStyle', NS).set('smoothed', 'true')
         g.append(e)
     rs = etree.SubElement(etree.SubElement(root, G + 'data', key='res'), Y + 'Resources')
     rs.extend(resources)

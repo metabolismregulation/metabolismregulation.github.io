@@ -29,13 +29,22 @@ ANGLE = {k: 22.5 * i for i, k in enumerate(['E', 'ENE', 'NE', 'NNE', 'N', 'NNW',
                                             'W', 'WSW', 'SW', 'SSW', 'S', 'SSE', 'SE', 'ESE'])}
 
 
-def anchor_point(box, side, circle=False):
+def anchor_point(box, side, circle=False, hexagon=False):
     x, y, w, h = box
     if not side:  # no anchor: the centre
         return (x + w / 2, y + h / 2)
     if circle:
         a = math.radians(ANGLE[side])
         return (x + w / 2 * (1 + math.cos(a)), y + h / 2 * (1 - math.sin(a)))
+    if hexagon:  # a phenotype: on its hexagon, corners h/2 in from the tips, the quarter points halfway along an
+        # edge (the user's PDF of ExposomeMap-PM, CellDesigner 4.4, 190 x 40 boxes, 2026-10-28)
+        i = min(h / 2, w / 2)
+        fx, fy = ANCHOR[side]
+        if fy in (0, 1):  # top or bottom: the flat edge between the corners, N in the middle
+            u = {0: i, .25: (w / 2 + i) / 2, .5: w / 2, .75: (w * 1.5 - i) / 2, 1: w - i}[fx]
+            return (x + u, y + fy * h)
+        d = i * (1 - 2 * min(fy, 1 - fy))  # the slanted edges: i in from the side at a corner, 0 at the tip
+        return (x + fx * w + (d if fx == 0 else -d), y + fy * h)
     fx, fy = ANCHOR[side]
     return (x + fx * w, y + fy * h)
 
@@ -140,14 +149,14 @@ def draw(diagram, ents, members, label, advanced, held=False):
     route = lambda p, pts: layout.route(yed(pts), cen(p), box[p])
 
     def off_line(i, a, T):  # anchor a of entity i moves its line to T by more than 2 px
-        A, C = anchor_point(box[i], a, N[i].kind == 'SimpleChemical'), cen(i)
+        A, C = anchor_point(box[i], a, N[i].kind == 'SimpleChemical', N[i].kind == 'Phenotype'), cen(i)
         return abs((T[0] - C[0]) * (A[1] - C[1]) - (T[1] - C[1]) * (A[0] - C[0])) / (math.dist(C, T) or 1) > 2
 
     def nearest(i, at):
         # the anchor nearest to where an arc meets entity i (scaled to its box here), if nearer than
         # its centre; on a metabolite circle not E or W, where the name is: ESE, WSW
         u, v = at[0] * box[i][2] / N[i].box[2], at[1] * box[i][3] / N[i].box[3]
-        pt = lambda a: anchor_point(box[i], a, N[i].kind == 'SimpleChemical')
+        pt = lambda a: anchor_point(box[i], a, N[i].kind == 'SimpleChemical', N[i].kind == 'Phenotype')
         a = min(ANCHOR, key=lambda a: math.dist(pt(a), (cen(i)[0] + u, cen(i)[1] + v)))
         if math.dist(pt(a), (cen(i)[0] + u, cen(i)[1] + v)) >= math.hypot(u, v):
             return None
@@ -232,8 +241,8 @@ def draw(diagram, ents, members, label, advanced, held=False):
                             under = (i, H)
             if under:
                 ra, qa = (None, qa) if under[0] == r_ else (ra, None)
-        A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical')
-        B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical')
+        A = anchor_point(front[r_] if ra else box[r_], ra, N[r_].kind == 'SimpleChemical', N[r_].kind == 'Phenotype')
+        B = anchor_point(front[q_] if qa else box[q_], qa, N[q_].kind == 'SimpleChemical', N[q_].kind == 'Phenotype')
         # edit points: one long L (both layouts); in the advanced layout else the route's bends
         pts, k, corner = rb + qb, len(rb), False
         if under:
@@ -339,7 +348,7 @@ def draw(diagram, ents, members, label, advanced, held=False):
         # back); one that runs across at the process's height takes a lane (below)
         at = advanced and not e.points and N[m].kind != 'SimpleChemical' and nearest(m, e.source_at)
         if at and off_line(m, at, T) and abs(M[1] + e.source_at[1] - cen(p)[1]) > 5:
-            M = anchor_point(front[m], at)
+            M = anchor_point(front[m], at, hexagon=N[m].kind == 'Phenotype')
         else:
             at = None
         pts = advanced and not at and lane(m, M, T, e)

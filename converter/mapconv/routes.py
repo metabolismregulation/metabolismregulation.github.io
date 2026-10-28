@@ -12,7 +12,7 @@
 import contextlib, io
 from dataclasses import dataclass
 from . import annotation, celldesigner, graphml, report, rules, sbgnml, style
-from .layout import at_centres
+from .layout import aligned, at_centres
 
 LAYOUTS = ('straight', 'advanced')
 
@@ -74,10 +74,10 @@ def outputs(path, standard=False):
             return rules.mark(path, found)
         out = cds(read) + sbgn(lambda l: read()) + \
               [Output('-corrected.graphml', 'GraphML (corrected)', lambda: graphml.corrected(read()))] + \
-              ([Output('-standard.graphml', 'GraphML (standard sizes)', lambda: graphml.write(style.standardise(read())))] if standard else [])
+              ([Output('-standard.graphml', 'GraphML (standard sizes)', lambda: graphml.write(style.standardise(read()), soft=True))] if standard else [])
         return out + ([Output('-marked.graphml', 'GraphML (marked)', marked, red=True)] if found else [])
     if ext == 'xml':
-        cd = lambda l: at_centres(celldesigner.read(path)) if l == 'straight' else celldesigner.read(path)
+        cd = lambda l: at_centres(aligned(celldesigner.read(path))) if l == 'straight' else aligned(celldesigner.read(path))
         return [Output('-%s.graphml' % l, 'GraphML (%s)' % l, lambda l=l: graphml.write(cd(l))) for l in LAYOUTS] + \
                [std(lambda: celldesigner.read(path), 'CellDesigner')] + \
                sbgn(lambda l: celldesigner.straight(cd(l)) if l == 'straight' else cd(l))

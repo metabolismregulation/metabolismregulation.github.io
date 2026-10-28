@@ -769,7 +769,7 @@ def read(path):
         circle = d.kind in ('SimpleChemical', 'UnspecifiedEntity')
         x_, y_, w_, h_ = d.box  # a multimer's anchors on its front shape, 6 smaller (cd_layout.draw)
         k = 6 if d.count > 1 and not circle else 0
-        return anchor_point((x_, y_, w_ - k, h_ - k), b.get('position'), circle)
+        return anchor_point((x_, y_, w_ - k, h_ - k), b.get('position'), circle, d.kind == 'Phenotype')
     # an arc's port: where it meets its node, from the node's centre
     port = lambda i, P: (P[0] - cen(i)[0], P[1] - cen(i)[1])
 
