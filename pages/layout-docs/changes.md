@@ -11,6 +11,8 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-29
 
+- One cytoplasm, no nesting: an organelle the story passes through is a box glued above or below the cytoplasm. The
+  finishing pass keeps glued side-by-side compartments at one top and one bottom.
 - House style from a curator's hand edit (an expo atlas receptor module): ports at the node centres, bends avoided by
   moving nodes (straight lines, short diagonals accepted), compartments glued edge to edge with one top and one
   height, compact. The check reports compartments not glued and arcs with bends; two compartments sharing an edge no

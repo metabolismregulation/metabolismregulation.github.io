@@ -88,8 +88,9 @@ name running past the node as a box. Two nodes are too close when any of their s
 - Cell order (preference, on trial since 2026-10-29): stimulus to response along the flow: outside, membrane,
   cytosol signalling with each organelle where it acts, then the nucleus, never first. What the nucleus makes (a
   feedback, a constant supply) runs back from the nucleus's near edge along one side of the cell, a feedback on the
-  outer line. One cytoplasm: an organelle the story passes through (endosome, phagosome) is drawn inside the one cytoplasm box,
-  never a second cytoplasm box; the extracellular space, membrane and nucleus are boxes glued beside it.
+  outer line. One cytoplasm, no nesting: never a second cytoplasm box; an organelle the story passes through (endosome,
+  phagosome) is a box glued above or below the cytoplasm, and the story turns into it and back; the extracellular
+  space, membrane and nucleus are boxes glued beside it.
 - Repeated events (a run of steps of one shape, each output acting on the next step) share one geometry: the
   same step, the same distances inside each step.
 - A side substrate or product: beside the stem at the height of its junction, entering or leaving horizontally.
@@ -143,7 +144,7 @@ centre, so the arcs at it stay straight.
 - Compartments never overlap (strict): side by side with a shared edge, or one inside another only as its
   member.
 - **Compartments glued**: there is no empty space between compartments in a cell, so neighbours share one edge.
-  Side by side they share their top and bottom (one height); stacked they share their left and right. A compartment the story enters twice is drawn once, with the organelle inside it as its member. Compartments are always the background: they come first in the file, the larger first,
+  Side by side they share their top and bottom (one height); stacked they share their left and right. A compartment the story enters twice is drawn once, the organelle glued to it. Compartments are always the background: they come first in the file, the larger first,
   as yEd paints in file order.
 - Every process and logic gate lies inside a compartment.
 - Distances from a compartment edge to what it holds: a node or complex 32 px, a node with state variables on
