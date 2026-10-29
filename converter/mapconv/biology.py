@@ -9,6 +9,7 @@
 import collections, json, os, re
 from .celldesigner import CLASS, MOD, cd_class, plain_name, is_structural
 from .graphml import EQUIV
+from .annotation import units as hidden_units
 from .model import HEADS, Annotation, Biology, Entity, Influence, Member, Reaction, StateVariable, UnitOfInformation
 
 PROCESSES = ('Process', 'OmittedProcess', 'UncertainProcess')
@@ -107,10 +108,11 @@ def build(m):
         return tuple(sorted(mods)), tuple(sorted(set(lig)))
 
     # glyph class: the class, the multimer count, a chain length written in the label (glycogen:
-    # glucose (N:n) and (N:n+1): one ChEBI, two entities; user, 2026-10-19) and a dashed border
-    # (hypothetical, a property of the CellDesigner species)
+    # glucose (N:n) and (N:n+1): one ChEBI, two entities; user, 2026-10-19), a dashed border
+    # (hypothetical, a property of the CellDesigner species), and the units of information not drawn (the property
+    # Unit of information: two fragments of one protein, one identifier; user, 2026-10-29)
     cls = lambda i: (cd_class(N[i]), N[i].count) + tuple(re.findall(r'\(N:([^)]+)\)\s*$', label(N[i]))) + \
-        (('hypothetical',) if N[i].dashed else ())
+        (('hypothetical',) if N[i].dashed else ()) + tuple(sorted(hidden_units(N[i].data)))
     # identities: an identifier, or a label joining the one identifier it is given elsewhere
     ident = {i: own_identity(N[i]) for i in ents if N[i].kind != 'Complex'}
     seen = collections.defaultdict(set)

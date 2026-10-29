@@ -10,6 +10,13 @@ noindex: true
 What changed for people who use the converter, newest first, by the date it went to the Converter page.
 Changes inside the code that leave every file the same are listed only when they change the design.
 
+## 2026-10-29
+
+- A node property "Unit of information" (one per line) for units the drawing does not show: two forms of one
+  protein with one identifier (cleavage fragments) stay two species, and the units go into CellDesigner's notes on
+  one line, read back from there ([D25](/converter/docs/design/#d25-units-of-information-not-drawn-part-of-the-entity-key)).
+  No reference file changed.
+
 ## 2026-10-28
 
 - Compartment colours as CellDesigner draws them ([D24](/converter/docs/design/#d24-a-compartments-colour-as-celldesigner-draws-it)):

@@ -711,6 +711,15 @@ family member with sites (`annotation.notes`, read back by `annotation.from_note
 species (complex member) has the lines before its RDF in the same body. The entity's own sites stay in
 the GraphML property PTM only (user, 2026-10-22: until a case needs them on the drawing).
 
+Units of information not drawn (user, 2026-10-29): the GraphML property "Unit of information", one unit per line,
+holds what tells a form apart that the drawing does not show (two cleavage fragments of TLR9, one HGNC identifier:
+"C-terminal fragment", "trimmed"). It is part of the entity key, so such forms are two CellDesigner species, and it
+goes into the notes as one line, "Unit of information: C-terminal fragment; trimmed". Drawn units stay free for
+CellDesigner's one unit per alias (ct:, or N:x, which is not free text and takes the place). One line, because the
+user's save of a TLR9 test (`tests/celldesigner/tlr9-units-in-notes-v01.xml`) kept every line of a species' SBML
+note but only the first line of a complex member's note: "trimmed", on a second line, was lost on both members.
+The family lines above may be cut the same way on a complex member (not yet seen in a file; ISSUES).
+
 ## A species' location without a drawn compartment (user's saves, 2026-10-29)
 
 Whether a map without compartment boxes can still tell NRF2 in the cytoplasm from NRF2 in the nucleus. Two files,

@@ -286,4 +286,15 @@ near white (FDFDFC with an F7F6F3 line), as CellDesigner shows them. A yEd fill 
 be reached (the paint stops at black). The inside of a CellDesigner compartment is white; in yEd it has the band's
 colour.
 
+## D25. Units of information not drawn, part of the entity key
+
+**2026-10-29, accepted, built.** **Context**: two cleavage fragments of TLR9 carry the one TLR9 identifier (UniProt
+names no fragment), so the entity key joined them into one CellDesigner species and the cleavage steps came out as
+loops. A drawn unit cannot tell them apart in CellDesigner, which keeps one unit per alias, and N:x (a homodimer's
+count, not free text) takes it. **Decision** (user, 2026-10-29): the GraphML property "Unit of information" (one
+per line) holds such units; they are part of the glyph class in the entity key, and go into the species' notes on
+one line. Names show the form for the reader ("TLR9-C", "TLR9-N"). **Consequences**: forms of one protein stay
+apart with one identifier; the units survive CellDesigner's save (a member's note keeps only its first line, hence
+one line). No reference file changed.
+
 {% endraw %}
