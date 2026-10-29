@@ -11,6 +11,8 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-29
 
+- Flow direction per map: the main chain runs top to bottom by default (metabolic maps) or left to right where a
+  project sets it (signalling maps). Wording only; no layout changes.
 - Cell order, on trial: a pathway is laid out from stimulus to response along the flow (outside, membrane, cytosol,
   nucleus), the nucleus never first; what the nucleus makes runs back along one side of the cell. Compartments as
   separate boxes, not nested.

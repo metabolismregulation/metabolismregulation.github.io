@@ -78,8 +78,9 @@ name running past the node as a box. Two nodes are too close when any of their s
 
 ## Placement (options)
 
-- Main chain: a vertical column, top to bottom. A side chain may run towards the row it feeds. Cycles: a
-  clockwise rectangle.
+- Main chain: one straight line in the map's flow direction: top to bottom by default (metabolic maps), left to
+  right where a project sets it (signalling maps, whose story from stimulus to response is simpler to see). A side
+  chain may run towards the row it feeds. Cycles: a clockwise rectangle.
 - Cell order (preference, on trial since 2026-10-29): stimulus to response along the flow: outside, membrane,
   cytosol signalling with each organelle where it acts, then the nucleus, never first. What the nucleus makes (a
   feedback, a constant supply) runs back from the nucleus's near edge along one side of the cell, a feedback on the
