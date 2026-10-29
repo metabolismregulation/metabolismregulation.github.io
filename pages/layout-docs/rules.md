@@ -80,6 +80,10 @@ name running past the node as a box. Two nodes are too close when any of their s
 
 - Main chain: a vertical column, top to bottom. A side chain may run towards the row it feeds. Cycles: a
   clockwise rectangle.
+- Cell order (preference, on trial since 2026-10-29): stimulus to response along the flow: outside, membrane,
+  cytosol signalling with each organelle where it acts, then the nucleus, never first. What the nucleus makes (a
+  feedback, a constant supply) runs back from the nucleus's near edge along one side of the cell, a feedback on the
+  outer line. Compartments are separate boxes side by side, not nested.
 - Repeated events (a run of steps of one shape, each output acting on the next step) share one geometry: the
   same step, the same distances inside each step.
 - A side substrate or product: beside the stem at the height of its junction, entering or leaving horizontally.

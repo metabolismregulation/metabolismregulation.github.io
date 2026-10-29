@@ -9,6 +9,12 @@ noindex: true
 
 What changed for maps laid out with the tool, by date.
 
+## 2026-10-29
+
+- Cell order, on trial: a pathway is laid out from stimulus to response along the flow (outside, membrane, cytosol,
+  nucleus), the nucleus never first; what the nucleus makes runs back along one side of the cell. Compartments as
+  separate boxes, not nested.
+
 ## 2026-10-28
 
 - A map can be mirrored top to bottom (`mirror.py`), so a story read from the top reads from the bottom: glyphs,
