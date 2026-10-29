@@ -711,4 +711,15 @@ family member with sites (`annotation.notes`, read back by `annotation.from_note
 species (complex member) has the lines before its RDF in the same body. The entity's own sites stay in
 the GraphML property PTM only (user, 2026-10-22: until a case needs them on the drawing).
 
+## A species' location without a drawn compartment (user's saves, 2026-10-29)
+
+Whether a map without compartment boxes can still tell NRF2 in the cytoplasm from NRF2 in the nucleus. Two files,
+opened and saved by the user in CellDesigner 4.4 (`tests/celldesigner/location-in-compartment-v01.xml`,
+`location-in-notes-v01.xml`): both open, and both keep the location after CellDesigner's own save.
+- Compartments in the model with no box (`listOfCompartments`, each species in its compartment, no
+  `compartmentAlias`): kept byte for byte.
+- No compartments, the location as each species' SBML note ("location: nucleus"): kept, CellDesigner adds a line
+  break before `</body>`.
+Not yet known: whether CaSQ or MINERVA read either.
+
 {% endraw %}

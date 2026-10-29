@@ -35,7 +35,6 @@ each has been open. An issue leaves the list when it is decided, built or droppe
 |---|---|---|
 | 2026-10-24 | The four CellDesigner files checked in CellDesigner 4.4: as drawn's edit points around process glyphs and just outside large nodes (the arrowhead tilts on the last short piece; do they follow a dragged node?), what straight & bends and advanced still need by hand. | [D14](/converter/docs/design/#d14-no-node-moved-the-process-glyph-and-ports-by-hidden-edit-points) |
 | 2026-10-24 | Multimers beyond 2 as a dimer with the unit N:x (prefix N, as AsthmaMap, which MINERVA hosts): how MINERVA draws them on upload. | [D15](/converter/docs/design/#d15-multimers-drawn-as-dimers-the-count-as-a-unit) |
-| 2026-10-29 | A species' location without a drawn compartment: a compartment in the model with no box, or the location in the species' note. Two test files; does CellDesigner open them, and keep the location after its own save? | [CellDesigner](/converter/docs/celldesigner/) |
 | 2026-10-17 | A trigger out of a logic gate in CellDesigner: a file saved by CellDesigner with one would settle how it converts. | [CellDesigner to SBGN](/converter/docs/cd-to-sbgn/) |
 
 ## Known faults
