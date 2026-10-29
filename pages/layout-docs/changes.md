@@ -11,6 +11,10 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-10-29
 
+- Compartments never overlap (strict), and are always the background: the standardising pass lists them first in
+  the file, the larger first, so yEd paints them behind everything. A compartment the story enters twice is drawn as
+  two boxes of the same name. The check reports overlapping compartments on a line of their own (they were counted
+  among the node overlaps and could pass unnoticed).
 - Flow direction per map: the main chain runs top to bottom by default (metabolic maps) or left to right where a
   project sets it (signalling maps). Wording only; no layout changes.
 - Cell order, on trial: a pathway is laid out from stimulus to response along the flow (outside, membrane, cytosol,

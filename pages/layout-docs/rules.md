@@ -135,6 +135,10 @@ centre, so the arcs at it stay straight.
 
 ## Compartments
 
+- Compartments never overlap (strict): side by side with a gap or a shared edge, or one inside another only as its
+  member. A compartment the story enters twice, such as the cytosol before and after the nucleus, is drawn as two
+  boxes of the same name. Compartments are always the background: they come first in the file, the larger first,
+  as yEd paints in file order.
 - Every process and logic gate lies inside a compartment.
 - Distances from a compartment edge to what it holds: a node or complex 32 px, a node with state variables on
   that side 40, a process or gate 48, an inner compartment 32. At these distances Newt keeps the compartment as

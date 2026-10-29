@@ -24,6 +24,7 @@ ends or arrowheads. Nodes and arcs are matched by id. After a layout this list i
 | Report | What it means |
 |---|---|
 | overlaps | two nodes closer than 8 px, shape by shape, at the top level and inside one compartment. Members of one complex only when their boxes overlap |
+| compartments overlapping (strict) | two compartments whose boxes overlap, neither a member of the other |
 | edges through nodes | an arc runs through a node it does not belong to (a complex counts as one box) |
 | arcs ending off their node | an arc's end is set beyond its node's box, so it stops in empty space; a step whose four sides are taken is entered at a corner instead |
 | arcs through their own name | an arc's end runs through the part of its own metabolite's name outside the circle |

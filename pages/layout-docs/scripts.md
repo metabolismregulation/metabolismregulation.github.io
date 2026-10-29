@@ -14,8 +14,8 @@ Scripts that change a map read one GraphML and write another.
 |---|---|---|
 | `inspect_graphml.py` | `inspect_graphml.py map.graphml` | the map as text: nodes, complexes, arcs with their SBGN meaning, processes with several modulators |
 | `stats.py` | `stats.py maps/*.graphml` | the house style measured on reference maps: sizes, fills, distances, share of orthogonal segments |
-| `kit.py` | imported by a map build | one style (spacing, ports, junctions) and the `Layout` class: blocks in their own coordinates, put, route, fork, move a block |
-| `standardise.py` | `standardise.py in out` | the four passes below in this order, nothing kept that the check finds worse |
+| `kit.py` | imported by a map build | one style (spacing, ports, junctions) and the `Layout` class: blocks in their own coordinates, put, route, fork, move a block, fit a compartment round its members, split a compartment into one more box of the same name |
+| `standardise.py` | `standardise.py in out` | the four passes below in this order, nothing kept that the check finds worse; then compartments first in the file, the larger first |
 | `icon_sizes.py` | `icon_sizes.py in out` | state variables and units of information: sizes, places, text centred, one shape per place |
 | `complex_pack.py` | `complex_pack.py in out` | every complex packed to its margins and gaps, then every group fitted so yEd keeps its box |
 | `arrow_room.py` | `arrow_room.py in out` | room at arrowheads and bends, made by moving a node, its block or everything past a line |
