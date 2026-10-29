@@ -1,0 +1,117 @@
+---
+layout: layout-docs
+title: "Changes"
+permalink: /human-like-layout/documentation/changes/
+sitemap: false
+noindex: true
+---
+{% raw %}
+
+What changed for maps laid out with the tool, by date.
+
+## 2026-10-29
+
+- House style from a curator's hand edit (an expo atlas receptor module): ports at the node centres, bends avoided by
+  moving nodes (straight lines, short diagonals accepted), compartments glued edge to edge with one top and one
+  height, compact. The check reports compartments not glued and arcs with bends; two compartments sharing an edge no
+  longer count as overlapping. A binding's partners may enter above and below the step (no partner on the side of the
+  complex); the script that bent them onto one side is removed.
+- Compartments never overlap (strict), and are always the background: the standardising pass lists them first in
+  the file, the larger first, so yEd paints them behind everything. A compartment the story enters twice is drawn as
+  two boxes of the same name. The check reports overlapping compartments on a line of their own (they were counted
+  among the node overlaps and could pass unnoticed).
+- Flow direction per map: the main chain runs top to bottom by default (metabolic maps) or left to right where a
+  project sets it (signalling maps). Wording only; no layout changes.
+- Cell order, on trial: a pathway is laid out from stimulus to response along the flow (outside, membrane, cytosol,
+  nucleus), the nucleus never first; what the nucleus makes runs back along one side of the cell. Compartments as
+  separate boxes, not nested.
+
+## 2026-10-28
+
+- A map can be mirrored top to bottom (`mirror.py`), so a story read from the top reads from the bottom: glyphs,
+  compartments and arcs take the mirrored place, state variables and units go to the glyph's other side, each complex
+  moves whole with its members and name as they were.
+
+## 2026-10-27
+
+- Nested buses for large maps: many sources feeding a few targets get one bus per target, the bus closest to the
+  sources going to the target reached first, in whichever direction the layout runs. No bus crosses another.
+
+- The check reports arcs ending off their node: an end set beyond the node's box, which yEd draws stopping in empty
+  space. An arc into a step whose four sides are taken enters a corner.
+
+- A binding takes every partner on the side opposite the complex (strict): a partner beside the step sits a little
+  above it, its line turning once into the step. The check reports bindings that do not, on the line "process sides".
+
+- Lanes 10 to 12 px either side of the line count as lanes: the check no longer reports narrower lanes set by hand,
+  and `lanes.py` leaves them as they are (new lanes still 12 px).
+
+## 2026-10-26
+
+- The finishing pass (`standardise.py`) runs again: its room-at-arrowheads step had stopped on the check's renamed
+  line for reversible processes.
+
+- Names of proteins, metabolites and the like always inside their shape, centred (strict); the check lists any
+  that is not, and no longer counts arcs through a centred name.
+
+- Two antennas only for reversible processes: elsewhere inputs, outputs and modulation may attach on any side, logic
+  gates included. The check reports only reversible processes without them.
+
+- A first layout grown from a map's content alone (`tree_layout.py`) is now a skill of its own, growing-layout,
+  built on how plants grow. This tool finishes its drafts.
+
+- One order for rules that collide (Drawing rules), and a point where work stops: when the check shows nothing new
+  on the story, overlaps, crossings and room. Contradictions between pages removed: lanes 12 px, complex margins
+  16 px, metabolites 40 x 40 circles, a metabolite's name placed before its arcs are moved, catalysts on the line
+  through their process, previews no longer delivered with a layout.
+- The skill's instructions halved (rules only, each marked strict, preference or option). Spacing of scripted
+  builds 56 px from a node to its process and 24 px to a junction (was 50 and 29), side inputs 80 px from the stem
+  (was 110): arrows and lines keep 30 px. An enzyme of two steps sits level with one of them, one bend to the other.
+
+- A new map from its content is drawn first and fast, by the moves a person makes (`tree_layout.py`, under a
+  second on 81 reactions): main story down the left column, branches in columns to the right, catalysts beside
+  their process, branches as blocks on shelves, gates by their inputs. The other rules are checks for the
+  finishing step. With `--both` the main story stays in the middle and the branches go to both sides, for a
+  busy, large map.
+
+- Paths: the steps of a layout can run in other orders, each a numbered path (P1 the order of the large-maps
+  guide, P7 every arc at node centres until the end, metabolite names cleared last). Which is faster is tried on
+  real maps. A vocabulary page defines the terms (story, block, module, push-out, breathing, ...).
+- Two processes for the same step by two enzymes go into lanes like opposite reactions, never a V. The check
+  reports pairs not in lanes.
+- A guide for large maps and for confusing or slow tasks: nine steps coarse to fine.
+- Breathing (`breathe.py`): room for a packed map from its hub outward, story by story or over the whole map,
+  each node keeping its size; level and vertical arcs stay straight.
+- A protein with one connection sits beside the process it modulates (`catalysts.py`).
+- Regular series (`series.py`): equal steps along a story, processes midway between their input and output.
+
+## 2026-10-25
+
+- Room between lines: an arc keeps 30 px from the nodes it passes and from arcs beside it. The check reports
+  arcs too close.
+- Ligand complexes as narrow stacks, the ligand on top. A catalyst of several processes forks to them from one
+  line. Complex packing counts a complex name shown at the bottom.
+- The tool lays out only: content changes belong to the development of the map's content.
+
+## 2026-10-24
+
+- Opposite reactions in two lanes 12 px either side of the line between their nodes.
+- Overlaps measured by shapes (circle, box, icons, name), 8 px between shapes.
+- Stacked metabolites move 8 px apart with their branches. A catalyst of two processes: level with one, one
+  bend to the other.
+
+## 2026-10-23
+
+- Every metabolite a 40 x 40 circle, a long name running past it. Arcs kept off a metabolite's name, and the
+  check reports arcs through their own name.
+
+## 2026-10-22
+
+- The standardising pass: state variables and units of information, complexes packed, room at arrowheads and
+  bends, compartments safe for Newt.
+- No crossings in layouts drawn with the tool.
+- State variables: circles of 18 px or capsules, one shape per place on a map, places at the centre, quarter
+  points or corners. Units of information 16 px tall.
+- Complex packing: 12 px sides, 16 px top and bottom, 8 px between members, members centred.
+
+{% endraw %}
