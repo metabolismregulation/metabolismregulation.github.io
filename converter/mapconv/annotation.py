@@ -58,17 +58,10 @@ def to_properties(family, uris):
                                              for m in members], ensure_ascii=False)}
 
 
-def units(p):
-    # the property Unit of information, one per line (user, 2026-10-29): what tells a form apart that the drawing
-    # does not show (a cleavage fragment, "C-terminal fragment"), so the one unit CellDesigner draws stays free for N:x
-    return [' '.join(x.split()) for x in (p.get('Unit of information') or '').splitlines() if x.strip()]
-
-
 def notes(p):
     # what MIRIAM cannot hold, as note lines (user, 2026-10-22): a family's name ("Family: ERK1/2")
     # and its members' sites ("MAPK3: P@T202 P@Y204"); the entity's own sites stay in PTM
     lines = ['Family: ' + ' '.join(p['Family'].split())] if p.get('Family') else []
-    lines += ['Unit of information: ' + u for u in units(p)]  # units not drawn (user, 2026-10-29)
     for m in json.loads(p.get('Member annotation') or '[]'):
         ptm = ' '.join((dict(m['props']).get('PTM') or '').split())
         if ptm:
@@ -77,15 +70,13 @@ def notes(p):
 
 
 def from_notes(text, p):
-    # inverse of notes(): the properties with the family's name, its members' sites and the units not drawn
+    # inverse of notes(): the properties with the family's name and its members' sites
     members = json.loads(p.get('Member annotation') or '[]')
     out = dict(p)
     for line in (text or '').splitlines():
         k, _, v = line.strip().partition(': ')
         if k == 'Family' and v:
             out['Family'] = v
-        if k == 'Unit of information' and v:
-            out['Unit of information'] = '\n'.join(units(out) + [v])
         for m in members:
             if m['symbol'] == k and v:
                 m['props'] = [x for x in m['props'] if x[0] != 'PTM'] + [['PTM', v]]
