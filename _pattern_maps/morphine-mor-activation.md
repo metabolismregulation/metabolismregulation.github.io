@@ -10,7 +10,7 @@ draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/morphine-mor-activation.svg"
 width: 605
-height: 545
+height: 515
 scale: 1
 annotation: "/atlas-data/pattern-morphine-mor-activation.json"
 image_error: ""

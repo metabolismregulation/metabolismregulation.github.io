@@ -9,6 +9,11 @@ noindex: true
 
 What changed for maps laid out with the tool, by date.
 
+## 2026-10-30
+
+- Two antennas also for a reversible binding: both partners on one side of the step, the complex on the opposite
+  side. The check reports a reversible step with arrows on more than two sides.
+
 ## 2026-10-29
 
 - One cytoplasm, no nesting: an organelle the story passes through is a box glued above or below the cytoplasm. The

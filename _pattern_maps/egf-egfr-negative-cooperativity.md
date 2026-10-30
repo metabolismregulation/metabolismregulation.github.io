@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/egf-egfr-negative-cooperativity.svg"
-width: 765
-height: 291
+width: 845
+height: 241
 scale: 1
 annotation: "/atlas-data/pattern-egf-egfr-negative-cooperativity.json"
 image_error: ""

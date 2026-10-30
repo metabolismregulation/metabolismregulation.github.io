@@ -10,7 +10,7 @@ draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/epinephrine-b2ar-binding.svg"
 width: 466
-height: 241
+height: 211
 scale: 1
 annotation: "/atlas-data/pattern-epinephrine-b2ar-binding.json"
 image_error: ""

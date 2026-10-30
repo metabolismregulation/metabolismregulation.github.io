@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/egf-egfr-ligand-depletion.svg"
-width: 765
-height: 491
+width: 855
+height: 471
 scale: 1
 annotation: "/atlas-data/pattern-egf-egfr-ligand-depletion.json"
 image_error: ""

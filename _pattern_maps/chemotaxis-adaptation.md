@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/chemotaxis-adaptation.svg"
-width: 780
-height: 699
+width: 820
+height: 689
 scale: 1
 annotation: "/atlas-data/pattern-chemotaxis-adaptation.json"
 image_error: ""

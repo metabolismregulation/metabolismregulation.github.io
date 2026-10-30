@@ -41,6 +41,9 @@ the Atlas is named MRegAtlas, never "the Atlas", which is imprecise next to the 
 The book's own examples, each a clean pattern: cut from an MRegAtlas map where the book's molecules are drawn there,
 else drawn new from the book's text (tagged draft until the user approves it). Where an MRegAtlas map shows the same
 pattern, the entry's text says so ("Also in the MRegAtlas: ...", linked), as text, not as a map.
+Colours (user, 2026-10-30, "red is distracting"): macromolecules blue, simple chemicals green, by class only, so
+the pattern maps carry no pink for modified enzymes and no yellow for drugs, unlike the MRegAtlas. Reversible steps
+with two antennas, the partners on one side and the product on the other (the layout skill).
 
 /pattern-atlas-backup/ (hidden) keeps the earlier version of 2026-10-30, twelve maps, most of them whole or cut
 MRegAtlas maps showing a pattern, for the user to look at again: our own maps as examples of the patterns, maybe

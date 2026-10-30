@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/negative-feedback-stability.svg"
-width: 577
-height: 476
+width: 717
+height: 425
 scale: 1
 annotation: "/atlas-data/pattern-negative-feedback-stability.json"
 image_error: ""

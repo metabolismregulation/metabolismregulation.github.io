@@ -46,8 +46,8 @@ name running past the node as a box. Two nodes are too close when any of their s
 ## Processes and arcs (strict)
 
 - **Two antennas, for a reversible process only**: its two ends attach on opposite sides and modulation arcs on the
-  other two, since arrows at both ends do not tell input from output. Other processes and logic gates do without
-  the rule.
+  other two, since arrows at both ends do not tell input from output. In a reversible binding both partners attach
+  on one side and the complex on the opposite one. Other processes and logic gates do without the rule.
 - **A binding takes no partner on the side of the complex**: when a step makes a complex, its partners enter on the
   opposite side and on the two free sides (one above, one below the step), each line straight into the step's
   centre.
