@@ -31,7 +31,8 @@ copy script writes them here and runs `make_pattern_atlas.py`. Change them there
 
 Example maps come from published MRegAtlas maps, whole or cut (the user's layouts kept; never from maps
 awaiting the user's approval, such as the extension drafts), and finished with the layout skill. Each entry's
-text says what the pattern does in this example, the source section, and links the maps it was cut from. In page text
+text says what the pattern does in this example, the source section, and that the book's example overlaps
+with the MRegAtlas maps its drawing is taken from (never "cut from", user 2026-10-30). In page text
 the Atlas is named MRegAtlas, never "the Atlas", which is imprecise next to the Pattern Atlas (user, 2026-10-30).
 
 ## What the Pattern Atlas shows (user, 2026-10-30)

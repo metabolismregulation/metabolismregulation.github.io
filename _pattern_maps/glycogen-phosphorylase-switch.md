@@ -22,7 +22,7 @@ The book's example (Ferrell 2022, sections 5.6 and 5.7). Phosphorylase kinase ph
 
 When the kinase and the phosphatase both work close to saturation, the share of phosphorylated PYGM changes steeply over a narrow range of kinase activity, a switch built from enzyme saturation without cooperativity. In reconstituted muscle enzymes the response was sigmoidal at a phosphorylase concentration a few times above the enzymes' KM values, and phosphorylase is that abundant in skeletal muscle (Ferrell 2022, sections 5.6 and 5.7).
 
-The book's molecules are drawn on the MRegAtlas map [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle), and this map is cut from it.
+The book's example overlaps with the MRegAtlas map [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle), which draws the same molecules. The drawing here is taken from it.
 
 ## References
 

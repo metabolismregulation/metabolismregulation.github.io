@@ -22,7 +22,7 @@ The book's example (Ferrell 2022, sections 6.1 and 6.2). Gsα bound to GTP activ
 
 With first-order destruction, the steady cAMP level is proportional to the rate of synthesis, and the time to reach a new level after a change of input depends on the rate of destruction alone (Ferrell 2022, sections 6.1 and 6.2).
 
-The book does not name the enzyme that destroys cAMP. cAMP synthesis and PKA are cut from the MRegAtlas map [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle), and PDE3B, the phosphodiesterase drawn here, from the MRegAtlas map [cAMP hydrolysis](/atlas/#camp).
+The book's example overlaps with the MRegAtlas maps [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle) (cAMP synthesis, PKA) and [cAMP hydrolysis](/atlas/#camp) (PDE3B). The drawing here is taken from them. The book does not name the enzyme that destroys cAMP. PDE3B is the one these maps draw.
 
 ## References
 
