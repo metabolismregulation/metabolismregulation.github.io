@@ -4,7 +4,7 @@ topic: "Glutamate dehydrogenase"
 tab: ""
 page: "/glutamate-dehydrogenase/"
 group: "Amino acid metabolism"
-order: 24
+order: 25
 kind: "map"
 draft: true
 tag: "draft-ext"
