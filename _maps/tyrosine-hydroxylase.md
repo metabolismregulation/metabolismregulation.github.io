@@ -4,7 +4,7 @@ topic: "Tyrosine hydroxylase"
 tab: ""
 page: "/tyrosine-hydroxylase/"
 group: "Amino acid metabolism"
-order: 27
+order: 28
 kind: "map"
 draft: true
 tag: "draft-ext"
