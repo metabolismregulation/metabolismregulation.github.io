@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% comment %} The pattern pages (front matter masthead: patterns) have their own name and top bar (user, 2026-10-30); every other page keeps the site's, unchanged. {% endcomment %}{% if page.masthead == "patterns" %}{% assign mh_name = "Regulation Patterns" %}{% assign mh_description = "Recurring patterns in cell signalling and metabolic regulation" %}{% assign mh_home = "/pattern-list/" %}{% assign mh_avatar = "/images/favicon-patterns/favicon.svg" %}{% else %}{% assign mh_name = site.name %}{% assign mh_description = site.description %}{% assign mh_home = "/" %}{% assign mh_avatar = site.avatar %}{% endif %}<title>{% if page.title %}{{ page.title }} – {% endif %}{{ mh_name }} – {{ mh_description }}</title>
+    {% comment %} The pattern pages (front matter masthead: patterns) have their own name and top bar (user, 2026-10-30); every other page keeps the site's, unchanged. {% endcomment %}{% if page.masthead == "patterns" %}{% assign mh_name = "Regulation Patterns" %}{% assign mh_description = "Recurring patterns in cell signalling and metabolic regulation" %}{% assign mh_home = "/pattern-list/" %}{% else %}{% assign mh_name = site.name %}{% assign mh_description = site.description %}{% assign mh_home = "/" %}{% endif %}<title>{% if page.title %}{{ page.title }} – {% endif %}{{ mh_name }} – {{ mh_description }}</title>
 
     {% include meta.html %}
 
@@ -19,7 +19,7 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}{{ mh_home }}" class="site-avatar"><img src="{{ mh_avatar }}" /></a>
+          {% unless page.masthead == "patterns" %}<a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>{% endunless %}
 
           <div class="site-info">
             <h1 class="site-name"><a href="{{ site.baseurl }}{{ mh_home }}">{{ mh_name }}</a></h1>
@@ -27,8 +27,8 @@
           </div>
 
           <nav>{% if page.masthead == "patterns" %}
-            <a href="{{ site.baseurl }}/pattern-list/">Pattern List</a>
             <a href="{{ site.baseurl }}/pattern-atlas/">Pattern Atlas</a>
+            <a href="{{ site.baseurl }}/pattern-list/">Pattern List</a>
           </nav>{% else %}
             <a href="{{ site.baseurl }}/gallery">Gallery</a>
             <a href="{{ site.baseurl }}/maps">Maps</a>
