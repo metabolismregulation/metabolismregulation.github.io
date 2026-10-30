@@ -1,0 +1,1349 @@
+{
+"nodes": [
+{
+"label": "F6P",
+"class": "SimpleChemical",
+"box": [
+199.0,
+287.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"beta-D-fructofuranose 6-phosphate(2-)"
+],
+[
+"Synonyms",
+"6-O-phosphonato-beta-D-fructofuranose; beta-D-fructofuranose 6-phosphate; beta-D-fructofuranose 6-phosphate dianion; beta-D-fructose 6-phosphate"
+],
+[
+"Definition",
+"An organophosphate oxoanion that is the dianion of β-D-fructofuranose 6-phosphate arising from deprotonation of the phosphate OH groups."
+],
+[
+"Formula",
+"C6H11O9P"
+],
+[
+"ChEBI",
+"CHEBI:57634"
+],
+[
+"InChI",
+"InChI=1S/C6H13O9P/c7-2-6(10)5(9)4(8)3(15-6)1-14-16(11,12)13/h3-5,7-10H,1-2H2,(H2,11,12,13)/p-2/t3-,4-,5+,6-/m1/s1"
+],
+[
+"InChIKey",
+"BGWGXPAPYGQALX-ARQDHWQXSA-L"
+]
+]
+},
+{
+"id": "c0::p1",
+"label": "",
+"class": "Process",
+"box": [
+367.0,
+295.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"F6P",
+"L-glutamine"
+],
+"out": [
+"GlcN6P",
+"L-glutamate"
+],
+"by": [
+"GFPT1",
+"GFPT1",
+"UDP-GlcNAc"
+]
+},
+"references": [
+{
+"authors": "Broschat KO et al.",
+"year": "2002",
+"title": "Kinetic characterization of human glutamine-fructose-6-phosphate amidotransferase I: potent feedback inhibition by glucosamine 6-phosphate.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "11842094"
+},
+{
+"authors": "Ruegenberg S et al.",
+"year": "2020",
+"title": "Loss of GFAT-1 feedback regulation activates the hexosamine pathway that modulates protein homeostasis.",
+"journal": "Nat Commun",
+"db": "pubmed",
+"id": "32019926"
+}
+]
+},
+{
+"label": "GlcN6P",
+"class": "SimpleChemical",
+"box": [
+519.0,
+287.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"2-ammonio-2-deoxy-D-glucopyranose 6-phosphate(1-)"
+],
+[
+"Synonyms",
+"2-azaniumyl-2-deoxy-6-O-phosphonato-D-glucopyranose; 2-azaniumyl-2-deoxy-D-glucopyranose 6-phosphate; D-glucosamine 6-phosphate"
+],
+[
+"Definition",
+"An organophosphate oxoanion that is the conjugate base of 2-amino-2-deoxy-D-glucopyranose 6-phosphate."
+],
+[
+"Formula",
+"C6H13NO8P"
+],
+[
+"ChEBI",
+"CHEBI:58725"
+],
+[
+"InChI",
+"InChI=1S/C6H14NO8P/c7-3-5(9)4(8)2(15-6(3)10)1-14-16(11,12)13/h2-6,8-10H,1,7H2,(H2,11,12,13)/p-1/t2-,3-,4-,5-,6?/m1/s1"
+],
+[
+"InChIKey",
+"XHMJOUIAFHJHBW-IVMDWMLBSA-M"
+]
+]
+},
+{
+"id": "c0::p2",
+"label": "",
+"class": "Process",
+"box": [
+687.0,
+295.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GlcN6P",
+"acetyl-CoA"
+],
+"out": [
+"GlcNAc6P",
+"CoA"
+],
+"by": [
+"GNPNAT1"
+]
+},
+"references": [
+{
+"authors": "Ruegenberg S et al.",
+"year": "2020",
+"title": "Loss of GFAT-1 feedback regulation activates the hexosamine pathway that modulates protein homeostasis.",
+"journal": "Nat Commun",
+"db": "pubmed",
+"id": "32019926"
+}
+]
+},
+{
+"label": "GlcNAc6P",
+"class": "SimpleChemical",
+"box": [
+859.0,
+287.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"N-acetyl-D-glucosamine 6-phosphate(2-)"
+],
+[
+"Synonyms",
+"2-acetamido-2-deoxy-6-O-phosphonato-D-glucopyranose; 2-acetamido-2-deoxy-D-glucopyranose 6-phosphate; N-acetyl-D-glucosamine 6-phosphate; N-acetyl-D-glucosamine 6-phosphate dianion"
+],
+[
+"Definition",
+"Dianion of N-acetyl-D-glucosamine 6-phosphate arising from deprotonation of both OH groups of the phosphate."
+],
+[
+"Formula",
+"C8H14NO9P"
+],
+[
+"ChEBI",
+"CHEBI:57513"
+],
+[
+"InChI",
+"InChI=1S/C8H16NO9P/c1-3(10)9-5-7(12)6(11)4(18-8(5)13)2-17-19(14,15)16/h4-8,11-13H,2H2,1H3,(H,9,10)(H2,14,15,16)/p-2/t4-,5-,6-,7-,8?/m1/s1"
+],
+[
+"InChIKey",
+"BRGMHAYQAZFZDJ-RTRLPJTCSA-L"
+]
+]
+},
+{
+"label": "L-glutamine",
+"class": "SimpleChemical",
+"box": [
+279.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-glutamine zwitterion"
+],
+[
+"Synonyms",
+"(2S)-5-amino-2-ammonio-5-oxopentanoate; (2S)-5-amino-2-azaniumyl-5-oxopentanoate; L-glutamine"
+],
+[
+"Definition",
+"An amino acid zwitterion arising from transfer of a proton from the carboxy to the amino group of L-glutamine; major species at pH 7.3."
+],
+[
+"Formula",
+"C5H10N2O3"
+],
+[
+"ChEBI",
+"CHEBI:58359"
+],
+[
+"InChI",
+"InChI=1S/C5H10N2O3/c6-3(5(9)10)1-2-4(7)8/h3H,1-2,6H2,(H2,7,8)(H,9,10)/t3-/m0/s1"
+],
+[
+"InChIKey",
+"ZDXPYRJPNDTMRX-VKHMYHEASA-N"
+]
+]
+},
+{
+"label": "L-glutamate",
+"class": "SimpleChemical",
+"box": [
+439.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-glutamate(1-)"
+],
+[
+"Synonyms",
+"(2S)-2-ammoniopentanedioate; L-glutamate; L-glutamic acid monoanion; L-glutamic acid, ion(1-); hydrogen L-glutamate"
+],
+[
+"Definition",
+"An α-amino-acid anion that is the conjugate base of L-glutamic acid, having anionic carboxy groups and a cationic amino group"
+],
+[
+"Formula",
+"C5H8NO4"
+],
+[
+"ChEBI",
+"CHEBI:29985"
+],
+[
+"InChI",
+"InChI=1S/C5H9NO4/c6-3(5(9)10)1-2-4(7)8/h3H,1-2,6H2,(H,7,8)(H,9,10)/p-1/t3-/m0/s1"
+],
+[
+"InChIKey",
+"WHUUTDBJXJRKMK-VKHMYHEASA-M"
+]
+]
+},
+{
+"label": "acetyl-CoA",
+"class": "SimpleChemical",
+"box": [
+599.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"acetyl-CoA(4-)"
+],
+[
+"Synonyms",
+"3'-phosphonatoadenosine 5'-(3-{(3R)-4-[(3-{[2-(acetylsulfanyl)ethyl]amino}-3-oxopropyl)amino]-3-hydroxy-2,2-dimethyl-4-oxobutyl} diphosphate); AcCoA(4-); acetyl-CoA; acetyl-CoA tetraanion; acetyl-coenzyme A(4-)"
+],
+[
+"Definition",
+"An acyl-CoA(4−) that is the tetraanion of acetyl-CoA, arising from deprotonation of the phosphate and diphosphate OH groups."
+],
+[
+"Formula",
+"C23H34N7O17P3S"
+],
+[
+"ChEBI",
+"CHEBI:57288"
+],
+[
+"InChI",
+"InChI=1S/C23H38N7O17P3S/c1-12(31)51-7-6-25-14(32)4-5-26-21(35)18(34)23(2,3)9-44-50(41,42)47-49(39,40)43-8-13-17(46-48(36,37)38)16(33)22(45-13)30-11-29-15-19(24)27-10-28-20(15)30/h10-11,13,16-18,22,33-34H,4-9H2,1-3H3,(H,25,32)(H,26,35)(H,39,40)(H,41,42)(H2,24,27,28)(H2,36,37,38)/p-4/t13-,16-,17-,18+,22-/m1/s1"
+],
+[
+"InChIKey",
+"ZSLZBFCDCINBPY-ZSJPKINUSA-J"
+]
+]
+},
+{
+"label": "CoA",
+"class": "SimpleChemical",
+"box": [
+759.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"coenzyme A(4-)"
+],
+[
+"Synonyms",
+"3'-phosphonatoadenosine 5'-{3-[(3R)-3-hydroxy-2,2-dimethyl-4-oxo-4-({3-oxo-3-[(2-sulfanylethyl)amino]propyl}amino)butyl] diphosphate}; CoA"
+],
+[
+"Definition",
+"Tetraanion of coenzyme A."
+],
+[
+"Formula",
+"C21H32N7O16P3S"
+],
+[
+"ChEBI",
+"CHEBI:57287"
+],
+[
+"InChI",
+"InChI=1S/C21H36N7O16P3S/c1-21(2,16(31)19(32)24-4-3-12(29)23-5-6-48)8-41-47(38,39)44-46(36,37)40-7-11-15(43-45(33,34)35)14(30)20(42-11)28-10-27-13-17(22)25-9-26-18(13)28/h9-11,14-16,20,30-31,48H,3-8H2,1-2H3,(H,23,29)(H,24,32)(H,36,37)(H,38,39)(H2,22,25,26)(H2,33,34,35)/p-4/t11-,14-,15-,16+,20-/m1/s1"
+],
+[
+"InChIKey",
+"RGJOEKWQDUBAIZ-IBOSZNHHSA-J"
+]
+]
+},
+{
+"label": "GNPNAT1",
+"class": "Macromolecule",
+"box": [
+659.0,
+467.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Glucosamine 6-phosphate N-acetyltransferase"
+],
+[
+"Alternative names",
+"Phosphoglucosamine acetylase; Phosphoglucosamine transacetylase"
+],
+[
+"Location",
+"Golgi apparatus membrane, Endosome membrane"
+],
+[
+"HGNC",
+"HGNC:19980"
+],
+[
+"HGNC symbol",
+"GNPNAT1"
+],
+[
+"Alias symbols",
+"Gpnat1, FLJ10607"
+],
+[
+"Entrez",
+"64841"
+],
+[
+"Ensembl",
+"ENSG00000100522"
+],
+[
+"RefSeq",
+"NM_198066"
+],
+[
+"UniProt",
+"Q96EK6"
+]
+]
+},
+{
+"label": "GFPT1",
+"class": "Macromolecule",
+"box": [
+339.0,
+167.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Glutamine--fructose-6-phosphate aminotransferase [isomerizing] 1"
+],
+[
+"Alternative names",
+"D-fructose-6-phosphate amidotransferase 1; Glutamine:fructose-6-phosphate amidotransferase 1; Hexosephosphate aminotransferase 1"
+],
+[
+"Function",
+"Rate-limiting enzyme of the hexosamine biosynthetic pathway (HBP) that catalyzes the formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine, thereby controlling the flux of glucose into this pathway. Inhibited by UDP-N-acetylglucosamine (UDP-GlcNAc) through a feedback loop."
+],
+[
+"HGNC",
+"HGNC:4241"
+],
+[
+"HGNC symbol",
+"GFPT1"
+],
+[
+"Previous symbols",
+"GFPT"
+],
+[
+"Alias symbols",
+"GFAT, GFA, GFAT1"
+],
+[
+"Entrez",
+"2673"
+],
+[
+"Ensembl",
+"ENSG00000198380"
+],
+[
+"RefSeq",
+"NM_001244710"
+],
+[
+"UniProt",
+"Q06210"
+]
+]
+},
+{
+"id": "c0::pa",
+"label": "",
+"class": "Process",
+"box": [
+507.0,
+175.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GFPT1"
+],
+"out": [
+"GFPT1"
+],
+"by": [
+"PRKACA"
+]
+},
+"references": [
+{
+"authors": "Chang Q et al.",
+"year": "2000",
+"title": "Phosphorylation of human glutamine:fructose-6-phosphate amidotransferase by cAMP-dependent protein kinase at serine 205 blocks the enzyme activity.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "10806197"
+},
+{
+"authors": "Ruegenberg S et al.",
+"year": "2021",
+"title": "Protein kinase A controls the hexosamine pathway by tuning the feedback inhibition of GFAT-1.",
+"journal": "Nat Commun",
+"db": "pubmed",
+"id": "33846315"
+}
+]
+},
+{
+"label": "GFPT1",
+"class": "Macromolecule",
+"box": [
+619.0,
+167.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Glutamine--fructose-6-phosphate aminotransferase [isomerizing] 1"
+],
+[
+"Alternative names",
+"D-fructose-6-phosphate amidotransferase 1; Glutamine:fructose-6-phosphate amidotransferase 1; Hexosephosphate aminotransferase 1"
+],
+[
+"Function",
+"Rate-limiting enzyme of the hexosamine biosynthetic pathway (HBP) that catalyzes the formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine, thereby controlling the flux of glucose into this pathway. Inhibited by UDP-N-acetylglucosamine (UDP-GlcNAc) through a feedback loop."
+],
+[
+"HGNC",
+"HGNC:4241"
+],
+[
+"HGNC symbol",
+"GFPT1"
+],
+[
+"Previous symbols",
+"GFPT"
+],
+[
+"Alias symbols",
+"GFAT, GFA, GFAT1"
+],
+[
+"Entrez",
+"2673"
+],
+[
+"Ensembl",
+"ENSG00000198380"
+],
+[
+"RefSeq",
+"NM_001244710"
+],
+[
+"UniProt",
+"Q06210"
+]
+]
+},
+{
+"label": "PRKACA",
+"class": "Macromolecule",
+"box": [
+479.0,
+47.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"cAMP-dependent protein kinase catalytic subunit alpha"
+],
+[
+"Function",
+"Phosphorylates a large number of substrates in the cytoplasm and the nucleus. Phosphorylates CDC25B, ABL1, NFKB1, CLDN3, histone H1.4 (H1-4), PSMC5/RPT6, PJA2, RYR2, RORA, SLC6A6, SOX9, UHRF1 and VASP."
+],
+[
+"Location",
+"Cytoplasm, Cell membrane, Membrane, Nucleus, Mitochondrion, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"
+],
+[
+"HGNC",
+"HGNC:9380"
+],
+[
+"HGNC symbol",
+"PRKACA"
+],
+[
+"Alias symbols",
+"PKACa"
+],
+[
+"Entrez",
+"5566"
+],
+[
+"Ensembl",
+"ENSG00000072062"
+],
+[
+"RefSeq",
+"NM_002730"
+],
+[
+"UniProt",
+"P17612"
+]
+]
+},
+{
+"id": "c0::pb",
+"label": "",
+"class": "Process",
+"box": [
+227.0,
+175.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GFPT1"
+],
+"out": [
+"GFPT1"
+],
+"by": [
+"PRKAA1"
+]
+},
+"references": [
+{
+"authors": "Zibrova D et al.",
+"year": "2017",
+"title": "GFAT1 phosphorylation by AMPK promotes VEGF-induced angiogenesis.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "28008135"
+},
+{
+"authors": "Eguchi S et al.",
+"year": "2009",
+"title": "AMP-activated protein kinase phosphorylates glutamine : fructose-6-phosphate amidotransferase 1 at Ser243 to modulate its enzymatic activity.",
+"journal": "Genes Cells",
+"db": "pubmed",
+"id": "19170765"
+}
+]
+},
+{
+"label": "GFPT1",
+"class": "Macromolecule",
+"box": [
+59.0,
+167.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Glutamine--fructose-6-phosphate aminotransferase [isomerizing] 1"
+],
+[
+"Alternative names",
+"D-fructose-6-phosphate amidotransferase 1; Glutamine:fructose-6-phosphate amidotransferase 1; Hexosephosphate aminotransferase 1"
+],
+[
+"Function",
+"Rate-limiting enzyme of the hexosamine biosynthetic pathway (HBP) that catalyzes the formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine, thereby controlling the flux of glucose into this pathway. Inhibited by UDP-N-acetylglucosamine (UDP-GlcNAc) through a feedback loop."
+],
+[
+"HGNC",
+"HGNC:4241"
+],
+[
+"HGNC symbol",
+"GFPT1"
+],
+[
+"Previous symbols",
+"GFPT"
+],
+[
+"Alias symbols",
+"GFAT, GFA, GFAT1"
+],
+[
+"Entrez",
+"2673"
+],
+[
+"Ensembl",
+"ENSG00000198380"
+],
+[
+"RefSeq",
+"NM_001244710"
+],
+[
+"UniProt",
+"Q06210"
+]
+]
+},
+{
+"label": "PRKAA1",
+"class": "Macromolecule",
+"box": [
+199.0,
+47.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5'-AMP-activated protein kinase catalytic subunit alpha-1"
+],
+[
+"Alternative names",
+"Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"
+],
+[
+"Function",
+"Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."
+],
+[
+"Location",
+"Cytoplasm, Nucleus, Late endosome"
+],
+[
+"HGNC",
+"HGNC:9376"
+],
+[
+"HGNC symbol",
+"PRKAA1"
+],
+[
+"Alias symbols",
+"AMPKa1"
+],
+[
+"Entrez",
+"5562"
+],
+[
+"Ensembl",
+"ENSG00000132356"
+],
+[
+"RefSeq",
+"NM_006251"
+],
+[
+"UniProt",
+"Q13131"
+]
+]
+},
+{
+"id": "c0::p3",
+"label": "",
+"class": "Process",
+"box": [
+867.0,
+615.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GlcNAc6P"
+],
+"out": [
+"GlcNAc1P"
+],
+"by": [
+"PGM3"
+]
+},
+"references": [
+{
+"authors": "Ruegenberg S et al.",
+"year": "2020",
+"title": "Loss of GFAT-1 feedback regulation activates the hexosamine pathway that modulates protein homeostasis.",
+"journal": "Nat Commun",
+"db": "pubmed",
+"id": "32019926"
+}
+]
+},
+{
+"label": "PGM3",
+"class": "Macromolecule",
+"box": [
+979.0,
+607.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Phosphoacetylglucosamine mutase"
+],
+[
+"Alternative names",
+"Acetylglucosamine phosphomutase; N-acetylglucosamine-phosphate mutase; Phosphoglucomutase-3"
+],
+[
+"Function",
+"Catalyzes the conversion of GlcNAc-6-P into GlcNAc-1-P during the synthesis of uridine diphosphate/UDP-GlcNAc, a sugar nucleotide critical to multiple glycosylation pathways including protein N- and O-glycosylation"
+],
+[
+"HGNC",
+"HGNC:8907"
+],
+[
+"HGNC symbol",
+"PGM3"
+],
+[
+"Alias symbols",
+"AGM1, DKFZP434B187, PAGM"
+],
+[
+"Entrez",
+"5238"
+],
+[
+"Ensembl",
+"ENSG00000013375"
+],
+[
+"RefSeq",
+"NM_015599"
+],
+[
+"UniProt",
+"O95394"
+]
+]
+},
+{
+"label": "GlcNAc1P",
+"class": "SimpleChemical",
+"box": [
+699.0,
+607.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"N-acetyl-alpha-D-glucosamine 1-phosphate(2-)"
+],
+[
+"Synonyms",
+"2-acetamido-2-deoxy-1-O-phosphonato-alpha-D-glucopyranose; 2-acetamido-2-deoxy-alpha-D-glucopyranose 1-phosphate; N-acetyl-alpha-D-glucosamine 1-phosphate; N-acetyl-alpha-D-glucosamine 1-phosphate dianion"
+],
+[
+"Definition",
+"Dianion of N-acetyl-α-D-glucosamine 1-phosphate arising from deprotonation of the phosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C8H14NO9P"
+],
+[
+"ChEBI",
+"CHEBI:57776"
+],
+[
+"InChI",
+"InChI=1S/C8H16NO9P/c1-3(11)9-5-7(13)6(12)4(2-10)17-8(5)18-19(14,15)16/h4-8,10,12-13H,2H2,1H3,(H,9,11)(H2,14,15,16)/p-2/t4-,5-,6-,7-,8-/m1/s1"
+],
+[
+"InChIKey",
+"FZLJPEPAYPUMMR-FMDGEEDCSA-L"
+]
+]
+},
+{
+"id": "c0::p4",
+"label": "",
+"class": "Process",
+"box": [
+547.0,
+615.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GlcNAc1P",
+"UTP"
+],
+"out": [
+"UDP-GlcNAc",
+"PPi"
+],
+"by": [
+"UAP1"
+]
+},
+"references": [
+{
+"authors": "Ruegenberg S et al.",
+"year": "2020",
+"title": "Loss of GFAT-1 feedback regulation activates the hexosamine pathway that modulates protein homeostasis.",
+"journal": "Nat Commun",
+"db": "pubmed",
+"id": "32019926"
+}
+]
+},
+{
+"label": "UAP1",
+"class": "Macromolecule",
+"box": [
+519.0,
+727.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"UDP-N-acetylhexosamine pyrophosphorylase"
+],
+[
+"Alternative names",
+"Antigen X; Protein-pyrophosphorylation enzyme; Sperm-associated antigen 2; UDP-N-acetylgalactosamine pyrophosphorylase; UDP-N-acetylglucosamine pyrophosphorylase"
+],
+[
+"Function",
+"Catalyzes the last step in biosynthesis of uridine diphosphate-N-acetylglucosamine (UDP-GlcNAc) by converting UTP and glucosamine 1-phosphate (GlcNAc-1-P) to the sugar nucleotide. Also converts UTP and galactosamine 1-phosphate (GalNAc-1-P) into uridine diphosphate-N-acetylgalactosamine (UDP-GalNAc)."
+],
+[
+"Location",
+"Cytoplasm, cytosol"
+],
+[
+"HGNC",
+"HGNC:12457"
+],
+[
+"HGNC symbol",
+"UAP1"
+],
+[
+"Previous symbols",
+"SPAG2"
+],
+[
+"Alias symbols",
+"AGX1, AgX"
+],
+[
+"Entrez",
+"6675"
+],
+[
+"Ensembl",
+"ENSG00000117143"
+],
+[
+"RefSeq",
+"NM_003115"
+],
+[
+"UniProt",
+"Q16222"
+]
+]
+},
+{
+"label": "UTP",
+"class": "SimpleChemical",
+"box": [
+619.0,
+727.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"UTP(4-)"
+],
+[
+"Synonyms",
+"URIDINE 5'-TRIPHOSPHATE; UTP; uridine 5'-triphosphate(4-)"
+],
+[
+"Definition",
+"A nucleoside triphosphate(4−) obtained by global deprotonation of the triphosphate OH groups of UTP; major species present at pH 7.3."
+],
+[
+"Formula",
+"C9H11N2O15P3"
+],
+[
+"ChEBI",
+"CHEBI:46398"
+],
+[
+"InChI",
+"InChI=1S/C9H15N2O15P3/c12-5-1-2-11(9(15)10-5)8-7(14)6(13)4(24-8)3-23-28(19,20)26-29(21,22)25-27(16,17)18/h1-2,4,6-8,13-14H,3H2,(H,19,20)(H,21,22)(H,10,12,15)(H2,16,17,18)/p-4/t4-,6-,7-,8-/m1/s1"
+],
+[
+"InChIKey",
+"PGAVKCOVUIYSFO-XVFCMESISA-J"
+]
+]
+},
+{
+"label": "PPi",
+"class": "SimpleChemical",
+"box": [
+459.0,
+727.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"diphosphate(3-)"
+],
+[
+"Synonyms",
+"HP2O7(3-); diphosphate; hydrogen diphosphate"
+],
+[
+"Definition",
+"A trivalent inorganic anion obtained by removal of all three protons from diphosphoric acid."
+],
+[
+"Formula",
+"HO7P2"
+],
+[
+"ChEBI",
+"CHEBI:33019"
+],
+[
+"InChI",
+"InChI=1S/H4O7P2/c1-8(2,3)7-9(4,5)6/h(H2,1,2,3)(H2,4,5,6)/p-3"
+],
+[
+"InChIKey",
+"XPPKVPWEQAFLFU-UHFFFAOYSA-K"
+]
+]
+},
+{
+"label": "UDP-GlcNAc",
+"class": "SimpleChemical",
+"box": [
+359.0,
+607.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"UDP-N-acetyl-alpha-D-glucosamine(2-)"
+],
+[
+"Synonyms",
+"UDP-N-acetyl-alpha-D-glucosamine; UDP-N-acetyl-alpha-D-glucosamine dianion; uridine 5'-[3-(acetamido-2-deoxy-alpha-D-glucopyranosyl) diphosphate]"
+],
+[
+"Definition",
+"Dianion of UDP-N-acetyl-α-D-glucosamine arising from deprotonation of both free diphosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C17H25N3O17P2"
+],
+[
+"ChEBI",
+"CHEBI:57705"
+],
+[
+"InChI",
+"InChI=1S/C17H27N3O17P2/c1-6(22)18-10-13(26)11(24)7(4-21)35-16(10)36-39(31,32)37-38(29,30)33-5-8-12(25)14(27)15(34-8)20-3-2-9(23)19-17(20)28/h2-3,7-8,10-16,21,24-27H,4-5H2,1H3,(H,18,22)(H,29,30)(H,31,32)(H,19,23,28)/p-2/t7-,8-,10-,11-,12-,13-,14-,15-,16-/m1/s1"
+],
+[
+"InChIKey",
+"LFTYTUAZOPRMMI-CFRASDGPSA-L"
+]
+]
+},
+{
+"id": "c0::p5",
+"label": "",
+"class": "Process",
+"box": [
+367.0,
+815.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"UDP-GlcNAc",
+"protein"
+],
+"out": [
+"O-GlcNAc protein",
+"UDP"
+],
+"by": [
+"OGT"
+]
+},
+"references": [
+{
+"authors": "Wang ZV et al.",
+"year": "2014",
+"title": "Spliced X-box binding protein 1 couples the unfolded protein response to hexosamine biosynthetic pathway.",
+"journal": "Cell",
+"db": "pubmed",
+"id": "24630721"
+}
+]
+},
+{
+"label": "protein",
+"class": "Macromolecule",
+"box": [
+179.0,
+807.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Fas apoptotic inhibitory molecule 1"
+],
+[
+"Function",
+"Plays a role as an inducible effector molecule that mediates Fas resistance produced by surface Ig engagement in B cells"
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:18703"
+],
+[
+"HGNC symbol",
+"FAIM"
+],
+[
+"Alias symbols",
+"FLJ10582, FAIM1"
+],
+[
+"Entrez",
+"55179"
+],
+[
+"Ensembl",
+"ENSG00000158234"
+],
+[
+"RefSeq",
+"NM_001033032"
+],
+[
+"UniProt",
+"Q9NVQ4"
+]
+]
+},
+{
+"label": "UDP",
+"class": "SimpleChemical",
+"box": [
+499.0,
+807.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"UDP(3-)"
+],
+[
+"Synonyms",
+"5'-O-[(phosphonatooxy)phosphinato]uridine; UDP; UDP trianion; uridine 5'-diphosphate; uridine 5'-diphosphate trianion; uridine 5'-diphosphate(3-)"
+],
+[
+"Definition",
+"A nucleoside 5'-diphosphate(3−) arising from deprotonation of the diphosphate OH groups of uridine 5'-diphosphate (UDP); major species at pH 7.3."
+],
+[
+"Formula",
+"C9H11N2O12P2"
+],
+[
+"ChEBI",
+"CHEBI:58223"
+],
+[
+"InChI",
+"InChI=1S/C9H14N2O12P2/c12-5-1-2-11(9(15)10-5)8-7(14)6(13)4(22-8)3-21-25(19,20)23-24(16,17)18/h1-2,4,6-8,13-14H,3H2,(H,19,20)(H,10,12,15)(H2,16,17,18)/p-3/t4-,6-,7-,8-/m1/s1"
+],
+[
+"InChIKey",
+"XCCTYIAWTASOJW-XVFCMESISA-K"
+]
+]
+},
+{
+"label": "O-GlcNAc protein",
+"class": "Macromolecule",
+"box": [
+309.0,
+947.0,
+140.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Fas apoptotic inhibitory molecule 1"
+],
+[
+"Function",
+"Plays a role as an inducible effector molecule that mediates Fas resistance produced by surface Ig engagement in B cells"
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:18703"
+],
+[
+"HGNC symbol",
+"FAIM"
+],
+[
+"Alias symbols",
+"FLJ10582, FAIM1"
+],
+[
+"Entrez",
+"55179"
+],
+[
+"Ensembl",
+"ENSG00000158234"
+],
+[
+"RefSeq",
+"NM_001033032"
+],
+[
+"UniProt",
+"Q9NVQ4"
+]
+]
+},
+{
+"label": "OGT",
+"class": "Macromolecule",
+"box": [
+519.0,
+947.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"UDP-N-acetylglucosamine--peptide N-acetylglucosaminyltransferase 110 kDa subunit"
+],
+[
+"Alternative names",
+"O-GlcNAc transferase subunit p110; O-linked N-acetylglucosamine transferase 110 kDa subunit"
+],
+[
+"Function",
+"Catalyzes the transfer of a single N-acetylglucosamine from UDP-GlcNAc to a serine or threonine residue in cytoplasmic and nuclear proteins resulting in their modification with a beta-linked N-acetylglucosamine (O-GlcNAc). Glycosylates a large and diverse number of proteins including histone H2B, AKT1, AMPK, ATG4B, CAPRIN1, EZH2, FNIP1, GSDMD, KRT7, LMNA, LMNB1, LMNB2, RPTOR, HOXA1, PFKL, KMT2E/MLL5, MAPT/TAU, TET2, RBL2, RET, NOD2 and HCFC1."
+],
+[
+"Location",
+"Nucleus, Cytoplasm, Mitochondrion, Membrane, Cell membrane, Mitochondrion membrane, Cell projection"
+],
+[
+"HGNC",
+"HGNC:8127"
+],
+[
+"HGNC symbol",
+"OGT"
+],
+[
+"Alias symbols",
+"O-GLCNAC, HRNT1, MGC22921, FLJ23071, OGT1"
+],
+[
+"Entrez",
+"8473"
+],
+[
+"Ensembl",
+"ENSG00000147162"
+],
+[
+"RefSeq",
+"NM_003605, NM_181672"
+],
+[
+"UniProt",
+"O15294"
+]
+]
+}
+]
+}
