@@ -1,0 +1,958 @@
+{% comment %}
+The map atlas page: a list of maps on the left, the map window, its downloads and text in the middle,
+the click panel on the right. Shared by /atlas/ and /pattern-atlas/ (user, 2026-10-30): each gives its own
+map index (index), search index (search) and name for the browser tab (name).
+{% endcomment %}
+
+<style>
+  /* as on the Colours page: the list on the left, the map and its text in
+     the middle, and an empty column of the list's width on the right, so the
+     middle stays centred under the header. The middle takes all the room
+     there is: with the browser zoomed out (Cmd -) the side columns look
+     smaller and the map larger. The layout spans the window (16 px from each
+     edge, at most 2000 px); on narrower windows the map shrinks to 600 px,
+     then the empty right column gives way, then the list goes above the map. */
+  .m2 { display: grid; grid-template-columns: 240px minmax(600px, 1fr) minmax(0, 240px); column-gap: 32px; align-items: start;
+        width: min(100vw / var(--zoom, 1) - 32px, 2000px); position: relative; left: 50%; transform: translateX(-50%); }
+  .m2-nav { grid-column: 1; }
+  .m2-main { grid-column: 2; min-width: 0; }
+  #m2-list { max-height: calc(100vh / var(--zoom, 1) - 180px); overflow-y: auto; }
+  @media (max-width: 940px) {
+    .m2 { display: block; width: auto; left: 0; transform: none; }
+    .m2-nav { margin-bottom: 12px; }
+    #m2-search { margin-bottom: 8px; }
+    #m2-list { max-height: 127px; border-bottom: 1px solid #eee; }
+  }
+
+  #m2-search { width: 100%; box-sizing: border-box; font-size: 14px; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 16px; }
+  /* no blue focus ring: while typing, the edge only gets darker, as buttons on hover */
+  #m2-search:focus { outline: none; border-color: #999; }
+  #m2-search::placeholder { color: #a8a8a8; } /* between #999 and the soft grey of the chevrons (#b4b4b4) */
+  /* the browser's clear button (a blue cross in Chrome): the thin grey cross of the panel close */
+  #m2-search::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 2l10 10M12 2L2 12' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
+  #m2-list { display: flex; flex-direction: column; gap: 2px; }
+  .m2-item { display: block; width: 100%; text-align: left; font-size: 14px; line-height: 18px; padding: 2px 4px; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; color: #000; }
+  /* the chosen map: a filled box in the site's link blue, white text */
+  /* on hover a very light grey background (lighter than the earlier #f0f0f0) */
+  .m2-item:hover { background: #f3f3f3; }
+  .m2-item.m2-on { background: #4183c4; color: #fff; }
+  .m2-item:focus { outline: none; }
+  .m2-none { font-size: 12px; color: #666; padding: 2px 4px; }
+  /* groups as a list with sublists: the group name at the size of the
+     items, normal weight, and its maps indented under it */
+  /* a group name opens or closes its maps; all groups start open */
+  .m2-group { display: block; width: 100%; text-align: left; font: inherit; font-size: 14px; font-weight: 400; color: #000; background: none; border: 0; padding: 2px 5px 2px 0; margin-top: 6px; cursor: pointer; }
+  .m2-group:first-child { margin-top: 0; }
+  .m2-group:focus { outline: none; }
+  /* open / closed sign at the right end of a group name: chevrons. For filled
+     triangles use instead: open url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M1.5 3.5h9L6 9z' fill='%23888'/%3E%3C/svg%3E"),
+     closed url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3.5 1.5v9L9 6z' fill='%23888'/%3E%3C/svg%3E") */
+  .m2-group::before { content: ''; float: right; width: 12px; height: 12px; margin-top: 3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 12px; }
+  .m2-group.m2-shut::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23b4b4b4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+  .m2-drug { width: 16px; height: 16px; margin-left: 5px; vertical-align: -3px; }
+{% include atlas-tags.css %}
+  .m2-item.m2-sub { margin-left: 14px; width: calc(100% - 14px); }
+  /* a map item stays on one line: a name too long to fit beside its tags ends in the
+     browser's ellipsis (the full name is in the tooltip); the tags keep their size */
+  .m2-item.m2-map { display: flex; align-items: center; }
+  .m2-map .m2-name { flex: 0 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .m2-map .m2-draft { flex: none; }
+  /* molecules found on the maps, after the maps found: each with the maps it
+     is on; the name it was found by, when not the label, in grey */
+  .m2-mol { font-size: 14px; padding: 2px 4px 0; margin-top: 6px; overflow-wrap: anywhere; }
+  .m2-mol:first-child { margin-top: 0; }
+  .m2-mol .m2-why { color: #888; }
+  .m2-n { float: right; color: #888; font-size: 12px; margin-left: 6px; }
+  .m2-on .m2-n { color: #fff; }
+
+  #m2-title { font-size: 22px; margin: 20px 0 0; }
+  /* the view spans the middle column. Its height is 77% of the window (set in the script, so on a
+     15-inch MacBook the download row shows and the text starts below the window), and its lower edge
+     can be dragged down to the whole window without the header (user, 2026-10-16) */
+  #m2-view { position: relative; width: 100%; height: 504px; min-height: 300px; max-height: calc(100vh / var(--zoom, 1) - 70px); resize: vertical; overflow: hidden; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; background: #fff; cursor: grab; touch-action: none; user-select: none; }
+  #m2-view.m2-drag { cursor: grabbing; }
+  /* full screen: the map alone, the annotation over its right side */
+  #m2-view:fullscreen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
+  #m2-view:-webkit-full-screen { width: 100vw; height: 100vh !important; max-height: none; border: 0; border-radius: 0; resize: none; }
+  #m2-full { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  #m2-full svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  /* no focus ring on the map and its zoom buttons: they keep focus after a
+     click, and the browser draws the ring as soon as a key (such as an arrow
+     key, which changes the map) is pressed */
+  #m2-view:focus, .m2-ctrl button:focus { outline: none; }
+  #m2-img { position: absolute; left: 0; top: 0; max-width: none; pointer-events: none; }
+  .m2-ctrl { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; align-items: center; }
+  .m2-ctrl button { font-size: 13px; min-width: 28px; padding: 2px 8px; color: #222; background: #fffffff0; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
+  .m2-ctrl button:hover { border-color: #4183c4; color: #4183c4; } /* as all buttons: blue on hover */
+  #m2-out, #m2-in { box-sizing: border-box; width: 21px; height: 21px; min-width: 0; padding: 0; } /* square */
+  /* one button for both modes: it shows the current one */
+  #m2-mode { box-sizing: border-box; width: 44px; height: 21px; padding: 0; }
+  #m2-zoom { font-size: 12px; color: #666; min-width: 40px; text-align: right; margin-right: 4px; }
+
+  #m2-downloads { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: flex-start; }
+  /* the buttons of the site: one colour for all, in the style of the Converter's grey button
+     (user, 2026-10-20): white, grey edge and text (#777), filled in the blue of the chosen
+     map in the list on hover, white text. Order by use:
+     GraphML, CellDesigner, SBGN-ML, SBML, Images (PNG, SVG in a menu), Data (the annotation
+     table), then Newt and MINERVA, all at the same spacing */
+  #m2-downloads > a, #m2-downloads summary { display: inline-block; font-size: 14px; line-height: 20px; padding: 4px 10px; margin: 4px 4px 0 0; color: #777; background: #fff; border: 1px solid #777; border-radius: 5px; text-decoration: none; cursor: pointer; }
+  #m2-downloads > a:hover, #m2-downloads summary:hover, #m2-downloads details[open] summary { background: #4183c4; border-color: #4183c4; color: #fff; }
+  #m2-downloads details { display: inline-block; position: relative; }
+  #m2-downloads summary { list-style: none; }
+  #m2-downloads summary::-webkit-details-marker { display: none; }
+  #m2-downloads .m2-caret { margin-left: 4px; font-size: 11px; }
+  #m2-downloads .m2-list { position: absolute; z-index: 5; left: 0; top: 34px; min-width: 110px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); padding: 4px 0; }
+  #m2-downloads .m2-up .m2-list { top: auto; bottom: 30px; }
+  /* the menu items in the font of the button (Images) */
+  #m2-downloads .m2-list a { display: block; font-size: 14px; line-height: 20px; padding: 4px 12px; color: #777; text-decoration: none; }
+  #m2-downloads .m2-list a:hover { background: #4183c4; color: #fff; }
+  /* the online viewers open another site: the usual external-link icon */
+  #m2-downloads a.m2-ext svg { width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; }
+  /* a file: the download icon (tray and arrow) after its name, as on the Converter page */
+  #m2-downloads .m2-dl svg { width: 14px; height: 14px; margin-left: 5px; vertical-align: -2px; }
+  /* images the current GraphML could not be drawn into (scripts/make_images.py): the Images
+     button in red, no download; a click shows the reason under the row, as hovering does */
+  #m2-downloads > a.m2-bad { color: #c62828; border-color: #c62828; }
+  #m2-downloads > a.m2-bad:hover { background: #c62828; border-color: #c62828; color: #fff; }
+  #m2-imgnote { flex-basis: 100%; margin: 6px 0 0; font-size: 13px; color: #c62828; }
+  #m2-text h2 { font-size: 18px; }
+  /* links on this page (text and annotation) in MINERVA's link blue, darker
+     than the site's #4183c4 */
+  .m2 a { color: #1c47a9; }
+  /* on hover buttons and cards get a darker edge, the map list a very light
+     grey; links keep their colour */
+  .m2 a:hover, .m2 a:active { color: #1c47a9; }
+
+  /* annotation of the clicked protein or metabolite: in the right column, or
+     on narrower windows over the right side of the map */
+  /* a map pin, as in MINERVA, with its tip on the clicked node; it keeps its size at every zoom */
+  #m2-pin { position: absolute; left: 0; top: 0; width: 24px; height: 32px; margin: -32px 0 0 -12px; pointer-events: none; display: none; filter: drop-shadow(0 1px 1px #0005); }
+  .m2-info { grid-column: 3; font-size: 14px; line-height: 1.45; color: #222; max-height: calc(100vh / var(--zoom, 1) - 140px); overflow-y: auto; overflow-wrap: anywhere; }
+  .m2-info.m2-over { position: absolute; z-index: 2; top: 36px; right: 8px; bottom: 8px; width: min(260px, 70%); max-height: none; padding: 10px 12px; background: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 8px #0002; cursor: auto; user-select: text; }
+  .m2-info:empty { display: none; }
+  .m2-info-head { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
+  .m2-info-head h3 { font-size: 16px; font-weight: 400; margin: 0; flex: 1; }
+  /* close: a thin cross in the soft grey of the group chevrons */
+  .m2-info-close { align-self: center; display: flex; border: 0; background: none; padding: 0 2px; cursor: pointer; }
+  .m2-info-close svg { width: 12px; height: 12px; stroke: #b4b4b4; stroke-width: 1.5; stroke-linecap: round; fill: none; }
+  .m2-info p { margin: 0 0 8px; }
+  .m2-info .m2-k { color: #666; }
+  .m2-info h4 { font-size: 14px; font-weight: 400; margin: 12px 0 4px; }
+  .m2-info ul { list-style: none; margin: 0; padding: 0; }
+  /* each text of a record (full name, other names, location, formula, function, definition):
+     its name in the grey of the other labels, no colon, and a square + / − right after it that
+     opens or closes it; closed at first (user, 2026-10-17: variant 3 of the former test page
+     /atlas/folds/, in git history, with the square of variant 7) */
+  .m2-fold { display: flex; align-items: center; gap: 6px; width: fit-content; text-align: left; font: inherit; color: #666; background: none; border: 0; padding: 0; margin: 0 0 8px; cursor: pointer; }
+  .m2-fold:not(.m2-shut) { margin-bottom: 2px; }
+  .m2-fold:focus { outline: none; }
+  .m2-sq { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 3px; background: #fff; }
+  .m2-sq svg { width: 10px; height: 10px; stroke: #666; stroke-width: 1.5; stroke-linecap: round; }
+  .m2-sq .m2-bar { display: none; }
+  .m2-fold.m2-shut .m2-bar { display: inline; }
+  .m2-fold.m2-shut + p { display: none; }
+  .m2-info li { margin: 0 0 3px; }
+  /* a reference's role and what it shows, where the map's curation gives them */
+  .m2-info .m2-role { display: inline-block; font-size: 11px; line-height: 15px; padding: 0 4px; border: 1px solid; border-radius: 3px; margin-right: 4px; }
+  .m2-info .m2-role-context { color: #b03a2e; }
+  .m2-info .m2-role-step { color: #2e6db0; }
+  .m2-info .m2-note { color: #666; font-size: 0.9em; }
+  .m2-info .m2-refs li { margin: 0 0 8px; }
+  /* a protein family: one card per member, or one member's record under a
+     row of member buttons (the undo button returns to the cards) */
+  .m2-card { display: block; box-sizing: border-box; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: 6px 8px; margin: 0 0 6px; cursor: pointer; }
+  .m2-card:hover { border-color: #999; }
+  .m2-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 10px; }
+  .m2-chip { font: inherit; font-size: 14px; line-height: 20px; padding: 3px 7px 1px; color: #222; background: #fff; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; }
+  .m2-chip:hover { border-color: #4183c4; color: #4183c4; } /* as the download buttons */
+  /* back to the cards: a square button with an undo sign, in thin lines as the close cross */
+  .m2-chip.m2-all { box-sizing: border-box; width: 26px; height: 26px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  .m2-all svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .m2-chip.m2-on { background: #4183c4; border-color: #4183c4; color: #fff; } /* as the chosen map in the list */
+  .m2-chip:focus, .m2-card:focus { outline: none; }
+</style>
+
+<div class="m2">
+<div class="m2-nav">
+<input type="search" id="m2-search" placeholder="Search" autocomplete="off">
+<div id="m2-list"></div>
+</div>
+<div class="m2-main">
+<div id="m2-view" tabindex="0">
+<img id="m2-img" alt="">
+<svg id="m2-pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 31C12 31 2 18.5 2 11.5a10 10 0 0 1 20 0C22 18.5 12 31 12 31z" fill="#4183c4"/><circle cx="12" cy="11.5" r="3.6" fill="#fff"/></svg>
+<div class="m2-ctrl">
+<span id="m2-zoom"></span>
+<button type="button" id="m2-out" title="Zoom out">&minus;</button>
+<button type="button" id="m2-in" title="Zoom in">+</button>
+<button type="button" id="m2-mode"></button>
+<button type="button" id="m2-full" title="Full screen" aria-label="Full screen"></button>
+</div>
+</div>
+<div id="m2-downloads"></div>
+<!-- the full title opens the text; the list already names the map -->
+<h2 id="m2-title"></h2>
+<div id="m2-text"></div>
+</div>
+<aside class="m2-info" id="m2-info"></aside>
+</div>
+
+<script>
+(function () {
+  // Zoom is measured in screen pixels per yEd unit, so every map shows its
+  // boxes and labels at the same size whatever the resolution of its image
+  // (scale = image pixels per yEd unit, from scripts/make_maps.py).
+  // the site's build time, added to the data addresses so a browser that kept
+  // an earlier copy (GitHub Pages allows 10 minutes) fetches the new one
+  // a grey and white capsule after the name of a drug action mechanism map
+  // (yellow version: fill #FFE067, stroke #444)
+  var DRUG_ICON = '<svg class="m2-drug" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M7 7.5h5v9H7a4.5 4.5 0 0 1 0-9z" fill="#d6d6d6" stroke="#777" stroke-width="1.6"/><path d="M12 7.5h5a4.5 4.5 0 0 1 0 9h-5z" fill="#fff" stroke="#777" stroke-width="1.6"/></g></svg>';
+  // the tag after a map name: draft on a small grey tag for a draft map (page in draftpages/),
+  // or set by hand in TAGS (make_maps.py): new in blue, draft in white for the same biology as the official map
+  var TAG_ICONS = {
+    'draft': ['<span class="m2-draft"><span>draft</span></span>', 'Draft map'],
+    'draft-white': ['<span class="m2-draft m2-white"><span>draft</span></span>', 'Draft map, the same biology as the official map'],
+    'new': ['<span class="m2-draft m2-new"><span>new</span></span>', 'New map, not on the official site'],
+    'draft-ext': ['<span class="m2-draft m2-ext"><span>draft</span></span>', 'Draft map of the Atlas extension'],
+    'copy': ['<span class="m2-draft m2-copy"><span>copy</span></span>', 'Copy of the official map, for comparison']
+  };
+  // a red tag when the map's images could not be drawn from its current GraphML (make_images.py)
+  var ERROR_ICON = '<span class="m2-draft m2-error"><span>image error</span></span>';
+  var DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg>';
+  var EXT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+  var BUILD = '?v={{ site.time | date: "%s" }}';
+  var STANDARD = 0.675, MIN = 0.08, MAX = 4, KEEP = 80; // KEEP: pixels of map kept in view
+  // how a map opens: 'fit' (the default) or 'read' at the standard zoom. Set by the mode
+  // button and remembered by the browser where it can
+  var mode = 'fit';
+  try { if (localStorage.getItem('atlas-view') === 'read') mode = 'read'; } catch (e) {}
+  var maps = [], byId = {}, topics = [], current = null, textCache = {};
+  var view = document.getElementById('m2-view'), img = document.getElementById('m2-img');
+  var z = STANDARD, tx = 0, ty = 0;
+  var moved = false; // zoomed or panned away from the mode's view
+
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('#m2-downloads details[open]').forEach(function (d) {
+      if (!d.contains(e.target) || e.target.closest('.m2-list a')) d.open = false;
+    });
+  });
+  // a menu opens upwards when there is no room for it below in the window
+  // (toggle does not bubble: caught on its way down)
+  document.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (!d.open || !d.closest || !d.closest('#m2-downloads')) return;
+    d.classList.remove('m2-up');
+    var r = d.querySelector('.m2-list').getBoundingClientRect();
+    if (r.bottom > window.innerHeight && d.getBoundingClientRect().top > r.height) d.classList.add('m2-up');
+  }, true);
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function scaleOf(m) { return m.scale || 1.5; }
+  function size(m) { return { w: m.width / scaleOf(m), h: m.height / scaleOf(m) }; } // in yEd units
+
+  // ---------- viewer ----------
+  function clamp() {
+    var s = size(current), w = s.w * z, h = s.h * z, vw = view.clientWidth, vh = view.clientHeight;
+    tx = Math.min(vw - Math.min(KEEP, w), Math.max(Math.min(KEEP, w) - w, tx));
+    ty = Math.min(vh - Math.min(KEEP, h), Math.max(Math.min(KEEP, h) - h, ty));
+  }
+  function draw() {
+    if (!current) return;
+    clamp();
+    // sized by width and height, not a scale transform, so that an SVG map
+    // is drawn sharp at every zoom
+    var s = size(current);
+    img.style.width = s.w * z + 'px';
+    img.style.height = s.h * z + 'px';
+    img.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    drawPin();
+    document.getElementById('m2-zoom').textContent = Math.round(z / STANDARD * 100) + '%';
+  }
+  function zoomAt(nz, cx, cy) {
+    nz = Math.max(MIN, Math.min(MAX, nz));
+    tx = cx - (cx - tx) * nz / z;
+    ty = cy - (cy - ty) * nz / z;
+    z = nz;
+    moved = true;
+    draw();
+  }
+  // fits the map to the view, no space around it (user, 2026-10-22, as on the Colours page)
+  function fitZoom() {
+    var s = size(current);
+    return Math.min(view.clientWidth / s.w, view.clientHeight / s.h);
+  }
+  // the browser's own zoom (Cmd + / Cmd -). Browsers do not report it, but
+  // the window's width in screen pixels over its width in page pixels gives
+  // it (Chrome, Edge); snapped to the browser's zoom steps, otherwise 100%.
+  // The map zoom is divided by it, so a map keeps its size on screen when
+  // the page is zoomed; the % shown changes instead (111% at 90%)
+  var STEPS = [0.25, 0.33, 0.5, 0.67, 0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5];
+  function browserZoom() {
+    var r = window.outerWidth / window.innerWidth;
+    if (!isFinite(r) || r <= 0) return 1;
+    var best = 1;
+    STEPS.forEach(function (st) { if (Math.abs(r - st) < Math.abs(r - best)) best = st; });
+    return Math.abs(r - best) / best < 0.03 ? best : 1;
+  }
+  var bz = browserZoom();
+  window.addEventListener('resize', function () {
+    var nb = browserZoom();
+    if (nb === bz || !current) return;
+    var old = bz;
+    bz = nb;
+    if (!moved) { if (mode === 'fit') fit(); else standard(); }
+    else { var c = centre(); zoomAt(z * old / nb, c[0], c[1]); }
+  });
+  // standard zoom; every map starts at its top, centred left to right,
+  // below a strip left free for the zoom controls
+  var TOP = 36;
+  function standard() {
+    var s = size(current);
+    z = STANDARD / bz;
+    tx = (view.clientWidth - s.w * z) / 2;
+    ty = TOP;
+    moved = false;
+    draw();
+  }
+  // the whole map in the view, but never larger than the standard
+  // zoom (FIT_MAX), so a small map is not blown up
+  var FIT_MAX = 1;
+  function fit() {
+    var s = size(current);
+    z = Math.min(fitZoom(), STANDARD * FIT_MAX / bz);
+    tx = (view.clientWidth - s.w * z) / 2;
+    ty = (view.clientHeight - s.h * z) / 2; // centred
+    moved = false;
+    draw();
+  }
+  var centre = function () { return [view.clientWidth / 2, view.clientHeight / 2]; };
+  document.getElementById('m2-in').addEventListener('click', function () { var c = centre(); zoomAt(z * 1.25, c[0], c[1]); });
+  document.getElementById('m2-out').addEventListener('click', function () { var c = centre(); zoomAt(z / 1.25, c[0], c[1]); });
+  function setMode(m) {
+    mode = m;
+    try { localStorage.setItem('atlas-view', m); } catch (e) {}
+    showMode();
+    if (m === 'fit') fit(); else standard();
+  }
+  function showMode() {
+    var b = document.getElementById('m2-mode');
+    b.textContent = mode === 'fit' ? 'Fit' : 'Read';
+    b.title = mode === 'fit'
+      ? 'Whole map. Click for reading size, the same for every map'
+      : 'Reading size, the same for every map. Click for the whole map';
+  }
+  showMode();
+  // after zooming or panning, a click returns to the mode's view;
+  // from that view, a click switches mode
+  function modeButton() {
+    if (moved) { if (mode === 'fit') fit(); else standard(); }
+    else setMode(mode === 'fit' ? 'read' : 'fit');
+  }
+  document.getElementById('m2-mode').addEventListener('click', modeButton);
+  // pointer positions come in screen pixels; with the site's zoom
+  // (style.scss) the viewer works in its own, zoomed pixels
+  function pz() { return view.currentCSSZoom || 1; }
+  view.addEventListener('wheel', function (e) {
+    if (e.target.closest('.m2-info')) return; // the panel over the map scrolls
+    e.preventDefault();
+    var r = view.getBoundingClientRect();
+    zoomAt(z * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+  }, { passive: false });
+  view.addEventListener('dblclick', function (e) {
+    if (e.target.closest('.m2-ctrl, .m2-info')) return;
+    var r = view.getBoundingClientRect();
+    zoomAt(z * 1.5, (e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+  });
+  // drag with one pointer, pinch with two
+  var pts = {}, last = null, press = null;
+  view.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.m2-ctrl')) return;
+    // leave the lower right corner to the browser's resize handle
+    var r = view.getBoundingClientRect();
+    if (e.clientX > r.right - 18 && e.clientY > r.bottom - 18) return;
+    if (e.target.closest('.m2-info')) return;
+    view.setPointerCapture(e.pointerId);
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    press = Object.keys(pts).length === 1 ? [e.clientX, e.clientY] : null;
+    last = null;
+    view.classList.add('m2-drag');
+  });
+  view.addEventListener('pointermove', function (e) {
+    if (!pts[e.pointerId]) return;
+    var prev = pts[e.pointerId];
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    var ids = Object.keys(pts);
+    if (ids.length === 1) {
+      tx += (e.clientX - prev[0]) / pz();
+      ty += (e.clientY - prev[1]) / pz();
+      moved = true;
+      draw();
+    } else if (ids.length === 2) {
+      var a = pts[ids[0]], b = pts[ids[1]], r = view.getBoundingClientRect();
+      var d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      if (last) zoomAt(z * d / last, ((a[0] + b[0]) / 2 - r.left) / pz(), ((a[1] + b[1]) / 2 - r.top) / pz());
+      last = d;
+    }
+  });
+  function release(e) {
+    // a press without a drag is a click on the map
+    if (e.type === 'pointerup' && press && pts[e.pointerId] && Math.hypot(e.clientX - press[0], e.clientY - press[1]) < 5) {
+      var r = view.getBoundingClientRect();
+      pick((e.clientX - r.left) / pz(), (e.clientY - r.top) / pz());
+    }
+    press = null;
+    delete pts[e.pointerId];
+    last = null;
+    if (!Object.keys(pts).length) view.classList.remove('m2-drag');
+  }
+  view.addEventListener('pointerup', release);
+  view.addEventListener('pointercancel', release);
+  view.addEventListener('keydown', function (e) {
+    var c = centre();
+    if (e.key === '+' || e.key === '=') zoomAt(z * 1.25, c[0], c[1]);
+    else if (e.key === '-') zoomAt(z / 1.25, c[0], c[1]);
+    else if (e.key === '0') modeButton();
+    else return;
+    e.preventDefault();
+  });
+  window.addEventListener('resize', draw);
+  // the view's height: 77% of the window (user, 2026-10-18: on a 15-inch MacBook the download
+  // row shows, the text starts below the window), until the reader drags its lower edge (the
+  // browser then sets its own height)
+  var autoH = null;
+  function viewHeight() {
+    if (autoH !== null && view.style.height !== autoH) return; // resized by the reader
+    autoH = Math.round(Math.max(300, window.innerHeight / pz() * 0.77)) + 'px';
+    view.style.height = autoH;
+  }
+  viewHeight();
+  window.addEventListener('resize', viewHeight);
+  if (window.ResizeObserver) new ResizeObserver(draw).observe(view);
+
+  // full screen: the map alone; Esc or the button returns to the page
+  var full = document.getElementById('m2-full');
+  var FULL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>';
+  var EXIT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>';
+  function isFull() { return (document.fullscreenElement || document.webkitFullscreenElement) === view; }
+  function showFull() {
+    var on = isFull();
+    full.innerHTML = on ? EXIT_ICON : FULL_ICON;
+    full.title = on ? 'Exit full screen (Esc)' : 'Full screen';
+    full.setAttribute('aria-label', full.title);
+  }
+  if (view.requestFullscreen || view.webkitRequestFullscreen) {
+    showFull();
+    full.addEventListener('click', function () {
+      if (isFull()) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      else (view.requestFullscreen || view.webkitRequestFullscreen).call(view);
+    });
+    var onFull = function () {
+      showFull();
+      placeInfo();
+      // after the view has its new size: back to the mode's view unless zoomed or panned
+      requestAnimationFrame(function () { if (!current) return; if (!moved) { if (mode === 'fit') fit(); else standard(); } else draw(); });
+    };
+    document.addEventListener('fullscreenchange', onFull);
+    document.addEventListener('webkitfullscreenchange', onFull);
+  } else full.style.display = 'none'; // iPhone: no full screen for page elements
+
+
+  // ---------- annotation ----------
+  // atlas-data/<map>.json (scripts/make_maps.py): every annotated node's box
+  // in image pixels and its properties. A click on the map shows the
+  // smallest box under the pointer (a protein rather than its complex).
+  var info = document.getElementById('m2-info'), pin = document.getElementById('m2-pin');
+  var annCache = {}, nodes = null, sel = null, member = -1; // member: the family member shown, -1 for the cards
+  var KIND = { Macromolecule: 'Protein', SimpleChemical: 'Simple molecule', NucleicAcidFeature: 'Gene', Complex: 'Complex',
+    Process: 'Process', OmittedProcess: 'Omitted process', UncertainProcess: 'Uncertain process', Association: 'Association', Dissociation: 'Dissociation' };
+  var LINK = {
+    'HGNC': 'https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/',
+    'HGNC symbol': 'https://www.genenames.org/data/gene-symbol-report/#!/symbol/',
+    'Entrez': 'https://www.ncbi.nlm.nih.gov/gene/',
+    'Ensembl': 'https://www.ensembl.org/id/',
+    'RefSeq': 'https://www.ncbi.nlm.nih.gov/nuccore/',
+    'UniProt': 'https://www.uniprot.org/uniprotkb/',
+    'ChEBI': 'https://www.ebi.ac.uk/chebi/searchId.do?chebiId=',
+    'KEGG': 'https://www.kegg.jp/entry/',
+    'HMDB': 'https://hmdb.ca/metabolites/'
+  };
+  var IDS = ['ChEBI', 'HGNC symbol', 'HGNC', 'Entrez', 'Ensembl', 'RefSeq', 'UniProt', 'KEGG', 'HMDB', 'InChI', 'InChIKey'];
+  // wide windows: the right column; narrower: over the right side of the map
+  var wide = window.matchMedia('(min-width: 1030px)');
+  function placeInfo() {
+    var over = !wide.matches || isFull();
+    info.classList.toggle('m2-over', over);
+    var home = over ? view : document.querySelector('.m2');
+    if (info.parentNode !== home) home.appendChild(info);
+    renderInfo();
+  }
+  wide.addEventListener ? wide.addEventListener('change', placeInfo) : wide.addListener(placeInfo);
+  function loadNodes(m) {
+    nodes = null; sel = null; renderInfo(); drawPin();
+    if (!m.annotation) return;
+    var done = function (list) { if (current === m) { nodes = list; renderInfo(); focusNode(); } };
+    if (annCache[m.id]) return done(annCache[m.id]);
+    fetch(m.annotation + BUILD).then(function (r) { return r.json(); }).then(function (d) { annCache[m.id] = d.nodes; done(d.nodes); });
+  }
+  function pick(vx, vy) {
+    if (!nodes) return;
+    var k = scaleOf(current), x = (vx - tx) / z * k, y = (vy - ty) / z * k, best = null;
+    nodes.forEach(function (n) {
+      var b = n.box;
+      if (x >= b[0] && x <= b[0] + b[2] && y >= b[1] && y <= b[1] + b[3] && (!best || b[2] * b[3] < best.box[2] * best.box[3])) best = n;
+    });
+    sel = best;
+    member = -1;
+    renderInfo();
+    drawPin();
+  }
+  function closeInfo() { sel = null; renderInfo(); drawPin(); }
+  // a search result chosen: its node is selected and centred at reading size
+  var pending = null; // {map, node}: to select once the map's nodes are loaded
+  function focusNode() {
+    if (!pending || !nodes || pending.map !== current.id) return;
+    var n = nodes[pending.node];
+    pending = null;
+    if (!n) return;
+    sel = n; member = -1;
+    var k = scaleOf(current), b = n.box;
+    z = STANDARD / bz;
+    tx = view.clientWidth / 2 - (b[0] + b[2] / 2) / k * z;
+    ty = view.clientHeight / 2 - (b[1] + b[3] / 2) / k * z;
+    moved = true;
+    renderInfo();
+    draw();
+  }
+  // Esc closes the annotation too; in a family member's record it first returns to the cards
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !sel) return;
+    if (sel.members && member >= 0) { member = -1; renderInfo(); } else closeInfo();
+  });
+  function drawPin() {
+    if (!sel || !current) { pin.style.display = 'none'; return; }
+    var k = scaleOf(current), b = sel.box;
+    pin.style.display = 'block';
+    pin.style.transform = 'translate(' + (tx + (b[0] + b[2] / 2) / k * z) + 'px,' + (ty + (b[1] + b[3] / 2) / k * z) + 'px)';
+  }
+  function renderInfo() {
+    info.innerHTML = '';
+    if (!nodes || !sel) return;
+    var p = props(sel.props);
+    var family = !!sel.members;
+    var head = el('div', 'm2-info-head'), h = el('h3', null, (family ? 'Protein family' : (KIND[sel['class']] || sel['class'])) + (sel.label ? ': ' + sel.label : ''));
+    var x = el('button', 'm2-info-close');
+    x.type = 'button'; x.title = 'Close'; x.setAttribute('aria-label', 'Close');
+    x.innerHTML = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>';
+    x.addEventListener('click', closeInfo);
+    head.appendChild(h); head.appendChild(x); info.appendChild(head);
+    if (sel.reaction) { reaction(sel); return; }
+    if (!family) {
+      // the symbol also where the title is the symbol (AKT1), so the line always looks the same
+      // (user, 2026-10-18)
+      identity(p['HGNC symbol'], p['Full name']);
+      ptm(p);
+      record(p);
+      return;
+    }
+    var fam = el('p');
+    if (p['Family']) fam.appendChild(el('span', 'm2-k', p['Family'] + ', '));
+    fam.appendChild(document.createTextNode(sel.members.length + ' members'));
+    info.appendChild(fam);
+    ptm(p);
+    if (member < 0) {
+      sel.members.forEach(function (m, i) {
+        // a div, not a button, so that it can hold the UniProt link
+        var mp = props(m.props), c = el('div', 'm2-card');
+        c.setAttribute('role', 'button'); c.tabIndex = 0;
+        c.appendChild(el('b', null, m.symbol));
+        if (mp['UniProt']) {
+          var u = el('a', null, 'UNIPROT: ' + mp['UniProt']);
+          u.href = LINK['UniProt'] + mp['UniProt']; u.target = '_blank'; u.rel = 'noopener';
+          u.addEventListener('click', function (e) { e.stopPropagation(); }); // the link, not the card
+          var d = el('div'); d.appendChild(u); c.appendChild(d);
+        }
+        c.addEventListener('click', function () { member = i; renderInfo(); });
+        c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); member = i; renderInfo(); } });
+        info.appendChild(c);
+      });
+      return;
+    }
+    var chips = el('div', 'm2-chips');
+    sel.members.concat([null]).forEach(function (m, i) {
+      var b = el('button', 'm2-chip' + (i === member ? ' m2-on' : '') + (m ? '' : ' m2-all'), m ? m.symbol : null);
+      b.type = 'button';
+      if (!m) {
+        b.title = 'All members'; b.setAttribute('aria-label', 'All members');
+        // undo sign: back from one member to the cards
+        b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>';
+      }
+      b.addEventListener('click', function () { member = m ? i : -1; renderInfo(); });
+      chips.appendChild(b);
+    });
+    info.appendChild(chips);
+    var m = sel.members[member], mp = props(m.props);
+    identity(mp['HGNC symbol'] || m.symbol, mp['Full name']);
+    ptm(mp);
+    record(mp);
+  }
+  // a process: its reaction in one line, its modifiers, then its references, each a citation with its
+  // PUBMED link (user, 2026-10-27; node property References, scripts/make_maps.py)
+  function reaction(n) {
+    var r = n.reaction;
+    info.appendChild(el('p', null, r['in'].join(' + ') + ' \u2192 ' + r.out.join(' + ')));
+    if (r.by.length) {
+      var q = el('p');
+      q.appendChild(el('span', 'm2-k', 'Modifiers: '));
+      q.appendChild(el('span', null, r.by.join(', ')));
+      info.appendChild(q);
+    }
+    if (!n.references.length) return;
+    info.appendChild(el('h4', null, 'References'));
+    var ul = el('ul', 'm2-refs');
+    n.references.forEach(function (c) {
+      var li = el('li'), a = el('a', null, c.db.toUpperCase() + ': ' + c.id);
+      // the reference's role (the disease context, or the step itself) and what it shows, where given
+      if (c.role) li.appendChild(el('span', 'm2-role m2-role-' + (c.role === 'step' ? 'step' : 'context'), c.role === 'step' ? 'Step' : c.role));
+      if (c.title) li.appendChild(document.createTextNode([c.authors, c.year].filter(Boolean).join(' ') + '. ' + c.title + ' ' + c.journal + '. '));
+      a.href = (c.db === 'pubmed' ? 'https://pubmed.ncbi.nlm.nih.gov/' : c.db === 'doi' ? 'https://doi.org/' : 'https://identifiers.org/' + c.db + ':') + c.id;
+      a.target = '_blank'; a.rel = 'noopener';
+      li.appendChild(a);
+      if (c.note) li.appendChild(el('div', 'm2-note', c.note));
+      ul.appendChild(li);
+    });
+    info.appendChild(ul);
+  }
+  function props(list) { var p = {}; list.forEach(function (kv) { p[kv[0]] = kv[1]; }); return p; }
+  // under the title, one line: gene symbol (HGNC, bold) and full name (UniProt), "PLA2G4A, cytosolic
+  // phospholipase A2"; in a family member the same line, then its note; the names from one
+  // source, UniProt: HGNC's previous and alias symbols only in the search (user, 2026-10-17)
+  function identity(sym, name) {
+    if (!sym && !name) return;
+    // the name's capital goes after a symbol (Cytosolic -> cytosolic), not in ATP or cAMP
+    if (sym && name && /^[A-Z][a-z]/.test(name)) name = name[0].toLowerCase() + name.slice(1);
+    var q = el('p');
+    if (sym) q.appendChild(el('b', null, sym));
+    q.appendChild(document.createTextNode((sym && name ? ', ' : '') + (name || '')));
+    info.appendChild(q);
+  }
+
+  // the node's post-translational modifications, which the map shows only as symbols (P): one
+  // line per site, right after the identity line, no heading; the notes are not shown, as most
+  // nodes have none (user, 2026-10-17)
+  // UniProt's enzyme follows a site where UniProt has one with experimental evidence
+  // (scripts/make_maps.py, user, 2026-10-18)
+  function ptm(p) {
+    if (p['PTM']) p['PTM'].split('\n').forEach(function (t) { info.appendChild(el('p', null, t)); });
+  }
+  function line(p, name) {
+    if (!p[name]) return;
+    var q = el('p');
+    q.appendChild(el('span', 'm2-k', name + ': '));
+    q.appendChild(el('span', null, p[name]));
+    info.appendChild(q);
+  }
+  // a text under its name that opens or closes it; the reader's choice, per name,
+  // holds for the next molecules while the page is open
+  var foldOpen = {};
+  function fold(p, name) {
+    if (!p[name]) return;
+    var b = el('button', 'm2-fold' + (foldOpen[name] ? '' : ' m2-shut'), name);
+    b.type = 'button'; b.setAttribute('aria-expanded', !!foldOpen[name]);
+    // + when closed, − when open
+    b.insertAdjacentHTML('beforeend', '<span class="m2-sq" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1 5h8"/><path class="m2-bar" d="M5 1v8"/></svg></span>');
+    b.addEventListener('click', function () {
+      foldOpen[name] = !b.classList.toggle('m2-shut');
+      b.setAttribute('aria-expanded', foldOpen[name]);
+    });
+    info.appendChild(b);
+    info.appendChild(el('p', null, p[name]));
+  }
+  // one protein's or metabolite's record: names and location, the longer texts under a +, then the database links
+  function record(p) {
+    // the names and the location as text, the longer texts under a + (user, 2026-10-17)
+    ['Alternative names', 'Synonyms', 'Location'].forEach(function (n) { line(p, n); });
+    ['Formula', 'Function', 'Definition'].forEach(function (n) { fold(p, n); });
+    // the HGNC symbol, and not the HGNC ID, which opens the same page (user, 2026-10-17)
+    var ids = IDS.filter(function (n) { return p[n] && !(n === 'HGNC' && p['HGNC symbol']); });
+    if (!ids.length) return;
+    info.appendChild(el('h4', null, 'Annotations'));
+    var ul = el('ul');
+    ids.forEach(function (n) {
+      var li = el('li');
+      // several IDs (RefSeq) are separated by commas; InChI has commas of its own
+      (LINK[n] ? String(p[n]).split(/,\s*/) : [String(p[n])]).forEach(function (v, i) {
+        if (i) li.appendChild(document.createTextNode(', '));
+        if (LINK[n]) {
+          var a = el('a', null, n.toUpperCase() + ': ' + v);
+          a.href = LINK[n] + encodeURIComponent(v).replace(/%3A/g, ':'); a.target = '_blank'; a.rel = 'noopener';
+          li.appendChild(a);
+        } else {
+          li.appendChild(el('span', 'm2-k', n + ': '));
+          li.appendChild(document.createTextNode(v));
+        }
+      });
+      ul.appendChild(li);
+    });
+    info.appendChild(ul);
+  }
+
+  // ---------- navigation ----------
+  // one row per map: the topic, with the variant in brackets when a topic
+  // has several maps, as in Glycogen metabolism (muscle)
+  function label(m) { return m.topic + (m.tab ? ' (' + m.tab + ')' : ''); }
+  var closed = {}; // groups closed by the reader, by name
+
+  // ---------- search ----------
+  // atlas-data/search.json (scripts/make_maps.py): every molecule on every
+  // map, with its label and symbols (a), other names (b) and database IDs (i).
+  // A search matches the start of a word, not any part of it. A short query
+  // with a capital letter is taken as a symbol: its case counts, so CaM finds
+  // CaM and CaMKK but not cAMP (cam finds all three, CaM first).
+  var index = null;
+  function loadIndex() {
+    if (index) return;
+    index = [];
+    fetch('{{ include.search | relative_url }}' + BUILD).then(function (r) { return r.json(); }).then(function (d) {
+      index = d;
+      buildList(document.getElementById('m2-search').value);
+    });
+  }
+  // 0 the whole name, 2 its start, 4 the start of a later word; one more
+  // for each in another case; -1 no match
+  function matchName(q, name) {
+    if (name === q) return 0;
+    var lq = q.toLowerCase(), ln = name.toLowerCase();
+    if (ln === lq) return 1;
+    var anyCase = q === lq || q.length > 4, best = -1;
+    for (var i = ln.indexOf(lq); i >= 0; i = ln.indexOf(lq, i + 1)) {
+      // a word starts at the beginning, after a non-letter, or at a capital after a small letter (PtdIns)
+      if (i > 0 && /[a-z0-9]/i.test(name[i - 1]) && !(/[a-z]/.test(name[i - 1]) && /[A-Z]/.test(name[i]))) continue;
+      var r = (i ? 4 : 2) + (name.substr(i, q.length) === q ? 0 : 1);
+      if ((r % 2 === 0 || anyCase) && (best < 0 || r < best)) best = r;
+    }
+    return best;
+  }
+  // a molecule's best match: its rank (lower first) and the name it was found by
+  function matchMol(q, e) {
+    var best = null;
+    function take(r, name) { if (r >= 0 && (!best || r < best.r)) best = { r: r, name: name }; }
+    e.a.forEach(function (n) { var r = matchName(q, n); take(r < 0 ? r : r * 2, n); });
+    e.b.forEach(function (n) { var r = matchName(q, n); take(r < 0 ? r : r * 2 + 1, n); });
+    e.i.forEach(function (n) {
+      var id = n.toLowerCase(), lq = q.toLowerCase();
+      if (id === lq || id.replace(/^[a-z]+:/, '') === lq) take(0, n);
+    });
+    return best;
+  }
+  function matchMap(q, m) {
+    return [label(m), m.title, m.group || ''].some(function (t) { return matchName(q, t) >= 0; });
+  }
+  // molecules matching q, joined across maps by their ID (or family members)
+  function findMols(q) {
+    var mols = {}, list = [];
+    (index || []).forEach(function (e) {
+      var r = matchMol(q, e);
+      if (!r || !byId[e.m]) return;
+      var g = mols[e.k];
+      if (!g) { g = mols[e.k] = { label: e.l, r: r.r, name: r.name, hits: [] }; list.push(g); }
+      else if (r.r < g.r) { g.r = r.r; g.name = r.name; }
+      g.hits.push(e);
+    });
+    list.forEach(function (g) { g.hits.sort(function (a, b) { return maps.indexOf(byId[a.m]) - maps.indexOf(byId[b.m]); }); });
+    list.sort(function (a, b) { return a.r - b.r || a.label.localeCompare(b.label); });
+    return list.slice(0, 40);
+  }
+  var lastHit = null, step = 0; // a result clicked again goes to the next copy of the molecule on that map
+  function openHit(e) {
+    var key = e.k + '|' + e.m;
+    step = key === lastHit ? (step + 1) % e.n.length : 0;
+    lastHit = key;
+    pending = { map: e.m, node: e.n[step] };
+    if (current && current.id === e.m) { focusNode(); buildList(document.getElementById('m2-search').value); }
+    else go(e.m);
+  }
+  function buildList(filter) {
+    var box = document.getElementById('m2-list');
+    var keep = box.scrollTop;
+    box.innerHTML = '';
+    var q = (filter || '').trim();
+    if (q) loadIndex();
+    // a search matches the list name, the full title or the group name
+    var shown = maps.filter(function (m) { return !q || matchMap(q, m); });
+    var mols = q ? findMols(q) : [];
+    var group = null;
+    shown.forEach(function (m) {
+      // while searching every group with a match is shown open
+      var shut = !q && closed[m.group];
+      if (m.group && m.group !== group) {
+        group = m.group;
+        var g = el('button', 'm2-group' + (shut ? ' m2-shut' : ''), group);
+        g.type = 'button';
+        g.addEventListener('click', (function (name) { return function () {
+          closed[name] = !closed[name];
+          buildList(document.getElementById('m2-search').value);
+        }; })(group));
+        box.appendChild(g);
+      }
+      if (shut) return;
+      var b = el('button', 'm2-item m2-map' + (m.group ? ' m2-sub' : '') + (m.tag === 'draft-ext' ? ' m2-ext' : '') + (m === current ? ' m2-on' : ''));
+      b.appendChild(el('span', 'm2-name', label(m)));
+      b.type = 'button';
+      b.setAttribute('data-id', m.id);
+      var tips = [label(m)];
+      if (m.kind === 'drug') { b.insertAdjacentHTML('beforeend', DRUG_ICON); tips.push('Drug action mechanism map'); }
+      var tag = TAG_ICONS[m.tag];
+      if (tag) { b.insertAdjacentHTML('beforeend', tag[0]); tips.push(tag[1]); }
+      if (m.imageError) { b.insertAdjacentHTML('beforeend', ERROR_ICON); tips.push('Images not made from the current GraphML'); }
+      b.title = tips.join(', ');
+      b.addEventListener('click', function () { go(m.id); });
+      box.appendChild(b);
+    });
+    mols.forEach(function (g) {
+      var t = el('div', 'm2-mol', g.label);
+      if (g.name !== g.label) t.appendChild(el('span', 'm2-why', ' ' + g.name));
+      box.appendChild(t);
+      g.hits.forEach(function (e) {
+        var on = lastHit === e.k + '|' + e.m && current && current.id === e.m;
+        var b = el('button', 'm2-item m2-hit m2-sub' + (on ? ' m2-on' : ''), label(byId[e.m]));
+        b.type = 'button';
+        if (e.n.length > 1) {
+          b.insertBefore(el('span', 'm2-n', (on ? step + 1 + '/' : '') + e.n.length), b.firstChild);
+          b.title = e.n.length + ' places on this map; click again for the next';
+        }
+        b.addEventListener('click', function () { openHit(e); });
+        box.appendChild(b);
+      });
+    });
+    if (!shown.length && !mols.length) box.appendChild(el('div', 'm2-none', index && index.length || !q ? 'No match' : 'Searching…'));
+    // keep the chosen map visible when the list scrolls (narrow screens)
+    box.scrollTop = keep;
+    var on = box.querySelector('.m2-on');
+    if (on && box.scrollHeight > box.clientHeight) box.scrollTop = Math.max(0, Math.min(box.scrollTop, on.offsetTop - box.offsetTop), on.offsetTop - box.offsetTop + on.offsetHeight - box.clientHeight);
+  }
+  document.getElementById('m2-search').addEventListener('input', function () { buildList(this.value); });
+  // arrow keys step through the listed maps, as on the Colours page; wraps around.
+  // In the search box only up and down, so left and right still move the cursor
+  document.addEventListener('keydown', function (e) {
+    var dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    if (!dir) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var t = e.target.closest ? e.target.closest('input, select, textarea, [contenteditable]') : null;
+    if (t && !(t.id === 'm2-search' && (e.key === 'ArrowDown' || e.key === 'ArrowUp'))) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll('#m2-list .m2-map'));
+    if (!items.length) return;
+    e.preventDefault();
+    var i = items.findIndex(function (b) { return b.classList.contains('m2-on'); });
+    var n = items.length;
+    var next = i < 0 ? (dir > 0 ? 0 : n - 1) : (i + dir + n) % n;
+    if (i < 0 && current) {
+      // the chosen map is in a closed group: go on from its place in the list
+      var at = function (b) { return maps.indexOf(byId[b.getAttribute('data-id')]); };
+      var here = maps.indexOf(current);
+      var after = items.filter(function (b) { return dir > 0 ? at(b) > here : at(b) < here; });
+      if (after.length) next = items.indexOf(dir > 0 ? after[0] : after[after.length - 1]);
+    }
+    var id = items[next].getAttribute('data-id');
+    // replace, so stepping through the list does not fill the browser history
+    if (id !== location.hash.slice(1)) location.replace('#' + id);
+  });
+
+  // ---------- one map ----------
+  function show(m) {
+    current = m;
+    document.getElementById('m2-title').textContent = m.title;
+    document.title = m.title + ' – {{ include.name }}';
+    var topic = topics.filter(function (t) { return t.name === m.topic; })[0];
+    img.removeAttribute('src');
+    img.alt = m.title;
+    img.src = m.image + BUILD; // a new build fetches the image again, not the cached one
+    img.width = m.width;
+    img.height = m.height;
+    if (mode === 'fit') fit(); else standard();
+    loadNodes(m); // after the view, so that a search result can centre its node
+    var dl = document.getElementById('m2-downloads');
+    dl.innerHTML = '';
+    var url = {};
+    (m.downloads || []).forEach(function (d) { url[d.label] = d.url; });
+    var file = function (label, href, cls, title) {
+      var a = el('a', 'm2-dl' + (cls ? ' ' + cls : ''), label);
+      a.href = href; a.setAttribute('download', ''); if (title) a.title = title;
+      a.insertAdjacentHTML('beforeend', DL_ICON);
+      return a;
+    };
+    ['GraphML', 'CellDesigner', 'SBGN-ML', 'SBML'].forEach(function (l) {
+      if (url[l]) dl.appendChild(file(l, url[l]));
+    });
+    var images = ['PNG', 'SVG'].filter(function (l) { return url[l]; });
+    if (m.imageError) {  // the old images do not show the current GraphML: no download
+      var why = 'Images not made from the current GraphML. The drawing tool stopped at: ' + m.imageError;
+      var bad = el('a', 'm2-dl m2-bad', 'Images');
+      bad.href = '#'; bad.title = why;
+      bad.insertAdjacentHTML('beforeend', DL_ICON);
+      bad.addEventListener('click', function (e) {
+        e.preventDefault();
+        var note = document.getElementById('m2-imgnote');
+        if (note) return note.remove();
+        dl.appendChild(el('div', null, why)).id = 'm2-imgnote';
+      });
+      dl.appendChild(bad);
+    } else if (images.length) {  // PNG and SVG in one menu
+      var menu = el('details'), sum = el('summary', 'm2-dl', 'Images'), list = el('div', 'm2-list');
+      sum.insertAdjacentHTML('beforeend', DL_ICON); sum.insertAdjacentHTML('beforeend', '<span class="m2-caret">▾</span>');
+      images.forEach(function (l) { var a = el('a', null, l); a.href = url[l]; a.setAttribute('download', ''); list.appendChild(a); });
+      menu.appendChild(sum); menu.appendChild(list); dl.appendChild(menu);
+    }
+    if (url.Annotation) dl.appendChild(file('Data', url.Annotation, null, 'Annotation table (CSV)'));
+    if (url.References) dl.appendChild(file('References', url.References, null, 'References per process (CSV)'));
+    ['Newt', 'MINERVA'].forEach(function (l) {
+      if (!url[l]) return;
+      var a = el('a', 'm2-ext', l);
+      a.href = url[l]; a.target = '_blank'; a.rel = 'noopener'; a.title = 'Opens in a new tab';
+      a.insertAdjacentHTML('beforeend', EXT_ICON);
+      dl.appendChild(a);
+    });
+    // the text: this map's own, or the first map of its topic that has one
+    var source = m.hasText ? m : topic.maps.filter(function (o) { return o.hasText; })[0];
+    var box = document.getElementById('m2-text');
+    box.innerHTML = '';
+    if (!source) return;
+    var put = function (html) { if (current === m) box.innerHTML = html; };
+    if (textCache[source.id]) return put(textCache[source.id]);
+    fetch(source.data + BUILD).then(function (r) { return r.json(); }).then(function (d) {
+      textCache[source.id] = d.html;
+      put(d.html);
+    });
+  }
+  function go(id) {
+    if (location.hash.slice(1) !== id) location.hash = id;
+    else route();
+  }
+  function route() {
+    var m = byId[location.hash.slice(1)] || maps[0];
+    if (!m) return;
+    if (!pending) lastHit = null; // chosen from the map list, not a search result
+    closed[m.group] = false; // the chosen map's group is always open
+    show(m);
+    buildList(document.getElementById('m2-search').value);
+  }
+  window.addEventListener('hashchange', route);
+
+  fetch('{{ include.index | relative_url }}' + BUILD).then(function (r) { return r.json(); }).then(function (list) {
+    maps = list;
+    placeInfo();
+    maps.forEach(function (m) {
+      byId[m.id] = m;
+      var t = topics.filter(function (x) { return x.name === m.topic; })[0];
+      if (!t) topics.push(t = { name: m.topic, maps: [] });
+      t.maps.push(m);
+    });
+    route();
+  });
+})();
+</script>

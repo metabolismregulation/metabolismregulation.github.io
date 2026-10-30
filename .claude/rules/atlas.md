@@ -1,11 +1,14 @@
 ---
 paths:
   - "pages/atlas.html"
+  - "_includes/atlas-app.html"
   - "pages/atlas-index.json"
   - "atlas-data/**"
   - "atlas-downloads/**"
   - "scripts/make_maps.py"
 ---
+
+The page code is `_includes/atlas-app.html`, shared with the Pattern Atlas (`pattern-atlas.md`).
 
 ## Atlas map window
 
