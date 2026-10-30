@@ -4,7 +4,7 @@ topic: "Peroxiredoxins"
 tab: ""
 page: "/peroxiredoxins/"
 group: "Biological oxidations"
-order: 30
+order: 31
 kind: "map"
 draft: true
 tag: "draft-ext"
