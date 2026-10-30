@@ -4,6 +4,7 @@ title: Pattern List
 permalink: /pattern-list/
 sitemap: false
 noindex: true
+icon: favicon-patterns
 ---
 
 Cell signalling and metabolic regulation use the same few patterns again and again: binding, covalent modification cycles, regulated production and destruction, cascades, feedback and feed-forward loops. Each pattern gives a characteristic response, graded or switch-like, a lasting switch, a pulse or an oscillation. This list collects the patterns with the examples their sources give. Patterns drawn as maps link to the [Pattern Atlas](/pattern-atlas/).
