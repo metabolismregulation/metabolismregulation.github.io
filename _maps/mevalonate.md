@@ -4,7 +4,7 @@ topic: "Mevalonate biosynthesis"
 tab: ""
 page: "/mevalonate/"
 group: "Lipid metabolism"
-order: 12
+order: 13
 kind: "map"
 draft: false
 tag: ""

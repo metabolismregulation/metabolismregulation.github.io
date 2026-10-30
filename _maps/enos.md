@@ -4,7 +4,7 @@ topic: "eNOS pathway"
 tab: ""
 page: "/enos/"
 group: "Nitric oxide metabolism"
-order: 30
+order: 31
 kind: "map"
 draft: false
 tag: ""

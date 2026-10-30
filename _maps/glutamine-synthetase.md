@@ -4,7 +4,7 @@ topic: "Glutamine synthetase"
 tab: ""
 page: "/glutamine-synthetase/"
 group: "Amino acid metabolism"
-order: 22
+order: 23
 kind: "map"
 draft: true
 tag: "draft-ext"

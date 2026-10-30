@@ -4,7 +4,7 @@ topic: "Sphingolipid synthesis"
 tab: ""
 page: "/sphingolipids/"
 group: "Lipid metabolism"
-order: 19
+order: 20
 kind: "map"
 draft: true
 tag: "draft-ext"

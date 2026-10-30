@@ -4,7 +4,7 @@ topic: "Leukotriene synthesis"
 tab: ""
 page: "/alox5/"
 group: "Lipid metabolism"
-order: 11
+order: 12
 kind: "map"
 draft: true
 tag: "new"

@@ -4,7 +4,7 @@ topic: "Glycogen metabolism"
 tab: "liver"
 page: "/glycogen/"
 group: "Carbohydrate metabolism"
-order: 6
+order: 7
 kind: "map"
 draft: false
 tag: ""

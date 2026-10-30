@@ -53,7 +53,7 @@ TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-
 # Groups without maps are planned for future maps and are not shown.
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
 GROUPS = [
-    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycolysis-extended', 'pdh', 'glycogen-muscle', 'glycogen-liver', 'acly']),
+    ('Carbohydrate metabolism', ['glycolysis', 'glycolysis-cardiac', 'glycolysis-extended', 'pdh', 'glucokinase', 'glycogen-muscle', 'glycogen-liver', 'acly']),
     ('Lipid metabolism', ['eicosanoids', 'eicosanoids-platelet', 'eicosanoids-mast-cell', 'alox5', 'mevalonate', 'carnitine', 'srebp', 'tag', 'estrogen', 'phosphoinositides', 'gba1', 'sphingolipids', 'aspirin']),
     ('Amino acid metabolism', ['glutaminase', 'glutamine-synthetase', 'glutamate-dehydrogenase', 'tyrosine-hydroxylase', 'bcaa', 'ureacycle']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
@@ -73,7 +73,7 @@ DRUG = {'aspirin'}
 # draft-white: the same biology as the official map, with small changes to its file
 TAGS = {'alox5': 'new', 'gba1': 'new', 'glycolysis-cardiac': 'new', 'glycolysis-extended': 'new'}
 # the Atlas extension (user, 2026-10-30): blue draft tag and blue name in the list (draft-ext)
-TAGS.update({m: 'draft-ext' for m in ('peroxiredoxins', 'bh4', 'iron-sensing', 'heme', 'sphingolipids', 'glutamine-synthetase', 'glutamate-dehydrogenase', 'tyrosine-hydroxylase')})
+TAGS.update({m: 'draft-ext' for m in ('peroxiredoxins', 'bh4', 'iron-sensing', 'heme', 'sphingolipids', 'glutamine-synthetase', 'glutamate-dehydrogenase', 'tyrosine-hydroxylase', 'glucokinase')})
 # the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
 # version (the reference first, then the working version), under the same name with the tag copy, for comparison: the official page's text and the
 # complete official file set, frozen copies of the files in downloads/. Made by --copy-official,
@@ -83,7 +83,7 @@ OFFICIAL_COPY = os.path.join(DL, 'copy')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'peroxiredoxins': 'Peroxiredoxins', 'bh4': 'Tetrahydrobiopterin synthesis', 'iron-sensing': 'Iron sensing', 'heme': 'Heme synthesis', 'sphingolipids': 'Sphingolipid synthesis', 'glutamine-synthetase': 'Glutamine synthetase', 'glutamate-dehydrogenase': 'Glutamate dehydrogenase', 'tyrosine-hydroxylase': 'Tyrosine hydroxylase', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
+TOPIC = {'peroxiredoxins': 'Peroxiredoxins', 'bh4': 'Tetrahydrobiopterin synthesis', 'iron-sensing': 'Iron sensing', 'heme': 'Heme synthesis', 'sphingolipids': 'Sphingolipid synthesis', 'glutamine-synthetase': 'Glutamine synthetase', 'glutamate-dehydrogenase': 'Glutamate dehydrogenase', 'tyrosine-hydroxylase': 'Tyrosine hydroxylase', 'glucokinase': 'Glucokinase', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then

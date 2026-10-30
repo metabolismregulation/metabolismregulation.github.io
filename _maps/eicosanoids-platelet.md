@@ -4,7 +4,7 @@ topic: "Eicosanoids"
 tab: "platelet"
 page: "/eicosanoids-platelet/"
 group: "Lipid metabolism"
-order: 9
+order: 10
 kind: "map"
 draft: true
 tag: "draft"

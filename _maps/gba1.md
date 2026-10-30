@@ -4,7 +4,7 @@ topic: "Glucosylceramide hydrolysis"
 tab: ""
 page: "/gba1/"
 group: "Lipid metabolism"
-order: 18
+order: 19
 kind: "map"
 draft: true
 tag: "new"

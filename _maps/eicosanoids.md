@@ -4,7 +4,7 @@ topic: "Eicosanoids"
 tab: "generic"
 page: "/eicosanoids/draft/"
 group: "Lipid metabolism"
-order: 8
+order: 9
 kind: "map"
 draft: true
 tag: "draft"
