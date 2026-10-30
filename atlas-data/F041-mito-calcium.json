@@ -1,0 +1,1771 @@
+{
+"nodes": [
+{
+"label": "Ca2+",
+"class": "SimpleChemical",
+"box": [
+799.0,
+327.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"calcium(2+)"
+],
+[
+"Synonyms",
+"CALCIUM ION; Ca(2+); Ca2+; calcium(2+) ion; calcium(II) cation; calcium, doubly charged positive ion"
+],
+[
+"Formula",
+"Ca"
+],
+[
+"ChEBI",
+"CHEBI:29108"
+],
+[
+"KEGG",
+"C00076"
+],
+[
+"InChI",
+"InChI=1S/Ca/q+2"
+],
+[
+"InChIKey",
+"BHPQYMZQTOCNFJ-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "isocitrate",
+"class": "SimpleChemical",
+"box": [
+399.0,
+587.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"isocitrate(3-)"
+],
+[
+"Synonyms",
+"1-hydroxypropane-1,2,3-tricarboxylate; 1-hydroxytricarballylate; 3-carboxylato-2,3-dideoxypentarate"
+],
+[
+"Definition",
+"Propan-1-ol with a hydrogen at each of the 3 carbon positions substituted with a carboxylate group."
+],
+[
+"Formula",
+"C6H5O7"
+],
+[
+"ChEBI",
+"CHEBI:16087"
+],
+[
+"KEGG",
+"C00311"
+],
+[
+"HMDB",
+"HMDB0000193"
+],
+[
+"InChI",
+"InChI=1S/C6H8O7/c7-3(8)1-2(5(10)11)4(9)6(12)13/h2,4,9H,1H2,(H,7,8)(H,10,11)(H,12,13)/p-3"
+],
+[
+"InChIKey",
+"ODBLHEXUDAPZAU-UHFFFAOYSA-K"
+]
+]
+},
+{
+"id": "c1::p_idh",
+"label": "",
+"class": "Process",
+"box": [
+607.0,
+595.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"isocitrate",
+"NAD+"
+],
+"out": [
+"2-oxoglutarate",
+"NADH",
+"CO2"
+],
+"by": [
+"",
+"Ca2+",
+"ADP",
+"NADH"
+]
+},
+"references": [
+{
+"authors": "Denton RM et al.",
+"year": "1978",
+"title": "Calcium ions and the regulation of NAD+-linked isocitrate dehydrogenase from the mitochondria of rat heart and other tissues.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "218557"
+},
+{
+"authors": "Rutter GA et al.",
+"year": "1989",
+"title": "Rapid purification of pig heart NAD+-isocitrate dehydrogenase. Studies on the regulation of activity by Ca2+, adenine nucleotides, Mg2+ and other metal ions.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "2597116"
+},
+{
+"authors": "Denton RM",
+"year": "2009",
+"title": "Regulation of mitochondrial dehydrogenases by calcium ions.",
+"journal": "Biochim Biophys Acta",
+"db": "pubmed",
+"id": "19413950"
+}
+]
+},
+{
+"label": "2-oxoglutarate",
+"class": "SimpleChemical",
+"box": [
+799.0,
+587.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"2-oxoglutarate(2-)"
+],
+[
+"Synonyms",
+"2-ketoglutarate; 2-oxoglutarate; 2-oxopentanedioate; 2-oxopentanedioic acid, ion(2-); alpha-ketoglutarate"
+],
+[
+"Definition",
+"An oxo dicarboxylate obtained by deprotonation of both carboxy groups of 2-oxoglutaric acid."
+],
+[
+"Formula",
+"C5H4O5"
+],
+[
+"ChEBI",
+"CHEBI:16810"
+],
+[
+"KEGG",
+"C00026"
+],
+[
+"InChI",
+"InChI=1S/C5H6O5/c6-3(5(9)10)1-2-4(7)8/h1-2H2,(H,7,8)(H,9,10)/p-2"
+],
+[
+"InChIKey",
+"KPGXRSRHYNQIFN-UHFFFAOYSA-L"
+]
+]
+},
+{
+"id": "c1::p_ogdh",
+"label": "",
+"class": "Process",
+"box": [
+1007.0,
+595.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"2-oxoglutarate",
+"NAD+",
+"CoA"
+],
+"out": [
+"succinyl-CoA",
+"NADH",
+"CO2"
+],
+"by": [
+"",
+"Ca2+",
+"ADP",
+"NADH"
+]
+},
+"references": [
+{
+"authors": "McCormack JG et al.",
+"year": "1979",
+"title": "The effects of calcium ions and adenine nucleotides on the activity of pig heart 2-oxoglutarate dehydrogenase complex.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "39549"
+},
+{
+"authors": "Lawlis VB et al.",
+"year": "1981",
+"title": "Regulation of bovine kidney alpha-ketoglutarate dehydrogenase complex by calcium ion and adenine nucleotides. Effects on S0.5 for alpha-ketoglutarate.",
+"journal": "Biochemistry",
+"db": "pubmed",
+"id": "7236617"
+},
+{
+"db": "pubmed",
+"id": "24495017"
+}
+]
+},
+{
+"label": "succinyl-CoA",
+"class": "SimpleChemical",
+"box": [
+1199.0,
+587.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"succinyl-CoA(5-)"
+],
+[
+"Synonyms",
+"3'-phosphonatoadenosine 5'-{3-[(3R)-4-{[3-({2-[(3-carboxylatopropanoyl)sulfanyl]ethyl}amino)-3-oxopropyl]amino}-3-hydroxy-2,2-dimethyl-4-oxobutyl]diphosphate}; S-(3-carboxy-propionyl)-CoA(5-); S-(hydrogen succinyl)CoA(5-); succinyl-CoA; succinyl-CoA pentaanion; succinyl-coenzyme A(5-)"
+],
+[
+"Definition",
+"An acyl-CoA oxoanion that is the pentaanion of succinyl-CoA, arising from deprotonation of the phosphate, diphosphate and carboxylic acid OH groups."
+],
+[
+"Formula",
+"C25H35N7O19P3S"
+],
+[
+"ChEBI",
+"CHEBI:57292"
+],
+[
+"InChI",
+"InChI=1S/C25H40N7O19P3S/c1-25(2,20(38)23(39)28-6-5-14(33)27-7-8-55-16(36)4-3-15(34)35)10-48-54(45,46)51-53(43,44)47-9-13-19(50-52(40,41)42)18(37)24(49-13)32-12-31-17-21(26)29-11-30-22(17)32/h11-13,18-20,24,37-38H,3-10H2,1-2H3,(H,27,33)(H,28,39)(H,34,35)(H,43,44)(H,45,46)(H2,26,29,30)(H2,40,41,42)/p-5/t13-,18-,19-,20+,24-/m1/s1"
+],
+[
+"InChIKey",
+"VNOYUJKHFWYWIR-ITIYDSSPSA-I"
+]
+]
+},
+{
+"label": "NAD+",
+"class": "SimpleChemical",
+"box": [
+519.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NAD(1-)"
+],
+[
+"Synonyms",
+"NAD anion; NAD(+); adenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"An anionic form of nicotinamide adenine dinucleotide arising from deprotonation of the two OH groups of the diphosphate moiety."
+],
+[
+"Formula",
+"C21H26N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57540"
+],
+[
+"InChI",
+"InChI=1S/C21H27N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1-4,7-8,10-11,13-16,20-21,29-32H,5-6H2,(H5-,22,23,24,25,33,34,35,36,37)/p-1/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BAWFJGJZGIEFAR-NNYOXOHSSA-M"
+]
+]
+},
+{
+"label": "NADH",
+"class": "SimpleChemical",
+"box": [
+659.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADH(2-)"
+],
+[
+"Synonyms",
+"NADH; NADH dianion; adenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"Dianion of NADH arising from deprotonation of the two diphosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H27N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57945"
+],
+[
+"InChI",
+"InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BOPGDPNILDQYTO-NNYOXOHSSA-L"
+]
+]
+},
+{
+"label": "CO2",
+"class": "SimpleChemical",
+"box": [
+719.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"carbon dioxide"
+],
+[
+"Synonyms",
+"CO(2); CO2; E 290; E-290; E290; R-744; [CO2]; carbonic anhydride; dioxidocarbon; methanedione"
+],
+[
+"Definition",
+"A one-carbon compound with formula CO2 in which the carbon is attached to each oxygen atom by a double bond. A colourless, odourless gas under normal conditions, it is produced during respiration by all animals, fungi and microorganisms that depend directly or indirectly on living or decaying plants for food."
+],
+[
+"Formula",
+"CO2"
+],
+[
+"ChEBI",
+"CHEBI:16526"
+],
+[
+"KEGG",
+"C00011"
+],
+[
+"HMDB",
+"HMDB0001967"
+],
+[
+"InChI",
+"InChI=1S/CO2/c2-1-3"
+],
+[
+"InChIKey",
+"CURLTUGMZLYLDI-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "NAD+",
+"class": "SimpleChemical",
+"box": [
+879.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NAD(1-)"
+],
+[
+"Synonyms",
+"NAD anion; NAD(+); adenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"An anionic form of nicotinamide adenine dinucleotide arising from deprotonation of the two OH groups of the diphosphate moiety."
+],
+[
+"Formula",
+"C21H26N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57540"
+],
+[
+"InChI",
+"InChI=1S/C21H27N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1-4,7-8,10-11,13-16,20-21,29-32H,5-6H2,(H5-,22,23,24,25,33,34,35,36,37)/p-1/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BAWFJGJZGIEFAR-NNYOXOHSSA-M"
+]
+]
+},
+{
+"label": "CoA",
+"class": "SimpleChemical",
+"box": [
+939.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"coenzyme A(4-)"
+],
+[
+"Synonyms",
+"3'-phosphonatoadenosine 5'-{3-[(3R)-3-hydroxy-2,2-dimethyl-4-oxo-4-({3-oxo-3-[(2-sulfanylethyl)amino]propyl}amino)butyl] diphosphate}; CoA"
+],
+[
+"Definition",
+"Tetraanion of coenzyme A."
+],
+[
+"Formula",
+"C21H32N7O16P3S"
+],
+[
+"ChEBI",
+"CHEBI:57287"
+],
+[
+"InChI",
+"InChI=1S/C21H36N7O16P3S/c1-21(2,16(31)19(32)24-4-3-12(29)23-5-6-48)8-41-47(38,39)44-46(36,37)40-7-11-15(43-45(33,34)35)14(30)20(42-11)28-10-27-13-17(22)25-9-26-18(13)28/h9-11,14-16,20,30-31,48H,3-8H2,1-2H3,(H,23,29)(H,24,32)(H,36,37)(H,38,39)(H2,22,25,26)(H2,33,34,35)/p-4/t11-,14-,15-,16+,20-/m1/s1"
+],
+[
+"InChIKey",
+"RGJOEKWQDUBAIZ-IBOSZNHHSA-J"
+]
+]
+},
+{
+"label": "NADH",
+"class": "SimpleChemical",
+"box": [
+1049.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADH(2-)"
+],
+[
+"Synonyms",
+"NADH; NADH dianion; adenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"Dianion of NADH arising from deprotonation of the two diphosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H27N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57945"
+],
+[
+"InChI",
+"InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BOPGDPNILDQYTO-NNYOXOHSSA-L"
+]
+]
+},
+{
+"label": "CO2",
+"class": "SimpleChemical",
+"box": [
+1104.0,
+707.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"carbon dioxide"
+],
+[
+"Synonyms",
+"CO(2); CO2; E 290; E-290; E290; R-744; [CO2]; carbonic anhydride; dioxidocarbon; methanedione"
+],
+[
+"Definition",
+"A one-carbon compound with formula CO2 in which the carbon is attached to each oxygen atom by a double bond. A colourless, odourless gas under normal conditions, it is produced during respiration by all animals, fungi and microorganisms that depend directly or indirectly on living or decaying plants for food."
+],
+[
+"Formula",
+"CO2"
+],
+[
+"ChEBI",
+"CHEBI:16526"
+],
+[
+"KEGG",
+"C00011"
+],
+[
+"HMDB",
+"HMDB0001967"
+],
+[
+"InChI",
+"InChI=1S/CO2/c2-1-3"
+],
+[
+"InChIKey",
+"CURLTUGMZLYLDI-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "IDH3A",
+"class": "Macromolecule",
+"box": [
+491.0,
+847.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Isocitrate dehydrogenase [NAD] subunit alpha, mitochondrial"
+],
+[
+"Alternative names",
+"Isocitric dehydrogenase subunit alpha; NAD(+)-specific ICDH subunit alpha"
+],
+[
+"Function",
+"Catalytic subunit of the enzyme which catalyzes the decarboxylation of isocitrate (ICT) into alpha-ketoglutarate. The heterodimer composed of the alpha (IDH3A) and beta (IDH3B) subunits and the heterodimer composed of the alpha (IDH3A) and gamma (IDH3G) subunits, have considerable basal activity but the full activity of the heterotetramer (containing two subunits of IDH3A, one of IDH3B and one of IDH3G) requires the assembly and cooperative function of both heterodimers"
+],
+[
+"Location",
+"Mitochondrion"
+],
+[
+"HGNC",
+"HGNC:5384"
+],
+[
+"HGNC symbol",
+"IDH3A"
+],
+[
+"Entrez",
+"3419"
+],
+[
+"Ensembl",
+"ENSG00000166411"
+],
+[
+"RefSeq",
+"NM_005530"
+],
+[
+"UniProt",
+"P50213"
+]
+]
+},
+{
+"label": "IDH3B",
+"class": "Macromolecule",
+"box": [
+579.0,
+847.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Isocitrate dehydrogenase [NAD] subunit beta, mitochondrial"
+],
+[
+"Alternative names",
+"Isocitric dehydrogenase subunit beta; NAD(+)-specific ICDH subunit beta"
+],
+[
+"Function",
+"Plays a structural role to facilitate the assembly and ensure the full activity of the enzyme catalyzing the decarboxylation of isocitrate (ICT) into alpha-ketoglutarate. The heterodimer composed of the alpha (IDH3A) and beta (IDH3B) subunits and the heterodimer composed of the alpha (IDH3A) and gamma (IDH3G) subunits, have considerable basal activity but the full activity of the heterotetramer (containing two subunits of IDH3A, one of IDH3B and one of IDH3G) requires the assembly and cooperative function of both heterodimers"
+],
+[
+"Location",
+"Mitochondrion"
+],
+[
+"HGNC",
+"HGNC:5385"
+],
+[
+"HGNC symbol",
+"IDH3B"
+],
+[
+"Alias symbols",
+"RP46"
+],
+[
+"Entrez",
+"3420"
+],
+[
+"Ensembl",
+"ENSG00000101365"
+],
+[
+"RefSeq",
+"NM_001258384"
+],
+[
+"UniProt",
+"O43837"
+]
+]
+},
+{
+"label": "IDH3G",
+"class": "Macromolecule",
+"box": [
+667.0,
+847.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Isocitrate dehydrogenase [NAD] subunit gamma, mitochondrial"
+],
+[
+"Alternative names",
+"Isocitric dehydrogenase subunit gamma; NAD(+)-specific ICDH subunit gamma"
+],
+[
+"Function",
+"Regulatory subunit which plays a role in the allosteric regulation of the enzyme catalyzing the decarboxylation of isocitrate (ICT) into alpha-ketoglutarate. The heterodimer composed of the alpha (IDH3A) and beta (IDH3B) subunits and the heterodimer composed of the alpha (IDH3A) and gamma (IDH3G) subunits, have considerable basal activity but the full activity of the heterotetramer (containing two subunits of IDH3A, one of IDH3B and one of IDH3G) requires the assembly and cooperative function of both heterodimers"
+],
+[
+"Location",
+"Mitochondrion, Photoreceptor inner segment"
+],
+[
+"HGNC",
+"HGNC:5386"
+],
+[
+"HGNC symbol",
+"IDH3G"
+],
+[
+"Entrez",
+"3421"
+],
+[
+"Ensembl",
+"ENSG00000067829"
+],
+[
+"RefSeq",
+"NM_004135"
+],
+[
+"UniProt",
+"P51553"
+]
+]
+},
+{
+"label": "OGDH",
+"class": "Macromolecule",
+"box": [
+891.0,
+847.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"2-oxoglutarate dehydrogenase complex component E1"
+],
+[
+"Alternative names",
+"2-oxoglutarate dehydrogenase, mitochondrial; Alpha-ketoglutarate dehydrogenase; Thiamine diphosphate (ThDP)-dependent 2-oxoglutarate dehydrogenase"
+],
+[
+"Function",
+"2-oxoglutarate dehydrogenase (E1o) component of the 2-oxoglutarate dehydrogenase complex (OGDHC). Participates in the first step, rate limiting for the overall conversion of 2-oxoglutarate to succinyl-CoA and CO(2) catalyzed by the whole OGDHC."
+],
+[
+"Location",
+"Mitochondrion, Nucleus"
+],
+[
+"HGNC",
+"HGNC:8124"
+],
+[
+"HGNC symbol",
+"OGDH"
+],
+[
+"Alias symbols",
+"E1k, OGDC-E1, OGDH2, KGD1"
+],
+[
+"Entrez",
+"4967"
+],
+[
+"Ensembl",
+"ENSG00000105953"
+],
+[
+"RefSeq",
+"NM_001003941"
+],
+[
+"UniProt",
+"Q02218"
+]
+]
+},
+{
+"label": "DLST",
+"class": "Macromolecule",
+"box": [
+979.0,
+847.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial"
+],
+[
+"Alternative names",
+"2-oxoglutarate dehydrogenase complex component E2; Dihydrolipoamide succinyltransferase component of 2-oxoglutarate dehydrogenase complex; E2K"
+],
+[
+"Function",
+"Dihydrolipoamide succinyltransferase (E2) component of the 2-oxoglutarate dehydrogenase complex. The 2-oxoglutarate dehydrogenase complex catalyzes the overall conversion of 2-oxoglutarate to succinyl-CoA and CO(2)."
+],
+[
+"Location",
+"Mitochondrion matrix, Nucleus"
+],
+[
+"HGNC",
+"HGNC:2911"
+],
+[
+"HGNC symbol",
+"DLST"
+],
+[
+"Previous symbols",
+"DLTS"
+],
+[
+"Alias symbols",
+"OGDC-E2, KGD2"
+],
+[
+"Entrez",
+"1743"
+],
+[
+"Ensembl",
+"ENSG00000119689"
+],
+[
+"RefSeq",
+"NM_001244883"
+],
+[
+"UniProt",
+"P36957"
+]
+]
+},
+{
+"label": "DLD",
+"class": "Macromolecule",
+"box": [
+1067.0,
+847.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Dihydrolipoyl dehydrogenase, mitochondrial"
+],
+[
+"Alternative names",
+"Dihydrolipoamide dehydrogenase; Glycine cleavage system L protein"
+],
+[
+"Function",
+"Lipoamide dehydrogenase is a component of the glycine cleavage system as well as an E3 component of three alpha-ketoacid dehydrogenase complexes (pyruvate-, alpha-ketoglutarate-, and branched-chain amino acid-dehydrogenase complex). The 2-oxoglutarate dehydrogenase complex is mainly active in the mitochondrion."
+],
+[
+"Location",
+"Mitochondrion matrix, Nucleus, Cell projection, cilium, flagellum, Cytoplasmic vesicle, secretory vesicle, acrosome"
+],
+[
+"HGNC",
+"HGNC:2898"
+],
+[
+"HGNC symbol",
+"DLD"
+],
+[
+"Previous symbols",
+"LAD, GCSL"
+],
+[
+"Alias symbols",
+"DLDH, E3, OGDC-E3"
+],
+[
+"Entrez",
+"1738"
+],
+[
+"Ensembl",
+"ENSG00000091140"
+],
+[
+"RefSeq",
+"NM_000108"
+],
+[
+"UniProt",
+"P09622"
+]
+]
+},
+{
+"label": "ADP",
+"class": "SimpleChemical",
+"box": [
+519.0,
+447.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ADP(3-)"
+],
+[
+"Synonyms",
+"5'-O-[(phosphonatooxy)phosphinato]adenosine; ADP; ADP trianion; adenosine 5'-diphosphate"
+],
+[
+"Definition",
+"A nucleoside 5'-diphosphate(3−) arising from deprotonation of all three diphosphate OH groups of adenosine 5'-diphosphate (ADP); major species present at pH 7.3."
+],
+[
+"Formula",
+"C10H12N5O10P2"
+],
+[
+"ChEBI",
+"CHEBI:456216"
+],
+[
+"InChI",
+"InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/p-3/t4-,6-,7-,10-/m1/s1"
+],
+[
+"InChIKey",
+"XTWYTFMLZFPYCI-KQYNXXCUSA-K"
+]
+]
+},
+{
+"label": "NADH",
+"class": "SimpleChemical",
+"box": [
+619.0,
+447.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADH(2-)"
+],
+[
+"Synonyms",
+"NADH; NADH dianion; adenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"Dianion of NADH arising from deprotonation of the two diphosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H27N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57945"
+],
+[
+"InChI",
+"InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BOPGDPNILDQYTO-NNYOXOHSSA-L"
+]
+]
+},
+{
+"label": "NADH",
+"class": "SimpleChemical",
+"box": [
+979.0,
+447.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADH(2-)"
+],
+[
+"Synonyms",
+"NADH; NADH dianion; adenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"Dianion of NADH arising from deprotonation of the two diphosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H27N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57945"
+],
+[
+"InChI",
+"InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BOPGDPNILDQYTO-NNYOXOHSSA-L"
+]
+]
+},
+{
+"label": "ADP",
+"class": "SimpleChemical",
+"box": [
+1079.0,
+447.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ADP(3-)"
+],
+[
+"Synonyms",
+"5'-O-[(phosphonatooxy)phosphinato]adenosine; ADP; ADP trianion; adenosine 5'-diphosphate"
+],
+[
+"Definition",
+"A nucleoside 5'-diphosphate(3−) arising from deprotonation of all three diphosphate OH groups of adenosine 5'-diphosphate (ADP); major species present at pH 7.3."
+],
+[
+"Formula",
+"C10H12N5O10P2"
+],
+[
+"ChEBI",
+"CHEBI:456216"
+],
+[
+"InChI",
+"InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/p-3/t4-,6-,7-,10-/m1/s1"
+],
+[
+"InChIKey",
+"XTWYTFMLZFPYCI-KQYNXXCUSA-K"
+]
+]
+},
+{
+"label": "PDHA1",
+"class": "Macromolecule",
+"box": [
+159.0,
+447.0,
+120.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Pyruvate dehydrogenase E1 component subunit alpha, somatic form, mitochondrial"
+],
+[
+"Alternative names",
+"PDHE1-A type I"
+],
+[
+"Function",
+"Together with PDHB forms the heterotetrameric E1 subunit of the pyruvate dehydrogenase (PDH) complex. The PDH complex catalyzes the overall conversion of pyruvate to acetyl-CoA and CO(2), and thereby links cytoplasmic glycolysis and the mitochondrial tricarboxylic acid (TCA) cycle."
+],
+[
+"Location",
+"Mitochondrion matrix"
+],
+[
+"HGNC",
+"HGNC:8806"
+],
+[
+"HGNC symbol",
+"PDHA1"
+],
+[
+"Previous symbols",
+"PDHA"
+],
+[
+"Alias symbols",
+"E1alpha"
+],
+[
+"Entrez",
+"5160"
+],
+[
+"Ensembl",
+"ENSG00000131828"
+],
+[
+"RefSeq",
+"NM_000284"
+],
+[
+"UniProt",
+"P08559"
+]
+]
+},
+{
+"id": "c1::p_pdp",
+"label": "",
+"class": "Process",
+"box": [
+207.0,
+595.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PDHA1"
+],
+"out": [
+"PDHA1"
+],
+"by": [
+"PDP1",
+"Ca2+"
+]
+},
+"references": [
+{
+"authors": "Denton RM et al.",
+"year": "1972",
+"title": "Stimulation by calcium ions of pyruvate dehydrogenase phosphate phosphatase.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "4343661"
+},
+{
+"authors": "Chen G et al.",
+"year": "1996",
+"title": "Activated function of the pyruvate dehydrogenase phosphatase through Ca2+-facilitated binding to the inner lipoyl domain of the dihydrolipoyl acetyltransferase.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "8910418"
+},
+{
+"authors": "Turkan A et al.",
+"year": "2002",
+"title": "Structural requirements within the lipoyl domain for the Ca2+-dependent binding and activation of pyruvate dehydrogenase phosphatase isoform 1 or its catalytic subunit.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "11842080"
+}
+]
+},
+{
+"label": "PDHA1",
+"class": "Macromolecule",
+"box": [
+159.0,
+727.0,
+120.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Pyruvate dehydrogenase E1 component subunit alpha, somatic form, mitochondrial"
+],
+[
+"Alternative names",
+"PDHE1-A type I"
+],
+[
+"Function",
+"Together with PDHB forms the heterotetrameric E1 subunit of the pyruvate dehydrogenase (PDH) complex. The PDH complex catalyzes the overall conversion of pyruvate to acetyl-CoA and CO(2), and thereby links cytoplasmic glycolysis and the mitochondrial tricarboxylic acid (TCA) cycle."
+],
+[
+"Location",
+"Mitochondrion matrix"
+],
+[
+"HGNC",
+"HGNC:8806"
+],
+[
+"HGNC symbol",
+"PDHA1"
+],
+[
+"Previous symbols",
+"PDHA"
+],
+[
+"Alias symbols",
+"E1alpha"
+],
+[
+"Entrez",
+"5160"
+],
+[
+"Ensembl",
+"ENSG00000131828"
+],
+[
+"RefSeq",
+"NM_000284"
+],
+[
+"UniProt",
+"P08559"
+]
+]
+},
+{
+"label": "PDP1",
+"class": "Macromolecule",
+"box": [
+49.0,
+587.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"[Pyruvate dehydrogenase [acetyl-transferring]]-phosphatase 1, mitochondrial"
+],
+[
+"Alternative names",
+"Protein phosphatase 2C; Pyruvate dehydrogenase phosphatase catalytic subunit 1"
+],
+[
+"Function",
+"Mitochondrial enzyme that catalyzes the dephosphorylation and concomitant reactivation of the alpha subunit of the E1 component of the pyruvate dehydrogenase complex (PDC), thereby stimulating the conversion of pyruvate into acetyl-CoA"
+],
+[
+"Location",
+"Mitochondrion"
+],
+[
+"HGNC",
+"HGNC:9279"
+],
+[
+"HGNC symbol",
+"PDP1"
+],
+[
+"Previous symbols",
+"PPM2C"
+],
+[
+"Alias symbols",
+"PDP, PDH, PPM2A"
+],
+[
+"Entrez",
+"54704"
+],
+[
+"Ensembl",
+"ENSG00000164951"
+],
+[
+"RefSeq",
+"NM_018444"
+],
+[
+"UniProt",
+"Q9P0J1"
+]
+]
+},
+{
+"label": "Ca2+",
+"class": "SimpleChemical",
+"box": [
+319.0,
+447.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"calcium(2+)"
+],
+[
+"Synonyms",
+"CALCIUM ION; Ca(2+); Ca2+; calcium(2+) ion; calcium(II) cation; calcium, doubly charged positive ion"
+],
+[
+"Formula",
+"Ca"
+],
+[
+"ChEBI",
+"CHEBI:29108"
+],
+[
+"KEGG",
+"C00076"
+],
+[
+"InChI",
+"InChI=1S/Ca/q+2"
+],
+[
+"InChIKey",
+"BHPQYMZQTOCNFJ-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "Ca2+",
+"class": "SimpleChemical",
+"box": [
+799.0,
+47.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"calcium(2+)"
+],
+[
+"Synonyms",
+"CALCIUM ION; Ca(2+); Ca2+; calcium(2+) ion; calcium(II) cation; calcium, doubly charged positive ion"
+],
+[
+"Formula",
+"Ca"
+],
+[
+"ChEBI",
+"CHEBI:29108"
+],
+[
+"KEGG",
+"C00076"
+],
+[
+"InChI",
+"InChI=1S/Ca/q+2"
+],
+[
+"InChIKey",
+"BHPQYMZQTOCNFJ-UHFFFAOYSA-N"
+]
+]
+},
+{
+"id": "c0::imp",
+"label": "",
+"class": "Process",
+"box": [
+795.0,
+135.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"Ca2+"
+],
+"out": [
+"Ca2+"
+],
+"by": [
+""
+]
+},
+"references": [
+{
+"authors": "Kirichok Y et al.",
+"year": "2004",
+"title": "The mitochondrial calcium uniporter is a highly selective ion channel.",
+"journal": "Nature",
+"db": "pubmed",
+"id": "14737170"
+},
+{
+"authors": "Baughman JM et al.",
+"year": "2011",
+"title": "Integrative genomics identifies MCU as an essential component of the mitochondrial calcium uniporter.",
+"journal": "Nature",
+"db": "pubmed",
+"id": "21685886"
+},
+{
+"authors": "De Stefani D et al.",
+"year": "2011",
+"title": "A forty-kilodalton protein of the inner membrane is the mitochondrial calcium uniporter.",
+"journal": "Nature",
+"db": "pubmed",
+"id": "21685888"
+}
+]
+},
+{
+"id": "c0::exp",
+"label": "",
+"class": "Process",
+"box": [
+819.0,
+135.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"Ca2+"
+],
+"out": [
+"Ca2+"
+],
+"by": [
+"SLC8B1"
+]
+},
+"references": [
+{
+"authors": "Palty R et al.",
+"year": "2010",
+"title": "NCLX is an essential component of mitochondrial Na+/Ca2+ exchange.",
+"journal": "Proc Natl Acad Sci U S A",
+"db": "pubmed",
+"id": "20018762"
+},
+{
+"authors": "Luongo TS et al.",
+"year": "2017",
+"title": "The mitochondrial Na(+)/Ca(2+) exchanger is essential for Ca(2+) homeostasis and viability.",
+"journal": "Nature",
+"db": "pubmed",
+"id": "28445457"
+}
+]
+},
+{
+"label": "MCU",
+"class": "Macromolecule",
+"box": [
+575.0,
+103.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Calcium uniporter protein, mitochondrial"
+],
+[
+"Alternative names",
+"Coiled-coil domain-containing protein 109A"
+],
+[
+"Function",
+"Channel-forming and calcium-conducting subunit of the mitochondrial inner membrane calcium uniporter complex (uniplex), which mediates calcium uptake into the mitochondrial matrix. MCU channel activity is regulated by the calcium-sensor subunits of the uniplex MICU1 and MICU2 (or MICU3)."
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:23526"
+],
+[
+"HGNC symbol",
+"MCU"
+],
+[
+"Previous symbols",
+"C10orf42, CCDC109A"
+],
+[
+"Alias symbols",
+"FLJ46135"
+],
+[
+"Entrez",
+"90550"
+],
+[
+"Ensembl",
+"ENSG00000156026"
+],
+[
+"RefSeq",
+"NM_138357"
+],
+[
+"UniProt",
+"Q8NE86"
+]
+]
+},
+{
+"label": "SMDT1",
+"class": "Macromolecule",
+"box": [
+663.0,
+103.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Essential MCU regulator, mitochondrial"
+],
+[
+"Alternative names",
+"Single-pass membrane protein with aspartate-rich tail 1, mitochondrial"
+],
+[
+"Function",
+"Essential regulatory subunit of the mitochondrial calcium uniporter complex (uniplex), a complex that mediates calcium uptake into mitochondria. Required to bridge the calcium-sensing proteins MICU1 with the calcium-conducting subunit MCU."
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:25055"
+],
+[
+"HGNC symbol",
+"SMDT1"
+],
+[
+"Previous symbols",
+"C22orf32"
+],
+[
+"Alias symbols",
+"dJ186O1.1, DDDD, EMRE"
+],
+[
+"Entrez",
+"91689"
+],
+[
+"Ensembl",
+"ENSG00000183172"
+],
+[
+"RefSeq",
+"NM_033318"
+],
+[
+"UniProt",
+"Q9H4I9"
+]
+]
+},
+{
+"label": "MICU1",
+"class": "Macromolecule",
+"box": [
+575.0,
+151.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Calcium uptake protein 1, mitochondrial"
+],
+[
+"Alternative names",
+"Atopy-related autoantigen CALC; Calcium-binding atopy-related autoantigen 1"
+],
+[
+"Function",
+"Calcium sensor of the mitochondrial calcium uniporter (MCU) channel, which senses calcium level via its EF-hand domains. MICU1 and MICU2 (or MICU3) form a disulfide-linked heterodimer that stimulates and inhibits MCU activity, depending on the concentration of calcium."
+],
+[
+"Location",
+"Mitochondrion intermembrane space, Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:1530"
+],
+[
+"HGNC symbol",
+"MICU1"
+],
+[
+"Previous symbols",
+"CBARA1"
+],
+[
+"Alias symbols",
+"CALC, EFHA3, FLJ12684"
+],
+[
+"Entrez",
+"10367"
+],
+[
+"Ensembl",
+"ENSG00000107745"
+],
+[
+"RefSeq",
+"NM_006077"
+],
+[
+"UniProt",
+"Q9BPX6"
+]
+]
+},
+{
+"label": "MICU2",
+"class": "Macromolecule",
+"box": [
+663.0,
+151.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Calcium uptake protein 2, mitochondrial"
+],
+[
+"Alternative names",
+"EF-hand domain-containing family member A1"
+],
+[
+"Function",
+"Calcium sensor of the mitochondrial calcium uniporter (MCU) channel, which senses calcium level via its EF-hand domains. MICU1 and MICU2 form a disulfide-linked heterodimer that stimulates and inhibits MCU activity, depending on the concentration of calcium."
+],
+[
+"Location",
+"Mitochondrion intermembrane space, Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:31830"
+],
+[
+"HGNC symbol",
+"MICU2"
+],
+[
+"Previous symbols",
+"EFHA1"
+],
+[
+"Entrez",
+"221154"
+],
+[
+"Ensembl",
+"ENSG00000165487"
+],
+[
+"RefSeq",
+"NM_152726"
+],
+[
+"UniProt",
+"Q8IYU8"
+]
+]
+},
+{
+"label": "SLC8B1",
+"class": "Macromolecule",
+"box": [
+959.0,
+127.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Mitochondrial sodium/calcium exchanger protein"
+],
+[
+"Alternative names",
+"Na(+)/K(+)/Ca(2+)-exchange protein 6; Sodium/calcium exchanger protein, mitochondrial; Sodium/potassium/calcium exchanger 6; Solute carrier family 24 member 6; Solute carrier family 8 member B1"
+],
+[
+"Function",
+"Mitochondrial sodium/calcium antiporter that mediates sodium-dependent calcium efflux from mitochondrion, by mediating the exchange of 3 sodium ions per 1 calcium ion. Plays a central role in mitochondrial calcium homeostasis by mediating mitochondrial calcium extrusion: calcium efflux is essential for mitochondrial function and cell survival, notably in cardiomyocytes."
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:26175"
+],
+[
+"HGNC symbol",
+"SLC8B1"
+],
+[
+"Previous symbols",
+"SLC24A6"
+],
+[
+"Alias symbols",
+"FLJ22233, NCKX6, NCLX"
+],
+[
+"Entrez",
+"80024"
+],
+[
+"Ensembl",
+"ENSG00000089060"
+],
+[
+"RefSeq",
+"NM_024959"
+],
+[
+"UniProt",
+"Q6J4K2"
+]
+]
+}
+]
+}

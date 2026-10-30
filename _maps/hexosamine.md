@@ -4,7 +4,7 @@ topic: "Hexosamine pathway (GFPT1)"
 tab: ""
 page: "/hexosamine/"
 group: "Glycan metabolism"
-order: 39
+order: 40
 kind: "map"
 draft: true
 tag: "draft-ext"
