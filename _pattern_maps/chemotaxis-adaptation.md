@@ -4,7 +4,7 @@ topic: "Negative feedback: adaptation"
 tab: "E. coli chemotaxis"
 page: ""
 group: "Pulses and adaptation"
-order: 27
+order: 28
 kind: "map"
 draft: false
 tag: "draft"

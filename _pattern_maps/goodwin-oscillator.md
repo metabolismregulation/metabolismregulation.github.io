@@ -4,7 +4,7 @@ topic: "Negative feedback oscillator (Goodwin)"
 tab: "Gene, mRNA, enzyme and product"
 page: ""
 group: "Oscillators and excitability"
-order: 30
+order: 31
 kind: "map"
 draft: false
 tag: "draft"

@@ -4,7 +4,7 @@ topic: "Relaxation oscillator: negative feedback plus bistable trigger"
 tab: "Cyclin B, Cdk1 and APC/C-Cdc20"
 page: ""
 group: "Oscillators and excitability"
-order: 31
+order: 32
 kind: "map"
 draft: false
 tag: "draft"

@@ -4,7 +4,7 @@ topic: "Excitability"
 tab: "ERK1/2 in epithelial cells"
 page: ""
 group: "Oscillators and excitability"
-order: 35
+order: 36
 kind: "map"
 draft: false
 tag: "draft"

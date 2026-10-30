@@ -4,7 +4,7 @@ topic: "Depletion in place of negative feedback"
 tab: "RhoA in three states"
 page: ""
 group: "Oscillators and excitability"
-order: 34
+order: 35
 kind: "map"
 draft: false
 tag: "draft"

@@ -26,3 +26,8 @@ menu of Pattern Atlas then Pattern List (the Atlas on the left, user), and the s
 `_layouts/default.html` chooses by that setting, and every other page keeps the site's top bar. A change to the
 layout is checked by building the site before and after: no page other than the pattern pages may differ (build
 timestamps aside), since the layout serves the official pages too.
+
+Colours and Sources (user, 2026-10-30): patterns and examples from the book in black, from papers by the same author in
+blue (#0066CC), from sources on metabolic regulation in green (#2E7D32), by the kind each source has in
+`_data/pattern_sources.csv`; examples from other sources than the row's come from `_data/pattern_examples.csv`. The
+Sources section at the end lists the sources grouped by kind. Both files are copies from the private repository.

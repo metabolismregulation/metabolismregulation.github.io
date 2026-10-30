@@ -4,7 +4,7 @@ topic: "Interlinked positive and double-negative feedback loops"
 tab: "Cdk1, Cdc25 and Wee1"
 page: ""
 group: "Oscillators and excitability"
-order: 32
+order: 33
 kind: "map"
 draft: false
 tag: ""

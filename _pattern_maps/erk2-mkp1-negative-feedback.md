@@ -4,7 +4,7 @@ topic: "Delayed negative feedback (transcriptional)"
 tab: "ERK2 and MKP1"
 page: ""
 group: "Pulses and adaptation"
-order: 28
+order: 29
 kind: "map"
 draft: false
 tag: ""

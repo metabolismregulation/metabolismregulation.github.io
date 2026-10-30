@@ -4,7 +4,7 @@ topic: "State-dependent inactivation"
 tab: "β2AR, βARK and β-arrestin"
 page: ""
 group: "Pulses and adaptation"
-order: 29
+order: 30
 kind: "map"
 draft: false
 tag: ""

@@ -4,7 +4,7 @@ topic: "FitzHugh–Nagumo oscillator"
 tab: "Membrane potential and recovery"
 page: ""
 group: "Oscillators and excitability"
-order: 33
+order: 34
 kind: "map"
 draft: false
 tag: "draft"
