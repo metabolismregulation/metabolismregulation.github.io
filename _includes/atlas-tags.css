@@ -6,10 +6,15 @@
      draft dark grey, new blue, image error red, copy (and the white draft) light grey with a
      lighter edge. On the chosen map (blue) every tag is clear with a white edge and word. */
   .m2-draft { display: inline-block; box-sizing: border-box; height: 16px; line-height: 14px; padding: 0 5px; margin-left: 6px; font-size: 11px; color: #555; background: #fff; border: 1px solid #555; border-radius: 2px; }
-  .m2-on .m2-draft, .m2-on .m2-draft.m2-new, .m2-on .m2-draft.m2-white, .m2-on .m2-draft.m2-copy, .m2-on .m2-draft.m2-error { color: #fff; background: transparent; border-color: #fff; }
+  .m2-on .m2-draft, .m2-on .m2-draft.m2-new, .m2-on .m2-draft.m2-ext, .m2-on .m2-draft.m2-white, .m2-on .m2-draft.m2-copy, .m2-on .m2-draft.m2-error { color: #fff; background: transparent; border-color: #fff; }
   /* set by hand (TAGS in make_maps.py, user 2026-10-18): new in blue, a map not on the official
      site; draft in white, the same biology as the official map with small changes to its file */
   .m2-draft.m2-new { color: #4183c4; border-color: #4183c4; }
+  /* the Atlas extension (user, 2026-10-30): maps of the extension scoping, new groups included, drafts with
+     their name and their draft tag in blue, so the extension shows at a glance; white on the chosen map */
+  .m2-draft.m2-ext { color: #4183c4; border-color: #4183c4; }
+  .m2-ext .m2-name { color: #4183c4; }
+  .m2-on.m2-ext .m2-name { color: #fff; }
   /* copy: the official version kept in the Atlas for comparison (user, 2026-10-18), the same
      style as the white draft */
   .m2-draft.m2-white, .m2-draft.m2-copy { color: #888; border-color: #bbb; }

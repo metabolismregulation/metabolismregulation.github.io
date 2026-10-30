@@ -216,6 +216,7 @@ noindex: true
     'draft': ['<span class="m2-draft"><span>draft</span></span>', 'Draft map'],
     'draft-white': ['<span class="m2-draft m2-white"><span>draft</span></span>', 'Draft map, the same biology as the official map'],
     'new': ['<span class="m2-draft m2-new"><span>new</span></span>', 'New map, not on the official site'],
+    'draft-ext': ['<span class="m2-draft m2-ext"><span>draft</span></span>', 'Draft map of the Atlas extension'],
     'copy': ['<span class="m2-draft m2-copy"><span>copy</span></span>', 'Copy of the official map, for comparison']
   };
   // a red tag when the map's images could not be drawn from its current GraphML (make_images.py)
@@ -802,7 +803,7 @@ noindex: true
         box.appendChild(g);
       }
       if (shut) return;
-      var b = el('button', 'm2-item m2-map' + (m.group ? ' m2-sub' : '') + (m === current ? ' m2-on' : ''));
+      var b = el('button', 'm2-item m2-map' + (m.group ? ' m2-sub' : '') + (m.tag === 'draft-ext' ? ' m2-ext' : '') + (m === current ? ' m2-on' : ''));
       b.appendChild(el('span', 'm2-name', label(m)));
       b.type = 'button';
       b.setAttribute('data-id', m.id);
