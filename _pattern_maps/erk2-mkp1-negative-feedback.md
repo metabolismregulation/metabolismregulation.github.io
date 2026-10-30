@@ -4,10 +4,10 @@ topic: "Delayed negative feedback (transcriptional)"
 tab: "ERK2 and MKP1"
 page: ""
 group: "Pulses and adaptation"
-order: 12
+order: 28
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/erk2-mkp1-negative-feedback.svg"
 width: 485
 height: 575

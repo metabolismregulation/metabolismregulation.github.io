@@ -4,10 +4,10 @@ topic: "Positive feedback: bistable switch (one variable)"
 tab: "Mos and ERK2"
 page: ""
 group: "Feedback"
-order: 9
+order: 20
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/mos-erk-positive-feedback.svg"
 width: 575
 height: 540

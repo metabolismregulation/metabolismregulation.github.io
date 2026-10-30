@@ -29,7 +29,10 @@ One row per entry a node label stands for:
     aspirin,chebi,CHEBI:15365,,
     ADCY,hgnc,ADCY5,Adenylate cyclases,O95622
 
-- `source`: `hgnc` (protein, by HGNC symbol) or `chebi` (metabolite, by ChEBI id).
+- `source`: `hgnc` (protein, by HGNC symbol), `chebi` (metabolite, by ChEBI id) or `uniprot` (a protein
+  with no human gene, as the bacterial proteins of a pattern map, by UniProt accession, used as given).
+- A row with no source and no id (`kinase,,`) marks a generic label, left without identifiers and not looked
+  up in HGNC.
 - Several rows with the same label make a protein family; `family` names it
   (on any of its rows).
 - `uniprot` (optional) picks the UniProt entry when HGNC lists several (GNAS:

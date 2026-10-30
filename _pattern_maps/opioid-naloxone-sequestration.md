@@ -4,10 +4,10 @@ topic: "Stoichiometric inhibitor (sequestration)"
 tab: "naloxone and heroin"
 page: ""
 group: "Binding"
-order: 1
+order: 6
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/opioid-naloxone-sequestration.svg"
 width: 657
 height: 261

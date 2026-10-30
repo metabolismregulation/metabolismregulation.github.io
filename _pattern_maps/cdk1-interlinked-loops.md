@@ -4,10 +4,10 @@ topic: "Interlinked positive and double-negative feedback loops"
 tab: "Cdk1, Cdc25 and Wee1"
 page: ""
 group: "Oscillators and excitability"
-order: 14
+order: 32
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/cdk1-interlinked-loops.svg"
 width: 470
 height: 585

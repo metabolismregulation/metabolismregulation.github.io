@@ -4,10 +4,10 @@ topic: "Incoherent feed-forward"
 tab: "EGFR, Sos and GAP on Ras"
 page: ""
 group: "Feed-forward"
-order: 8
+order: 19
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/egfr-sos-gap-incoherent.svg"
 width: 702
 height: 689

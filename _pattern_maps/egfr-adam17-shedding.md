@@ -4,10 +4,10 @@ topic: "Long positive feedback through ligand shedding"
 tab: "EGFR, ADAM17 and TGFα"
 page: ""
 group: "Feedback"
-order: 10
+order: 25
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/egfr-adam17-shedding.svg"
 width: 370
 height: 601

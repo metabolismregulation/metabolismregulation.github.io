@@ -4,10 +4,10 @@ topic: "State-dependent inactivation"
 tab: "β2AR, βARK and β-arrestin"
 page: ""
 group: "Pulses and adaptation"
-order: 13
+order: 29
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/b2ar-arrestin-inactivation.svg"
 width: 515
 height: 949

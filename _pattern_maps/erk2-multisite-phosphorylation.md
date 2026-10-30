@@ -4,10 +4,10 @@ topic: "Multisite phosphorylation"
 tab: "ERK2 by MEK1"
 page: ""
 group: "Modification cycles"
-order: 3
+order: 9
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/erk2-multisite-phosphorylation.svg"
 width: 290
 height: 519

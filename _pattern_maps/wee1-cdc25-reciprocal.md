@@ -4,7 +4,7 @@ topic: "Reciprocal regulation"
 tab: "Wee1 and Cdc25 on Cdk1"
 page: ""
 group: "Modification cycles"
-order: 4
+order: 13
 kind: "map"
 draft: false
 tag: ""

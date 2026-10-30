@@ -4,10 +4,10 @@ topic: "Short allosteric positive feedback"
 tab: "Ras and Sos"
 page: ""
 group: "Feedback"
-order: 11
+order: 26
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/ras-sos-allosteric-feedback.svg"
 width: 582
 height: 605

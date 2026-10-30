@@ -11,12 +11,11 @@ DL = 'pattern-atlas-downloads'
 search = []
 for g in sorted(glob.glob(os.path.join(mm.ROOT, DL, '*.graphml'))):
     base = os.path.basename(g)[:-8]
-    ann = mm.annotation(base, DL)
-    if ann:
-        json.dump({'nodes': ann}, open(os.path.join(mm.ROOT, 'atlas-data', 'pattern-%s.json' % base), 'w', encoding='utf-8'),
-                  ensure_ascii=False, indent=0)
-        search += mm.search_entries(base, ann)
-    print(base, len(ann or []), 'annotated nodes')
+    ann = mm.annotation(base, DL) or []  # a map of generic labels only has none, and its page still loads the file
+    json.dump({'nodes': ann}, open(os.path.join(mm.ROOT, 'atlas-data', 'pattern-%s.json' % base), 'w', encoding='utf-8'),
+              ensure_ascii=False, indent=0)
+    search += mm.search_entries(base, ann)
+    print(base, len(ann), 'annotated nodes')
 json.dump(search, open(os.path.join(mm.ROOT, 'atlas-data', 'pattern-search.json'), 'w', encoding='utf-8'),
           ensure_ascii=False, separators=(',', ':'))
 for n, f in mm.CACHE.items():  # identifiers new to the caches, kept for the Atlas too

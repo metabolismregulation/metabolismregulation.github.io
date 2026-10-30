@@ -4,10 +4,10 @@ topic: "Cascade: magnitude amplification and speed"
 tab: "Raf, MEK and ERK"
 page: ""
 group: "Cascades"
-order: 6
+order: 16
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/raf-mek-erk-cascade.svg"
 width: 430
 height: 484
