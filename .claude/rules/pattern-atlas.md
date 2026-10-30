@@ -26,5 +26,6 @@ click boxes `atlas-data/pattern-<map>.json` and search `atlas-data/pattern-searc
 workflow refreshes. The maps, entries and texts are copies: they are built and kept in a private repository, whose
 copy script writes them here and runs `make_pattern_atlas.py`. Change them there, never here.
 
-Example maps are cut from Atlas maps (the user's layouts kept) and finished with the layout skill. Each entry's text
-says what the pattern does in this example, the source section, and links the Atlas maps it was cut from.
+Example maps are cut from MRegAtlas maps (the user's layouts kept) and finished with the layout skill. Each entry's
+text says what the pattern does in this example, the source section, and links the maps it was cut from. In page text
+the Atlas is named MRegAtlas, never "the Atlas", which is imprecise next to the Pattern Atlas (user, 2026-10-30).

@@ -22,7 +22,7 @@ Gsα bound to GTP activates adenylate cyclase, which makes cAMP from ATP. The ph
 
 With first-order destruction, the steady cAMP level is proportional to the rate of synthesis, and the time to reach a new level after a change of input depends on the rate of destruction alone (Ferrell 2022, sections 6.1 and 6.2).
 
-Cut from the Atlas maps [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle) (cAMP synthesis, PKA) and [cAMP hydrolysis](/atlas/#camp) (PDE3B).
+Cut from the MRegAtlas maps [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle) (cAMP synthesis, PKA) and [cAMP hydrolysis](/atlas/#camp) (PDE3B).
 
 ## References
 

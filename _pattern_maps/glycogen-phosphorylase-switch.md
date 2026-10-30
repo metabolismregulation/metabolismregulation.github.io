@@ -22,7 +22,7 @@ Phosphorylase kinase phosphorylates muscle glycogen phosphorylase (PYGM) on Ser1
 
 When the kinase and the phosphatase both work close to saturation, the share of phosphorylated PYGM changes steeply over a narrow range of kinase activity, a switch built from enzyme saturation without cooperativity. In reconstituted muscle enzymes the response was sigmoidal at a phosphorylase concentration a few times above the enzymes' KM values, and phosphorylase is that abundant in skeletal muscle (Ferrell 2022, sections 5.6 and 5.7).
 
-Cut from the Atlas map [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle).
+Cut from the MRegAtlas map [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle).
 
 ## References
 
