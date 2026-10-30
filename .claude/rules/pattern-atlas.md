@@ -30,9 +30,10 @@ workflow refreshes. The maps, entries and texts are copies: they are built and k
 copy script writes them here and runs `make_pattern_atlas.py`. Change them there, never here.
 
 Example maps come from published MRegAtlas maps, whole or cut (the user's layouts kept; never from maps
-awaiting the user's approval, such as the extension drafts), and finished with the layout skill. Each entry's
-text says what the pattern does in this example, the source section, and that the book's example overlaps
-with the MRegAtlas maps its drawing is taken from (never "cut from", user 2026-10-30). In page text
+awaiting the user's approval, such as the extension drafts), and finished with the layout skill. Each entry is a
+description (the biology and the pattern) and a section Source (user, 2026-10-30): the book's section and example, what
+in the map is from the book, what was added or left out, and the MRegAtlas maps the book's example overlaps with (the
+drawing taken from them, never "cut from") or that show the same pattern, then References. In page text
 the Atlas is named MRegAtlas, never "the Atlas", which is imprecise next to the Pattern Atlas (user, 2026-10-30).
 
 ## What the Pattern Atlas shows (user, 2026-10-30)
