@@ -6,6 +6,8 @@ paths:
   - "pattern-atlas-downloads/**"
   - "scripts/make_pattern_atlas.py"
   - "atlas-data/pattern-*"
+  - "pages/pattern-atlas-backup.html"
+  - "pattern-atlas-backup/**"
 ---
 
 ## Pattern Atlas
@@ -31,3 +33,14 @@ Example maps come from published MRegAtlas maps, whole or cut (the user's layout
 awaiting the user's approval, such as the extension drafts), and finished with the layout skill. Each entry's
 text says what the pattern does in this example, the source section, and links the maps it was cut from. In page text
 the Atlas is named MRegAtlas, never "the Atlas", which is imprecise next to the Pattern Atlas (user, 2026-10-30).
+
+## What the Pattern Atlas shows (user, 2026-10-30)
+
+The book's own examples, each a clean pattern: cut from an MRegAtlas map where the book's molecules are drawn there,
+else drawn new from the book's text (tagged draft until the user approves it). Where an MRegAtlas map shows the same
+pattern, the entry's text says so ("Also in the MRegAtlas: ...", linked), as text, not as a map.
+
+/pattern-atlas-backup/ (hidden) keeps the earlier version of 2026-10-30, twelve maps, most of them whole or cut
+MRegAtlas maps showing a pattern, for the user to look at again: our own maps as examples of the patterns, maybe
+trimmed later. It is frozen: its own files in `pattern-atlas-backup/` (index, entry texts, images, GraphML, click
+data, search), read by the same page code. Nothing writes to it.

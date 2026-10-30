@@ -4,7 +4,7 @@ topic: "Zero-order ultrasensitivity"
 tab: "glycogen phosphorylase"
 page: ""
 group: "Modification cycles"
-order: 5
+order: 1
 kind: "map"
 draft: false
 tag: ""
