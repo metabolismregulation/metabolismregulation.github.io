@@ -58,7 +58,7 @@ GROUPS = [
     ('Amino acid metabolism', ['glutaminase', 'bcaa', 'ureacycle']),
     ('Nucleotide metabolism', ['pyrimidine', 'camp']),
     ('Nitric oxide metabolism', ['inos', 'enos', 'nnos']),
-    ('Vitamin & cofactor metabolism', []),
+    ('Vitamin & cofactor metabolism', ['bh4']),
     ('Energy metabolism', []),
     ('Porphyrin metabolism', []),
     ('Inositol phosphate metabolism', []),
@@ -73,7 +73,7 @@ DRUG = {'aspirin'}
 # draft-white: the same biology as the official map, with small changes to its file
 TAGS = {'alox5': 'new', 'gba1': 'new', 'glycolysis-cardiac': 'new', 'glycolysis-extended': 'new'}
 # the Atlas extension (user, 2026-10-30): blue draft tag and blue name in the list (draft-ext)
-TAGS.update({m: 'draft-ext' for m in ('peroxiredoxins',)})
+TAGS.update({m: 'draft-ext' for m in ('peroxiredoxins', 'bh4')})
 # the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
 # version (the reference first, then the working version), under the same name with the tag copy, for comparison: the official page's text and the
 # complete official file set, frozen copies of the files in downloads/. Made by --copy-official,
@@ -83,7 +83,7 @@ OFFICIAL_COPY = os.path.join(DL, 'copy')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'peroxiredoxins': 'Peroxiredoxins', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
+TOPIC = {'peroxiredoxins': 'Peroxiredoxins', 'bh4': 'Tetrahydrobiopterin synthesis', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then

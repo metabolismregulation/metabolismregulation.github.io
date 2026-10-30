@@ -1,0 +1,1427 @@
+{
+"nodes": [
+{
+"label": "GTP",
+"class": "SimpleChemical",
+"box": [
+79.0,
+395.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP(4-)"
+],
+[
+"Synonyms",
+"GTP; guanosine 5'-triphosphate(4-)"
+],
+[
+"Definition",
+"A nucleoside triphosphate(4−) obtained by global deprotonation of the triphosphate OH groups of GTP; major species present at pH 7.3."
+],
+[
+"Formula",
+"C10H12N5O14P3"
+],
+[
+"ChEBI",
+"CHEBI:37565"
+],
+[
+"InChI",
+"InChI=1S/C10H16N5O14P3/c11-10-13-7-4(8(18)14-10)12-2-15(7)9-6(17)5(16)3(27-9)1-26-31(22,23)29-32(24,25)28-30(19,20)21/h2-3,5-6,9,16-17H,1H2,(H,22,23)(H,24,25)(H2,19,20,21)(H3,11,13,14,18)/p-4/t3-,5-,6-,9-/m1/s1"
+],
+[
+"InChIKey",
+"XKMLYUALXHKNFT-UUOKFMHZSA-J"
+]
+]
+},
+{
+"id": "c0::p1",
+"label": "",
+"class": "Process",
+"box": [
+247.0,
+403.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GTP"
+],
+"out": [
+"H2NTP"
+],
+"by": [
+"GCH1",
+"GCH1",
+""
+]
+},
+"references": [
+{
+"authors": "Thöny B et al.",
+"year": "2000",
+"title": "Tetrahydrobiopterin biosynthesis, regeneration and functions.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "10727395"
+},
+{
+"authors": "Harada T et al.",
+"year": "1993",
+"title": "Feedback regulation mechanisms for the control of GTP cyclohydrolase I activity.",
+"journal": "Science",
+"db": "pubmed",
+"id": "8502995"
+}
+]
+},
+{
+"label": "H2NTP",
+"class": "SimpleChemical",
+"box": [
+419.0,
+395.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"7,8-dihydroneopterin 3'-triphosphate(4-)"
+],
+[
+"Synonyms",
+"(2R,3S)-3-(2-amino-4-oxo-3,4,7,8-tetrahydropteridin-6-yl)-2,3-dihydroxypropyl triphosphate; 7,8-dihydroneopterin 3'-triphosphate; 7,8-dihydroneopterin 3'-triphosphate tetraanion"
+],
+[
+"Definition",
+"Tetraanion of 7,8-dihydroneopterin 3'-triphosphate."
+],
+[
+"Formula",
+"C9H12N5O13P3"
+],
+[
+"ChEBI",
+"CHEBI:58462"
+],
+[
+"InChI",
+"InChI=1S/C9H16N5O13P3/c10-9-13-7-5(8(17)14-9)12-3(1-11-7)6(16)4(15)2-25-29(21,22)27-30(23,24)26-28(18,19)20/h4,6,15-16H,1-2H2,(H,21,22)(H,23,24)(H2,18,19,20)(H4,10,11,13,14,17)/p-4/t4-,6+/m1/s1"
+],
+[
+"InChIKey",
+"DGGUVLXVLHAAGT-XINAWCOVSA-J"
+]
+]
+},
+{
+"id": "c0::p2",
+"label": "",
+"class": "Process",
+"box": [
+607.0,
+403.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"H2NTP"
+],
+"out": [
+"6-PTP"
+],
+"by": [
+"PTPS"
+]
+},
+"references": [
+{
+"authors": "Thöny B et al.",
+"year": "2000",
+"title": "Tetrahydrobiopterin biosynthesis, regeneration and functions.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "10727395"
+},
+{
+"authors": "Scherer-Oppliger T et al.",
+"year": "1999",
+"title": "Serine 19 of human 6-pyruvoyltetrahydropterin synthase is phosphorylated by cGMP protein kinase II.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "10531334"
+}
+]
+},
+{
+"label": "6-PTP",
+"class": "SimpleChemical",
+"box": [
+779.0,
+395.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"(R)-dyspropterin"
+],
+[
+"Synonyms",
+"(6R)-6-pyruvoyl-5,6,7,8-tetrahydropterin; 6-pyruvoyl-5,6,7,8-tetrahydropterin"
+],
+[
+"Definition",
+"A dyspropterin in which the stereocentre at position 6 has R-configuration."
+],
+[
+"Formula",
+"C9H11N5O3"
+],
+[
+"ChEBI",
+"CHEBI:136564"
+],
+[
+"InChI",
+"InChI=1S/C9H11N5O3/c1-3(15)6(16)4-2-11-7-5(12-4)8(17)14-9(10)13-7/h4,12H,2H2,1H3,(H4,10,11,13,14,17)/t4-/m1/s1"
+],
+[
+"InChIKey",
+"WBJZXBUVECZHCE-SCSAIBSYSA-N"
+]
+]
+},
+{
+"id": "c0::p3",
+"label": "",
+"class": "Process",
+"box": [
+987.0,
+403.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"6-PTP",
+"NADPH"
+],
+"out": [
+"BH4",
+"NADP+"
+],
+"by": [
+"SPR"
+]
+},
+"references": [
+{
+"authors": "Thöny B et al.",
+"year": "2000",
+"title": "Tetrahydrobiopterin biosynthesis, regeneration and functions.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "10727395"
+}
+]
+},
+{
+"label": "BH4",
+"class": "SimpleChemical",
+"box": [
+1139.0,
+395.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"sapropterin"
+],
+[
+"Synonyms",
+"(-)-(6R)-2-amino-6-((1R,2S)-1,2-dihydroxypropyl)-5,6,7,8-tetrahydro-4(3H)-pteridinone; (6R)-2-amino-6-[(1R,2S)-1,2-dihydroxypropyl]-5,6,7,8-tetrahydropteridin-4(3H)-one; (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin; (6R)-L-erythro-tetrahydrobiopterin; 2-Amino-6-(1,2-dihydroxypropyl)-5,6,7,8-tetrahydoro-4(1H)-pteridinone; 5,6,7,8-Tetrahydrobiopterin; 6R-5,6,7,8-tetrahydrobiopterin; 6R-BH4; 6R-L-5,6,7,8-tetrahydrobiopterin; R-THBP; sapropterina; sapropterinum; tetrahydrobiopterin"
+],
+[
+"Definition",
+"A tetrahydropterin that is 2-amino-5,6,7,8-tetrahydropteridin-4(3H)-one in which a hydrogen at position 6 is substituted by a 1,2-dihydroxypropyl group (6R,1'R,2'S-enantiomer)."
+],
+[
+"Formula",
+"C9H15N5O3"
+],
+[
+"ChEBI",
+"CHEBI:59560"
+],
+[
+"KEGG",
+"C00272"
+],
+[
+"HMDB",
+"HMDB0000787"
+],
+[
+"InChI",
+"InChI=1S/C9H15N5O3/c1-3(15)6(16)4-2-11-7-5(12-4)8(17)14-9(10)13-7/h3-4,6,12,15-16H,2H2,1H3,(H4,10,11,13,14,17)/t3-,4+,6-/m0/s1"
+],
+[
+"InChIKey",
+"FNKQXYHWGSIFBK-RPDRRWSUSA-N"
+]
+]
+},
+{
+"label": "NADPH",
+"class": "SimpleChemical",
+"box": [
+939.0,
+495.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADPH(4-)"
+],
+[
+"Synonyms",
+"2'-O-phosphonatoadenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}; NADPH; NADPH tetraanion"
+],
+[
+"Definition",
+"Tetraanion of NADPH arising from deprotonation of the diphosphate and phosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H26N7O17P3"
+],
+[
+"ChEBI",
+"CHEBI:57783"
+],
+[
+"InChI",
+"InChI=1S/C21H30N7O17P3/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(44-46(33,34)35)14(30)11(43-21)6-41-48(38,39)45-47(36,37)40-5-10-13(29)15(31)20(42-10)27-3-1-2-9(4-27)18(23)32/h1,3-4,7-8,10-11,13-16,20-21,29-31H,2,5-6H2,(H2,23,32)(H,36,37)(H,38,39)(H2,22,24,25)(H2,33,34,35)/p-4/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"ACFIXJIJDZMPPO-NNYOXOHSSA-J"
+]
+]
+},
+{
+"label": "NADP+",
+"class": "SimpleChemical",
+"box": [
+1019.0,
+495.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADP(3-)"
+],
+[
+"Synonyms",
+"2'-O-phosphonatoadenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}; NADP trianion; NADP(+)"
+],
+[
+"Definition",
+"An organophosphate oxoanion arising from deprotonation of the phosphate and diphosphate OH groups of NADP+; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H25N7O17P3"
+],
+[
+"ChEBI",
+"CHEBI:58349"
+],
+[
+"InChI",
+"InChI=1S/C21H28N7O17P3/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(44-46(33,34)35)14(30)11(43-21)6-41-48(38,39)45-47(36,37)40-5-10-13(29)15(31)20(42-10)27-3-1-2-9(4-27)18(23)32/h1-4,7-8,10-11,13-16,20-21,29-31H,5-6H2,(H7-,22,23,24,25,32,33,34,35,36,37,38,39)/p-3/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"XJLXINKUBYWONI-NNYOXOHSSA-K"
+]
+]
+},
+{
+"label": "SPR",
+"class": "Macromolecule",
+"box": [
+959.0,
+275.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Sepiapterin reductase"
+],
+[
+"Function",
+"Catalyzes the final one or two reductions in tetra-hydrobiopterin biosynthesis to form 5,6,7,8-tetrahydrobiopterin"
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:11257"
+],
+[
+"HGNC symbol",
+"SPR"
+],
+[
+"Alias symbols",
+"SDR38C1"
+],
+[
+"Entrez",
+"6697"
+],
+[
+"Ensembl",
+"ENSG00000116096"
+],
+[
+"RefSeq",
+"NM_003124"
+],
+[
+"UniProt",
+"P35270"
+]
+]
+},
+{
+"label": "GCH1",
+"class": "Macromolecule",
+"box": [
+179.0,
+255.0,
+80.0,
+40.0
+],
+"props": [
+[
+"HGNC",
+"HGNC:4193"
+],
+[
+"HGNC symbol",
+"GCH1"
+],
+[
+"Previous symbols",
+"GCH, DYT5, DYT14"
+],
+[
+"Alias symbols",
+"GTPCH1, DYT5a"
+],
+[
+"Entrez",
+"2643"
+],
+[
+"Ensembl",
+"ENSG00000131979"
+],
+[
+"RefSeq",
+"NM_000161"
+],
+[
+"UniProt",
+"P30793"
+]
+]
+},
+{
+"id": "c0::s81",
+"label": "",
+"class": "Process",
+"box": [
+317.0,
+263.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GCH1"
+],
+"out": [
+"GCH1"
+],
+"by": [
+"CSNK2A2"
+]
+},
+"references": [
+{
+"authors": "Widder JD et al.",
+"year": "2007",
+"title": "Regulation of tetrahydrobiopterin biosynthesis by shear stress.",
+"journal": "Circ Res",
+"db": "pubmed",
+"id": "17704208"
+},
+{
+"authors": "Li L et al.",
+"year": "2010",
+"title": "GTP cyclohydrolase I phosphorylation and interaction with GTP cyclohydrolase feedback regulatory protein provide novel regulation of endothelial tetrahydrobiopterin and nitric oxide.",
+"journal": "Circ Res",
+"db": "pubmed",
+"id": "19926872"
+}
+]
+},
+{
+"label": "GCH1",
+"class": "Macromolecule",
+"box": [
+399.0,
+255.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I"
+],
+[
+"Function",
+"Positively regulates nitric oxide synthesis in umbilical vein endothelial cells (HUVECs). May be involved in dopamine synthesis."
+],
+[
+"Location",
+"Cytoplasm, Nucleus"
+],
+[
+"HGNC",
+"HGNC:4193"
+],
+[
+"HGNC symbol",
+"GCH1"
+],
+[
+"Previous symbols",
+"GCH, DYT5, DYT14"
+],
+[
+"Alias symbols",
+"GTPCH1, DYT5a"
+],
+[
+"Entrez",
+"2643"
+],
+[
+"Ensembl",
+"ENSG00000131979"
+],
+[
+"RefSeq",
+"NM_000161"
+],
+[
+"UniProt",
+"P30793"
+]
+]
+},
+{
+"label": "CSNK2A2",
+"class": "Macromolecule",
+"box": [
+289.0,
+145.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Casein kinase II subunit alpha'"
+],
+[
+"Function",
+"Catalytic subunit of a constitutively active serine/threonine-protein kinase complex that phosphorylates a large number of substrates containing acidic residues C-terminal to the phosphorylated serine or threonine. Regulates numerous cellular processes, such as cell cycle progression, apoptosis and transcription, as well as viral infection."
+],
+[
+"Location",
+"Nucleus, Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:2459"
+],
+[
+"HGNC symbol",
+"CSNK2A2"
+],
+[
+"Alias symbols",
+"CSNK2A1, CK2alpha'"
+],
+[
+"Entrez",
+"1459"
+],
+[
+"Ensembl",
+"ENSG00000070770"
+],
+[
+"RefSeq",
+"NM_001896"
+],
+[
+"UniProt",
+"P19784"
+]
+]
+},
+{
+"label": "PTPS",
+"class": "Macromolecule",
+"box": [
+579.0,
+55.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"6-pyruvoyl tetrahydrobiopterin synthase"
+],
+[
+"Function",
+"Involved in the biosynthesis of tetrahydrobiopterin, an essential cofactor of aromatic amino acid hydroxylases. Catalyzes the transformation of 7,8-dihydroneopterin triphosphate into 6-pyruvoyl tetrahydropterin"
+],
+[
+"HGNC",
+"HGNC:9689"
+],
+[
+"HGNC symbol",
+"PTS"
+],
+[
+"Alias symbols",
+"PTPS"
+],
+[
+"Entrez",
+"5805"
+],
+[
+"Ensembl",
+"ENSG00000150787"
+],
+[
+"RefSeq",
+"NM_000317"
+],
+[
+"UniProt",
+"Q03393"
+]
+]
+},
+{
+"id": "c0::s19",
+"label": "",
+"class": "Process",
+"box": [
+607.0,
+173.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PTPS"
+],
+"out": [
+"PTPS"
+],
+"by": [
+"PRKG2"
+]
+},
+"references": [
+{
+"authors": "Scherer-Oppliger T et al.",
+"year": "1999",
+"title": "Serine 19 of human 6-pyruvoyltetrahydropterin synthase is phosphorylated by cGMP protein kinase II.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "10531334"
+}
+]
+},
+{
+"label": "PTPS",
+"class": "Macromolecule",
+"box": [
+579.0,
+275.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"6-pyruvoyl tetrahydrobiopterin synthase"
+],
+[
+"Function",
+"Involved in the biosynthesis of tetrahydrobiopterin, an essential cofactor of aromatic amino acid hydroxylases. Catalyzes the transformation of 7,8-dihydroneopterin triphosphate into 6-pyruvoyl tetrahydropterin"
+],
+[
+"HGNC",
+"HGNC:9689"
+],
+[
+"HGNC symbol",
+"PTS"
+],
+[
+"Alias symbols",
+"PTPS"
+],
+[
+"Entrez",
+"5805"
+],
+[
+"Ensembl",
+"ENSG00000150787"
+],
+[
+"RefSeq",
+"NM_000317"
+],
+[
+"UniProt",
+"Q03393"
+]
+]
+},
+{
+"label": "PRKG2",
+"class": "Macromolecule",
+"box": [
+719.0,
+165.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"cGMP-dependent protein kinase 2"
+],
+[
+"Alternative names",
+"cGMP-dependent protein kinase II"
+],
+[
+"Function",
+"Crucial regulator of intestinal secretion and bone growth. Phosphorylates and activates CFTR on the plasma membrane."
+],
+[
+"Location",
+"Apical cell membrane"
+],
+[
+"HGNC",
+"HGNC:9416"
+],
+[
+"HGNC symbol",
+"PRKG2"
+],
+[
+"Alias symbols",
+"cGKII, PRKGR2, PKG2"
+],
+[
+"Entrez",
+"5593"
+],
+[
+"Ensembl",
+"ENSG00000138669"
+],
+[
+"RefSeq",
+"NM_006259"
+],
+[
+"UniProt",
+"Q13237"
+]
+]
+},
+{
+"label": "GCH1",
+"class": "Macromolecule",
+"box": [
+379.0,
+695.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I"
+],
+[
+"Function",
+"Positively regulates nitric oxide synthesis in umbilical vein endothelial cells (HUVECs). May be involved in dopamine synthesis."
+],
+[
+"Location",
+"Cytoplasm, Nucleus"
+],
+[
+"HGNC",
+"HGNC:4193"
+],
+[
+"HGNC symbol",
+"GCH1"
+],
+[
+"Previous symbols",
+"GCH, DYT5, DYT14"
+],
+[
+"Alias symbols",
+"GTPCH1, DYT5a"
+],
+[
+"Entrez",
+"2643"
+],
+[
+"Ensembl",
+"ENSG00000131979"
+],
+[
+"RefSeq",
+"NM_000161"
+],
+[
+"UniProt",
+"P30793"
+]
+]
+},
+{
+"id": "c0::stim",
+"label": "",
+"class": "Process",
+"box": [
+247.0,
+703.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GCH1",
+"GFRP",
+"L-phenylalanine"
+],
+"out": [
+""
+],
+"by": []
+},
+"references": [
+{
+"authors": "Harada T et al.",
+"year": "1993",
+"title": "Feedback regulation mechanisms for the control of GTP cyclohydrolase I activity.",
+"journal": "Science",
+"db": "pubmed",
+"id": "8502995"
+},
+{
+"authors": "Yoneyama T et al.",
+"year": "1998",
+"title": "Decameric GTP cyclohydrolase I forms complexes with two pentameric GTP cyclohydrolase I feedback regulatory proteins in the presence of phenylalanine or of a combination of tetrahydrobiopterin and GTP.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "9685352"
+},
+{
+"authors": "Maita N et al.",
+"year": "2002",
+"title": "Crystal structure of the stimulatory complex of GTP cyclohydrolase I and its feedback regulatory protein GFRP.",
+"journal": "Proc Natl Acad Sci U S A",
+"db": "pubmed",
+"id": "11818540"
+}
+]
+},
+{
+"label": "GFRP",
+"class": "Macromolecule",
+"box": [
+379.0,
+815.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1 feedback regulatory protein"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I feedback regulatory protein; p35"
+],
+[
+"Function",
+"Mediates tetrahydrobiopterin inhibition of GTP cyclohydrolase 1. This inhibition is reversed by L-phenylalanine"
+],
+[
+"Location",
+"Nucleus, Nucleus membrane, Cytoplasm, cytosol"
+],
+[
+"HGNC",
+"HGNC:4194"
+],
+[
+"HGNC symbol",
+"GCHFR"
+],
+[
+"Alias symbols",
+"GFRP, HsT16933"
+],
+[
+"Entrez",
+"2644"
+],
+[
+"Ensembl",
+"ENSG00000137880"
+],
+[
+"RefSeq",
+"NM_005258"
+],
+[
+"UniProt",
+"P30047"
+]
+]
+},
+{
+"label": "L-phenylalanine",
+"class": "SimpleChemical",
+"box": [
+79.0,
+695.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-phenylalanine zwitterion"
+],
+[
+"Synonyms",
+"(2S)-2-ammonio-3-phenylpropanoate; (2S)-2-azaniumyl-3-phenylpropanoate; L-phenylalanine; phenylalanine"
+],
+[
+"Definition",
+"An amino acid zwitterion arising from transfer of a proton from the carboxy to the amino group of L-phenylalanine; major species at pH 7.3."
+],
+[
+"Formula",
+"C9H11NO2"
+],
+[
+"ChEBI",
+"CHEBI:58095"
+],
+[
+"InChI",
+"InChI=1S/C9H11NO2/c10-8(9(11)12)6-7-4-2-1-3-5-7/h1-5,8H,6,10H2,(H,11,12)/t8-/m0/s1"
+],
+[
+"InChIKey",
+"COLNVLDHVKWLRT-QMMMGPOBSA-N"
+]
+]
+},
+{
+"label": "L-phenylalanine",
+"class": "SimpleChemical",
+"box": [
+239.0,
+490.5,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-phenylalanine zwitterion"
+],
+[
+"Synonyms",
+"(2S)-2-ammonio-3-phenylpropanoate; (2S)-2-azaniumyl-3-phenylpropanoate; L-phenylalanine; phenylalanine"
+],
+[
+"Definition",
+"An amino acid zwitterion arising from transfer of a proton from the carboxy to the amino group of L-phenylalanine; major species at pH 7.3."
+],
+[
+"Formula",
+"C9H11NO2"
+],
+[
+"ChEBI",
+"CHEBI:58095"
+],
+[
+"InChI",
+"InChI=1S/C9H11NO2/c10-8(9(11)12)6-7-4-2-1-3-5-7/h1-5,8H,6,10H2,(H,11,12)/t8-/m0/s1"
+],
+[
+"InChIKey",
+"COLNVLDHVKWLRT-QMMMGPOBSA-N"
+]
+]
+},
+{
+"label": "GCH1",
+"class": "Macromolecule",
+"box": [
+219.0,
+538.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I"
+],
+[
+"Function",
+"Positively regulates nitric oxide synthesis in umbilical vein endothelial cells (HUVECs). May be involved in dopamine synthesis."
+],
+[
+"Location",
+"Cytoplasm, Nucleus"
+],
+[
+"HGNC",
+"HGNC:4193"
+],
+[
+"HGNC symbol",
+"GCH1"
+],
+[
+"Previous symbols",
+"GCH, DYT5, DYT14"
+],
+[
+"Alias symbols",
+"GTPCH1, DYT5a"
+],
+[
+"Entrez",
+"2643"
+],
+[
+"Ensembl",
+"ENSG00000131979"
+],
+[
+"RefSeq",
+"NM_000161"
+],
+[
+"UniProt",
+"P30793"
+]
+]
+},
+{
+"label": "GFRP",
+"class": "Macromolecule",
+"box": [
+219.0,
+595.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1 feedback regulatory protein"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I feedback regulatory protein; p35"
+],
+[
+"Function",
+"Mediates tetrahydrobiopterin inhibition of GTP cyclohydrolase 1. This inhibition is reversed by L-phenylalanine"
+],
+[
+"Location",
+"Nucleus, Nucleus membrane, Cytoplasm, cytosol"
+],
+[
+"HGNC",
+"HGNC:4194"
+],
+[
+"HGNC symbol",
+"GCHFR"
+],
+[
+"Alias symbols",
+"GFRP, HsT16933"
+],
+[
+"Entrez",
+"2644"
+],
+[
+"Ensembl",
+"ENSG00000137880"
+],
+[
+"RefSeq",
+"NM_005258"
+],
+[
+"UniProt",
+"P30047"
+]
+]
+},
+{
+"id": "c0::inh",
+"label": "",
+"class": "Process",
+"box": [
+567.0,
+703.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GCH1",
+"GFRP",
+"BH4"
+],
+"out": [
+""
+],
+"by": []
+},
+"references": [
+{
+"authors": "Harada T et al.",
+"year": "1993",
+"title": "Feedback regulation mechanisms for the control of GTP cyclohydrolase I activity.",
+"journal": "Science",
+"db": "pubmed",
+"id": "8502995"
+},
+{
+"authors": "Yoneyama T et al.",
+"year": "1998",
+"title": "Decameric GTP cyclohydrolase I forms complexes with two pentameric GTP cyclohydrolase I feedback regulatory proteins in the presence of phenylalanine or of a combination of tetrahydrobiopterin and GTP.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "9685352"
+},
+{
+"authors": "Maita N et al.",
+"year": "2004",
+"title": "Structural basis of biopterin-induced inhibition of GTP cyclohydrolase I by GFRP, its feedback regulatory protein.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "15448133"
+}
+]
+},
+{
+"label": "BH4",
+"class": "SimpleChemical",
+"box": [
+719.0,
+695.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"sapropterin"
+],
+[
+"Synonyms",
+"(-)-(6R)-2-amino-6-((1R,2S)-1,2-dihydroxypropyl)-5,6,7,8-tetrahydro-4(3H)-pteridinone; (6R)-2-amino-6-[(1R,2S)-1,2-dihydroxypropyl]-5,6,7,8-tetrahydropteridin-4(3H)-one; (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin; (6R)-L-erythro-tetrahydrobiopterin; 2-Amino-6-(1,2-dihydroxypropyl)-5,6,7,8-tetrahydoro-4(1H)-pteridinone; 5,6,7,8-Tetrahydrobiopterin; 6R-5,6,7,8-tetrahydrobiopterin; 6R-BH4; 6R-L-5,6,7,8-tetrahydrobiopterin; R-THBP; sapropterina; sapropterinum; tetrahydrobiopterin"
+],
+[
+"Definition",
+"A tetrahydropterin that is 2-amino-5,6,7,8-tetrahydropteridin-4(3H)-one in which a hydrogen at position 6 is substituted by a 1,2-dihydroxypropyl group (6R,1'R,2'S-enantiomer)."
+],
+[
+"Formula",
+"C9H15N5O3"
+],
+[
+"ChEBI",
+"CHEBI:59560"
+],
+[
+"KEGG",
+"C00272"
+],
+[
+"HMDB",
+"HMDB0000787"
+],
+[
+"InChI",
+"InChI=1S/C9H15N5O3/c1-3(15)6(16)4-2-11-7-5(12-4)8(17)14-9(10)13-7/h3-4,6,12,15-16H,2H2,1H3,(H4,10,11,13,14,17)/t3-,4+,6-/m0/s1"
+],
+[
+"InChIKey",
+"FNKQXYHWGSIFBK-RPDRRWSUSA-N"
+]
+]
+},
+{
+"label": "BH4",
+"class": "SimpleChemical",
+"box": [
+559.0,
+502.5,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"sapropterin"
+],
+[
+"Synonyms",
+"(-)-(6R)-2-amino-6-((1R,2S)-1,2-dihydroxypropyl)-5,6,7,8-tetrahydro-4(3H)-pteridinone; (6R)-2-amino-6-[(1R,2S)-1,2-dihydroxypropyl]-5,6,7,8-tetrahydropteridin-4(3H)-one; (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin; (6R)-L-erythro-tetrahydrobiopterin; 2-Amino-6-(1,2-dihydroxypropyl)-5,6,7,8-tetrahydoro-4(1H)-pteridinone; 5,6,7,8-Tetrahydrobiopterin; 6R-5,6,7,8-tetrahydrobiopterin; 6R-BH4; 6R-L-5,6,7,8-tetrahydrobiopterin; R-THBP; sapropterina; sapropterinum; tetrahydrobiopterin"
+],
+[
+"Definition",
+"A tetrahydropterin that is 2-amino-5,6,7,8-tetrahydropteridin-4(3H)-one in which a hydrogen at position 6 is substituted by a 1,2-dihydroxypropyl group (6R,1'R,2'S-enantiomer)."
+],
+[
+"Formula",
+"C9H15N5O3"
+],
+[
+"ChEBI",
+"CHEBI:59560"
+],
+[
+"KEGG",
+"C00272"
+],
+[
+"HMDB",
+"HMDB0000787"
+],
+[
+"InChI",
+"InChI=1S/C9H15N5O3/c1-3(15)6(16)4-2-11-7-5(12-4)8(17)14-9(10)13-7/h3-4,6,12,15-16H,2H2,1H3,(H4,10,11,13,14,17)/t3-,4+,6-/m0/s1"
+],
+[
+"InChIKey",
+"FNKQXYHWGSIFBK-RPDRRWSUSA-N"
+]
+]
+},
+{
+"label": "GCH1",
+"class": "Macromolecule",
+"box": [
+539.0,
+550.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I"
+],
+[
+"Function",
+"Positively regulates nitric oxide synthesis in umbilical vein endothelial cells (HUVECs). May be involved in dopamine synthesis."
+],
+[
+"Location",
+"Cytoplasm, Nucleus"
+],
+[
+"HGNC",
+"HGNC:4193"
+],
+[
+"HGNC symbol",
+"GCH1"
+],
+[
+"Previous symbols",
+"GCH, DYT5, DYT14"
+],
+[
+"Alias symbols",
+"GTPCH1, DYT5a"
+],
+[
+"Entrez",
+"2643"
+],
+[
+"Ensembl",
+"ENSG00000131979"
+],
+[
+"RefSeq",
+"NM_000161"
+],
+[
+"UniProt",
+"P30793"
+]
+]
+},
+{
+"label": "GFRP",
+"class": "Macromolecule",
+"box": [
+539.0,
+607.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP cyclohydrolase 1 feedback regulatory protein"
+],
+[
+"Alternative names",
+"GTP cyclohydrolase I feedback regulatory protein; p35"
+],
+[
+"Function",
+"Mediates tetrahydrobiopterin inhibition of GTP cyclohydrolase 1. This inhibition is reversed by L-phenylalanine"
+],
+[
+"Location",
+"Nucleus, Nucleus membrane, Cytoplasm, cytosol"
+],
+[
+"HGNC",
+"HGNC:4194"
+],
+[
+"HGNC symbol",
+"GCHFR"
+],
+[
+"Alias symbols",
+"GFRP, HsT16933"
+],
+[
+"Entrez",
+"2644"
+],
+[
+"Ensembl",
+"ENSG00000137880"
+],
+[
+"RefSeq",
+"NM_005258"
+],
+[
+"UniProt",
+"P30047"
+]
+]
+}
+]
+}
