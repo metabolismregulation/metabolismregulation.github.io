@@ -1,0 +1,1706 @@
+{
+"nodes": [
+{
+"label": "H2O2",
+"class": "SimpleChemical",
+"box": [
+323.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"hydrogen peroxide"
+],
+[
+"Synonyms",
+"H(2)O(2); H2O2; HOOH; Oxydol; [OH(OH)]; bis(hydridooxygen)(O--O); dihydrogen dioxide; dihydrogen peroxide; dihydrogen(peroxide); dioxidane; perhydrol"
+],
+[
+"Definition",
+"An inorganic peroxide consisting of two hydroxy groups joined by a covalent oxygen-oxygen single bond."
+],
+[
+"Formula",
+"H2O2"
+],
+[
+"ChEBI",
+"CHEBI:16240"
+],
+[
+"KEGG",
+"C00027"
+],
+[
+"HMDB",
+"HMDB0003125"
+],
+[
+"InChI",
+"InChI=1S/H2O2/c1-2/h1-2H"
+],
+[
+"InChIKey",
+"MHAJPDPJQMAIIY-UHFFFAOYSA-N"
+]
+]
+},
+{
+"id": "c0::p1",
+"label": "",
+"class": "Process",
+"box": [
+571.0,
+415.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"H2O2",
+"TXN"
+],
+"out": [
+"H2O",
+"TXN"
+],
+"by": [
+"PRDX1",
+"PRDX2"
+]
+},
+"references": [
+{
+"authors": "Chae HZ et al.",
+"year": "1994",
+"title": "Cloning and sequencing of thiol-specific antioxidant from mammalian brain: alkyl hydroperoxide reductase and thiol-specific antioxidant define a large family of antioxidant enzymes.",
+"journal": "Proc Natl Acad Sci U S A",
+"db": "pubmed",
+"id": "8041738"
+},
+{
+"authors": "Kang SW et al.",
+"year": "1998",
+"title": "Mammalian peroxiredoxin isoforms can reduce hydrogen peroxide generated in response to growth factors and tumor necrosis factor-alpha.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "9497357"
+}
+]
+},
+{
+"label": "H2O",
+"class": "SimpleChemical",
+"box": [
+803.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"water"
+],
+[
+"Synonyms",
+"BOUND WATER; H(2)O; H2O; HOH; Wasser; [OH2]; acqua; agua; aqua; dihydridooxygen; dihydrogen oxide; eau; hydrogen hydroxide; oxidane"
+],
+[
+"Definition",
+"An oxygen hydride consisting of an oxygen atom that is covalently bonded to two hydrogen atoms"
+],
+[
+"Formula",
+"H2O"
+],
+[
+"ChEBI",
+"CHEBI:15377"
+],
+[
+"KEGG",
+"C00001"
+],
+[
+"HMDB",
+"HMDB0002111"
+],
+[
+"InChI",
+"InChI=1S/H2O/h1H2"
+],
+[
+"InChIKey",
+"XLYOFNOQVPJJNP-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "TXN",
+"class": "Macromolecule",
+"box": [
+403.0,
+287.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Thioredoxin"
+],
+[
+"Alternative names",
+"ATL-derived factor; Surface-associated sulphydryl protein"
+],
+[
+"Function",
+"Participates in various redox reactions through the reversible oxidation of its active center dithiol to a disulfide and catalyzes dithiol-disulfide exchange reactions. Plays a role in the reversible S-nitrosylation of cysteine residues in target proteins, and thereby contributes to the response to intracellular nitric oxide."
+],
+[
+"Location",
+"Nucleus, Cytoplasm, Secreted"
+],
+[
+"HGNC",
+"HGNC:12435"
+],
+[
+"HGNC symbol",
+"TXN"
+],
+[
+"Alias symbols",
+"TRX, Trx80, TXN1"
+],
+[
+"Entrez",
+"7295"
+],
+[
+"Ensembl",
+"ENSG00000136810"
+],
+[
+"RefSeq",
+"NM_001244938"
+],
+[
+"UniProt",
+"P10599"
+]
+]
+},
+{
+"label": "TXN",
+"class": "Macromolecule",
+"box": [
+683.0,
+287.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Thioredoxin"
+],
+[
+"Alternative names",
+"ATL-derived factor; Surface-associated sulphydryl protein"
+],
+[
+"Function",
+"Participates in various redox reactions through the reversible oxidation of its active center dithiol to a disulfide and catalyzes dithiol-disulfide exchange reactions. Plays a role in the reversible S-nitrosylation of cysteine residues in target proteins, and thereby contributes to the response to intracellular nitric oxide."
+],
+[
+"Location",
+"Nucleus, Cytoplasm, Secreted"
+],
+[
+"HGNC",
+"HGNC:12435"
+],
+[
+"HGNC symbol",
+"TXN"
+],
+[
+"Alias symbols",
+"TRX, Trx80, TXN1"
+],
+[
+"Entrez",
+"7295"
+],
+[
+"Ensembl",
+"ENSG00000136810"
+],
+[
+"RefSeq",
+"NM_001244938"
+],
+[
+"UniProt",
+"P10599"
+]
+]
+},
+{
+"id": "c0::p2",
+"label": "",
+"class": "Process",
+"box": [
+571.0,
+295.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"TXN",
+"NADPH"
+],
+"out": [
+"TXN",
+"NADP+"
+],
+"by": [
+"TXNRD1"
+]
+},
+"references": [
+{
+"authors": "Kang SW et al.",
+"year": "1998",
+"title": "Mammalian peroxiredoxin isoforms can reduce hydrogen peroxide generated in response to growth factors and tumor necrosis factor-alpha.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "9497357"
+}
+]
+},
+{
+"label": "NADPH",
+"class": "SimpleChemical",
+"box": [
+619.0,
+167.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADPH(4-)"
+],
+[
+"Synonyms",
+"2'-O-phosphonatoadenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}; NADPH; NADPH tetraanion"
+],
+[
+"Definition",
+"Tetraanion of NADPH arising from deprotonation of the diphosphate and phosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H26N7O17P3"
+],
+[
+"ChEBI",
+"CHEBI:57783"
+],
+[
+"InChI",
+"InChI=1S/C21H30N7O17P3/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(44-46(33,34)35)14(30)11(43-21)6-41-48(38,39)45-47(36,37)40-5-10-13(29)15(31)20(42-10)27-3-1-2-9(4-27)18(23)32/h1,3-4,7-8,10-11,13-16,20-21,29-31H,2,5-6H2,(H2,23,32)(H,36,37)(H,38,39)(H2,22,24,25)(H2,33,34,35)/p-4/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"ACFIXJIJDZMPPO-NNYOXOHSSA-J"
+]
+]
+},
+{
+"label": "NADP+",
+"class": "SimpleChemical",
+"box": [
+507.0,
+167.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADP(3-)"
+],
+[
+"Synonyms",
+"2'-O-phosphonatoadenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}; NADP trianion; NADP(+)"
+],
+[
+"Definition",
+"An organophosphate oxoanion arising from deprotonation of the phosphate and diphosphate OH groups of NADP+; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H25N7O17P3"
+],
+[
+"ChEBI",
+"CHEBI:58349"
+],
+[
+"InChI",
+"InChI=1S/C21H28N7O17P3/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(44-46(33,34)35)14(30)11(43-21)6-41-48(38,39)45-47(36,37)40-5-10-13(29)15(31)20(42-10)27-3-1-2-9(4-27)18(23)32/h1-4,7-8,10-11,13-16,20-21,29-31H,5-6H2,(H7-,22,23,24,25,32,33,34,35,36,37,38,39)/p-3/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"XJLXINKUBYWONI-NNYOXOHSSA-K"
+]
+]
+},
+{
+"label": "TXNRD1",
+"class": "Macromolecule",
+"box": [
+543.0,
+47.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Thioredoxin reductase 1, cytoplasmic"
+],
+[
+"Alternative names",
+"Gene associated with retinoic and interferon-induced mortality 12 protein; KM-102-derived reductase-like factor; Peroxidase TXNRD1; Thioredoxin reductase TR1"
+],
+[
+"Function",
+"Reduces disulfide protein thioredoxin (Trx) to its dithiol-containing form. Homodimeric flavoprotein involved in the regulation of cellular redox reactions, growth and differentiation."
+],
+[
+"Location",
+"Cytoplasm, Nucleus"
+],
+[
+"HGNC",
+"HGNC:12437"
+],
+[
+"HGNC symbol",
+"TXNRD1"
+],
+[
+"Alias symbols",
+"TXNR, GRIM-12, Trxr1, TXNR1"
+],
+[
+"Entrez",
+"7296"
+],
+[
+"Ensembl",
+"ENSG00000198431"
+],
+[
+"RefSeq",
+"NM_003330"
+],
+[
+"UniProt",
+"Q16881"
+]
+]
+},
+{
+"label": "PRDX1",
+"class": "Macromolecule",
+"box": [
+383.0,
+567.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-1"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor A; Proliferation-associated gene protein; Thioredoxin peroxidase 2; Thioredoxin-dependent peroxide reductase 2; Thioredoxin-dependent peroxiredoxin 1"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm, Melanosome"
+],
+[
+"HGNC",
+"HGNC:9352"
+],
+[
+"HGNC symbol",
+"PRDX1"
+],
+[
+"Previous symbols",
+"PAGA"
+],
+[
+"Alias symbols",
+"NKEFA"
+],
+[
+"Entrez",
+"5052"
+],
+[
+"Ensembl",
+"ENSG00000117450"
+],
+[
+"RefSeq",
+"NM_181697"
+],
+[
+"UniProt",
+"Q06830"
+]
+]
+},
+{
+"label": "PRDX2",
+"class": "Macromolecule",
+"box": [
+703.0,
+567.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-2"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor B; PRP; Thiol-specific antioxidant protein; Thioredoxin peroxidase 1; Thioredoxin-dependent peroxide reductase 1; Thioredoxin-dependent peroxiredoxin 2"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:9353"
+],
+[
+"HGNC symbol",
+"PRDX2"
+],
+[
+"Previous symbols",
+"TDPX1"
+],
+[
+"Alias symbols",
+"PRP, NKEFB, TSA, PRXII, PRX2, MGC4104"
+],
+[
+"Entrez",
+"7001"
+],
+[
+"Ensembl",
+"ENSG00000167815"
+],
+[
+"RefSeq",
+"NM_005809"
+],
+[
+"UniProt",
+"P32119"
+]
+]
+},
+{
+"label": "PRDX1",
+"class": "Macromolecule",
+"box": [
+63.0,
+567.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-1"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor A; Proliferation-associated gene protein; Thioredoxin peroxidase 2; Thioredoxin-dependent peroxide reductase 2; Thioredoxin-dependent peroxiredoxin 1"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm, Melanosome"
+],
+[
+"HGNC",
+"HGNC:9352"
+],
+[
+"HGNC symbol",
+"PRDX1"
+],
+[
+"Previous symbols",
+"PAGA"
+],
+[
+"Alias symbols",
+"NKEFA"
+],
+[
+"Entrez",
+"5052"
+],
+[
+"Ensembl",
+"ENSG00000117450"
+],
+[
+"RefSeq",
+"NM_181697"
+],
+[
+"UniProt",
+"Q06830"
+]
+]
+},
+{
+"id": "c0::ox1",
+"label": "",
+"class": "Process",
+"box": [
+251.0,
+587.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX1",
+"H2O2"
+],
+"out": [
+"PRDX1",
+"H2O"
+],
+"by": []
+},
+"references": [
+{
+"authors": "Yang KS et al.",
+"year": "2002",
+"title": "Inactivation of human peroxiredoxin I during catalysis as the result of the oxidation of the catalytic site cysteine to cysteine-sulfinic acid.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "12161445"
+},
+{
+"authors": "Wood ZA et al.",
+"year": "2003",
+"title": "Peroxiredoxin evolution and the regulation of hydrogen peroxide signaling.",
+"journal": "Science",
+"db": "pubmed",
+"id": "12714747"
+}
+]
+},
+{
+"id": "c0::rep1",
+"label": "",
+"class": "Process",
+"box": [
+251.0,
+563.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX1"
+],
+"out": [
+"PRDX1"
+],
+"by": [
+"SRXN1"
+]
+},
+"references": [
+{
+"authors": "Biteau B et al.",
+"year": "2003",
+"title": "ATP-dependent reduction of cysteine-sulphinic acid by S. cerevisiae sulphiredoxin.",
+"journal": "Nature",
+"db": "pubmed",
+"id": "14586471"
+},
+{
+"authors": "Woo HA et al.",
+"year": "2003",
+"title": "Reversing the inactivation of peroxiredoxins caused by cysteine sulfinic acid formation.",
+"journal": "Science",
+"db": "pubmed",
+"id": "12714748"
+},
+{
+"authors": "Chang TS et al.",
+"year": "2004",
+"title": "Characterization of mammalian sulfiredoxin and its reactivation of hyperoxidized peroxiredoxin through reduction of cysteine sulfinic acid in the active site to cysteine.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "15448164"
+}
+]
+},
+{
+"label": "SRXN1",
+"class": "Macromolecule",
+"box": [
+223.0,
+467.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Sulfiredoxin-1"
+],
+[
+"Function",
+"Contributes to oxidative stress resistance by reducing cysteine-sulfinic acid formed under exposure to oxidants in the peroxiredoxins PRDX1, PRDX2, PRDX3 and PRDX4. Does not act on PRDX5 or PRDX6."
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:16132"
+],
+[
+"HGNC symbol",
+"SRXN1"
+],
+[
+"Previous symbols",
+"C20orf139"
+],
+[
+"Alias symbols",
+"Npn3, Srx, SRX1, YKL086W, dJ850E9.2"
+],
+[
+"Entrez",
+"140809"
+],
+[
+"Ensembl",
+"ENSG00000271303"
+],
+[
+"RefSeq",
+"NM_080725"
+],
+[
+"UniProt",
+"Q9BYN0"
+]
+]
+},
+{
+"label": "H2O2",
+"class": "SimpleChemical",
+"box": [
+267.0,
+659.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"hydrogen peroxide"
+],
+[
+"Synonyms",
+"H(2)O(2); H2O2; HOOH; Oxydol; [OH(OH)]; bis(hydridooxygen)(O--O); dihydrogen dioxide; dihydrogen peroxide; dihydrogen(peroxide); dioxidane; perhydrol"
+],
+[
+"Definition",
+"An inorganic peroxide consisting of two hydroxy groups joined by a covalent oxygen-oxygen single bond."
+],
+[
+"Formula",
+"H2O2"
+],
+[
+"ChEBI",
+"CHEBI:16240"
+],
+[
+"KEGG",
+"C00027"
+],
+[
+"HMDB",
+"HMDB0003125"
+],
+[
+"InChI",
+"InChI=1S/H2O2/c1-2/h1-2H"
+],
+[
+"InChIKey",
+"MHAJPDPJQMAIIY-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "H2O",
+"class": "SimpleChemical",
+"box": [
+219.0,
+659.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"water"
+],
+[
+"Synonyms",
+"BOUND WATER; H(2)O; H2O; HOH; Wasser; [OH2]; acqua; agua; aqua; dihydridooxygen; dihydrogen oxide; eau; hydrogen hydroxide; oxidane"
+],
+[
+"Definition",
+"An oxygen hydride consisting of an oxygen atom that is covalently bonded to two hydrogen atoms"
+],
+[
+"Formula",
+"H2O"
+],
+[
+"ChEBI",
+"CHEBI:15377"
+],
+[
+"KEGG",
+"C00001"
+],
+[
+"HMDB",
+"HMDB0002111"
+],
+[
+"InChI",
+"InChI=1S/H2O/h1H2"
+],
+[
+"InChIKey",
+"XLYOFNOQVPJJNP-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "PRDX2",
+"class": "Macromolecule",
+"box": [
+1023.0,
+567.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-2"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor B; PRP; Thiol-specific antioxidant protein; Thioredoxin peroxidase 1; Thioredoxin-dependent peroxide reductase 1; Thioredoxin-dependent peroxiredoxin 2"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:9353"
+],
+[
+"HGNC symbol",
+"PRDX2"
+],
+[
+"Previous symbols",
+"TDPX1"
+],
+[
+"Alias symbols",
+"PRP, NKEFB, TSA, PRXII, PRX2, MGC4104"
+],
+[
+"Entrez",
+"7001"
+],
+[
+"Ensembl",
+"ENSG00000167815"
+],
+[
+"RefSeq",
+"NM_005809"
+],
+[
+"UniProt",
+"P32119"
+]
+]
+},
+{
+"id": "c0::rep2",
+"label": "",
+"class": "Process",
+"box": [
+891.0,
+563.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX2"
+],
+"out": [
+"PRDX2"
+],
+"by": [
+"SRXN1"
+]
+},
+"references": [
+{
+"authors": "Woo HA et al.",
+"year": "2003",
+"title": "Reversing the inactivation of peroxiredoxins caused by cysteine sulfinic acid formation.",
+"journal": "Science",
+"db": "pubmed",
+"id": "12714748"
+},
+{
+"authors": "Woo HA et al.",
+"year": "2005",
+"title": "Reduction of cysteine sulfinic acid by sulfiredoxin is specific to 2-cys peroxiredoxins.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "15590625"
+}
+]
+},
+{
+"id": "c0::ox2",
+"label": "",
+"class": "Process",
+"box": [
+891.0,
+587.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX2",
+"H2O2"
+],
+"out": [
+"PRDX2",
+"H2O"
+],
+"by": []
+},
+"references": [
+{
+"authors": "Woo HA et al.",
+"year": "2010",
+"title": "Inactivation of peroxiredoxin I by phosphorylation allows localized H(2)O(2) accumulation for cell signaling.",
+"journal": "Cell",
+"db": "pubmed",
+"id": "20178744"
+},
+{
+"authors": "Wood ZA et al.",
+"year": "2003",
+"title": "Peroxiredoxin evolution and the regulation of hydrogen peroxide signaling.",
+"journal": "Science",
+"db": "pubmed",
+"id": "12714747"
+}
+]
+},
+{
+"label": "SRXN1",
+"class": "Macromolecule",
+"box": [
+863.0,
+467.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Sulfiredoxin-1"
+],
+[
+"Function",
+"Contributes to oxidative stress resistance by reducing cysteine-sulfinic acid formed under exposure to oxidants in the peroxiredoxins PRDX1, PRDX2, PRDX3 and PRDX4. Does not act on PRDX5 or PRDX6."
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:16132"
+],
+[
+"HGNC symbol",
+"SRXN1"
+],
+[
+"Previous symbols",
+"C20orf139"
+],
+[
+"Alias symbols",
+"Npn3, Srx, SRX1, YKL086W, dJ850E9.2"
+],
+[
+"Entrez",
+"140809"
+],
+[
+"Ensembl",
+"ENSG00000271303"
+],
+[
+"RefSeq",
+"NM_080725"
+],
+[
+"UniProt",
+"Q9BYN0"
+]
+]
+},
+{
+"label": "H2O2",
+"class": "SimpleChemical",
+"box": [
+859.0,
+659.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"hydrogen peroxide"
+],
+[
+"Synonyms",
+"H(2)O(2); H2O2; HOOH; Oxydol; [OH(OH)]; bis(hydridooxygen)(O--O); dihydrogen dioxide; dihydrogen peroxide; dihydrogen(peroxide); dioxidane; perhydrol"
+],
+[
+"Definition",
+"An inorganic peroxide consisting of two hydroxy groups joined by a covalent oxygen-oxygen single bond."
+],
+[
+"Formula",
+"H2O2"
+],
+[
+"ChEBI",
+"CHEBI:16240"
+],
+[
+"KEGG",
+"C00027"
+],
+[
+"HMDB",
+"HMDB0003125"
+],
+[
+"InChI",
+"InChI=1S/H2O2/c1-2/h1-2H"
+],
+[
+"InChIKey",
+"MHAJPDPJQMAIIY-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "H2O",
+"class": "SimpleChemical",
+"box": [
+907.0,
+659.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"water"
+],
+[
+"Synonyms",
+"BOUND WATER; H(2)O; H2O; HOH; Wasser; [OH2]; acqua; agua; aqua; dihydridooxygen; dihydrogen oxide; eau; hydrogen hydroxide; oxidane"
+],
+[
+"Definition",
+"An oxygen hydride consisting of an oxygen atom that is covalently bonded to two hydrogen atoms"
+],
+[
+"Formula",
+"H2O"
+],
+[
+"ChEBI",
+"CHEBI:15377"
+],
+[
+"KEGG",
+"C00001"
+],
+[
+"HMDB",
+"HMDB0002111"
+],
+[
+"InChI",
+"InChI=1S/H2O/h1H2"
+],
+[
+"InChIKey",
+"XLYOFNOQVPJJNP-UHFFFAOYSA-N"
+]
+]
+},
+{
+"id": "c0::t90",
+"label": "",
+"class": "Process",
+"box": [
+331.0,
+775.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX1"
+],
+"out": [
+"PRDX1"
+],
+"by": [
+""
+]
+},
+"references": [
+{
+"authors": "Chang TS et al.",
+"year": "2002",
+"title": "Regulation of peroxiredoxin I activity by Cdc2-mediated phosphorylation.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "11986303"
+}
+]
+},
+{
+"id": "c0::y194",
+"label": "",
+"class": "Process",
+"box": [
+491.0,
+775.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX1"
+],
+"out": [
+"PRDX1"
+],
+"by": [
+"SRC"
+]
+},
+"references": [
+{
+"authors": "Woo HA et al.",
+"year": "2010",
+"title": "Inactivation of peroxiredoxin I by phosphorylation allows localized H(2)O(2) accumulation for cell signaling.",
+"journal": "Cell",
+"db": "pubmed",
+"id": "20178744"
+}
+]
+},
+{
+"label": "PRDX1",
+"class": "Macromolecule",
+"box": [
+303.0,
+887.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-1"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor A; Proliferation-associated gene protein; Thioredoxin peroxidase 2; Thioredoxin-dependent peroxide reductase 2; Thioredoxin-dependent peroxiredoxin 1"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm, Melanosome"
+],
+[
+"HGNC",
+"HGNC:9352"
+],
+[
+"HGNC symbol",
+"PRDX1"
+],
+[
+"Previous symbols",
+"PAGA"
+],
+[
+"Alias symbols",
+"NKEFA"
+],
+[
+"Entrez",
+"5052"
+],
+[
+"Ensembl",
+"ENSG00000117450"
+],
+[
+"RefSeq",
+"NM_181697"
+],
+[
+"UniProt",
+"Q06830"
+]
+]
+},
+{
+"label": "PRDX1",
+"class": "Macromolecule",
+"box": [
+463.0,
+887.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-1"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor A; Proliferation-associated gene protein; Thioredoxin peroxidase 2; Thioredoxin-dependent peroxide reductase 2; Thioredoxin-dependent peroxiredoxin 1"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm, Melanosome"
+],
+[
+"HGNC",
+"HGNC:9352"
+],
+[
+"HGNC symbol",
+"PRDX1"
+],
+[
+"Previous symbols",
+"PAGA"
+],
+[
+"Alias symbols",
+"NKEFA"
+],
+[
+"Entrez",
+"5052"
+],
+[
+"Ensembl",
+"ENSG00000117450"
+],
+[
+"RefSeq",
+"NM_181697"
+],
+[
+"UniProt",
+"Q06830"
+]
+]
+},
+{
+"label": "CCNB1",
+"class": "Macromolecule",
+"box": [
+173.0,
+791.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"G2/mitotic-specific cyclin-B1"
+],
+[
+"Function",
+"Essential for the control of the cell cycle at the G2/M (mitosis) transition. Binds and activates cyclin-dependent protein kinase CDK1/CDC2"
+],
+[
+"Location",
+"Cytoplasm, Nucleus, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome"
+],
+[
+"HGNC",
+"HGNC:1579"
+],
+[
+"HGNC symbol",
+"CCNB1"
+],
+[
+"Previous symbols",
+"CCNB"
+],
+[
+"Entrez",
+"891"
+],
+[
+"Ensembl",
+"ENSG00000134057"
+],
+[
+"RefSeq",
+"NM_031966"
+],
+[
+"UniProt",
+"P14635"
+]
+]
+},
+{
+"label": "CDK1",
+"class": "Macromolecule",
+"box": [
+173.0,
+743.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Cyclin-dependent kinase 1"
+],
+[
+"Alternative names",
+"Cell division control protein 2 homolog; Cell division protein kinase 1; p34 protein kinase"
+],
+[
+"Function",
+"Plays a key role in the control of the eukaryotic cell cycle by modulating the centrosome cycle as well as mitotic onset; promotes G2-M transition via association with multiple interphase cyclins. Phosphorylates PARVA/actopaxin, APC, AMPH, APC, ASB7, BARD1, Bcl-xL/BCL2L1, BRCA2, CALD1, CASP8, CDC7, CDC20, CDC25A, CDC25C, CC2D1A, CENPA, CSNK2 proteins/CKII, FZR1/CDH1, CDK7, CEBPB, CHAMP1, DMD/dystrophin, EEF1 proteins/EF-1, EZH2, KIF11/EG5, EGFR, FANCG, FOS, GFAP, GOLGA2/GM130, GRASP1, UBE2A/hHR6A, HIST1H1 proteins/histone H1, HMGA1, HIVEP3/KRC, UHRF1, KAT5, LMNA, LMNB, LBR, MKI67, LATS1, MAP1B, MAP4, MARCKS, MCM2, MCM4, MKLP1, MLST8, MYB, NEFH, NFIC, NPC/nuclear pore complex, PITPNM1/NIR2, NPM1, NCL, NUCKS1, NPM1/numatrin, ORC1, PRKAR2A, EEF1E1/p18, EIF3F/p47, p53/TP53, NONO/p54NRB, PAPOLA, PLEC/plectin, RB1, TPPP, UL40/R2, RAB4A, RAP1GAP, RBBP8/CtIP, RCC1, RPS6KB1/S6K1, KHDRBS1/SAM68, ESPL1, SKI, BIRC5/survivin, STIP1, TEX14, beta-tubulins, MAPT/TAU, NEDD1, VIM/vimentin, TK1, FOXO1, RUNX1/AML1, SAMHD1, SIRT2, CGAS, GLI2 and RUNX2."
+],
+[
+"Location",
+"Nucleus, Cytoplasm, Mitochondrion, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cytoplasm, cytoskeleton, spindle"
+],
+[
+"HGNC",
+"HGNC:1722"
+],
+[
+"HGNC symbol",
+"CDK1"
+],
+[
+"Previous symbols",
+"CDC2"
+],
+[
+"Alias symbols",
+"CDC28A"
+],
+[
+"Entrez",
+"983"
+],
+[
+"Ensembl",
+"ENSG00000170312"
+],
+[
+"RefSeq",
+"NM_001786"
+],
+[
+"UniProt",
+"P06493"
+]
+]
+},
+{
+"label": "SRC",
+"class": "Macromolecule",
+"box": [
+593.0,
+767.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Proto-oncogene tyrosine-protein kinase Src"
+],
+[
+"Alternative names",
+"Proto-oncogene c-Src; pp60c-src"
+],
+[
+"Function",
+"Non-receptor protein tyrosine kinase which is activated following engagement of many different classes of cellular receptors including immune response receptors, integrins and other adhesion receptors, receptor protein tyrosine kinases, G protein-coupled receptors as well as cytokine receptors. Participates in signaling pathways that control a diverse spectrum of biological activities including gene transcription, immune response, cell adhesion, cell cycle progression, apoptosis, migration, and transformation."
+],
+[
+"Location",
+"Cell membrane, Mitochondrion inner membrane, Nucleus, Cytoplasm, cytoskeleton, Cytoplasm, perinuclear region, Cell junction, focal adhesion, Cell junction"
+],
+[
+"HGNC",
+"HGNC:11283"
+],
+[
+"HGNC symbol",
+"SRC"
+],
+[
+"Previous symbols",
+"SRC1"
+],
+[
+"Alias symbols",
+"ASV, c-src"
+],
+[
+"Entrez",
+"6714"
+],
+[
+"Ensembl",
+"ENSG00000197122"
+],
+[
+"RefSeq",
+"NM_005417"
+],
+[
+"UniProt",
+"P12931"
+]
+]
+},
+{
+"id": "c0::t89",
+"label": "",
+"class": "Process",
+"box": [
+731.0,
+775.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"PRDX2"
+],
+"out": [
+"PRDX2"
+],
+"by": [
+""
+]
+},
+"references": [
+{
+"authors": "Qu D et al.",
+"year": "2007",
+"title": "Role of Cdk5-mediated phosphorylation of Prx2 in MPTP toxicity and Parkinson's disease.",
+"journal": "Neuron",
+"db": "pubmed",
+"id": "17610816"
+}
+]
+},
+{
+"label": "PRDX2",
+"class": "Macromolecule",
+"box": [
+703.0,
+887.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Peroxiredoxin-2"
+],
+[
+"Alternative names",
+"Natural killer cell-enhancing factor B; PRP; Thiol-specific antioxidant protein; Thioredoxin peroxidase 1; Thioredoxin-dependent peroxide reductase 1; Thioredoxin-dependent peroxiredoxin 2"
+],
+[
+"Function",
+"Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides and as sensor of hydrogen peroxide-mediated signaling events."
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:9353"
+],
+[
+"HGNC symbol",
+"PRDX2"
+],
+[
+"Previous symbols",
+"TDPX1"
+],
+[
+"Alias symbols",
+"PRP, NKEFB, TSA, PRXII, PRX2, MGC4104"
+],
+[
+"Entrez",
+"7001"
+],
+[
+"Ensembl",
+"ENSG00000167815"
+],
+[
+"RefSeq",
+"NM_005809"
+],
+[
+"UniProt",
+"P32119"
+]
+]
+},
+{
+"label": "CDK5R1",
+"class": "Macromolecule",
+"box": [
+833.0,
+791.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Cyclin-dependent kinase 5 activator 1"
+],
+[
+"Alternative names",
+"Cyclin-dependent kinase 5 regulatory subunit 1; TPKII regulatory subunit"
+],
+[
+"Function",
+"p35 is a neuron specific activator of CDK5. The complex p35/CDK5 is required for neurite outgrowth and cortical lamination."
+],
+[
+"Location",
+"Cell membrane, Cell projection, neuron projection, Nucleus, Cytoplasm, perinuclear region, Perikaryon"
+],
+[
+"HGNC",
+"HGNC:1775"
+],
+[
+"HGNC symbol",
+"CDK5R1"
+],
+[
+"Alias symbols",
+"p35nck5a, Nck5a, p35"
+],
+[
+"Entrez",
+"8851"
+],
+[
+"Ensembl",
+"ENSG00000176749"
+],
+[
+"RefSeq",
+"NM_003885"
+],
+[
+"UniProt",
+"Q15078"
+]
+]
+},
+{
+"label": "CDK5",
+"class": "Macromolecule",
+"box": [
+833.0,
+743.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Cyclin-dependent kinase 5"
+],
+[
+"Alternative names",
+"Cell division protein kinase 5; Cyclin-dependent-like kinase 5; Serine/threonine-protein kinase PSSALRE; Tau protein kinase II catalytic subunit"
+],
+[
+"Function",
+"Proline-directed serine/threonine-protein kinase essential for neuronal cell cycle arrest and differentiation and may be involved in apoptotic cell death in neuronal diseases by triggering abortive cell cycle re-entry. Interacts with D1 and D3-type G1 cyclins."
+],
+[
+"Location",
+"Cytoplasm, Nucleus, Cell membrane, Perikaryon, Cell projection, lamellipodium, Cell projection, growth cone, Postsynaptic density, Synapse"
+],
+[
+"HGNC",
+"HGNC:1774"
+],
+[
+"HGNC symbol",
+"CDK5"
+],
+[
+"Alias symbols",
+"PSSALRE"
+],
+[
+"Entrez",
+"1020"
+],
+[
+"Ensembl",
+"ENSG00000164885"
+],
+[
+"RefSeq",
+"NM_001164410"
+],
+[
+"UniProt",
+"Q00535"
+]
+]
+}
+]
+}
