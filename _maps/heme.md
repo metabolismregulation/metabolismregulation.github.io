@@ -4,7 +4,7 @@ topic: "Heme synthesis"
 tab: ""
 page: "/heme/"
 group: "Porphyrin metabolism"
-order: 31
+order: 32
 kind: "map"
 draft: true
 tag: "draft-ext"

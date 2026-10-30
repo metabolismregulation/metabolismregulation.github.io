@@ -1,0 +1,724 @@
+{
+"nodes": [
+{
+"label": "L-glutamate",
+"class": "SimpleChemical",
+"box": [
+427.0,
+47.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-glutamate(1-)"
+],
+[
+"Synonyms",
+"(2S)-2-ammoniopentanedioate; L-glutamate; L-glutamic acid monoanion; L-glutamic acid, ion(1-); hydrogen L-glutamate"
+],
+[
+"Definition",
+"An α-amino-acid anion that is the conjugate base of L-glutamic acid, having anionic carboxy groups and a cationic amino group"
+],
+[
+"Formula",
+"C5H8NO4"
+],
+[
+"ChEBI",
+"CHEBI:29985"
+],
+[
+"InChI",
+"InChI=1S/C5H9NO4/c6-3(5(9)10)1-2-4(7)8/h3H,1-2,6H2,(H,7,8)(H,9,10)/p-1/t3-/m0/s1"
+],
+[
+"InChIKey",
+"WHUUTDBJXJRKMK-VKHMYHEASA-M"
+]
+]
+},
+{
+"id": "c0::p1",
+"label": "",
+"class": "Process",
+"box": [
+435.0,
+235.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [],
+"out": [
+"L-glutamate",
+"2-oxoglutarate",
+"NAD+",
+"NADH",
+"NH4+"
+],
+"by": [
+"GLUD1",
+"OR",
+"OR"
+]
+},
+"references": [
+{
+"authors": "Fang J et al.",
+"year": "2002",
+"title": "Expression, purification and characterization of human glutamate dehydrogenase (GDH) allosteric regulatory mutations.",
+"journal": "Biochem J",
+"db": "pubmed",
+"id": "11903050"
+},
+{
+"authors": "Smith TJ et al.",
+"year": "2001",
+"title": "Structures of bovine glutamate dehydrogenase complexes elucidate the mechanism of purine regulation.",
+"journal": "J Mol Biol",
+"db": "pubmed",
+"id": "11254391"
+}
+]
+},
+{
+"label": "2-oxoglutarate",
+"class": "SimpleChemical",
+"box": [
+427.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"2-oxoglutarate(2-)"
+],
+[
+"Synonyms",
+"2-ketoglutarate; 2-oxoglutarate; 2-oxopentanedioate; 2-oxopentanedioic acid, ion(2-); alpha-ketoglutarate"
+],
+[
+"Definition",
+"An oxo dicarboxylate obtained by deprotonation of both carboxy groups of 2-oxoglutaric acid."
+],
+[
+"Formula",
+"C5H4O5"
+],
+[
+"ChEBI",
+"CHEBI:16810"
+],
+[
+"KEGG",
+"C00026"
+],
+[
+"InChI",
+"InChI=1S/C5H6O5/c6-3(5(9)10)1-2-4(7)8/h1-2H2,(H,7,8)(H,9,10)/p-2"
+],
+[
+"InChIKey",
+"KPGXRSRHYNQIFN-UHFFFAOYSA-L"
+]
+]
+},
+{
+"label": "NAD+",
+"class": "SimpleChemical",
+"box": [
+347.0,
+167.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NAD(1-)"
+],
+[
+"Synonyms",
+"NAD anion; NAD(+); adenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"An anionic form of nicotinamide adenine dinucleotide arising from deprotonation of the two OH groups of the diphosphate moiety."
+],
+[
+"Formula",
+"C21H26N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57540"
+],
+[
+"InChI",
+"InChI=1S/C21H27N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1-4,7-8,10-11,13-16,20-21,29-32H,5-6H2,(H5-,22,23,24,25,33,34,35,36,37)/p-1/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BAWFJGJZGIEFAR-NNYOXOHSSA-M"
+]
+]
+},
+{
+"label": "NADH",
+"class": "SimpleChemical",
+"box": [
+347.0,
+287.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADH(2-)"
+],
+[
+"Synonyms",
+"NADH; NADH dianion; adenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"Dianion of NADH arising from deprotonation of the two diphosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H27N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57945"
+],
+[
+"InChI",
+"InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BOPGDPNILDQYTO-NNYOXOHSSA-L"
+]
+]
+},
+{
+"label": "NH4+",
+"class": "SimpleChemical",
+"box": [
+347.0,
+335.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ammonium"
+],
+[
+"Synonyms",
+"Ammonium(1+); NH(4)(+); NH4(+); NH4+; [NH4](+); ammonium cation; ammonium ion; azanium"
+],
+[
+"Definition",
+"An onium cation obtained by protonation of ammonia."
+],
+[
+"Formula",
+"H4N"
+],
+[
+"ChEBI",
+"CHEBI:28938"
+],
+[
+"KEGG",
+"C01342"
+],
+[
+"InChI",
+"InChI=1S/H3N/h1H3/p+1"
+],
+[
+"InChIKey",
+"QGZKDVFQNNGYKY-UHFFFAOYSA-O"
+]
+]
+},
+{
+"label": "GLUD1",
+"class": "Macromolecule",
+"box": [
+227.0,
+227.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Glutamate dehydrogenase 1, mitochondrial"
+],
+[
+"Function",
+"Mitochondrial glutamate dehydrogenase that catalyzes the conversion of L-glutamate into alpha-ketoglutarate. Plays a key role in glutamine anaplerosis by producing alpha-ketoglutarate, an important intermediate in the tricarboxylic acid cycle."
+],
+[
+"Location",
+"Mitochondrion, Endoplasmic reticulum"
+],
+[
+"HGNC",
+"HGNC:4335"
+],
+[
+"HGNC symbol",
+"GLUD1"
+],
+[
+"Previous symbols",
+"GLUD"
+],
+[
+"Alias symbols",
+"GDH, GDH1, hGDH1"
+],
+[
+"Entrez",
+"2746"
+],
+[
+"Ensembl",
+"ENSG00000148672"
+],
+[
+"RefSeq",
+"NM_005271"
+],
+[
+"UniProt",
+"P00367"
+]
+]
+},
+{
+"label": "ADP",
+"class": "SimpleChemical",
+"box": [
+667.0,
+97.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ADP(3-)"
+],
+[
+"Synonyms",
+"5'-O-[(phosphonatooxy)phosphinato]adenosine; ADP; ADP trianion; adenosine 5'-diphosphate"
+],
+[
+"Definition",
+"A nucleoside 5'-diphosphate(3−) arising from deprotonation of all three diphosphate OH groups of adenosine 5'-diphosphate (ADP); major species present at pH 7.3."
+],
+[
+"Formula",
+"C10H12N5O10P2"
+],
+[
+"ChEBI",
+"CHEBI:456216"
+],
+[
+"InChI",
+"InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/p-3/t4-,6-,7-,10-/m1/s1"
+],
+[
+"InChIKey",
+"XTWYTFMLZFPYCI-KQYNXXCUSA-K"
+]
+]
+},
+{
+"label": "L-leucine",
+"class": "SimpleChemical",
+"box": [
+667.0,
+197.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-leucine zwitterion"
+],
+[
+"Synonyms",
+"(2S)-2-azaniumyl-4-methylpentanoate; L-leucine; leucine zwitterion"
+],
+[
+"Definition",
+"Zwitterionic form of L-leucine."
+],
+[
+"Formula",
+"C6H13NO2"
+],
+[
+"ChEBI",
+"CHEBI:57427"
+],
+[
+"InChI",
+"InChI=1S/C6H13NO2/c1-4(2)3-5(7)6(8)9/h4-5H,3,7H2,1-2H3,(H,8,9)/t5-/m0/s1"
+],
+[
+"InChIKey",
+"ROHFNLRQFUQHCH-YFKPBYRVSA-N"
+]
+]
+},
+{
+"label": "GTP",
+"class": "SimpleChemical",
+"box": [
+667.0,
+257.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"GTP(4-)"
+],
+[
+"Synonyms",
+"GTP; guanosine 5'-triphosphate(4-)"
+],
+[
+"Definition",
+"A nucleoside triphosphate(4−) obtained by global deprotonation of the triphosphate OH groups of GTP; major species present at pH 7.3."
+],
+[
+"Formula",
+"C10H12N5O14P3"
+],
+[
+"ChEBI",
+"CHEBI:37565"
+],
+[
+"InChI",
+"InChI=1S/C10H16N5O14P3/c11-10-13-7-4(8(18)14-10)12-2-15(7)9-6(17)5(16)3(27-9)1-26-31(22,23)29-32(24,25)28-30(19,20)21/h2-3,5-6,9,16-17H,1H2,(H,22,23)(H,24,25)(H2,19,20,21)(H3,11,13,14,18)/p-4/t3-,5-,6-,9-/m1/s1"
+],
+[
+"InChIKey",
+"XKMLYUALXHKNFT-UUOKFMHZSA-J"
+]
+]
+},
+{
+"label": "ATP",
+"class": "SimpleChemical",
+"box": [
+667.0,
+357.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ATP(4-)"
+],
+[
+"Synonyms",
+"ATP; adenosine 5'-triphosphate(4-)"
+],
+[
+"Definition",
+"A nucleoside triphosphate(4−) obtained by global deprotonation of the triphosphate OH groups of ATP; major species present at pH 7.3."
+],
+[
+"Formula",
+"C10H12N5O13P3"
+],
+[
+"ChEBI",
+"CHEBI:30616"
+],
+[
+"InChI",
+"InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/p-4/t4-,6-,7-,10-/m1/s1"
+],
+[
+"InChIKey",
+"ZKHQWZAMYRWXGA-KQYNXXCUSA-J"
+]
+]
+},
+{
+"id": "c0::adpr",
+"label": "",
+"class": "Process",
+"box": [
+255.0,
+395.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"GLUD1",
+"NAD+"
+],
+"out": [
+"GLUD1",
+"nicotinamide"
+],
+"by": [
+"SIRT4"
+]
+},
+"references": [
+{
+"authors": "Haigis MC et al.",
+"year": "2006",
+"title": "SIRT4 inhibits glutamate dehydrogenase and opposes the effects of calorie restriction in pancreatic beta cells.",
+"journal": "Cell",
+"db": "pubmed",
+"id": "16959573"
+},
+{
+"authors": "Herrero-Yraola A et al.",
+"year": "2001",
+"title": "Regulation of glutamate dehydrogenase by reversible ADP-ribosylation in mitochondria.",
+"journal": "EMBO J",
+"db": "pubmed",
+"id": "11350929"
+},
+{
+"authors": "Choi MM et al.",
+"year": "2005",
+"title": "Identification of ADP-ribosylation site in human glutamate dehydrogenase isozymes.",
+"journal": "FEBS Lett",
+"db": "pubmed",
+"id": "16023112"
+}
+]
+},
+{
+"label": "NAD+",
+"class": "SimpleChemical",
+"box": [
+167.0,
+327.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NAD(1-)"
+],
+[
+"Synonyms",
+"NAD anion; NAD(+); adenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}"
+],
+[
+"Definition",
+"An anionic form of nicotinamide adenine dinucleotide arising from deprotonation of the two OH groups of the diphosphate moiety."
+],
+[
+"Formula",
+"C21H26N7O14P2"
+],
+[
+"ChEBI",
+"CHEBI:57540"
+],
+[
+"InChI",
+"InChI=1S/C21H27N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1-4,7-8,10-11,13-16,20-21,29-32H,5-6H2,(H5-,22,23,24,25,33,34,35,36,37)/p-1/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"BAWFJGJZGIEFAR-NNYOXOHSSA-M"
+]
+]
+},
+{
+"label": "nicotinamide",
+"class": "SimpleChemical",
+"box": [
+327.0,
+447.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"nicotinamide"
+],
+[
+"Synonyms",
+"3-carbamoylpyridine; 3-pyridinecarboxamide; Niacinamide; Nicotinamid; Nicotinsaeureamid; Nikotinamid; Nikotinsaeureamid; Vitamin PP; beta-pyridinecarboxamide; m-(aminocarbonyl)pyridine; niacin; niamide; nicotinamida; nicotinamidum; nicotine acid amide; nicotine amide; nicotinic acid amide; nicotinic amide; nicotylamide; pyridine-3-carboxamide; pyridine-3-carboxylic acid amide; vitamin B3"
+],
+[
+"Definition",
+"A pyridinecarboxamide that is pyridine in which the hydrogen at position 3 is replaced by a carboxamide group."
+],
+[
+"Formula",
+"C6H6N2O"
+],
+[
+"ChEBI",
+"CHEBI:17154"
+],
+[
+"KEGG",
+"C00153"
+],
+[
+"HMDB",
+"HMDB0001406"
+],
+[
+"InChI",
+"InChI=1S/C6H6N2O/c7-6(9)5-2-1-3-8-4-5/h1-4H,(H2,7,9)"
+],
+[
+"InChIKey",
+"DFPAKSUCGFBDDF-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "SIRT4",
+"class": "Macromolecule",
+"box": [
+47.0,
+387.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NAD-dependent protein lipoamidase sirtuin-4, mitochondrial"
+],
+[
+"Alternative names",
+"NAD-dependent ADP-ribosyltransferase sirtuin-4; NAD-dependent protein biotinylase sirtuin-4; NAD-dependent protein deacetylase sirtuin-4; Regulatory protein SIR2 homolog 4; SIR2-like protein 4"
+],
+[
+"Function",
+"Acts as a NAD-dependent protein lipoamidase, biotinylase, deacetylase and ADP-ribosyl transferase. Catalyzes more efficiently removal of lipoyl- and biotinyl- than acetyl-lysine modifications."
+],
+[
+"Location",
+"Mitochondrion matrix"
+],
+[
+"HGNC",
+"HGNC:14932"
+],
+[
+"HGNC symbol",
+"SIRT4"
+],
+[
+"Alias symbols",
+"SIR2L4"
+],
+[
+"Entrez",
+"23409"
+],
+[
+"Ensembl",
+"ENSG00000089163"
+],
+[
+"RefSeq",
+"NM_012240"
+],
+[
+"UniProt",
+"Q9Y6E7"
+]
+]
+},
+{
+"label": "GLUD1",
+"class": "Macromolecule",
+"box": [
+227.0,
+527.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Glutamate dehydrogenase 1, mitochondrial"
+],
+[
+"Function",
+"Mitochondrial glutamate dehydrogenase that catalyzes the conversion of L-glutamate into alpha-ketoglutarate. Plays a key role in glutamine anaplerosis by producing alpha-ketoglutarate, an important intermediate in the tricarboxylic acid cycle."
+],
+[
+"Location",
+"Mitochondrion, Endoplasmic reticulum"
+],
+[
+"HGNC",
+"HGNC:4335"
+],
+[
+"HGNC symbol",
+"GLUD1"
+],
+[
+"Previous symbols",
+"GLUD"
+],
+[
+"Alias symbols",
+"GDH, GDH1, hGDH1"
+],
+[
+"Entrez",
+"2746"
+],
+[
+"Ensembl",
+"ENSG00000148672"
+],
+[
+"RefSeq",
+"NM_005271"
+],
+[
+"UniProt",
+"P00367"
+]
+]
+}
+]
+}
