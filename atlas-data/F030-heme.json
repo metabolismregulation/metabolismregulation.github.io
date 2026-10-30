@@ -1,0 +1,1242 @@
+{
+"nodes": [
+{
+"label": "ALAS1 precursor",
+"class": "Macromolecule",
+"box": [
+459.0,
+55.0,
+120.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5-aminolevulinate synthase, non-specific, mitochondrial"
+],
+[
+"Alternative names",
+"5-aminolevulinic acid synthase 1; Delta-ALA synthase 1; Delta-aminolevulinate synthase 1"
+],
+[
+"Function",
+"Catalyzes the pyridoxal 5'-phosphate (PLP)-dependent condensation of succinyl-CoA and glycine to form aminolevulinic acid (ALA), with CoA and CO2 as by-products"
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:396"
+],
+[
+"HGNC symbol",
+"ALAS1"
+],
+[
+"Previous symbols",
+"ALAS3, ALAS"
+],
+[
+"Alias symbols",
+"ALAS-H"
+],
+[
+"Entrez",
+"211"
+],
+[
+"Ensembl",
+"ENSG00000023330"
+],
+[
+"RefSeq",
+"NM_000688"
+],
+[
+"UniProt",
+"P13196"
+]
+]
+},
+{
+"id": "c1::cut",
+"label": "",
+"class": "Process",
+"box": [
+507.0,
+163.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"ALAS1 precursor"
+],
+"out": [
+"ALAS1"
+],
+"by": []
+},
+"references": [
+{
+"authors": "Munakata H et al.",
+"year": "2004",
+"title": "Role of the heme regulatory motif in the heme-mediated inhibition of mitochondrial import of 5-aminolevulinate synthase.",
+"journal": "J Biochem",
+"db": "pubmed",
+"id": "15496594"
+}
+]
+},
+{
+"label": "ALAS1",
+"class": "Macromolecule",
+"box": [
+479.0,
+255.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5-aminolevulinate synthase, non-specific, mitochondrial"
+],
+[
+"Alternative names",
+"5-aminolevulinic acid synthase 1; Delta-ALA synthase 1; Delta-aminolevulinate synthase 1"
+],
+[
+"Function",
+"Catalyzes the pyridoxal 5'-phosphate (PLP)-dependent condensation of succinyl-CoA and glycine to form aminolevulinic acid (ALA), with CoA and CO2 as by-products"
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:396"
+],
+[
+"HGNC symbol",
+"ALAS1"
+],
+[
+"Previous symbols",
+"ALAS3, ALAS"
+],
+[
+"Alias symbols",
+"ALAS-H"
+],
+[
+"Entrez",
+"211"
+],
+[
+"Ensembl",
+"ENSG00000023330"
+],
+[
+"RefSeq",
+"NM_000688"
+],
+[
+"UniProt",
+"P13196"
+]
+]
+},
+{
+"id": "c1::plp",
+"label": "",
+"class": "Process",
+"box": [
+507.0,
+363.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"ALAS1",
+"PLP"
+],
+"out": [
+""
+],
+"by": [
+"CLPX"
+]
+},
+"references": [
+{
+"authors": "Kardon JR et al.",
+"year": "2015",
+"title": "Mitochondrial ClpX Activates a Key Enzyme for Heme Biosynthesis and Erythropoiesis.",
+"journal": "Cell",
+"db": "pubmed",
+"id": "25957689"
+},
+{
+"authors": "Kardon JR et al.",
+"year": "2020",
+"title": "Mitochondrial ClpX activates an essential biosynthetic enzyme through partial unfolding.",
+"journal": "Elife",
+"db": "pubmed",
+"id": "32091391"
+}
+]
+},
+{
+"label": "PLP",
+"class": "SimpleChemical",
+"box": [
+619.0,
+355.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"pyridoxal 5'-phosphate(2-)"
+],
+[
+"Synonyms",
+"(4-formyl-5-hydroxy-6-methylpyridin-3-yl)methyl phosphate; 3-hydroxy-5-(hydroxymethyl)-2-methylisonicotinaldehyde 5-phosphate dianion; 3-hydroxy-5-(hydroxymethyl)-2-methylisonicotinaldehyde 5-phosphate(2-); pyridoxal 5'-phosphate; pyridoxal 5'-phosphate dianion"
+],
+[
+"Definition",
+"The dianion resulting from the removal of two protons from the phosphate group of pyridoxal 5'-phosphate."
+],
+[
+"Formula",
+"C8H8NO6P"
+],
+[
+"ChEBI",
+"CHEBI:597326"
+],
+[
+"InChI",
+"InChI=1S/C8H10NO6P/c1-5-8(11)7(3-10)6(2-9-5)4-15-16(12,13)14/h2-3,11H,4H2,1H3,(H2,12,13,14)/p-2"
+],
+[
+"InChIKey",
+"NGVDGCNFYWLIFO-UHFFFAOYSA-L"
+]
+]
+},
+{
+"label": "CLPX",
+"class": "Macromolecule",
+"box": [
+339.0,
+355.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ATP-dependent clpX-like chaperone, mitochondrial"
+],
+[
+"Alternative names",
+"ATP-dependent Clp protease ATP-binding subunit clpX-like, mitochondrial; Caseinolytic mitochondrial matrix peptidase chaperone subunit X"
+],
+[
+"Function",
+"ATP-dependent chaperone that functions as an unfoldase. As part of the ClpXP protease complex, it recognizes specific protein substrates, unfolds them using energy derived from ATP hydrolysis, and then translocates them to the proteolytic subunit (CLPP) of the ClpXP complex for degradation."
+],
+[
+"Location",
+"Mitochondrion, Mitochondrion matrix, mitochondrion nucleoid"
+],
+[
+"HGNC",
+"HGNC:2088"
+],
+[
+"HGNC symbol",
+"CLPX"
+],
+[
+"Entrez",
+"10845"
+],
+[
+"Ensembl",
+"ENSG00000166855"
+],
+[
+"RefSeq",
+"NM_006660"
+],
+[
+"UniProt",
+"O76031"
+]
+]
+},
+{
+"label": "PLP",
+"class": "SimpleChemical",
+"box": [
+499.0,
+461.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"pyridoxal 5'-phosphate(2-)"
+],
+[
+"Synonyms",
+"(4-formyl-5-hydroxy-6-methylpyridin-3-yl)methyl phosphate; 3-hydroxy-5-(hydroxymethyl)-2-methylisonicotinaldehyde 5-phosphate dianion; 3-hydroxy-5-(hydroxymethyl)-2-methylisonicotinaldehyde 5-phosphate(2-); pyridoxal 5'-phosphate; pyridoxal 5'-phosphate dianion"
+],
+[
+"Definition",
+"The dianion resulting from the removal of two protons from the phosphate group of pyridoxal 5'-phosphate."
+],
+[
+"Formula",
+"C8H8NO6P"
+],
+[
+"ChEBI",
+"CHEBI:597326"
+],
+[
+"InChI",
+"InChI=1S/C8H10NO6P/c1-5-8(11)7(3-10)6(2-9-5)4-15-16(12,13)14/h2-3,11H,4H2,1H3,(H2,12,13,14)/p-2"
+],
+[
+"InChIKey",
+"NGVDGCNFYWLIFO-UHFFFAOYSA-L"
+]
+]
+},
+{
+"label": "ALAS1",
+"class": "Macromolecule",
+"box": [
+479.0,
+509.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5-aminolevulinate synthase, non-specific, mitochondrial"
+],
+[
+"Alternative names",
+"5-aminolevulinic acid synthase 1; Delta-ALA synthase 1; Delta-aminolevulinate synthase 1"
+],
+[
+"Function",
+"Catalyzes the pyridoxal 5'-phosphate (PLP)-dependent condensation of succinyl-CoA and glycine to form aminolevulinic acid (ALA), with CoA and CO2 as by-products"
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:396"
+],
+[
+"HGNC symbol",
+"ALAS1"
+],
+[
+"Previous symbols",
+"ALAS3, ALAS"
+],
+[
+"Alias symbols",
+"ALAS-H"
+],
+[
+"Entrez",
+"211"
+],
+[
+"Ensembl",
+"ENSG00000023330"
+],
+[
+"RefSeq",
+"NM_000688"
+],
+[
+"UniProt",
+"P13196"
+]
+]
+},
+{
+"label": "glycine",
+"class": "SimpleChemical",
+"box": [
+719.0,
+335.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"glycine zwitterion"
+],
+[
+"Synonyms",
+"2-azaniumylacetate; glycine"
+],
+[
+"Definition",
+"An amino acid zwitterion arising from transfer of a proton from the carboxy to the amino group of glycine."
+],
+[
+"Formula",
+"C2H5NO2"
+],
+[
+"ChEBI",
+"CHEBI:57305"
+],
+[
+"InChI",
+"InChI=1S/C2H5NO2/c3-1-2(4)5/h1,3H2,(H,4,5)"
+],
+[
+"InChIKey",
+"DHMQDGOQFOQNFH-UHFFFAOYSA-N"
+]
+]
+},
+{
+"id": "c1::p",
+"label": "",
+"class": "Process",
+"box": [
+727.0,
+493.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"glycine",
+"succinyl-CoA"
+],
+"out": [
+"5-aminolevulinate",
+"CoA",
+"CO2"
+],
+"by": [
+""
+]
+},
+"references": [
+{
+"authors": "Brown BL et al.",
+"year": "2018",
+"title": "Structure of the Mitochondrial Aminolevulinic Acid Synthase, a Key Heme Biosynthetic Enzyme.",
+"journal": "Structure",
+"db": "pubmed",
+"id": "29551290"
+},
+{
+"authors": "Kardon JR et al.",
+"year": "2015",
+"title": "Mitochondrial ClpX Activates a Key Enzyme for Heme Biosynthesis and Erythropoiesis.",
+"journal": "Cell",
+"db": "pubmed",
+"id": "25957689"
+}
+]
+},
+{
+"label": "succinyl-CoA",
+"class": "SimpleChemical",
+"box": [
+819.0,
+435.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"succinyl-CoA(5-)"
+],
+[
+"Synonyms",
+"3'-phosphonatoadenosine 5'-{3-[(3R)-4-{[3-({2-[(3-carboxylatopropanoyl)sulfanyl]ethyl}amino)-3-oxopropyl]amino}-3-hydroxy-2,2-dimethyl-4-oxobutyl]diphosphate}; S-(3-carboxy-propionyl)-CoA(5-); S-(hydrogen succinyl)CoA(5-); succinyl-CoA; succinyl-CoA pentaanion; succinyl-coenzyme A(5-)"
+],
+[
+"Definition",
+"An acyl-CoA oxoanion that is the pentaanion of succinyl-CoA, arising from deprotonation of the phosphate, diphosphate and carboxylic acid OH groups."
+],
+[
+"Formula",
+"C25H35N7O19P3S"
+],
+[
+"ChEBI",
+"CHEBI:57292"
+],
+[
+"InChI",
+"InChI=1S/C25H40N7O19P3S/c1-25(2,20(38)23(39)28-6-5-14(33)27-7-8-55-16(36)4-3-15(34)35)10-48-54(45,46)51-53(43,44)47-9-13-19(50-52(40,41)42)18(37)24(49-13)32-12-31-17-21(26)29-11-30-22(17)32/h11-13,18-20,24,37-38H,3-10H2,1-2H3,(H,27,33)(H,28,39)(H,34,35)(H,43,44)(H,45,46)(H2,26,29,30)(H2,40,41,42)/p-5/t13-,18-,19-,20+,24-/m1/s1"
+],
+[
+"InChIKey",
+"VNOYUJKHFWYWIR-ITIYDSSPSA-I"
+]
+]
+},
+{
+"label": "CoA",
+"class": "SimpleChemical",
+"box": [
+819.0,
+535.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"coenzyme A(4-)"
+],
+[
+"Synonyms",
+"3'-phosphonatoadenosine 5'-{3-[(3R)-3-hydroxy-2,2-dimethyl-4-oxo-4-({3-oxo-3-[(2-sulfanylethyl)amino]propyl}amino)butyl] diphosphate}; CoA"
+],
+[
+"Definition",
+"Tetraanion of coenzyme A."
+],
+[
+"Formula",
+"C21H32N7O16P3S"
+],
+[
+"ChEBI",
+"CHEBI:57287"
+],
+[
+"InChI",
+"InChI=1S/C21H36N7O16P3S/c1-21(2,16(31)19(32)24-4-3-12(29)23-5-6-48)8-41-47(38,39)44-46(36,37)40-7-11-15(43-45(33,34)35)14(30)20(42-11)28-10-27-13-17(22)25-9-26-18(13)28/h9-11,14-16,20,30-31,48H,3-8H2,1-2H3,(H,23,29)(H,24,32)(H,36,37)(H,38,39)(H2,22,25,26)(H2,33,34,35)/p-4/t11-,14-,15-,16+,20-/m1/s1"
+],
+[
+"InChIKey",
+"RGJOEKWQDUBAIZ-IBOSZNHHSA-J"
+]
+]
+},
+{
+"label": "CO2",
+"class": "SimpleChemical",
+"box": [
+819.0,
+583.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"carbon dioxide"
+],
+[
+"Synonyms",
+"CO(2); CO2; E 290; E-290; E290; R-744; [CO2]; carbonic anhydride; dioxidocarbon; methanedione"
+],
+[
+"Definition",
+"A one-carbon compound with formula CO2 in which the carbon is attached to each oxygen atom by a double bond. A colourless, odourless gas under normal conditions, it is produced during respiration by all animals, fungi and microorganisms that depend directly or indirectly on living or decaying plants for food."
+],
+[
+"Formula",
+"CO2"
+],
+[
+"ChEBI",
+"CHEBI:16526"
+],
+[
+"KEGG",
+"C00011"
+],
+[
+"HMDB",
+"HMDB0001967"
+],
+[
+"InChI",
+"InChI=1S/CO2/c2-1-3"
+],
+[
+"InChIKey",
+"CURLTUGMZLYLDI-UHFFFAOYSA-N"
+]
+]
+},
+{
+"label": "5-aminolevulinate",
+"class": "SimpleChemical",
+"box": [
+719.0,
+655.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5-ammoniolevulinate"
+],
+[
+"Synonyms",
+"5-aminolevulinate; 5-ammonio-4-oxopentanoate; 5-ammonio-4-oxovalerate; 5-azaniumyl-4-oxopentanoate"
+],
+[
+"Definition",
+"The zwitterion formed from 5-aminolevulinic acid by transfer of a proton from the carboxy group to the amino group.  It is the major species present at physiological pH."
+],
+[
+"Formula",
+"C5H9NO3"
+],
+[
+"ChEBI",
+"CHEBI:356416"
+],
+[
+"InChI",
+"InChI=1S/C5H9NO3/c6-3-4(7)1-2-5(8)9/h1-3,6H2,(H,8,9)"
+],
+[
+"InChIKey",
+"ZGXJTSGNIOSYLO-UHFFFAOYSA-N"
+]
+]
+},
+{
+"id": "c1::hs",
+"label": "",
+"class": "Process",
+"box": [
+727.0,
+773.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"5-aminolevulinate"
+],
+"out": [
+"heme"
+],
+"by": []
+},
+"references": [
+{
+"authors": "Brown BL et al.",
+"year": "2018",
+"title": "Structure of the Mitochondrial Aminolevulinic Acid Synthase, a Key Heme Biosynthetic Enzyme.",
+"journal": "Structure",
+"db": "pubmed",
+"id": "29551290"
+}
+]
+},
+{
+"label": "heme",
+"class": "SimpleChemical",
+"box": [
+719.0,
+875.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ferroheme b(2-)"
+],
+[
+"Synonyms",
+"Fe(II)-heme b(2-); [3,3'-(3,7,12,17-tetramethyl-8,13-divinylporphyrin-2,18-diyl-kappa(4)N(21),N(22),N(23),N(24))dipropanoato(4-)]ferrate(2-); heme b"
+],
+[
+"Definition",
+"Dicarboxylate anion of ferroheme b; major species at pH 7.3."
+],
+[
+"Formula",
+"C34H30FeN4O4"
+],
+[
+"ChEBI",
+"CHEBI:60344"
+],
+[
+"InChI",
+"InChI=1S/C34H34N4O4.Fe/c1-7-21-17(3)25-13-26-19(5)23(9-11-33(39)40)31(37-26)16-32-24(10-12-34(41)42)20(6)28(38-32)15-30-22(8-2)18(4)27(36-30)14-29(21)35-25;/h7-8,13-16H,1-2,9-12H2,3-6H3,(H4,35,36,37,38,39,40,41,42);/q;+2/p-4/b25-13-,26-13-,27-14-,28-15-,29-14-,30-15-,31-16-,32-16-;"
+],
+[
+"InChIKey",
+"KABFMIBPWCXCRK-RGGAHWMASA-J"
+]
+]
+},
+{
+"id": "c1::bind",
+"label": "",
+"class": "Process",
+"box": [
+507.0,
+883.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"",
+"heme"
+],
+"out": [
+""
+],
+"by": []
+},
+"references": [
+{
+"authors": "Kubota Y et al.",
+"year": "2016",
+"title": "Novel Mechanisms for Heme-dependent Degradation of ALAS1 Protein as a Component of Negative Feedback Regulation of Heme Biosynthesis.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "27496948"
+},
+{
+"authors": "Nomura K et al.",
+"year": "2021",
+"title": "Heme-dependent recognition of 5-aminolevulinate synthase by the human mitochondrial molecular chaperone ClpX.",
+"journal": "FEBS Lett",
+"db": "pubmed",
+"id": "34704252"
+}
+]
+},
+{
+"label": "heme",
+"class": "SimpleChemical",
+"box": [
+499.0,
+977.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ferroheme b(2-)"
+],
+[
+"Synonyms",
+"Fe(II)-heme b(2-); [3,3'-(3,7,12,17-tetramethyl-8,13-divinylporphyrin-2,18-diyl-kappa(4)N(21),N(22),N(23),N(24))dipropanoato(4-)]ferrate(2-); heme b"
+],
+[
+"Definition",
+"Dicarboxylate anion of ferroheme b; major species at pH 7.3."
+],
+[
+"Formula",
+"C34H30FeN4O4"
+],
+[
+"ChEBI",
+"CHEBI:60344"
+],
+[
+"InChI",
+"InChI=1S/C34H34N4O4.Fe/c1-7-21-17(3)25-13-26-19(5)23(9-11-33(39)40)31(37-26)16-32-24(10-12-34(41)42)20(6)28(38-32)15-30-22(8-2)18(4)27(36-30)14-29(21)35-25;/h7-8,13-16H,1-2,9-12H2,3-6H3,(H4,35,36,37,38,39,40,41,42);/q;+2/p-4/b25-13-,26-13-,27-14-,28-15-,29-14-,30-15-,31-16-,32-16-;"
+],
+[
+"InChIKey",
+"KABFMIBPWCXCRK-RGGAHWMASA-J"
+]
+]
+},
+{
+"label": "PLP",
+"class": "SimpleChemical",
+"box": [
+499.0,
+1025.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"pyridoxal 5'-phosphate(2-)"
+],
+[
+"Synonyms",
+"(4-formyl-5-hydroxy-6-methylpyridin-3-yl)methyl phosphate; 3-hydroxy-5-(hydroxymethyl)-2-methylisonicotinaldehyde 5-phosphate dianion; 3-hydroxy-5-(hydroxymethyl)-2-methylisonicotinaldehyde 5-phosphate(2-); pyridoxal 5'-phosphate; pyridoxal 5'-phosphate dianion"
+],
+[
+"Definition",
+"The dianion resulting from the removal of two protons from the phosphate group of pyridoxal 5'-phosphate."
+],
+[
+"Formula",
+"C8H8NO6P"
+],
+[
+"ChEBI",
+"CHEBI:597326"
+],
+[
+"InChI",
+"InChI=1S/C8H10NO6P/c1-5-8(11)7(3-10)6(2-9-5)4-15-16(12,13)14/h2-3,11H,4H2,1H3,(H2,12,13,14)/p-2"
+],
+[
+"InChIKey",
+"NGVDGCNFYWLIFO-UHFFFAOYSA-L"
+]
+]
+},
+{
+"label": "ALAS1",
+"class": "Macromolecule",
+"box": [
+479.0,
+1073.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5-aminolevulinate synthase, non-specific, mitochondrial"
+],
+[
+"Alternative names",
+"5-aminolevulinic acid synthase 1; Delta-ALA synthase 1; Delta-aminolevulinate synthase 1"
+],
+[
+"Function",
+"Catalyzes the pyridoxal 5'-phosphate (PLP)-dependent condensation of succinyl-CoA and glycine to form aminolevulinic acid (ALA), with CoA and CO2 as by-products"
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:396"
+],
+[
+"HGNC symbol",
+"ALAS1"
+],
+[
+"Previous symbols",
+"ALAS3, ALAS"
+],
+[
+"Alias symbols",
+"ALAS-H"
+],
+[
+"Entrez",
+"211"
+],
+[
+"Ensembl",
+"ENSG00000023330"
+],
+[
+"RefSeq",
+"NM_000688"
+],
+[
+"UniProt",
+"P13196"
+]
+]
+},
+{
+"id": "c1::deg",
+"label": "",
+"class": "Process",
+"box": [
+507.0,
+1203.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+""
+],
+"out": [
+""
+],
+"by": [
+""
+]
+},
+"references": [
+{
+"authors": "Cottle T et al.",
+"year": "2026",
+"title": "An adaptor for feedback regulation of heme biosynthesis by a mitochondrial protease.",
+"journal": "Science",
+"db": "pubmed",
+"id": "42531414"
+},
+{
+"authors": "Kubota Y et al.",
+"year": "2016",
+"title": "Novel Mechanisms for Heme-dependent Degradation of ALAS1 Protein as a Component of Negative Feedback Regulation of Heme Biosynthesis.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "27496948"
+},
+{
+"authors": "Tian Q et al.",
+"year": "2011",
+"title": "Lon peptidase 1 (LONP1)-dependent breakdown of mitochondrial 5-aminolevulinic acid synthase protein by heme in human liver cells.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "21659532"
+}
+]
+},
+{
+"label": "POLDIP2",
+"class": "Macromolecule",
+"box": [
+319.0,
+1147.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Polymerase delta-interacting protein 2"
+],
+[
+"Alternative names",
+"38 kDa DNA polymerase delta interaction protein"
+],
+[
+"Function",
+"Involved in DNA damage tolerance by regulating translesion synthesis (TLS) of templates carrying DNA damage lesions such as 8oxoG and abasic sites. May act by stimulating activity of DNA polymerases involved in TLS, such as PRIMPOL and polymerase delta (POLD1)"
+],
+[
+"Location",
+"Mitochondrion matrix, Nucleus"
+],
+[
+"HGNC",
+"HGNC:23781"
+],
+[
+"HGNC symbol",
+"POLDIP2"
+],
+[
+"Alias symbols",
+"PDIP38, DKFZP586F1524"
+],
+[
+"Entrez",
+"26073"
+],
+[
+"Ensembl",
+"ENSG00000004142"
+],
+[
+"RefSeq",
+"NM_015584"
+],
+[
+"UniProt",
+"Q9Y2S7"
+]
+]
+},
+{
+"label": "CLPX",
+"class": "Macromolecule",
+"box": [
+319.0,
+1195.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ATP-dependent clpX-like chaperone, mitochondrial"
+],
+[
+"Alternative names",
+"ATP-dependent Clp protease ATP-binding subunit clpX-like, mitochondrial; Caseinolytic mitochondrial matrix peptidase chaperone subunit X"
+],
+[
+"Function",
+"ATP-dependent chaperone that functions as an unfoldase. As part of the ClpXP protease complex, it recognizes specific protein substrates, unfolds them using energy derived from ATP hydrolysis, and then translocates them to the proteolytic subunit (CLPP) of the ClpXP complex for degradation."
+],
+[
+"Location",
+"Mitochondrion, Mitochondrion matrix, mitochondrion nucleoid"
+],
+[
+"HGNC",
+"HGNC:2088"
+],
+[
+"HGNC symbol",
+"CLPX"
+],
+[
+"Entrez",
+"10845"
+],
+[
+"Ensembl",
+"ENSG00000166855"
+],
+[
+"RefSeq",
+"NM_006660"
+],
+[
+"UniProt",
+"O76031"
+]
+]
+},
+{
+"label": "CLPP",
+"class": "Macromolecule",
+"box": [
+319.0,
+1243.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ATP-dependent Clp protease proteolytic subunit, mitochondrial"
+],
+[
+"Alternative names",
+"Caseinolytic mitochondrial matrix peptidase proteolytic subunit; Endopeptidase Clp"
+],
+[
+"Function",
+"Protease component of the ClpXP complex that cleaves peptides and various proteins in an ATP-dependent process. Has low peptidase activity in the absence of CLPX."
+],
+[
+"Location",
+"Mitochondrion matrix"
+],
+[
+"HGNC",
+"HGNC:2084"
+],
+[
+"HGNC symbol",
+"CLPP"
+],
+[
+"Entrez",
+"8192"
+],
+[
+"Ensembl",
+"ENSG00000125656"
+],
+[
+"RefSeq",
+"NM_006012"
+],
+[
+"UniProt",
+"Q16740"
+]
+]
+},
+{
+"label": "ALAS1 precursor",
+"class": "Macromolecule",
+"box": [
+49.0,
+55.0,
+120.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5-aminolevulinate synthase, non-specific, mitochondrial"
+],
+[
+"Alternative names",
+"5-aminolevulinic acid synthase 1; Delta-ALA synthase 1; Delta-aminolevulinate synthase 1"
+],
+[
+"Function",
+"Catalyzes the pyridoxal 5'-phosphate (PLP)-dependent condensation of succinyl-CoA and glycine to form aminolevulinic acid (ALA), with CoA and CO2 as by-products"
+],
+[
+"Location",
+"Mitochondrion inner membrane"
+],
+[
+"HGNC",
+"HGNC:396"
+],
+[
+"HGNC symbol",
+"ALAS1"
+],
+[
+"Previous symbols",
+"ALAS3, ALAS"
+],
+[
+"Alias symbols",
+"ALAS-H"
+],
+[
+"Entrez",
+"211"
+],
+[
+"Ensembl",
+"ENSG00000023330"
+],
+[
+"RefSeq",
+"NM_000688"
+],
+[
+"UniProt",
+"P13196"
+]
+]
+},
+{
+"id": "c0::imp",
+"label": "",
+"class": "Process",
+"box": [
+219.0,
+63.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"ALAS1 precursor"
+],
+"out": [
+"ALAS1 precursor"
+],
+"by": [
+"heme"
+]
+},
+"references": [
+{
+"authors": "Munakata H et al.",
+"year": "2004",
+"title": "Role of the heme regulatory motif in the heme-mediated inhibition of mitochondrial import of 5-aminolevulinate synthase.",
+"journal": "J Biochem",
+"db": "pubmed",
+"id": "15496594"
+},
+{
+"authors": "Lathrop JT et al.",
+"year": "1993",
+"title": "Regulation by heme of mitochondrial protein transport through a conserved amino acid motif.",
+"journal": "Science",
+"db": "pubmed",
+"id": "8424176"
+}
+]
+},
+{
+"label": "heme",
+"class": "SimpleChemical",
+"box": [
+211.0,
+175.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"ferroheme b(2-)"
+],
+[
+"Synonyms",
+"Fe(II)-heme b(2-); [3,3'-(3,7,12,17-tetramethyl-8,13-divinylporphyrin-2,18-diyl-kappa(4)N(21),N(22),N(23),N(24))dipropanoato(4-)]ferrate(2-); heme b"
+],
+[
+"Definition",
+"Dicarboxylate anion of ferroheme b; major species at pH 7.3."
+],
+[
+"Formula",
+"C34H30FeN4O4"
+],
+[
+"ChEBI",
+"CHEBI:60344"
+],
+[
+"InChI",
+"InChI=1S/C34H34N4O4.Fe/c1-7-21-17(3)25-13-26-19(5)23(9-11-33(39)40)31(37-26)16-32-24(10-12-34(41)42)20(6)28(38-32)15-30-22(8-2)18(4)27(36-30)14-29(21)35-25;/h7-8,13-16H,1-2,9-12H2,3-6H3,(H4,35,36,37,38,39,40,41,42);/q;+2/p-4/b25-13-,26-13-,27-14-,28-15-,29-14-,30-15-,31-16-,32-16-;"
+],
+[
+"InChIKey",
+"KABFMIBPWCXCRK-RGGAHWMASA-J"
+]
+]
+}
+]
+}
