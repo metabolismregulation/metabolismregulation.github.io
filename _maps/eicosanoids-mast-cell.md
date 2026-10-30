@@ -4,7 +4,7 @@ topic: "Eicosanoids"
 tab: "mast cell"
 page: "/eicosanoids-mast-cell/"
 group: "Lipid metabolism"
-order: 12
+order: 13
 kind: "map"
 draft: true
 tag: "draft"

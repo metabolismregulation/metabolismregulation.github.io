@@ -4,7 +4,7 @@ topic: "HMGCR sterol feedback"
 tab: ""
 page: "/hmgcr/"
 group: "Lipid metabolism"
-order: 15
+order: 16
 kind: "map"
 draft: true
 tag: "draft-ext"

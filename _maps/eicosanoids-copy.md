@@ -4,7 +4,7 @@ topic: "Eicosanoids"
 tab: "generic"
 page: "/eicosanoids/"
 group: "Lipid metabolism"
-order: 9.5
+order: 10.5
 kind: "map"
 draft: false
 tag: "copy"

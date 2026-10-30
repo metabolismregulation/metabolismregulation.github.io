@@ -4,7 +4,7 @@ topic: "Tetrahydrobiopterin synthesis"
 tab: ""
 page: "/bh4/"
 group: "Vitamin & cofactor metabolism"
-order: 36
+order: 37
 kind: "map"
 draft: true
 tag: "draft-ext"

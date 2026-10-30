@@ -4,7 +4,7 @@ topic: "Urea cycle"
 tab: ""
 page: "/ureacycle/"
 group: "Amino acid metabolism"
-order: 29.5
+order: 30.5
 kind: "map"
 draft: false
 tag: "copy"

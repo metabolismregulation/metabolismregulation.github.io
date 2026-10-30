@@ -4,7 +4,7 @@ topic: "SREBP signalling"
 tab: ""
 page: "/srebp/"
 group: "Lipid metabolism"
-order: 17
+order: 18
 kind: "map"
 draft: false
 tag: ""
