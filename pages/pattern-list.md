@@ -4,6 +4,7 @@ title: Pattern List
 permalink: /pattern-list/
 sitemap: false
 noindex: true
+masthead: patterns
 icon: favicon-patterns
 ---
 
