@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "draft"
 image: "/pattern-atlas-downloads/haemoglobin-oxygen-cooperativity.svg"
-width: 564
-height: 644
+width: 584
+height: 549
 scale: 1
 annotation: "/atlas-data/pattern-haemoglobin-oxygen-cooperativity.json"
 image_error: ""
@@ -26,11 +26,17 @@ Haemoglobin, a tetramer of two α and two β globins, binds four oxygen molecule
 
 **From the book in this map.** Haemoglobin in the tense (T) and relaxed (R) states, free and bound to oxygen, and the four steps between them, all reversible. Drawn new for this page.
 
-**Added for the drawing.** The globins as two α and two β (N:2), from the book's tetramer. One oxygen per complex: the four oxygens bound one at a time are in the text, not drawn. The identifiers are HBA1, HBB and dioxygen in ChEBI.
+**Added for the drawing.** One oxygen per complex: the four oxygens bound one at a time are in the text, not drawn. Each binding has its own O2, so that both partners enter the step from one side. Haemoglobin stays one box, as the book names it, without identifiers. Dioxygen in ChEBI.
 
 **Not in the book, so not drawn.** The KNF model, the book's other account of the same curve.
 
 **MRegAtlas.** No MRegAtlas map draws haemoglobin.
+
+## Extended version
+
+![haemoglobin-oxygen-cooperativity extended](/pattern-atlas-downloads/haemoglobin-oxygen-cooperativity-extended.svg)
+
+The same square with the tetramer drawn as two α and two β globins (N:2) and their identifiers (HBA1, HBB). The book names haemoglobin as a tetramer but not its globins.
 
 ## References
 
