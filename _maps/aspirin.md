@@ -4,7 +4,7 @@ topic: "Aspirin"
 tab: ""
 page: "/aspirin/"
 group: "Lipid metabolism"
-order: 22
+order: 23
 kind: "drug"
 draft: false
 tag: ""

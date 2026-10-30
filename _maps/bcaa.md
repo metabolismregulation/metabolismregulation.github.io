@@ -4,7 +4,7 @@ topic: "BCAA catabolism"
 tab: ""
 page: "/bcaa/"
 group: "Amino acid metabolism"
-order: 27
+order: 28
 kind: "map"
 draft: false
 tag: ""

@@ -4,7 +4,7 @@ topic: "Phosphoinositide metabolism"
 tab: ""
 page: "/phosphoinositides/"
 group: "Lipid metabolism"
-order: 19
+order: 20
 kind: "map"
 draft: false
 tag: ""

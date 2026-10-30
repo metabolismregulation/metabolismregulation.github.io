@@ -1,0 +1,1254 @@
+{
+"nodes": [
+{
+"label": "HMG-CoA",
+"class": "SimpleChemical",
+"box": [
+175.0,
+47.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"(3S)-3-hydroxy-3-methylglutaryl-CoA(5-)"
+],
+[
+"Synonyms",
+"(3S)-3-hydroxy-3-methylglutaryl-CoA; 3-HYDROXY-3-METHYLGLUTARYL-COENZYME A"
+],
+[
+"Definition",
+"An acyl-CoA oxoanion that results from the removal of all five protons from the phosphate and carboxylic acid groups of (3S)-3-hydroxy-3-methylglutaryl-CoA."
+],
+[
+"Formula",
+"C27H39N7O20P3S"
+],
+[
+"ChEBI",
+"CHEBI:43074"
+],
+[
+"InChI",
+"InChI=1S/C27H44N7O20P3S/c1-26(2,21(40)24(41)30-5-4-15(35)29-6-7-58-17(38)9-27(3,42)8-16(36)37)11-51-57(48,49)54-56(46,47)50-10-14-20(53-55(43,44)45)19(39)25(52-14)34-13-33-18-22(28)31-12-32-23(18)34/h12-14,19-21,25,39-40,42H,4-11H2,1-3H3,(H,29,35)(H,30,41)(H,36,37)(H,46,47)(H,48,49)(H2,28,31,32)(H2,43,44,45)/p-5/t14-,19-,20-,21+,25-,27+/m1/s1"
+],
+[
+"InChIKey",
+"CABVTRNMFUVUDM-VRHQGPGLSA-I"
+]
+]
+},
+{
+"id": "c0::p1",
+"label": "",
+"class": "Process",
+"box": [
+183.0,
+215.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"HMG-CoA",
+"NADPH"
+],
+"out": [
+"mevalonate",
+"NADP+"
+],
+"by": [
+"HMGCR"
+]
+},
+"references": [
+{
+"authors": "Istvan ES et al.",
+"year": "2001",
+"title": "Structural mechanism for statin inhibition of HMG-CoA reductase.",
+"journal": "Science",
+"db": "pubmed",
+"id": "11349148"
+}
+]
+},
+{
+"label": "mevalonate",
+"class": "SimpleChemical",
+"box": [
+175.0,
+367.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"(R)-mevalonate"
+],
+[
+"Synonyms",
+"(3R)-3,5-dihydroxy-3-methylpentanoate; (3R)-3,5-dihydroxy-3-methylvalerate; (3R)-mevalonate; (R)-3,5-dihydroxy-3-methylpentanoate; (R)-mevalonic acid anion; (R)-mevalonic acid(1-); D-mevalonate"
+],
+[
+"Definition",
+"The (R)-enantiomer of mevalonate."
+],
+[
+"Formula",
+"C6H11O4"
+],
+[
+"ChEBI",
+"CHEBI:36464"
+],
+[
+"KEGG",
+"C00418"
+],
+[
+"InChI",
+"InChI=1S/C6H12O4/c1-6(10,2-3-7)4-5(8)9/h7,10H,2-4H2,1H3,(H,8,9)/p-1/t6-/m1/s1"
+],
+[
+"InChIKey",
+"KJTLQQUUPVSXIM-ZCFIWIBFSA-M"
+]
+]
+},
+{
+"label": "NADPH",
+"class": "SimpleChemical",
+"box": [
+55.0,
+137.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADPH(4-)"
+],
+[
+"Synonyms",
+"2'-O-phosphonatoadenosine 5'-{3-[1-(3-carbamoyl-1,4-dihydropyridin-1-yl)-1,4-anhydro-D-ribitol-5-yl] diphosphate}; NADPH; NADPH tetraanion"
+],
+[
+"Definition",
+"Tetraanion of NADPH arising from deprotonation of the diphosphate and phosphate OH groups; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H26N7O17P3"
+],
+[
+"ChEBI",
+"CHEBI:57783"
+],
+[
+"InChI",
+"InChI=1S/C21H30N7O17P3/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(44-46(33,34)35)14(30)11(43-21)6-41-48(38,39)45-47(36,37)40-5-10-13(29)15(31)20(42-10)27-3-1-2-9(4-27)18(23)32/h1,3-4,7-8,10-11,13-16,20-21,29-31H,2,5-6H2,(H2,23,32)(H,36,37)(H,38,39)(H2,22,24,25)(H2,33,34,35)/p-4/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"ACFIXJIJDZMPPO-NNYOXOHSSA-J"
+]
+]
+},
+{
+"label": "NADP+",
+"class": "SimpleChemical",
+"box": [
+55.0,
+277.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"NADP(3-)"
+],
+[
+"Synonyms",
+"2'-O-phosphonatoadenosine 5'-{3-[1-(3-carbamoylpyridinio)-1,4-anhydro-D-ribitol-5-yl] diphosphate}; NADP trianion; NADP(+)"
+],
+[
+"Definition",
+"An organophosphate oxoanion arising from deprotonation of the phosphate and diphosphate OH groups of NADP+; major species at pH 7.3."
+],
+[
+"Formula",
+"C21H25N7O17P3"
+],
+[
+"ChEBI",
+"CHEBI:58349"
+],
+[
+"InChI",
+"InChI=1S/C21H28N7O17P3/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(44-46(33,34)35)14(30)11(43-21)6-41-48(38,39)45-47(36,37)40-5-10-13(29)15(31)20(42-10)27-3-1-2-9(4-27)18(23)32/h1-4,7-8,10-11,13-16,20-21,29-31H,5-6H2,(H7-,22,23,24,25,32,33,34,35,36,37,38,39)/p-3/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1"
+],
+[
+"InChIKey",
+"XJLXINKUBYWONI-NNYOXOHSSA-K"
+]
+]
+},
+{
+"label": "HMGCR",
+"class": "Macromolecule",
+"box": [
+355.0,
+207.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"3-hydroxy-3-methylglutaryl-coenzyme A reductase"
+],
+[
+"Function",
+"Catalyzes the conversion of (3S)-hydroxy-3-methylglutaryl-CoA (HMG-CoA) to mevalonic acid, the rate-limiting step in the synthesis of cholesterol and other isoprenoids, thus plays a critical role in cellular cholesterol homeostasis. HMGCR is the main target of statins, a class of cholesterol-lowering drugs"
+],
+[
+"Location",
+"Endoplasmic reticulum membrane, Peroxisome membrane"
+],
+[
+"HGNC",
+"HGNC:5006"
+],
+[
+"HGNC symbol",
+"HMGCR"
+],
+[
+"Entrez",
+"3156"
+],
+[
+"Ensembl",
+"ENSG00000113161"
+],
+[
+"RefSeq",
+"NM_000859"
+],
+[
+"UniProt",
+"P04035"
+]
+]
+},
+{
+"id": "c0::ph",
+"label": "",
+"class": "Process",
+"box": [
+383.0,
+375.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"HMGCR"
+],
+"out": [
+"HMGCR"
+],
+"by": [
+"PRKAA1"
+]
+},
+"references": [
+{
+"authors": "Clarke PR et al.",
+"year": "1990",
+"title": "Regulation of HMG-CoA reductase: identification of the site phosphorylated by the AMP-activated protein kinase in vitro and in intact rat liver.",
+"journal": "EMBO J",
+"db": "pubmed",
+"id": "2369897"
+},
+{
+"authors": "Loh K et al.",
+"year": "2019",
+"title": "Inhibition of Adenosine Monophosphate-Activated Protein Kinase-3-Hydroxy-3-Methylglutaryl Coenzyme A Reductase Signaling Leads to Hypercholesterolemia and Promotes Hepatic Steatosis and Insulin Resistance.",
+"journal": "Hepatol Commun",
+"db": "pubmed",
+"id": "30619997"
+}
+]
+},
+{
+"label": "HMGCR",
+"class": "Macromolecule",
+"box": [
+355.0,
+507.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"3-hydroxy-3-methylglutaryl-coenzyme A reductase"
+],
+[
+"Function",
+"Catalyzes the conversion of (3S)-hydroxy-3-methylglutaryl-CoA (HMG-CoA) to mevalonic acid, the rate-limiting step in the synthesis of cholesterol and other isoprenoids, thus plays a critical role in cellular cholesterol homeostasis. HMGCR is the main target of statins, a class of cholesterol-lowering drugs"
+],
+[
+"Location",
+"Endoplasmic reticulum membrane, Peroxisome membrane"
+],
+[
+"HGNC",
+"HGNC:5006"
+],
+[
+"HGNC symbol",
+"HMGCR"
+],
+[
+"Entrez",
+"3156"
+],
+[
+"Ensembl",
+"ENSG00000113161"
+],
+[
+"RefSeq",
+"NM_000859"
+],
+[
+"UniProt",
+"P04035"
+]
+]
+},
+{
+"label": "PRKAA1",
+"class": "Macromolecule",
+"box": [
+195.0,
+507.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"5'-AMP-activated protein kinase catalytic subunit alpha-1"
+],
+[
+"Alternative names",
+"Acetyl-CoA carboxylase kinase; Hydroxymethylglutaryl-CoA reductase kinase; Tau-protein kinase PRKAA1"
+],
+[
+"Function",
+"Catalytic subunit of AMP-activated protein kinase (AMPK), an energy sensor protein kinase that plays a key role in regulating cellular energy metabolism. In response to reduction of intracellular ATP levels, AMPK activates energy-producing pathways and inhibits energy-consuming processes: inhibits protein, carbohydrate and lipid biosynthesis, as well as cell growth and proliferation."
+],
+[
+"Location",
+"Cytoplasm, Nucleus, Late endosome"
+],
+[
+"HGNC",
+"HGNC:9376"
+],
+[
+"HGNC symbol",
+"PRKAA1"
+],
+[
+"Alias symbols",
+"AMPKa1"
+],
+[
+"Entrez",
+"5562"
+],
+[
+"Ensembl",
+"ENSG00000132356"
+],
+[
+"RefSeq",
+"NM_006251"
+],
+[
+"UniProt",
+"Q13131"
+]
+]
+},
+{
+"id": "c0::bind",
+"label": "",
+"class": "Process",
+"box": [
+583.0,
+215.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"HMGCR",
+"INSIG"
+],
+"out": [
+""
+],
+"by": [
+"OR"
+]
+},
+"references": [
+{
+"authors": "Sever N et al.",
+"year": "2003",
+"title": "Accelerated degradation of HMG CoA reductase mediated by binding of insig-1 to its sterol-sensing domain.",
+"journal": "Mol Cell",
+"db": "pubmed",
+"id": "12535518"
+},
+{
+"authors": "Sever N et al.",
+"year": "2003",
+"title": "Insig-dependent ubiquitination and degradation of mammalian 3-hydroxy-3-methylglutaryl-CoA reductase stimulated by sterols and geranylgeraniol.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "14563840"
+}
+]
+},
+{
+"label": "INSIG",
+"class": "Macromolecule",
+"box": [
+555.0,
+57.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Family",
+"Insulin-induced genes"
+],
+[
+"Members",
+"INSIG1; INSIG2"
+]
+],
+"members": [
+{
+"symbol": "INSIG1",
+"props": [
+[
+"Full name",
+"Insulin-induced gene 1 protein"
+],
+[
+"Function",
+"Oxysterol-binding protein that mediates feedback control of cholesterol synthesis by controlling both endoplasmic reticulum to Golgi transport of SCAP and degradation of HMGCR. Acts as a negative regulator of cholesterol biosynthesis by mediating the retention of the SCAP-SREBP complex in the endoplasmic reticulum, thereby blocking the processing of sterol regulatory element-binding proteins (SREBPs) SREBF1/SREBP1 and SREBF2/SREBP2."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:6083"
+],
+[
+"HGNC symbol",
+"INSIG1"
+],
+[
+"Alias symbols",
+"CL-6, MGC1405"
+],
+[
+"Entrez",
+"3638"
+],
+[
+"Ensembl",
+"ENSG00000186480"
+],
+[
+"RefSeq",
+"NM_198336"
+],
+[
+"UniProt",
+"O15503"
+]
+]
+},
+{
+"symbol": "INSIG2",
+"props": [
+[
+"Full name",
+"Insulin-induced gene 2 protein"
+],
+[
+"Function",
+"Oxysterol-binding protein that mediates feedback control of cholesterol synthesis by controlling both endoplasmic reticulum to Golgi transport of SCAP and degradation of HMGCR. Acts as a negative regulator of cholesterol biosynthesis by mediating the retention of the SCAP-SREBP complex in the endoplasmic reticulum, thereby blocking the processing of sterol regulatory element-binding proteins (SREBPs) SREBF1/SREBP1 and SREBF2/SREBP2."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:20452"
+],
+[
+"HGNC symbol",
+"INSIG2"
+],
+[
+"Entrez",
+"51141"
+],
+[
+"Ensembl",
+"ENSG00000125629"
+],
+[
+"RefSeq",
+"NM_016133"
+],
+[
+"UniProt",
+"Q9Y5U4"
+]
+]
+}
+]
+},
+{
+"label": "25-hydroxycholesterol",
+"class": "SimpleChemical",
+"box": [
+495.0,
+467.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"25-hydroxycholesterol"
+],
+[
+"Synonyms",
+"5-Cholestene-3beta,25-diol; Cholest-5-ene-3beta,25-diol"
+],
+[
+"Formula",
+"C27H46O2"
+],
+[
+"ChEBI",
+"CHEBI:42977"
+],
+[
+"KEGG",
+"C15519"
+],
+[
+"InChI",
+"InChI=1S/C27H46O2/c1-18(7-6-14-25(2,3)29)22-10-11-23-21-9-8-19-17-20(28)12-15-26(19,4)24(21)13-16-27(22,23)5/h8,18,20-24,28-29H,6-7,9-17H2,1-5H3/t18-,20+,21+,22-,23+,24+,26+,27-/m1/s1"
+],
+[
+"InChIKey",
+"INBGSXNNRGWLJU-ZHHJOTBYSA-N"
+]
+]
+},
+{
+"label": "24,25-dihydrolanosterol",
+"class": "SimpleChemical",
+"box": [
+715.0,
+467.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"24,25-dihydrolanosterol"
+],
+[
+"Synonyms",
+"Lanostenol; lanost-8-en-3beta-ol"
+],
+[
+"Definition",
+"A 3β-sterol formed from lanosterol by reduction across the C-24‒C-25 double bond."
+],
+[
+"Formula",
+"C30H52O"
+],
+[
+"ChEBI",
+"CHEBI:28113"
+],
+[
+"KEGG",
+"C05109"
+],
+[
+"HMDB",
+"HMDB0006839"
+],
+[
+"InChI",
+"InChI=1S/C30H52O/c1-20(2)10-9-11-21(3)22-14-18-30(8)24-12-13-25-27(4,5)26(31)16-17-28(25,6)23(24)15-19-29(22,30)7/h20-22,25-26,31H,9-19H2,1-8H3/t21-,22-,25+,26+,28-,29-,30+/m1/s1"
+],
+[
+"InChIKey",
+"MBZYKEVPFYHDOH-BQNIITSRSA-N"
+]
+]
+},
+{
+"label": "HMGCR",
+"class": "Macromolecule",
+"box": [
+755.0,
+178.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"3-hydroxy-3-methylglutaryl-coenzyme A reductase"
+],
+[
+"Function",
+"Catalyzes the conversion of (3S)-hydroxy-3-methylglutaryl-CoA (HMG-CoA) to mevalonic acid, the rate-limiting step in the synthesis of cholesterol and other isoprenoids, thus plays a critical role in cellular cholesterol homeostasis. HMGCR is the main target of statins, a class of cholesterol-lowering drugs"
+],
+[
+"Location",
+"Endoplasmic reticulum membrane, Peroxisome membrane"
+],
+[
+"HGNC",
+"HGNC:5006"
+],
+[
+"HGNC symbol",
+"HMGCR"
+],
+[
+"Entrez",
+"3156"
+],
+[
+"Ensembl",
+"ENSG00000113161"
+],
+[
+"RefSeq",
+"NM_000859"
+],
+[
+"UniProt",
+"P04035"
+]
+]
+},
+{
+"label": "INSIG",
+"class": "Macromolecule",
+"box": [
+755.0,
+235.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Family",
+"Insulin-induced genes"
+],
+[
+"Members",
+"INSIG1; INSIG2"
+]
+],
+"members": [
+{
+"symbol": "INSIG1",
+"props": [
+[
+"Full name",
+"Insulin-induced gene 1 protein"
+],
+[
+"Function",
+"Oxysterol-binding protein that mediates feedback control of cholesterol synthesis by controlling both endoplasmic reticulum to Golgi transport of SCAP and degradation of HMGCR. Acts as a negative regulator of cholesterol biosynthesis by mediating the retention of the SCAP-SREBP complex in the endoplasmic reticulum, thereby blocking the processing of sterol regulatory element-binding proteins (SREBPs) SREBF1/SREBP1 and SREBF2/SREBP2."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:6083"
+],
+[
+"HGNC symbol",
+"INSIG1"
+],
+[
+"Alias symbols",
+"CL-6, MGC1405"
+],
+[
+"Entrez",
+"3638"
+],
+[
+"Ensembl",
+"ENSG00000186480"
+],
+[
+"RefSeq",
+"NM_198336"
+],
+[
+"UniProt",
+"O15503"
+]
+]
+},
+{
+"symbol": "INSIG2",
+"props": [
+[
+"Full name",
+"Insulin-induced gene 2 protein"
+],
+[
+"Function",
+"Oxysterol-binding protein that mediates feedback control of cholesterol synthesis by controlling both endoplasmic reticulum to Golgi transport of SCAP and degradation of HMGCR. Acts as a negative regulator of cholesterol biosynthesis by mediating the retention of the SCAP-SREBP complex in the endoplasmic reticulum, thereby blocking the processing of sterol regulatory element-binding proteins (SREBPs) SREBF1/SREBP1 and SREBF2/SREBP2."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:20452"
+],
+[
+"HGNC symbol",
+"INSIG2"
+],
+[
+"Entrez",
+"51141"
+],
+[
+"Ensembl",
+"ENSG00000125629"
+],
+[
+"RefSeq",
+"NM_016133"
+],
+[
+"UniProt",
+"Q9Y5U4"
+]
+]
+}
+]
+},
+{
+"id": "c0::ub",
+"label": "",
+"class": "Process",
+"box": [
+943.0,
+215.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+""
+],
+"out": [
+""
+],
+"by": [
+"AMFR",
+"RNF145"
+]
+},
+"references": [
+{
+"authors": "Sever N et al.",
+"year": "2003",
+"title": "Insig-dependent ubiquitination and degradation of mammalian 3-hydroxy-3-methylglutaryl-CoA reductase stimulated by sterols and geranylgeraniol.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "14563840"
+},
+{
+"authors": "Doolman R et al.",
+"year": "2004",
+"title": "Ubiquitin is conjugated by membrane ubiquitin ligase to three sites, including the N terminus, in transmembrane region of mammalian 3-hydroxy-3-methylglutaryl coenzyme A reductase: implications for sterol-regulated enzyme degradation.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "15247208"
+},
+{
+"authors": "Song BL et al.",
+"year": "2005",
+"title": "Gp78, a membrane-anchored ubiquitin ligase, associates with Insig-1 and couples sterol-regulated ubiquitination to degradation of HMG CoA reductase.",
+"journal": "Mol Cell",
+"db": "pubmed",
+"id": "16168377"
+},
+{
+"authors": "Menzies SA et al.",
+"year": "2018",
+"title": "The sterol-responsive RNF145 E3 ubiquitin ligase mediates the degradation of HMG-CoA reductase together with gp78 and Hrd1.",
+"journal": "Elife",
+"db": "pubmed",
+"id": "30543180"
+}
+]
+},
+{
+"label": "AMFR",
+"class": "Macromolecule",
+"box": [
+855.0,
+57.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"E3 ubiquitin-protein ligase AMFR"
+],
+[
+"Alternative names",
+"Autocrine motility factor receptor; RING finger protein 45; gp78"
+],
+[
+"Function",
+"E3 ubiquitin-protein ligase that mediates the polyubiquitination of lysine and cysteine residues on target proteins, such as CD3D, CYP3A4, CFTR, INSIG1, SOAT2/ACAT2 and APOB for proteasomal degradation. Component of a VCP/p97-AMFR/gp78 complex that participates in the final step of endoplasmic reticulum-associated degradation (ERAD)."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:463"
+],
+[
+"HGNC symbol",
+"AMFR"
+],
+[
+"Alias symbols",
+"RNF45, gp78"
+],
+[
+"Entrez",
+"267"
+],
+[
+"Ensembl",
+"ENSG00000159461"
+],
+[
+"RefSeq",
+"NM_001144"
+],
+[
+"UniProt",
+"Q9UKV5"
+]
+]
+},
+{
+"label": "RNF145",
+"class": "Macromolecule",
+"box": [
+975.0,
+57.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"RING finger protein 145"
+],
+[
+"Function",
+"E3 ubiquitin ligase that catalyzes the direct transfer of ubiquitin from E2 ubiquitin-conjugating enzyme to a specific substrate. In response to bacterial infection, negatively regulates the phagocyte oxidative burst by controlling the turnover of the NADPH oxidase complex subunits."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:20853"
+],
+[
+"HGNC symbol",
+"RNF145"
+],
+[
+"Alias symbols",
+"FLJ31951"
+],
+[
+"Entrez",
+"153830"
+],
+[
+"Ensembl",
+"ENSG00000145860"
+],
+[
+"RefSeq",
+"NM_144726"
+],
+[
+"UniProt",
+"Q96MT1"
+]
+]
+},
+{
+"label": "HMGCR",
+"class": "Macromolecule",
+"box": [
+1095.0,
+178.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"3-hydroxy-3-methylglutaryl-coenzyme A reductase"
+],
+[
+"Function",
+"Catalyzes the conversion of (3S)-hydroxy-3-methylglutaryl-CoA (HMG-CoA) to mevalonic acid, the rate-limiting step in the synthesis of cholesterol and other isoprenoids, thus plays a critical role in cellular cholesterol homeostasis. HMGCR is the main target of statins, a class of cholesterol-lowering drugs"
+],
+[
+"Location",
+"Endoplasmic reticulum membrane, Peroxisome membrane"
+],
+[
+"HGNC",
+"HGNC:5006"
+],
+[
+"HGNC symbol",
+"HMGCR"
+],
+[
+"Entrez",
+"3156"
+],
+[
+"Ensembl",
+"ENSG00000113161"
+],
+[
+"RefSeq",
+"NM_000859"
+],
+[
+"UniProt",
+"P04035"
+]
+]
+},
+{
+"label": "INSIG",
+"class": "Macromolecule",
+"box": [
+1095.0,
+235.5,
+80.0,
+40.0
+],
+"props": [
+[
+"Family",
+"Insulin-induced genes"
+],
+[
+"Members",
+"INSIG1; INSIG2"
+]
+],
+"members": [
+{
+"symbol": "INSIG1",
+"props": [
+[
+"Full name",
+"Insulin-induced gene 1 protein"
+],
+[
+"Function",
+"Oxysterol-binding protein that mediates feedback control of cholesterol synthesis by controlling both endoplasmic reticulum to Golgi transport of SCAP and degradation of HMGCR. Acts as a negative regulator of cholesterol biosynthesis by mediating the retention of the SCAP-SREBP complex in the endoplasmic reticulum, thereby blocking the processing of sterol regulatory element-binding proteins (SREBPs) SREBF1/SREBP1 and SREBF2/SREBP2."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:6083"
+],
+[
+"HGNC symbol",
+"INSIG1"
+],
+[
+"Alias symbols",
+"CL-6, MGC1405"
+],
+[
+"Entrez",
+"3638"
+],
+[
+"Ensembl",
+"ENSG00000186480"
+],
+[
+"RefSeq",
+"NM_198336"
+],
+[
+"UniProt",
+"O15503"
+]
+]
+},
+{
+"symbol": "INSIG2",
+"props": [
+[
+"Full name",
+"Insulin-induced gene 2 protein"
+],
+[
+"Function",
+"Oxysterol-binding protein that mediates feedback control of cholesterol synthesis by controlling both endoplasmic reticulum to Golgi transport of SCAP and degradation of HMGCR. Acts as a negative regulator of cholesterol biosynthesis by mediating the retention of the SCAP-SREBP complex in the endoplasmic reticulum, thereby blocking the processing of sterol regulatory element-binding proteins (SREBPs) SREBF1/SREBP1 and SREBF2/SREBP2."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:20452"
+],
+[
+"HGNC symbol",
+"INSIG2"
+],
+[
+"Entrez",
+"51141"
+],
+[
+"Ensembl",
+"ENSG00000125629"
+],
+[
+"RefSeq",
+"NM_016133"
+],
+[
+"UniProt",
+"Q9Y5U4"
+]
+]
+}
+]
+},
+{
+"id": "c0::deg",
+"label": "",
+"class": "Process",
+"box": [
+1123.0,
+375.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+""
+],
+"out": [
+""
+],
+"by": [
+"26S proteasome",
+"VCP"
+]
+},
+"references": [
+{
+"authors": "Morris LL et al.",
+"year": "2014",
+"title": "Sequential actions of the AAA-ATPase valosin-containing protein (VCP)/p97 and the proteasome 19 S regulatory particle in sterol-accelerated, endoplasmic reticulum (ER)-associated degradation of 3-hydroxy-3-methylglutaryl-coenzyme A reductase.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "24860107"
+}
+]
+},
+{
+"label": "VCP",
+"class": "Macromolecule",
+"box": [
+1255.0,
+287.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Transitional endoplasmic reticulum ATPase"
+],
+[
+"Alternative names",
+"15S Mg(2+)-ATPase p97 subunit; Valosin-containing protein"
+],
+[
+"Function",
+"Necessary for the fragmentation of Golgi stacks during mitosis and for their reassembly after mitosis. Involved in the formation of the transitional endoplasmic reticulum (tER)."
+],
+[
+"Location",
+"Cytoplasm, cytosol, Endoplasmic reticulum, Nucleus, Cytoplasm, Stress granule"
+],
+[
+"HGNC",
+"HGNC:12666"
+],
+[
+"HGNC symbol",
+"VCP"
+],
+[
+"Alias symbols",
+"IBMPFD, p97, CDC48, TERA"
+],
+[
+"Entrez",
+"7415"
+],
+[
+"Ensembl",
+"ENSG00000165280"
+],
+[
+"RefSeq",
+"NM_007126"
+],
+[
+"UniProt",
+"P55072"
+]
+]
+},
+{
+"label": "26S proteasome",
+"class": "Macromolecule",
+"box": [
+1235.0,
+427.0,
+120.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Fas apoptotic inhibitory molecule 1"
+],
+[
+"Function",
+"Plays a role as an inducible effector molecule that mediates Fas resistance produced by surface Ig engagement in B cells"
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:18703"
+],
+[
+"HGNC symbol",
+"FAIM"
+],
+[
+"Alias symbols",
+"FLJ10582, FAIM1"
+],
+[
+"Entrez",
+"55179"
+],
+[
+"Ensembl",
+"ENSG00000158234"
+],
+[
+"RefSeq",
+"NM_001033032"
+],
+[
+"UniProt",
+"Q9NVQ4"
+]
+]
+}
+]
+}

@@ -4,7 +4,7 @@ topic: "Acyl-carnitine synthesis"
 tab: ""
 page: "/carnitine/"
 group: "Lipid metabolism"
-order: 15
+order: 16
 kind: "map"
 draft: false
 tag: ""

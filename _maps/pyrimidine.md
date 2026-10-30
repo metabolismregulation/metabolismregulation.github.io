@@ -4,7 +4,7 @@ topic: "Pyrimidine biosynthesis"
 tab: ""
 page: "/pyrimidine/draft/"
 group: "Nucleotide metabolism"
-order: 29
+order: 30
 kind: "map"
 draft: true
 tag: "draft"
