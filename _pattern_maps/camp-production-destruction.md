@@ -3,8 +3,8 @@ title: "Regulated production and destruction: cAMP made and destroyed"
 topic: "Regulated production and destruction"
 tab: "cAMP"
 page: ""
-group: "Building blocks"
-order: 2
+group: "Production and destruction"
+order: 9
 kind: "map"
 draft: false
 tag: ""

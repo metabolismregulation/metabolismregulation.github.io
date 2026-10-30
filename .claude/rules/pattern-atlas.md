@@ -11,8 +11,9 @@ paths:
 ## Pattern Atlas
 
 /pattern-atlas/ (user, 2026-10-30; hidden like the Atlas) shows example maps of the patterns of the Pattern List, one
-map per pattern and example, in the form of the Atlas: the list grouped by the source's groups (building blocks,
-motifs, composite circuits), each entry the pattern with its example in brackets, the map window, downloads, text,
+map per pattern and example, in the form of the Atlas: the list grouped by family of patterns (binding,
+modification cycles, production and destruction, cascades, feed-forward, feedback, pulses and adaptation, oscillators
+and excitability; user, 2026-10-30), each entry the pattern with its example in brackets, the map window, downloads, text,
 the click panel.
 
 One page code for both atlases (user, 2026-10-30: no two copies): `_includes/atlas-app.html`, given its map index,
@@ -26,6 +27,7 @@ click boxes `atlas-data/pattern-<map>.json` and search `atlas-data/pattern-searc
 workflow refreshes. The maps, entries and texts are copies: they are built and kept in a private repository, whose
 copy script writes them here and runs `make_pattern_atlas.py`. Change them there, never here.
 
-Example maps are cut from MRegAtlas maps (the user's layouts kept) and finished with the layout skill. Each entry's
+Example maps come from published MRegAtlas maps, whole or cut (the user's layouts kept; never from maps
+awaiting the user's approval, such as the extension drafts), and finished with the layout skill. Each entry's
 text says what the pattern does in this example, the source section, and links the maps it was cut from. In page text
 the Atlas is named MRegAtlas, never "the Atlas", which is imprecise next to the Pattern Atlas (user, 2026-10-30).

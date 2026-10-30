@@ -3,8 +3,8 @@ title: "Zero-order ultrasensitivity: the glycogen phosphorylase switch"
 topic: "Zero-order ultrasensitivity"
 tab: "glycogen phosphorylase"
 page: ""
-group: "Building blocks"
-order: 1
+group: "Modification cycles"
+order: 5
 kind: "map"
 draft: false
 tag: ""
