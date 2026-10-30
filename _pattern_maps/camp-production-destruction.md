@@ -18,11 +18,11 @@ downloads:
   - {label: "GraphML", url: "/pattern-atlas-downloads/camp-production-destruction.graphml"}
   - {label: "SVG", url: "/pattern-atlas-downloads/camp-production-destruction.svg"}
 ---
-Gsα bound to GTP activates adenylate cyclase, which makes cAMP from ATP. The phosphodiesterase PDE3B hydrolyses cAMP to AMP. cAMP releases the catalytic subunit of PKA, the readout of the cAMP level.
+The book's example (Ferrell 2022, sections 6.1 and 6.2). Gsα bound to GTP activates adenylate cyclase, which makes cAMP from ATP. The phosphodiesterase PDE3B hydrolyses cAMP to AMP. cAMP releases the catalytic subunit of PKA, the readout of the cAMP level.
 
 With first-order destruction, the steady cAMP level is proportional to the rate of synthesis, and the time to reach a new level after a change of input depends on the rate of destruction alone (Ferrell 2022, sections 6.1 and 6.2).
 
-Cut from the MRegAtlas maps [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle) (cAMP synthesis, PKA) and [cAMP hydrolysis](/atlas/#camp) (PDE3B).
+The book does not name the enzyme that destroys cAMP. cAMP synthesis and PKA are cut from the MRegAtlas map [Glycogen metabolism (muscle)](/atlas/#glycogen-muscle), and PDE3B, the phosphodiesterase drawn here, from the MRegAtlas map [cAMP hydrolysis](/atlas/#camp).
 
 ## References
 
