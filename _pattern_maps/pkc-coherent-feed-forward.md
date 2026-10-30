@@ -4,10 +4,10 @@ topic: "Coherent feed-forward"
 tab: "PKC by DAG and Ca2+"
 page: ""
 group: "Feed-forward"
-order: 4
+order: 7
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/pkc-coherent-feed-forward.svg"
 width: 754
 height: 994

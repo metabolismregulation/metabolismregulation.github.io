@@ -4,10 +4,10 @@ topic: "Reciprocal regulation"
 tab: "Wee1 and Cdc25 on Cdk1"
 page: ""
 group: "Modification cycles"
-order: 2
+order: 4
 kind: "map"
 draft: false
-tag: "draft"
+tag: ""
 image: "/pattern-atlas-downloads/wee1-cdc25-reciprocal.svg"
 width: 470
 height: 561
