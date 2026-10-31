@@ -39,5 +39,6 @@ corner, kept for later and linked from no page. The site keeps `favicon.ico` unt
 
 A page with `icon: <folder>` in its front matter gets that set's tab icon (`images/<folder>/`: favicon.svg,
 favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every other page keeps the root `favicon.ico`.
-The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30): a wheel inside a loop that returns
-to it and ends in a bar on the left, negative feedback. The sets are made with the favicon skill.
+The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a large
+wheel cut by the left edge beside a smaller one, the smaller inside an arc that starts at the top and ends in a bar
+in its lower left gap, negative feedback. The sets are made with the favicon skill.
