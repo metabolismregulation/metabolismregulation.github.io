@@ -1,6 +1,6 @@
 ---
 title: "Eicosanoid production (AsthmaMap)"
-topic: "Starting maps"
+topic: "Eicosanoid production"
 tab: "AsthmaMap"
 page: ""
 group: "Starting maps"
