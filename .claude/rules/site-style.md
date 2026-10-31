@@ -42,4 +42,4 @@ favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every ot
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
 central wheel inside an arc from the upper right to a bar in its lower left gap (negative feedback), beside a wheel of
 the same teeth cut by the left edge. The Eicosanoid Atlas uses `favicon-eicosanoids` (user, 2026-10-31): eic in
-lowercase over atlas, the tile turned 90 degrees to the left, in the Oa atlas look. The sets are made with the favicon skill.
+lowercase over atlas, in the Oa atlas look (the tile turned left was tried and reversed). The sets are made with the favicon skill.
