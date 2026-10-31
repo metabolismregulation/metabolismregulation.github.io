@@ -3,8 +3,8 @@ title: "Eicosanoids - TRPV1, TRPA1"
 topic: "Eicosanoids on TRP channels"
 tab: "TRPV1 and TRPA1"
 page: ""
-group: "Receptors"
-order: 19
+group: "Ion channels"
+order: 30
 kind: "map"
 draft: false
 tag: ""
