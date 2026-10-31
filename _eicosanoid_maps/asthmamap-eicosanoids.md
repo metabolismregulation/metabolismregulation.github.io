@@ -24,7 +24,7 @@ Phospholipase A2 (cPLA2α and cPLA2γ) releases arachidonic acid from membrane p
 
 **AsthmaMap.** The Eicosanoids submap of the AsthmaMap (PD02, Process Description), as the MINERVA project at asthma.uni.lu holds it now, with MINERVA's annotation. Converted from CellDesigner to GraphML by our converter (advanced layout, the CellDesigner drawing kept) and drawn by our renderer. Nothing is changed: the same 165 entities and 135 reactions as the CellDesigner file.
 
-**Where it goes.** This map is the starting point of the atlas's metabolic block from arachidonic acid. Its parts become the smaller maps of that block, checked against the literature and with the cells that make each step.
+**On this page.** The map is also cut into its parts, one per enzyme branch: release, prostanoids, leukotrienes, 12- and 15-lipoxygenase products, lipoxins, cytochrome P450 products and isoprostanes.
 
 **MRegAtlas.** The regulation of eicosanoid production (cPLA2α and its activation, generic, platelet and mast cell) is drawn in the MRegAtlas maps [Eicosanoids (generic)](/atlas/#eicosanoids), [Eicosanoids (platelet)](/atlas/#eicosanoids-platelet) and [Eicosanoids (mast cell)](/atlas/#eicosanoids-mast-cell).
 
