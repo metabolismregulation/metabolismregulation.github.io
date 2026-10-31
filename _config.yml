@@ -67,6 +67,11 @@ collections:
   pattern_maps:
     output: true
     permalink: /pattern-atlas/data/:name/
+  # the Eicosanoid Atlas (/eicosanoid-atlas/, user 2026-10-31): one file per map in _eicosanoid_maps/,
+  # published as /eicosanoid-atlas/data/<name>/ (JSON), read by the same page code as the Atlas
+  eicosanoid_maps:
+    output: true
+    permalink: /eicosanoid-atlas/data/:name/
 
 defaults:
   # draft map pages: public at their final URL for testing and for sharing by
@@ -89,6 +94,11 @@ defaults:
       sitemap: false
   - scope:
       type: pattern_maps
+    values:
+      layout: map-data
+      sitemap: false
+  - scope:
+      type: eicosanoid_maps
     values:
       layout: map-data
       sitemap: false

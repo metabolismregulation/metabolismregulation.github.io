@@ -34,7 +34,7 @@ Atlas), `map-pages.md` (map page links, Home page, Contributors, Map image size)
 `atlas-tags.md`, `atlas-images.md`, `converter.md` (Converter page and buttons), `ysbgn-js.md`,
 `newt.md` (Newt copy), `layout-page.md`, `colours.md`, `cdviewer.md`, `map-drawing.md`,
 `gallery.md` (Gallery cuts), `pattern-list.md` and `pattern-atlas.md` (the pattern pages, a third website under
-this roof, user 2026-10-30). A rule that applies across pages stays here. A new rule tied to one
+this roof, user 2026-10-30), `eicosanoid-atlas.md` (the Eicosanoid Atlas, a fourth, user 2026-10-31). A rule that applies across pages stays here. A new rule tied to one
 page goes into its file, and a new page or folder gets a file of its own. A section named in a rule
 ("see Newt copy") is the heading in one of these files. When a task starts from a request and no
 file has been opened yet, read the file of the page it concerns first.
