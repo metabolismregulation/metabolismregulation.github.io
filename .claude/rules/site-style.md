@@ -41,4 +41,4 @@ A page with `icon: <folder>` in its front matter gets that set's tab icon (`imag
 favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every other page keeps the root `favicon.ico`.
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
 central wheel inside an arc from the upper right to a bar in its lower left gap (negative feedback), beside a wheel of
-the same teeth cut by the left edge. The sets are made with the favicon skill.
+the same teeth cut by the left edge, the valleys between the teeth scooped round. The sets are made with the favicon skill.
