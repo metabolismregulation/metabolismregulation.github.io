@@ -41,4 +41,4 @@ A page with `icon: <folder>` in its front matter gets that set's tab icon (`imag
 favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every other page keeps the root `favicon.ico`.
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
 loop ending in a bar at its left (negative feedback). The Eicosanoid Atlas uses `favicon-eicosanoids` (user, 2026-10-31): c20 on one
-line (twenty carbons) over atlas, in the periodic table tile look. The sets are made with the favicon skill.
+line (twenty carbons), alone, in the periodic table tile look. The sets are made with the favicon skill.
