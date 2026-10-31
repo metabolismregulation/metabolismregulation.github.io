@@ -18,11 +18,11 @@ downloads:
   - {label: "GraphML", url: "/eicosanoid-atlas-downloads/prostanoids-aa.graphml"}
   - {label: "SVG", url: "/eicosanoid-atlas-downloads/prostanoids-aa.svg"}
 ---
-Cyclooxygenases 1 and 2 (PTGS1, PTGS2) oxygenate arachidonic acid to PGG2 and reduce it to PGH2, and also make some 11(R)-HETE. From PGH2, prostaglandin E synthases make PGE2, the D synthases HPGDS and PTGDS make PGD2, prostacyclin synthase makes PGI2, and thromboxane synthase makes TXA2 and 12-HHT. The synthases act on PGG2 too, giving the 15-hydroperoxy forms. PGF2α comes from PGH2, PGD2 and PGE2 through aldo-keto and carbonyl reductases. HPGD and the carbonyl reductase CBR1 oxidise PGE2, PGF2α and PGD2 to their 15-keto forms, which the prostaglandin reductases reduce further. PGD2 dehydrates into the J series, ending in 15-deoxy-Δ12,14-PGJ2, and PGE2 into PGA2, PGC2 and PGB2. TXA2 hydrolyses to TXB2 and PGI2 to 6-keto-PGF1α, and the metabolites measured in urine, such as tetranor-PGEM, tetranor-PGDM, 11-dehydro-TXB2 and 2,3-dinor-TXB2, come from these.
+Cyclooxygenases 1 and 2 (PTGS1, PTGS2) oxygenate arachidonic acid to PGG2 and reduce it to PGH2, and also make some 11(R)-HETE. From PGH2, prostaglandin E synthases make PGE2, the D synthases HPGDS and PTGDS make PGD2, prostacyclin synthase makes PGI2, and thromboxane synthase makes TXA2 and 12-HHT. The synthases act on PGG2 too, giving the 15-hydroperoxy forms. PGF2α comes from PGH2 through the aldo-keto reductases AKR1C3 and AKR1A1 and PRXL2B, and from PGE2 through carbonyl reductase 1 (CBR1), while AKR1C3 reduces PGD2 to 11β-PGF2α. HPGD and the carbonyl reductase CBR1 oxidise PGE2, PGF2α and PGD2 to their 15-keto forms, which the prostaglandin reductases reduce further. PGD2 dehydrates into the J series, ending in 15-deoxy-Δ12,14-PGJ2, and PGE2 into PGA2, PGC2 and PGB2. TXA2 hydrolyses to TXB2 and PGI2 to 6-keto-PGF1α, and the metabolites measured in urine, such as tetranor-PGEM, tetranor-PGDM, 11-dehydro-TXB2 and 2,3-dinor-TXB2, come from these.
 
 ## Source
 
-**AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
+**AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap) as its authors drew it. Here wrong steps, catalysts and names are corrected, the changes in blue until they are reviewed, and the drawing is otherwise unchanged.
 
 **Databases.** 30 of the 57 reactions of this map are also in at least one of KEGG, Reactome, Rhea, Recon3D and MetaCore, as listed under References.
 

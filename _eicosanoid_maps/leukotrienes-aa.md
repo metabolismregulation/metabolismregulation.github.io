@@ -18,11 +18,11 @@ downloads:
   - {label: "GraphML", url: "/eicosanoid-atlas-downloads/leukotrienes-aa.graphml"}
   - {label: "SVG", url: "/eicosanoid-atlas-downloads/leukotrienes-aa.svg"}
 ---
-5-Lipoxygenase (ALOX5), with its activating protein FLAP, oxygenates arachidonic acid to 5(S)-HpETE and turns it into leukotriene A4. LTA4 hydrolase makes LTB4. CYP4F enzymes, ADH5 and ALDH3A2 oxidise LTB4 at its ω end to 20-hydroxy-, 20-oxo- and 20-carboxy-LTB4, and PTGR1 oxidises it to 12-oxo-LTB4. LTC4 synthase and MGST2 join LTA4 to glutathione as LTC4, which ABCC1 and ABCC6 export. Outside the cell γ-glutamyl transferases make LTD4 and dipeptidases make LTE4. The microsomal glutathione transferases MGST2 and MGST3 also reduce 5(S)-HpETE to 5(S)-HETE, which 5-hydroxyeicosanoid dehydrogenase oxidises to 5-oxo-ETE and CYP4F enzymes hydroxylate to 5(S),20-diHETE.
+5-Lipoxygenase (ALOX5), with its activating protein ALOX5AP (FLAP), oxygenates arachidonic acid to 5(S)-HpETE and turns it into leukotriene A4. LTA4 hydrolase makes LTB4. CYP4F enzymes, ADH5 and ALDH3A2 oxidise LTB4 at its ω end to 20-hydroxy-, 20-oxo- and 20-carboxy-LTB4, and PTGR1 oxidises it to 12-oxo-LTB4. LTC4 synthase and MGST2 join LTA4 to glutathione as LTC4, which ABCC1 and ABCC6 export. Outside the cell γ-glutamyl transferases make LTD4 and dipeptidases make LTE4. The microsomal glutathione transferases MGST2 and MGST3 also reduce 5(S)-HpETE to 5(S)-HETE, which 5-hydroxyeicosanoid dehydrogenase oxidises to 5-oxo-ETE and CYP4F enzymes hydroxylate to 5(S),20-diHETE.
 
 ## Source
 
-**AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
+**AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap) as its authors drew it. Here wrong steps, catalysts and names are corrected, the changes in blue until they are reviewed, and the drawing is otherwise unchanged.
 
 **Databases.** 13 of the 16 reactions of this map are also in at least one of KEGG, Reactome, Rhea, Recon3D and MetaCore, as listed under References.
 
