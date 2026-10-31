@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "new"
 image: "/eicosanoid-atlas-downloads/lox12-15-aa.svg"
-width: 2527
-height: 1427
+width: 1477
+height: 1501
 scale: 1
 annotation: "/atlas-data/eicosanoid-lox12-15-aa.json"
 image_error: ""

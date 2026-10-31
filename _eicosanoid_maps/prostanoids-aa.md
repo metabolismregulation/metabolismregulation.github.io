@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "new"
 image: "/eicosanoid-atlas-downloads/prostanoids-aa.svg"
-width: 2172
-height: 1057
+width: 2204
+height: 1141
 scale: 1
 annotation: "/atlas-data/eicosanoid-prostanoids-aa.json"
 image_error: ""

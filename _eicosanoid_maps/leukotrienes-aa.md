@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: "new"
 image: "/eicosanoid-atlas-downloads/leukotrienes-aa.svg"
-width: 2632
+width: 2692
 height: 1187
 scale: 1
 annotation: "/atlas-data/eicosanoid-leukotrienes-aa.json"

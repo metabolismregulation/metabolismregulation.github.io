@@ -9,8 +9,8 @@ kind: "map"
 draft: false
 tag: "new"
 image: "/eicosanoid-atlas-downloads/isoprostanes-aa.svg"
-width: 1030
-height: 330
+width: 392
+height: 366
 scale: 1
 annotation: "/atlas-data/eicosanoid-isoprostanes-aa.json"
 image_error: ""

@@ -9,7 +9,7 @@ kind: "map"
 draft: false
 tag: "new"
 image: "/eicosanoid-atlas-downloads/lipoxins-aa.svg"
-width: 2527
+width: 2449
 height: 1240
 scale: 1
 annotation: "/atlas-data/eicosanoid-lipoxins-aa.json"

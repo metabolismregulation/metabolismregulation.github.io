@@ -10,7 +10,7 @@ draft: false
 tag: "new"
 image: "/eicosanoid-atlas-downloads/cyp-aa.svg"
 width: 1032
-height: 550
+height: 603
 scale: 1
 annotation: "/atlas-data/eicosanoid-cyp-aa.json"
 image_error: ""
