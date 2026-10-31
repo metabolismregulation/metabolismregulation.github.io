@@ -35,6 +35,14 @@ Every page is 960 px wide (`.container` in `style.scss`, 16 px padding: header, 
 `images/favicon-next/` (user, 2026-10-25): a candidate tab icon, m with reg turned upwards over atlas and 2.0 in the
 corner, kept for later and linked from no page. The site keeps `favicon.ico` until the user says otherwise.
 
+## Large logo
+
+The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-10-31 (user: "12 but return the blue colour for
+large one"): the earlier logo's glyphs (arrowheads, modulator dots, open process glyphs) in its blue #557BA2, on a tile
+cut through the top box, corners as the tab icon's, the boxes and the bottom circle standing over the edges. The
+earlier logo, glyphs clipped by a square tile, is kept as `images/logo-previous.svg`. Made with the favicon skill
+(version 13 of its record).
+
 ## Page icons
 
 A page with `icon: <folder>` in its front matter gets that set's tab icon (`images/<folder>/`: favicon.svg,
