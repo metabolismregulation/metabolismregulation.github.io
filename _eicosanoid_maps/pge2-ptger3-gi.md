@@ -18,21 +18,25 @@ downloads:
   - {label: "GraphML", url: "/eicosanoid-atlas-downloads/pge2-ptger3-gi.graphml"}
   - {label: "SVG", url: "/eicosanoid-atlas-downloads/pge2-ptger3-gi.svg"}
 ---
+
 ## Description
 
-PGE2 acting on the EP3 receptor couples to Gi, which inhibits adenylate cyclase and lowers cAMP, the opposite of the Gs-coupled EP2 and EP4 receptors. In inflamed joints EP3 activation on primary sensory neurons is largely antinociceptive and counteracts PGE2 sensitisation, though spinal EP3 can contribute to hyperalgesia at low PGE2 doses. EP3 is present in the joint nerves of patients with painful osteoarthritis, which makes its signalling direction important to draw correctly.
-
-## Colour
-
-Each block is coloured by its effect on pain, red where it raises pain and blue where it relieves it, and everything in it takes that colour, GTP and GDP included, as it works for the block's result. Drugs are yellow and classes of molecules white.
-
-This block is blue: an EP3 agonist relieves pain in inflamed joints.
+PGE2 binds the EP3 receptor (PTGER3), which couples to Gi. Giα inhibits adenylate cyclase and lowers cAMP, the opposite of the Gs-coupled EP2 and EP4 receptors.
 
 ## Source
 
-**Osteoarthritis map.** A block of the Osteoarthritis pain map (KneePainMap), drawn for the sensory neuron (nociceptor) of the joint, with its text. Colours show the effect on pain, as the section Colour says. It is shown here as it stands and becomes a piece of the Eicosanoid Atlas, in the atlas's own colours, later.
+**Osteoarthritis map.** Drawn first for the Osteoarthritis pain map (KneePainMap) and checked there step by step. Here in general form: the references on the steps themselves, the colours of the other pieces.
 
 ## References
 
-1. Minami T, Nakano H, Kobayashi T, Sugimoto Y, Ushikubi F, Ichikawa A, Narumiya S, Ito S. Characterization of EP receptor subtypes responsible for prostaglandin E2-induced pain responses by use of EP1 and EP3 receptor knockout mice. Br J Pharmacol. 2001 Jun;133(3):438-44. doi: 10.1038/sj.bjp.0704092. PMID: 11375261.
-1. Natura G, Bär KJ, Eitner A, Boettger MK, Richter F, Hensellek S, Ebersberger A, Leuchtweis J, Maruyama T, Hofmann GO, Halbhuber KJ, Schaible HG. Neuronal prostaglandin E2 receptor subtype EP3 mediates antinociception during inflammation. Proc Natl Acad Sci U S A. 2013 Aug 13;110(33):13648-53. doi: 10.1073/pnas.1300820110. PMID: 23904482.
+1. Berman DM et al. 1996. GAIP and RGS4 are GTPase-activating proteins for the Gi subfamily of G protein alpha subunits. Cell. [PMID:8756726](https://pubmed.ncbi.nlm.nih.gov/8756726/){:target="_blank" rel="noopener"}
+1. Coleman DE et al. 1994. Structures of active conformations of Gi alpha 1 and the mechanism of GTP hydrolysis. Science. [PMID:8073283](https://pubmed.ncbi.nlm.nih.gov/8073283/){:target="_blank" rel="noopener"}
+1. Gilman AG 1987. G proteins: transducers of receptor-generated signals. Annu Rev Biochem. [PMID:3113327](https://pubmed.ncbi.nlm.nih.gov/3113327/){:target="_blank" rel="noopener"}
+1. Huang SM et al. 2023. Single hormone or synthetic agonist induces G(s)/G(i) coupling selectivity of EP receptors via distinct binding modes and propagating paths. Proc Natl Acad Sci U S A. [PMID:37478163](https://pubmed.ncbi.nlm.nih.gov/37478163/){:target="_blank" rel="noopener"}
+1. Kunapuli SP et al. 1994. Cloning and expression of a prostaglandin E receptor EP3 subtype from human erythroleukaemia cells. Biochem J. [PMID:8135729](https://pubmed.ncbi.nlm.nih.gov/8135729/){:target="_blank" rel="noopener"}
+1. Morimoto K et al. 2019. Crystal structure of the endogenous agonist-bound prostanoid receptor EP3. Nat Chem Biol. [PMID:30510192](https://pubmed.ncbi.nlm.nih.gov/30510192/){:target="_blank" rel="noopener"}
+1. Oldham WM et al. 2007. Mapping allosteric connections from the receptor to the nucleotide-binding pocket of heterotrimeric G proteins. Proc Natl Acad Sci U S A. [PMID:17463080](https://pubmed.ncbi.nlm.nih.gov/17463080/){:target="_blank" rel="noopener"}
+1. Suno R et al. 2022. Structural insights into the G protein selectivity revealed by the human EP3-G(i) signaling complex. Cell Rep. [PMID:36103815](https://pubmed.ncbi.nlm.nih.gov/36103815/){:target="_blank" rel="noopener"}
+1. Taussig R et al. 1993. Inhibition of adenylyl cyclase by Gi alpha. Science. [PMID:8327893](https://pubmed.ncbi.nlm.nih.gov/8327893/){:target="_blank" rel="noopener"}
+1. Tesmer JJ et al. 1997. Structure of RGS4 bound to AlF4--activated G(i alpha1): stabilization of the transition state for GTP hydrolysis. Cell. [PMID:9108480](https://pubmed.ncbi.nlm.nih.gov/9108480/){:target="_blank" rel="noopener"}
+1. Wall MA et al. 1995. The structure of the G protein heterotrimer Gi alpha 1 beta 1 gamma 2. Cell. [PMID:8521505](https://pubmed.ncbi.nlm.nih.gov/8521505/){:target="_blank" rel="noopener"}
