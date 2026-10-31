@@ -24,7 +24,7 @@ The 12- and 15-lipoxygenases ALOX12 and ALOX15 oxygenate arachidonic acid to 12(
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
-**Databases.** 15 of the 32 reactions of this map are also in at least one of KEGG, Reactome and MetaCore, as listed under References.
+**Databases.** 17 of the 32 reactions of this map are also in at least one of KEGG, Reactome, Rhea, Recon3D and MetaCore, as listed under References.
 
 ## References
 
@@ -36,3 +36,5 @@ The 12- and 15-lipoxygenases ALOX12 and ALOX15 oxygenate arachidonic acid to 12(
 1. Reactome: Synthesis of 12-eicosatetraenoic acid derivatives. [Reactome:R-HSA-2142712](https://reactome.org/content/detail/R-HSA-2142712){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of 15-eicosatetraenoic acid derivatives. [Reactome:R-HSA-2142770](https://reactome.org/content/detail/R-HSA-2142770){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of Leukotrienes (LT) and Eoxins (EX). [Reactome:R-HSA-2142691](https://reactome.org/content/detail/R-HSA-2142691){:target="_blank" rel="noopener"}
+1. Recon3D, BiGG Models. [BiGG:Recon3D](https://bigg.ucsd.edu/models/Recon3D){:target="_blank" rel="noopener"}
+1. Rhea: [RHEA:10428](https://www.rhea-db.org/rhea/10428){:target="_blank" rel="noopener"}, [RHEA:16869](https://www.rhea-db.org/rhea/16869){:target="_blank" rel="noopener"}, [RHEA:41336](https://www.rhea-db.org/rhea/41336){:target="_blank" rel="noopener"}, [RHEA:48636](https://www.rhea-db.org/rhea/48636){:target="_blank" rel="noopener"}, [RHEA:48808](https://www.rhea-db.org/rhea/48808){:target="_blank" rel="noopener"}, [RHEA:48856](https://www.rhea-db.org/rhea/48856){:target="_blank" rel="noopener"}, [RHEA:50140](https://www.rhea-db.org/rhea/50140){:target="_blank" rel="noopener"}, [RHEA:50708](https://www.rhea-db.org/rhea/50708){:target="_blank" rel="noopener"}, [RHEA:53652](https://www.rhea-db.org/rhea/53652){:target="_blank" rel="noopener"}, [RHEA:76691](https://www.rhea-db.org/rhea/76691){:target="_blank" rel="noopener"}, [RHEA:76695](https://www.rhea-db.org/rhea/76695){:target="_blank" rel="noopener"}.

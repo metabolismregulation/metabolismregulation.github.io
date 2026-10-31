@@ -24,7 +24,7 @@ Cytochrome P450 epoxygenases, CYP2J2 among them, turn arachidonic acid into the 
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
-**Databases.** 10 of the 12 reactions of this map are also in at least one of KEGG, Reactome and MetaCore, as listed under References.
+**Databases.** 10 of the 12 reactions of this map are also in at least one of KEGG, Reactome, Rhea, Recon3D and MetaCore, as listed under References.
 
 ## References
 
@@ -35,3 +35,5 @@ Cytochrome P450 epoxygenases, CYP2J2 among them, turn arachidonic acid into the 
 1. Reactome: Arachidonate metabolism. [Reactome:R-HSA-2142753](https://reactome.org/content/detail/R-HSA-2142753){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of (16-20)-hydroxyeicosatetraenoic acids (HETE). [Reactome:R-HSA-2142816](https://reactome.org/content/detail/R-HSA-2142816){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of epoxy (EET) and dihydroxyeicosatrienoic acids (DHET). [Reactome:R-HSA-2142670](https://reactome.org/content/detail/R-HSA-2142670){:target="_blank" rel="noopener"}
+1. Recon3D, BiGG Models. [BiGG:Recon3D](https://bigg.ucsd.edu/models/Recon3D){:target="_blank" rel="noopener"}
+1. Rhea: [RHEA:39755](https://www.rhea-db.org/rhea/39755){:target="_blank" rel="noopener"}, [RHEA:39759](https://www.rhea-db.org/rhea/39759){:target="_blank" rel="noopener"}, [RHEA:39811](https://www.rhea-db.org/rhea/39811){:target="_blank" rel="noopener"}, [RHEA:44048](https://www.rhea-db.org/rhea/44048){:target="_blank" rel="noopener"}, [RHEA:49936](https://www.rhea-db.org/rhea/49936){:target="_blank" rel="noopener"}, [RHEA:49968](https://www.rhea-db.org/rhea/49968){:target="_blank" rel="noopener"}, [RHEA:49972](https://www.rhea-db.org/rhea/49972){:target="_blank" rel="noopener"}.

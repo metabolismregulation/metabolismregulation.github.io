@@ -24,7 +24,7 @@ downloads:
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
-**Databases.** 13 of the 16 reactions of this map are also in at least one of KEGG, Reactome and MetaCore, as listed under References.
+**Databases.** 13 of the 16 reactions of this map are also in at least one of KEGG, Reactome, Rhea, Recon3D and MetaCore, as listed under References.
 
 ## References
 
@@ -36,3 +36,5 @@ downloads:
 1. Reactome: Arachidonate metabolism. [Reactome:R-HSA-2142753](https://reactome.org/content/detail/R-HSA-2142753){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of 5-eicosatetraenoic acids. [Reactome:R-HSA-2142688](https://reactome.org/content/detail/R-HSA-2142688){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of Leukotrienes (LT) and Eoxins (EX). [Reactome:R-HSA-2142691](https://reactome.org/content/detail/R-HSA-2142691){:target="_blank" rel="noopener"}
+1. Recon3D, BiGG Models. [BiGG:Recon3D](https://bigg.ucsd.edu/models/Recon3D){:target="_blank" rel="noopener"}
+1. Rhea: [RHEA:17485](https://www.rhea-db.org/rhea/17485){:target="_blank" rel="noopener"}, [RHEA:17617](https://www.rhea-db.org/rhea/17617){:target="_blank" rel="noopener"}, [RHEA:17961](https://www.rhea-db.org/rhea/17961){:target="_blank" rel="noopener"}, [RHEA:22176](https://www.rhea-db.org/rhea/22176){:target="_blank" rel="noopener"}, [RHEA:22324](https://www.rhea-db.org/rhea/22324){:target="_blank" rel="noopener"}, [RHEA:31563](https://www.rhea-db.org/rhea/31563){:target="_blank" rel="noopener"}, [RHEA:48616](https://www.rhea-db.org/rhea/48616){:target="_blank" rel="noopener"}, [RHEA:48620](https://www.rhea-db.org/rhea/48620){:target="_blank" rel="noopener"}, [RHEA:48668](https://www.rhea-db.org/rhea/48668){:target="_blank" rel="noopener"}, [RHEA:48672](https://www.rhea-db.org/rhea/48672){:target="_blank" rel="noopener"}, [RHEA:50608](https://www.rhea-db.org/rhea/50608){:target="_blank" rel="noopener"}.

@@ -24,7 +24,7 @@ Free radicals oxidise arachidonic acid without an enzyme into isoprostanes such 
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
-**Databases.** None of the 3 reactions of this map is in KEGG, Reactome or MetaCore.
+**Databases.** None of the 3 reactions of this map is in KEGG, Reactome, Rhea, Recon3D or MetaCore.
 
 ## References
 

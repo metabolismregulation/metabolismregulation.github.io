@@ -24,7 +24,7 @@ Lipoxins are made by two lipoxygenases acting in turn, often in two cells. ALOX5
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
-**Databases.** 3 of the 14 reactions of this map are also in at least one of KEGG and Reactome, as listed under References.
+**Databases.** 4 of the 14 reactions of this map are also in at least one of KEGG, Reactome and Rhea, as listed under References.
 
 ## References
 
@@ -32,3 +32,4 @@ Lipoxins are made by two lipoxygenases acting in turn, often in two cells. ALOX5
 1. AsthmaMap. [asthma-map.org](https://asthma-map.org){:target="_blank" rel="noopener"}
 1. KEGG: Arachidonic acid metabolism. [KEGG:map00590](https://www.kegg.jp/pathway/map00590){:target="_blank" rel="noopener"}
 1. Reactome: Arachidonate metabolism. [Reactome:R-HSA-2142753](https://reactome.org/content/detail/R-HSA-2142753){:target="_blank" rel="noopener"}
+1. Rhea: [RHEA:41572](https://www.rhea-db.org/rhea/41572){:target="_blank" rel="noopener"}, [RHEA:42284](https://www.rhea-db.org/rhea/42284){:target="_blank" rel="noopener"}.

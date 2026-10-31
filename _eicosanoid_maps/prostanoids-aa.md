@@ -24,7 +24,7 @@ Cyclooxygenases 1 and 2 (PTGS1, PTGS2) oxygenate arachidonic acid to PGG2 and re
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
-**Databases.** 29 of the 57 reactions of this map are also in at least one of KEGG, Reactome and MetaCore, as listed under References.
+**Databases.** 30 of the 57 reactions of this map are also in at least one of KEGG, Reactome, Rhea, Recon3D and MetaCore, as listed under References.
 
 ## References
 
@@ -36,3 +36,5 @@ Cyclooxygenases 1 and 2 (PTGS1, PTGS2) oxygenate arachidonic acid to PGG2 and re
 1. MetaCore: Prostaglandin 2 biosynthesis and metabolism (Clarivate).
 1. Reactome: Arachidonate metabolism. [Reactome:R-HSA-2142753](https://reactome.org/content/detail/R-HSA-2142753){:target="_blank" rel="noopener"}
 1. Reactome: Synthesis of Prostaglandins (PG) and Thromboxanes (TX). [Reactome:R-HSA-2162123](https://reactome.org/content/detail/R-HSA-2162123){:target="_blank" rel="noopener"}
+1. Recon3D, BiGG Models. [BiGG:Recon3D](https://bigg.ucsd.edu/models/Recon3D){:target="_blank" rel="noopener"}
+1. Rhea: [RHEA:10140](https://www.rhea-db.org/rhea/10140){:target="_blank" rel="noopener"}, [RHEA:10600](https://www.rhea-db.org/rhea/10600){:target="_blank" rel="noopener"}, [RHEA:11876](https://www.rhea-db.org/rhea/11876){:target="_blank" rel="noopener"}, [RHEA:11912](https://www.rhea-db.org/rhea/11912){:target="_blank" rel="noopener"}, [RHEA:11916](https://www.rhea-db.org/rhea/11916){:target="_blank" rel="noopener"}, [RHEA:12893](https://www.rhea-db.org/rhea/12893){:target="_blank" rel="noopener"}, [RHEA:17137](https://www.rhea-db.org/rhea/17137){:target="_blank" rel="noopener"}, [RHEA:23580](https://www.rhea-db.org/rhea/23580){:target="_blank" rel="noopener"}, [RHEA:24508](https://www.rhea-db.org/rhea/24508){:target="_blank" rel="noopener"}, [RHEA:28214](https://www.rhea-db.org/rhea/28214){:target="_blank" rel="noopener"}, [RHEA:42596](https://www.rhea-db.org/rhea/42596){:target="_blank" rel="noopener"}, [RHEA:42600](https://www.rhea-db.org/rhea/42600){:target="_blank" rel="noopener"}, [RHEA:45312](https://www.rhea-db.org/rhea/45312){:target="_blank" rel="noopener"}, [RHEA:45316](https://www.rhea-db.org/rhea/45316){:target="_blank" rel="noopener"}, [RHEA:48644](https://www.rhea-db.org/rhea/48644){:target="_blank" rel="noopener"}, [RHEA:50588](https://www.rhea-db.org/rhea/50588){:target="_blank" rel="noopener"}, [RHEA:50852](https://www.rhea-db.org/rhea/50852){:target="_blank" rel="noopener"}, [RHEA:52492](https://www.rhea-db.org/rhea/52492){:target="_blank" rel="noopener"}, [RHEA:63476](https://www.rhea-db.org/rhea/63476){:target="_blank" rel="noopener"}, [RHEA:63480](https://www.rhea-db.org/rhea/63480){:target="_blank" rel="noopener"}.
