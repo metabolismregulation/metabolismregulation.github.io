@@ -633,6 +633,46 @@
 ]
 },
 {
+"label": "8(S),15(S)-diHETE",
+"class": "SimpleChemical",
+"box": [
+856.3,
+949.5,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"8(S),15(S)-DiHETE"
+],
+[
+"Synonyms",
+"(5Z,8S,9E,11Z,13E,15S)-8,15-dihydroxyeicosatetraenoic acid; (5Z,8S,9E,11Z,13E,15S)-8,15-dihydroxyicosa-5,9,11,13-tetraenoic acid; (5Z,8S,9E,11Z,13E,15S)-8,15-dihydroxyicosatetraenoic acid; (8S,15S)-DiHETE; (8S,15S)-dihydroxy-(5Z,9E,11Z,13E)-eicosatetraenoic acid; (8S,15S)-dihydroxy-(5Z,9E,11Z,13E)-icosatetraenoic acid; 8S,15S-DiHETE; 8S,15S-dihydroxy-5Z,9E,11Z,13E-eicosatetraenoic acid"
+],
+[
+"Definition",
+"Ab 8,15-DiHETE that is derived from (5Z,9E,11Z,13E)-icosatetraenoic acid and has (8S,15S)-stereochemistry."
+],
+[
+"Formula",
+"C20H32O4"
+],
+[
+"ChEBI",
+"CHEBI:136485"
+],
+[
+"InChI",
+"InChI=1S/C20H32O4/c1-2-3-8-13-18(21)14-9-4-5-10-15-19(22)16-11-6-7-12-17-20(23)24/h4-6,9-11,14-15,18-19,21-22H,2-3,7-8,12-13,16-17H2,1H3,(H,23,24)/b5-4-,11-6-,14-9+,15-10+/t18-,19+/m0/s1"
+],
+[
+"InChIKey",
+"NNPWRKSGORGTIM-HCCKYKKOSA-N"
+]
+]
+},
+{
 "label": "12(S)-HETE",
 "class": "SimpleChemical",
 "box": [
@@ -2086,20 +2126,28 @@
 },
 "references": [
 {
-"authors": "Kühn H et al.",
-"journal": "Biochim Biophys Acta",
-"title": "Overexpression, purification and characterization of human recombinant 15-lipoxygenase.",
-"year": "1993",
-"db": "pubmed",
-"id": "8334154"
-},
-{
 "authors": "Dadaian M et al.",
 "journal": "J Lipid Res",
 "title": "Albumin modifies the metabolism of hydroxyeicosatetraenoic acids via 12-lipoxygenase in human platelets.",
 "year": "1999",
 "db": "pubmed",
 "id": "10224163"
+},
+{
+"authors": "Maas RL et al.",
+"year": "1983",
+"title": "Evidence for a lipoxygenase mechanism in the biosynthesis of epoxide and dihydroxy leukotrienes from 15(S)-hydroperoxyicosatetraenoic acid by human platelets and porcine leukocytes.",
+"journal": "Proc Natl Acad Sci U S A",
+"db": "pubmed",
+"id": "6304687"
+},
+{
+"authors": "Kühn H et al.",
+"journal": "Biochim Biophys Acta",
+"title": "Overexpression, purification and characterization of human recombinant 15-lipoxygenase.",
+"year": "1993",
+"db": "pubmed",
+"id": "8334154"
 }
 ]
 },
@@ -2182,6 +2230,72 @@
 "year": "1990",
 "db": "pubmed",
 "id": "2377602"
+}
+]
+},
+{
+"id": "re85",
+"label": "",
+"class": "Process",
+"box": [
+1258.5,
+955.2,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"Eoxin A4 (14,15-LTA4)"
+],
+"out": [
+"14(R),15(S)-diETE"
+],
+"by": [
+"EPHX2"
+]
+},
+"references": [
+{
+"authors": "Cronin A et al.",
+"journal": "J Lipid Res",
+"title": "Mammalian soluble epoxide hydrolase is identical to liver hepoxilin hydrolase.",
+"year": "2011",
+"db": "pubmed",
+"id": "21217101"
+}
+]
+},
+{
+"id": "re116",
+"label": "",
+"class": "Process",
+"box": [
+946.9,
+136.5,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"12(S)-HpETE"
+],
+"out": [
+"Hepoxilin A3 (HXA3)"
+],
+"by": [
+"ALOXE3"
+]
+},
+"references": [
+{
+"authors": "Yu Z et al.",
+"journal": "Proc Natl Acad Sci U S A",
+"title": "The lipoxygenase gene ALOXE3 implicated in skin differentiation encodes a hydroperoxide isomerase.",
+"year": "2003",
+"db": "pubmed",
+"id": "12881489"
 }
 ]
 },
@@ -2323,6 +2437,53 @@
 ]
 },
 {
+"id": "re109",
+"label": "",
+"class": "Process",
+"box": [
+836.3,
+30.7,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"12(R)-HETE"
+],
+"out": [
+"12-oxo-ETE"
+],
+"by": []
+},
+"references": [
+{
+"authors": "Powell WS et al.",
+"year": "1995",
+"title": "Effects of oxo and dihydro metabolites of 12-hydroxy-5,8,10,14-eicosatetraenoic acid on chemotaxis and cytosolic calcium levels in human neutrophils.",
+"journal": "J Leukoc Biol",
+"db": "pubmed",
+"id": "7852839"
+},
+{
+"authors": "Antón R et al.",
+"year": "2002",
+"title": "Hepoxilin B3 and its enzymatically formed derivative trioxilin B3 are incorporated into phospholipids in psoriatic lesions.",
+"journal": "J Invest Dermatol",
+"db": "pubmed",
+"id": "11851887"
+},
+{
+"authors": "Powell WS et al.",
+"year": "1992",
+"title": "Metabolism of 5(S)-hydroxy-6,8,11,14-eicosatetraenoic acid and other 5(S)-hydroxyeicosanoids by a specific dehydrogenase in human polymorphonuclear leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "1326548"
+}
+]
+},
+{
 "id": "re112",
 "label": "",
 "class": "Process",
@@ -2360,6 +2521,40 @@
 "year": "2003",
 "db": "pubmed",
 "id": "12738806"
+}
+]
+},
+{
+"id": "re89",
+"label": "",
+"class": "Process",
+"box": [
+864.0,
+890.4,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"15(S)-HpETE"
+],
+"out": [
+"8(S),15(S)-diHETE"
+],
+"by": [
+"ALOX15",
+"ALOX12"
+]
+},
+"references": [
+{
+"authors": "Maas RL et al.",
+"year": "1983",
+"title": "Evidence for a lipoxygenase mechanism in the biosynthesis of epoxide and dihydroxy leukotrienes from 15(S)-hydroperoxyicosatetraenoic acid by human platelets and porcine leukocytes.",
+"journal": "Proc Natl Acad Sci U S A",
+"db": "pubmed",
+"id": "6304687"
 }
 ]
 },
@@ -2405,6 +2600,39 @@
 ]
 },
 {
+"id": "re117",
+"label": "",
+"class": "Process",
+"box": [
+590.3,
+136.4,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"Hepoxilin A3 (HXA3)"
+],
+"out": [
+"Trioxilin A3 (TrXA3)"
+],
+"by": [
+"EPHX2"
+]
+},
+"references": [
+{
+"authors": "Cronin A et al.",
+"journal": "J Lipid Res",
+"title": "Mammalian soluble epoxide hydrolase is identical to liver hepoxilin hydrolase.",
+"year": "2011",
+"db": "pubmed",
+"id": "21217101"
+}
+]
+},
+{
 "id": "re81",
 "label": "",
 "class": "Process",
@@ -2428,6 +2656,22 @@
 },
 "references": [
 {
+"authors": "von Schacky C et al.",
+"year": "1990",
+"title": "Platelet-neutrophil interactions. 12S,20- and 5S,12S-dihydroxyeicosapentaenoic acids: two novel neutrophil metabolites from platelet-derived 12S-hydroxyeicosapentaenoic acid.",
+"journal": "J Lipid Res",
+"db": "pubmed",
+"id": "2116491"
+},
+{
+"authors": "Borgeat P et al.",
+"year": "1982",
+"title": "Studies on the mechanism of formation of the 5S, 12S-dihydroxy-6,8,10,14(E,Z,E,Z)-icosatetraenoic acid in leukocytes.",
+"journal": "Prostaglandins",
+"db": "pubmed",
+"id": "6289381"
+},
+{
 "authors": "Ueda N et al.",
 "journal": "J Biol Chem",
 "title": "Purification of arachidonate 5-lipoxygenase from porcine leukocytes and its reactivity with hydroperoxyeicosatetraenoic acids.",
@@ -2442,6 +2686,47 @@
 "year": "1982",
 "db": "pubmed",
 "id": "6821131"
+}
+]
+},
+{
+"id": "re92",
+"label": "",
+"class": "Process",
+"box": [
+1257.4,
+713.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"5(S),15(S)-diHpETE"
+],
+"out": [
+"5(S),15(S)-diHETE"
+],
+"by": [
+"GPX1"
+]
+},
+"references": [
+{
+"authors": "Maas RL et al.",
+"year": "1982",
+"title": "Formation of a novel dihydroxy acid from arachidonic acid by lipoxygenase-catalyzed double oxygenation in rat mononuclear cells and human leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "6806263"
+},
+{
+"authors": "Sutherland M et al.",
+"journal": "Biochem J",
+"title": "Evidence for the presence of phospholipid hydroperoxide glutathione peroxidase in human platelets: implications for its involvement in the regulatory network of the 12-lipoxygenase pathway of arachidonic acid metabolism.",
+"year": "2001",
+"db": "pubmed",
+"id": "11115402"
 }
 ]
 },
@@ -2632,6 +2917,22 @@
 },
 "references": [
 {
+"authors": "Dadaian M et al.",
+"journal": "J Lipid Res",
+"title": "Albumin modifies the metabolism of hydroxyeicosatetraenoic acids via 12-lipoxygenase in human platelets.",
+"year": "1999",
+"db": "pubmed",
+"id": "10224163"
+},
+{
+"authors": "Maas RL et al.",
+"year": "1982",
+"title": "Formation of a novel dihydroxy acid from arachidonic acid by lipoxygenase-catalyzed double oxygenation in rat mononuclear cells and human leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "6806263"
+},
+{
 "authors": "Serhan CN",
 "journal": "Biochim Biophys Acta",
 "title": "On the relationship between leukotriene and lipoxin production by human neutrophils: evidence for differential metabolism of 15-HETE and 5-HETE.",
@@ -2763,20 +3064,28 @@
 },
 "references": [
 {
-"authors": "Kikuta Y et al.",
-"journal": "J Biochem",
-"title": "Characterization of human liver leukotriene B(4) omega-hydroxylase P450 (CYP4F2).",
-"year": "2000",
-"db": "pubmed",
-"id": "10833273"
-},
-{
 "authors": "Marcus AJ et al.",
 "journal": "J Clin Invest",
 "title": "Studies on the mechanism of omega-hydroxylation of platelet 12-hydroxyeicosatetraenoic acid (12-HETE) by unstimulated neutrophils.",
 "year": "1987",
 "db": "pubmed",
 "id": "3025259"
+},
+{
+"authors": "von Schacky C et al.",
+"year": "1990",
+"title": "Platelet-neutrophil interactions. 12S,20- and 5S,12S-dihydroxyeicosapentaenoic acids: two novel neutrophil metabolites from platelet-derived 12S-hydroxyeicosapentaenoic acid.",
+"journal": "J Lipid Res",
+"db": "pubmed",
+"id": "2116491"
+},
+{
+"authors": "Kikuta Y et al.",
+"journal": "J Biochem",
+"title": "Characterization of human liver leukotriene B(4) omega-hydroxylase P450 (CYP4F2).",
+"year": "2000",
+"db": "pubmed",
+"id": "10833273"
 }
 ]
 },
@@ -2843,6 +3152,14 @@
 },
 "references": [
 {
+"authors": "Maas RL et al.",
+"year": "1982",
+"title": "Formation of a novel dihydroxy acid from arachidonic acid by lipoxygenase-catalyzed double oxygenation in rat mononuclear cells and human leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "6806263"
+},
+{
 "authors": "Chavis C et al.",
 "journal": "J Exp Med",
 "title": "5(S),15(S)-dihydroxyeicosatetraenoic acid and lipoxin generation in human polymorphonuclear cells: dual specificity of 5-lipoxygenase towards endogenous and exogenous precursors.",
@@ -2875,6 +3192,22 @@
 ]
 },
 "references": [
+{
+"authors": "Schwenk U et al.",
+"year": "1995",
+"title": "5-Oxo-eicosanoids are potent eosinophil chemotactic factors. Functional characterization and structural requirements.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "7797484"
+},
+{
+"authors": "Powell WS et al.",
+"year": "1992",
+"title": "Metabolism of 5(S)-hydroxy-6,8,11,14-eicosatetraenoic acid and other 5(S)-hydroxyeicosanoids by a specific dehydrogenase in human polymorphonuclear leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "1326548"
+},
 {
 "authors": "Powell WS et al.",
 "journal": "J Immunol",
@@ -2915,6 +3248,14 @@
 "year": "1994",
 "db": "pubmed",
 "id": "7929400"
+},
+{
+"authors": "Maas RL et al.",
+"year": "1982",
+"title": "Formation of a novel dihydroxy acid from arachidonic acid by lipoxygenase-catalyzed double oxygenation in rat mononuclear cells and human leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "6806263"
 }
 ]
 },

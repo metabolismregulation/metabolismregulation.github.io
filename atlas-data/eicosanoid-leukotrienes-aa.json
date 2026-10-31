@@ -1489,118 +1489,6 @@
 ]
 },
 {
-"label": "ADH5",
-"class": "Macromolecule",
-"box": [
-672.9,
-1015.6,
-70.0,
-30.0
-],
-"props": [
-[
-"Full name",
-"Alcohol dehydrogenase class-3"
-],
-[
-"Alternative names",
-"Alcohol dehydrogenase 5; Alcohol dehydrogenase class chi chain; Alcohol dehydrogenase class-III; Glutathione-dependent formaldehyde dehydrogenase; S-(hydroxymethyl)glutathione dehydrogenase"
-],
-[
-"Function",
-"Catalyzes the oxidation of long-chain primary alcohols and the oxidation of S-(hydroxymethyl) glutathione. Also oxidizes long chain omega-hydroxy fatty acids, such as 20-HETE, producing both the intermediate aldehyde, 20-oxoarachidonate and the end product, a dicarboxylic acid, (5Z,8Z,11Z,14Z)-eicosatetraenedioate."
-],
-[
-"Location",
-"Cytoplasm"
-],
-[
-"HGNC",
-"HGNC:253"
-],
-[
-"HGNC symbol",
-"ADH5"
-],
-[
-"Previous symbols",
-"FDH"
-],
-[
-"Alias symbols",
-"ADH-3, ADHX, GSNOR"
-],
-[
-"Entrez",
-"128"
-],
-[
-"Ensembl",
-"ENSG00000197894"
-],
-[
-"RefSeq",
-"NM_000671"
-],
-[
-"UniProt",
-"P11766"
-]
-]
-},
-{
-"label": "CYP4F2",
-"class": "Macromolecule",
-"box": [
-620.2,
-945.2,
-70.0,
-30.0
-],
-"props": [
-[
-"Full name",
-"Cytochrome P450 4F2"
-],
-[
-"Alternative names",
-"20-hydroxyeicosatetraenoic acid synthase; Arachidonic acid omega-hydroxylase; CYPIVF2; Cytochrome P450-LTB-omega; Docosahexaenoic acid omega-hydroxylase; Leukotriene-B(4) 20-monooxygenase 1; Leukotriene-B(4) omega-hydroxylase 1; Phylloquinone omega-hydroxylase CYP4F2"
-],
-[
-"Function",
-"A cytochrome P450 monooxygenase involved in the metabolism of various endogenous substrates, including fatty acids, eicosanoids and vitamins. Mechanistically, uses molecular oxygen inserting one oxygen atom into a substrate, and reducing the second into a water molecule, with two electrons provided by NADPH via cytochrome P450 reductase (CPR; NADPH-ferrihemoprotein reductase)."
-],
-[
-"Location",
-"Microsome membrane, Endoplasmic reticulum membrane"
-],
-[
-"HGNC",
-"HGNC:2645"
-],
-[
-"HGNC symbol",
-"CYP4F2"
-],
-[
-"Entrez",
-"8529"
-],
-[
-"Ensembl",
-"ENSG00000186115"
-],
-[
-"RefSeq",
-"NM_001082"
-],
-[
-"UniProt",
-"P78329"
-]
-]
-},
-{
 "label": "20-carboxy-LTB4",
 "class": "SimpleChemical",
 "box": [
@@ -1807,6 +1695,30 @@
 },
 "references": [
 {
+"authors": "O'Flaherty JT et al.",
+"year": "1986",
+"title": "Metabolism of 5-hydroxyicosatetraenoate by human neutrophils: production of a novel omega-oxidized derivative.",
+"journal": "J Immunol",
+"db": "pubmed",
+"id": "3095426"
+},
+{
+"authors": "Powell WS et al.",
+"year": "1994",
+"title": "Phorbol myristate acetate stimulates the formation of 5-oxo-6,8,11,14-eicosatetraenoic acid by human neutrophils by activating NADPH oxidase.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "7929234"
+},
+{
+"authors": "Christmas P et al.",
+"year": "2001",
+"title": "Alternative splicing determines the function of CYP4F3 by switching substrate specificity.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "11461919"
+},
+{
 "authors": "Kikuta Y et al.",
 "journal": "J Biol Chem",
 "title": "A novel form of cytochrome P-450 family 4 in human polymorphonuclear leukocytes. cDNA cloning and expression of leukotriene B4 omega-hydroxylase.",
@@ -1916,6 +1828,22 @@
 "references": [
 {
 "authors": "Powell WS et al.",
+"year": "1992",
+"title": "Metabolism of 5(S)-hydroxy-6,8,11,14-eicosatetraenoic acid and other 5(S)-hydroxyeicosanoids by a specific dehydrogenase in human polymorphonuclear leukocytes.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "1326548"
+},
+{
+"authors": "Powell WS et al.",
+"year": "1994",
+"title": "Phorbol myristate acetate stimulates the formation of 5-oxo-6,8,11,14-eicosatetraenoic acid by human neutrophils by activating NADPH oxidase.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "7929234"
+},
+{
+"authors": "Powell WS et al.",
 "journal": "Prog Lipid Res",
 "title": "The eosinophil chemoattractant 5-oxo-ETE and the OXE receptor.",
 "year": "2013",
@@ -1966,6 +1894,55 @@
 ]
 },
 {
+"id": "re71",
+"label": "",
+"class": "Process",
+"box": [
+631.6,
+1058.7,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"20-oxo-LTB4"
+],
+"out": [
+"20-carboxy-LTB4"
+],
+"by": [
+"ALDH3A2"
+]
+},
+"references": [
+{
+"authors": "Willemsen MA et al.",
+"year": "2001",
+"title": "Defective metabolism of leukotriene B4 in the Sjögren-Larsson syndrome.",
+"journal": "J Neurol Sci",
+"db": "pubmed",
+"id": "11166796"
+},
+{
+"authors": "Gotoh Y et al.",
+"year": "1989",
+"title": "Purification and characterization of 20-hydroxy-leukotriene B4 dehydrogenase in human neutrophils.",
+"journal": "Eur J Biochem",
+"db": "pubmed",
+"id": "2537206"
+},
+{
+"authors": "Rizzo WB",
+"year": "2007",
+"title": "Sjögren-Larsson syndrome: molecular genetics and biochemical pathogenesis of fatty aldehyde dehydrogenase deficiency.",
+"journal": "Mol Genet Metab",
+"db": "pubmed",
+"id": "16996289"
+}
+]
+},
+{
 "id": "re64",
 "label": "",
 "class": "Process",
@@ -2004,6 +1981,114 @@
 "year": "1997",
 "db": "pubmed",
 "id": "9139674"
+}
+]
+},
+{
+"id": "re67",
+"label": "",
+"class": "Process",
+"box": [
+766.1,
+850.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"LTB4"
+],
+"out": [
+"20-hydroxy-LTB4"
+],
+"by": [
+"CYP4F2",
+"CYP4F3",
+"CYP4F12"
+]
+},
+"references": [
+{
+"authors": "Hashizume T et al.",
+"year": "2001",
+"title": "cDNA cloning and expression of a novel cytochrome p450 (cyp4f12) from human small intestine.",
+"journal": "Biochem Biophys Res Commun",
+"db": "pubmed",
+"id": "11162645"
+},
+{
+"authors": "Christmas P et al.",
+"year": "2001",
+"title": "Alternative splicing determines the function of CYP4F3 by switching substrate specificity.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "11461919"
+},
+{
+"authors": "Kikuta Y et al.",
+"journal": "J Biol Chem",
+"title": "A novel form of cytochrome P-450 family 4 in human polymorphonuclear leukocytes. cDNA cloning and expression of leukotriene B4 omega-hydroxylase.",
+"year": "1993",
+"db": "pubmed",
+"id": "8486631"
+},
+{
+"authors": "Kikuta Y et al.",
+"year": "1998",
+"title": "Human leukotriene B4 omega-hydroxylase (CYP4F3) gene: molecular cloning and chromosomal localization.",
+"journal": "DNA Cell Biol",
+"db": "pubmed",
+"id": "9539102"
+},
+{
+"authors": "Kikuta Y et al.",
+"year": "1998",
+"title": "Purification and characterization of recombinant human neutrophil leukotriene B4 omega-hydroxylase (cytochrome P450 4F3).",
+"journal": "Arch Biochem Biophys",
+"db": "pubmed",
+"id": "9675028"
+}
+]
+},
+{
+"id": "re69",
+"label": "",
+"class": "Process",
+"box": [
+766.1,
+984.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"20-hydroxy-LTB4"
+],
+"out": [
+"20-oxo-LTB4"
+],
+"by": [
+"CYP4F3"
+]
+},
+"references": [
+{
+"authors": "Sumimoto H et al.",
+"year": "1990",
+"title": "Oxidation of 20-hydroxyleukotriene B4 to 20-carboxyleukotriene B4 by human neutrophil microsomes. Role of aldehyde dehydrogenase and leukotriene B4 omega-hydroxylase (cytochrome P-450LTB omega) in leukotriene B4 omega-oxidation.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "2155225"
+},
+{
+"authors": "Gotoh Y et al.",
+"year": "1989",
+"title": "Purification and characterization of 20-hydroxy-leukotriene B4 dehydrogenase in human neutrophils.",
+"journal": "Eur J Biochem",
+"db": "pubmed",
+"id": "2537206"
 }
 ]
 },
@@ -2050,6 +2135,39 @@
 ]
 },
 {
+"id": "re70",
+"label": "",
+"class": "Process",
+"box": [
+631.6,
+1043.3,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"20-oxo-LTB4"
+],
+"out": [
+"20-carboxy-LTB4"
+],
+"by": [
+"CYP4F3"
+]
+},
+"references": [
+{
+"authors": "Sumimoto H et al.",
+"year": "1990",
+"title": "Oxidation of 20-hydroxyleukotriene B4 to 20-carboxyleukotriene B4 by human neutrophil microsomes. Role of aldehyde dehydrogenase and leukotriene B4 omega-hydroxylase (cytochrome P-450LTB omega) in leukotriene B4 omega-oxidation.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "2155225"
+}
+]
+},
+{
 "id": "re72",
 "label": "",
 "class": "Process",
@@ -2079,6 +2197,14 @@
 "year": "1993",
 "db": "pubmed",
 "id": "8394361"
+},
+{
+"authors": "Yokomizo T et al.",
+"year": "1996",
+"title": "cDNA cloning, expression, and mutagenesis study of leukotriene B4 12-hydroxydehydrogenase.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "8576264"
 }
 ]
 },
