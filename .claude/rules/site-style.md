@@ -37,11 +37,11 @@ corner, kept for later and linked from no page. The site keeps `favicon.ico` unt
 
 ## Large logo
 
-The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-10-31 (user: "12 but return the blue colour for
-large one"): the earlier logo's glyphs (arrowheads, modulator dots, open process glyphs) in its blue #557BA2, on a tile
-cut through the top box, corners as the tab icon's, the boxes and the bottom circle standing over the edges. The
-earlier logo, glyphs clipped by a square tile, is kept as `images/logo-previous.svg`. Made with the favicon skill
-(version 13 of its record).
+The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-10-31 (user: "apply 17"): the glyph drawing of
+the site's PowerPoint `images/mr-logo.pptx` (slide 1: arrowheads, modulators with filled dots, process glyphs filled
+white, every stroke one weight) in the earlier logo's blue #557BA2, on a tile cut through the top box, corners as the
+tab icon's, the boxes and the bottom circle standing over the edges. The earlier logo, glyphs clipped by a square
+tile, is kept as `images/logo-previous.svg`. Made with the favicon skill (version 17 of its record).
 
 ## Page icons
 
