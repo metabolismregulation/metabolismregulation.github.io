@@ -24,8 +24,15 @@ downloads:
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
+**Databases.** 13 of the 16 reactions of this map are also in at least one of KEGG, Reactome and MetaCore, as listed under References.
+
 ## References
 
-AsthmaMap. https://asthma-map.org
-
-AsthmaMap in MINERVA. https://asthma.uni.lu/minerva/
+1. AsthmaMap in MINERVA. [asthma.uni.lu/minerva](https://asthma.uni.lu/minerva/){:target="_blank" rel="noopener"}
+1. AsthmaMap. [asthma-map.org](https://asthma-map.org){:target="_blank" rel="noopener"}
+1. KEGG: Arachidonic acid metabolism. [KEGG:map00590](https://www.kegg.jp/pathway/map00590){:target="_blank" rel="noopener"}
+1. MetaCore: HETE and HPETE biosynthesis and metabolism (Clarivate).
+1. MetaCore: Leukotriene 4 biosynthesis and metabolism (Clarivate).
+1. Reactome: Arachidonate metabolism. [Reactome:R-HSA-2142753](https://reactome.org/content/detail/R-HSA-2142753){:target="_blank" rel="noopener"}
+1. Reactome: Synthesis of 5-eicosatetraenoic acids. [Reactome:R-HSA-2142688](https://reactome.org/content/detail/R-HSA-2142688){:target="_blank" rel="noopener"}
+1. Reactome: Synthesis of Leukotrienes (LT) and Eoxins (EX). [Reactome:R-HSA-2142691](https://reactome.org/content/detail/R-HSA-2142691){:target="_blank" rel="noopener"}

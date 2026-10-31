@@ -24,8 +24,11 @@ Cytosolic phospholipase A2 releases arachidonic acid from membrane phosphatidylc
 
 **AsthmaMap.** Cut from the AsthmaMap eicosanoid module, shown whole on this page as Eicosanoid production (AsthmaMap), with its reactions, names and drawing unchanged.
 
+**Databases.** The reaction of this map is also in KEGG and Reactome, as listed under References.
+
 ## References
 
-AsthmaMap. https://asthma-map.org
-
-AsthmaMap in MINERVA. https://asthma.uni.lu/minerva/
+1. AsthmaMap in MINERVA. [asthma.uni.lu/minerva](https://asthma.uni.lu/minerva/){:target="_blank" rel="noopener"}
+1. AsthmaMap. [asthma-map.org](https://asthma-map.org){:target="_blank" rel="noopener"}
+1. KEGG: Arachidonic acid metabolism. [KEGG:map00590](https://www.kegg.jp/pathway/map00590){:target="_blank" rel="noopener"}
+1. Reactome: Arachidonate metabolism. [Reactome:R-HSA-2142753](https://reactome.org/content/detail/R-HSA-2142753){:target="_blank" rel="noopener"}
