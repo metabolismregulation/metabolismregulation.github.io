@@ -6,6 +6,7 @@ paths:
   - "eicosanoid-atlas-downloads/**"
   - "scripts/make_eicosanoid_atlas.py"
   - "atlas-data/eicosanoid-*"
+  - "pages/eicosanoid-atlas-*.html"
 ---
 
 ## Eicosanoid Atlas
@@ -22,3 +23,6 @@ entries and texts are copies: they are built and kept in a private repository, w
 runs `make_eicosanoid_atlas.py`. Change them there, never here.
 
 In page text the Metabolism Regulation Atlas is named MRegAtlas, as on the pattern pages.
+
+Other pages of the atlas (2026-11-01): `pages/eicosanoid-atlas-<name>.html`, e.g. /eicosanoid-atlas/structure/ (the
+proposed organisation: blocks, fatty acid by branch grid, the list). Copies too, written by the same copy script.
