@@ -19,7 +19,7 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          {% unless mh %}<a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>{% endunless %}
+          {% if mh %}{% if mh.avatar %}<a href="{{ site.baseurl }}{{ mh.home }}" class="site-avatar"><img src="{{ site.baseurl }}{{ mh.avatar }}" /></a>{% endif %}{% else %}<a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>{% endif %}
 
           <div class="site-info">
             <h1 class="site-name"><a href="{{ site.baseurl }}{{ mh_home }}">{{ mh_name }}</a></h1>
