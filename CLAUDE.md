@@ -45,7 +45,10 @@ Changes to the website (look, layout, wording, maps, anything visible on
 metabolismregulation.github.io) go straight to `master`, so they show on the live
 site and can be checked there. A change pushed only to a session branch is
 not visible and does not count as done, even when the session was started
-on such a branch. The only exception is internal work that is not yet meant
+on such a branch.
+A push that does not show: look at the run "pages build and deployment" in Actions. When builds succeed and the
+deploy step fails with "due to in progress deployment" (a deployment GitHub never closed, 2026-11-01: four pushes held
+for 40 minutes), re-run the failed jobs of the newest run (it builds the latest master); the later pushes then deploy. The only exception is internal work that is not yet meant
 for the website; that stays off `master` (and its working files belong in
 the workbench, see above).
 
