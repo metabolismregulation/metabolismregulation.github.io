@@ -30,5 +30,5 @@ proposed organisation: blocks, fatty acid by branch grid, the list). Copies too,
 Own top bar (user, 2026-11-01, as the pattern pages): every page of the Eicosanoid Atlas has `masthead: eicosanoids` in
 its front matter, so the header shows the atlas's name, description and navigation (user, 2026-11-01: name "Eicosanoids", subtitle
 "Production, receptors, regulation", both short so they leave room for the menu: Atlas, List, Enzyme, Branching, Enzyme
-layers, Branch layers) from `_data/mastheads.yml`, not the site's. A new page of the atlas gets the line and, if it belongs
+layers, Branch layers). Every page of the atlas stays in the menu, the proposal pages too (user, 2026-11-01: "I would like to see all these pages in navigation") from `_data/mastheads.yml`, not the site's. A new page of the atlas gets the line and, if it belongs
 in the navigation, a row there. The sub-sites share one header code in `_layouts/default.html`.
