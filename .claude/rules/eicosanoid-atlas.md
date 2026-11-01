@@ -32,6 +32,7 @@ its front matter, so the header shows the atlas's name, description and navigati
 "Production, receptors, regulation", both short so they leave room for the menu: Atlas, List, Enzyme, Branching, Enzyme
 layers, Branch layers, Branch list). Every page of the atlas stays in the menu, the proposal pages too (user, 2026-11-01: "I would like to see all these pages in navigation") from `_data/mastheads.yml`, not the site's. A new page of the atlas gets the line and, if it belongs
 in the navigation, a row there. The sub-sites share one header code in `_layouts/default.html`.
-Large logo (header avatar, user 2026-11-01: "try 58"): `images/eicosanoids-logo.svg`, the favicon skill's 58 (c with 20 as
-a subscript, atlas turned, on the large logo's tile, blue) with the margins of the site's large logo, so both sit alike;
+Large logo (header avatar, user 2026-11-01: "try 58", then "large icon 64"): `images/eicosanoids-logo.svg`, the favicon
+skill's 64 (c with 20 as a subscript, atlas turned, blue, the tile cut to the drawing, 78 of 100 high) with the margins of
+the site's large logo, so both sit alike. The tab icon stays 43, c20 alone (user: "only change 43 for favicon");
 set as `avatar` in `_data/mastheads.yml` (a sub-site without one shows no logo, as the pattern pages).
