@@ -51,6 +51,4 @@ favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every ot
 `images/mr-logo.pptx`, in the slate #4a5d73 with open glyphs, the tile's corners well rounded, radius 30 of its 158 height, no process glyphs: the lines run through and meet; version 38 of the favicon skill's record, after 11 and 37), also as the root `favicon.ico`. The old ico is kept in
 `images/favicon-previous/` for going back.
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
-loop ending in a bar at its left (negative feedback). The Eicosanoid Atlas uses `favicon-eicosanoids` (user, 2026-10-31, confirmed 2026-11-01: "for favicon i did not mean
-any changes, i liked c20 simple version"): c20 on one line (twenty carbons), alone, in the periodic table tile look
-(version 43 of the favicon skill's record). The later versions (49, 56, 64, for a while on 2026-11-01) were meant as the atlas's logo, not the tab icon. The sets are made with the favicon skill.
+loop ending in a bar at its left (negative feedback). The sets are made with the favicon skill.

@@ -23,8 +23,7 @@ edited here.
 The pattern pages (Pattern List, Pattern Atlas, its backup) have their own top bar (user, 2026-10-30): no logo (the
 title is enough, user), "Regulation Patterns", "Recurring patterns in cell signalling and metabolic regulation", a
 menu of Pattern Atlas then Pattern List (the Atlas on the left, user), and the same name in the tab title. A page gets it by `masthead: patterns` in its front matter;
-`_layouts/default.html` reads the name, description and menu from `_data/mastheads.yml` (since 2026-11-01, shared with the
-Eicosanoid Atlas), and every other page keeps the site's top bar. A change to the
+`_layouts/default.html` reads the name, description and menu from `_data/mastheads.yml` (since 2026-11-01), and every other page keeps the site's top bar. A change to the
 layout is checked by building the site before and after: no page other than the pattern pages may differ (build
 timestamps aside), since the layout serves the official pages too.
 
