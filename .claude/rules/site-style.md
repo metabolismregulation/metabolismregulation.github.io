@@ -37,11 +37,11 @@ corner, kept for later and linked from no page. The site keeps `favicon.ico` unt
 
 ## Large logo
 
-The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-10-31 (user: "apply 40", after 13, 17, 18, 19, 18, 27, 29, 27, 31, 32, 31): the glyph
-drawing of the site's PowerPoint `images/mr-logo.pptx` (slide 1: arrowheads, modulators with filled dots, empty process
-glyphs, every stroke one weight, the arrowheads' corners slightly rounded) in the earlier logo's blue #557BA2, on a tile cut through the top box, corners rounded
-as on the slide (radius 23 of its height), the boxes standing over the edges, the bottom circle a little more than half inside the tile. The earlier logo, glyphs clipped by a square
-tile, is kept as `images/logo-previous.svg`. Made with the favicon skill (version 40 of its record).
+The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-11-01 (user: "apply 13", after 40; on
+2026-10-31 13, 17, 18, 19, 18, 27, 29, 27, 31, 32, 31, 40): the earlier logo's glyph drawing (arrowheads, modulators
+with filled dots, open process glyphs, its thinner strokes) in its blue #557BA2, on the tab icon's outline: a tile cut
+through the top box, corners radius 10, the glyphs standing over the edges. The earlier logo, glyphs clipped by a square
+tile, is kept as `images/logo-previous.svg`. Made with the favicon skill (version 13 of its record).
 
 ## Page icons
 
