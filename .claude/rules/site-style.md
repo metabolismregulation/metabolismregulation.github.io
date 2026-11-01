@@ -35,11 +35,6 @@ Every page is 960 px wide (`.container` in `style.scss`, 16 px padding: header, 
 `images/favicon-next/` (user, 2026-10-25): a candidate tab icon, m with reg turned upwards over atlas and 2.0 in the
 corner, kept for later and linked from no page. The site keeps `favicon.ico` until the user says otherwise.
 
-`images/favicon-eicosanoids-next/` (user, 2026-11-01: "keep 51 for website for when pages are ready"): the Eicosanoid Atlas
-icon for when its pages are ready, c with 20 as a subscript and atlas turned on the right, in the large logo's blue #557BA2,
-on a lower tile in the large logo's tile proportions (version 58 of the favicon skill's record: 57, 51 in blue, on that tile;
-user: "i meant 57", "keep 58"). Linked from no page; it replaces `favicon-eicosanoids` when the user says the pages are ready.
-
 ## Large logo
 
 The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-10-31 (user: "apply 40", after 13, 17, 18, 19, 18, 27, 29, 27, 31, 32, 31): the glyph
@@ -56,5 +51,6 @@ favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every ot
 `images/mr-logo.pptx`, in the slate #4a5d73 with open glyphs, the tile's corners well rounded, radius 30 of its 158 height, no process glyphs: the lines run through and meet; version 38 of the favicon skill's record, after 11 and 37), also as the root `favicon.ico`. The old ico is kept in
 `images/favicon-previous/` for going back.
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
-loop ending in a bar at its left (negative feedback). The Eicosanoid Atlas uses `favicon-eicosanoids` (user, 2026-11-01; set changed from 43, then 49): c20 on one
-line (twenty carbons) over atlas, in the periodic table tile look and the large logo's blue #557BA2 (version 56 of the favicon skill's record; 49 in slate and 43, c20 alone, kept). The sets are made with the favicon skill.
+loop ending in a bar at its left (negative feedback). The Eicosanoid Atlas uses `favicon-eicosanoids` (user, 2026-11-01: "apply 64"): c with 20 as a
+subscript and atlas turned on the right, in the large logo's blue #557BA2, on a tile lower than wide (78 of 100 high)
+cut to the drawing (version 64 of the favicon skill's record; before it 43, 49, 56). The sets are made with the favicon skill.
