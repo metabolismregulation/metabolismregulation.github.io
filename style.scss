@@ -274,6 +274,46 @@ nav {
   }
 }
 
+// Drop-down menus of the sub-site headers (_data/mastheads.yml, an entry with items; user 2026-11-01)
+nav .navdd {
+  display: inline-block;
+  position: relative;
+  margin-left: 15px;
+  summary {
+    list-style: none;
+    cursor: pointer;
+    color: $darkGray;
+    font-weight: 300;
+    letter-spacing: 1px;
+    &::-webkit-details-marker { display: none; }
+    &::after { content: " \25BE"; font-size: 12px; }
+    @include mobile { color: $blue; }
+  }
+  @include mobile { margin: 0 10px; }
+}
+nav .navdd-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 0;
+  min-width: 120px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  a {
+    display: block;
+    margin: 0;
+    padding: 5px 14px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  @include mobile { right: auto; left: 0; }
+}
+nav a.active, nav .navdd.active summary { font-weight: 500; }
+
 //
 // .main
 //

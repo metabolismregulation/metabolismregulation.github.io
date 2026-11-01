@@ -26,8 +26,10 @@
             <p class="site-description">{{ mh_description }}</p>
           </div>
 
-          <nav>{% if mh %}{% for l in mh.nav %}
-            <a href="{{ site.baseurl }}{{ l.url }}">{{ l.label }}</a>{% endfor %}
+          <nav>{% if mh %}{% for l in mh.nav %}{% if l.items %}{% assign here = false %}{% for i in l.items %}{% if i.url == page.url %}{% assign here = true %}{% endif %}{% endfor %}
+            <details class="navdd{% if here %} active{% endif %}"><summary>{{ l.label }}</summary><div class="navdd-menu">{% for i in l.items %}<a href="{{ site.baseurl }}{{ i.url }}"{% if i.url == page.url %} class="active"{% endif %}>{{ i.label }}</a>{% endfor %}</div></details>{% else %}
+            <a href="{{ site.baseurl }}{{ l.url }}"{% if l.url == page.url %} class="active"{% endif %}>{{ l.label }}</a>{% endif %}{% endfor %}
+            <script>document.addEventListener('click',function(e){document.querySelectorAll('nav details.navdd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})})</script>
           </nav>{% else %}
             <a href="{{ site.baseurl }}/gallery">Gallery</a>
             <a href="{{ site.baseurl }}/maps">Maps</a>
