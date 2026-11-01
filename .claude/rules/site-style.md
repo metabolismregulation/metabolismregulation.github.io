@@ -36,8 +36,8 @@ Every page is 960 px wide (`.container` in `style.scss`, 16 px padding: header, 
 corner, kept for later and linked from no page. The site keeps `favicon.ico` until the user says otherwise.
 
 `images/favicon-eicosanoids-next/` (user, 2026-11-01: "keep 51 for website for when pages are ready"): the Eicosanoid Atlas
-icon for when its pages are ready, c with 20 as a subscript and atlas turned on the right, in the slate (version 51 of the
-favicon skill's record). Linked from no page; it replaces `favicon-eicosanoids` when the user says the pages are ready.
+icon for when its pages are ready, c with 20 as a subscript and atlas turned on the right, in the large logo's blue #557BA2
+(version 57 of the favicon skill's record, 51 in blue; user: "i meant 57"). Linked from no page; it replaces `favicon-eicosanoids` when the user says the pages are ready.
 
 ## Large logo
 
