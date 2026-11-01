@@ -42,7 +42,7 @@ map index (index), search index (search) and name for the browser tab (name).
   .m2-none { font-size: 12px; color: #666; padding: 2px 4px; }
   /* groups as a list with sublists: the group name at the size of the
      items, normal weight, and its maps indented under it */
-  /* a group name opens or closes its maps; all groups start open */
+  /* a group name opens or closes its maps; all groups start open, then as the reader left them */
   .m2-group { display: block; width: 100%; text-align: left; font: inherit; font-size: 14px; font-weight: 400; color: #000; background: none; border: 0; padding: 2px 5px 2px 0; margin-top: 6px; cursor: pointer; }
   .m2-group:first-child { margin-top: 0; }
   .m2-group:focus { outline: none; }
@@ -709,6 +709,10 @@ map index (index), search index (search) and name for the browser tab (name).
   // has several maps, as in Glycogen metabolism (muscle)
   function label(m) { return m.topic + (m.tab ? ' (' + m.tab + ')' : ''); }
   var closed = {}; // groups closed by the reader, by name
+  // remembered in the reader's browser, one set per atlas page (user, 2026-11-01: the view as the reader left it)
+  var closedKey = 'atlas-closed:' + location.pathname;
+  try { closed = JSON.parse(localStorage.getItem(closedKey) || '{}') || {}; } catch (e) { closed = {}; }
+  function saveClosed() { try { localStorage.setItem(closedKey, JSON.stringify(closed)); } catch (e) {} }
 
   // ---------- search ----------
   // atlas-data/search.json (scripts/make_maps.py): every molecule on every
@@ -798,6 +802,7 @@ map index (index), search index (search) and name for the browser tab (name).
         g.type = 'button';
         g.addEventListener('click', (function (name) { return function () {
           closed[name] = !closed[name];
+          saveClosed();
           buildList(document.getElementById('m2-search').value);
         }; })(group));
         box.appendChild(g);
@@ -939,7 +944,7 @@ map index (index), search index (search) and name for the browser tab (name).
     var m = byId[location.hash.slice(1)] || maps[0];
     if (!m) return;
     if (!pending) lastHit = null; // chosen from the map list, not a search result
-    closed[m.group] = false; // the chosen map's group is always open
+    if (closed[m.group]) { closed[m.group] = false; saveClosed(); } // the chosen map's group is always open
     show(m);
     buildList(document.getElementById('m2-search').value);
   }

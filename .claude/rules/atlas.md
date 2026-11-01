@@ -76,3 +76,5 @@ link). The citations are fetched once per PMID by `scripts/make_maps.py` and kep
 the other sources. Where a map's curation gives them (a build adds `role` and `note` to a reference), each
 reference starts with its role in a small framed word (the disease, "OA", in red; "Step", the step itself, in blue)
 and ends with a grey line on what it shows (user, 2026-10-27). A process without references is not clickable. Processes are not in the search.
+
+Map list groups (user, 2026-11-01): a reader's open and closed groups are remembered in their own browser (localStorage, one record per atlas page: MRegAtlas, Pattern Atlas, the Eicosanoid Atlas's copy), so the list stays as they left it; the chosen map's group still opens.
