@@ -35,6 +35,10 @@ Every page is 960 px wide (`.container` in `style.scss`, 16 px padding: header, 
 `images/favicon-next/` (user, 2026-10-25): a candidate tab icon, m with reg turned upwards over atlas and 2.0 in the
 corner, kept for later and linked from no page. The site keeps `favicon.ico` until the user says otherwise.
 
+`images/favicon-eicosanoids-next/` (user, 2026-11-01: "keep 51 for website for when pages are ready"): the Eicosanoid Atlas
+icon for when its pages are ready, c with 20 as a subscript and atlas turned on the right, in the slate (version 51 of the
+favicon skill's record). Linked from no page; it replaces `favicon-eicosanoids` when the user says the pages are ready.
+
 ## Large logo
 
 The header avatar, `images/logo.svg` (`_config.yml` avatar), since 2026-10-31 (user: "apply 40", after 13, 17, 18, 19, 18, 27, 29, 27, 31, 32, 31): the glyph
