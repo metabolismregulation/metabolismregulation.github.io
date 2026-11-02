@@ -53,7 +53,7 @@ The original logo, glyphs clipped by a square tile, is kept as `images/logo-prev
 A page with `icon: <folder>` in its front matter gets that set's tab icon (`images/<folder>/`: favicon.svg,
 favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every other page gets `favicon-mreg` (user,
 2026-10-31, "use 3 for website, let's see": the site's SBGN glyph icon, redrawn as SVG from its PowerPoint source
-`images/mr-logo.pptx`, in the slate #4a5d73 with open glyphs, the tile's corners well rounded, radius 30 of its 158 height, no process glyphs: the lines run through and meet, lines and outlines 5 (38 had 6; user, 2026-11-02: in tabs they stood out too much); version 53 of the favicon skill's record, after 11, 37 and 38), also as the root `favicon.ico`. The old ico is kept in
+`images/mr-logo.pptx`, in the slate #4a5d73 with open glyphs, the tile's corners well rounded, radius 30 of its 158 height, no process glyphs: the lines run through and meet, lines and outlines 4 (38 had 6; user, 2026-11-02: in tabs they stood out too much; "try 54 apply" after 53 with 5); version 54 of the favicon skill's record, after 11, 37, 38 and 53), also as the root `favicon.ico`. The old ico is kept in
 `images/favicon-previous/` for going back.
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
 loop ending in a bar at its left (negative feedback). The sets are made with the favicon skill.
