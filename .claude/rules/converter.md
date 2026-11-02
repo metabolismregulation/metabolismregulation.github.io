@@ -134,8 +134,8 @@ architecture pages are in the menu but keep their own layout.
 The Converter's pages have their own menu (user, 2026-11-02), on the mechanism of the pattern pages: `masthead: converter`
 (`_data/mastheads.yml`), set for every `pages/converter*` file, documentation included, by a default in `_config.yml`.
 The site's name, subtitle and logo stay for now (user, 2026-11-02: "Map Converter" with its own subtitle was tried
-the same day; the masthead has no name, so the site's header is kept). The menu: Converter, Documentation (marked on
-every documentation page), Description, Architecture, the page shown not in bold as on the Eicosanoid Atlas
+the same day; the masthead has no name, so the site's header is kept). The menu: Converter, Description, Architecture,
+Documentation (last, user 2026-11-02; marked on every documentation page), the page shown not in bold as on the Eicosanoid Atlas
 (`plain: true`). The v1 backups and /converter/sbgn/ carry the menu, not in it. It replaced the row of links at the top of the subpages
 (`_includes/converter-nav.html`, 2026-10-27 to 2026-11-02, on `_includes/top-nav.html`, which the human-like layout
 pages keep) and the Converter page's links ↳ Description ↳ Architecture ↳ Documentation, both removed.
