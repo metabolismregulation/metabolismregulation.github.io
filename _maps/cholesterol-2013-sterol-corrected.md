@@ -12,7 +12,7 @@ image: "/atlas-downloads/F042-cholesterol-2013-sterol-corrected.svg"
 width: 1551
 height: 2329
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F042-cholesterol-2013-sterol-corrected.json"
 image_error: ""
 contributors:
   - alexander-mazein

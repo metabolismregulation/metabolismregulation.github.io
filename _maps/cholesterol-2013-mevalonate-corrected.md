@@ -10,9 +10,9 @@ draft: true
 tag: "draft"
 image: "/atlas-downloads/F042-cholesterol-2013-mevalonate-corrected.svg"
 width: 1475
-height: 1755
+height: 1810
 scale: 1
-annotation: ""
+annotation: "/atlas-data/F042-cholesterol-2013-mevalonate-corrected.json"
 image_error: ""
 contributors:
   - alexander-mazein
