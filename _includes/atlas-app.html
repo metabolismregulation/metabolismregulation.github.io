@@ -615,6 +615,14 @@ map index (index), search index (search) and name for the browser tab (name).
       q.appendChild(el('span', null, r.by.join(', ')));
       info.appendChild(q);
     }
+    // the cells that carry the step and where in the cell, where a build gives them (user, 2026-11-02)
+    [['site', 'Site: '], ['cells', 'Cells: ']].forEach(function (f) {
+      if (!n[f[0]]) return;
+      var q = el('p');
+      q.appendChild(el('span', 'm2-k', f[1]));
+      q.appendChild(el('span', null, n[f[0]]));
+      info.appendChild(q);
+    });
     if (!n.references.length) return;
     info.appendChild(el('h4', null, 'References'));
     var ul = el('ul', 'm2-refs');

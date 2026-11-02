@@ -378,6 +378,11 @@ def annotation(base, folder=DL):
                                            'out': [label[t] for s, t, a in arcs if s == nid],
                                            'by': [label[s] for s, t, a in arcs if t == nid and a != 'none']},
                               'references': references(data['References'])})
+                # where a build gives them: the cells that carry the step and where in the cell (node
+                # properties Cells and Site, user 2026-11-02), each shown as a line under the modifiers
+                for f in ('Site', 'Cells'):
+                    if data.get(f):
+                        nodes[-1][f.lower()] = data[f]
             continue
         data = {k: v for k, v in data.items() if v and k in ANN_FIELDS + [MEMBERS_FIELD]}
         if not any(k in data for k in ANN_FIELDS):

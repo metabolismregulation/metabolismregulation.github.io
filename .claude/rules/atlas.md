@@ -70,7 +70,7 @@ Pathway, Entity type, Name, HGNC symbol, HGNC ID, UniProt ID, ChEBI ID, PTM, one
 family member or metabolite (and state), nothing the panel fetches (user, 2026-10-18).
 A process glyph with references (node property References, `pubmed:<PMID>` separated by spaces, user 2026-10-27)
 is clickable too (its box widened to 24 px around the glyph): the panel's title is its kind ("Process"), then
-the reaction in one line ("PGE2 + PTGER4 → PGE2:PTGER4"), its modifiers, and References: one line per
+the reaction in one line ("PGE2 + PTGER4 → PGE2:PTGER4"), its modifiers, where a build gives them the lines Site and Cells (node properties Site and Cells: where in the cell the step happens and which cells carry it, user 2026-11-02, first used by the Eicosanoid Atlas), and References: one line per
 reference, first author, year, title and journal from PubMed, then its link "PUBMED: 32441256" (a DOI only as its
 link). The citations are fetched once per PMID by `scripts/make_maps.py` and kept in `atlas-data/pubmed.json`, as
 the other sources. Where a map's curation gives them (a build adds `role` and `note` to a reference), each
