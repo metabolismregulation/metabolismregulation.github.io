@@ -64,7 +64,8 @@ name running past the node as a box. Two nodes are too close when any of their s
 - **Regular series**: metabolites in a straight series at equal steps where possible, each process midway between
   its input and output, the outputs of one fan on one row. From scratch: a large grid first for the main story,
   then a smaller one for the rest.
-- **A protein with one connection** sits beside the process it modulates, on a free side, level with it; several
+- **A protein with one connection** sits beside the process it modulates, on a free side, level with it, its near
+  edge about 64 px from the process centre; several
   of one process are stacked 70 px apart along the flow. With one connection there is no conflict to weigh.
 
 ## Arcs (preferences for maps drawn in yEd)

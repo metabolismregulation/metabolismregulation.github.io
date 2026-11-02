@@ -11,6 +11,8 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-11-02
 
+- A catalyst beside its step sits further out: its near edge about 64 px from the step's centre (was 40), from a
+  curator's hand edit. Nearer only where there is no room.
 - The check reports glyph sizes off the standard: a metabolite not a 40 x 40 circle, a protein not 40 px tall or
   narrower than 80, a process not 18 x 18. Maps built by a script from coordinates are checked like any other.
 
