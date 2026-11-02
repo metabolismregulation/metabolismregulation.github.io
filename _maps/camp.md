@@ -10,7 +10,7 @@ draft: false
 tag: ""
 image: "/atlas-downloads/F012-camp.svg"
 width: 754
-height: 771
+height: 680
 scale: 1
 annotation: "/atlas-data/F012-camp.json"
 image_error: ""
@@ -31,8 +31,6 @@ downloads:
 ## Description
 
 Cyclic AMP (cAMP) is one of the key second messengers in the cell, and regulation of cAMP hydrolysis is an important mechanism of modulation of intracellular signals.
-
-Phosphoinositide 3-kinase (PI3K) makes PI(3,4,5)P3, which brings AKT and PDPK1 together at the membrane. What activates PI3K upstream (the insulin receptor in adipocytes) is not drawn.
 
 ## References
 

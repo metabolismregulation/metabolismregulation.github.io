@@ -10,7 +10,7 @@ draft: true
 tag: "draft"
 image: "/atlas-downloads/F002-eicosanoids.svg"
 width: 1270
-height: 1302
+height: 1350
 scale: 1
 annotation: "/atlas-data/F002-eicosanoids.json"
 image_error: ""
@@ -27,7 +27,7 @@ The connection was chosen from the <a href="/reactome-recon-proteins/">Reactome-
 
 ## Description
 
-Cytosolic phospholipase A2 (cPLA2α, PLA2G4A) releases arachidonate from membrane phosphatidylcholine, the first step of eicosanoid production. Cyclooxygenases turn arachidonate into prostaglandin G2 and reduce it to prostaglandin H2, the common precursor of the prostanoids. cPLA2α needs a rise in cytosolic Ca2+ and phosphorylation, which many receptors trigger through phospholipase C. Phospholipase C splits PI(4,5)P2 into IP3 and diacylglycerol. IP3, together with cytosolic Ca2+, opens the IP3 receptor and releases Ca2+ from the endoplasmic reticulum. Protein kinase C (the conventional forms PKCα, β and γ) binds diacylglycerol and Ca2+ at the membrane, and this bound form phosphorylates and activates RAF1 and with it the ERK cascade. Diacylglycerol lowers the Ca2+ the kinase needs from about 100 µM to the micromolar range (Kishimoto 1980), and Ca2+ bridges its C2 domain to phosphatidylserine in the membrane (Verdaguer 1999). Ca2+ binds the C2 domain of cPLA2α, two ions per domain, and brings the enzyme to the membranes of the endoplasmic reticulum, Golgi and nuclear envelope. PI(4,5)P2 raises its activity further. Phosphorylation at Ser505 by ERK1/2 or p38α keeps it on the membrane at low Ca2+. At rest the annexin A2:S100A10 complex holds cPLA2α off the membrane. MNK1, activated by ERK1/2 and p38α, phosphorylates Ser727 and frees the enzyme. Pyrrophenone is a selective cPLA2α inhibitor.
+Cytosolic phospholipase A2 (cPLA2α, PLA2G4A) releases arachidonate from membrane phosphatidylcholine, the first step of eicosanoid production. Cyclooxygenases turn arachidonate into prostaglandin G2 and reduce it to prostaglandin H2, the common precursor of the prostanoids. cPLA2α needs a rise in cytosolic Ca2+ and phosphorylation, which many receptors trigger through phospholipase C. Phospholipase C splits PI(4,5)P2 into IP3 and diacylglycerol. IP3, together with cytosolic Ca2+, opens the IP3 receptor and releases Ca2+ from the endoplasmic reticulum. Diacylglycerol activates protein kinase C, which phosphorylates and activates RAF1 and with it the ERK cascade. Ca2+ binds the C2 domain of cPLA2α, two ions per domain, and brings the enzyme to the membranes of the endoplasmic reticulum, Golgi and nuclear envelope. PI(4,5)P2 raises its activity further. Phosphorylation at Ser505 by ERK1/2 or p38α keeps it on the membrane at low Ca2+. At rest the annexin A2:S100A10 complex holds cPLA2α off the membrane. MNK1, activated by ERK1/2 and p38α, phosphorylates Ser727 and frees the enzyme. Pyrrophenone is a selective cPLA2α inhibitor.
 
 ## References
 
@@ -39,19 +39,16 @@ Cytosolic phospholipase A2 (cPLA2α, PLA2G4A) releases arachidonate from membran
 1. Evans JH, Spencer DM, Zweifach A, Leslie CC. Intracellular calcium signals regulating cytosolic phospholipase A2 translocation to internal membranes. J Biol Chem. 2001 Aug 10;276(32):30150-60. doi: 10.1074/jbc.M100943200. PMID: 11375391.
 1. Fukunaga R, Hunter T. MNK1, a new MAP kinase-activated protein kinase, isolated by a novel expression screening method for identifying protein kinase substrates. EMBO J. 1997 Apr 15;16(8):1921-33. doi: 10.1093/emboj/16.8.1921. PMID: 9155018.
 1. Hefner Y, Borsch-Haubold AG, Murakami M, Wilde JI, Pasquet S, Schieltz D, Ghomashchi F, Yates JR, Armstrong CG, Paterson A, Cohen P, Fukunaga R, Hunter T, Kudo I, Watson SP, Gelb MH. Serine 727 phosphorylation and activation of cytosolic phospholipase A2 by MNK1-related protein kinases. J Biol Chem. 2000 Dec 1;275(48):37542-51. doi: 10.1074/jbc.M003395200. PMID: 10978317.
-1. Kishimoto A, Takai Y, Mori T, Kikkawa U, Nishizuka Y. Activation of calcium and phospholipid-dependent protein kinase by diacylglycerol, its possible relation to phosphatidylinositol turnover. J Biol Chem. 1980 Mar 25;255(6):2273-6. doi: 10.1016/S0021-9258(19)85886-6. PMID: 7358670.
 1. Kolch W, Heidecker G, Kochs G, et al. Protein kinase C alpha activates RAF-1 by direct phosphorylation. Nature. 1993 Jul 15;364:249-52. doi: 10.1038/364249a0. PMID: 8321321.
 1. Kramer RM, Roberts EF, Um SL, Börsch-Haubold AG, Watson SP, Fisher MJ, Jakubowski JA. p38 mitogen-activated protein kinase phosphorylates cytosolic phospholipase A2 (cPLA2) in thrombin-stimulated platelets. Evidence that proline-directed phosphorylation is not required for mobilization of arachidonic acid by cPLA2. J Biol Chem. 1996 Nov 1;271(44):27723-9. doi: 10.1074/jbc.271.44.27723. PMID: 8910365.
 1. Leslie CC. Cytosolic phospholipase A2: physiological function and role in disease. J Lipid Res. 2015 Aug;56(8):1386-402. doi: 10.1194/jlr.R057588. PMID: 25838312.
 1. Lin LL, Wartmann M, Lin AY, Knopf JL, Seth A, Davis RJ. cPLA2 is phosphorylated and activated by MAP kinase. Cell. 1993 Jan 29;72(2):269-78. doi: 10.1016/0092-8674(93)90666-e. PMID: 8381049.
 1. Mosior M, Six DA, Dennis EA. Group IV cytosolic phospholipase A2 binds with high affinity and specificity to phosphatidylinositol 4,5-bisphosphate resulting in dramatic increases in activity. J Biol Chem. 1998 Jan 23;273(4):2184-91. doi: 10.1074/jbc.273.4.2184. PMID: 9442060.
-1. Newton AC. Protein kinase C: perfectly balanced. Crit Rev Biochem Mol Biol. 2018 Apr;53(2):208-230. doi: 10.1080/10409238.2018.1442408. PMID: 29513138.
 1. Ono T, Yamada K, Chikazawa Y, Ueno M, Nakamoto S, Okuno T, Seno K. Characterization of a novel inhibitor of cytosolic phospholipase A2alpha, pyrrophenone. Biochem J. 2002 May 1;363(Pt 3):727-35. doi: 10.1042/bj3630727. PMID: 11964173.
 1. Perisic O, Fong S, Lynch DE, Bycroft M, Williams RL. Crystal structure of a calcium-phospholipid binding domain from cytosolic phospholipase A2. J Biol Chem. 1998 Jan 16;273(3):1596-604. doi: 10.1074/jbc.273.3.1596. PMID: 9430701.
 1. Reactome: phospho-PLA2 pathway. [Reactome:R-HSA-111995](https://reactome.org/content/detail/R-HSA-111995){:target="_blank" rel="noopener"}.
 1. Smith WL, Urade Y, Jakobsson PJ. Enzymes of the cyclooxygenase pathways of prostanoid biosynthesis. Chem Rev. 2011 Oct 12;111(10):5821-65. doi: 10.1021/cr2002992. PMID: 21942677.
 1. Tian W, Wijewickrama GT, Kim JH, Das S, Tun MP, Gokhale N, Jung JW, Kim KP, Cho W. Mechanism of regulation of group IVA phospholipase A2 activity by Ser727 phosphorylation. J Biol Chem. 2008 Feb 15;283(7):3960-71. doi: 10.1074/jbc.M707345200. PMID: 18065419.
-1. Verdaguer N, Corbalan-Garcia S, Ochoa WF, Fita I, Gómez-Fernández JC. Ca(2+) bridges the C2 membrane-binding domain of protein kinase Calpha directly to phosphatidylserine. EMBO J. 1999 Nov 15;18(22):6329-38. doi: 10.1093/emboj/18.22.6329. PMID: 10562545.
 1. Waskiewicz AJ, Flynn A, Proud CG, Cooper JA. Mitogen-activated protein kinases activate the serine/threonine kinases Mnk1 and Mnk2. EMBO J. 1997 Apr 15;16(8):1909-20. doi: 10.1093/emboj/16.8.1909. PMID: 9155017.
 1. Wu T, Angus CW, Yao XL, Logun C, Shelhamer JH. P11, a unique member of the S100 family of calcium-binding proteins, interacts with and inhibits the activity of the 85-kDa cytosolic phospholipase A2. J Biol Chem. 1997 Jul 4;272(27):17145-53. doi: 10.1074/jbc.272.27.17145. PMID: 9202034.
 
