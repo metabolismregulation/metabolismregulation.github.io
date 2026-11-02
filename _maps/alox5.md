@@ -9,8 +9,8 @@ kind: "map"
 draft: true
 tag: "new"
 image: "/atlas-downloads/F024-alox5.svg"
-width: 1142
-height: 790
+width: 1154
+height: 1386
 scale: 1
 annotation: "/atlas-data/F024-alox5.json"
 image_error: ""
