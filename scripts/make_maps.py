@@ -70,7 +70,9 @@ GROUPS = [
     # cholesterol synthesis (user, 2026-11-02): the 2013 maps as published and corrected (corrections in red), the
     # regulation blocks, then copies of the Atlas maps on the same enzymes (GROUP_COPIES)
     ('Cholesterol synthesis', ['cholesterol-2013-mevalonate', 'cholesterol-2013-mevalonate-corrected',
-                               'cholesterol-2013-sterol', 'cholesterol-2013-sterol-corrected']),
+                               'cholesterol-2013-sterol', 'cholesterol-2013-sterol-corrected',
+                               'mevalonate-feedback', 'sqle-regulation', 'dhcr-terminal',
+                               'ch25h-25hc', 'gpr183']),
 ]
 # maps listed a second time in another group, tagged copy (user, 2026-11-02): the same files and text, an entry
 # _maps/<map>--<group key>.md
@@ -83,6 +85,7 @@ DRUG = {'aspirin'}
 TAGS = {'cholesterol-2013-mevalonate': '', 'cholesterol-2013-sterol': '',  # as published: no tag, the corrected ones draft
         'alox5': 'new', 'gba1': 'new', 'glycolysis-cardiac': 'new', 'glycolysis-extended': 'new'}
 # the Atlas extension (user, 2026-10-30): blue draft tag and blue name in the list (draft-ext)
+TAGS.update({m: 'new' for m in ('mevalonate-feedback', 'sqle-regulation', 'dhcr-terminal', 'ch25h-25hc', 'gpr183')})
 TAGS.update({m: 'draft-ext' for m in ('peroxiredoxins', 'bh4', 'iron-sensing', 'heme', 'sphingolipids', 'glutamine-synthetase', 'glutamate-dehydrogenase', 'tyrosine-hydroxylase', 'glucokinase', 'pfkfb3', 'hmgcr', 'lipolysis', 'nadph', 'hexosamine', 'mito-calcium')})
 # the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
 # version (the reference first, then the working version), under the same name with the tag copy, for comparison: the official page's text and the
@@ -93,7 +96,8 @@ OFFICIAL_COPY = os.path.join(DL, 'copy')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'cholesterol-2013-mevalonate': 'Cholesterol synthesis 2013: mevalonate arm', 'cholesterol-2013-sterol': 'Cholesterol synthesis 2013: sterol arms',
+TOPIC = {'mevalonate-feedback': 'Feedback and drugs on the mevalonate pathway', 'sqle-regulation': 'Regulation of squalene monooxygenase', 'dhcr-terminal': 'The terminal enzymes of cholesterol synthesis', 'ch25h-25hc': 'Interferon and 25-hydroxycholesterol', 'gpr183': 'The oxysterol receptor GPR183',
+         'cholesterol-2013-mevalonate': 'Cholesterol synthesis 2013: mevalonate arm', 'cholesterol-2013-sterol': 'Cholesterol synthesis 2013: sterol arms',
          'peroxiredoxins': 'Peroxiredoxins', 'bh4': 'Tetrahydrobiopterin synthesis', 'iron-sensing': 'Iron sensing', 'heme': 'Heme synthesis', 'sphingolipids': 'Sphingolipid synthesis', 'glutamine-synthetase': 'Glutamine synthetase', 'glutamate-dehydrogenase': 'Glutamate dehydrogenase', 'tyrosine-hydroxylase': 'Tyrosine hydroxylase', 'glucokinase': 'Glucokinase', 'pfkfb3': 'PFKFB3 and fructose 2,6-bisphosphate', 'hmgcr': 'HMGCR sterol feedback', 'mito-calcium': 'Mitochondrial Ca2+ and the dehydrogenases', 'hexosamine': 'Hexosamine pathway (GFPT1)', 'nadph': 'NADPH supply (G6PD)', 'lipolysis': 'Lipolysis via ATGL', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when

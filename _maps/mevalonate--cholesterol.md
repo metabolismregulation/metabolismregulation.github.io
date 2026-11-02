@@ -4,7 +4,7 @@ topic: "Mevalonate biosynthesis"
 tab: ""
 page: "/mevalonate/"
 group: "Cholesterol synthesis"
-order: 46.02
+order: 51.02
 kind: "map"
 draft: false
 tag: "copy"

@@ -4,7 +4,7 @@ topic: "HMGCR sterol feedback"
 tab: ""
 page: "/hmgcr/"
 group: "Cholesterol synthesis"
-order: 46.03
+order: 51.03
 kind: "map"
 draft: true
 tag: "copy"

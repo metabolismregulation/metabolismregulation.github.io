@@ -4,7 +4,7 @@ topic: "Acetyl-CoA synthesis"
 tab: ""
 page: "/acly/"
 group: "Cholesterol synthesis"
-order: 46.01
+order: 51.01
 kind: "map"
 draft: false
 tag: "copy"

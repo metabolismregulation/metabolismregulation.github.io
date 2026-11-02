@@ -4,7 +4,7 @@ topic: "SREBP signalling"
 tab: ""
 page: "/srebp/"
 group: "Cholesterol synthesis"
-order: 46.04
+order: 51.04
 kind: "map"
 draft: false
 tag: "copy"

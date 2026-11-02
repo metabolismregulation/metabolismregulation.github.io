@@ -1,0 +1,592 @@
+{
+"nodes": [
+{
+"label": "desmosterol",
+"class": "SimpleChemical",
+"box": [
+71.0,
+67.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"desmosterol"
+],
+[
+"Synonyms",
+"24-Dehydrocholesterol; 3beta-cholesta-5,24-dien-3-ol; Cholesta-5,24-dien-3beta-ol"
+],
+[
+"Definition",
+"A cholestanoid that is cholesta-5,24-diene substituted by a β-hydroxy group at position 3. It is an intermediate metabolite obtained during the synthesis of cholesterol."
+],
+[
+"Formula",
+"C27H44O"
+],
+[
+"ChEBI",
+"CHEBI:17737"
+],
+[
+"KEGG",
+"C01802"
+],
+[
+"HMDB",
+"HMDB0002719"
+],
+[
+"InChI",
+"InChI=1S/C27H44O/c1-18(2)7-6-8-19(3)23-11-12-24-22-10-9-20-17-21(28)13-15-26(20,4)25(22)14-16-27(23,24)5/h7,9,19,21-25,28H,6,8,10-17H2,1-5H3/t19-,21+,22+,23-,24+,25+,26+,27-/m1/s1"
+],
+[
+"InChIKey",
+"AVSXSVCZWQODGV-DPAQBDIFSA-N"
+]
+]
+},
+{
+"id": "c0::p1",
+"label": "",
+"class": "Process",
+"box": [
+79.0,
+235.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"desmosterol"
+],
+"out": [
+"cholesterol"
+],
+"by": [
+"DHCR24",
+"24(S),25-epoxycholesterol",
+"SH42"
+]
+},
+"references": [
+{
+"authors": "Mitsche MA et al.",
+"journal": "Elife",
+"title": "Flux analysis of cholesterol biosynthesis in vivo reveals multiple tissue and cell-type specific pathways.",
+"year": "2015",
+"db": "pubmed",
+"id": "26114596"
+},
+{
+"authors": "Zerenturk EJ et al.",
+"year": "2012",
+"title": "The endogenous regulator 24(S),25-epoxycholesterol inhibits cholesterol synthesis at DHCR24 (Seladin-1).",
+"journal": "Biochim Biophys Acta",
+"db": "pubmed",
+"id": "22178193"
+}
+]
+},
+{
+"label": "cholesterol",
+"class": "SimpleChemical",
+"box": [
+71.0,
+387.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"cholesterol"
+],
+[
+"Synonyms",
+"(3beta,14beta,17alpha)-cholest-5-en-3-ol; Cholest-5-en-3beta-ol; Cholesterin"
+],
+[
+"Definition",
+"A cholestanoid consisting of cholestane having a double bond at the 5,6-position as well as a 3β-hydroxy group."
+],
+[
+"Formula",
+"C27H46O"
+],
+[
+"ChEBI",
+"CHEBI:16113"
+],
+[
+"KEGG",
+"C00187"
+],
+[
+"HMDB",
+"HMDB0000067"
+],
+[
+"InChI",
+"InChI=1S/C27H46O/c1-18(2)7-6-8-19(3)23-11-12-24-22-10-9-20-17-21(28)13-15-26(20,4)25(22)14-16-27(23,24)5/h9,18-19,21-25,28H,6-8,10-17H2,1-5H3/t19-,21+,22+,23-,24+,25+,26+,27-/m1/s1"
+],
+[
+"InChIKey",
+"HVYWMOMLDIMFJA-DPAQBDIFSA-N"
+]
+]
+},
+{
+"label": "DHCR24",
+"class": "Macromolecule",
+"box": [
+261.0,
+227.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Delta(24)-sterol reductase"
+],
+[
+"Alternative names",
+"24-dehydrocholesterol reductase; 3-beta-hydroxysterol Delta-24-reductase; Diminuto/dwarf1 homolog; Seladin-1"
+],
+[
+"Function",
+"Catalyzes the reduction of the delta-24 double bond of sterol intermediates during cholesterol biosynthesis. In addition to its cholesterol-synthesizing activity, can protect cells from oxidative stress by reducing caspase 3 activity during apoptosis induced by oxidative stress."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane, Golgi apparatus membrane"
+],
+[
+"HGNC",
+"HGNC:2859"
+],
+[
+"HGNC symbol",
+"DHCR24"
+],
+[
+"Previous symbols",
+"DCE"
+],
+[
+"Alias symbols",
+"KIAA0018, seladin-1"
+],
+[
+"Entrez",
+"1718"
+],
+[
+"Ensembl",
+"ENSG00000116133"
+],
+[
+"RefSeq",
+"NM_014762"
+],
+[
+"UniProt",
+"Q15392"
+]
+]
+},
+{
+"label": "24(S),25-epoxycholesterol",
+"class": "SimpleChemical",
+"box": [
+301.0,
+47.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"24(S),25-epoxycholesterol"
+],
+[
+"Synonyms",
+"(24S)-24,25-epoxycholest-5-en-3beta-ol; (24S)-24,25-epoxycholesterol; (24S)-25-epoxycholesterol; (3beta,24S)-24,25-epoxycholest-5-en-3-ol; 24(S),25-EC; 24,25-epoxy-cholesterol; 24S,25-epoxy-cholest-5-en-3beta-ol; 24S,25-epoxy-cholesterol"
+],
+[
+"Definition",
+"A 3β-hydroxy-Δ5-steroid that is desmosterol in which the double bond at position 24-25 has been oxidised to the corresponding epoxide (the 24S diastereoisomer). It is an oxysterol agonist of the liver X receptor."
+],
+[
+"Formula",
+"C27H44O2"
+],
+[
+"ChEBI",
+"CHEBI:41633"
+],
+[
+"KEGG",
+"C15632"
+],
+[
+"InChI",
+"InChI=1S/C27H44O2/c1-17(6-11-24-25(2,3)29-24)21-9-10-22-20-8-7-18-16-19(28)12-14-26(18,4)23(20)13-15-27(21,22)5/h7,17,19-24,28H,6,8-16H2,1-5H3/t17-,19+,20+,21-,22+,23+,24+,26+,27-/m1/s1"
+],
+[
+"InChIKey",
+"OSENKJZWYQXHBN-XVYZBDJZSA-N"
+]
+]
+},
+{
+"label": "SH42",
+"class": "SimpleChemical",
+"box": [
+301.0,
+407.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"L-glutamine zwitterion"
+],
+[
+"Synonyms",
+"(2S)-5-amino-2-ammonio-5-oxopentanoate; (2S)-5-amino-2-azaniumyl-5-oxopentanoate; L-glutamine"
+],
+[
+"Definition",
+"An amino acid zwitterion arising from transfer of a proton from the carboxy to the amino group of L-glutamine; major species at pH 7.3."
+],
+[
+"Formula",
+"C5H10N2O3"
+],
+[
+"ChEBI",
+"CHEBI:58359"
+],
+[
+"InChI",
+"InChI=1S/C5H10N2O3/c6-3(5(9)10)1-2-4(7)8/h3H,1-2,6H2,(H2,7,8)(H,9,10)/t3-/m0/s1"
+],
+[
+"InChIKey",
+"ZDXPYRJPNDTMRX-VKHMYHEASA-N"
+]
+]
+},
+{
+"label": "7-dehydrocholesterol",
+"class": "SimpleChemical",
+"box": [
+651.0,
+67.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"cholesta-5,7-dien-3beta-ol"
+],
+[
+"Synonyms",
+"(3beta)-cholesta-5,7-dien-3-ol; 5,7-cholestadien-3-beta-ol; 5,7-cholestadien-3beta-ol; 7-Dehydrocholesterol; Provitamin D3"
+],
+[
+"Formula",
+"C27H44O"
+],
+[
+"ChEBI",
+"CHEBI:17759"
+],
+[
+"KEGG",
+"C01164"
+],
+[
+"InChI",
+"InChI=1S/C27H44O/c1-18(2)7-6-8-19(3)23-11-12-24-22-10-9-20-17-21(28)13-15-26(20,4)25(22)14-16-27(23,24)5/h9-10,18-19,21,23-25,28H,6-8,11-17H2,1-5H3/t19-,21+,23-,24+,25+,26+,27-/m1/s1"
+],
+[
+"InChIKey",
+"UCTLRSWJYQTBFZ-DDPQNLDTSA-N"
+]
+]
+},
+{
+"id": "c0::p2",
+"label": "",
+"class": "Process",
+"box": [
+659.0,
+235.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"7-dehydrocholesterol"
+],
+"out": [
+"cholesterol"
+],
+"by": [
+"DHCR7",
+"DHCR24",
+"cariprazine"
+]
+},
+"references": [
+{
+"authors": "Luu W et al.",
+"year": "2015",
+"title": "The terminal enzymes of cholesterol synthesis, DHCR24 and DHCR7, interact physically and functionally.",
+"journal": "J Lipid Res",
+"db": "pubmed",
+"id": "25637936"
+}
+]
+},
+{
+"label": "cholesterol",
+"class": "SimpleChemical",
+"box": [
+651.0,
+387.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"cholesterol"
+],
+[
+"Synonyms",
+"(3beta,14beta,17alpha)-cholest-5-en-3-ol; Cholest-5-en-3beta-ol; Cholesterin"
+],
+[
+"Definition",
+"A cholestanoid consisting of cholestane having a double bond at the 5,6-position as well as a 3β-hydroxy group."
+],
+[
+"Formula",
+"C27H46O"
+],
+[
+"ChEBI",
+"CHEBI:16113"
+],
+[
+"KEGG",
+"C00187"
+],
+[
+"HMDB",
+"HMDB0000067"
+],
+[
+"InChI",
+"InChI=1S/C27H46O/c1-18(2)7-6-8-19(3)23-11-12-24-22-10-9-20-17-21(28)13-15-26(20,4)25(22)14-16-27(23,24)5/h9,18-19,21-25,28H,6-8,10-17H2,1-5H3/t19-,21+,22+,23-,24+,25+,26+,27-/m1/s1"
+],
+[
+"InChIKey",
+"HVYWMOMLDIMFJA-DPAQBDIFSA-N"
+]
+]
+},
+{
+"label": "DHCR7",
+"class": "Macromolecule",
+"box": [
+841.0,
+227.0,
+80.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"7-dehydrocholesterol reductase"
+],
+[
+"Alternative names",
+"Delta7-sterol reductase; Sterol Delta(7)-reductase; Sterol reductase SR-2"
+],
+[
+"Function",
+"Oxidoreductase that catalyzes the last step of the cholesterol synthesis pathway, which transforms cholesta-5,7-dien-3beta-ol (7-dehydrocholesterol,7-DHC) into cholesterol by reducing the C7-C8 double bond of its sterol core. Can also metabolize cholesta-5,7,24-trien-3beta-ol (7-dehydrodemosterol, 7-DHD) to desmosterol, which is then metabolized by the Delta(24)-sterol reductase (DHCR24) to cholesterol."
+],
+[
+"Location",
+"Endoplasmic reticulum membrane"
+],
+[
+"HGNC",
+"HGNC:2860"
+],
+[
+"HGNC symbol",
+"DHCR7"
+],
+[
+"Previous symbols",
+"SLOS"
+],
+[
+"Entrez",
+"1717"
+],
+[
+"Ensembl",
+"ENSG00000172893"
+],
+[
+"RefSeq",
+"NM_001360"
+],
+[
+"UniProt",
+"Q9UBM7"
+]
+]
+},
+{
+"label": "cariprazine",
+"class": "SimpleChemical",
+"box": [
+491.0,
+367.0,
+40.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"cariprazine"
+],
+[
+"Synonyms",
+"N'-(trans-4-{2-[4-(2,3-dichlorophenyl)piperazin-1-yl]ethyl}cyclohexyl)-N,N-dimethylurea; RGH 188; RGH-188"
+],
+[
+"Definition",
+"An N-alkylpiperazine that is N,N-dimethyl-N'-{trans-4-[2-(piperazin-1-yl)ethyl]cyclohexyl}urea substituted at position 4 on the piperazine ring by a 2,3-dichlorophenyl group. Used (as the hydrochloride salt) for treatment of schizophrenia and bipolar disorder."
+],
+[
+"Formula",
+"C21H32Cl2N4O"
+],
+[
+"ChEBI",
+"CHEBI:90933"
+],
+[
+"InChI",
+"InChI=1S/C21H32Cl2N4O/c1-25(2)21(28)24-17-8-6-16(7-9-17)10-11-26-12-14-27(15-13-26)19-5-3-4-18(22)20(19)23/h3-5,16-17H,6-15H2,1-2H3,(H,24,28)/t16-,17-"
+],
+[
+"InChIKey",
+"KPWSJANDNDDRMB-QAQDUYKDSA-N"
+]
+]
+},
+{
+"id": "c0::deg",
+"label": "",
+"class": "Process",
+"box": [
+869.0,
+415.0,
+24.0,
+24.0
+],
+"props": [],
+"reaction": {
+"in": [
+"DHCR7"
+],
+"out": [
+""
+],
+"by": [
+"cholesterol",
+"26S proteasome"
+]
+},
+"references": [
+{
+"authors": "Prabhu AV et al.",
+"year": "2016",
+"title": "Cholesterol-mediated Degradation of 7-Dehydrocholesterol Reductase Switches the Balance from Cholesterol to Vitamin D Synthesis.",
+"journal": "J Biol Chem",
+"db": "pubmed",
+"id": "26887953"
+}
+]
+},
+{
+"label": "26S proteasome",
+"class": "Macromolecule",
+"box": [
+1011.0,
+487.0,
+140.0,
+40.0
+],
+"props": [
+[
+"Full name",
+"Fas apoptotic inhibitory molecule 1"
+],
+[
+"Function",
+"Plays a role as an inducible effector molecule that mediates Fas resistance produced by surface Ig engagement in B cells"
+],
+[
+"Location",
+"Cytoplasm"
+],
+[
+"HGNC",
+"HGNC:18703"
+],
+[
+"HGNC symbol",
+"FAIM"
+],
+[
+"Alias symbols",
+"FLJ10582, FAIM1"
+],
+[
+"Entrez",
+"55179"
+],
+[
+"Ensembl",
+"ENSG00000158234"
+],
+[
+"RefSeq",
+"NM_001033032"
+],
+[
+"UniProt",
+"Q9NVQ4"
+]
+]
+}
+]
+}
