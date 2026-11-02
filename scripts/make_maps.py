@@ -48,7 +48,9 @@ SHORT = dict(re.findall(r'class="gallery-title" href="/([^/]+)/">([^<]+)<',
 # Glycogen metabolism (muscle)
 JOIN = {'glycolysis-cardiac': ('glycolysis', 'cardiac muscle'), 'eicosanoids-platelet': ('eicosanoids', 'platelet'),
         'eicosanoids-mast-cell': ('eicosanoids', 'mast cell')}
-TABS = {'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-glycolysis': 'generic', 'F002-eicosanoids': 'generic'}
+TABS = {'F042-cholesterol-2013-mevalonate': 'as published', 'F042-cholesterol-2013-mevalonate-corrected': 'corrected',
+        'F042-cholesterol-2013-sterol': 'as published', 'F042-cholesterol-2013-sterol-corrected': 'corrected',
+        'F004-glycogen-muscle': 'muscle', 'F004-glycogen-liver': 'liver', 'F001-glycolysis': 'generic', 'F002-eicosanoids': 'generic'}
 # the Atlas list: groups in this order, maps in this order within a group.
 # Groups without maps are planned for future maps and are not shown.
 # Xenobiotic (drug) metabolism goes into Biological oxidations, as in Reactome.
@@ -65,13 +67,17 @@ GROUPS = [
     ('Glycan metabolism', ['hexosamine']),
     ('Biological oxidations', ['peroxiredoxins']),
     ('Iron-sulfur cluster metabolism', ['iron-sensing']),
+    # published maps shown as published and corrected, the corrections in red (user, 2026-11-02)
+    ('Published maps revisited', ['cholesterol-2013-mevalonate', 'cholesterol-2013-mevalonate-corrected',
+                                  'cholesterol-2013-sterol', 'cholesterol-2013-sterol-corrected']),
 ]
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
 # tags set by hand (user, 2026-10-18), in place of the automatic draft tag of a page in draftpages/:
 # new (blue): a map not on the official site; draft: the biology differs from the official map;
 # draft-white: the same biology as the official map, with small changes to its file
-TAGS = {'alox5': 'new', 'gba1': 'new', 'glycolysis-cardiac': 'new', 'glycolysis-extended': 'new'}
+TAGS = {'cholesterol-2013-mevalonate': '', 'cholesterol-2013-sterol': '',  # as published: no tag, the corrected ones draft
+        'alox5': 'new', 'gba1': 'new', 'glycolysis-cardiac': 'new', 'glycolysis-extended': 'new'}
 # the Atlas extension (user, 2026-10-30): blue draft tag and blue name in the list (draft-ext)
 TAGS.update({m: 'draft-ext' for m in ('peroxiredoxins', 'bh4', 'iron-sensing', 'heme', 'sphingolipids', 'glutamine-synthetase', 'glutamate-dehydrogenase', 'tyrosine-hydroxylase', 'glucokinase', 'pfkfb3', 'hmgcr', 'lipolysis', 'nadph', 'hexosamine', 'mito-calcium')})
 # the official copy (user, 2026-10-18): a map tagged draft is preceded in the list by its official
@@ -83,7 +89,8 @@ OFFICIAL_COPY = os.path.join(DL, 'copy')
 GROUP_OF = {m: (g, i) for i, (g, ms) in enumerate(GROUPS) for m in ms}
 POSITION = [m for g, ms in GROUPS for m in ms]
 # list names that differ from the Gallery's short names
-TOPIC = {'peroxiredoxins': 'Peroxiredoxins', 'bh4': 'Tetrahydrobiopterin synthesis', 'iron-sensing': 'Iron sensing', 'heme': 'Heme synthesis', 'sphingolipids': 'Sphingolipid synthesis', 'glutamine-synthetase': 'Glutamine synthetase', 'glutamate-dehydrogenase': 'Glutamate dehydrogenase', 'tyrosine-hydroxylase': 'Tyrosine hydroxylase', 'glucokinase': 'Glucokinase', 'pfkfb3': 'PFKFB3 and fructose 2,6-bisphosphate', 'hmgcr': 'HMGCR sterol feedback', 'mito-calcium': 'Mitochondrial Ca2+ and the dehydrogenases', 'hexosamine': 'Hexosamine pathway (GFPT1)', 'nadph': 'NADPH supply (G6PD)', 'lipolysis': 'Lipolysis via ATGL', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
+TOPIC = {'cholesterol-2013-mevalonate': 'Cholesterol synthesis 2013: mevalonate arm', 'cholesterol-2013-sterol': 'Cholesterol synthesis 2013: sterol arms',
+         'peroxiredoxins': 'Peroxiredoxins', 'bh4': 'Tetrahydrobiopterin synthesis', 'iron-sensing': 'Iron sensing', 'heme': 'Heme synthesis', 'sphingolipids': 'Sphingolipid synthesis', 'glutamine-synthetase': 'Glutamine synthetase', 'glutamate-dehydrogenase': 'Glutamate dehydrogenase', 'tyrosine-hydroxylase': 'Tyrosine hydroxylase', 'glucokinase': 'Glucokinase', 'pfkfb3': 'PFKFB3 and fructose 2,6-bisphosphate', 'hmgcr': 'HMGCR sterol feedback', 'mito-calcium': 'Mitochondrial Ca2+ and the dehydrogenases', 'hexosamine': 'Hexosamine pathway (GFPT1)', 'nadph': 'NADPH supply (G6PD)', 'lipolysis': 'Lipolysis via ATGL', 'eicosanoids': 'Eicosanoids', 'phosphoinositides': 'Phosphoinositide metabolism', 'bcaa': 'BCAA catabolism', 'ureacycle': 'Urea cycle', 'pdh': 'Pyruvate dehydrogenase', 'alox5': 'Leukotriene synthesis', 'nnos': 'nNOS pathway', 'gba1': 'Glucosylceramide hydrolysis', 'glycolysis-extended': 'Glycolysis (extended)'}
 # download buttons in this order: GraphML and the map images (PNG, SVG; added
 # and the SBGN-ML, SBML, CellDesigner files and the Newt link are added when
 # DL has them), the other files, then the annotation table, then
