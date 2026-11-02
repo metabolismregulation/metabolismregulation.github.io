@@ -67,10 +67,14 @@ GROUPS = [
     ('Glycan metabolism', ['hexosamine']),
     ('Biological oxidations', ['peroxiredoxins']),
     ('Iron-sulfur cluster metabolism', ['iron-sensing']),
-    # published maps shown as published and corrected, the corrections in red (user, 2026-11-02)
-    ('Published maps revisited', ['cholesterol-2013-mevalonate', 'cholesterol-2013-mevalonate-corrected',
-                                  'cholesterol-2013-sterol', 'cholesterol-2013-sterol-corrected']),
+    # cholesterol synthesis (user, 2026-11-02): the 2013 maps as published and corrected (corrections in red), the
+    # regulation blocks, then copies of the Atlas maps on the same enzymes (GROUP_COPIES)
+    ('Cholesterol synthesis', ['cholesterol-2013-mevalonate', 'cholesterol-2013-mevalonate-corrected',
+                               'cholesterol-2013-sterol', 'cholesterol-2013-sterol-corrected']),
 ]
+# maps listed a second time in another group, tagged copy (user, 2026-11-02): the same files and text, an entry
+# _maps/<map>--<group key>.md
+GROUP_COPIES = {'Cholesterol synthesis': ('cholesterol', ['acly', 'mevalonate', 'hmgcr', 'srebp'])}
 # drug action mechanism maps, marked with a capsule in the Atlas list
 DRUG = {'aspirin'}
 # tags set by hand (user, 2026-10-18), in place of the automatic draft tag of a page in draftpages/:
@@ -689,6 +693,17 @@ def main():
             mid += '-copy' if copy else ''
             open(os.path.join(OUT, mid + '.md'), 'w', encoding='utf-8').write(out)
             written.append(mid)
+    for group, (key, mids) in GROUP_COPIES.items():
+        last = max(POSITION.index(m) + 1 for m in dict(GROUPS)[group])
+        for k, mid in enumerate(mids):
+            if mid not in written:
+                continue
+            s = open(os.path.join(OUT, mid + '.md'), encoding='utf-8').read()
+            s = re.sub(r'^group: .*$', 'group: ' + yaml_str(group), s, count=1, flags=re.M)
+            s = re.sub(r'^order: .*$', 'order: %s' % (last + 0.01 * (k + 1)), s, count=1, flags=re.M)
+            s = re.sub(r'^tag: .*$', 'tag: "copy"', s, count=1, flags=re.M)
+            open(os.path.join(OUT, '%s--%s.md' % (mid, key)), 'w', encoding='utf-8').write(s)
+            written.append('%s--%s' % (mid, key))
     json.dump(search, open(os.path.join(ROOT, 'atlas-data', 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     for path, rows in tables.items():
         write_table(os.path.join(ROOT, path), rows)

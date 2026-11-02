@@ -3,7 +3,7 @@ title: "Cholesterol synthesis 2013: sterol arms"
 topic: "Cholesterol synthesis 2013: sterol arms"
 tab: "as published"
 page: "/cholesterol-2013-sterol/"
-group: "Published maps revisited"
+group: "Cholesterol synthesis"
 order: 45
 kind: "map"
 draft: true

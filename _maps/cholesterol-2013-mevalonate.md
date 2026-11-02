@@ -3,7 +3,7 @@ title: "Cholesterol synthesis 2013: mevalonate arm"
 topic: "Cholesterol synthesis 2013: mevalonate arm"
 tab: "as published"
 page: "/cholesterol-2013-mevalonate/"
-group: "Published maps revisited"
+group: "Cholesterol synthesis"
 order: 43
 kind: "map"
 draft: true
