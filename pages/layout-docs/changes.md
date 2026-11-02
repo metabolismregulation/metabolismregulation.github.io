@@ -9,6 +9,11 @@ noindex: true
 
 What changed for maps laid out with the tool, by date.
 
+## 2026-11-02
+
+- The check reports glyph sizes off the standard: a metabolite not a 40 x 40 circle, a protein not 40 px tall or
+  narrower than 80, a process not 18 x 18. Maps built by a script from coordinates are checked like any other.
+
 ## 2026-10-30
 
 - Two antennas also for a reversible binding: both partners on one side of the step, the complex on the opposite

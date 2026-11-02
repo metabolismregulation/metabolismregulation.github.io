@@ -26,6 +26,7 @@ ends or arrowheads. Nodes and arcs are matched by id. After a layout this list i
 | overlaps | two nodes closer than 8 px, shape by shape, at the top level and inside one compartment. Members of one complex only when their boxes overlap |
 | compartments overlapping (strict) | two compartments whose boxes overlap, neither a member of the other |
 | compartments not glued | two neighbouring compartments with a gap between them, or side by side with tops or bottoms that do not match (stacked: left or right edges) |
+| glyph sizes off the standard | a metabolite not a 40 x 40 circle, a protein not 40 px tall or narrower than 80, a process not 18 x 18 (rules, Sizes) |
 | edges through nodes | an arc runs through a node it does not belong to (a complex counts as one box) |
 | arcs ending off their node | an arc's end is set beyond its node's box, so it stops in empty space; a step whose four sides are taken is entered at a corner instead |
 | arcs through their own name | an arc's end runs through the part of its own metabolite's name outside the circle |
