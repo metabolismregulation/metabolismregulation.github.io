@@ -11,6 +11,12 @@ What changed for maps laid out with the tool, by date.
 
 ## 2026-11-02
 
+- A map's flow can be turned to any of the four directions (`orient.py`), so a piece joins a large map in the direction
+  the large map needs: up is a mirror, right a transpose, left a transpose and a mirror; the first branch stays first.
+  Steps and branches take the spacing of the new direction, catalysts go beside, above or below their step, names
+  stay horizontal. First tried on an eicosanoid map (EPA 12- and 15-lipoxygenase products) in four directions: the
+  check finds the same as on the original. Open: on a horizontal flow an arrowhead ends on a centred name wider
+  than its circle.
 - A catalyst beside its step sits further out: its near edge about 64 px from the step's centre (was 40), from a
   curator's hand edit. Nearer only where there is no room.
 - The check reports glyph sizes off the standard: a metabolite not a 40 x 40 circle, a protein not 40 px tall or

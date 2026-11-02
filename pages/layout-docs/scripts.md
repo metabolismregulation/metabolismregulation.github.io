@@ -29,6 +29,7 @@ Scripts that change a map read one GraphML and write another.
 | `arcs.py` | `arcs.py in out` | arcs at node centres, then soft bends |
 | `move_node.py` | `move_node.py in out id dx dy ...` | moves nodes by whole steps with the bends on their centre lines |
 | `mirror.py` | `mirror.py in out` | the map mirrored top to bottom, a story read from the bottom; complexes and names as they were |
+| `orient.py` | `orient.py in out --from down --to right` | the map's flow turned to down, up, right or left, reading order kept (the first branch on the left of a downward map is the top branch going right or left); gaps between node lines rescaled to the grid of the new direction (vertical: steps 200, branches 300; horizontal: steps 300, branches 240), catalysts placed again beside their step, names horizontal |
 | `transfer_layout.py` | `transfer_layout.py edited twin out` | one map's layout onto its twin, each keeping its content |
 | `check.py`, `sides.py` | `check.py map [--input old]` | content changes, faults, preferences, measures ([Checks](/human-like-layout/documentation/checks/)) |
 | `ygml.py` | imported | reads a yEd GraphML and draws a rough SVG preview |
