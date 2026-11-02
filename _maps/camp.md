@@ -32,6 +32,8 @@ downloads:
 
 Cyclic AMP (cAMP) is one of the key second messengers in the cell, and regulation of cAMP hydrolysis is an important mechanism of modulation of intracellular signals.
 
+Phosphoinositide 3-kinase (PI3K) makes PI(3,4,5)P3, which brings AKT and PDPK1 together at the membrane. What activates PI3K upstream (the insulin receptor in adipocytes) is not drawn.
+
 ## References
 
 1. Charles MS, Drunalini Perera PN, Doycheva DM, Tang J. Granulocyte-colony stimulating factor activates JAK2/PI3K/PDE3B pathway to inhibit corticosterone synthesis in a neonatal hypoxic-ischemic brain injury rat model. Exp Neurol. 2015 Oct;272:152-9. doi: 10.1016/j.expneurol.2015.03.019. PMID: 25816736.
