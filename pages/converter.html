@@ -74,9 +74,6 @@ noindex: true
   .cv-modes label { white-space: nowrap; margin-right: 14px; }
   /* the subpages, each with an arrow down and right before it, grey, blue on hover (user, 2026-10-20,
      variant 4 of the former test page /converter/links/, in git history), last on the right (user, 2026-10-25) */
-  .cv-top p.cv-links { margin: 8px 0 10px; color: #777; }
-  .cv-top p.cv-links a { color: #777; text-decoration: none; white-space: nowrap; margin-right: 16px; }
-  .cv-top p.cv-links a:hover { color: #1c47a9; }
 </style>
 
 <div class="cv-top">
@@ -101,7 +98,6 @@ noindex: true
     <p class="cv-hint cv-group">Options <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
     <span class="cv-info" hidden>standard node and font sizes: proteins 80 x 40, metabolites 40 x 40 circles, names in font size 14, state variables and units 10. The map is rescaled if its proteins are much larger or smaller. Without it, every file keeps the font sizes of the input map.</span>
     <p class="cv-std"><label class="cv-hint"><input type="checkbox" id="cv-standard"> standard node and font sizes</label></p>
-    <p class="cv-links"><a href="{{ '/converter/description/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Description</a><a href="{{ '/converter/architecture/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Architecture</a><a href="{{ '/converter/docs/' | relative_url }}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;vertical-align:-2px" aria-hidden="true"><path d="M6 4v8a3 3 0 0 0 3 3h11M15 10l5 5-5 5"/></svg>Documentation</a></p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>

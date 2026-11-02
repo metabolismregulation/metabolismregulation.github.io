@@ -8,7 +8,7 @@ paths:
   - "_includes/converter-buttons.css"
   - "_includes/converter-hover.js"
   - "_includes/mapconv.js"
-  - "_includes/converter-nav.html"
+  - "_data/mastheads.yml"
 ---
 
 ## Converter page
@@ -129,12 +129,12 @@ left (folded on a phone), "On this page" on pages with four sections or more, an
 column is Since the days each row has been open, rows past two weeks marked. The description and
 architecture pages are in the menu but keep their own layout.
 
-## Converter pages row
+## Converter top bar
 
-At the top of every Converter page but the Converter itself (user, 2026-10-27, as the human-like layout pages): one
-row, `_includes/converter-nav.html` on `_includes/top-nav.html`: Converter (the way back to the tool), set apart by a
-vertical line, 2 px #ccc, then Documentation, Description, Architecture (not the v1 backups, which carry the row); the
-page shown in dark grey and not linked, the others grey #777, on hover the site's text colour #333 (not blue), no arrows. Tried and dropped the same day
-(user): ↱ before each link, an underline under the page shown, buttons, ↰ and ← before Converter, the line 1 px in
-#ccc, #999, #aaa, #bbb and 2 px in #777 and #bbb. It took the place of the lone "↰ Converter" link. The Converter
-page keeps its links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-27: unchanged).
+The Converter's pages have their own name and top bar (user, 2026-11-02), as the pattern pages: `masthead: converter`
+(`_data/mastheads.yml`), set for every `pages/converter*` file, documentation included, by a default in `_config.yml`.
+"Map Converter" with the tab icon as its logo, "Pathway maps between yEd GraphML, CellDesigner and SBGN-ML" under it;
+the menu Converter, Documentation (marked on every documentation page), Description, Architecture. The v1 backups and
+/converter/sbgn/ carry the bar, not in the menu. It replaced the row of links at the top of the subpages
+(`_includes/converter-nav.html`, 2026-10-27 to 2026-11-02, on `_includes/top-nav.html`, which the human-like layout
+pages keep) and the Converter page's links ↳ Description ↳ Architecture ↳ Documentation, both removed.
