@@ -366,6 +366,8 @@ class Drawing:
         width = float(ln.get('width', 1)) if ln is not None else 1.0
         ep = f(x, 'cd:editPoints')
         q = edit_points(ep.text if ep is not None else '')
+        if typ == 'BOOLEAN_LOGIC_GATE' and len(bp) == 1:
+            return self.gate_reaction(x, bp[0], col, width)
         branched = typ in ('HETERODIMER_ASSOCIATION', 'DISSOCIATION') and sorted((len(br), len(bp))) == [1, 2]
         if not branched and (len(br) != 1 or len(bp) != 1):
             raise ValueError('%d base reactants and %d base products, not drawn' % (len(br), len(bp)))
@@ -456,6 +458,37 @@ class Drawing:
             for r in (5.5, 3):
                 self.lines.append('<circle cx="%s" cy="%s" r="%s" fill="#fff" stroke="#000"/>' % (fmt(J[0]), fmt(J[1]), fmt(r)))
         self.links_and_modifiers(x, P, Q, sq, fl, col, width, False, typ)
+
+    def gate_reaction(self, x, prod, col, width):
+        # a logic gate between entities: each input to the gate (its GateMember: anchor and edit points in the frame
+        # of input to gate), the gate at its absolute point, a line from the gate to the product, its head by the
+        # gate's modificationType. Read as the modifiers' gates are; not yet checked against an export (2026-11-03)
+        gm = list(x.iterfind('cd:listOfGateMember/cd:GateMember', NS))
+        top = [g for g in gm if g.get('type', '').startswith('BOOLEAN_LOGIC_GATE')]
+        if not top:
+            raise ValueError('a logic gate without its gate, not drawn')
+        G = edit_points(top[0].get('editPoints'))[0]
+        for g in gm:
+            if g in top or g.get('aliases') not in self.alias:
+                continue
+            i = g.get('aliases')
+            M, anc = self.end(self.f(g, 'cd:linkTarget'), i)
+            seq = [M] + [from_frame(M, G, p) for p in edit_points(g.get('editPoints'))] + [G]
+            seq[0] = self.clip(i, M, anc, seq[1])
+            u = unit(seq[-1][0] - seq[-2][0], seq[-1][1] - seq[-2][1])
+            seq[-1] = (G[0] - 6.5 * u[0], G[1] - 6.5 * u[1])
+            self.path(seq, col, width, end_node=False)
+        pa = prod.get('alias')
+        B, anc = self.end(prod, pa)
+        B = self.clip(pa, B, anc, G)
+        u = unit(B[0] - G[0], B[1] - G[1])
+        kind = {'CATALYSIS': 'catalysis', 'INHIBITION': 'inhibition', 'TRIGGER': 'trigger', 'MODULATION': 'modulation',
+                'PHYSICAL_STIMULATION': 'stimulation'}.get(top[0].get('modificationType'), 'stimulation')
+        stop = self.head(kind, B, u)
+        self.path([(G[0] + 6 * u[0], G[1] + 6 * u[1]), stop], col, width, start_node=False)
+        t = top[0].get('type')
+        self.lines.append('<circle cx="%s" cy="%s" r="6" fill="#fff" stroke="#000"/>' % (fmt(G[0]), fmt(G[1])))
+        self.lines.append('<text x="%s" y="%s" font-family="sans-serif" font-size="11" text-anchor="middle">%s</text>' % (fmt(G[0]), fmt(G[1] + 4), GATE.get(t.rsplit('_', 1)[1], '?')))
 
     def links_and_modifiers(self, x, P, Q, sq, fl, col, width, dash, typ=None):
         f = self.f
