@@ -57,7 +57,7 @@ noindex: true
   /* the three in one line (user, 2026-10-24), each kept whole when the line wraps */
   .cv-top p.cv-modes { margin: 0 0 12px; line-height: 1.7; }
   /* the choices together on the right, each group named: Convert, Additional CellDesigner layouts, Options, then
-     the links; the note on the buttons under the drop area (user, 2026-10-25, variant 1 of the former test page
+     the links; the note on the buttons at the end of the right column (user, 2026-11-03; under the drop area from 2026-10-25, variant 1 of the former test page
      /converter/options/ with the note as in variant 4, in git history) */
   .cv-top p.cv-group { margin: 0 0 2px; }
   .cv-top p.cv-std { margin: 0 0 12px; }
@@ -82,7 +82,6 @@ noindex: true
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/></svg>
       <span id="cv-drop-text">Loading the converter…</span>
     </div>
-    <p class="cv-hint cv-text">The blue button gives the recommended file of each format. The white buttons are fallback versions or other layouts.</p>
   </div>
   <div>
     <p class="cv-hint cv-group">Convert <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
@@ -98,6 +97,7 @@ noindex: true
     <p class="cv-hint cv-group">Options <button type="button" class="cv-i" aria-label="More information" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5v.01" stroke-width="2.6"/></svg></button></p>
     <span class="cv-info" hidden>standard node and font sizes: proteins 80 x 40, metabolites 40 x 40 circles, names in font size 14, state variables and units 10. The map is rescaled if its proteins are much larger or smaller. Without it, every file keeps the font sizes of the input map.</span>
     <p class="cv-std"><label class="cv-hint"><input type="checkbox" id="cv-standard"> standard node and font sizes</label></p>
+    <p class="cv-hint cv-text">The blue button gives the recommended file of each format. The white buttons are fallback versions or other layouts.</p>
   </div>
 </div>
 <input id="cv-file" type="file" accept=".graphml,.xml,.sbgn,.nwt" multiple hidden>

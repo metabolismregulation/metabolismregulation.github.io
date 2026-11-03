@@ -59,8 +59,8 @@ input's or a ticked route joins the two, and a file no ticked route takes gets a
 (user, 2026-10-25, variant 1 of the former test page /converter/options/ with the note as in its variant 4): on the right
 the choices, each group named in grey: "Convert" (the routes), "Additional CellDesigner layouts", "Options" (standard
 node sizes, lower case as the other boxes; user, 2026-10-25), then the links ↳ Description ↳ Architecture ↳ Documentation (user, 2026-10-26: Documentation added); the right column aligned to the top (user, 2026-10-25); ticked boxes grey #626262 (`accent-color`, as Chrome's private
-window draws them; user, 2026-10-25); under the drop area the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
-description page says it).
+window draws them; user, 2026-10-25); the note on the blue and white buttons, without its sentence on the browser (user, 2026-10-25: the
+description page says it), last in the right column under the options (user, 2026-11-03; under the drop area until then).
 No "All directions" box and no Reset (user, 2026-10-25: few boxes, the page kept minimal). An ⓘ after "Additional
 CellDesigner layouts" and after "Options" (user, 2026-10-25, variant 2 of the former test page /converter/info/; not
 after each box, not on the download buttons, which keep their hover texts): a click or tap opens the group's text in a
