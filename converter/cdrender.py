@@ -289,13 +289,27 @@ class Drawing:
     def box(self, i):  # lines meet the alias's whole box, a multimer's copies included
         return self.alias[i][1]
 
+    def front(self, i):  # a multimer's front copy, 6 smaller per copy behind it
+        cls, (x, y, w, h), a, name, si = self.alias[i]
+        hd = self.f(si, 'cd:state/cd:homodimer') if si is not None else None
+        s = 6 * (int(hd.text) - 1) if hd is not None and hd.text and hd.text.isdigit() else 0
+        return (x, y, w - s, h - s)
+
     def end(self, e, i):
         # where a line meets alias i: its anchor (linkAnchor in e), else its centre; and whether anchored
         b = self.f(e, 'cd:linkAnchor') if e is not None else None
         x, y, w, h = self.box(i)
         side = b.get('position') if b is not None else None
-        if side not in ANCHOR:
+        if side not in ANCHOR:  # no anchor: the centre of the whole box, a multimer's copies included (iNOS's SVG)
             return (x + w / 2, y + h / 2), False
+        # an anchor sits on a multimer's front copy (the user's PDF of Ferroptosis, 2026-11-03: FTH1 as 12 copies)
+        x, y, w, h = self.front(i)
+        if self.alias[i][0] == 'RNA':  # on the parallelogram, slant h: along its top and bottom edges, down its
+            # slanted sides (the user's PDF of Ferroptosis, 2026-11-03: SSE three quarters along the bottom edge)
+            fx, fy = ANCHOR[side]
+            if fy in (0, 1):
+                return (x + (h if fy == 0 else 0) + fx * (w - h), y + fy * h), True
+            return ((x + h * (1 - fy)) if fx == 0 else (x + w - h * fy), y + fy * h), True
         # on an ellipse at 22.5 degree steps, on a phenotype's hexagon, else on the box (the converter's rule)
         return anchor_point((x, y, w, h), side, circle=self.alias[i][0] in ROUND, hexagon=self.alias[i][0] == 'PHENOTYPE'), True
 
@@ -414,9 +428,8 @@ class Drawing:
         # two entities binding into one (heterodimer association) or one coming apart into two (dissociation):
         # three arms meeting at a point. The point is the last edit point, in the frame of the three species'
         # centres (the first as origin, to the second and the third, not orthogonal); the arms' own edit points
-        # come before it, num0, num1 and num2 of them, each in the frame of its arm as the line runs (checked
-        # against the user's PDF of MAPT cleavage, 2026-11-03: 4 reactions within 1 unit; the arms' points,
-        # in Ferroptosis only, not yet checked). The square sits halfway along the single arm, a dissociation
+        # come before it, num0, num1 and num2 of them, each in the frame of the point to its species (checked
+        # against the user's PDFs of MAPT cleavage and Ferroptosis, 2026-11-03). The square sits halfway along the single arm, a dissociation
         # draws two circles at the point.
         ends = br + bp  # association: reactant, reactant, product; dissociation: reactant, product, product
         C = [self.centre(e.get('alias')) for e in ends]
@@ -430,7 +443,10 @@ class Drawing:
         for k, e in enumerate(ends):
             E, anc = self.end(e, e.get('alias'))
             inward = (k < 2) if assoc else (k == 0)  # the line runs from the species to the point
-            seq = [E] + [from_frame(E, J, p) for p in arm_pts[k]] + [J] if inward else [J] + [from_frame(J, E, p) for p in arm_pts[k]] + [E]
+            # every arm's points in the frame of the point to the species, listed from the point outward
+            # (the user's PDF of Ferroptosis, 2026-11-03)
+            out_ = [J] + [from_frame(J, E, p) for p in arm_pts[k]] + [E]
+            seq = out_[::-1] if inward else out_
             if inward:
                 seq[0] = self.clip(e.get('alias'), E, anc, seq[1])
             else:
