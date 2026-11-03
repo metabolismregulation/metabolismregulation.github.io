@@ -9,7 +9,7 @@ from xml.sax.saxutils import escape
 from lxml import etree
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'converter'))
-from mapconv.cd_layout import ANCHOR, ANGLE, SQUARE, from_frame
+from mapconv.cd_layout import ANCHOR, ANGLE, SQUARE, anchor_point, from_frame
 from mapconv.celldesigner import plain_name
 
 NS = {'cd': 'http://www.sbml.org/2001/ns/celldesigner', 's': 'http://www.sbml.org/sbml/level2/version4'}
@@ -145,21 +145,27 @@ class Drawing:
             ow = float(dl.get('outerWidth', 2)) if dl is not None else 2
             iw = float(dl.get('innerWidth', 1)) if dl is not None else 1
             fill, _ = colour(self.f(a, 'cd:paint').get('color'))
+            # the lines in the compartment's colour, black for a near-white one (the user's PDF exports of the
+            # neuroinflammation map against the SVG exports of the metabolism maps, 2026-11-03)
+            rgb = [int(fill[k:k + 2], 16) for k in (1, 3, 5)]
+            ink = '#000' if min(rgb) > 230 else fill
             oval = self.f(a, 'cd:class').text == 'OVAL'
             if oval:
-                self.out.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="none" stroke="%s" stroke-opacity="0.5" stroke-width="%s"/>'
+                self.out.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="none" stroke="%s" stroke-opacity="0.25" stroke-width="%s"/>'
                                 % (fmt(x + w / 2), fmt(y + h / 2), fmt(w / 2 - t / 2), fmt(h / 2 - t / 2), fill, fmt(t)))
-                self.out.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="none" stroke="#000" stroke-width="%s"/>' % (fmt(x + w / 2), fmt(y + h / 2), fmt(w / 2), fmt(h / 2), fmt(ow)))
-                self.out.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="none" stroke="#000" stroke-width="%s"/>' % (fmt(x + w / 2), fmt(y + h / 2), fmt(w / 2 - t), fmt(h / 2 - t), fmt(iw)))
+                self.out.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="none" stroke="%s" stroke-width="%s"/>' % (fmt(x + w / 2), fmt(y + h / 2), fmt(w / 2), fmt(h / 2), ink, fmt(ow)))
+                self.out.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="none" stroke="%s" stroke-width="%s"/>' % (fmt(x + w / 2), fmt(y + h / 2), fmt(w / 2 - t), fmt(h / 2 - t), ink, fmt(iw)))
             else:
-                # the band between the two lines in the compartment's colour, half transparent
-                self.out.append('<path d="%s %s" fill="%s" fill-opacity="0.5" fill-rule="evenodd"/>'
+                # the band between the two lines in the compartment's colour, at a quarter (CellDesigner's
+                # opacity 0.498 on a fill-opacity 0.498)
+                self.out.append('<path d="%s %s" fill="%s" fill-opacity="0.25" fill-rule="evenodd"/>'
                                 % (rrect(x, y, w, h, 20), rrect(x + t, y + t, w - 2 * t, h - 2 * t, 14), fill))
-                self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="20" fill="none" stroke="#000" stroke-width="%s"/>' % (fmt(x), fmt(y), fmt(w), fmt(h), fmt(ow)))
-                self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="14" fill="none" stroke="#000" stroke-width="%s"/>' % (fmt(x + t), fmt(y + t), fmt(w - 2 * t), fmt(h - 2 * t), fmt(iw)))
+                self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="20" fill="none" stroke="%s" stroke-width="%s"/>' % (fmt(x), fmt(y), fmt(w), fmt(h), ink, fmt(ow)))
+                self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="14" fill="none" stroke="%s" stroke-width="%s"/>' % (fmt(x + t), fmt(y + t), fmt(w - 2 * t), fmt(h - 2 * t), ink, fmt(iw)))
             np_ = self.f(a, 'cd:namePoint')
             if np_ is not None:
-                self.text(plain_name(self.cnames.get(a.get('compartment'), '')), float(np_.get('x')), float(np_.get('y')) + 15.5, anchor='start')
+                for k, line in enumerate(self.name_lines(self.cnames.get(a.get('compartment'), ''))):
+                    self.text(line, float(np_.get('x')), float(np_.get('y')) + 15.5 + 14 * k, anchor='start')
 
     def NS(self):
         return NS
@@ -192,24 +198,33 @@ class Drawing:
         fill, alpha = colour(paint.get('color') if paint is not None else 'ffffffff')
         hyp = f(si, 'cd:hypothetical')
         dash = ' stroke-dasharray="5,3"' if hyp is not None and hyp.text == 'true' else ''
+        sl = f(a, 'cd:usualView/cd:singleLine')  # the border's width (a complex's 2 in the neuroinflammation map)
+        if sl is not None and sl.get('width') and float(sl.get('width')) != 1:
+            dash += ' stroke-width="%s"' % fmt(float(sl.get('width')))
+        act = f(a, 'cd:activity')
+        if act is not None and act.text == 'active':  # active: a dashed outline 4 outside the shape (CellDesigner's PDF)
+            self.shape(cls, (x - 4, y - 4, w + 8, h + 8), 'none', 1.0, ' stroke-dasharray="4,2"')
         s = 6 * (n - 1)
         fw, fh = w - s, h - s
         for k in range(n - 1, -1, -1):  # the copies of a multimer behind, offset 6 each, each with its states
             self.shape(cls, (x + 6 * k, y + 6 * k, fw, fh), fill, alpha, dash)
             self.states(cls, (x + 6 * k, y + 6 * k, fw, fh), a, si, k == 0)
+        fe = f(a, 'cd:font')  # the alias's font size, 12 by default; lines 7/6 of it apart
+        z = float(fe.get('size')) if fe is not None and fe.get('size') else 12.0
         if cls != 'COMPLEX':
             lines = self.name_lines(name) if cls != 'DEGRADED' else []
-            cy = y + fh / 2 - 7 * (len(lines) - 1)
+            cy = y + fh / 2 - z * 7 / 12 * (len(lines) - 1)
             for k, line in enumerate(lines):
-                self.text(line, x + fw / 2, cy + 4 + 14 * k)
+                self.text(line, x + fw / 2, cy + z / 3 + z * 7 / 6 * k, size=z)
         else:
-            self.text(' '.join(self.name_lines(name)), x + fw / 2, y + fh - 7)
+            self.text(' '.join(self.name_lines(name)), x + fw / 2, y + fh - z * 7 / 12, size=z)
 
     def shape(self, cls, b, fill, alpha, dash):
         x, y, w, h = b
-        style = 'fill="%s"%s stroke="#000"%s' % (fill, ' fill-opacity="%s"' % fmt(alpha) if alpha < 1 else '', dash)
+        # an unknown entity has no outline in CellDesigner (the group labels of the neuroinflammation map, 2026-11-03)
+        style = 'fill="%s"%s stroke="%s"%s' % (fill, ' fill-opacity="%s"' % fmt(alpha) if alpha < 1 else '', 'none' if cls == 'UNKNOWN' else '#000', dash)
         if cls in ('PROTEIN', 'RECEPTOR', 'TRUNCATED', 'ION_CHANNEL'):
-            self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="5" %s/>' % (fmt(x), fmt(y), fmt(w), fmt(h), style))
+            self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" %s/>' % (fmt(x), fmt(y), fmt(w), fmt(h), '9' if fill == 'none' else '5', style))
         elif cls == 'GENE':
             self.out.append('<rect x="%s" y="%s" width="%s" height="%s" %s/>' % (fmt(x), fmt(y), fmt(w), fmt(h), style))
         elif cls == 'DEGRADED':  # a circle of 3/8 the box, a slash across the whole box
@@ -225,9 +240,27 @@ class Drawing:
         x, y, w, h = b
         f = self.f
         pref = f(si, 'cd:proteinReference')
-        for m in si.iterfind('cd:state/cd:listOfModifications/cd:modification', NS):
-            ang, site = self.residues.get((pref.text if pref is not None else None, m.get('residue')), (0.0, None))
+        mods = {m.get('residue'): m for m in si.iterfind('cd:state/cd:listOfModifications/cd:modification', NS)}
+        pid = pref.text if pref is not None else None
+        # CellDesigner draws every residue of the protein, an empty circle where the species gives no state
+        def site_name(site, px, py):  # a residue's name inside the shape, 11 in from its circle, kept inside (MAPT cleavage PDF)
+            if not site or not front:
+                return
+            tw = width(site, 10)
+            # toward the centre: below a circle in the upper half, above one in the lower half
+            tx = px + (11 if px <= x + 1 else -11 if px >= x + w - 1 else 0)
+            ty = py + (11 if py < y + h / 2 else -11)
+            tx = min(max(tx, x + 2 + tw / 2), x + w - 2 - tw / 2)
+            self.text(site, tx, ty + 3.5, size=10)
+        for (p_, r_), (ang, site) in self.residues.items():
+            if p_ == pid and r_ not in mods:
+                px, py = on_border(b, ang)
+                self.out.append('<circle cx="%s" cy="%s" r="8" fill="#fff" stroke="#000"/>' % (fmt(px), fmt(py)))
+                site_name(site, px, py)
+        for m in mods.values():
+            ang, site = self.residues.get((pid, m.get('residue')), (0.0, None))
             px, py = on_border(b, ang)
+            site_name(site, px, py)
             self.out.append('<circle cx="%s" cy="%s" r="8" fill="#fff" stroke="#000"/>' % (fmt(px), fmt(py)))
             sym = SYMBOL.get(m.get('state'), m.get('state'))
             if sym:
@@ -263,11 +296,8 @@ class Drawing:
         side = b.get('position') if b is not None else None
         if side not in ANCHOR:
             return (x + w / 2, y + h / 2), False
-        if self.alias[i][0] in ROUND:
-            t = math.radians(ANGLE[side])
-            return (x + w / 2 * (1 + math.cos(t)), y + h / 2 * (1 - math.sin(t))), True
-        fx, fy = ANCHOR[side]
-        return (x + fx * w, y + fy * h), True
+        # on an ellipse at 22.5 degree steps, on a phenotype's hexagon, else on the box (the converter's rule)
+        return anchor_point((x, y, w, h), side, circle=self.alias[i][0] in ROUND, hexagon=self.alias[i][0] == 'PHENOTYPE'), True
 
     def clip(self, i, P, anchored, Q):
         # the line's end at alias i: an anchor as it is, else where the line from the centre leaves the shape
@@ -277,6 +307,7 @@ class Drawing:
         return leave(outline(cls, self.box(i)), P, Q)
 
     def path(self, p, colour_='#000', width=1.0, dash=False, start_node=True, end_node=True):
+        # dash: False, True (6,4) or a pattern: transcription dash-dot-dot, translation dash-dot (CellDesigner's PDF)
         # a line: a white halo under it (CellDesigner's, so crossings read), shortened at nodes
         h = list(p)
         if len(h) > 1:
@@ -285,7 +316,7 @@ class Drawing:
             if end_node:
                 u = unit(h[-1][0] - h[-2][0], h[-1][1] - h[-2][1]); h[-1] = (h[-1][0] - 8 * u[0], h[-1][1] - 8 * u[1])
         self.halo.append('<polyline points="%s"/>' % pts(h))
-        self.lines.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="%s"%s/>' % (pts(p), colour_, fmt(width), ' stroke-dasharray="6,4"' if dash else ''))
+        self.lines.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="%s"%s/>' % (pts(p), colour_, fmt(width), (' stroke-dasharray="%s"' % (dash if isinstance(dash, str) else '6,4')) if dash else ''))
 
     def head(self, kind, T, u):
         # an arrowhead with its tip at T, the line arriving along u; returns where the line stops
@@ -335,8 +366,11 @@ class Drawing:
         width = float(ln.get('width', 1)) if ln is not None else 1.0
         ep = f(x, 'cd:editPoints')
         q = edit_points(ep.text if ep is not None else '')
-        if len(br) != 1 or len(bp) != 1:
+        branched = typ in ('HETERODIMER_ASSOCIATION', 'DISSOCIATION') and sorted((len(br), len(bp))) == [1, 2]
+        if not branched and (len(br) != 1 or len(bp) != 1):
             raise ValueError('%d base reactants and %d base products, not drawn' % (len(br), len(bp)))
+        if branched:
+            return self.branched(rx, x, typ, br, bp, ep, q, col, width)
         ra, pa = br[0].get('alias'), bp[0].get('alias')
         A, ancA = self.end(br[0], ra)
         B, ancB = self.end(bp[0], pa)
@@ -348,6 +382,7 @@ class Drawing:
         reduced = typ not in ('STATE_TRANSITION', 'KNOWN_TRANSITION_OMITTED', 'UNKNOWN_TRANSITION', 'TRANSPORT',
                               'TRANSCRIPTION', 'TRANSLATION', 'HETERODIMER_ASSOCIATION', 'DISSOCIATION', 'TRUNCATION')
         dash = reduced and typ.startswith('UNKNOWN')  # an unknown transition keeps a solid line, a ? in its square
+        dash = {'TRANSCRIPTION': '10,4,2,4,2,4', 'TRANSLATION': '10,3,2,3'}.get(typ, dash)
         if reduced:  # an arc between the entities, its head by type
             kind = {'PHYSICAL_STIMULATION': 'stimulation-reduced', 'REDUCED_PHYSICAL_STIMULATION': 'stimulation-reduced',
                     'NEGATIVE_INFLUENCE': 'inhibition', 'REDUCED_MODULATION': 'modulation', 'REDUCED_TRIGGER': 'trigger',
@@ -371,6 +406,59 @@ class Drawing:
             v = unit(line[0][0] - line[1][0], line[0][1] - line[1][1])
             main[0] = self.head('production', line[0], v)
         self.path(main, col, width, dash)
+        self.links_and_modifiers(x, P, Q, sq, fl, col, width, dash, typ)
+
+    def branched(self, rx, x, typ, br, bp, ep, q, col, width):
+        # two entities binding into one (heterodimer association) or one coming apart into two (dissociation):
+        # three arms meeting at a point. The point is the last edit point, in the frame of the three species'
+        # centres (the first as origin, to the second and the third, not orthogonal); the arms' own edit points
+        # come before it, num0, num1 and num2 of them, each in the frame of its arm as the line runs (checked
+        # against the user's PDF of MAPT cleavage, 2026-11-03: 4 reactions within 1 unit; the arms' points,
+        # in Ferroptosis only, not yet checked). The square sits halfway along the single arm, a dissociation
+        # draws two circles at the point.
+        ends = br + bp  # association: reactant, reactant, product; dissociation: reactant, product, product
+        C = [self.centre(e.get('alias')) for e in ends]
+        a, b = q[-1] if q else (0.5, 0.5)
+        J = (C[0][0] + a * (C[1][0] - C[0][0]) + b * (C[2][0] - C[0][0]), C[0][1] + a * (C[1][1] - C[0][1]) + b * (C[2][1] - C[0][1]))
+        n = [int(ep.get('num%d' % k, 0)) if ep is not None else 0 for k in range(3)]
+        arm_pts = [q[:n[0]], q[n[0]:n[0] + n[1]], q[n[0] + n[1]:n[0] + n[1] + n[2]]]
+        assoc = typ == 'HETERODIMER_ASSOCIATION'
+        reversible = rx.get('reversible') != 'false'
+        arms = []
+        for k, e in enumerate(ends):
+            E, anc = self.end(e, e.get('alias'))
+            inward = (k < 2) if assoc else (k == 0)  # the line runs from the species to the point
+            seq = [E] + [from_frame(E, J, p) for p in arm_pts[k]] + [J] if inward else [J] + [from_frame(J, E, p) for p in arm_pts[k]] + [E]
+            if inward:
+                seq[0] = self.clip(e.get('alias'), E, anc, seq[1])
+            else:
+                seq[-1] = self.clip(e.get('alias'), E, anc, seq[-2])
+            arms.append((seq, inward))
+        for k, (seq, inward) in enumerate(arms):
+            p_ = list(seq)
+            single = k == 2 if assoc else k == 0
+            head_here = (not inward) or reversible  # products get a head, reactants too when reversible
+            if inward and head_here:
+                v = unit(p_[0][0] - p_[1][0], p_[0][1] - p_[1][1])
+                p_[0] = self.head('production', p_[0], v)
+            if not inward:
+                u = unit(p_[-1][0] - p_[-2][0], p_[-1][1] - p_[-2][1])
+                p_[-1] = self.head('production', p_[-1], u)
+            self.path(p_, col, width, False, start_node=inward, end_node=not inward)
+        seq = arms[2][0] if assoc else arms[0][0]
+        k = min(int(ep.get('tShapeIndex', 0)) if ep is not None else 0, len(seq) - 2)
+        P, Q = seq[k], seq[k + 1]
+        sq = ((P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2)
+        fl = unit(Q[0] - P[0], Q[1] - P[1])
+        if assoc:
+            self.lines.append('<circle cx="%s" cy="%s" r="3.5" fill="#000"/>' % (fmt(J[0]), fmt(J[1])))
+        else:
+            for r in (5.5, 3):
+                self.lines.append('<circle cx="%s" cy="%s" r="%s" fill="#fff" stroke="#000"/>' % (fmt(J[0]), fmt(J[1]), fmt(r)))
+        self.links_and_modifiers(x, P, Q, sq, fl, col, width, False, typ)
+
+    def links_and_modifiers(self, x, P, Q, sq, fl, col, width, dash, typ=None):
+        f = self.f
         # added reactants and products join the square's segment at 3/8 and 5/8 of its ends' anchors
         joins = [(P[0] + t * (Q[0] - P[0]), P[1] + t * (Q[1] - P[1])) for t in (0.375, 0.625)]
         for tag, into in (('cd:listOfReactantLinks/cd:reactantLink', True), ('cd:listOfProductLinks/cd:productLink', False)):

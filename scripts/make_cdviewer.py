@@ -55,7 +55,7 @@ def atlas_names():
         get = lambda k: (re.search(r'^%s: "?(.*?)"?$' % k, head, re.M) or [None, ''])[1]
         tab = get('tab')
         name = get('topic') + (' (%s)' % tab if tab and tab != 'generic' else '')
-        names[img.group(1)] = (name, get('group'), int(get('order') or 99))
+        names[img.group(1)] = (name, get('group'), float(get('order') or 99))
     return names
 
 
