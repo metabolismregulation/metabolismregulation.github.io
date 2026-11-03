@@ -478,12 +478,13 @@ class Drawing:
     def gate_reaction(self, x, prod, col, width):
         # a logic gate between entities: each input to the gate (its GateMember: anchor and edit points in the frame
         # of input to gate), the gate at its absolute point, a line from the gate to the product, its head by the
-        # gate's modificationType. Read as the modifiers' gates are; not yet checked against an export (2026-11-03)
+        # gate's modificationType (checked against the user's PDF of Mitophagy, 2026-11-03)
         gm = list(x.iterfind('cd:listOfGateMember/cd:GateMember', NS))
         top = [g for g in gm if g.get('type', '').startswith('BOOLEAN_LOGIC_GATE')]
         if not top:
             raise ValueError('a logic gate without its gate, not drawn')
-        G = edit_points(top[0].get('editPoints'))[0]
+        gp = edit_points(top[0].get('editPoints'))
+        G, gbend = gp[-1], gp[:-1]  # the gate last, bends of its line to the product before it
         for g in gm:
             if g in top or g.get('aliases') not in self.alias:
                 continue
@@ -496,12 +497,14 @@ class Drawing:
             self.path(seq, col, width, end_node=False)
         pa = prod.get('alias')
         B, anc = self.end(prod, pa)
-        B = self.clip(pa, B, anc, G)
-        u = unit(B[0] - G[0], B[1] - G[1])
+        seq = [G] + [from_frame(G, B, p) for p in gbend] + [B]
+        seq[-1] = B = self.clip(pa, B, anc, seq[-2])
+        u = unit(B[0] - seq[-2][0], B[1] - seq[-2][1])
         kind = {'CATALYSIS': 'catalysis', 'INHIBITION': 'inhibition', 'TRIGGER': 'trigger', 'MODULATION': 'modulation',
                 'PHYSICAL_STIMULATION': 'stimulation'}.get(top[0].get('modificationType'), 'stimulation')
         stop = self.head(kind, B, u)
-        self.path([(G[0] + 6 * u[0], G[1] + 6 * u[1]), stop], col, width, start_node=False)
+        u0 = unit(seq[1][0] - G[0], seq[1][1] - G[1])
+        self.path([(G[0] + 6 * u0[0], G[1] + 6 * u0[1])] + seq[1:-1] + [stop], col, width, start_node=False)
         t = top[0].get('type')
         self.lines.append('<circle cx="%s" cy="%s" r="6" fill="#fff" stroke="#000"/>' % (fmt(G[0]), fmt(G[1])))
         self.lines.append('<text x="%s" y="%s" font-family="sans-serif" font-size="11" text-anchor="middle">%s</text>' % (fmt(G[0]), fmt(G[1] + 4), GATE.get(t.rsplit('_', 1)[1], '?')))
@@ -547,16 +550,25 @@ class Drawing:
             spot = SQUARE.get(int(m.get('targetLineIndex', '-1,2').split(',')[1]), SQUARE[3])
             T = (sq[0] + 5 * (spot[0] * fl[0] - spot[1] * fl[1]), sq[1] + 5 * (spot[0] * fl[1] + spot[1] * fl[0]))
             if t.startswith('BOOLEAN_LOGIC_GATE'):
-                G = edit_points(m.get('editPoints'))[0]
+                # the gate at the last point (absolute); points before it bend its line to the square, in the frame
+                # of gate to square (the user's PDF of Mitophagy, 2026-11-03)
+                gp = edit_points(m.get('editPoints'))
+                G, gbend = gp[-1], gp[:-1]
                 for i in a_.split(','):
                     if i in self.alias:
-                        c, anc = self.end(None, i)
-                        S = self.clip(i, c, anc, G)
-                        u = unit(G[0] - S[0], G[1] - S[1])
-                        self.path([S, (G[0] - 6.5 * u[0], G[1] - 6.5 * u[1])], col, width, end_node=False)
-                u = unit(T[0] - G[0], T[1] - G[1])
+                        # the input's own entry (same alias, the gate's modificationType): its anchor and bends, in the
+                        # frame of input to gate (Mitophagy PDF); without one, a straight line from the centre
+                        own = next((n_ for n_ in mods if n_.get('aliases') == i and n_.get('type') == m.get('modificationType')), None)
+                        c, anc = self.end(f(own, 'cd:linkTarget') if own is not None else None, i)
+                        seq = [c] + [from_frame(c, G, p) for p in (edit_points(own.get('editPoints')) if own is not None else [])] + [G]
+                        seq[0] = self.clip(i, c, anc, seq[1])
+                        u = unit(G[0] - seq[-2][0], G[1] - seq[-2][1])
+                        seq[-1] = (G[0] - 6.5 * u[0], G[1] - 6.5 * u[1])
+                        self.path(seq, col, width, end_node=False)
+                seq = [G] + [from_frame(G, T, p) for p in gbend] + [T]
+                u = unit(seq[-1][0] - seq[-2][0], seq[-1][1] - seq[-2][1])
                 stop = self.head(HEADS.get(m.get('modificationType'), 'stimulation'), T, u)
-                self.path([G, stop], col, width, start_node=False, end_node=False)
+                self.path(seq[:-1] + [stop], col, width, start_node=False, end_node=False)
                 squares.append('<circle cx="%s" cy="%s" r="6" fill="#fff" stroke="#000"/>' % (fmt(G[0]), fmt(G[1])))
                 squares.append('<text x="%s" y="%s" font-family="sans-serif" font-size="11" text-anchor="middle">%s</text>' % (fmt(G[0]), fmt(G[1] + 4), GATE[t.rsplit('_', 1)[1]]))
                 continue
