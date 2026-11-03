@@ -130,6 +130,8 @@ class Drawing:
             b = f(a, 'cd:bounds')
             self.alias[a.get('id')] = (f(si, 'cd:class').text, tuple(float(b.get(k)) for k in 'xywh'), a, name, si)
         self.ext, self.model = ext, model
+        # where things are drawn, for a viewer's clicks: alias id -> box; reaction id -> lines and square
+        self.hit_reactions, self.cur = {}, None
 
     # -- nodes ----------------------------------------------------------------------------
     def compartments(self):
@@ -330,6 +332,8 @@ class Drawing:
             if end_node:
                 u = unit(h[-1][0] - h[-2][0], h[-1][1] - h[-2][1]); h[-1] = (h[-1][0] - 8 * u[0], h[-1][1] - 8 * u[1])
         self.halo.append('<polyline points="%s"/>' % pts(h))
+        if self.cur:
+            self.hit_reactions.setdefault(self.cur, {'lines': [], 'at': None})['lines'].append([[round(x, 1), round(y, 1)] for x, y in p])
         self.lines.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="%s"%s/>' % (pts(p), colour_, fmt(width), (' stroke-dasharray="%s"' % (dash if isinstance(dash, str) else '6,4')) if dash else ''))
 
     def head(self, kind, T, u):
@@ -364,6 +368,7 @@ class Drawing:
 
     def reactions(self):
         for rx in self.model.iterfind('s:listOfReactions/s:reaction', NS):
+            self.cur = rx.get('id')
             try:
                 self.reaction(rx)
             except Exception as e:  # a reaction this drawing cannot place is left out, said on stderr
@@ -507,6 +512,7 @@ class Drawing:
         self.path([(G[0] + 6 * u0[0], G[1] + 6 * u0[1])] + seq[1:-1] + [stop], col, width, start_node=False)
         t = top[0].get('type')
         self.lines.append('<circle cx="%s" cy="%s" r="6" fill="#fff" stroke="#000"/>' % (fmt(G[0]), fmt(G[1])))
+        self.hit_reactions.setdefault(self.cur, {'lines': [], 'at': None})['at'] = [round(G[0], 1), round(G[1], 1)]
         self.lines.append('<text x="%s" y="%s" font-family="sans-serif" font-size="11" text-anchor="middle">%s</text>' % (fmt(G[0]), fmt(G[1] + 4), GATE.get(t.rsplit('_', 1)[1], '?')))
 
     def links_and_modifiers(self, x, P, Q, sq, fl, col, width, dash, typ=None):
@@ -591,6 +597,8 @@ class Drawing:
         if mark:  # Times bold 10, upright
             glyph += '<text x="%s" y="%s" font-family="\'Times New Roman\', serif" font-weight="bold" font-size="10" text-anchor="middle">%s</text>' % (fmt(sq[0]), fmt(sq[1] + 3), mark)
         self.lines.append(glyph)
+        if self.cur:
+            self.hit_reactions.setdefault(self.cur, {'lines': [], 'at': None})['at'] = [round(sq[0], 1), round(sq[1], 1)]
         self.lines.extend(squares)
 
     def svg(self):
@@ -629,6 +637,16 @@ def on_border(b, a):
 
 def render(path):
     return Drawing(path).svg()
+
+
+def render_hits(path):
+    # the drawing and where its parts are: aliases (id, species, class, box) and reactions (id, lines, square),
+    # for a viewer that opens what is clicked (the neuroinflammation site, 2026-11-03)
+    d = Drawing(path)
+    svg = d.svg()
+    aliases = [{'id': i, 'species': a[2].get('species'), 'class': a[0], 'box': [round(v, 1) for v in a[1]]}
+               for i, a in d.alias.items()]
+    return svg, {'aliases': aliases, 'reactions': d.hit_reactions}
 
 
 if __name__ == '__main__':
