@@ -31,8 +31,8 @@ The rules for single pages and folders are in `.claude/rules/`, each loaded when
 (its `paths`) is read or written: `drafts-and-publishing.md` (Draft maps, Official copies in the
 Atlas), `map-pages.md` (map page links, Home page, Contributors, Map image size), `site-style.md`
 (Style choices, Footer, Page width), `atlas.md` (Atlas map window, download row, panel),
-`atlas-tags.md`, `atlas-images.md`, `converter.md` (Converter page and buttons),
-`newt.md` (Newt copy), `layout-page.md`, `colours.md`, `cdviewer.md`, `map-drawing.md`,
+`atlas-tags.md`, `atlas-images.md`, `converter.md` (what is left of the Converter here: it moved to graph-converter.github.io on 2026-11-08),
+`newt.md` (moved with the Converter), `layout-page.md`, `colours.md`, `cdviewer.md`, `map-drawing.md`,
 `gallery.md` (Gallery cuts), `pattern-list.md` and `pattern-atlas.md` (the pattern pages, a third website under
 this roof, user 2026-10-30). The Eicosanoid Atlas was a fourth here (2026-10-31) and has its own site since 2026-11-01,
 https://eicosanoids.github.io, which copies the atlas page code (`_includes/atlas-app.html`): a change to it there too. A rule that applies across pages stays here. A new rule tied to one
