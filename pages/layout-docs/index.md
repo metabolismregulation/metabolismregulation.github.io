@@ -35,7 +35,7 @@ variables and arcs stay as the map holds them, and the check lists every change 
 
 ## Where it is used
 
-The maps of the [Metabolism Regulation Atlas](/atlas/) are laid out with it. The rules come from the curator's
+The maps of the Metabolism Regulation Atlas are laid out with it. The rules come from the curator's
 own edits: when a map comes back corrected in yEd, what applies to other maps becomes a rule.
 
 {% endraw %}

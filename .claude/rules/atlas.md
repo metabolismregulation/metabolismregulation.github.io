@@ -1,14 +1,14 @@
 ---
 paths:
-  - "pages/atlas.html"
   - "_includes/atlas-app.html"
-  - "pages/atlas-index.json"
   - "atlas-data/**"
   - "atlas-downloads/**"
   - "scripts/make_maps.py"
 ---
 
-The page code is `_includes/atlas-app.html`, shared with the Pattern Atlas (`pattern-atlas.md`).
+The page code is `_includes/atlas-app.html`, shared with the Pattern Atlas (`pattern-atlas.md`). The Atlas page
+itself (`/atlas/`) was removed from this site on 2026-11-08 (user, no redirect) and lives on the next version's site;
+these rules hold for the viewer wherever it runs.
 
 ## Atlas map window
 

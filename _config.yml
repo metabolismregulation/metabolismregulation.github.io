@@ -57,10 +57,10 @@ baseurl: ""
 collections:
   projects:
     output: true
-  # experimental /atlas/ page: one file per map in _maps/, published as
-  # /atlas/data/<name>/ (JSON) and read by the page when a map is chosen
+  # one file per map in _maps/: the Atlas entries, read by make_maps.py and copied to the next version's
+  # site, which shows the Atlas; not published here since the /atlas/ page was removed (user, 2026-11-08)
   maps:
-    output: true
+    output: false
     permalink: /atlas/data/:name/
   # the Pattern Atlas (/pattern-atlas/, user 2026-10-30): one file per example map in _pattern_maps/,
   # published as /pattern-atlas/data/<name>/ (JSON), read by the same page code as the Atlas

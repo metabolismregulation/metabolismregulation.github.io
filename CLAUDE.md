@@ -60,10 +60,12 @@ There are two websites in this repository (user, 2026-10-13):
 - The official site: the map pages, Maps, Gallery, and their files in
   `downloads/`. These files are functional and match the MINERVA view. Do not
   change them unless the user says so.
-- The Atlas (`/atlas/`, hidden: not in the site navigation), the future
-  website. It uses its own copy of every map file, `atlas-downloads/`. All new
+- The Atlas, the future website. Its page `/atlas/` (with `/atlas/tags/`) was removed from this site on
+  2026-11-08 (user, no redirect): it is shown on the hidden next version of the site (its own public
+  repository), built from the files kept here (`_maps/`, `atlas-data/`, `atlas-downloads/`, made by
+  `scripts/make_maps.py` and the Atlas data workflow), which the workbench copies there. It uses its own copy of every map file, `atlas-downloads/`. All new
   work on maps goes there: GraphML, SVG, PNG, annotation CSV, CellDesigner,
-  SBGN-ML (no SBML, see File pipeline). It is checked on the Atlas.
+  SBGN-ML (no SBML, see File pipeline). It is checked on the next version's Atlas.
 
 Files move from `atlas-downloads/` to `downloads/` only when the user says so.
 Fixed set for the paper (user, 2026-10-22): the official maps and their files are the set the paper is
