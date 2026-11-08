@@ -1,4 +1,4 @@
-  // Newt buttons, shared by /converter/ and /ysbgn-js/: an SBGN-ML file opened in our copy of Newt
+  // Newt buttons, on /converter/: an SBGN-ML file opened in our copy of Newt
   // (/newt/, iVis-at-Bilkent/newt built as is with one script of ours, open.js), as if dropped on it.
   // Newt opens a map only from a web address, which these files lack (user, 2026-10-20). Each button is a
   // link to /newt/?f=<key>#<file name>, so a click, a middle click and "Open link in new tab" all work

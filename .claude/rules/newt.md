@@ -8,7 +8,7 @@ paths:
 
 For the development stage only (user, 2026-10-21): the copy and the Open in Newt buttons will probably not stay, as the copy would need maintaining; useful while the converter is developed. `/newt/` (user, 2026-10-20): our copy of Newt (iVis-at-Bilkent/newt, LGPL-3.0), built as is with one
 script of ours, `newt/open.js` (the workbench's `tools/newt_open.js`, user 2026-10-21), so the Newt buttons of
-the Converter and ysbgn.js pages can open a converted SBGN-ML file without a web address. Each button is a
+the Converter page can open a converted SBGN-ML file without a web address. Each button is a
 link to `/newt/?f=<key>#<file name>` (`_includes/newt-open.js`), so a click, a middle click and right-click
 "Open link in new tab" all open the map (user, 2026-10-21: they open it by right-click to stay on the page):
 open.js asks the page for the file over a BroadcastChannel (inside the browser), the page answers while it

@@ -1,4 +1,4 @@
-  // the buttons' hover texts (user, 2026-10-21), shared by /converter/ and /ysbgn-js/: a button with
+  // the buttons' hover texts (user, 2026-10-21), on /converter/: a button with
   // only its main word says what its file holds, a button with more words says what each adds, one
   // line per word ("plain: ..."), then the file's name
   const HOVER_MAIN = {
@@ -21,8 +21,7 @@
   // format and variant as on the button ("SBGN-ML", "plain, straight"), the dropped file's name,
   // the file's name
   function hover(format, variant, input, name) {
-    // "straight line" on the ysbgn.js page, "straight" on the Converter (user, 2026-10-25)
-    const words = variant ? variant.split(', ').map(w => w === 'straight line' ? 'straight' : w) : [];
+    const words = variant ? variant.split(', ') : [];
     const from = /\.xml$/i.test(input) ? ' from CellDesigner' : /\.(sbgn|nwt)$/i.test(input) ? ' from SBGN-ML' : '';
     const main = HOVER_MAIN[format + from] || HOVER_MAIN[format];
     const lines = words.map(w => (HOVER_WORD[w] || '') +

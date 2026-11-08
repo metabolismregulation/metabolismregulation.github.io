@@ -11,7 +11,7 @@ Repositories (user, 2026-10-22): attach any `metabolismregulation` repository th
 Names (user, 2026-10-27): this repository is public and names no private repository, in files, pages, code
 comments or commit messages. These instructions say "the workbench" (the private repository of the maps: drafts,
 sources, build scripts, the handover), "the converter's repository" (the converter's source and its docs), "the
-JavaScript port's repository" (ysbgn.js, on hold) and "the layout skill", "the skill map-development" by their
+JavaScript port's repository" (ysbgn.js, kept as an example, off the site since 2026-11-08) and "the layout skill", "the skill map-development" by their
 skill names. A session that needs one and has not got it attached finds it with list_repos among the
 organisation's private repositories, or asks the user.
 
@@ -31,7 +31,7 @@ The rules for single pages and folders are in `.claude/rules/`, each loaded when
 (its `paths`) is read or written: `drafts-and-publishing.md` (Draft maps, Official copies in the
 Atlas), `map-pages.md` (map page links, Home page, Contributors, Map image size), `site-style.md`
 (Style choices, Footer, Page width), `atlas.md` (Atlas map window, download row, panel),
-`atlas-tags.md`, `atlas-images.md`, `converter.md` (Converter page and buttons), `ysbgn-js.md`,
+`atlas-tags.md`, `atlas-images.md`, `converter.md` (Converter page and buttons),
 `newt.md` (Newt copy), `layout-page.md`, `colours.md`, `cdviewer.md`, `map-drawing.md`,
 `gallery.md` (Gallery cuts), `pattern-list.md` and `pattern-atlas.md` (the pattern pages, a third website under
 this roof, user 2026-10-30). The Eicosanoid Atlas was a fourth here (2026-10-31) and has its own site since 2026-11-01,
@@ -89,8 +89,8 @@ touches them (so a file uploaded by hand needs no further step).
 ## Public copies of private code
 
 Copies of private code are public here, the user's choice: the Converter's `converter/mapconv/`
-(from the converter's private repository, run in the browser by Pyodide),
-`ysbgn-js/src/` (from the JavaScript port's private repository) and `yrender/` (from the workbench), each
+(from the converter's private repository, run in the browser by Pyodide)
+and `yrender/` (from the workbench), each
 with its commit in its `VERSION`. A copy takes the code only, never the CLAUDE.md of its repository.
 
 ## File pipeline

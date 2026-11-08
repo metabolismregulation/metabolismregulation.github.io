@@ -81,9 +81,7 @@ overlap them"). Useful while developing, questionable for a finished product. Pr
 shows only the kinds `problem` (with the red GraphML (marked) button) and `left out` (what the file
 lost, "clone marker: 8 left out"), in plain words. `changed`, `warning` and `summary` go behind a
 closed "Details" fold, kept for development and bug reports. The converter keeps saying every
-message (the reference files compare them); only the page filters by kind. ysbgn.js
-(the JavaScript port) already reports only problems and losses in its public API and
-command line (user, 2026-10-20).
+message (the reference files compare them); only the page filters by kind.
 
 ## GraphML icons to the layout skill's standard (from a layout session, 2026-10-22, not discussed yet)
 
