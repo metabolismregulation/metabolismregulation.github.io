@@ -1,16 +1,18 @@
 ---
 paths:
   - "pages/pattern-atlas.html"
-  - "pages/pattern-atlas-index.json"
-  - "_pattern_maps/**"
-  - "pattern-atlas-downloads/**"
   - "scripts/make_pattern_atlas.py"
-  - "atlas-data/pattern-*"
   - "pages/pattern-atlas-backup.html"
   - "pattern-atlas-backup/**"
 ---
 
 ## Pattern Atlas
+
+Moved (user, 2026-11-08): the Pattern Atlas and the Pattern List are their own site, https://regulation-patterns.github.io
+(page code public there, its maps and lists in a private data repository put in at build). Here are left: a pointer page at
+/pattern-atlas/ (`pages/pattern-atlas.html`), `scripts/make_pattern_atlas.py <folder>` (the click boxes and search,
+from this site's shared caches, run by the patterns' copy script on the data) and the frozen /pattern-atlas-backup/.
+What follows describes the Pattern Atlas wherever it runs.
 
 /pattern-atlas/ (user, 2026-10-30; hidden like the Atlas) shows example maps of the patterns of the Pattern List, one
 map per pattern and example, in the form of the Atlas: the list grouped by family of patterns (binding,

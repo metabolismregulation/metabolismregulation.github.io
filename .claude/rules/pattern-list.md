@@ -1,11 +1,13 @@
 ---
 paths:
   - "pages/pattern-list.md"
-  - "_data/pattern_list.csv"
-  - "_data/pattern_response_types.csv"
 ---
 
 ## Pattern List
+
+Moved (user, 2026-11-08) to https://regulation-patterns.github.io/pattern-list/ with the Pattern Atlas; here only a
+pointer page (`pages/pattern-list.md`), and the pattern top bar for /pattern-atlas-backup/. Its page text is edited
+there. What follows describes the pages wherever they run.
 
 /pattern-list/ (user, 2026-10-30; hidden: not in the navigation, no sitemap, noindex) is the list of recurring
 regulation patterns with their sources' examples: one table of patterns grouped by family (as the Pattern Atlas), one of response types, the sources. A list

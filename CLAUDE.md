@@ -34,7 +34,7 @@ Atlas), `map-pages.md` (map page links, Home page, Contributors, Map image size)
 `atlas-tags.md`, `atlas-images.md`, `converter.md` (what is left of the Converter here: it moved to map-converter.github.io on 2026-11-08),
 `newt.md` (moved with the Converter), `layout-page.md`, `colours.md`, `cdviewer.md`, `map-drawing.md`,
 `gallery.md` (Gallery cuts), `pattern-list.md` and `pattern-atlas.md` (the pattern pages, a third website under
-this roof, user 2026-10-30). The Eicosanoid Atlas was a fourth here (2026-10-31) and has its own site since 2026-11-01,
+this roof from 2026-10-30, their own site https://regulation-patterns.github.io since 2026-11-08: pointer pages here). The Eicosanoid Atlas was a fourth here (2026-10-31) and has its own site since 2026-11-01,
 https://eicosanoids.github.io, which copies the atlas page code (`_includes/atlas-app.html`): a change to it there too. A rule that applies across pages stays here. A new rule tied to one
 page goes into its file, and a new page or folder gets a file of its own. A section named in a rule
 ("see Newt copy") is the heading in one of these files. When a task starts from a request and no

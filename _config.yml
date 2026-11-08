@@ -62,11 +62,6 @@ collections:
   maps:
     output: false
     permalink: /atlas/data/:name/
-  # the Pattern Atlas (/pattern-atlas/, user 2026-10-30): one file per example map in _pattern_maps/,
-  # published as /pattern-atlas/data/<name>/ (JSON), read by the same page code as the Atlas
-  pattern_maps:
-    output: true
-    permalink: /pattern-atlas/data/:name/
 
 defaults:
   # draft map pages: public at their final URL for testing and for sharing by
@@ -94,11 +89,6 @@ defaults:
     values:
       icon: favicon-converter
       masthead: converter
-  - scope:
-      type: pattern_maps
-    values:
-      layout: map-data
-      sitemap: false
 
 #
 # !! You don't need to change any of the configuration flags below !!
