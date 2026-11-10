@@ -55,5 +55,9 @@ favicon-32.png, apple-touch-icon.png), linked by `_includes/meta.html`; every ot
 2026-10-31, "use 3 for website, let's see": the site's SBGN glyph icon, redrawn as SVG from its PowerPoint source
 `images/mr-logo.pptx`, in the slate #4a5d73 with open glyphs, the tile's corners well rounded, radius 30 of its 158 height, no process glyphs: the lines run through and meet, lines and outlines 4 (38 had 6; user, 2026-11-02: in tabs they stood out too much; "try 54 apply" after 53 with 5); version 54 of the favicon skill's record, after 11, 37, 38 and 53), also as the root `favicon.ico`. The old ico is kept in
 `images/favicon-previous/` for going back.
+The icon links end in `?v=` and `icon_version` from `_config.yml`, the code of the icon in `favicon-mreg` (user,
+2026-11-10: the Maps page still showed the slate icon after the sage mr63 was applied): a browser keeps a tab icon by
+its address and does not fetch it again when the file changes behind it. A new icon changes `icon_version` in the same
+commit. Since 2026-11-10 evening the icon is mr59 again (user: back to the slate, after 63).
 The Pattern List and the Pattern Atlas use `favicon-patterns` (user, 2026-10-30; set changed 2026-10-31): a
 loop ending in a bar at its left (negative feedback). The sets are made with the favicon skill.

@@ -18,6 +18,6 @@
     <meta property="twitter:title" content="{{ page.title }}" />
     {% endif %}
     {% assign icon = page.icon | default: 'favicon-mreg' %}
-    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/{{ icon }}/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/{{ icon }}/favicon-32.png">
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/{{ icon }}/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/{{ icon }}/favicon.svg?v={{ site.icon_version }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/{{ icon }}/favicon-32.png?v={{ site.icon_version }}">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/{{ icon }}/apple-touch-icon.png?v={{ site.icon_version }}">
