@@ -6,7 +6,7 @@ paths:
 ## Pattern List
 
 Moved (user, 2026-11-08) to https://regulation-patterns.github.io/pattern-list/ with the Pattern Atlas; here only a
-pointer page (`pages/pattern-list.md`), and the pattern top bar for /pattern-atlas-backup/. Its page text is edited
+pointer page (`pages/pattern-list.md`). Its page text is edited
 there. What follows describes the pages wherever they run.
 
 /pattern-list/ (user, 2026-10-30; hidden: not in the navigation, no sitemap, noindex) is the list of recurring
@@ -22,7 +22,7 @@ edited here.
 
 ## Top bar of the pattern pages
 
-The pattern pages (Pattern List, Pattern Atlas, its backup) have their own top bar (user, 2026-10-30): no logo (the
+The pattern pages (Pattern List, Pattern Atlas) had their own top bar (user, 2026-10-30): no logo (the
 title is enough, user), "Regulation Patterns", "Recurring patterns in cell signalling and metabolic regulation", a
 menu of Pattern Atlas then Pattern List (the Atlas on the left, user), and the same name in the tab title. A page gets it by `masthead: patterns` in its front matter;
 `_layouts/default.html` reads the name, description and menu from `_data/mastheads.yml` (since 2026-11-01), and every other page keeps the site's top bar. A change to the

@@ -2,8 +2,6 @@
 paths:
   - "pages/pattern-atlas.html"
   - "scripts/make_pattern_atlas.py"
-  - "pages/pattern-atlas-backup.html"
-  - "pattern-atlas-backup/**"
 ---
 
 ## Pattern Atlas
@@ -11,7 +9,8 @@ paths:
 Moved (user, 2026-11-08): the Pattern Atlas and the Pattern List are their own site, https://regulation-patterns.github.io
 (page code public there, its maps and lists in a private data repository put in at build). Here are left: a pointer page at
 /pattern-atlas/ (`pages/pattern-atlas.html`), `scripts/make_pattern_atlas.py <folder>` (the click boxes and search,
-from this site's shared caches, run by the patterns' copy script on the data) and the frozen /pattern-atlas-backup/.
+from this site's shared caches, run by the patterns' copy script on the data). The frozen /pattern-atlas-backup/ (the version of 2026-10-30, twelve
+maps) was removed on 2026-11-11 (user, reorganisation); it is in this repository's history.
 What follows describes the Pattern Atlas wherever it runs.
 
 /pattern-atlas/ (user, 2026-10-30; hidden like the Atlas) shows example maps of the patterns of the Pattern List, one
@@ -50,7 +49,3 @@ Colours (user, 2026-10-30, "red is distracting"): macromolecules blue, simple ch
 the pattern maps carry no pink for modified enzymes and no yellow for drugs, unlike the MRegAtlas. Reversible steps
 with two antennas, the partners on one side and the product on the other (the layout skill).
 
-/pattern-atlas-backup/ (hidden) keeps the earlier version of 2026-10-30, twelve maps, most of them whole or cut
-MRegAtlas maps showing a pattern, for the user to look at again: our own maps as examples of the patterns, maybe
-trimmed later. It is frozen: its own files in `pattern-atlas-backup/` (index, entry texts, images, GraphML, click
-data, search), read by the same page code. Nothing writes to it.
