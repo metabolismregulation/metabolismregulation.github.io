@@ -9,7 +9,6 @@ paths:
   - "pages/converter*.html"
   - "pages/gallery.md"
   - "_projects/**"
-  - "draftpages/**"
 ---
 
 ## Style choices

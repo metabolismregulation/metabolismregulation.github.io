@@ -1,7 +1,6 @@
 ---
 paths:
   - "_projects/**"
-  - "draftpages/**"
   - "index.html"
   - "_data/contributors.yml"
   - "_includes/contributors.html"

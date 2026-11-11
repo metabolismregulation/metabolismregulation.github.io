@@ -4,7 +4,6 @@ paths:
   - "pages/atlas-tags.html"
   - "_includes/atlas-tags.css"
   - "scripts/make_maps.py"
-  - "draftpages/**"
 ---
 
 # Atlas list tags

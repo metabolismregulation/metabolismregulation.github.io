@@ -60,14 +60,15 @@ There are two websites in this repository (user, 2026-10-13):
 - The official site: the map pages, Maps, Gallery, and their files in
   `downloads/`. These files are functional and match the MINERVA view. Do not
   change them unless the user says so.
-- The Atlas, the future website. Its page `/atlas/` (with `/atlas/tags/`) was removed from this site on
-  2026-11-08 (user, no redirect): it is shown on the hidden next version of the site (its own public
-  repository), built from the files kept here (`_maps/`, `atlas-data/`, `atlas-downloads/`, made by
-  `scripts/make_maps.py` and the Atlas data workflow), which the workbench copies there. It uses its own copy of every map file, `atlas-downloads/`. All new
-  work on maps goes there: GraphML, SVG, PNG, annotation CSV, CellDesigner,
-  SBGN-ML (no SBML, see File pipeline). It is checked on the next version's Atlas.
+- The Atlas, the future website: shown on the hidden next version of the site (its own public repository) and built
+  in the workbench since 2026-11-11 (user: the next site does not depend on this one), with its own page texts, map
+  files and draft maps. This site has no draft pages any more (`draftpages/` removed, 2026-11-11). Atlas work never
+  happens here. Left here until moved or removed, on the user's word (they no longer feed the Atlas): `_maps/` (read by
+  `scripts/make_cdviewer.py` for the CD viewer's names), `atlas-data/` (its caches used by the pattern pages' script),
+  `atlas-downloads/` (the hidden /converter/sbgn/ test page), and the Atlas steps of `scripts/make_maps.py` and its
+  workflow.
 
-Files move from `atlas-downloads/` to `downloads/` only when the user says so.
+Atlas files come to `downloads/` only when the user says so.
 Fixed set for the paper (user, 2026-10-22): the official maps and their files are the set the paper is
 published with. They are changed only for a good reason (an error in the biology, a broken file), not to
 bring Atlas improvements (sizes, layout, converter output) over: those stay on the Atlas.
