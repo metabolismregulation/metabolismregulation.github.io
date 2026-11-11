@@ -3,7 +3,7 @@
 # workflow runs both). Needs: lxml, cairosvg, numpy, pillow.
 # For every map in atlas-downloads/ (a GraphML with an SVG or PNG there, or named by a page),
 # atlas-data/images.json keeps the GraphML and SVG as last seen. When a GraphML changes on its
-# own, yrender/ (a copy of the workbench's tools/yrender.py, commit in VERSION) draws
+# own, yrender/ (a copy of viewer-source.github.io's renderer, commit in VERSION) draws
 # its SVG, and for a published map its PNG; a draft carries no PNG, so a draft's old PNG is
 # removed. When the SVG changes too, or alone, it is a yEd export: it is kept, and how the
 # drawn version compares with it is written to the record ("check") and printed.

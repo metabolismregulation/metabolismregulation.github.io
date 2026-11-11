@@ -1,6 +1,9 @@
+# Copy of viewer-source/viewer-source.github.io renderers/yrender/yrender.py at fa74787; edit the master, not this copy.
 # Draw a yEd GraphML map (SBGN palette) as yEd exports it: SVG at 1:1 with a 15 px margin,
 # PNG at 2:1 with an 8 px margin.
 #   python3 tools/yrender.py map.graphml map.svg [map.png] [--roles]
+# Master (since 2026-11-11): this file, in viewer-source/viewer-source.github.io. Copies elsewhere start with a line
+# naming the commit they were taken from and are never edited; a change is made here and checked on the demo.
 # The vocabulary is closed: a node type, style, shape, arrow or option not listed below stops
 # the script with a list of what it cannot draw, and nothing is written.
 # Rules read from yEd's own exports of the website maps (2026-10-17):
@@ -14,6 +17,9 @@
 #  - edges: from port to port through the bends, cut at the node outlines; soft bends are
 #    quadratic curves cutting 10 px (at most half a segment) on each side of the bend
 #  - arrows: tip on the outline; the line stops where the arrow head covers it
+#  - PerturbingAgent: the Phenotype's hexagon turned inside out, its points indented h/4 (2026-11-11, the SBGN
+#    learner's card); white_diamond (modulation) 16 long and 12 wide like white_delta; a QuadCurveEdge drawn as a
+#    polyline with soft bends (yEd's spline is close to that at the card's straightness 0.1)
 #  - UnspecifiedEntity drawn as an ellipse, dashed lines as dashes 6 and gaps 2 times the line width
 #    (2026-10-27; checked against a yEd export: same shapes)
 #  - edge labels: placed from the edge's first point (anchor and up vector when rotated,
@@ -34,10 +40,10 @@ MARGIN = 15
 SBGN = 'com.yworks.sbgn.'
 NODE_STYLES = {'Macromolecule', 'SimpleChemical', 'Complex', 'Process', 'EmptySet', 'Operator',
                'Phenotype', 'Submap', 'NucleicAcidFeature', 'StateVariable', 'UnitOfInformation',
-               'UnspecifiedEntity'}
+               'UnspecifiedEntity', 'PerturbingAgent'}
 SHAPES = {'rectangle', 'roundrectangle'}
 STYLE_PROPS = {'radius', 'radiusX', 'radiusY', 'mcount'}
-ARROWS = {'none', 'delta', 'white_delta', 'white_circle', 'white_delta_bar', 't_shape'}
+ARROWS = {'none', 'delta', 'white_delta', 'white_circle', 'white_delta_bar', 't_shape', 'white_diamond'}
 FONTS = {  # ascent and line height / font size as yEd measured them; fallbacks for systems without the font
     'Dialog': (0.9668, 1.1777, "'Dialog', Arial, Helvetica, sans-serif"),
     'Arial': (0.905, 1.1172, "Arial, Helvetica, sans-serif"),
@@ -152,9 +158,12 @@ def nucleic(x, y, w, h, r):
             ('L', x + r, y + h), ('Q', x, y + h, x, y + h - r), ('Z',)]
 
 
-def hexagon(x, y, w, h):
+def hexagon(x, y, w, h, inward=False):
     i = h / 4
-    pts = [(x + i, y), (x + w - i, y), (x + w, y + h / 2), (x + w - i, y + h), (x + i, y + h), (x, y + h / 2)]
+    if inward:  # perturbing agent: the points go into the box
+        pts = [(x, y), (x + w, y), (x + w - i, y + h / 2), (x + w, y + h), (x, y + h), (x + i, y + h / 2)]
+    else:
+        pts = [(x + i, y), (x + w - i, y), (x + w, y + h / 2), (x + w - i, y + h), (x + i, y + h), (x, y + h / 2)]
     return [('M',) + pts[0]] + [('L',) + p for p in pts[1:]] + [('Z',)]
 
 
@@ -230,6 +239,7 @@ def outline(kind, x, y, w, h, props):
     if kind in ('EmptySet', 'Operator'): return ellipse(x, y, w, h)
     if kind == 'UnspecifiedEntity': return oval(x, y, w, h)
     if kind == 'Phenotype': return hexagon(x, y, w, h)
+    if kind == 'PerturbingAgent': return hexagon(x, y, w, h, inward=True)
     if kind == 'roundrectangle': return round_rect(x, y, w, h, 4, quad=False)
     return rect(x, y, w, h)  # Process, Submap, UnitOfInformation, rectangle
 
@@ -467,7 +477,7 @@ class Map:
         for dd in e.findall(G + 'data'):
             for c in dd:
                 if isinstance(c.tag, str) and c.tag.startswith(Y):
-                    if c.tag == Y + 'PolyLineEdge':
+                    if c.tag in (Y + 'PolyLineEdge', Y + 'QuadCurveEdge'):
                         pl = c
                     else:
                         refuse(where, f'unknown edge type {c.tag[len(Y):]}')
@@ -499,7 +509,7 @@ class Map:
             L = math.dist(pts[i], pts[j])
             if L > 0:
                 line[i] = (tx + (px - tx) * cut / L, ty + (py - ty) * cut / L)
-        smooth = pl.find(Y + 'BendStyle') is not None and pl.find(Y + 'BendStyle').get('smoothed') == 'true'
+        smooth = pl.tag == Y + 'QuadCurveEdge' or pl.find(Y + 'BendStyle') is not None and pl.find(Y + 'BendStyle').get('smoothed') == 'true'
         dd = f'M{num(line[0][0])} {num(line[0][1])}'
         for i in range(1, len(pts) - 1):
             b = pts[i]
@@ -588,6 +598,8 @@ def arrow(kind, tip, prev, col, width):
     if kind == 'white_circle':
         cx, cy = at(4, 0)
         return f'<circle cx="{num(cx)}" cy="{num(cy)}" r="4"{white()}{ink("stroke", col)}/>', 8
+    if kind == 'white_diamond':
+        return poly([tip, at(8, 6), at(16, 0), at(8, -6)], 'white'), 15
     if kind == 'white_delta_bar':
         return poly([tip, at(16, 6), at(16, -6)], 'white') + bar(21, 8), 21
     return bar(0, 5), 0  # t_shape

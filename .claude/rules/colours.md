@@ -31,6 +31,6 @@ The yEd download is the template of that GraphML (`yrender/colours_templates.py`
 download is made on click (the dropped CellDesigner file, else the converter's CellDesigner file) and templated. A map
 yrender cannot draw (an unknown shape or style) gets the reason in red in the map window. Glycogen liver about 3 s at the
 first drop (mostly loading Python), then under half a second; a 25 times larger test map about 7 s. Hidden: no text on the page
-says it (user, 2026-10-22, the line under the buttons removed). The converter files both pages load are listed once, `_includes/mapconv.js`. `yrender/` holds the
-workbench copies of `yrender.py`, `yrender_check.py` and `colours_templates.py`, commit in `VERSION`; after a change
-there, copy them and update `VERSION`.
+says it (user, 2026-10-22, the line under the buttons removed). The converter files both pages load are listed once, `_includes/mapconv.js`. `yrender/` holds copies: `yrender.py` from
+viewer-source.github.io (its master since 2026-11-11, changed only there), `yrender_check.py` and `colours_templates.py`
+from the workbench; commits in `VERSION`, copied again with `VERSION` updated after a change there.
