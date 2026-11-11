@@ -263,7 +263,7 @@ def annotation(base, folder=DL):
     if not custom and 'References' not in keys.values():
         return None
     # the yEd SVG export draws everything under matrix(1,0,0,1,tx,ty), the drawn one
-    # (scripts/make_images.py) under translate(tx,ty): svg = yEd + (tx, ty)
+    # (by yrender) under translate(tx,ty): svg = yEd + (tx, ty)
     c = collections.Counter(re.findall(r'(?:matrix\(1,0,0,1,|translate\()(-?[\d.]+),(-?[\d.]+)\)', open(svg, encoding='utf-8').read()))
     tx, ty = (float(v) for v in c.most_common(1)[0][0])
     nodes = []

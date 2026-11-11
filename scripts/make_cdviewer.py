@@ -3,7 +3,7 @@
 # conversion service as SVG, the drawing of the MINERVA view, into cdviewer/<base>.svg, and the
 # list cdviewer/maps.json (name, group, page, file, sha1, error). A file whose sha1 is unchanged
 # is not sent again (--all sends every file). A file MINERVA cannot draw keeps no image: its
-# entry carries MINERVA's reason, shown in the map window. Run by the Atlas data workflow.
+# entry carries MINERVA's reason, shown in the map window. Run by the Map checks workflow.
 # The CellDesigner view (the viewer's MINERVA / CellDesigner switch, user 2026-10-22): every file
 # drawn as CellDesigner draws it by converter/cdrender.py into cdviewer/drawn/<base>.svg, entry
 # "drawn". Its reference, the user's SVG exports from CellDesigner (File, Export Image, SVG), are
