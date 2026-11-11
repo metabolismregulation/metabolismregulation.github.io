@@ -33,5 +33,5 @@ said under the map. The SVGs are made by
 `python3 scripts/make_cdviewer.py` (MINERVA's conversion service, CellDesigner to SVG, Java's Dialog font
 given Arial's metrics) into `cdviewer/<base>.svg`, listed in `cdviewer/maps.json` with each file's sha1, so
 only a changed file is sent again (`--all` sends all); a file MINERVA cannot draw shows MINERVA's reason in
-red in the map window and in the list. The Atlas data workflow runs it on every push that touches
+red in the map window and in the list. The Map checks workflow runs it on every push that touches
 `downloads/` or a map page.

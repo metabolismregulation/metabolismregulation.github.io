@@ -41,24 +41,6 @@ def official():
     return out
 
 
-def atlas_names():
-    """base -> (name, group, order) from the Atlas list entries (_maps/, made by make_maps.py);
-    a map with a tab (glycogen muscle and liver) is named with it."""
-    names = {}
-    for f in sorted(os.listdir(os.path.join(ROOT, '_maps'))):
-        if f.endswith('-copy.md'):
-            continue
-        head, _ = front(os.path.join(ROOT, '_maps', f))
-        img = re.search(r'^image: "/atlas-downloads/([^"/]+)\.(svg|png)"', head, re.M)
-        if not img:
-            continue
-        get = lambda k: (re.search(r'^%s: "?(.*?)"?$' % k, head, re.M) or [None, ''])[1]
-        tab = get('tab')
-        name = get('topic') + (' (%s)' % tab if tab and tab != 'generic' else '')
-        names[img.group(1)] = (name, get('group'), float(get('order') or 99))
-    return names
-
-
 def draw(xml):
     req = urllib.request.Request(URL, data=xml, headers={'Content-Type': 'text/plain'}, method='POST')
     try:
@@ -116,7 +98,9 @@ def main():
     os.makedirs(DRAWN, exist_ok=True)
     listing = os.path.join(OUT, 'maps.json')
     old = {m['base']: m for m in json.load(open(listing))} if os.path.exists(listing) else {}
-    names = atlas_names()
+    # each map's name, group and place in the list as the list already has them (taken from the Atlas list until
+    # 2026-11-11); a map new to the list is named after its page and goes last
+    names = {m['base']: (m['name'], m['group'], i) for i, m in enumerate(old.values())}
     maps = []
     listed = official()
     cds = exports({b for b, _ in listed})
@@ -160,7 +144,7 @@ def main():
             entry['cd'] = {'svg': svg_sha, 'sha1': was['sha1'] if was and was['svg'] == svg_sha else sha,
                            'width': float(vb.group(1)), 'height': float(vb.group(2))}
         maps.append(entry)
-    maps.sort(key=lambda m: m.pop('order'))  # the Atlas's order
+    maps.sort(key=lambda m: m.pop('order'))  # the list's order
     for d in (OUT, DRAWN):
         for f in os.listdir(d):
             if f.endswith('.svg') and f[:-4] not in {m['base'] for m in maps}:

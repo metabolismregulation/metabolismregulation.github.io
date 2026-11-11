@@ -2,7 +2,6 @@
 paths:
   - "_projects/**"
   - "downloads/**"
-  - "atlas-downloads/**"
   - "scripts/make_maps.py"
 ---
 
@@ -35,4 +34,4 @@ layout) and SBML and SBGN-ML are made from it by MINERVA's conversion service (t
 ## Official copies in the Atlas
 
 Kept with the Atlas in the workbench since 2026-11-11 (frozen copies of official files shown beside a draft there).
-`atlas-downloads/copy/` here and `--copy-official`, `--check-official` of `make_maps.py` no longer feed anything.
+`atlas-downloads/` (with `copy/`), `--copy-official` and `--check-official` were removed here on 2026-11-11 (user).

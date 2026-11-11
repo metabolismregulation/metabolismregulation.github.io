@@ -61,11 +61,6 @@ baseurl: ""
 collections:
   projects:
     output: true
-  # one file per map in _maps/: the Atlas entries, read by make_maps.py and copied to the next version's
-  # site, which shows the Atlas; not published here since the /atlas/ page was removed (user, 2026-11-08)
-  maps:
-    output: false
-    permalink: /atlas/data/:name/
 
 defaults:
   # our copy of Newt, opened from the Converter page (static files, noindex in its index.html)
@@ -117,6 +112,7 @@ plugins:
 # Exclude these files from your production _site
 exclude:
   - scripts
+  - cache
   - Gemfile
   - Gemfile.lock
   - LICENSE

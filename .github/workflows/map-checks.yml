@@ -1,0 +1,33 @@
+# Whenever official map files or pages change on master: scripts/make_maps.py checks every official page for the
+# complete set of files (a missing one is a warning on the run's page), then scripts/make_cdviewer.py has MINERVA draw
+# every changed official CellDesigner file for the CD viewer (/cdviewer/), draws each as CellDesigner does
+# (converter/cdrender.py) and readies the CellDesigner exports uploaded to cdviewer/celldesigner/; a failure there does
+# not stop the run. Commits only if something changed; a commit made with GITHUB_TOKEN does not start this workflow
+# again. (Until 2026-11-11 the "Atlas data" workflow, which also built the Atlas here.)
+name: Map checks
+on:
+  push:
+    branches: [master]
+    paths: ['downloads/**', '_projects/**', 'scripts/make_maps.py', 'scripts/make_cdviewer.py', 'converter/cdrender.py', 'cdviewer/celldesigner/**', 'pages/maps.html']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: map-checks
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install lxml
+      - run: python3 scripts/make_maps.py
+      - run: python3 scripts/make_cdviewer.py
+        continue-on-error: true
+      - run: |
+          git add -A cdviewer
+          git diff --cached --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898283+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'CD viewer rebuilt after upload'
+          git pull --rebase origin master && git push origin HEAD:master

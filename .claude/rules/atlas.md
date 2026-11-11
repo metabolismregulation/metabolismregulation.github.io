@@ -1,8 +1,7 @@
 ---
 paths:
   - "_includes/atlas-app.html"
-  - "atlas-data/**"
-  - "atlas-downloads/**"
+  - "cache/**"
   - "scripts/make_maps.py"
 ---
 
@@ -33,7 +32,7 @@ UniProt full name, "**PLA2G4A**, cytosolic phospholipase A2", also where the tit
 "Phosphorylated at Ser505", ordered by position (node property PTM, see Map drawing), each followed by
 UniProt's enzyme for that site where UniProt names one with experimental evidence (ECO:0000269):
 "Phosphorylated at Ser312, by IKKB, MAPK8 and RPS6KB1" (`scripts/make_maps.py`, kept in
-`atlas-data/uniprot.json`), no link of its own (the UNIPROT link under Annotations is there,
+`cache/uniprot.json`), no link of its own (the UNIPROT link under Annotations is there,
 user 2026-10-18). Only the drawn sites: the rest of UniProt's sites and its PTM text stay at UniProt,
 not in the GraphML (user, 2026-10-18). Then Alternative names (or
 Synonyms) and Location as text. Formula and Function (or Definition) under their name, no colon,
@@ -47,15 +46,15 @@ link "HGNC SYMBOL: PLA2G4A" (no dot), and no HGNC ID link then (same page).
 Where the panel's text comes from (user, 2026-10-18): the map file keeps the identifiers (UniProt,
 HGNC, HGNC symbol, ChEBI) and what is curated (PTM, Family, Members). Names, function, location,
 formula and cross-references are fetched from UniProt, HGNC and ChEBI by `scripts/make_maps.py`,
-once per identifier, and kept in `atlas-data/uniprot.json`, `hgnc.json`, `chebi.json` (one entry per
+once per identifier, and kept in `cache/uniprot.json`, `hgnc.json`, `chebi.json` (in `atlas-data/` until 2026-11-11) (one entry per
 identifier, shared by all maps, the site enzymes in `uniprot.json`). They are not fetched again on
-their own: the Atlas data workflow run by hand with "refresh" ticked fetches them all again. No
+their own: a build that imports `scripts/make_maps.py`, run with `--refresh`, fetches them all again. No
 scheduled update for now (a monthly one later, on the user's request). Visitors' browsers read only
 these files, never UniProt. An identifier that no longer resolves (merged, split, deleted,
 withdrawn, moved to another ID, or an HGNC symbol HGNC no longer approves) keeps its old entry,
 marked "stale" with the reason, and every run of `make_maps.py` warns (on the workflow's run page
 too), naming the maps, until the map is fixed (2026-10-18). A fetched value that is wrong or
-unsuited to the panel is corrected in `atlas-data/overrides.json`, by hand, which beats the cache
+unsuited to the panel is corrected in `cache/overrides.json`, by hand, which beats the cache
 and survives a refresh (format in `make_maps.py`). A node with no database entry (a phenotype, a
 generic class, a drug ChEBI lacks) gets a ChEBI class or a GO term where one fits, otherwise no
 annotation and a plain label, not clickable (2026-10-18). GO is left out for now (user,
@@ -72,7 +71,7 @@ A process glyph with references (node property References, `pubmed:<PMID>` separ
 is clickable too (its box widened to 24 px around the glyph): the panel's title is its kind ("Process"), then
 the reaction in one line ("PGE2 + PTGER4 → PGE2:PTGER4"), its modifiers, where a build gives them the lines Site and Cells (node properties Site and Cells: where in the cell the step happens and which cells carry it, user 2026-11-02, first used by the Eicosanoid Atlas), and References: one line per
 reference, first author, year, title and journal from PubMed, then its link "PUBMED: 32441256" (a DOI only as its
-link). The citations are fetched once per PMID by `scripts/make_maps.py` and kept in `atlas-data/pubmed.json`, as
+link). The citations are fetched once per PMID by `scripts/make_maps.py` and kept in `cache/pubmed.json`, as
 the other sources. Where a map's curation gives them (a build adds `role` and `note` to a reference), each
 reference starts with its role in a small framed word (the disease, "OA", in red; "Step", the step itself, in blue)
 and ends with a grey line on what it shows (user, 2026-10-27). A process without references is not clickable. Processes are not in the search.

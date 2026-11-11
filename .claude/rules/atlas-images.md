@@ -1,13 +1,12 @@
 ---
 paths:
-  - "scripts/make_images.py"
   - "yrender/**"
-  - "atlas-data/images.json"
-  - "atlas-downloads/**"
-  - ".github/workflows/atlas-data.yml"
 ---
 
 ## Atlas images
+
+Moved (2026-11-11): the Atlas images are made in the workbench's Atlas build; `scripts/make_images.py`,
+`atlas-data/` and `atlas-downloads/` were removed here (user). What follows describes it wherever it runs.
 
 The Atlas map images are made from the GraphML (user, 2026-10-17); the official pages keep the
 user's yEd exports in `downloads/`. The Atlas data workflow runs `scripts/make_images.py`

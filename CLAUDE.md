@@ -63,10 +63,10 @@ There are two websites in this repository (user, 2026-10-13):
 - The Atlas, the future website: shown on the hidden next version of the site (its own public repository) and built
   in the workbench since 2026-11-11 (user: the next site does not depend on this one), with its own page texts, map
   files and draft maps. This site has no draft pages any more (`draftpages/` removed, 2026-11-11). Atlas work never
-  happens here. Left here until moved or removed, on the user's word (they no longer feed the Atlas): `_maps/` (read by
-  `scripts/make_cdviewer.py` for the CD viewer's names), `atlas-data/` (its caches used by the pattern pages' script),
-  `atlas-downloads/` (the hidden /converter/sbgn/ test page), and the Atlas steps of `scripts/make_maps.py` and its
-  workflow.
+  happens here. Its old folders here (`_maps/`, `atlas-data/`, `atlas-downloads/`), `scripts/make_images.py` and the
+  Atlas steps of `scripts/make_maps.py` were removed on 2026-11-11 (user; in this repository's history): the CD viewer
+  takes its names from its own list, the identifier caches moved to `cache/` (used by the builds that import
+  `scripts/make_maps.py`: the pattern pages' script and the other atlas sites).
 
 Atlas files come to `downloads/` only when the user says so.
 Fixed set for the paper (user, 2026-10-22): the official maps and their files are the set the paper is
@@ -79,14 +79,12 @@ Clean separation, no shared files (user, 2026-10-16): the Atlas is the sandbox a
 all the time; the official site is stable for its viewers. So each keeps its own copy of
 every file, even when the two copies are identical (no saving by keeping one file in one
 place). An official page (`_projects/`, Maps, Gallery) links and shows only `/downloads/`;
-a draft page and the Atlas only `/atlas-downloads/`. A file for an official map (e.g. a
-CellDesigner file for the user's check) goes into `downloads/` and is linked from there;
-the Atlas gets its own copy only if it matches the Atlas version of the map. Removing or
-replacing a file in one folder never touches the other. `scripts/make_maps.py` warns when
-a page links the other folder and leaves out of the Atlas any file missing in
-`atlas-downloads/`.
-Run `scripts/make_maps.py` after changing either folder or a map page. The GitHub
-Action `.github/workflows/atlas-data.yml` also runs it on every push to master that
+the Atlas keeps its own copies in the workbench. A file for an official map (e.g. a
+CellDesigner file for the user's check) goes into `downloads/` and is linked from there.
+Removing or replacing a file in one place never touches the other. `scripts/make_maps.py` warns when
+an official page lacks a file of the set or links `/atlas-downloads/`.
+Run `scripts/make_maps.py` after changing `downloads/` or a map page. The GitHub
+Action `.github/workflows/map-checks.yml` also runs it, and the CD viewer's script, on every push to master that
 touches them (so a file uploaded by hand needs no further step).
 
 ## Public copies of private code
@@ -114,17 +112,17 @@ Official site (`downloads/`), when a map is published:
 | Annotation CSV | `python3 scripts/make_maps.py --official-csv <base> "<pathway>"` |
 | MINERVA project | the user uploads the CellDesigner file |
 
-Atlas (`atlas-downloads/`):
+Atlas (the workbench's `atlas/atlas-downloads/`, since 2026-11-11):
 
 | File | Made by |
 |---|---|
 | GraphML | the working version (workbench build or the user's upload) |
-| SVG | the user's yEd export when uploaded, else drawn from the GraphML by the workflow (Atlas images) |
-| PNG | drawn by the workflow for a published map; a draft has none |
+| SVG | the user's yEd export when uploaded, else drawn from the GraphML by the workbench's Atlas build |
+| PNG | drawn by that build for a published map; a draft has none |
 | CellDesigner | our converter, advanced layout (as above) |
 | SBGN-ML | our converter, advanced layout, for Newt: `python3 -m mapconv <map.graphml> <map.sbgn> --layout advanced --newt` (the default is straight since 2026-10-18; `--newt` since 2026-10-21, as the Atlas's SBGN-ML and Newt buttons share the file) |
 | SBML | none: our converter writes no SBML (user, 2026-10-18). An official copy keeps its SBML |
-| Annotation CSV | rebuilt from the GraphML by `make_maps.py` on every run |
+| Annotation CSV | rebuilt from the GraphML by the workbench's Atlas build on every run |
 
 A draft carries only GraphML and SVG (Draft maps). Nothing about how a file was made goes into the
 map files themselves (user, 2026-10-18). The record is in the workbench's `notes/published-files.csv`,

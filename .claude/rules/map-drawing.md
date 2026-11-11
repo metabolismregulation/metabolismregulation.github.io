@@ -2,7 +2,6 @@
 paths:
   - "**/*.graphml"
   - "**/*.sbgn"
-  - "atlas-downloads/**/*.xml"
   - "downloads/**/*.xml"
 ---
 

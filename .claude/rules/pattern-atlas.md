@@ -26,8 +26,8 @@ change to the Pattern Atlas too.
 Files, kept apart from the Atlas's: maps in `pattern-atlas-downloads/` (GraphML and the SVG drawn by yrender),
 entries in the collection `_pattern_maps/` (front matter as `_maps/`, published as /pattern-atlas/data/<name>/),
 click boxes `atlas-data/pattern-<map>.json` and search `atlas-data/pattern-search.json`, made by
-`scripts/make_pattern_atlas.py` from the shared caches (uniprot, hgnc, chebi, pubmed), which the Atlas data
-workflow refreshes. The maps, entries and texts are copies: they are built and kept in a private repository, whose
+`scripts/make_pattern_atlas.py` from this site's identifier caches in `cache/` (uniprot, hgnc, chebi, pubmed; in `atlas-data/` until 2026-11-11),
+which keep identifiers new to them. The maps, entries and texts are copies: they are built and kept in a private repository, whose
 copy script writes them here and runs `make_pattern_atlas.py`. Change them there, never here.
 
 Example maps come from published MRegAtlas maps, whole or cut (the user's layouts kept; never from maps
