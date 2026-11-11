@@ -1,3 +1,4 @@
+# Copy of viewer-source/viewer-source.github.io renderers/converter/cdrender.py at 17c5468; edit the master, not this copy.
 # A CellDesigner file drawn as CellDesigner draws it (user, 2026-10-22): the CD viewer's
 # CellDesigner view. The rules are read off the user's SVG exports from CellDesigner
 # (cdviewer/celldesigner/: iNOS, eNOS, ACLY, mevalonate, SREBP, estrogen), the geometry of lines
@@ -17,7 +18,7 @@ FONT = "'Dialog', 'Liberation Sans', Arial, sans-serif"
 SYMBOL = {'phosphorylated': 'P', 'acetylated': 'Ac', 'ubiquitinated': 'Ub', 'methylated': 'Me',
           'hydroxylated': 'OH', 'glycosylated': 'G', 'myristoylated': 'My', 'palmytoylated': 'Pa',
           'prenylated': 'Pr', 'sulfated': 'S', 'protonated': 'H', "don't care": '*', 'unknown': '?', 'empty': ''}
-GATE = {'AND': '&amp;', 'OR': '|', 'NOT': '!'}
+GATE = {'AND': '&amp;', 'OR': '|', 'NOT': '!', 'UNKNOWN': '?'}
 ROUND = ('SIMPLE_MOLECULE', 'ION', 'DRUG', 'UNKNOWN', 'DEGRADED')
 
 
@@ -84,6 +85,8 @@ def outline(cls, b):
         return hexagon(*b)
     if cls == 'RNA':
         return parallelogram(x, y, w, h, h)
+    if cls == 'RECEPTOR':  # CellDesigner's receptor: notched at the top, pointed at the bottom
+        return [(x, y), (x + w / 2, y + h / 5), (x + w, y), (x + w, y + h * 4 / 5), (x + w / 2, y + h), (x, y + h * 4 / 5)]
     return [(x, y), (x + w, y), (x + w, y + h), (x, y + h)]
 
 
@@ -204,7 +207,8 @@ class Drawing:
         if sl is not None and sl.get('width') and float(sl.get('width')) != 1:
             dash += ' stroke-width="%s"' % fmt(float(sl.get('width')))
         act = f(a, 'cd:activity')
-        if act is not None and act.text == 'active':  # active: a dashed outline 4 outside the shape (CellDesigner's PDF)
+        self.open_ = cls == 'ION_CHANNEL' and act is not None and act.text == 'active'  # an active ion channel is drawn open
+        if act is not None and act.text == 'active' and not self.open_:  # active: a dashed outline 4 outside the shape (CellDesigner's PDF)
             self.shape(cls, (x - 4, y - 4, w + 8, h + 8), 'none', 1.0, ' stroke-dasharray="4,2"')
         s = 6 * (n - 1)
         fw, fh = w - s, h - s
@@ -216,8 +220,9 @@ class Drawing:
         if cls != 'COMPLEX':
             lines = self.name_lines(name) if cls != 'DEGRADED' else []
             cy = y + fh / 2 - z * 7 / 12 * (len(lines) - 1)
+            mid = x + (fw - 20) / 2 if cls == 'ION_CHANNEL' else x + fw / 2  # an ion channel's name on its body, not its gate
             for k, line in enumerate(lines):
-                self.text(line, x + fw / 2, cy + z / 3 + z * 7 / 6 * k, size=z)
+                self.text(line, mid, cy + z / 3 + z * 7 / 6 * k, size=z)
         else:
             self.text(' '.join(self.name_lines(name)), x + fw / 2, y + fh - z * 7 / 12, size=z)
 
@@ -225,8 +230,18 @@ class Drawing:
         x, y, w, h = b
         # an unknown entity has no outline in CellDesigner (the group labels of the neuroinflammation map, 2026-11-03)
         style = 'fill="%s"%s stroke="%s"%s' % (fill, ' fill-opacity="%s"' % fmt(alpha) if alpha < 1 else '', 'none' if cls == 'UNKNOWN' else '#000', dash)
-        if cls in ('PROTEIN', 'RECEPTOR', 'TRUNCATED', 'ION_CHANNEL'):
+        if cls == 'ION_CHANNEL' and fill != 'none':  # a channel and its 20 wide gate: touching when closed, apart when open
+            gap = 6 if self.open_ else 0
+            for bx, bw in ((x, w - 20 - gap), (x + w - 20, 20)):
+                self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="5" %s/>' % (fmt(bx), fmt(y), fmt(bw), fmt(h), style))
+        elif cls in ('PROTEIN', 'ION_CHANNEL'):
             self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" %s/>' % (fmt(x), fmt(y), fmt(w), fmt(h), '9' if fill == 'none' else '5', style))
+        elif cls == 'TRUNCATED':  # a protein whose right end is cut: square corners there, a notch in from the bottom
+            self.out.append('<path d="M%s %s H%s V%s L%s %s V%s H%s A5 5 0 0 1 %s %s V%s A5 5 0 0 1 %s %s Z" %s/>' % (tuple(
+                map(fmt, (x + 5, y, x + w, y + h * 0.6, x + w - 8, y + h * 0.4, y + h, x + 5, x, y + h - 5, y + 5, x + 5, y))) + (style,)))
+        elif cls == 'DRUG':  # a stadium with a second line 4 inside
+            self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" %s/>' % (fmt(x), fmt(y), fmt(w), fmt(h), fmt(h / 2), style))
+            self.out.append('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" fill="none" stroke="#000"/>' % (fmt(x + 4), fmt(y + 4), fmt(w - 8), fmt(h - 8), fmt(h / 2 - 4)))
         elif cls == 'GENE':
             self.out.append('<rect x="%s" y="%s" width="%s" height="%s" %s/>' % (fmt(x), fmt(y), fmt(w), fmt(h), style))
         elif cls == 'DEGRADED':  # a circle of 3/8 the box, a slash across the whole box
@@ -387,7 +402,7 @@ class Drawing:
         q = edit_points(ep.text if ep is not None else '')
         if typ == 'BOOLEAN_LOGIC_GATE' and len(bp) == 1:
             return self.gate_reaction(x, bp[0], col, width)
-        branched = typ in ('HETERODIMER_ASSOCIATION', 'DISSOCIATION') and sorted((len(br), len(bp))) == [1, 2]
+        branched = typ in ('HETERODIMER_ASSOCIATION', 'DISSOCIATION', 'TRUNCATION') and sorted((len(br), len(bp))) == [1, 2]
         if not branched and (len(br) != 1 or len(bp) != 1):
             raise ValueError('%d base reactants and %d base products, not drawn' % (len(br), len(bp)))
         if branched:
@@ -576,7 +591,7 @@ class Drawing:
                 stop = self.head(HEADS.get(m.get('modificationType'), 'stimulation'), T, u)
                 self.path(seq[:-1] + [stop], col, width, start_node=False, end_node=False)
                 squares.append('<circle cx="%s" cy="%s" r="6" fill="#fff" stroke="#000"/>' % (fmt(G[0]), fmt(G[1])))
-                squares.append('<text x="%s" y="%s" font-family="sans-serif" font-size="11" text-anchor="middle">%s</text>' % (fmt(G[0]), fmt(G[1] + 4), GATE[t.rsplit('_', 1)[1]]))
+                squares.append('<text x="%s" y="%s" font-family="sans-serif" font-size="11" text-anchor="middle">%s</text>' % (fmt(G[0]), fmt(G[1] + 4), GATE.get(t.rsplit('_', 1)[1], '?')))
                 continue
             if (a_, t) in gate_inputs or a_ not in self.alias:
                 continue
@@ -601,9 +616,25 @@ class Drawing:
             self.hit_reactions.setdefault(self.cur, {'lines': [], 'at': None})['at'] = [round(sq[0], 1), round(sq[1], 1)]
         self.lines.extend(squares)
 
+    def texts(self):
+        # the free texts of visible layers, left aligned in their box and centred in its height (the CellDesigner
+        # legend, 2026-11-11); a line such as BackgroundColor=#D7EDFF is a setting, not text
+        for layer in self.ext.iterfind('cd:listOfLayers/cd:layer', NS):
+            if layer.get('visible') == 'false':
+                continue
+            for t in layer.iterfind('cd:listOfTexts/cd:layerSpeciesAlias', NS):
+                b, fe = self.f(t, 'cd:bounds'), self.f(t, 'cd:font')
+                x, y, h = (float(b.get(k)) for k in 'xyh')
+                z = float(fe.get('size')) if fe is not None and fe.get('size') else 11.0
+                lines = [l.strip() for l in (self.f(t, 'cd:layerNotes').text or '').strip().split('\n') if l.strip() and '=' not in l]
+                top = y + h / 2 - z * 7 / 12 * (len(lines) - 1) + z / 3
+                for k, line in enumerate(lines):
+                    self.text(line, x, top + z * 7 / 6 * k, size=z, anchor='start')
+
     def svg(self):
         self.compartments()
         self.species()
+        self.texts()
         self.reactions()
         return ('<?xml version="1.0" encoding="UTF-8"?>\n'
                 '<svg xmlns="http://www.w3.org/2000/svg" width="%s" height="%s" viewBox="0 0 %s %s">\n'

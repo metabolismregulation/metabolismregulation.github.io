@@ -93,7 +93,7 @@ touches them (so a file uploaded by hand needs no further step).
 
 Copies of private code are public here, the user's choice: the Converter's `converter/mapconv/`
 (from the converter's private repository, run in the browser by Pyodide)
-and `yrender/` (`yrender.py` from viewer-source.github.io, its master since 2026-11-11; `yrender_check.py` and
+`converter/cdrender.py` (from viewer-source.github.io, its master since 2026-11-11, `converter/VERSION`) and `yrender/` (`yrender.py` from viewer-source.github.io, its master since 2026-11-11; `yrender_check.py` and
 `colours_templates.py` from the workbench), each with its commit in its `VERSION`. Besides the Colours page, the
 builds of other atlas sites draw their images with this `yrender/` (the Eicosanoid, Osteoarthritis, ERK and expo
 atlases): a refresh is checked against their maps first (2026-11-11: 938 maps, byte-identical). A copy takes the code only, never the CLAUDE.md of its repository.
