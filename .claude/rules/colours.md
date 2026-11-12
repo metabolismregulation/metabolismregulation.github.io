@@ -34,7 +34,7 @@ first drop (mostly loading Python), then under half a second; a 25 times larger 
 says it (user, 2026-10-22, the line under the buttons removed). The converter files both pages load are listed once, `_includes/mapconv.js`. `yrender/` holds copies: `yrender.py` from
 viewer-source.github.io (its master since 2026-11-11, changed only there), `yrender_check.py` and `colours_templates.py`
 from the workbench; commits in `VERSION`, copied again with `VERSION` updated after a change there.
-Presets (user, 2026-11-12): Mono slate and Shore added as in the viewer's Map colours; then five new suggestions
+Presets (user, 2026-11-12): Mono slate and Shore added as in the viewer's Map colours (Shore removed the same day, user); then five new suggestions
 (Mono sand, Mono teal, Sky and oat, Fern and frost, Pebble and seafoam) and 13 presets recovered from this file's
 history at their last values (removed 2026-10-07 to 2026-10-11; Mono ash's grey highlight set to the page's red), all
 for the user to keep or remove. Presets hidden in a browser come back with Reset there.
