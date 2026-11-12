@@ -9,6 +9,13 @@ noindex: true
 
 What changed for maps laid out with the tool, by date.
 
+## 2026-11-12
+
+- Snap to grid is stable: a map snapped once stays as it is when snapped again. Before, a second run still moved some
+  points by up to 4 px (on 7 of the 21 official maps and 4 of the 12 example files), as bend lines on the 4 px grid beside a node
+  line were taken into it, and lines following a node's border port landed off the grid. The pass now repeats until
+  nothing moves (two passes on every map tried). A map snapped before may move once more, by up to 4 px.
+
 ## 2026-11-02
 
 - A scaffold protein can be drawn as figures in papers draw it: tall, on the left of each complex it holds, its

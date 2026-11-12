@@ -24,7 +24,7 @@ Scripts that change a map read one GraphML and write another.
 | `series.py` | `series.py in out [--story "A;B;C" [--step 272]]` | equal steps along a story, a fan's outputs on one row, processes midway; each move kept only when nothing gets worse |
 | `catalysts.py` | `catalysts.py in out` | a protein with one arc moved beside the process it modulates, where a place is free |
 | `breathe.py` | `breathe.py in out --story "A;B;C" [--gap 192]` or `[--f 1.25]` | room from the hub outward, along one story or over the whole map; nodes keep their size, tied lines move as one |
-| `snap_grid.py` | `snap_grid.py in out` | node centres on 8 px, bends on 4 px, lines grouped first (maps drawn in yEd) |
+| `snap_grid.py` | `snap_grid.py in out` | node centres on 8 px, bends on 4 px, lines grouped first, repeated until nothing moves (maps drawn in yEd) |
 | `hub_grid.py` | `hub_grid.py in out [hub ...]` | regular arcs at metabolite hubs (maps converted from CellDesigner) |
 | `arcs.py` | `arcs.py in out` | arcs at node centres, then soft bends |
 | `move_node.py` | `move_node.py in out id dx dy ...` | moves nodes by whole steps with the bends on their centre lines |
