@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
- {% assign mh = site.data.mastheads[page.masthead] %}{% if mh.name %}{% assign mh_name = mh.name %}{% assign mh_description = mh.description %}{% assign mh_home = mh.home %}{% else %}{% assign mh_name = site.name %}{% assign mh_description = site.description %}{% assign mh_home = "/" %}{% endif %}<title>{% if page.title %}{{ page.title }} – {% endif %}{{ mh_name }} – {{ mh_description }}</title>
+{% assign mh = site.data.mastheads[page.masthead] %}{% if mh.name %}{% assign mh_name = mh.name %}{% assign mh_description = mh.description %}{% assign mh_home = mh.home %}{% else %}{% assign mh_name = site.name %}{% assign mh_description = site.description %}{% assign mh_home = "/" %}{% endif %}<title>{% if page.title %}{{ page.title }} – {% endif %}{{ mh_name }} – {{ mh_description }}</title>
 
     {% include meta.html %}
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+    
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css?v={{ site.time | date: '%s' }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
-  </head>
+      </head>
 
   <body>
     <div class="wrapper-masthead">
