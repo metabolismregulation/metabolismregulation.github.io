@@ -977,9 +977,12 @@ def cd_template(path):
     var custom = loadCustom();
     var hidden = loadHidden();
     var all = PRESETS.filter(function (p, i) { return i === 0 || hidden.indexOf(p[0]) < 0; }).concat(custom);
+    var mine0 = function (p) { return custom.indexOf(p) >= 0; };
+    var d0 = saved.indexOf(PRESETS[0][0]);
     var rank = function (p) {
       var i = saved.indexOf(p[0]);
-      return i < 0 ? saved.length + all.indexOf(p) : i;
+      if (i >= 0) return i <= d0 ? i : i + all.length;
+      return mine0(p) ? 2 * all.length + saved.length + all.indexOf(p) : d0 + 0.5 + all.indexOf(p) / (all.length + 1);
     };
     all.slice().sort(function (x, y) { return rank(x) - rank(y); }).forEach(function (p) {
       var b = document.createElement('div');
