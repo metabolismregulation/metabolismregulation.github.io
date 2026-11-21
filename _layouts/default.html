@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ {% assign mh = site.data.mastheads[page.masthead] %}{% if mh.name %}{% assign mh_name = mh.name %}{% assign mh_description = mh.description %}{% assign mh_home = mh.home %}{% else %}{% assign mh_name = site.name %}{% assign mh_description = site.description %}{% assign mh_home = "/" %}{% endif %}<title>{% if page.title %}{{ page.title }} – {% endif %}{{ mh_name }} – {{ mh_description }}</title>
+
+    {% include meta.html %}
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css?v={{ site.time | date: '%s' }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          {% if mh.name %}{% if mh.avatar %}<a href="{{ site.baseurl }}{{ mh.home }}" class="site-avatar"><img src="{{ site.baseurl }}{{ mh.avatar }}" /></a>{% endif %}{% else %}<a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>{% endif %}
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="{{ site.baseurl }}{{ mh_home }}">{{ mh_name }}</a></h1>
+            <p class="site-description">{{ mh_description }}</p>
+          </div>
+
+          <nav{% if mh.plain %} class="plain"{% endif %}>{% if mh %}{% for l in mh.nav %}{% if l.items %}{% assign here = false %}{% for i in l.items %}{% if i.url == page.url %}{% assign here = true %}{% endif %}{% endfor %}
+            <details class="navdd{% if here %} active{% endif %}"><summary>{{ l.label }}</summary><div class="navdd-menu">{% for i in l.items %}<a href="{{ site.baseurl }}{{ i.url }}"{% if i.url == page.url %} class="active"{% endif %}>{{ i.label }}</a>{% endfor %}</div></details>{% else %}{% assign here = false %}{% if l.url == page.url %}{% assign here = true %}{% elsif l.under %}{% assign pre = page.url | slice: 0, l.url.size %}{% if pre == l.url %}{% assign here = true %}{% endif %}{% endif %}
+            <a href="{{ site.baseurl }}{{ l.url }}"{% if here %} class="active"{% endif %}>{{ l.label }}</a>{% endif %}{% endfor %}
+            <script>document.addEventListener('click',function(e){document.querySelectorAll('nav details.navdd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})})</script>
+          </nav>{% else %}
+            <a href="{{ site.baseurl }}/gallery">Gallery</a>
+            <a href="{{ site.baseurl }}/maps">Maps</a>
+            <a href="{{ site.baseurl }}/lists">Lists</a>
+            <a href="{{ site.baseurl }}/tools">Tools</a>
+            <a href="{{ site.baseurl }}/about">About</a>
+          </nav>{% endif %}
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      {{ content }}
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          <a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>
+          <a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>
+        </footer>
+      </div>
+    </div>
+
+    {% include analytics.html %}
+  </body>
+</html>

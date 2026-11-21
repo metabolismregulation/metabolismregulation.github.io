@@ -1,0 +1,48 @@
+{%- assign people = site.data.contributors.people -%}
+{%- assign affnames = site.data.contributors.affiliations -%}
+{%- assign affs = "" | split: "" -%}
+{%- for item in page.contributors -%}
+  {%- assign t = item | jsonify -%}
+  {%- if t contains "{" -%}
+    {%- for pair in item -%}{%- assign key = pair[0] -%}{%- assign plist = pair[1] -%}{%- endfor -%}
+  {%- else -%}
+    {%- assign key = item -%}{%- assign plist = people[key].affiliations -%}
+  {%- endif -%}
+  {%- for a in plist -%}
+    {%- unless affs contains a -%}{%- assign affs = affs | push: a -%}{%- endunless -%}
+  {%- endfor -%}
+{%- endfor -%}
+<p class="contrib-names">
+{%- for item in page.contributors -%}
+  {%- assign t = item | jsonify -%}
+  {%- if t contains "{" -%}
+    {%- for pair in item -%}{%- assign key = pair[0] -%}{%- assign plist = pair[1] -%}{%- endfor -%}
+  {%- else -%}
+    {%- assign key = item -%}{%- assign plist = people[key].affiliations -%}
+  {%- endif -%}
+  {%- assign p = people[key] -%}
+  {%- if p -%}
+    <span class="contrib-person">{{ p.name }}
+    {%- if plist.size > 0 -%}<sup>
+      {%- for a in plist -%}
+        {%- for b in affs -%}{%- if b == a -%}{{ forloop.index }}{%- endif -%}{%- endfor -%}
+        {%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}</sup>{%- endif -%}
+    {%- assign show_orcid = false -%}
+    {%- if show_orcid and p.orcid -%}<a class="contrib-orcid" href="https://orcid.org/{{ p.orcid }}" title="ORCID {{ p.orcid }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-label="ORCID"><circle cx="8" cy="8" r="8" fill="#a6ce39"/><text x="8" y="11.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#fff">iD</text></svg></a>{%- endif -%}</span>
+  {%- else -%}
+    <span class="contrib-missing">{{ key }}</span>
+  {%- endif -%}
+  {%- unless forloop.last -%}, {% endunless -%}
+{%- endfor -%}
+</p>
+{%- if affs.size > 0 %}
+<details class="contrib-affs">
+<summary>Affiliations</summary>
+<ol>
+{%- for a in affs %}
+<li><sup>{{ forloop.index }}</sup>{% if affnames[a] %}{{ affnames[a] }}{% else %}<span class="contrib-missing">{{ a }}</span>{% endif %}</li>
+{%- endfor %}
+</ol>
+</details>
+{%- endif %}

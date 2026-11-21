@@ -1,0 +1,39 @@
+---
+layout: post
+title: Regulation of mevalonate synthesis
+permalink: /mevalonate/
+contributors:
+  - james-greene
+  - michael-blinov
+  - alexander-mazein
+project: true
+---
+
+<a href="/downloads/F003-mevalonate.graphml" download>GraphML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F003-mevalonate.png" download>PNG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F003-mevalonate.svg" download>SVG<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F003-mevalonate.xml" download>CellDesigner<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F003-mevalonate-SBML.xml" download>SBML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F003-mevalonate.sbgn" download>SBGN-ML<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="/downloads/F003-mevalonate.csv" download>Annotation<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-2px" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M4 15v5h16v-5"/></svg></a> &nbsp;
+<a href="http://web.newteditor.org/?URL=https://metabolismregulation.github.io/downloads/F003-mevalonate.sbgn" target="_blank" rel="noopener">Newt{% include icon-external.html %}</a> &nbsp;
+<a href="https://mreg.elixir-luxembourg.org/minerva/index.html?id=F003-mevalonate" target="_blank" rel="noopener">MINERVA{% include icon-external.html %}</a> &nbsp;
+<p align="middle"><a href="/mevalonate/"><img id="image" src="/downloads/F003-mevalonate.svg" width="1049"/></a></p>
+
+
+## References
+
+1. Ching YP, Kobayashi T, Tamura S, Hardie DG. Specificity of different isoforms of protein phosphatase-2A and protein phosphatase-2C studied using site-directed mutagenesis of HMG-CoA reductase. FEBS Lett. 1997 Jul 14;411(2-3):265-8. doi: 10.1016/s0014-5793(97)00712-6. PMID: 9271218.
+1. Clarke PR, Hardie DG. Regulation of HMG-CoA reductase: identification of the site phosphorylated by the AMP-activated protein kinase in vitro and in intact rat liver. EMBO J. 1990 Aug;9(8):2439-46. doi: 10.1002/j.1460-2075.1990.tb07420.x. PMID: 2369897.
+1. Goldstein JL, Brown MS. Regulation of the mevalonate pathway. Nature. 1990 Feb 1;343(6257):425-30. doi: 10.1038/343425a0. PMID: 1967820.
+1. Hawley SA, Pan DA, Mustard KJ, Ross L, Bain J, Edelman AM, Frenguelli BG, Hardie DG. Calmodulin-dependent protein kinase kinase-beta is an alternative upstream kinase for AMP-activated protein kinase. Cell Metab. 2005 Jul;2(1):9-19. doi: 10.1016/j.cmet.2005.05.009. PMID: 16054095.
+1. Joseph BK, Liu HY, Francisco J, Pandya D, Donigan M, Gallo-Ebert C, Giordano C, Bata A, Nickels JT. Inhibition of AMP Kinase by the Protein Phosphatase 2A Heterotrimer, PP2APpp2r2d. J Biol Chem. 2015 Apr 24;290(17):10588-98. doi: 10.1074/jbc.M114.626259. PMID: 25694423.
+1. Miziorko HM. Enzymes of the mevalonate pathway of isoprenoid biosynthesis. Arch Biochem Biophys. 2011 Jan 15;505(2):131-43. doi: 10.1016/j.abb.2010.09.028. PMID: 20932952.
+1. Pappa E, Mazein A, Watterson S, Roy D, Ghazal P. Regulation of HMGCR in the mevalonate pathway. Figshare. 2012. doi: 10.6084/m9.figshare.105160.v2.
+1. Reactome: Cholesterol biosynthesis. [Reactome:R-HSA-191273](https://reactome.org/content/detail/R-HSA-191273){:target="_blank" rel="noopener"}.
+1. Reactome: Phosphorylated AMPK binds AMP. [Reactome:R-HSA-380930](https://reactome.org/content/detail/R-HSA-380930){:target="_blank" rel="noopener"}.
+1. Sharpe LJ, Brown AJ. Controlling cholesterol synthesis beyond 3-hydroxy-3-methylglutaryl-CoA reductase (HMGCR). J Biol Chem. 2013 Jun 28;288(26):18707-15. doi: 10.1074/jbc.R113.479808. PMID: 23696639.
+
+## Contributors
+
+{% include contributors.html %}

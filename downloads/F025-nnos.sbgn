@@ -1,0 +1,680 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.3">
+  <map id="F025_nnos" language="process description">
+    <extension>
+      <renderInformation xmlns="http://www.sbml.org/sbml/level3/version1/render/version1" id="renderInformation">
+        <listOfColorDefinitions>
+          <colorDefinition id="black" value="#000000"/>
+          <colorDefinition id="color_0" value="#f7f6f3"/>
+          <colorDefinition id="line_0" value="#dfdbce"/>
+          <colorDefinition id="color_1" value="#ffffff"/>
+          <colorDefinition id="color_2" value="#dbebdb"/>
+          <colorDefinition id="color_3" value="#e2aca3"/>
+          <colorDefinition id="color_4" value="#c8d8eb"/>
+        </listOfColorDefinitions>
+        <listOfStyles>
+          <style id="style_0" idList="ca_n0 ca_n1">
+            <g stroke="line_0" fill="color_0" stroke-width="1"/>
+          </style>
+          <style id="style_1" idList="sa_n1_n7 sa_n1_n7_n1 sa_n1_n10 sa_n1_n13">
+            <g stroke="black" fill="color_1" stroke-width="1" font-size="12"/>
+          </style>
+          <style id="style_2" idList="sa_n1_n0 sa_n1_n2 sa_n1_n3 sa_n1_n4 sa_n1_n5 sa_n1_n6 sa_n1_n7_n1_n1 sa_n1_n10_n1 sa_n1_n22 sa_n1_n23 sa_n3">
+            <g stroke="black" fill="color_2" stroke-width="1" font-size="14"/>
+          </style>
+          <style id="style_3" idList="sa_n1_n7_n0 sa_n1_n8 sa_n1_n13_n0 sa_n1_n14">
+            <g stroke="black" fill="color_3" stroke-width="1" font-size="14"/>
+          </style>
+          <style id="style_4" idList="sa_n1_n7_n1_n0 sa_n1_n10_n0 sa_n1_n12 sa_n1_n13_n1 sa_n1_n17 sa_n1_n18 sa_n1_n19 sa_n1_n21">
+            <g stroke="black" fill="color_4" stroke-width="1" font-size="14"/>
+          </style>
+        </listOfStyles>
+      </renderInformation>
+    </extension>
+    <glyph class="compartment" id="ca_n0">
+      <label text="PLASMA MEMBRANE">
+        <bbox x="394.25" y="88.367188" w="142.5" h="16.5"/>
+      </label>
+      <bbox x="11.689" y="53.066" w="868.311" h="116.0"/>
+    </glyph>
+    <glyph class="compartment" id="ca_n1">
+      <label text="CYTOSOL">
+        <bbox x="424.5634765625" y="170.93359425" w="66.5" h="16.5"/>
+      </label>
+      <bbox x="20.0" y="172.066" w="868.311" h="611.0"/>
+    </glyph>
+    <glyph class="complex" id="sa_n1_n7" compartmentRef="ca_n1">
+      <bbox x="295.0" y="565.19140625" w="210.0" h="150.0"/>
+      <glyph class="complex" id="sa_n1_n7_n1">
+        <bbox x="395.0" y="575.19140625" w="100.0" h="120.0"/>
+        <glyph class="macromolecule" id="sa_n1_n7_n1_n0">
+          <extension>
+            <annotation>
+              <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+                <rdf:Description rdf:about="#sa_n1_n7_n1_n0">
+                  <bqbiol:hasVersion>
+                    <rdf:Bag>
+                      <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM1"/>
+                      <rdf:li rdf:resource="http://identifiers.org/hgnc:1442"/>
+                      <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP23"/>
+                      <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM2"/>
+                      <rdf:li rdf:resource="http://identifiers.org/hgnc:1445"/>
+                      <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP24"/>
+                      <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM3"/>
+                      <rdf:li rdf:resource="http://identifiers.org/hgnc:1449"/>
+                      <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP25"/>
+                    </rdf:Bag>
+                  </bqbiol:hasVersion>
+                </rdf:Description>
+              </rdf:RDF>
+            </annotation>
+          </extension>
+          <label text="CaM"/>
+          <bbox x="405.0" y="635.19140625" w="80.0" h="40.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa_n1_n7_n1_n1">
+          <extension>
+            <annotation>
+              <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+                <rdf:Description rdf:about="#sa_n1_n7_n1_n1">
+                  <bqbiol:is>
+                    <rdf:Bag>
+                      <rdf:li rdf:resource="http://identifiers.org/CHEBI:29108"/>
+                    </rdf:Bag>
+                  </bqbiol:is>
+                </rdf:Description>
+              </rdf:RDF>
+            </annotation>
+          </extension>
+          <label text="Ca2+"/>
+          <bbox x="425.0" y="585.19140625" w="40.0" h="40.0"/>
+        </glyph>
+      </glyph>
+      <glyph class="macromolecule" id="sa_n1_n7_n0">
+        <extension>
+          <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+              <rdf:Description rdf:about="#sa_n1_n7_n0">
+                <bqbiol:is>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:NOS1"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc:7872"/>
+                    <rdf:li rdf:resource="http://identifiers.org/uniprot:P29475"/>
+                  </rdf:Bag>
+                </bqbiol:is>
+              </rdf:Description>
+            </rdf:RDF>
+          </annotation>
+        </extension>
+        <label text="nNOS"/>
+        <bbox x="305.0" y="615.19140625" w="80.0" h="40.0"/>
+        <glyph class="state variable" id="sa_n1_n7_n0_sv0">
+          <state value=""/>
+          <bbox x="357.5" y="647.69140625" w="15.0" h="15.0"/>
+        </glyph>
+      </glyph>
+    </glyph>
+    <glyph class="complex" id="sa_n1_n10" compartmentRef="ca_n1">
+      <bbox x="470.0" y="406.81640625" w="100.0" h="120.0"/>
+      <glyph class="macromolecule" id="sa_n1_n10_n0">
+        <extension>
+          <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+              <rdf:Description rdf:about="#sa_n1_n10_n0">
+                <bqbiol:hasVersion>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM1"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc:1442"/>
+                    <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP23"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM2"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc:1445"/>
+                    <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP24"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM3"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc:1449"/>
+                    <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP25"/>
+                  </rdf:Bag>
+                </bqbiol:hasVersion>
+              </rdf:Description>
+            </rdf:RDF>
+          </annotation>
+        </extension>
+        <label text="CaM"/>
+        <bbox x="480.0" y="466.81640625" w="80.0" h="40.0"/>
+      </glyph>
+      <glyph class="simple chemical" id="sa_n1_n10_n1">
+        <extension>
+          <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+              <rdf:Description rdf:about="#sa_n1_n10_n1">
+                <bqbiol:is>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="http://identifiers.org/CHEBI:29108"/>
+                  </rdf:Bag>
+                </bqbiol:is>
+              </rdf:Description>
+            </rdf:RDF>
+          </annotation>
+        </extension>
+        <label text="Ca2+"/>
+        <bbox x="500.0" y="416.81640625" w="40.0" h="40.0"/>
+      </glyph>
+    </glyph>
+    <glyph class="complex" id="sa_n1_n13" compartmentRef="ca_n1">
+      <bbox x="585.0" y="295.06640625" w="190.0" h="78.0"/>
+      <glyph class="macromolecule" id="sa_n1_n13_n0">
+        <extension>
+          <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+              <rdf:Description rdf:about="#sa_n1_n13_n0">
+                <bqbiol:is>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:NOS1"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc:7872"/>
+                    <rdf:li rdf:resource="http://identifiers.org/uniprot:P29475"/>
+                  </rdf:Bag>
+                </bqbiol:is>
+              </rdf:Description>
+            </rdf:RDF>
+          </annotation>
+        </extension>
+        <label text="nNOS"/>
+        <bbox x="595.0" y="305.06640625" w="80.0" h="40.0"/>
+        <glyph class="state variable" id="sa_n1_n13_n0_sv0">
+          <state value=""/>
+          <bbox x="647.5" y="337.56640625" w="15.0" h="15.0"/>
+        </glyph>
+      </glyph>
+      <glyph class="macromolecule" id="sa_n1_n13_n1">
+        <extension>
+          <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+              <rdf:Description rdf:about="#sa_n1_n13_n1">
+                <bqbiol:is>
+                  <rdf:Bag>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:ATP2B4"/>
+                    <rdf:li rdf:resource="http://identifiers.org/hgnc:817"/>
+                    <rdf:li rdf:resource="http://identifiers.org/uniprot:P23634"/>
+                  </rdf:Bag>
+                </bqbiol:is>
+              </rdf:Description>
+            </rdf:RDF>
+          </annotation>
+        </extension>
+        <label text="ATP2B4"/>
+        <bbox x="685.0" y="305.06640625" w="80.0" h="40.0"/>
+      </glyph>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n0" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n0">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:32682"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="arginine"/>
+      <bbox x="728.0" y="527.31640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n2" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n2">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:57743"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="citrulline"/>
+      <bbox x="728.0" y="713.06640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n3" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n3">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:57783"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="NADPH"/>
+      <bbox x="655.0" y="575.56640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n4" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n4">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:15379"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="O2"/>
+      <bbox x="806.0" y="575.56640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n5" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n5">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:58349"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="NADP+"/>
+      <bbox x="655.0" y="661.56640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n6" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n6">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:16480"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="NO"/>
+      <bbox x="806.0" y="661.56640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n8" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n8">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:NOS1"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:7872"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P29475"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="nNOS"/>
+      <bbox x="360.0" y="314.06640625" w="80.0" h="40.0"/>
+      <glyph class="state variable" id="sa_n1_n8_sv0">
+        <state value=""/>
+        <bbox x="412.5" y="346.56640625" w="15.0" h="15.0"/>
+      </glyph>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n12" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n12">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:ATP2B4"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:817"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P23634"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="ATP2B4"/>
+      <bbox x="449.0" y="204.06640625" w="80.0" h="40.0"/>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n14" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n14">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:NOS1"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:7872"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P29475"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="nNOS"/>
+      <bbox x="60.0" y="314.06640625" w="80.0" h="40.0"/>
+      <glyph class="state variable" id="sa_n1_n14_sv0">
+        <state value="P"/>
+        <bbox x="112.50000000000003" y="346.56640625" w="15.0" h="15.0"/>
+      </glyph>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n17" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n17">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CAMK2A"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:1460"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:Q9UQM7"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="CAMK2A"/>
+      <bbox x="210.0" y="204.06640625" w="80.0" h="40.0"/>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n18" compartmentRef="ca_n1">
+      <notes>
+        <html xmlns="http://www.w3.org/1999/xhtml">
+          <body>Family: PP1 catalytic subunits</body>
+        </html>
+      </notes>
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n18">
+              <bqbiol:hasVersion>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:PPP1CA"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:9281"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P62136"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:PPP1CB"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:9282"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P62140"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:PPP1CC"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:9283"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P36873"/>
+                </rdf:Bag>
+              </bqbiol:hasVersion>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="PP1C"/>
+      <bbox x="155.0" y="453.56640625" w="80.0" h="40.0"/>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n19" compartmentRef="ca_n1">
+      <notes>
+        <html xmlns="http://www.w3.org/1999/xhtml">
+          <body>Family: PP2A catalytic subunits</body>
+        </html>
+      </notes>
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n19">
+              <bqbiol:hasVersion>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:PPP2CA"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:9299"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P67775"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:PPP2CB"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:9300"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P62714"/>
+                </rdf:Bag>
+              </bqbiol:hasVersion>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="PP2AC"/>
+      <bbox x="265.0" y="453.56640625" w="80.0" h="40.0"/>
+    </glyph>
+    <glyph class="macromolecule" id="sa_n1_n21" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n21">
+              <bqbiol:hasVersion>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM1"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:1442"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP23"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM2"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:1445"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP24"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc.symbol:CALM3"/>
+                  <rdf:li rdf:resource="http://identifiers.org/hgnc:1449"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot:P0DP25"/>
+                </rdf:Bag>
+              </bqbiol:hasVersion>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="CaM"/>
+      <bbox x="680.0" y="446.81640625" w="80.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n22" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n22">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:29108"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="Ca2+"/>
+      <bbox x="640.0" y="401.06640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n1_n23" compartmentRef="ca_n1">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n1_n23">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:29108"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="Ca2+"/>
+      <bbox x="806.0" y="209.56640625" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="simple chemical" id="sa_n3">
+      <extension>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sa_n3">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/CHEBI:29108"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </extension>
+      <label text="Ca2+"/>
+      <bbox x="806.0" y="20.0" w="40.0" h="40.0"/>
+    </glyph>
+    <glyph class="process" id="re_n1_n1" compartmentRef="ca_n1" orientation="vertical">
+      <bbox x="739.0" y="631.19140625" w="18.0" h="18.0"/>
+      <port id="re_n1_n1.1" x="748.0" y="622.19140625"/>
+      <port id="re_n1_n1.2" x="748.0" y="658.19140625"/>
+    </glyph>
+    <glyph class="process" id="re_n1_n9" compartmentRef="ca_n1" orientation="vertical">
+      <bbox x="391.0" y="478.12890624999994" w="18.0" h="18.0"/>
+      <port id="re_n1_n9.1" x="400.0" y="469.12890624999994"/>
+      <port id="re_n1_n9.2" x="400.0" y="505.12890624999994"/>
+    </glyph>
+    <glyph class="process" id="re_n1_n11" compartmentRef="ca_n1" orientation="horizontal">
+      <bbox x="531.0" y="325.06640625" w="18.0" h="18.0"/>
+      <port id="re_n1_n11.1" x="522.0" y="334.06640625"/>
+      <port id="re_n1_n11.2" x="558.0" y="334.06640625"/>
+    </glyph>
+    <glyph class="process" id="re_n1_n15" compartmentRef="ca_n1" orientation="horizontal">
+      <bbox x="241.0" y="315.06640625" w="18.0" h="18.0"/>
+      <port id="re_n1_n15.1" x="268.0" y="324.06640625"/>
+      <port id="re_n1_n15.2" x="232.0" y="324.06640625"/>
+    </glyph>
+    <glyph class="process" id="re_n1_n16" compartmentRef="ca_n1" orientation="horizontal">
+      <bbox x="241.0" y="335.06640625" w="18.0" h="18.0"/>
+      <port id="re_n1_n16.1" x="232.0" y="344.06640625"/>
+      <port id="re_n1_n16.2" x="268.0" y="344.06640625"/>
+    </glyph>
+    <glyph class="process" id="re_n1_n20" compartmentRef="ca_n1" orientation="horizontal">
+      <bbox x="611.0" y="457.81640625" w="18.0" h="18.0"/>
+      <port id="re_n1_n20.1" x="638.0" y="466.81640625"/>
+      <port id="re_n1_n20.2" x="602.0" y="466.81640625"/>
+    </glyph>
+    <glyph class="process" id="re_n2" compartmentRef="ca_n0" orientation="vertical">
+      <bbox x="817.0" y="101.0664062499832" w="18.0" h="18.0"/>
+      <port id="re_n2.1" x="826.0" y="128.0664062499832"/>
+      <port id="re_n2.2" x="826.0" y="92.0664062499832"/>
+    </glyph>
+    <glyph class="or" id="re_n2_gate0" compartmentRef="ca_n0" orientation="horizontal">
+      <label text="OR"/>
+      <bbox x="696.526277372263" y="95.06640625" w="30.0" h="30.0"/>
+      <port id="re_n2_gate0.1" x="681.526277372263" y="110.06640625"/>
+      <port id="re_n2_gate0.2" x="741.526277372263" y="110.06640625"/>
+    </glyph>
+    <arc class="consumption" id="re_n1_n1_sa_n1_n0" source="sa_n1_n0" target="re_n1_n1.1">
+      <start x="748.0" y="567.31640625"/>
+      <end x="748.0" y="622.19140625"/>
+    </arc>
+    <arc class="production" id="re_n1_n1_sa_n1_n2" source="re_n1_n1.2" target="sa_n1_n2">
+      <start x="748.0" y="658.19140625"/>
+      <end x="748.0" y="713.06640625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n1_sa_n1_n3" source="sa_n1_n3" target="re_n1_n1.1">
+      <start x="695.0" y="602.8609267979452"/>
+      <end x="748.0" y="622.19140625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n1_sa_n1_n4" source="sa_n1_n4" target="re_n1_n1.1">
+      <start x="806.0" y="602.3933293269231"/>
+      <end x="748.0" y="622.19140625"/>
+    </arc>
+    <arc class="production" id="re_n1_n1_sa_n1_n5" source="re_n1_n1.2" target="sa_n1_n5">
+      <start x="748.0" y="658.19140625"/>
+      <end x="695.0" y="675.1622966609589"/>
+    </arc>
+    <arc class="production" id="re_n1_n1_sa_n1_n6" source="re_n1_n1.2" target="sa_n1_n6">
+      <start x="748.0" y="658.19140625"/>
+      <end x="806.0" y="675.5728165064103"/>
+    </arc>
+    <arc class="catalysis" id="re_n1_n1_sa_n1_n7_catalysis" source="sa_n1_n7" target="re_n1_n1">
+      <start x="505.0" y="640.19140625"/>
+      <end x="739.0" y="640.19140625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n9_sa_n1_n8" source="sa_n1_n8" target="re_n1_n9.1">
+      <start x="400.0" y="354.06640625"/>
+      <end x="400.0" y="469.12890624999994"/>
+    </arc>
+    <arc class="production" id="re_n1_n9_sa_n1_n7" source="re_n1_n9.2" target="sa_n1_n7">
+      <start x="400.0" y="505.12890624999994"/>
+      <end x="400.0" y="565.19140625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n9_sa_n1_n10" source="sa_n1_n10" target="re_n1_n9.1">
+      <start x="470.0" y="467.77994791666663"/>
+      <end x="400.0" y="469.12890624999994"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n11_sa_n1_n8" source="sa_n1_n8" target="re_n1_n11.1">
+      <start x="440.0" y="334.06640625"/>
+      <end x="522.0" y="334.06640625"/>
+    </arc>
+    <arc class="production" id="re_n1_n11_sa_n1_n13" source="re_n1_n11.2" target="sa_n1_n13">
+      <start x="558.0" y="334.06640625"/>
+      <end x="585.0" y="334.06640625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n11_sa_n1_n12" source="sa_n1_n12" target="re_n1_n11.1">
+      <start x="495.0" y="244.06640625"/>
+      <end x="522.0" y="334.06640625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n15_sa_n1_n8" source="sa_n1_n8" target="re_n1_n15.1">
+      <start x="360.0" y="324.06640625"/>
+      <end x="268.0" y="324.06640625"/>
+    </arc>
+    <arc class="production" id="re_n1_n15_sa_n1_n14" source="re_n1_n15.2" target="sa_n1_n14">
+      <start x="232.0" y="324.06640625"/>
+      <end x="140.0" y="324.06640625"/>
+    </arc>
+    <arc class="catalysis" id="re_n1_n15_sa_n1_n17_catalysis" source="sa_n1_n17" target="re_n1_n15">
+      <start x="250.0" y="244.06640625"/>
+      <end x="250.0" y="315.06640625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n16_sa_n1_n14" source="sa_n1_n14" target="re_n1_n16.1">
+      <start x="140.0" y="344.06640625"/>
+      <end x="232.0" y="344.06640625"/>
+    </arc>
+    <arc class="production" id="re_n1_n16_sa_n1_n8" source="re_n1_n16.2" target="sa_n1_n8">
+      <start x="268.0" y="344.06640625"/>
+      <end x="360.0" y="344.06640625"/>
+    </arc>
+    <arc class="catalysis" id="re_n1_n16_sa_n1_n18_catalysis" source="sa_n1_n18" target="re_n1_n16">
+      <start x="203.4942084942085" y="453.56640625"/>
+      <end x="250.0" y="353.06640625"/>
+    </arc>
+    <arc class="catalysis" id="re_n1_n16_sa_n1_n19_catalysis" source="sa_n1_n19" target="re_n1_n16">
+      <start x="296.50579150579154" y="453.56640625"/>
+      <end x="250.0" y="353.06640625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n20_sa_n1_n21" source="sa_n1_n21" target="re_n1_n20.1">
+      <start x="680.0" y="466.81640625"/>
+      <end x="638.0" y="466.81640625"/>
+    </arc>
+    <arc class="production" id="re_n1_n20_sa_n1_n10" source="re_n1_n20.2" target="sa_n1_n10">
+      <start x="602.0" y="466.81640625"/>
+      <end x="570.0" y="466.81640625"/>
+    </arc>
+    <arc class="consumption" id="re_n1_n20_sa_n1_n22" source="sa_n1_n22" target="re_n1_n20.1">
+      <start x="650.3825136612022" y="441.06640625"/>
+      <end x="638.0" y="466.81640625"/>
+    </arc>
+    <arc class="consumption" id="re_n2_sa_n1_n23" source="sa_n1_n23" target="re_n2.1">
+      <start x="826.0" y="209.56640625"/>
+      <end x="826.0" y="128.0664062499832"/>
+    </arc>
+    <arc class="production" id="re_n2_sa_n3" source="re_n2.2" target="sa_n3">
+      <start x="826.0" y="92.0664062499832"/>
+      <end x="826.0" y="60.0"/>
+    </arc>
+    <arc class="logic arc" id="re_n2_gate0_sa_n1_n12" source="sa_n1_n12" target="re_n2_gate0.1">
+      <start x="524.9862200695819" y="204.06640625"/>
+      <end x="681.526277372263" y="110.06640625"/>
+    </arc>
+    <arc class="logic arc" id="re_n2_gate0_sa_n1_n13" source="sa_n1_n13" target="re_n2_gate0.1">
+      <start x="680.2743079148307" y="295.06640625"/>
+      <end x="681.526277372263" y="110.06640625"/>
+    </arc>
+    <arc class="catalysis" id="re_n2_gate0_out" source="re_n2_gate0.2" target="re_n2">
+      <start x="741.526277372263" y="110.06640625"/>
+      <end x="817.0" y="110.066406249985"/>
+    </arc>
+  </map>
+</sbgn>

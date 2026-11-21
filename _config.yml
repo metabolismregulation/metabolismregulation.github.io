@@ -1,0 +1,82 @@
+
+name: Metabolism Regulation
+
+
+description: Connecting signalling and metabolic networks
+
+avatar: /images/logo.svg
+
+icon_version: mr59
+
+
+footer-links:
+  dribbble:
+  email: metabolismregulation@googlegroups.com
+  facebook:
+  flickr:
+  github: metabolismregulation
+  instagram:
+  linkedin:
+  pinterest:
+  rss:
+  twitter: 
+  stackoverflow:
+  youtube:
+  googleplus:
+
+
+disqus:
+
+google_analytics:
+
+url:
+
+baseurl: ""
+
+
+collections:
+  projects:
+    output: true
+
+defaults:
+  - scope:
+      path: newt
+    values:
+      sitemap: false
+  - scope:
+      type: maps
+    values:
+      layout: map-data
+      sitemap: false
+  - scope:
+      path: "pages/converter*"
+    values:
+      icon: favicon-converter
+      masthead: converter
+
+
+permalink: /:title/
+
+version: v1.2.0
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+sass:
+  style: :expanded
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+exclude:
+  - scripts
+  - cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
